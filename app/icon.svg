@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="128" fill="#000000"/>
+  <g transform="translate(256,256)">
+    <!-- Rotating outer ring - simplified for icon -->
+    <circle cx="0" cy="0" r="180" stroke="#8B5CF6" stroke-width="8" fill="none" opacity="0.1" />
+    
+    <!-- Left arm of X -->
+    <path d="M-90,-90 L-20,0 L-90,90" stroke="#8B5CF6" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    
+    <!-- Right arm of X -->
+    <path d="M90,-90 L20,0 L90,90" stroke="#8B5CF6" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    
+    <!-- Center node -->
+    <circle cx="0" cy="0" r="20" fill="#8B5CF6"/>
+    
+    <!-- Corner accent dots -->
+    <circle cx="-90" cy="-90" r="12" fill="#8B5CF6" opacity="0.4"/>
+    <circle cx="106" cy="-90" r="0" fill="#8B5CF6" opacity="0.4"/>
+    <circle cx="-90" cy="90" r="12" fill="#8B5CF6" opacity="0.4"/>
+    <circle cx="90" cy="90" r="12" fill="#8B5CF6" opacity="0.4"/>
+    <circle cx="90" cy="-90" r="12" fill="#8B5CF6" opacity="0.4"/>
+  </g>
+</svg>
