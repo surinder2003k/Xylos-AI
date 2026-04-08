@@ -34,20 +34,39 @@ export async function GET(req: Request) {
           console.warn("[Editorial Sync] Context block unavailable:", errMsg);
         }
 
+        // Fetch an admin user ID to assign authorship
+        let authorId = null;
+        try {
+          const { data: admins } = await supabaseAdmin
+             .from("profiles")
+             .select("user_id")
+             .in("role", ["super_admin", "admin"])
+             .limit(1);
+          if (admins && admins.length > 0) authorId = admins[0].user_id;
+        } catch(e) {}
+
         const topics = ["Global Technology Advancements", "Startup & VC Ecosystem", "Artificial Intelligence & Ethics", "Cybersecurity Protocols"];
         const baseTopic = topics[i % topics.length];
 
         const blogData = await generateSmartBlog(baseTopic, recentTitles, "Technology");
         const imageResult = await searchSmartImage(blogData.search_term || blogData.title, blogData.category);
 
+        // Generate a URL-friendly slug
+        const slug = blogData.title
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)+/g, '') + '-' + Date.now().toString(36);
+
         const postPayload = {
           title: blogData.title,
+          slug: slug,
           excerpt: blogData.excerpt,
           content: blogData.content,
           category: blogData.category,
           feature_image_url: imageResult.url,
           alt_text: blogData.alt_text || imageResult.alt,
           status: "published",
+          author_id: authorId,
           published_at: new Date().toISOString(),
         };
 
