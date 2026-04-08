@@ -42,7 +42,7 @@ export async function POST(req: Request) {
       // Try high-fidelity generation first
       featureImageUrl = await generateAIImage(blogData.search_term || blogData.title);
     } catch (err) {
-      console.warn("[Neural Engine] AI Image Generation failed, falling back to stock search.");
+      console.warn(`[Neural Engine] AI Image Generation failed (${err instanceof Error ? err.message : 'Unknown error'}), falling back to stock search.`);
     }
 
     // Fallback to stock search if generation fails
@@ -71,6 +71,7 @@ export async function POST(req: Request) {
             processedContent = processedContent.replace(marker, ""); // Remove marker if failed
           }
         } catch (err) {
+          console.warn(`[Neural Engine] In-article image processing failed for: ${prompt} (${err instanceof Error ? err.message : 'Unknown error'})`);
           processedContent = processedContent.replace(marker, "");
         }
       }

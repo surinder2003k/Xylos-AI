@@ -1,11 +1,10 @@
 import { createClient as createPublicClient } from "@supabase/supabase-js";
 import { createClient } from "@/utils/supabase/server";
-import { ArrowRight, Diamond, MessageSquare, Code2, FileText, Shield, Sparkles, Zap, Globe } from "lucide-react";
+import { ArrowRight, MessageSquare, Code2, FileText, Shield, Sparkles, Zap, Globe } from "lucide-react";
 import Link from "next/link";
 import { RevealText } from "@/components/ui/reveal-text";
 import { BentoGrid, BentoCard } from "@/components/premium/bento-grid";
 import { BlogGrid } from "@/components/landing/blog-grid";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { AnimatedHeader, AnimatedItem, FadeIn } from "@/components/landing/animated-sections";
 import { TiltCard } from "@/components/premium/tilt-card";
 import { AnimatedLogo } from "@/components/premium/animated-logo";
