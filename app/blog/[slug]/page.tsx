@@ -1,5 +1,6 @@
 import { createClient } from "@/utils/supabase/server";
 import { ArrowLeft, Clock, User, Share2, MessageSquare, Twitter, Facebook, ChevronRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { notFound } from "next/navigation";
@@ -36,17 +37,28 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const supabase = await createClient();
   const { slug } = await params;
 
+  // Robust Fetching Strategy: Decouple post from profile to avoid 406/404 on missing FKs
   let { data: post, error } = await supabase
     .from("blogs")
-    .select("*, author:author_id(full_name, avatar_url)")
+    .select("*")
     .eq("slug", slug)
     .maybeSingle();
+
+  if (post && post.author_id) {
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("full_name, avatar_url")
+      .eq("user_id", post.author_id)
+      .maybeSingle();
+      
+    post.author = profile;
+  }
 
   // Fallback to ID if slug lookup fails
   if (!post) {
     const { data: idPost, error: idError } = await supabase
       .from("blogs")
-      .select("*, author:author_id(full_name, avatar_url)")
+      .select("*")
       .eq("id", slug)
       .maybeSingle();
     
@@ -112,7 +124,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                {post.category} Report
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-black font-fustat tracking-tighter leading-[0.9] balance uppercase">
+            <h1 className="text-3xl md:text-7xl font-black font-fustat tracking-tighter leading-[0.9] md:leading-none balance uppercase italic">
                <AnimeText text={post.title} />
             </h1>
 
@@ -135,14 +147,17 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
 
           {/* Feature Image with Premium Caption */}
-          <div className="w-full aspect-[21/9] rounded-[3rem] overflow-hidden border border-border shadow-2xl mb-16 relative group">
-             <img 
+          <div className="w-full aspect-[4/3] md:aspect-[21/9] rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-border shadow-2xl mb-12 md:mb-16 relative group bg-muted/20">
+             <Image 
                src={post.feature_image_url} 
                alt={post.alt_text || post.title} 
-               className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105" 
+               fill
+               priority
+               className="object-cover opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105" 
+               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
              />
-             <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-background/20 backdrop-blur-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <p className="text-[10px] font-bold text-white uppercase tracking-widest text-center">Visual Intelligence Sync Status: Calibrated</p>
+             <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 p-3 md:p-4 rounded-xl md:rounded-2xl bg-background/20 backdrop-blur-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <p className="text-[8px] md:text-[10px] font-bold text-white uppercase tracking-widest text-center">Visual Intelligence Sync Status: Calibrated</p>
              </div>
           </div>
 

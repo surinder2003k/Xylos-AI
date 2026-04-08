@@ -8,6 +8,13 @@ import Color from "@tiptap/extension-color";
 import { TextStyle } from "@tiptap/extension-text-style";
 import Link from "@tiptap/extension-link";
 import Placeholder from "@tiptap/extension-placeholder";
+import Image from "@tiptap/extension-image";
+import Dropcursor from "@tiptap/extension-dropcursor";
+import ResizableImage from "tiptap-extension-resize-image";
+import { createClient } from "@/utils/supabase/client";
+import { Loader2 } from "lucide-react";
+import { CustomModal } from "../ui/custom-modal";
+import { useToast } from "@/components/ui/toast";
 
 // Custom extension to allow dynamic 'rel' attribute toggling for SEO
 const CustomLink = Link.extend({
@@ -35,7 +42,9 @@ import {
   Heading2,
   Undo,
   Redo,
-  Strikethrough
+  Strikethrough,
+  Image as ImageIcon,
+  FileText
 } from "lucide-react";
 
 interface TiptapEditorProps {
@@ -47,6 +56,21 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [showColorPicker, setShowColorPicker] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const [modalConfig, setModalConfig] = useState<{
+    isOpen: boolean;
+    title: string;
+    description: string;
+    type: "info" | "success" | "warning" | "error";
+  }>({
+    isOpen: false,
+    title: "",
+    description: "",
+    type: "info",
+  });
+  const fileInputRef = React.useRef<HTMLInputElement>(null);
+  const supabase = createClient();
+  const { showToast } = useToast();
 
   useEffect(() => {
     setMounted(true);
@@ -54,7 +78,10 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
 
   const editor = useEditor({
     extensions: [
-      StarterKit,
+      StarterKit.configure({
+        history: false,
+        dropcursor: false, // Disable built-in to use our configured one
+      }),
       Underline,
       TextStyle,
       Color,
@@ -66,6 +93,15 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
       }),
       Placeholder.configure({
         placeholder: "The workspace is ready. Compose your story...",
+      }),
+      ResizableImage.configure({
+        HTMLAttributes: {
+          class: 'neural-resizable-image rounded-2xl border border-border bg-muted/20 shadow-2xl my-8 mx-auto block max-w-full h-auto',
+        },
+      }),
+      Dropcursor.configure({
+        color: 'oklch(var(--p))',
+        width: 2,
       }),
     ],
     content,
@@ -117,8 +153,69 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
     }
   };
 
+  const addImage = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file || !editor) return;
+
+    // Neural Protocol: Asset Validation
+    if (!file.type.startsWith("image/")) {
+      setModalConfig({
+        isOpen: true,
+        title: "Asset Rejection",
+        description: "Invalid asset type detected. All editorial assets must be valid image formats for narrative alignment.",
+        type: "error"
+      });
+      return;
+    }
+
+    setIsUploading(true);
+    try {
+      const fileExt = file.name.split(".").pop();
+      const fileName = `editor-${Math.random().toString(36).substring(2)}-${Date.now()}.${fileExt}`;
+      
+      const { data, error } = await supabase.storage
+        .from("blog-images")
+        .upload(fileName, file);
+
+      if (error) throw error;
+
+      const { data: { publicUrl } } = supabase.storage
+        .from("blog-images")
+        .getPublicUrl(fileName);
+
+      // Neural SEO: Mandatory Alt Text Prompt
+      const altText = window.prompt('Define SEO Alt Text for this asset (Optional):') || '';
+
+      editor.chain().focus().setImage({ src: publicUrl, alt: altText }).run();
+    } catch (err: any) {
+      console.error("Asset Synthesis Failure:", err);
+      setModalConfig({
+        isOpen: true,
+        title: "Synchronization Error",
+        description: "The platform could not synchronize this asset to the core matrix. Please check your connection.",
+        type: "error"
+      });
+    } finally {
+      setIsUploading(false);
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    }
+  };
+
   const setColor = (color: string) => {
     editor.chain().focus().setColor(color).run();
+  };
+
+  const setAltText = () => {
+    if (!editor.isActive('image')) return;
+    const currentAlt = editor.getAttributes('image').alt || '';
+    const newAlt = window.prompt('Update SEO Alt Text:', currentAlt);
+    if (newAlt !== null) {
+      editor.chain().focus().updateAttributes('image', { alt: newAlt }).run();
+    }
   };
 
   return (
@@ -179,6 +276,18 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
           isActive={editor.isActive('link')}
           icon={LinkIcon}
         />
+        <ToolbarButton 
+          onClick={addImage} 
+          isActive={editor.isActive('image')}
+          icon={ImageIcon}
+        />
+        {editor.isActive('image') && (
+          <ToolbarButton 
+            onClick={setAltText} 
+            isActive={false}
+            icon={FileText}
+          />
+        )}
 
         <div className="relative">
           <ToolbarButton 
@@ -212,7 +321,33 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
         </div>
       </div>
 
-      <EditorContent editor={editor} />
+      <input 
+        type="file"
+        ref={fileInputRef}
+        onChange={handleFileChange}
+        className="hidden"
+        accept="image/*"
+      />
+
+      <div className="relative">
+        <EditorContent editor={editor} />
+        <AnimatePresence>
+          {isUploading && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 z-50 bg-background/80 backdrop-blur-sm flex flex-col items-center justify-center gap-4"
+            >
+              <Loader2 className="w-10 h-10 text-primary animate-spin" />
+              <div className="flex flex-col items-center">
+                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary animate-pulse">Synthesizing Asset</span>
+                <span className="text-[8px] font-bold text-muted-foreground uppercase tracking-widest mt-1">Synchronizing with Core Matrix</span>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
 
       {/* Editorial Status Bar */}
       <div className="border-t border-border bg-muted/20 px-6 py-3 flex items-center justify-between transition-all duration-500">
@@ -246,6 +381,14 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
           </div>
         </div>
       </div>
+
+      <CustomModal 
+        isOpen={modalConfig.isOpen}
+        onClose={() => setModalConfig({ ...modalConfig, isOpen: false })}
+        title={modalConfig.title}
+        description={modalConfig.description}
+        type={modalConfig.type}
+      />
     </div>
   );
 }

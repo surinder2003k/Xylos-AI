@@ -8,20 +8,37 @@ import { BlogGrid } from "@/components/landing/blog-grid";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { AnimatedHeader, AnimatedItem, FadeIn } from "@/components/landing/animated-sections";
 import { TiltCard } from "@/components/premium/tilt-card";
-import { XylosLogo } from "@/components/premium/xylos-logo";
+import { AnimatedLogo } from "@/components/premium/animated-logo";
 import { NewsletterForm } from "@/components/landing/newsletter-form";
+import { Navbar } from "@/components/landing/navbar";
 
 export default async function LandingPage() {
   const supabase = await createClient();
   const publicSupabase = createPublicClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
   
   const { data: { user } } = await supabase.auth.getUser();
-  const { data: blogs } = await publicSupabase
+  // Initial Fetch: Blogs without join to avoid 406 Not Acceptable errors on missing FKs
+  const { data: blogsData, error: blogsError } = await publicSupabase
     .from("blogs")
-    .select("*, profiles(full_name)")
+    .select("*")
     .eq("status", "published")
     .order("published_at", { ascending: false })
     .limit(6);
+
+  // Manual Enrichment: Fetch profiles for the authors
+  let blogs = blogsData;
+  if (blogsData && blogsData.length > 0) {
+    const authorIds = [...new Set(blogsData.map(b => b.author_id))];
+    const { data: profiles } = await publicSupabase
+      .from("profiles")
+      .select("user_id, full_name")
+      .in("user_id", authorIds);
+
+    blogs = blogsData.map(blog => ({
+      ...blog,
+      profiles: profiles?.find(p => p.user_id === blog.author_id)
+    }));
+  }
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -59,30 +76,7 @@ export default async function LandingPage() {
          <div className="absolute top-[15%] -right-[5%] w-[40%] h-[40%] bg-secondary/15 blur-[120px] rounded-full mix-blend-overlay animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
-      <nav className="fixed top-0 w-full z-50 px-6 py-6 transition-all duration-300">
-        <div className="max-w-4xl mx-auto flex items-center justify-between bg-background/40 dark:bg-card/40 backdrop-blur-3xl border border-border/50 dark:border-white/5 rounded-2xl px-6 py-3 shadow-2xl shadow-black/5 dark:shadow-none">
-             <div className="flex items-center gap-3 group/logo cursor-pointer">
-                <XylosLogo className="w-8 h-8" />
-                <span className="font-fustat font-black text-xl tracking-tight uppercase">Xylos<span className="text-primary italic">AI</span></span>
-             </div>
-          
-          <div className="hidden md:flex items-center gap-8 text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/60">
-             <Link href="/blog" className="hover:text-primary transition-colors">Insights</Link>
-             <a href="#stories" className="hover:text-primary transition-colors">Top Stories</a>
-             <a href="#features" className="hover:text-primary transition-colors">The Platform</a>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <ThemeToggle />
-            <Link 
-              href={user ? "/dashboard" : "/login"}
-              className="px-6 py-2.5 rounded-xl border border-border/50 dark:border-white/10 bg-background dark:bg-white/5 hover:border-primary/50 transition-all text-[10px] font-black uppercase tracking-widest shadow-sm hover:shadow-primary/20"
-            >
-              {user ? "Systems" : "Sign In"}
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navbar user={user} />
 
       <main className="flex-1 flex flex-col items-center pt-48 px-6 pb-20 relative z-10 w-full">
         <div className="max-w-6xl w-full text-center space-y-12">
@@ -103,9 +97,9 @@ export default async function LandingPage() {
               delay={300}
             />
             <div className="flex items-center justify-center gap-4 mt-6">
-              <div className="h-px w-12 bg-primary/30" />
-              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-primary italic animate-pulse">Intelligent Editorial Suite</span>
-              <div className="h-px w-12 bg-primary/30" />
+              <div className="h-px w-8 md:w-12 bg-primary/30" />
+              <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.3em] md:tracking-[0.5em] text-primary italic animate-pulse">Intelligent Editorial Suite</span>
+              <div className="h-px w-8 md:w-12 bg-primary/30" />
             </div>
           </div>
 
@@ -218,12 +212,7 @@ export default async function LandingPage() {
          <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-50" />
          <div className="relative z-10 max-w-7xl mx-auto">
             <div className="flex flex-col items-center gap-6">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-[0.7rem] bg-gradient-to-br from-primary via-primary/80 to-primary/60 flex items-center justify-center shadow-lg rotate-45">
-                   <Diamond className="w-5 h-5 text-white -rotate-45 fill-white" />
-                </div>
-                <span className="font-fustat font-black text-2xl tracking-tight uppercase">Xylos<span className="text-primary italic">AI</span></span>
-              </div>
+              <AnimatedLogo className="scale-110" />
               
               <div className="flex gap-8 text-[9px] font-black uppercase tracking-[0.3em] text-muted-foreground mb-8">
                  <Link href="#" className="hover:text-primary transition-colors">Privacy</Link>

@@ -9,8 +9,7 @@ export function slugify(text: string): string {
     .trim()
     .replace(/\s+/g, '-')     // Replace spaces with -
     .replace(/[^\w-]+/g, '')  // Remove all non-word chars (except -)
-    // Constraint: No numbers in the slug as per user request
-    .replace(/\d+/g, '')      // Remove all numbers
+    // Numbers are now ALLOWED for technical/SEO accuracy (e.g., G34, 5G)
     .replace(/--+/g, '-')     // Replace multiple - with single -
     .replace(/^-+/, '')       // Trim - from start of text
     .replace(/-+$/, '');      // Trim - from end of text

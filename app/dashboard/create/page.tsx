@@ -132,16 +132,22 @@ function CreatePostContent() {
         setFeatureImageUrl(data.post.feature_image_url);
         setAltText(data.post.alt_text || "");
         
+        // SEO Matrix Sync (Automatic Automation)
+        setMetaTitle(data.post.meta_title || data.post.title);
+        setMetaDescription(data.post.meta_description || data.post.excerpt);
+        setKeywords(data.post.keywords || "");
+        
         // Critical: Set the ID so handlePublish knows to update
         if (data.post.id) {
           setCurrentPostId(data.post.id);
           setOriginalStatus(data.post.status);
+          setSlug(data.post.slug || slugify(data.post.title));
         }
         
         if (data.warning) {
           showToast(data.warning, "info");
         } else {
-          showToast("Post synthesized successfully and synced to archive!", "success");
+          showToast("Post synthesized successfully with full SEO & AI Imagery!", "success");
         }
       } else {
         showToast(data.error || "Editorial sync failed.", "error");

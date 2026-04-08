@@ -26,6 +26,7 @@ import { signOut } from "@/app/auth/actions";
 import { createClient } from "@/utils/supabase/client";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { AnimatedLogo } from "@/components/premium/animated-logo";
+import { useToast } from "@/components/ui/toast";
 
 const baseNavItems = [
   { icon: Home, label: "Main Portal", href: "/" },
@@ -43,6 +44,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const [userEmail, setUserEmail] = useState("");
   const [userRole, setUserRole] = useState("user");
   const pathname = usePathname();
+  const { showToast } = useToast();
 
   useEffect(() => {
     async function fetchUserProfile() {
@@ -77,25 +79,53 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const sidebarItems = isAdmin ? [...baseNavItems, adminNavItem] : baseNavItems;
 
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (isProfileOpen) {
-        const target = e.target as HTMLElement;
-        if (!target.closest('[data-profile-menu]')) {
-          setIsProfileOpen(false);
-        }
+    const handleResize = () => {
+      if (window.innerWidth < 1024) {
+        setIsSidebarOpen(false);
+      } else {
+        setIsSidebarOpen(true);
       }
     };
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  }, [isProfileOpen]);
+    handleResize(); // Set initial state
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex overflow-hidden transition-colors duration-500">
+    <div className="min-h-screen bg-background text-foreground flex transition-colors duration-500 relative">
+      {/* Mobile Sidebar Toggle - Only visible when sidebar is closed on small screens */}
+      {!isSidebarOpen && (
+        <button 
+          onClick={() => setIsSidebarOpen(true)}
+          className="fixed bottom-6 right-6 z-[60] lg:hidden p-4 rounded-full bg-primary text-black shadow-2xl shadow-primary/40 active:scale-90 transition-all border border-white/20"
+        >
+          <Menu className="w-6 h-6" />
+        </button>
+      )}
+
+      {/* Sidebar Overlay (Mobile) */}
+      <AnimatePresence>
+        {isSidebarOpen && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => {
+              if (window.innerWidth < 1024) setIsSidebarOpen(false);
+            }}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+          />
+        )}
+      </AnimatePresence>
+
       {/* Sidebar */}
       <motion.aside 
         initial={false}
-        animate={{ width: isSidebarOpen ? 280 : 80 }}
-        className="relative z-50 border-r border-border bg-sidebar backdrop-blur-2xl flex flex-col transition-all duration-300 flex-shrink-0"
+        animate={{ 
+          width: isSidebarOpen ? 280 : (typeof window !== 'undefined' && window.innerWidth < 1024 ? 0 : 80),
+          x: !isSidebarOpen && (typeof window !== 'undefined' && window.innerWidth < 1024) ? -280 : 0
+        }}
+        className={`fixed lg:relative z-50 border-r border-border bg-sidebar backdrop-blur-2xl flex flex-col transition-all duration-300 flex-shrink-0 h-full ${!isSidebarOpen && 'hidden lg:flex'}`}
       >
         <div className="p-6 flex items-center justify-between">
           <AnimatePresence mode="wait">
@@ -120,6 +150,14 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               </motion.div>
             )}
           </AnimatePresence>
+          
+          {/* Close button for mobile */}
+          <button 
+            onClick={() => setIsSidebarOpen(false)}
+            className="lg:hidden p-2 text-muted-foreground hover:text-foreground hover:bg-muted rounded-xl transition-colors"
+          >
+            <X className="w-5 h-5" />
+          </button>
         </div>
 
         <nav className="flex-1 px-4 space-y-1 mt-4">
@@ -226,8 +264,11 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                         </Link>
                         <div className="my-1 border-t border-white/5" />
                         <button 
-                          onClick={() => signOut()}
-                          className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl hover:bg-red-500/10 text-sm text-white/60 hover:text-red-400 transition-all"
+                          onClick={async () => {
+                            await signOut();
+                            showToast("Security session terminated. Safe travels.", "success");
+                          }}
+                          className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl hover:bg-red-500/10 text-sm text-white/60 hover:text-red-400 transition-all font-medium"
                         >
                           <LogOut className="w-4 h-4" />
                           Sign Out

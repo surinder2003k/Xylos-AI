@@ -8,8 +8,8 @@ export async function POST(request: Request) {
     const { email } = await request.json();
 
     const data = await resend.emails.send({
-      from: 'onboarding@resend.dev', // Default testing email allowed without domain verification
-      to: email, // Sending to the user who filled the form
+      from: 'onboarding@resend.dev',
+      to: email,
       subject: 'Welcome to Xylos!',
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #111;">
@@ -25,8 +25,17 @@ export async function POST(request: Request) {
       `
     });
 
+    if (data.error) {
+      console.error("Resend Error:", data.error);
+      return NextResponse.json({ 
+        error: data.error.message, 
+        suggestion: "Note: onboarding@resend.dev only works for the Resend account owner's email."
+      }, { status: 400 });
+    }
+
     return NextResponse.json({ success: true, data });
-  } catch (error) {
-    return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
+  } catch (error: any) {
+    console.error("Subscription Exception:", error);
+    return NextResponse.json({ error: error.message || 'Failed to send email' }, { status: 500 });
   }
 }

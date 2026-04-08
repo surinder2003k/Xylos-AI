@@ -1,6 +1,7 @@
 import { createClient } from "@/utils/supabase/server";
 import { generateSmartBlog } from "@/lib/ai/smart-generator";
 import { searchSmartImage } from "@/lib/utils/image-search";
+import { generateAIImage } from "@/lib/ai/image-generator";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -33,13 +34,48 @@ export async function POST(req: Request) {
       userCategory
     );
 
-    // 4. Fetch Feature Image (Tiered Search)
-    const imageResult = await searchSmartImage(
-      blogData.search_term || blogData.title,
-      blogData.category
-    );
+    // 4. AI Image Production Engine (Feature Image)
+    console.log("[Neural Engine] Initiating Image Production...");
+    let featureImageUrl = null;
+    try {
+      // Try high-fidelity generation first
+      featureImageUrl = await generateAIImage(blogData.search_term || blogData.title);
+    } catch (err) {
+      console.warn("[Neural Engine] AI Image Generation failed, falling back to stock search.");
+    }
 
-    // 5. Automated Publication Check
+    // Fallback to stock search if generation fails
+    if (!featureImageUrl) {
+      const imageResult = await searchSmartImage(
+        blogData.search_term || blogData.title,
+        blogData.category
+      );
+      featureImageUrl = imageResult.url;
+    }
+
+    // 5. In-Article Image Processing
+    let processedContent = blogData.content;
+    const imageMarkers = blogData.content.match(/\[AI_IMAGE_PROMPT: (.*?)\]/g);
+    
+    if (imageMarkers && imageMarkers.length > 0) {
+      console.log(`[Neural Engine] Found ${imageMarkers.length} in-article image markers.`);
+      for (const marker of imageMarkers) {
+        const prompt = marker.replace("[AI_IMAGE_PROMPT: ", "").replace("]", "");
+        try {
+          const inArticleUrl = await generateAIImage(prompt);
+          if (inArticleUrl) {
+            const imgHtml = `<figure class="my-8"><img src="${inArticleUrl}" alt="${prompt}" class="rounded-2xl border border-white/10 shadow-2xl w-full h-auto" /><figcaption class="text-center text-[10px] text-muted-foreground uppercase tracking-widest mt-3">${prompt}</figcaption></figure>`;
+            processedContent = processedContent.replace(marker, imgHtml);
+          } else {
+            processedContent = processedContent.replace(marker, ""); // Remove marker if failed
+          }
+        } catch (err) {
+          processedContent = processedContent.replace(marker, "");
+        }
+      }
+    }
+
+    // 6. Automated Publication Check
     let autoPublish = true;
     try {
       const { data: publishSet } = await supabase
@@ -52,15 +88,18 @@ export async function POST(req: Request) {
       console.warn("[Strategy Sync] Settings fetch failed, using default: auto_publish=true");
     }
 
-    // 6. Final Save to Supabase
+    // 7. Final Save to Supabase
     try {
       const postPayload = {
         title: blogData.title,
         excerpt: blogData.excerpt,
-        content: blogData.content,
+        content: processedContent,
         category: blogData.category,
-        feature_image_url: imageResult.url,
-        alt_text: blogData.alt_text || imageResult.alt,
+        feature_image_url: featureImageUrl,
+        alt_text: blogData.alt_text,
+        meta_title: blogData.meta_title,
+        meta_description: blogData.meta_description,
+        keywords: blogData.keywords,
         status: autoPublish ? "published" : "draft",
         published_at: autoPublish ? new Date().toISOString() : null,
       };
@@ -87,12 +126,12 @@ export async function POST(req: Request) {
         success: true, 
         post: {
           ...blogData,
-          feature_image_url: imageResult.url,
-          alt_text: blogData.alt_text || imageResult.alt,
+          content: processedContent,
+          feature_image_url: featureImageUrl,
           created_at: new Date().toISOString(),
           status: "generated_preview"
         },
-        warning: `Content synthesized but DB sync failed (Code: ${typeof dbError === 'object' && dbError !== null && 'code' in dbError ? (dbError as {code: string}).code : 'UNKNOWN'}). You can still edit and manually publish from the editor.`
+        warning: `Content synthesized but DB sync failed. You can still edit and manually publish from the editor.`
       });
     }
 

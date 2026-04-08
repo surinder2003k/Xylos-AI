@@ -19,9 +19,10 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
 
   const publicSupabase = createPublicClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
   
+  // Robust Fetching: Decouple post from profile to avoid 406/404 on missing FKs
   let dbQuery = publicSupabase
     .from("blogs")
-    .select("*, author:author_id(full_name)", { count: 'exact' })
+    .select("*", { count: 'exact' })
     .eq("status", "published")
     .order("published_at", { ascending: false });
 
@@ -33,7 +34,22 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
     dbQuery = dbQuery.or(`title.ilike.%${query}%,excerpt.ilike.%${query}%`);
   }
 
-  const { data: blogs, count } = await dbQuery.range(from, to);
+  const { data: blogsData, count } = await dbQuery.range(from, to);
+
+  // Manual Enrichment: Fetch profiles for the authors
+  let blogs = blogsData;
+  if (blogsData && blogsData.length > 0) {
+    const authorIds = [...new Set(blogsData.map(b => b.author_id))];
+    const { data: profiles } = await publicSupabase
+      .from("profiles")
+      .select("user_id, full_name")
+      .in("user_id", authorIds);
+
+    blogs = blogsData.map(blog => ({
+      ...blog,
+      profiles: profiles?.find(p => p.user_id === blog.author_id)
+    }));
+  }
 
   const totalPages = count ? Math.ceil(count / limit) : 1;
 

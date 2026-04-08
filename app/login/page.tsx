@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { XylosLogo } from "@/components/premium/xylos-logo";
+import { AnimatedLogo } from "@/components/premium/animated-logo";
 
 export default function LoginPage() {
   const [isLogin, setIsLogin] = useState(true);
@@ -40,10 +40,7 @@ export default function LoginPage() {
         className="w-full max-w-md z-10"
       >
         <div className="flex flex-col items-center mb-8">
-          <Link href="/" className="flex flex-col items-center gap-4 mb-6 hover:scale-105 transition-transform group">
-            <XylosLogo size={64} animated={true} />
-            <span className="font-fustat font-black text-4xl tracking-tighter uppercase">Xylos<span className="text-primary italic">AI</span></span>
-          </Link>
+          <AnimatedLogo className="scale-125 mb-8" />
           <h1 className="text-2xl font-bold tracking-tight text-white/90">
             {isLogin ? "Welcome back, Pilot" : "Create your Neural ID"}
           </h1>

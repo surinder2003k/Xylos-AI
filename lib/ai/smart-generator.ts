@@ -6,6 +6,9 @@ export type BlogContent = {
   category: string;
   search_term: string;
   alt_text: string;
+  meta_title: string;
+  meta_description: string;
+  keywords: string;
   content: string;
 };
 
@@ -49,14 +52,22 @@ export async function generateSmartBlog(prompt: string, recentTitles: string[] =
   - Avoid generic "AI-isms" (e.g., "In the fast-paced world of...").
   - Use <h2> for section headers and <p> for paragraphs.
 
+  METADATA QUALITY STANDARDS:
+  - keywords: Provide 10-15 high-intent, LSI (Latent Semantic Indexing) keywords that match the investigative depth of the article.
+  - alt_text: Write a factual, SEO-rich description of the feature image that MENTIONS the article's core subject.
+  - search_term: Provide a VIVID, PHOTOGRAPHIC SCENE DESCRIPTION (not just keywords). Example: Instead of "AI", use "A sleek futuristic neural processor glowing in a dimly lit high-tech laboratory with blue fiber-optic cables, 8k resolution, cinematic."
+
   Format your response STRICTLY as a valid JSON object:
   {
     "title": "A high-authority, cinematic headline",
     "excerpt": "A concise executive summary",
+    "meta_title": "SEO Optimized Meta Title (60 chars)",
+    "meta_description": "Compelling SEO Meta Description (160 chars)",
+    "keywords": "comma, separated, high-intent, lsi, keywords",
     "category": "Technology/Business/Politics/Science/Sports/Culture",
-    "search_term": "Specific keywords for high-definition professional imagery",
-    "alt_text": "Descriptive alt text for the feature image",
-    "content": "THE FULL ARTICLE IN HTML-COMPATIBLE MARKDOWN WITH <h2> AND <p> TAGS"
+    "search_term": "A vivid photorealistic scene description for the feature image",
+    "alt_text": "Fact-based SEO description mentioning the subject",
+    "content": "THE FULL ARTICLE IN HTML-COMPATIBLE MARKDOWN WITH <h2> AND <p> TAGS. IMPORTANT: Insert [AI_IMAGE_PROMPT: vivid cinematic scene description related to the adjacent text] markers between sections (2-3 times) where an image would be beneficial."
   }
 
   IMPORTANT:
@@ -155,6 +166,9 @@ function parseNeuralJson(raw: string): BlogContent {
     const data = {
       title: extract("title"),
       excerpt: extract("excerpt"),
+      meta_title: extract("meta_title"),
+      meta_description: extract("meta_description"),
+      keywords: extract("keywords"),
       category: extract("category") || "Technology",
       search_term: extract("search_term"),
       alt_text: extract("alt_text"),
