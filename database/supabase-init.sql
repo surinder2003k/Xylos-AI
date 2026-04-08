@@ -97,7 +97,18 @@ CREATE POLICY "Authenticated users full access" ON public.blogs FOR ALL USING (a
 -- 6.1 UPDATED PROFILES RLS (Allow public read for authors)
 CREATE POLICY "Public read of profiles" ON public.profiles FOR SELECT USING (true);
 
--- 7. APP SETTINGS
+-- 7. SUBSCRIBERS TABLE
+CREATE TABLE public.subscribers (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    email TEXT UNIQUE NOT NULL,
+    subscribed_at TIMESTAMPTZ DEFAULT now()
+);
+
+ALTER TABLE public.subscribers ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Anyone can subscribe" ON public.subscribers FOR INSERT WITH CHECK (true);
+CREATE POLICY "Admins can view subscribers" ON public.subscribers FOR SELECT USING (auth.role() = 'authenticated');
+
+-- 8. APP SETTINGS
 CREATE TABLE public.app_settings (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     key TEXT UNIQUE NOT NULL,
