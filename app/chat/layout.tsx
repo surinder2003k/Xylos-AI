@@ -158,10 +158,12 @@ export default function ChatLayout({ children }: { children: React.ReactNode }) 
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -10 }}
               >
-                <Link 
-                  href={`/chat?id=${session.id}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`flex items-center gap-3 w-full px-4 py-2.5 rounded-xl transition-all group ${
+                <div 
+                  onClick={() => {
+                    router.push(`/chat?id=${session.id}`);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`flex items-center gap-3 w-full px-4 py-2.5 rounded-xl transition-all group cursor-pointer ${
                     activeId === session.id 
                     ? 'bg-primary/10 text-primary border border-primary/20' 
                     : 'hover:bg-muted text-muted-foreground hover:text-foreground'
@@ -171,11 +173,11 @@ export default function ChatLayout({ children }: { children: React.ReactNode }) 
                   <span className="truncate flex-1 text-sm">{session.title}</span>
                   <button 
                     onClick={(e) => handleDeleteSession(e, session.id)}
-                    className="opacity-0 group-hover:opacity-100 p-1 hover:bg-destructive/10 hover:text-destructive rounded transition-all"
+                    className="opacity-100 md:opacity-0 md:group-hover:opacity-100 p-2 md:p-1 hover:bg-destructive/10 hover:text-destructive rounded transition-all"
                   >
-                    <Trash2 className="w-3 h-3" />
+                    <Trash2 className="w-4 h-4 md:w-3 md:h-3" />
                   </button>
-                </Link>
+                </div>
               </motion.div>
             ))
           )}
@@ -201,7 +203,7 @@ export default function ChatLayout({ children }: { children: React.ReactNode }) 
   );
 
   return (
-    <div className="flex h-screen bg-background overflow-hidden relative">
+    <div className="flex h-[100dvh] bg-background overflow-hidden relative">
       {/* Desk Sidebar */}
       <div className="hidden md:block">
         <AnimatePresence mode="wait">
