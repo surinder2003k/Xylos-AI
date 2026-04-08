@@ -2,6 +2,7 @@ import { createClient } from "@/utils/supabase/server";
 import { generateSmartBlog } from "@/lib/ai/smart-generator";
 import { searchSmartImage } from "@/lib/utils/image-search";
 import { generateAIImage } from "@/lib/ai/image-generator";
+import { slugify } from "@/lib/utils/slugify";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -100,6 +101,7 @@ export async function POST(req: Request) {
         meta_title: blogData.meta_title,
         meta_description: blogData.meta_description,
         keywords: blogData.keywords,
+        slug: slugify(blogData.title),
         status: autoPublish ? "published" : "draft",
         published_at: autoPublish ? new Date().toISOString() : null,
       };

@@ -19,7 +19,7 @@ CREATE TABLE public.profiles (
     email TEXT UNIQUE,
     full_name TEXT,
     avatar_url TEXT,
-    role TEXT DEFAULT 'user' CHECK (role IN ('admin', 'user')),
+    role TEXT DEFAULT 'user' CHECK (role IN ('super_admin', 'admin', 'user')),
     created_at TIMESTAMPTZ DEFAULT now(),
     updated_at TIMESTAMPTZ DEFAULT now()
 );

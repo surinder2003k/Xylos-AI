@@ -2,7 +2,7 @@ import { createClient as createPublicClient } from "@supabase/supabase-js";
 import { createClient } from "@/utils/supabase/server";
 import { ArrowRight, Diamond, MessageSquare, Code2, FileText, Shield, Sparkles, Zap, Globe } from "lucide-react";
 import Link from "next/link";
-import { AnimeText } from "@/components/premium/anime-text";
+import { RevealText } from "@/components/ui/reveal-text";
 import { BentoGrid, BentoCard } from "@/components/premium/bento-grid";
 import { BlogGrid } from "@/components/landing/blog-grid";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -91,10 +91,12 @@ export default async function LandingPage() {
           </div>
 
           <div className="space-y-4">
-            <AnimeText 
-              text="Refine Your Narrative." 
-              className="text-6xl md:text-8xl lg:text-[7.5rem] font-fustat font-black tracking-tighter leading-[0.85] uppercase"
-              delay={300}
+            <RevealText 
+              text="REFINE YOUR NARRATIVE." 
+              fontSize="text-[3.5rem] md:text-[6rem] lg:text-[7.5rem]"
+              textColor="text-foreground"
+              overlayColor="text-primary"
+              letterDelay={0.05}
             />
             <div className="flex items-center justify-center gap-4 mt-6">
               <div className="h-px w-8 md:w-12 bg-primary/30" />
