@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { createClient as createAuthClient } from "@/utils/supabase/server";
 import { generateSmartBlog } from "@/lib/ai/smart-generator";
 import { searchSmartImage } from "@/lib/utils/image-search";
 
@@ -16,7 +17,28 @@ export async function GET(req: Request) {
     // 2. Automated Trigger Authorization
     const authHeader = req.headers.get("authorization");
     const isCron = authHeader === `Bearer ${process.env.CRON_SECRET}`;
-    if (!isCron && process.env.NODE_ENV === "production") {
+    
+    let isAuthorizedAdmin = false;
+    if (!isCron) {
+      try {
+        const authClient = await createAuthClient();
+        const { data: { user } } = await authClient.auth.getUser();
+        if (user) {
+          const { data: profile } = await authClient
+             .from("profiles")
+             .select("role")
+             .eq("user_id", user.id)
+             .single();
+          if (profile && (profile.role === "admin" || profile.role === "super_admin")) {
+             isAuthorizedAdmin = true;
+          }
+        }
+      } catch (e) {
+        console.error("Auth validation error:", e);
+      }
+    }
+
+    if (!isCron && !isAuthorizedAdmin && process.env.NODE_ENV === "production") {
       return NextResponse.json({ error: "Unauthorized neural operation. Validation Failed." }, { status: 401 });
     }
 
