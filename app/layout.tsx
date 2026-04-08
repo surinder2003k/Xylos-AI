@@ -47,6 +47,9 @@ export const metadata: Metadata = {
     description: 'Experience the power of 7 free AI providers in a premium workspace.',
     images: ['/og-image.png'],
   },
+  verification: {
+    google: '7DDDhNUg6jYfqTlpcjhcRviMdzzUvxJd2Y-rKmNEqdk',
+  },
 };
 
 export default function RootLayout({
