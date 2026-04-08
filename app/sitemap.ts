@@ -1,9 +1,14 @@
 import { MetadataRoute } from 'next'
-import { createClient } from '@/utils/supabase/server'
+import { createClient } from '@supabase/supabase-js'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://xylos-ai.com'
-  const supabase = await createClient()
+  
+  // Use generic client to prevent cookie errors during static/dynamic generation outside of request boundaries
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
 
   // Fetch all published blog posts for the sitemap
   const { data: posts } = await supabase
