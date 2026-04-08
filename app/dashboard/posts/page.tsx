@@ -39,9 +39,17 @@ export default function AllStoriesPage() {
   const fetchPosts = async () => {
     setLoading(true);
     try {
+      // Get current user first
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) {
+        setPosts([]);
+        return;
+      }
+
       const { data, error } = await supabase
         .from("blogs")
         .select("*")
+        .eq("author_id", user.id)  // ← Only fetch THIS user's blogs
         .order("created_at", { ascending: false });
 
       if (error) throw error;
@@ -66,10 +74,14 @@ export default function AllStoriesPage() {
     const newStatus = post.status === 'published' ? 'draft' : 'published';
     
     try {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+
       const { error } = await supabase
         .from("blogs")
         .update({ status: newStatus })
-        .eq("id", post.id);
+        .eq("id", post.id)
+        .eq("author_id", user.id);  // ← Security: only own posts
 
       if (error) throw error;
       
@@ -84,10 +96,14 @@ export default function AllStoriesPage() {
     if (!postToDelete) return;
     setIsDeleting(true);
     try {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+
       const { error } = await supabase
         .from("blogs")
         .delete()
-        .eq("id", postToDelete.id);
+        .eq("id", postToDelete.id)
+        .eq("author_id", user.id);  // ← Security: only own posts
 
       if (error) throw error;
       

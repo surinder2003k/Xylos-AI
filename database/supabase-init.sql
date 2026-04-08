@@ -91,8 +91,26 @@ CREATE TABLE public.blogs (
 );
 
 ALTER TABLE public.blogs ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Public read of published blogs" ON public.blogs FOR SELECT USING (status = 'published');
-CREATE POLICY "Authenticated users full access" ON public.blogs FOR ALL USING (auth.role() = 'authenticated');
+
+-- Anyone can read published blogs (public blog listing)
+CREATE POLICY "Public read of published blogs" ON public.blogs
+  FOR SELECT USING (status = 'published');
+
+-- Authenticated users can read ALL their own blogs (including drafts)
+CREATE POLICY "Authors can read own blogs" ON public.blogs
+  FOR SELECT USING (auth.uid() = author_id);
+
+-- Authors can only insert blogs with their own user_id
+CREATE POLICY "Authors can insert own blogs" ON public.blogs
+  FOR INSERT WITH CHECK (auth.uid() = author_id);
+
+-- Authors can only update their own blogs
+CREATE POLICY "Authors can update own blogs" ON public.blogs
+  FOR UPDATE USING (auth.uid() = author_id);
+
+-- Authors can only delete their own blogs
+CREATE POLICY "Authors can delete own blogs" ON public.blogs
+  FOR DELETE USING (auth.uid() = author_id);
 
 -- 6.1 UPDATED PROFILES RLS (Allow public read for authors)
 CREATE POLICY "Public read of profiles" ON public.profiles FOR SELECT USING (true);
