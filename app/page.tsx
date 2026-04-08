@@ -89,18 +89,18 @@ export default async function LandingPage() {
              </span>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 max-w-5xl mx-auto">
             <RevealText 
               text="REFINE YOUR NARRATIVE." 
-              fontSize="text-[3.5rem] md:text-[6rem] lg:text-[7.5rem]"
+              fontSize="text-[3rem] md:text-[5.5rem] lg:text-[7rem]"
               textColor="text-foreground"
               overlayColor="text-primary"
               letterDelay={0.05}
             />
-            <div className="flex items-center justify-center gap-4 mt-6">
-              <div className="h-px w-8 md:w-12 bg-primary/30" />
-              <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.3em] md:tracking-[0.5em] text-primary italic animate-pulse">Intelligent Editorial Suite</span>
-              <div className="h-px w-8 md:w-12 bg-primary/30" />
+            <div className="flex items-center justify-center gap-4 mt-8">
+              <div className="h-px w-8 md:w-16 bg-primary/30" />
+              <span className="text-[10px] md:text-[12px] font-black uppercase tracking-[0.4em] md:tracking-[0.6em] text-primary italic animate-pulse">Intelligent Editorial Suite</span>
+              <div className="h-px w-8 md:w-16 bg-primary/30" />
             </div>
           </div>
 
