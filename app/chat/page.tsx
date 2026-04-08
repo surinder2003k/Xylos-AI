@@ -112,6 +112,7 @@ export default function ChatPage() {
         });
       };
       recognitionRef.current.onerror = () => setIsMicActive(false);
+      recognitionRef.current.onend = () => setIsMicActive(false); // Make sure it turns off when it automatically stops listening
     }
   }, []);
 
