@@ -31,7 +31,8 @@ import {
   FileText,
   X,
   Plus,
-  Loader2
+  Loader2,
+  Strikethrough
 } from "lucide-react";
 import { createClient } from "@/utils/supabase/client";
 import { CustomModal } from "../ui/custom-modal";
