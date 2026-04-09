@@ -52,8 +52,10 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                   {/* Premium Image Header */}
                   <div className="relative aspect-[16/11] overflow-hidden">
                     <img 
-                      src={blog.feature_image_url || "https://images.pexels.com/photos/1031201/pexels-photo-1031201.jpeg"} 
+                      src={blog.feature_image_url || "https://images.pexels.com/photos/1031201/pexels-photo-1031201.jpeg?auto=compress&cs=tinysrgb&w=800"} 
                       alt={blog.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out"
                     />
                     <div className="absolute top-6 left-6 z-20">

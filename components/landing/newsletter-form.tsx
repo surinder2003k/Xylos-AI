@@ -105,8 +105,10 @@ export function NewsletterForm() {
          {/* Front image */}
          <div className="relative w-[90%] lg:w-full max-w-[400px] aspect-video rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500 border border-white/10 group">
            <img 
-             src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80" 
-             alt="Landscape" 
+             src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" 
+             alt="Xylos AI Newsletter"
+             loading="lazy"
+             decoding="async"
              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
            />
            <div className="absolute inset-0 bg-primary/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity" />

@@ -13,22 +13,37 @@ import { Metadata } from "next";
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const supabase = await createClient();
   const { slug } = await params;
-  const { data: post } = await supabase.from("blogs").select("*").eq("slug", slug).single();
+  const { data: post } = await supabase.from("blogs").select("*, profiles(full_name)").eq("slug", slug).single();
 
   if (!post) return {};
+
+  const canonicalUrl = `https://xylos-ai.com/blog/${post.slug}`;
+  const imageUrl = post.feature_image_url || 'https://xylos-ai.com/og-image.png';
 
   return {
     title: post.meta_title || post.title,
     description: post.meta_description || post.excerpt,
     keywords: post.keywords,
+    authors: [{ name: post.profiles?.full_name || 'Xylos AI Research' }],
     alternates: {
-      canonical: `/blog/${post.slug}`,
+      canonical: canonicalUrl,
     },
     openGraph: {
       title: post.meta_title || post.title,
       description: post.meta_description || post.excerpt,
-      images: [post.feature_image_url],
-      url: `/blog/${post.slug}`,
+      images: [{ url: imageUrl, width: 1200, height: 630, alt: post.title }],
+      url: canonicalUrl,
+      type: 'article',
+      publishedTime: post.published_at,
+      modifiedTime: post.updated_at || post.published_at,
+      authors: [post.profiles?.full_name || 'Xylos AI Research'],
+      tags: post.keywords ? [post.keywords] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.meta_title || post.title,
+      description: post.meta_description || post.excerpt,
+      images: [{ url: imageUrl, alt: post.title }],
     },
   };
 }

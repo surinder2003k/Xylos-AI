@@ -15,29 +15,10 @@ export function XylosLogo({ size = 40, className = "", animated = true }: XylosL
       pathLength: 1,
       opacity: 1,
       transition: {
-        pathLength: { delay: i * 0.2, duration: 1.2, ease: "easeInOut" },
-        opacity: { delay: i * 0.2, duration: 0.3 },
+        pathLength: { delay: i * 0.15, duration: 0.8, ease: "easeInOut" },
+        opacity: { delay: i * 0.15, duration: 0.2 },
       },
     }),
-  };
-
-  const pulse = {
-    scale: [1, 1.15, 1],
-    opacity: [0.6, 1, 0.6],
-    transition: {
-      duration: 2.5,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  };
-
-  const rotate = {
-    rotate: [0, 360],
-    transition: {
-      duration: 20,
-      repeat: Infinity,
-      ease: "linear",
-    },
   };
 
   return (
@@ -52,28 +33,24 @@ export function XylosLogo({ size = 40, className = "", animated = true }: XylosL
       animate="visible"
       style={{ overflow: "visible" }}
     >
-      {/* Background */}
-      <rect width="512" height="512" rx="128" fill="currentColor" className="text-black dark:text-black" opacity="0" />
-
       <g transform="translate(256,256)">
-        {/* Rotating outer ring */}
-        <motion.circle
+        {/* Static outer ring — no rotation */}
+        <circle
           cx="0" cy="0" r="180"
           stroke="var(--logo-color, #8B5CF6)"
-          strokeWidth="6"
+          strokeWidth="4"
           fill="none"
-          opacity="0.15"
-          animate={animated ? rotate : undefined}
+          opacity="0.12"
           strokeDasharray="20 15"
         />
 
         {/* Static guide ring */}
-        <motion.circle
+        <circle
           cx="0" cy="0" r="150"
           stroke="var(--logo-color, #8B5CF6)"
           strokeWidth="2"
           fill="none"
-          opacity="0.08"
+          opacity="0.06"
         />
 
         {/* Left arm of X */}
@@ -100,14 +77,14 @@ export function XylosLogo({ size = 40, className = "", animated = true }: XylosL
           custom={1}
         />
 
-        {/* Center node — pulsing */}
-        <motion.circle
+        {/* Center node — static, no pulse */}
+        <circle
           cx="0" cy="0" r="16"
           fill="var(--logo-color, #8B5CF6)"
-          animate={animated ? pulse : undefined}
+          opacity="0.9"
         />
 
-        {/* Corner neural dots — staggered fade-in */}
+        {/* Corner neural dots */}
         {[
           [-90, -90],
           [90, -90],
@@ -122,26 +99,7 @@ export function XylosLogo({ size = 40, className = "", animated = true }: XylosL
             fill="var(--logo-color, #8B5CF6)"
             initial={animated ? { opacity: 0, scale: 0 } : { opacity: 0.6, scale: 1 }}
             animate={{ opacity: 0.6, scale: 1 }}
-            transition={{ delay: 0.8 + i * 0.15, duration: 0.5, ease: "backOut" }}
-          />
-        ))}
-
-        {/* Connecting neural lines from center to corners */}
-        {[
-          "M0,0 L-90,-90",
-          "M0,0 L90,-90",
-          "M0,0 L-90,90",
-          "M0,0 L90,90",
-        ].map((d, i) => (
-          <motion.path
-            key={`line-${i}`}
-            d={d}
-            stroke="var(--logo-color, #8B5CF6)"
-            strokeWidth="2"
-            fill="none"
-            opacity="0.1"
-            variants={animated ? draw : undefined}
-            custom={i * 0.3}
+            transition={{ delay: 0.5 + i * 0.1, duration: 0.4, ease: "backOut" }}
           />
         ))}
       </g>

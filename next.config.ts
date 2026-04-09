@@ -7,7 +7,10 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  compress: true,
+  poweredByHeader: false,
   images: {
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
         protocol: 'https',
@@ -15,7 +18,18 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/storage/v1/object/public/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
+      },
     ],
+  },
+  experimental: {
+    optimizeCss: true,
   },
 };
 

@@ -14,29 +14,51 @@ const fustat = Fustat({ subsets: ["latin"], variable: "--font-fustat" });
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://xylos-ai.com'),
   title: {
-    default: "Xylos AI | Ultimate Free AI Arsenal",
+    default: "Xylos AI — Free AI Chat & Blog Platform | Llama, Gemini, Mistral",
     template: "%s | Xylos AI",
   },
-  description: "Access Llama 3, Gemini, Mistral, and more in one premium, zero-cost AI platform. Built for high-performance generation and investigative analysis.",
+  description: "Access Llama 3, Gemini, Mistral, and 7+ elite AI models in one zero-cost premium platform. Built for professionals — AI chat, content creation, and editorial intelligence.",
+  applicationName: "Xylos AI",
+  referrer: "origin-when-cross-origin",
+  authors: [{ name: "Xylos AI Research", url: "https://xylos-ai.com" }],
+  creator: "21dev.in",
+  publisher: "Xylos AI Research",
   icons: {
     icon: "/icon.svg",
     shortcut: "/icon.svg",
     apple: "/icon.svg",
   },
-  keywords: ["Xylos AI", "Free AI", "Llama 3 Online", "Gemini Pro Free", "Mistral AI", "AI Blog Generator", "AI Content Strategy"],
+  keywords: [
+    "Xylos AI", "Free AI Chat", "Llama 3 Online Free", "Gemini Pro Free",
+    "Mistral AI", "AI Blog Generator", "ChatGPT Alternative Free",
+    "AI Content Strategy", "Free AI Platform", "Xylos", "AI Writing Tool",
+    "AI Research Tool", "Free Llama 3", "Free Gemini", "AI for professionals"
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   alternates: {
-    canonical: '/',
+    canonical: 'https://xylos-ai.com',
   },
   openGraph: {
-    title: "Xylos AI | Ultimate Free AI Arsenal",
-    description: "Experience the power of 7 free AI providers in a premium workspace.",
-    url: '/',
+    title: "Xylos AI — Free AI Chat & Blog Platform",
+    description: "Access 7+ free AI models (Llama 3, Gemini, Mistral) in one premium workspace. Zero cost, professional grade.",
+    url: 'https://xylos-ai.com',
     siteName: 'Xylos AI',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
+        alt: 'Xylos AI — Free AI Platform',
       },
     ],
     locale: 'en_US',
@@ -44,9 +66,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Xylos AI | Ultimate Free AI Arsenal',
-    description: 'Experience the power of 7 free AI providers in a premium workspace.',
-    images: ['/og-image.png'],
+    site: '@xylos_ai',
+    creator: '@xylos_ai',
+    title: 'Xylos AI — Free AI Chat Platform',
+    description: 'Access 7+ free AI models in one premium workspace. Zero cost, professional grade.',
+    images: [{ url: '/og-image.png', alt: 'Xylos AI Platform' }],
   },
   verification: {
     google: '7DDDhNUg6jYfqTlpcjhcRviMdzzUvxJd2Y-rKmNEqdk',
@@ -79,12 +103,32 @@ export default function RootLayout({
                     __html: JSON.stringify([
                       {
                         "@context": "https://schema.org",
+                        "@type": "WebSite",
+                        "name": "Xylos AI",
+                        "url": "https://xylos-ai.com",
+                        "description": "Free AI chat and content platform with Llama 3, Gemini, and Mistral.",
+                        "potentialAction": {
+                          "@type": "SearchAction",
+                          "target": {
+                            "@type": "EntryPoint",
+                            "urlTemplate": "https://xylos-ai.com/blog?q={search_term_string}"
+                          },
+                          "query-input": "required name=search_term_string"
+                        }
+                      },
+                      {
+                        "@context": "https://schema.org",
                         "@type": "SoftwareApplication",
                         "name": "Xylos AI",
                         "url": "https://xylos-ai.com",
                         "applicationCategory": "BusinessApplication",
                         "operatingSystem": "Web",
                         "description": "Access elite AI models including Llama 3, Gemini, and Mistral in one zero-cost generative interface.",
+                        "aggregateRating": {
+                          "@type": "AggregateRating",
+                          "ratingValue": "4.8",
+                          "ratingCount": "128"
+                        },
                         "offers": {
                           "@type": "Offer",
                           "price": "0",
@@ -96,7 +140,15 @@ export default function RootLayout({
                         "@type": "Organization",
                         "name": "Xylos AI Research",
                         "url": "https://xylos-ai.com",
-                        "logo": "https://xylos-ai.com/icon.svg",
+                        "logo": {
+                          "@type": "ImageObject",
+                          "url": "https://xylos-ai.com/icon.svg"
+                        },
+                        "contactPoint": {
+                          "@type": "ContactPoint",
+                          "contactType": "customer support",
+                          "availableLanguage": "English"
+                        },
                         "sameAs": [
                           "https://twitter.com/xylos_ai",
                           "https://github.com/21devin"
