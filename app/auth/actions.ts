@@ -66,6 +66,19 @@ export async function signUpWithEmail(formData: FormData) {
     return redirect(`/login?error=${encodeURIComponent(error.message)}`)
   }
 
+  // Send Welcome Email (Non-blocking)
+  try {
+    const { sendEmail } = await import('@/lib/mail/resend');
+    const { WELCOME_TEMPLATE } = await import('@/lib/mail/templates');
+    sendEmail({
+      to: email,
+      subject: `Welcome to the Neural Matrix, ${fullName || 'Citizen'} | Xylos AI`,
+      html: WELCOME_TEMPLATE(fullName)
+    });
+  } catch (err) {
+    console.error('[Auth] Failed to send welcome email:', err);
+  }
+
   return redirect('/dashboard?message=Check your email to confirm your account')
 }
 

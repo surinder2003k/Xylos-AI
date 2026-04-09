@@ -31,8 +31,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Subscription failed. Please try again.' }, { status: 500 });
     }
 
-    // ── STEP 2: Notify admin (always sends to verified email — no domain required) ──
-    // This is a fire-and-forget — we don't fail the request if this errors.
+    // ── STEP 2: Notify admin ──
     resend.emails.send({
       from: 'onboarding@resend.dev',
       to: ADMIN_EMAIL,
@@ -51,14 +50,18 @@ export async function POST(request: Request) {
               <p style="margin: 4px 0 0; font-size: 16px; font-weight: 600; color: #a78bfa;">${email}</p>
             </div>
           </div>
-          <div style="padding: 20px 40px; border-top: 1px solid #222;">
-            <p style="margin: 0; font-size: 12px; color: #555;">Xylos AI Admin Notification</p>
-          </div>
         </div>
       `
-    }).catch(err => {
-      // Log but don't fail — the subscriber is already saved to DB
-      console.warn('[Subscribe] Admin email notification failed:', err?.message);
+    }).catch(err => console.warn('[Subscribe] Admin notification failed:', err?.message));
+
+    // ── STEP 3: Send confirmation to subscriber ──
+    const { SUBSCRIBE_TEMPLATE } = await import('@/lib/mail/templates');
+    const { sendEmail } = await import('@/lib/mail/resend');
+    
+    await sendEmail({
+      to: email,
+      subject: 'Intelligence Feed Active | Xylos AI',
+      html: SUBSCRIBE_TEMPLATE(email)
     });
 
     return NextResponse.json({ 
