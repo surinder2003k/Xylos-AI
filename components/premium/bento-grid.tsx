@@ -11,8 +11,8 @@ interface BentoCardProps {
 
 export function BentoCard({ children, className = "", delay = 0 }: BentoCardProps) {
   return (
-    <TiltCard degree={10} className={`bg-card/40 border border-border/50 backdrop-blur-xl ${className}`}>
-      <div className="relative z-10 h-full p-8 flex flex-col">
+    <TiltCard degree={5} className={`bg-card/40 border border-border/50 backdrop-blur-xl ${className}`}>
+      <div className="relative z-10 h-full p-6 md:p-8 flex flex-col">
         {children}
       </div>
     </TiltCard>

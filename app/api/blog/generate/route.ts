@@ -48,7 +48,7 @@ export async function POST(req: Request) {
     // Fallback to stock search if generation fails
     if (!featureImageUrl) {
       const imageResult = await searchSmartImage(
-        blogData.search_term || blogData.title,
+        `${blogData.search_term || blogData.title} ${Math.random().toString(36).substring(7)}`, 
         blogData.category
       );
       featureImageUrl = imageResult.url;
@@ -61,17 +61,26 @@ export async function POST(req: Request) {
     if (imageMarkers && imageMarkers.length > 0) {
       console.log(`[Neural Engine] Found ${imageMarkers.length} in-article image markers.`);
       for (const marker of imageMarkers) {
-        const prompt = marker.replace("[AI_IMAGE_PROMPT: ", "").replace("]", "");
+        let prompt = marker.replace("[AI_IMAGE_PROMPT: ", "").replace("]", "");
         try {
-          const inArticleUrl = await generateAIImage(prompt);
+          // 1. Attempt High-Fidelity Generation
+          let inArticleUrl = await generateAIImage(prompt);
+          
+          // 2. Fallback to Stock Search on failure
+          if (!inArticleUrl) {
+            console.log(`[Neural Engine] Generation failed for segment, falling back to stock search: ${prompt}`);
+            const stockResult = await searchSmartImage(`${prompt} ${Math.random().toString(36).substring(7)}`, blogData.category);
+            inArticleUrl = stockResult.url;
+          }
+
           if (inArticleUrl) {
             const imgHtml = `<figure class="my-8"><img src="${inArticleUrl}" alt="${prompt}" class="rounded-2xl border border-white/10 shadow-2xl w-full h-auto" /><figcaption class="text-center text-[10px] text-muted-foreground uppercase tracking-widest mt-3">${prompt}</figcaption></figure>`;
             processedContent = processedContent.replace(marker, imgHtml);
           } else {
-            processedContent = processedContent.replace(marker, ""); // Remove marker if failed
+            processedContent = processedContent.replace(marker, ""); 
           }
         } catch (err) {
-          console.warn(`[Neural Engine] In-article image processing failed for: ${prompt} (${err instanceof Error ? err.message : 'Unknown error'})`);
+          console.warn(`[Neural Engine] In-article image processing failed for: ${prompt}`, err);
           processedContent = processedContent.replace(marker, "");
         }
       }

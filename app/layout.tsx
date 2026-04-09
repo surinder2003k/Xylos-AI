@@ -6,6 +6,7 @@ import { PrimaryColorProvider } from "@/components/primary-color-provider";
 import { TopProgressBar } from "@/components/premium/progress-bar";
 import { ToastProvider } from "@/components/ui/toast";
 import { SplashLoader } from "@/components/premium/splash-loader";
+import { AuthListener } from "@/components/auth-listener";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const fustat = Fustat({ subsets: ["latin"], variable: "--font-fustat" });
@@ -50,6 +51,7 @@ export const metadata: Metadata = {
   verification: {
     google: '7DDDhNUg6jYfqTlpcjhcRviMdzzUvxJd2Y-rKmNEqdk',
   },
+  category: 'technology',
 };
 
 export default function RootLayout({
@@ -67,26 +69,40 @@ export default function RootLayout({
         >
           <PrimaryColorProvider>
             <ToastProvider>
+              <AuthListener />
               <TopProgressBar />
               <SplashLoader />
               <main className="relative min-h-screen">
                 <script
                   type="application/ld+json"
                   dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                      "@context": "https://schema.org",
-                      "@type": "SoftwareApplication",
-                      "name": "Xylos AI",
-                      "url": "https://xylos-ai.com",
-                      "applicationCategory": "BusinessApplication",
-                      "operatingSystem": "Web",
-                      "description": "Access elite AI models including Llama 3, Gemini, and Mistral in one zero-cost generative interface.",
-                      "offers": {
-                        "@type": "Offer",
-                        "price": "0",
-                        "priceCurrency": "USD"
+                    __html: JSON.stringify([
+                      {
+                        "@context": "https://schema.org",
+                        "@type": "SoftwareApplication",
+                        "name": "Xylos AI",
+                        "url": "https://xylos-ai.com",
+                        "applicationCategory": "BusinessApplication",
+                        "operatingSystem": "Web",
+                        "description": "Access elite AI models including Llama 3, Gemini, and Mistral in one zero-cost generative interface.",
+                        "offers": {
+                          "@type": "Offer",
+                          "price": "0",
+                          "priceCurrency": "USD"
+                        }
+                      },
+                      {
+                        "@context": "https://schema.org",
+                        "@type": "Organization",
+                        "name": "Xylos AI Research",
+                        "url": "https://xylos-ai.com",
+                        "logo": "https://xylos-ai.com/icon.svg",
+                        "sameAs": [
+                          "https://twitter.com/xylos_ai",
+                          "https://github.com/21devin"
+                        ]
                       }
-                    })
+                    ])
                   }}
                 />
                 {children}

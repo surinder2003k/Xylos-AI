@@ -5,6 +5,7 @@ import { generateSmartBlog } from "@/lib/ai/smart-generator";
 import { searchSmartImage } from "@/lib/utils/image-search";
 
 export const maxDuration = 60; // Max execution time to prevent Vercel timeouts
+export const dynamic = "force-dynamic"; // Prevent aggressive route caching for auth checks
 
 export async function GET(req: Request) {
   try {
@@ -24,13 +25,19 @@ export async function GET(req: Request) {
         const authClient = await createAuthClient();
         const { data: { user } } = await authClient.auth.getUser();
         if (user) {
-          const { data: profile } = await authClient
-             .from("profiles")
-             .select("role")
-             .eq("user_id", user.id)
-             .single();
-          if (profile && (profile.role === "admin" || profile.role === "super_admin")) {
-             isAuthorizedAdmin = true;
+          // Hardcoded Super Admin Check (Mirroring layout.tsx)
+          const superAdmins = ["sendltestmaill@gmail.com", "xyzg135@gmail.com"];
+          if (superAdmins.includes(user.email || "")) {
+            isAuthorizedAdmin = true;
+          } else {
+            const { data: profile } = await authClient
+               .from("profiles")
+               .select("role")
+               .eq("user_id", user.id)
+               .single();
+            if (profile && (profile.role === "admin" || profile.role === "super_admin")) {
+               isAuthorizedAdmin = true;
+            }
           }
         }
       } catch (e) {
@@ -44,8 +51,9 @@ export async function GET(req: Request) {
 
     const synthesizedPosts = [];
 
-    // 3. Sequential Multi-Post Protocol (2 Iterations for 8AM/8PM IST)
-    for (let i = 0; i < 2; i++) {
+    // 3. Parallel Multi-Post Protocol (Limits Vercel Timeout)
+    // Execute both post generations simultaneously to fit within Hobby 10s limit
+    const promises = Array(2).fill(null).map(async (_, i) => {
         // Fetch context to prevent duplicate topics
         let recentTitles: string[] = [];
         try {
@@ -98,7 +106,9 @@ export async function GET(req: Request) {
         } else {
            console.error("[Editorial Sync] DB Insert Failed:", error);
         }
-    }
+    });
+
+    await Promise.all(promises);
 
     return NextResponse.json({ 
       success: true, 

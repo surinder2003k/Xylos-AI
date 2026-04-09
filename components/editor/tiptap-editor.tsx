@@ -193,10 +193,21 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
       editor.chain().focus().setImage({ src: publicUrl, alt: altText }).run();
     } catch (err: any) {
       console.error("Asset Synthesis Failure:", err);
+      
+      // Detailed Neural Diagnostic
+      let diagnosticMsg = "The platform could not synchronize this asset to the core matrix. Please check your connection.";
+      if (err.message?.includes("bucket")) {
+        diagnosticMsg = "Storage infrastructure (bucket) not found or inaccessible. Please verify 'blog-images' bucket in Supabase.";
+      } else if (err.status === 403 || err.message?.includes("Permission")) {
+        diagnosticMsg = "Access Denied: You do not have permission to upload to the neural matrix. Ensure you are logged in with administrative rights.";
+      } else if (err.message?.includes("size")) {
+        diagnosticMsg = "Asset Rejection: The file size exceeds the platform's core limits.";
+      }
+
       setModalConfig({
         isOpen: true,
         title: "Synchronization Error",
-        description: "The platform could not synchronize this asset to the core matrix. Please check your connection.",
+        description: diagnosticMsg,
         type: "error"
       });
     } finally {
@@ -282,11 +293,14 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
           icon={ImageIcon}
         />
         {editor.isActive('image') && (
-          <ToolbarButton 
-            onClick={setAltText} 
-            isActive={false}
-            icon={FileText}
-          />
+          <div className="flex items-center gap-1 bg-primary/10 px-2 py-1 rounded-lg border border-primary/20 animate-in fade-in zoom-in duration-300">
+            <ToolbarButton 
+              onClick={setAltText} 
+              isActive={false}
+              icon={FileText}
+            />
+            <span className="text-[10px] font-bold text-primary uppercase tracking-tighter pr-1">SEO Alt</span>
+          </div>
         )}
 
         <div className="relative">

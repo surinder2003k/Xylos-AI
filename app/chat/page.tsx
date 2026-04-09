@@ -253,13 +253,7 @@ export default function ChatPage() {
     <div className="flex h-full w-full bg-background overflow-hidden relative">
       {/* Primary Neural Workspace */}
       <div className="flex-1 flex flex-col relative h-full">
-        {/* Mobile Header */}
-        <div className="md:hidden flex items-center justify-between p-4 border-b border-border/50">
-          <AnimatedLogo className="scale-75 origin-left" />
-          <button onClick={() => router.push('/chat')} className="p-2 rounded-xl bg-muted/50">
-            <Plus className="w-5 h-5" />
-          </button>
-        </div>
+
 
         {/* Message Thread */}
         <div className="flex-1 w-full overflow-y-auto custom-scrollbar pt-6 pb-48">

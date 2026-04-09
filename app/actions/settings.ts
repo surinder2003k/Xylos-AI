@@ -46,3 +46,35 @@ export async function getAppSetting(key: string) {
     return { success: false, value: null, error: errorMsg };
   }
 }
+
+export async function getProfiles() {
+  try {
+    const supabase = getAdminClient();
+    const { data, error } = await supabase
+      .from("profiles")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (error) throw error;
+    return { success: true, profiles: data };
+  } catch (err: unknown) {
+    const errorMsg = err instanceof Error ? err.message : "Failed to fetch neural directory";
+    return { success: false, profiles: [], error: errorMsg };
+  }
+}
+
+export async function updateProfileRole(userId: string, role: string) {
+  try {
+    const supabase = getAdminClient();
+    const { error } = await supabase
+      .from("profiles")
+      .update({ role })
+      .eq("user_id", userId);
+
+    if (error) throw error;
+    return { success: true };
+  } catch (err: unknown) {
+    const errorMsg = err instanceof Error ? err.message : "Role update protocol failed";
+    return { success: false, error: errorMsg };
+  }
+}

@@ -16,7 +16,7 @@ export function Navbar({ user }: NavbarProps) {
 
   const navLinks = [
     { href: "/blog", label: "Blog" },
-    { href: "/#features", label: "The Platform" },
+    { href: "/about", label: "About Us" },
   ];
 
   return (

@@ -22,7 +22,7 @@ export async function searchSmartImage(query: string, category: string = "Techno
       try {
         console.log(`[Neural Sync] Searching Pexels for: ${query}`);
         const res = await fetch(
-          `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=15&orientation=landscape`,
+          `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=40&orientation=landscape`,
           {
             headers: { Authorization: PEXELS_API_KEY },
           }
@@ -30,7 +30,8 @@ export async function searchSmartImage(query: string, category: string = "Techno
         const data = await res.json();
         
         if (data.photos && data.photos.length > 0) {
-          const randomIndex = Math.floor(Math.random() * data.photos.length);
+          // Robust Randomization: Pick a random image from a larger set to prevent duplicates
+          const randomIndex = Math.floor(Math.random() * Math.min(data.photos.length, 40));
           const selectedPhoto = data.photos[randomIndex];
           return {
             url: selectedPhoto.src.large2x || selectedPhoto.src.large,

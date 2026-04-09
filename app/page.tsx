@@ -69,8 +69,8 @@ export default async function LandingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       
-      {/* Dynamic Background Glows */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-40 dark:opacity-60">
+      {/* Dynamic Background Glows - Hidden on mobile for performance and clarity */}
+      <div className="hidden md:block absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-40 dark:opacity-60">
          <div className="absolute -top-[10%] -left-[5%] w-[40%] h-[40%] bg-primary/20 blur-[120px] rounded-full mix-blend-overlay animate-pulse" />
          <div className="absolute top-[15%] -right-[5%] w-[40%] h-[40%] bg-secondary/15 blur-[120px] rounded-full mix-blend-overlay animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
@@ -79,7 +79,7 @@ export default async function LandingPage() {
 
       <main className="flex-1 flex flex-col items-center pt-48 px-6 pb-20 relative z-10 w-full">
         <div className="max-w-6xl w-full text-center space-y-12">
-          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-muted/30 border border-border shadow-sm mb-4">
+          <div className="hidden md:inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-muted/30 border border-border shadow-sm mb-4">
              <span className="relative flex h-2 w-2">
                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
@@ -90,13 +90,15 @@ export default async function LandingPage() {
           </div>
 
           <div className="space-y-4 max-w-5xl mx-auto">
-            <RevealText 
-              text="REFINE YOUR NARRATIVE." 
-              fontSize="text-[3rem] md:text-[5.5rem] lg:text-[7rem]"
-              textColor="text-foreground"
-              overlayColor="text-primary"
-              letterDelay={0.05}
-            />
+            <h1 className="block">
+              <RevealText 
+                text="REFINE YOUR NARRATIVE." 
+                fontSize="text-[2.2rem] sm:text-[3rem] md:text-[5.5rem] lg:text-[7rem]"
+                textColor="text-foreground"
+                overlayColor="text-primary"
+                letterDelay={0.05}
+              />
+            </h1>
             <div className="flex items-center justify-center gap-4 mt-8">
               <div className="h-px w-8 md:w-16 bg-primary/30" />
               <span className="text-[10px] md:text-[12px] font-black uppercase tracking-[0.4em] md:tracking-[0.6em] text-primary italic animate-pulse">Intelligent Editorial Suite</span>
@@ -108,21 +110,42 @@ export default async function LandingPage() {
             "Bridging the gap between raw information and polished intelligence. Xylos AI empowers professionals to synthesize reality."
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 max-w-lg mx-auto w-full">
+            {user ? (
+              <Link 
+                href="/chat"
+                className="flex items-center justify-center gap-4 px-12 py-5 rounded-2xl bg-primary text-black font-black text-xs uppercase tracking-widest shadow-2xl hover:scale-105 active:scale-95 transition-all group w-full"
+              >
+                Launch Neural Link
+                <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+              </Link>
+            ) : (
+              <Link 
+                href="/login"
+                className="flex items-center justify-center gap-4 px-12 py-5 rounded-2xl bg-foreground text-background font-black text-xs uppercase tracking-widest shadow-2xl hover:scale-105 active:scale-95 transition-all group w-full"
+              >
+                Start Building
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+              </Link>
+            )}
             <Link 
-              href={user ? "/dashboard" : "/login"}
-              className="flex items-center gap-4 px-12 py-5 rounded-2xl bg-foreground text-background font-black text-xs uppercase tracking-widest shadow-2xl hover:scale-105 active:scale-95 transition-all group w-full sm:w-auto"
+              href={user ? "/dashboard" : "#stories"}
+              className="px-12 py-5 rounded-2xl border border-border bg-card/40 backdrop-blur-md font-black text-xs uppercase tracking-widest hover:bg-muted/50 transition-all w-full text-foreground text-center"
             >
-              {user ? "Go to Dashboard" : "Start Building"}
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-            </Link>
-            <Link 
-              href="#stories"
-              className="px-12 py-5 rounded-2xl border border-border bg-card/40 backdrop-blur-md font-black text-xs uppercase tracking-widest hover:bg-muted/50 transition-all w-full sm:w-auto text-foreground"
-            >
-              Browse Stories
+              {user ? "Dashboard" : "Browse Stories"}
             </Link>
           </div>
+
+          {/* Mobile Pulse Link (Floating Action) */}
+          {user && (
+            <Link 
+              href="/chat"
+              aria-label="Launch Neural Link"
+              className="md:hidden fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-2xl bg-primary text-black flex items-center justify-center shadow-[0_0_30px_rgba(var(--primary),0.3)] animate-bounce-slow"
+            >
+              <MessageSquare className="w-6 h-6" />
+            </Link>
+          )}
         </div>
 
         {/* Blog Feed Section */}
@@ -132,10 +155,10 @@ export default async function LandingPage() {
 
         {/* Modular Systems Section */}
         <div id="features" className="w-full max-w-7xl mx-auto mt-40 space-y-24">
-           <AnimatedHeader className="text-center space-y-4 px-4">
+           <AnimatedHeader className="text-center space-y-4 px-4 mt-20 md:mt-40">
               <AnimatedItem className="text-[10px] font-black text-primary uppercase tracking-[0.4em] mb-4">Core Capacities</AnimatedItem>
-              <AnimatedItem y={20} className="text-4xl md:text-6xl font-black font-fustat uppercase tracking-tighter">Human <span className="italic text-muted-foreground">Intelligence</span> Amplified</AnimatedItem>
-              <AnimatedItem y={20} className="text-lg text-muted-foreground font-medium max-w-2xl mx-auto italic">High-fidelity tools meeting modern architectural standards.</AnimatedItem>
+              <AnimatedItem y={20} className="text-3xl md:text-6xl font-black font-fustat uppercase tracking-tighter">Human <span className="italic text-muted-foreground">Intelligence</span> Amplified</AnimatedItem>
+              <AnimatedItem y={20} className="hidden md:block text-lg text-muted-foreground font-medium max-w-2xl mx-auto italic">High-fidelity tools meeting modern architectural standards.</AnimatedItem>
            </AnimatedHeader>
            
            <BentoGrid>
@@ -184,8 +207,8 @@ export default async function LandingPage() {
              <h2 className="text-4xl font-black uppercase tracking-tighter">Common <span className="italic text-primary">Clarifications</span></h2>
           </FadeIn>
           <div className="space-y-6">
-            <TiltCard degree={4}>
-              <div className="p-10 rounded-[2rem] bg-card border border-border/50 backdrop-blur-xl shadow-sm hover:border-primary/30 transition-all group h-full relative z-10">
+            <TiltCard degree={2}>
+              <div className="p-6 md:p-10 rounded-[2rem] bg-card border border-border/50 backdrop-blur-xl shadow-sm hover:border-primary/30 transition-all group h-full relative z-10">
                  <h3 className="text-xl font-black mb-3 uppercase tracking-tight flex items-center gap-3">
                     <Zap className="w-5 h-5 text-primary group-hover:animate-bounce" />
                     How is the platform zero-cost?
@@ -193,8 +216,8 @@ export default async function LandingPage() {
                  <p className="text-muted-foreground font-medium leading-relaxed italic">We utilize open-source models and intelligent tiered routing to ensure high-performance AI tools remain accessible for professional research and development.</p>
               </div>
             </TiltCard>
-            <TiltCard degree={4}>
-              <div className="p-10 rounded-[2rem] bg-card border border-border/50 backdrop-blur-xl shadow-sm hover:border-primary/30 transition-all group h-full relative z-10">
+            <TiltCard degree={2}>
+              <div className="p-6 md:p-10 rounded-[2rem] bg-card border border-border/50 backdrop-blur-xl shadow-sm hover:border-primary/30 transition-all group h-full relative z-10">
                  <h3 className="text-xl font-black mb-3 uppercase tracking-tight flex items-center gap-3">
                     <Sparkles className="w-5 h-5 text-secondary group-hover:animate-spin" />
                     What about reliability?

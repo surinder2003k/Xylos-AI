@@ -37,7 +37,7 @@ import {
 } from "@/components/ui/interfaces-select";
 import { useToast } from "@/components/ui/toast";
 import { ConfirmationModal } from "@/components/ui/modal";
-import { updateAppSetting, getAppSetting } from "@/app/actions/settings";
+import { updateAppSetting, getAppSetting, getProfiles, updateProfileRole } from "@/app/actions/settings";
 
 export default function AIManagerPage() {
   const [isRunning, setIsRunning] = useState(false);
@@ -81,14 +81,11 @@ export default function AIManagerPage() {
   const fetchUsers = async () => {
     setLoadingUsers(true);
     try {
-      const { data, error } = await supabase
-        .from("profiles")
-        .select("*")
-        .order("created_at", { ascending: false });
-      if (error) throw error;
-      setUsers(data || []);
+      const result = await getProfiles();
+      if (!result.success) throw new Error(result.error);
+      setUsers(result.profiles || []);
     } catch (err: any) {
-      showToast("Access Denied: Could not fetch neural directory.", "error");
+      showToast("Access Denied: Could not sync neural directory.", "error");
     } finally {
       setLoadingUsers(false);
     }
@@ -167,15 +164,12 @@ export default function AIManagerPage() {
   const confirmRoleChange = async () => {
     if (!targetUser) return;
     try {
-      const { error } = await supabase
-        .from("profiles")
-        .update({ role: newRole })
-        .eq("id", targetUser.id);
+      const result = await updateProfileRole(targetUser.user_id || targetUser.id, newRole);
       
-      if (error) throw error;
+      if (!result.success) throw new Error(result.error);
       
-      showToast(`${targetUser.full_name || 'User'} role updated to ${newRole}.`, "success");
-      setUsers(users.map(u => u.id === targetUser.id ? { ...u, role: newRole } : u));
+      showToast(`${targetUser.full_name || 'User'} role updated to ${newRole.toUpperCase()}.`, "success");
+      setUsers(users.map(u => (u.user_id === targetUser.user_id || u.id === targetUser.id) ? { ...u, role: newRole } : u));
       setIsRoleModalOpen(false);
     } catch (err: any) {
       showToast("Security override failed: " + err.message, "error");
