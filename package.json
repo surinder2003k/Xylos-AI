@@ -31,6 +31,7 @@
     "animejs": "^4.3.6",
     "canvas-confetti": "^1.9.4",
     "clsx": "^2.1.1",
+    "critters": "^0.0.23",
     "date-fns": "^4.1.0",
     "framer-motion": "^11.18.2",
     "lucide-react": "^0.441.0",
