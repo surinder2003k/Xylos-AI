@@ -2,20 +2,41 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import { useEditor, EditorContent } from "@tiptap/react";
-import { BubbleMenu } from "@tiptap/extension-bubble-menu";
+import { BubbleMenu as BubbleMenuComponent } from "@tiptap/react/menus";
 import { motion, AnimatePresence } from "framer-motion";
 import StarterKit from "@tiptap/starter-kit";
 import Color from "@tiptap/extension-color";
 import { TextStyle } from "@tiptap/extension-text-style";
 import Link from "@tiptap/extension-link";
+import Underline from "@tiptap/extension-underline";
 import Placeholder from "@tiptap/extension-placeholder";
-import Image from "@tiptap/extension-image";
 import Dropcursor from "@tiptap/extension-dropcursor";
 import ResizableImage from "tiptap-extension-resize-image";
+import { 
+  Bold, 
+  Italic, 
+  List, 
+  ListOrdered, 
+  Quote, 
+  Undo, 
+  Redo,
+  Image as ImageIcon,
+  Link as LinkIcon,
+  Heading1,
+  Heading2,
+  Code,
+  Type,
+  ChevronDown,
+  Check,
+  FileText,
+  X,
+  Plus,
+  Loader2
+} from "lucide-react";
 import { createClient } from "@/utils/supabase/client";
-import { Loader2 } from "lucide-react";
 import { CustomModal } from "../ui/custom-modal";
 import { useToast } from "@/components/ui/toast";
+import { useTheme } from "next-themes";
 
 // Custom extension to allow dynamic 'rel' attribute toggling for SEO
 const CustomLink = Link.extend({
@@ -28,26 +49,21 @@ const CustomLink = Link.extend({
     };
   },
 });
-import Underline from "@tiptap/extension-underline";
-import { useTheme } from "next-themes";
-import { 
-  Bold, 
-  Italic, 
-  List, 
-  ListOrdered, 
-  Quote, 
-  Type, 
-  Link as LinkIcon,
-  Palette,
-  Heading1,
-  Heading2,
-  Undo,
-  Redo,
-  Strikethrough,
-  Image as ImageIcon,
-  FileText,
-  Check
-} from "lucide-react";
+
+const ToolbarButton = ({ onClick, isActive, icon: Icon, title, className = "" }: any) => (
+  <button
+    type="button"
+    onClick={onClick}
+    title={title}
+    className={`p-2.5 rounded-xl transition-all duration-300 group relative ${
+      isActive 
+        ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20 scale-105" 
+        : "text-muted-foreground hover:bg-muted hover:text-foreground hover:scale-105"
+    } ${className}`}
+  >
+    <Icon className={`w-4 h-4 ${isActive ? "animate-pulse" : "group-hover:rotate-6 transition-transform"}`} />
+  </button>
+);
 
 interface TiptapEditorProps {
   content: string;
@@ -89,7 +105,14 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
         dropcursor: false,
       }),
       TextStyle,
+      Underline,
       Color,
+      Link.configure({
+        openOnClick: false,
+        HTMLAttributes: {
+          class: 'neural-link cursor-pointer text-primary underline underline-offset-4 decoration-primary/30 hover:decoration-primary transition-all',
+        },
+      }),
       Placeholder.configure({
         placeholder: "The workspace is ready. Compose your story...",
       }),
@@ -358,13 +381,13 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
 
       <div className="relative">
         {editor && (
-          <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }} className="flex items-center gap-1 p-2 bg-card/90 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl animate-in fade-in zoom-in duration-200">
+          <BubbleMenuComponent editor={editor} tippyOptions={{ duration: 100 }} className="flex items-center gap-1 p-2 bg-card/90 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl animate-in fade-in zoom-in duration-200">
              <ToolbarButton onClick={() => editor.chain().focus().toggleBold().run()} isActive={editor.isActive('bold')} icon={Bold} />
              <ToolbarButton onClick={() => editor.chain().focus().toggleItalic().run()} isActive={editor.isActive('italic')} icon={Italic} />
              <div className="w-px h-4 bg-border mx-1" />
              <ToolbarButton onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} isActive={editor.isActive('heading', { level: 2 })} icon={Heading2} />
              <ToolbarButton onClick={setLink} isActive={editor.isActive('link')} icon={LinkIcon} />
-          </BubbleMenu>
+          </BubbleMenuComponent>
         )}
         <EditorContent editor={editor} />
         <AnimatePresence>
@@ -506,22 +529,5 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
         type={modalConfig.type}
       />
     </div>
-  );
-}
-
-function ToolbarButton({ onClick, isActive, icon: Icon }: any) {
-  return (
-    <button
-      onClick={(e) => {
-        e.preventDefault();
-        onClick();
-      }}
-      className={`
-        p-2.5 rounded-xl transition-all duration-200
-        ${isActive ? 'bg-primary/20 text-primary scale-95' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}
-      `}
-    >
-      <Icon className="w-[18px] h-[18px]" />
-    </button>
   );
 }

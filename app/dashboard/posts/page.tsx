@@ -39,18 +39,30 @@ export default function AllStoriesPage() {
   const fetchPosts = async () => {
     setLoading(true);
     try {
-      // Get current user first
+      // Get current user and their profile (role)
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) {
         setPosts([]);
         return;
       }
 
-      const { data, error } = await supabase
-        .from("blogs")
-        .select("*")
-        .eq("author_id", user.id)  // ← Only fetch THIS user's blogs
-        .order("created_at", { ascending: false });
+      // Fetch user profile role
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("role")
+        .eq("user_id", user.id)
+        .maybeSingle();
+
+      const isAdmin = profile?.role === 'admin' || profile?.role === 'super_admin';
+
+      let query = supabase.from("blogs").select("*");
+
+      // If NOT admin, only fetch OWN blogs
+      if (!isAdmin) {
+        query = query.eq("author_id", user.id);
+      }
+
+      const { data, error } = await query.order("created_at", { ascending: false });
 
       if (error) throw error;
       setPosts(data || []);
@@ -77,11 +89,26 @@ export default function AllStoriesPage() {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) return;
 
-      const { error } = await supabase
+      // Check role
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("role")
+        .eq("user_id", user.id)
+        .maybeSingle();
+      
+      const isAdmin = profile?.role === 'admin' || profile?.role === 'super_admin';
+
+      let query = supabase
         .from("blogs")
         .update({ status: newStatus })
-        .eq("id", post.id)
-        .eq("author_id", user.id);  // ← Security: only own posts
+        .eq("id", post.id);
+
+      // If NOT admin, only allow own
+      if (!isAdmin) {
+        query = query.eq("author_id", user.id);
+      }
+
+      const { error } = await query;
 
       if (error) throw error;
       
@@ -99,11 +126,26 @@ export default function AllStoriesPage() {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) return;
 
-      const { error } = await supabase
+      // Check role
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("role")
+        .eq("user_id", user.id)
+        .maybeSingle();
+      
+      const isAdmin = profile?.role === 'admin' || profile?.role === 'super_admin';
+
+      let query = supabase
         .from("blogs")
         .delete()
-        .eq("id", postToDelete.id)
-        .eq("author_id", user.id);  // ← Security: only own posts
+        .eq("id", postToDelete.id);
+
+      // If NOT admin, only allow own
+      if (!isAdmin) {
+        query = query.eq("author_id", user.id);
+      }
+
+      const { error } = await query;
 
       if (error) throw error;
       
