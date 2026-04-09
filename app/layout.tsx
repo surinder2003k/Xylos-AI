@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Fustat } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { PrimaryColorProvider } from "@/components/primary-color-provider";
@@ -86,6 +87,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${fustat.variable} antialiased selection:bg-primary/30 selection:text-primary-foreground`}>
+        <noscript>
+          <iframe 
+            src="https://www.googletagmanager.com/ns.html?id=GTM-N3CBBBLM"
+            height="0" 
+            width="0" 
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <ThemeProvider 
           attribute="class" 
           defaultTheme="dark" 
@@ -97,6 +106,35 @@ export default function RootLayout({
               <TopProgressBar />
               <SplashLoader />
               <main className="relative min-h-screen">
+                <Script
+                  id="google-tag-manager"
+                  strategy="afterInteractive"
+                  dangerouslySetInnerHTML={{
+                    __html: `
+                      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                      })(window,document,'script','dataLayer','GTM-N3CBBBLM');
+                    `,
+                  }}
+                />
+                <Script
+                  src="https://www.googletagmanager.com/gtag/js?id=G-HSZJRM7GKQ"
+                  strategy="afterInteractive"
+                />
+                <Script
+                  id="google-analytics"
+                  strategy="afterInteractive"
+                  dangerouslySetInnerHTML={{
+                    __html: `
+                      window.dataLayer = window.dataLayer || [];
+                      function gtag(){dataLayer.push(arguments);}
+                      gtag('js', new Date());
+                      gtag('config', 'G-HSZJRM7GKQ');
+                    `,
+                  }}
+                />
                 <script
                   type="application/ld+json"
                   dangerouslySetInnerHTML={{
