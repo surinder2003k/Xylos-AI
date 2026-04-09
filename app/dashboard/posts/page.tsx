@@ -49,7 +49,7 @@ export default function AllStoriesPage() {
       const { data, error } = await supabase
         .from("blogs")
         .select("*")
-        .eq("author_id", user.id)  // ← Only fetch THIS user's blogs
+        .eq("user_id", user.id)  // ← Only fetch THIS user's blogs
         .order("created_at", { ascending: false });
 
       if (error) throw error;

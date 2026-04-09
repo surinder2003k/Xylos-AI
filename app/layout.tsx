@@ -108,6 +108,11 @@ export default function RootLayout({
             `,
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.addEventListener("contextmenu", function(e) { e.preventDefault(); });`
+          }}
+        />
       </head>
       <body className={`${inter.variable} ${fustat.variable} antialiased selection:bg-primary/30 selection:text-primary-foreground`}>
         <noscript>

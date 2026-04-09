@@ -35,22 +35,22 @@ export function ImageUpload({ onUploadComplete, onClear, currentUrl }: ImageUplo
     setUploadError(null);
 
     try {
-      const fileExt = file.name.split(".").pop();
-      const fileName = `${Math.random().toString(36).substring(2)}-${Date.now()}.${fileExt}`;
-      const filePath = `${fileName}`;
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("bucket", "blog-images");
 
-      const { data, error } = await supabase.storage
-        .from("blog-images")
-        .upload(filePath, file);
+      const response = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
 
-      if (error) throw error;
+      const data = await response.json();
 
-      // Generate Public URL
-      const { data: { publicUrl } } = supabase.storage
-        .from("blog-images")
-        .getPublicUrl(filePath);
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || "Failed to upload asset");
+      }
 
-      onUploadComplete(publicUrl);
+      onUploadComplete(data.url);
     } catch (err: any) {
       setUploadError("Neural Link Failure: " + err.message);
     } finally {

@@ -39,7 +39,7 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
   // Manual Enrichment: Fetch profiles for the authors
   let blogs = blogsData;
   if (blogsData && blogsData.length > 0) {
-    const authorIds = [...new Set(blogsData.map(b => b.author_id))];
+    const authorIds = [...new Set(blogsData.map(b => b.user_id))].filter(Boolean);
     const { data: profiles } = await publicSupabase
       .from("profiles")
       .select("user_id, full_name")
@@ -47,7 +47,7 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
 
     blogs = blogsData.map(blog => ({
       ...blog,
-      profiles: profiles?.find(p => p.user_id === blog.author_id)
+      profiles: profiles?.find(p => p.user_id === blog.user_id)
     }));
   }
 

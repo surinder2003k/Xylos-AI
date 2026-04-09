@@ -8,6 +8,7 @@ import { AnimeText } from "@/components/premium/anime-text";
 import { formatIST } from "@/lib/utils/date-format";
 import { AuthorBio } from "@/components/blog/author-bio";
 import { NewsletterCard } from "@/components/blog/newsletter-card";
+import { ShareButtons } from "@/components/blog/share-buttons";
 import { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -59,11 +60,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     .eq("slug", slug)
     .maybeSingle();
 
-  if (post && post.author_id) {
+  if (post && post.user_id) {
     const { data: profile } = await supabase
       .from("profiles")
       .select("full_name, avatar_url")
-      .eq("user_id", post.author_id)
+      .eq("user_id", post.user_id)
       .maybeSingle();
       
     post.author = profile;
@@ -116,11 +117,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
           
           <div className="flex items-center gap-6">
-             <div className="hidden md:flex items-center gap-4 border-r border-border pr-6 mr-2">
-                <button className="text-muted-foreground hover:text-primary transition-colors"><Twitter className="w-4 h-4" /></button>
-                <button className="text-muted-foreground hover:text-primary transition-colors"><Facebook className="w-4 h-4" /></button>
-                <button className="text-muted-foreground hover:text-primary transition-colors"><Share2 className="w-4 h-4" /></button>
-             </div>
+             <ShareButtons title={post.title} excerpt={post.excerpt} slug={post.slug} />
              <Link 
                href="/dashboard"
                className="px-5 py-2 rounded-full bg-primary text-black font-black text-[10px] tracking-widest uppercase hover:scale-105 transition-all shadow-neon"

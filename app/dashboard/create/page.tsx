@@ -166,6 +166,9 @@ function CreatePostContent() {
     }
     setIsPublishing(true);
     try {
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
+      if (userError || !user) throw new Error("Authentication failed. Please relogin.");
+
       const postData: any = {
         title,
         excerpt,
@@ -182,12 +185,11 @@ function CreatePostContent() {
 
       let query;
       if (currentPostId) {
-        // If updating, preserve the original status unless we are specifically forcing a publish
-        // (If the UI had a status toggle, we would use that state. Here we preserve it).
         query = supabase.from("blogs").update(postData).eq("id", currentPostId);
       } else {
         postData.status = "published";
         postData.published_at = new Date().toISOString();
+        postData.user_id = user.id;
         query = supabase.from("blogs").insert(postData).select().single();
       }
 

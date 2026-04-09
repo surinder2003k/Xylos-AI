@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { useEditor, EditorContent } from "@tiptap/react";
+import React, { useState, useEffect, useCallback } from "react";
+import { useEditor, EditorContent, BubbleMenu } from "@tiptap/react";
 import { motion, AnimatePresence } from "framer-motion";
 import StarterKit from "@tiptap/starter-kit";
 import Color from "@tiptap/extension-color";
@@ -44,7 +44,8 @@ import {
   Redo,
   Strikethrough,
   Image as ImageIcon,
-  FileText
+  FileText,
+  Check
 } from "lucide-react";
 
 interface TiptapEditorProps {
@@ -71,6 +72,10 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
   const fileInputRef = React.useRef<HTMLInputElement>(null);
   const supabase = createClient();
   const { showToast } = useToast();
+
+  // Custom Prompt States
+  const [linkEditor, setLinkEditor] = useState({ isOpen: false, url: '', isNofollow: false });
+  const [altTextEditor, setAltTextEditor] = useState({ isOpen: false, altText: '', callback: (alt: string | null) => {} });
 
   useEffect(() => {
     setMounted(true);
@@ -141,16 +146,21 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
   const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 
   const setLink = () => {
-    const url = window.prompt('Enter the URL (e.g. https://xylos-ai.com):');
-    if (url) {
-      // Prompt user specifically for SEO rel tagging
-      const isNofollow = window.confirm('Should this link be "No-Follow" for SEO?\n\n(Click OK for No-Follow, Click Cancel for Do-Follow)');
-      editor.chain().focus().setLink({ 
-        href: url,
+    const previousUrl = editor.getAttributes('link').href || '';
+    setLinkEditor({ isOpen: true, url: previousUrl, isNofollow: false });
+  };
+
+  const applyLink = () => {
+    if (linkEditor.url) {
+      editor.chain().focus().extendMarkRange('link').setLink({ 
+        href: linkEditor.url,
         target: '_blank',
-        rel: isNofollow ? 'nofollow noopener noreferrer' : 'dofollow noopener noreferrer'
+        rel: linkEditor.isNofollow ? 'nofollow noopener noreferrer' : 'dofollow noopener noreferrer'
       }).run();
+    } else {
+      editor.chain().focus().unsetLink().run();
     }
+    setLinkEditor((prev) => ({ ...prev, isOpen: false }));
   };
 
   const addImage = () => {
@@ -187,10 +197,14 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
         .from("blog-images")
         .getPublicUrl(fileName);
 
-      // Neural SEO: Mandatory Alt Text Prompt
-      const altText = window.prompt('Define SEO Alt Text for this asset (Optional):') || '';
-
-      editor.chain().focus().setImage({ src: publicUrl, alt: altText }).run();
+      // Trigger Custom Alt Text UI
+      setAltTextEditor({
+        isOpen: true,
+        altText: '',
+        callback: (alt) => {
+          editor.chain().focus().setImage({ src: publicUrl, alt: alt || '' }).run();
+        }
+      });
     } catch (err: any) {
       console.error("Asset Synthesis Failure:", err);
       
@@ -223,10 +237,15 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
   const setAltText = () => {
     if (!editor.isActive('image')) return;
     const currentAlt = editor.getAttributes('image').alt || '';
-    const newAlt = window.prompt('Update SEO Alt Text:', currentAlt);
-    if (newAlt !== null) {
-      editor.chain().focus().updateAttributes('image', { alt: newAlt }).run();
-    }
+    setAltTextEditor({
+      isOpen: true,
+      altText: currentAlt,
+      callback: (newAlt) => {
+        if (newAlt !== null) {
+          editor.chain().focus().updateAttributes('image', { alt: newAlt }).run();
+        }
+      }
+    });
   };
 
   return (
@@ -344,6 +363,15 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
       />
 
       <div className="relative">
+        {editor && (
+          <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }} className="flex items-center gap-1 p-2 bg-card/90 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl animate-in fade-in zoom-in duration-200">
+             <ToolbarButton onClick={() => editor.chain().focus().toggleBold().run()} isActive={editor.isActive('bold')} icon={Bold} />
+             <ToolbarButton onClick={() => editor.chain().focus().toggleItalic().run()} isActive={editor.isActive('italic')} icon={Italic} />
+             <div className="w-px h-4 bg-border mx-1" />
+             <ToolbarButton onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} isActive={editor.isActive('heading', { level: 2 })} icon={Heading2} />
+             <ToolbarButton onClick={setLink} isActive={editor.isActive('link')} icon={LinkIcon} />
+          </BubbleMenu>
+        )}
         <EditorContent editor={editor} />
         <AnimatePresence>
           {isUploading && (
@@ -395,6 +423,86 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
           </div>
         </div>
       </div>
+
+      {/* Custom Link Editor Modal */}
+      <AnimatePresence>
+        {linkEditor.isOpen && (
+          <div className="absolute inset-0 z-[60] bg-background/80 backdrop-blur-sm flex items-center justify-center p-4">
+            <motion.div 
+               initial={{ opacity: 0, scale: 0.95 }}
+               animate={{ opacity: 1, scale: 1 }}
+               exit={{ opacity: 0, scale: 0.95 }}
+               className="w-full max-w-sm bg-[#0d0d0d] border border-border rounded-3xl p-6 shadow-2xl space-y-6"
+            >
+              <div className="space-y-2">
+                <h3 className="font-black text-lg uppercase tracking-widest text-primary flex items-center gap-2">
+                   <LinkIcon className="w-5 h-5" /> Embed Link
+                </h3>
+                <p className="text-[10px] uppercase text-muted-foreground font-bold">Neural Pathway Injection</p>
+              </div>
+
+              <div className="space-y-4">
+                <input 
+                  type="url" 
+                  value={linkEditor.url}
+                  onChange={(e) => setLinkEditor(prev => ({ ...prev, url: e.target.value }))}
+                  placeholder="https://xylos-ai.com"
+                  className="w-full bg-muted/30 border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/50 transition-colors"
+                  autoFocus
+                />
+                
+                <label className="flex items-center gap-3 cursor-pointer group">
+                  <div className={`w-5 h-5 rounded-md border flex items-center justify-center transition-all ${linkEditor.isNofollow ? 'bg-primary border-primary text-black' : 'border-border text-transparent group-hover:border-primary/50'}`}>
+                    <Check className="w-3 h-3" />
+                  </div>
+                  <input type="checkbox" className="hidden" checked={linkEditor.isNofollow} onChange={(e) => setLinkEditor(prev => ({ ...prev, isNofollow: e.target.checked }))} />
+                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground group-hover:text-foreground transition-colors">Tag 'No-Follow' (SEO)</span>
+                </label>
+              </div>
+
+              <div className="flex items-center gap-3 pt-2 border-t border-white/5">
+                <button onClick={() => setLinkEditor(prev => ({ ...prev, isOpen: false }))} className="flex-1 py-3 rounded-xl border border-white/10 text-xs font-bold uppercase hover:bg-white/5 transition-all text-muted-foreground">Cancel</button>
+                <button onClick={applyLink} className="flex-1 py-3 rounded-xl bg-primary text-black text-xs font-black uppercase hover:scale-105 transition-all shadow-neon">Confirm</button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Custom Alt Text Modal */}
+      <AnimatePresence>
+        {altTextEditor.isOpen && (
+          <div className="absolute inset-0 z-[60] bg-background/80 backdrop-blur-sm flex items-center justify-center p-4">
+            <motion.div 
+               initial={{ opacity: 0, scale: 0.95 }}
+               animate={{ opacity: 1, scale: 1 }}
+               exit={{ opacity: 0, scale: 0.95 }}
+               className="w-full max-w-sm bg-[#0d0d0d] border border-border rounded-3xl p-6 shadow-2xl space-y-6"
+            >
+              <div className="space-y-2">
+                <h3 className="font-black text-lg uppercase tracking-widest text-primary flex items-center gap-2">
+                   <FileText className="w-5 h-5" /> SEO Metadata
+                </h3>
+                <p className="text-[10px] uppercase text-muted-foreground font-bold">Image Alt-Text Definition</p>
+              </div>
+
+              <input 
+                type="text" 
+                value={altTextEditor.altText}
+                onChange={(e) => setAltTextEditor(prev => ({ ...prev, altText: e.target.value }))}
+                placeholder="Describe image for search engines..."
+                className="w-full bg-muted/30 border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/50 transition-colors"
+                autoFocus
+              />
+
+              <div className="flex items-center gap-3 pt-2 border-t border-white/5">
+                <button onClick={() => { altTextEditor.callback(null); setAltTextEditor(prev => ({ ...prev, isOpen: false })); }} className="flex-1 py-3 rounded-xl border border-white/10 text-xs font-bold uppercase hover:bg-white/5 transition-all text-muted-foreground">Skip</button>
+                <button onClick={() => { altTextEditor.callback(altTextEditor.altText); setAltTextEditor(prev => ({ ...prev, isOpen: false })); }} className="flex-1 py-3 rounded-xl bg-primary text-black text-xs font-black uppercase hover:scale-105 transition-all shadow-neon">Apply Data</button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       <CustomModal 
         isOpen={modalConfig.isOpen}
