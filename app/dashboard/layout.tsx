@@ -61,15 +61,19 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           setUserRole("admin");
         }
 
-        const { data: profile } = await supabase
-          .from("profiles")
-          .select("role")
-          .eq("user_id", user.id)
-          .single();
-        
-        if (profile?.role === "admin") {
-          setIsAdmin(true);
-          setUserRole("admin");
+        try {
+          const { data: profile, error: profileError } = await supabase
+            .from("profiles")
+            .select("role")
+            .eq("user_id", user.id)
+            .maybeSingle();
+          
+          if (!profileError && profile?.role === "admin") {
+            setIsAdmin(true);
+            setUserRole("admin");
+          }
+        } catch (e) {
+          console.warn("[Editorial Sync] Role validation skipped:", e);
         }
       }
     }

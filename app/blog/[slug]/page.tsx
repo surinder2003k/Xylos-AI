@@ -60,11 +60,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     .eq("slug", slug)
     .maybeSingle();
 
-  if (post && post.user_id) {
+  if (post && post.author_id) {
     const { data: profile } = await supabase
       .from("profiles")
       .select("full_name, avatar_url")
-      .eq("user_id", post.user_id)
+      .eq("user_id", post.author_id)
       .maybeSingle();
       
     post.author = profile;

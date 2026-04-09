@@ -14,6 +14,9 @@ export async function POST(req: Request) {
     const userPrompt = body.prompt || "";
     const userCategory = body.category || "";
 
+    // Get Auth User for author_id
+    const { data: { user } } = await supabase.auth.getUser();
+
     // 2. Fetch Recent Blog Titles (Context Injection)
     let recentTitles: string[] = [];
     try {
@@ -114,6 +117,7 @@ export async function POST(req: Request) {
         slug: slugify(blogData.title),
         status: autoPublish ? "published" : "draft",
         published_at: autoPublish ? new Date().toISOString() : null,
+        author_id: user?.id || null, // Ensure author is linked
       };
 
       const { data, error } = await supabase

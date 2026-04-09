@@ -189,7 +189,7 @@ function CreatePostContent() {
       } else {
         postData.status = "published";
         postData.published_at = new Date().toISOString();
-        postData.user_id = user.id;
+        postData.author_id = user.id;
         query = supabase.from("blogs").insert(postData).select().single();
       }
 

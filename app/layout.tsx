@@ -11,6 +11,8 @@ import { AuthListener } from "@/components/auth-listener";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const fustat = Fustat({ subsets: ["latin"], variable: "--font-fustat" });
 
+import { GlobalEffects } from "@/components/ui/global-effects";
+
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://xylos-ai.com'),
   title: {
@@ -108,13 +110,9 @@ export default function RootLayout({
             `,
           }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `document.addEventListener("contextmenu", function(e) { e.preventDefault(); });`
-          }}
-        />
       </head>
       <body className={`${inter.variable} ${fustat.variable} antialiased selection:bg-primary/30 selection:text-primary-foreground`}>
+        <GlobalEffects />
         <noscript>
           <iframe 
             src="https://www.googletagmanager.com/ns.html?id=GTM-N3CBBBLM"

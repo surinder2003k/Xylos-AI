@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
-import { useEditor, EditorContent, BubbleMenu } from "@tiptap/react";
+import { useEditor, EditorContent } from "@tiptap/react";
+import { BubbleMenu } from "@tiptap/extension-bubble-menu";
 import { motion, AnimatePresence } from "framer-motion";
 import StarterKit from "@tiptap/starter-kit";
 import Color from "@tiptap/extension-color";
@@ -85,17 +86,10 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
     extensions: [
       StarterKit.configure({
         history: false,
-        dropcursor: false, // Disable built-in to use our configured one
+        dropcursor: false,
       }),
-      Underline,
       TextStyle,
       Color,
-      CustomLink.configure({
-        openOnClick: false,
-        HTMLAttributes: {
-          class: 'text-primary underline cursor-pointer',
-        },
-      }),
       Placeholder.configure({
         placeholder: "The workspace is ready. Compose your story...",
       }),
