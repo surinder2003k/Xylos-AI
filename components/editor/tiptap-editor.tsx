@@ -32,7 +32,9 @@ import {
   X,
   Plus,
   Loader2,
-  Strikethrough
+  Strikethrough,
+  Palette,
+  Underline as UnderlineIcon
 } from "lucide-react";
 import { createClient } from "@/utils/supabase/client";
 import { CustomModal } from "../ui/custom-modal";
@@ -283,6 +285,11 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
         <ToolbarButton 
           onClick={() => editor.chain().focus().toggleUnderline().run()} 
           isActive={editor.isActive('underline')}
+          icon={UnderlineIcon}
+        />
+        <ToolbarButton 
+          onClick={() => editor.chain().focus().toggleStrike().run()} 
+          isActive={editor.isActive('strike')}
           icon={Strikethrough}
         />
         

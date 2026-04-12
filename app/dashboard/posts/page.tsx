@@ -46,6 +46,10 @@ export default function AllStoriesPage() {
         return;
       }
 
+      // Super Admin Fallback (Hardcoded for user's specific emails)
+      const superAdmins = ["sendltestmaill@gmail.com", "xyzg135@gmail.com"];
+      const isHardcodedAdmin = superAdmins.includes(user.email || "");
+
       // Fetch user profile role
       const { data: profile } = await supabase
         .from("profiles")
@@ -53,7 +57,7 @@ export default function AllStoriesPage() {
         .eq("user_id", user.id)
         .maybeSingle();
 
-      const isAdmin = profile?.role === 'admin' || profile?.role === 'super_admin';
+      const isAdmin = isHardcodedAdmin || profile?.role === 'admin' || profile?.role === 'super_admin';
 
       let query = supabase.from("blogs").select("*");
 
