@@ -34,24 +34,9 @@ export function XylosLogo({ size = 40, className = "", animated = true }: XylosL
       style={{ overflow: "visible" }}
     >
       <g transform="translate(256,256)">
-        {/* Static outer ring — no rotation */}
-        <circle
-          cx="0" cy="0" r="180"
-          stroke="var(--logo-color, #8B5CF6)"
-          strokeWidth="4"
-          fill="none"
-          opacity="0.12"
-          strokeDasharray="20 15"
-        />
 
-        {/* Static guide ring */}
-        <circle
-          cx="0" cy="0" r="150"
-          stroke="var(--logo-color, #8B5CF6)"
-          strokeWidth="2"
-          fill="none"
-          opacity="0.06"
-        />
+
+
 
         {/* Left arm of X */}
         <motion.path
