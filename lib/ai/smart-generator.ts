@@ -22,7 +22,8 @@ export async function generateSmartBlog(
   prompt: string, 
   recentTitles: string[] = [], 
   category?: string,
-  linkingContext: string[] = []
+  internalLinks: string[] = [],
+  externalLinks: string[] = []
 ): Promise<BlogContent> {
   const providers = [
     { name: 'groq', model: 'llama-3.3-70b-versatile' },
@@ -43,10 +44,16 @@ export async function generateSmartBlog(
   Write a high-authority, definitive article about: "${prompt.toUpperCase()}" in the context of ${category || 'General Technology'}.
   DO NOT repeat any of the recent titles mentioned above. Provide a fresh, insightful perspective.
   
-  SEO & LINKING ARCHITECTURE:
-  You MUST naturally weave the following URLs into the content (using <a> tags with target="_blank"). These should appear as citations, further reading, or related insights.
-  LINKING TARGETS:
-  ${linkingContext.length > 0 ? linkingContext.join("\n") : "None provided. Use generic high-authority citations if needed."}
+  SEO & LINKING ARCHITECTURE (CRITICAL):
+  You MUST naturally weave both internal and external citations into the narrative using <a> tags with target="_blank".
+  
+  1. INTERNAL TARGETS (Link at least ONE of these for deep-dive contextual exploration):
+  ${internalLinks.length > 0 ? internalLinks.join("\n") : "None provided. Use relevant internal site structure references."}
+  
+  2. EXTERNAL PARTNER TARGETS (Link at least ONE of these for global authority/verification):
+  ${externalLinks.length > 0 ? externalLinks.join("\n") : "None provided. Use generic high-authority citations if needed."}
+  
+  MANDATORY RULE: You MUST include AT LEAST ONE link from the Internal Targets list AND AT LEAST ONE from the External Targets list within the body content.
   
   STRUCTURE & LENGTH REQUIREMENTS (MINIMUM 1000 WORDS TOTAL):
   1. Introduction (250+ words): Start with a profound global perspective. Establish the gravity of the subject.

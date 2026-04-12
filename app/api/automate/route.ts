@@ -111,16 +111,20 @@ export async function GET(req: Request) {
         const partnerSite = "https://pulse-blog-ai.vercel.app/sitemap.xml";
         const [partnerPosts, internalPosts] = await Promise.all([
           discoverLatestPosts(partnerSite, 1), 
-          discoverInternalPosts(supabaseAdmin, 1) 
+          discoverInternalPosts(supabaseAdmin, 3) // Increase internal variety
         ]);
 
-        const linkingContext = [
-          ...partnerPosts.map(p => p.url),
-          ...internalPosts.map(p => p.url)
-        ];
+        const internalLinks = internalPosts.map(p => p.url);
+        const externalLinks = partnerPosts.map(p => p.url);
 
         // --- SYNTHESIS ---
-        const blogData = await generateSmartBlog(baseTopic, recentTitles, activeCategory, linkingContext);
+        const blogData = await generateSmartBlog(
+          baseTopic, 
+          recentTitles, 
+          activeCategory, 
+          internalLinks, 
+          externalLinks
+        );
         const imageResult = await searchSmartImage(blogData.search_term || blogData.title, blogData.category);
 
         const slug = blogData.title
