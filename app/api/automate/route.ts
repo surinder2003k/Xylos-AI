@@ -59,15 +59,29 @@ export async function GET(req: Request) {
     // 3. Fetch Neural Context & Settings
     let recentTitles: string[] = [];
     let activeCategory = "Technology";
+    let topics = [
+      "Global Technology Advancements", 
+      "Startup & VC Ecosystem", 
+      "Artificial Intelligence & Ethics", 
+      "Cybersecurity Protocols",
+      "Neural Networks & Deep Learning",
+      "Quantum Computing Frontiers",
+      "Renewable Energy Innovation",
+      "Biotechnology Breakthroughs"
+    ];
     
     try {
-      const [latestPosts, categorySetting] = await Promise.all([
+      const [latestPosts, categorySetting, topicsSetting] = await Promise.all([
         supabaseAdmin.from("blogs").select("title").order("created_at", { ascending: false }).limit(10),
-        supabaseAdmin.from("app_settings").select("value").eq("key", "auto_category").single()
+        supabaseAdmin.from("app_settings").select("value").eq("key", "auto_category").single(),
+        supabaseAdmin.from("app_settings").select("value").eq("key", "auto_topics").single()
       ]);
       
       if (latestPosts.data) recentTitles = latestPosts.data.map(p => p.title);
       if (categorySetting.data) activeCategory = categorySetting.data.value;
+      if (topicsSetting.data && Array.isArray(topicsSetting.data.value) && topicsSetting.data.value.length > 0) {
+        topics = topicsSetting.data.value;
+      }
     } catch (err: unknown) {
       console.warn("[Editorial Sync] Settings retrieval failed:", err);
     }
@@ -80,17 +94,6 @@ export async function GET(req: Request) {
     } catch(e) {
        console.error("[Editorial Sync] Author resolution failure:", e);
     }
-
-    const topics = [
-      "Global Technology Advancements", 
-      "Startup & VC Ecosystem", 
-      "Artificial Intelligence & Ethics", 
-      "Cybersecurity Protocols",
-      "Neural Networks & Deep Learning",
-      "Quantum Computing Frontiers",
-      "Renewable Energy Innovation",
-      "Biotechnology Breakthroughs"
-    ];
 
     const results = [];
 

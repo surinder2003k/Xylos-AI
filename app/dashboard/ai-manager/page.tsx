@@ -57,6 +57,18 @@ export default function AIManagerPage() {
   const [currentUserId, setCurrentUserId] = useState<string | null>(null);
   const [autoCategoriesList, setAutoCategoriesList] = useState(["Technology", "Finance", "Health"]);
   
+  const [autoTopics, setAutoTopics] = useState<string[]>([
+    "Global Technology Advancements", 
+    "Startup & VC Ecosystem", 
+    "Artificial Intelligence & Ethics", 
+    "Cybersecurity Protocols",
+    "Neural Networks & Deep Learning",
+    "Quantum Computing Frontiers",
+    "Renewable Energy Innovation",
+    "Biotechnology Breakthroughs"
+  ]);
+  const [newTopic, setNewTopic] = useState("");
+  
   const [apiStatus, setApiStatus] = useState<any>({
     gemini: "checking",
     supabase: "checking",
@@ -71,10 +83,14 @@ export default function AIManagerPage() {
       const publishResult = await getAppSetting("auto_publish");
       const categoryResult = await getAppSetting("auto_category");
       const listResult = await getAppSetting("available_categories");
+      const topicsResult = await getAppSetting("auto_topics");
       
       if (publishResult.success && publishResult.value !== null) setIsAutoPublish(publishResult.value);
       if (categoryResult.success && categoryResult.value) setAutoCategory(categoryResult.value as string);
       if (listResult.success && Array.isArray(listResult.value)) setAutoCategoriesList(listResult.value);
+      if (topicsResult.success && Array.isArray(topicsResult.value) && topicsResult.value.length > 0) {
+        setAutoTopics(topicsResult.value);
+      }
     } catch (err) {
       console.warn("Settings fetch failed");
     }
@@ -143,6 +159,16 @@ export default function AIManagerPage() {
     } catch (err) {
       setIsAutoPublish(!newState); // Rollback
       showToast("Protocol failure: Setting sync crashed.", "error");
+    }
+  };
+
+  const updateGlobalTopics = async (updatedTopics: string[]) => {
+    setAutoTopics(updatedTopics);
+    try {
+      const result = await updateAppSetting("auto_topics", updatedTopics);
+      if (!result.success) throw new Error(result.error);
+    } catch (err: any) {
+      showToast("Sync Error: Failed to update intelligence domains.", "error");
     }
   };
 
@@ -307,7 +333,57 @@ export default function AIManagerPage() {
               />
            </div>
 
+           {/* Intelligence Domain Section */}
            <div className="pt-6 border-t border-white/5 space-y-6">
+              <div className="space-y-3 pb-6 border-b border-white/5">
+                 <p className="text-[10px] font-black text-white/20 uppercase tracking-widest flex items-center justify-between">
+                    Intelligence Domain
+                    <span className="text-primary/40 font-mono tracking-normal">{autoTopics.length} Domains Active</span>
+                 </p>
+                 
+                 <div className="flex flex-wrap gap-2 mb-4 max-h-32 overflow-y-auto custom-scrollbar p-1">
+                    {autoTopics.map((topic, idx) => (
+                       <div key={idx} className="group flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 hover:border-primary/30 transition-all">
+                          <span className="text-[10px] font-bold text-white/60">{topic}</span>
+                          <button 
+                            onClick={() => updateGlobalTopics(autoTopics.filter((_, i) => i !== idx))}
+                            className="opacity-0 group-hover:opacity-100 text-white/40 hover:text-red-400 transition-all"
+                          >
+                             <Trash2 className="w-3 h-3" />
+                          </button>
+                       </div>
+                    ))}
+                 </div>
+
+                 <div className="flex items-center gap-2">
+                    <input 
+                       type="text" 
+                       value={newTopic}
+                       onChange={(e) => setNewTopic(e.target.value)}
+                       onKeyDown={(e) => {
+                          if (e.key === 'Enter' && newTopic.trim()) {
+                             updateGlobalTopics([...autoTopics, newTopic.trim()]);
+                             setNewTopic("");
+                          }
+                       }}
+                       placeholder="Add domain (e.g. AI Ethics)..."
+                       className="flex-1 bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-primary/50 text-white"
+                    />
+                    <button 
+                       onClick={() => {
+                          if (newTopic.trim()) {
+                             updateGlobalTopics([...autoTopics, newTopic.trim()]);
+                             setNewTopic("");
+                          }
+                       }}
+                       className="p-3 bg-primary/20 text-primary rounded-xl hover:bg-primary/30 transition-all"
+                    >
+                       <Zap className="w-4 h-4" />
+                    </button>
+                 </div>
+                 <p className="text-[9px] text-white/20 font-mono italic leading-relaxed">The Neural Engine will strategically rotate through these domains for each automated generation cycle.</p>
+              </div>
+
               <div className="space-y-3">
                  <p className="text-[10px] font-black text-white/20 uppercase tracking-widest">Auto-Post Category</p>
                  <Select
