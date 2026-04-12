@@ -256,7 +256,7 @@ export default function AIManagerPage() {
                 icon={Timer} 
                 title="Next Scheduled Sync" 
                 value="Tomorrow, 08:00 AM" 
-                subtitle="2 Posts Queued (India News)"
+                subtitle={`Target: ${autoCategory || 'Not Set'} Protocol`}
                 color="text-secondary"
               />
               <StatusCard 
@@ -275,7 +275,7 @@ export default function AIManagerPage() {
               </h3>
               <div className="bg-black/60 rounded-2xl p-6 font-mono text-[10px] text-white/40 space-y-2 max-h-52 overflow-y-auto custom-scrollbar">
                  <div className="flex gap-4"><span className="text-primary">[SYNC_START]</span> Initializing Gemini 2.5 Flash pipeline...</div>
-                 <div className="flex gap-4"><span className="text-primary">[PROMPT_INGEST]</span> context: "Major Indian News" (1000+ words target)</div>
+                 <div className="flex gap-4"><span className="text-primary">[PROMPT_INGEST]</span> context: "Major ${autoCategory || 'Global'} Analysis" (1000+ words target)</div>
                  <div className="flex gap-4"><span className="text-secondary">[PEXELS_SYNC]</span> fetching random assets for diversified visual...</div>
                  <div className="flex gap-4"><span className="text-accent font-bold">[V_DB_COMMIT]</span> successfully uploaded to Supabase logs</div>
                  {isRunning && <div className="flex gap-4 animate-pulse"><span className="text-primary">[SYNTHESIS]</span> generating core narrative...</div>}
