@@ -10,6 +10,7 @@ import { AuthorBio } from "@/components/blog/author-bio";
 import { NewsletterCard } from "@/components/blog/newsletter-card";
 import { ShareButtons } from "@/components/blog/share-buttons";
 import { Metadata } from "next";
+import remarkGfm from "remark-gfm";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const supabase = await createClient();
@@ -85,6 +86,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     }
   }
 
+  const formatMarkdown = (content: string) => {
+    if (!content) return "";
+    // Ensure headings have a preceding newline to be correctly parsed by ReactMarkdown
+    return content
+      .replace(/([^ \n])## /g, "$1\n\n## ")
+      .replace(/([^ \n])### /g, "$1\n\n### ")
+      .replace(/([^ \n])# /g, "$1\n\n# ");
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
       <script
@@ -136,7 +146,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                {post.category} Report
             </div>
             
-            <h1 className="text-3xl md:text-7xl font-black font-fustat tracking-tighter leading-[0.9] md:leading-none balance uppercase italic">
+            <h1 className="text-3xl md:text-7xl font-black font-fustat tracking-tighter leading-[0.9] md:leading-none balance">
                <AnimeText text={post.title} />
             </h1>
 
@@ -183,7 +193,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                {post.content && post.content.startsWith('<') ? (
                  <div dangerouslySetInnerHTML={{ __html: post.content }} />
                ) : (
-                 <ReactMarkdown>{post.content}</ReactMarkdown>
+                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{formatMarkdown(post.content)}</ReactMarkdown>
                )}
             </div>
           </div>
@@ -192,7 +202,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="p-8 rounded-3xl bg-muted/30 border border-border hover:border-primary/20 transition-colors group">
               <h4 className="text-xs font-black uppercase tracking-widest text-primary mb-3">Key Insight</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed italic">"The intersection of algorithmic accuracy and journalistic integrity defines the next era of news."</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">"The intersection of algorithmic accuracy and journalistic integrity defines the next era of news."</p>
             </div>
             <div className="p-8 rounded-3xl bg-muted/30 border border-border hover:border-primary/20 transition-colors">
               <h4 className="text-xs font-black uppercase tracking-widest text-primary mb-3">Verification</h4>

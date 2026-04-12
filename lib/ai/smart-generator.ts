@@ -61,6 +61,7 @@ export async function generateSmartBlog(
   - High vocabulary but clear logic.
   - Avoid generic "AI-isms" (e.g., "In the fast-paced world of...").
   - Use <h2> for section headers and <p> for paragraphs.
+  - IMPORTANT: Ensure every header (<h2>) and every paragraph block is separated by exactly TWO NEWLINES (\n\n) to ensure correct markdown parsing.
 
   METADATA QUALITY STANDARDS:
   - keywords: Provide 10-15 high-intent, LSI (Latent Semantic Indexing) keywords that match the investigative depth of the article.
@@ -157,10 +158,9 @@ function parseNeuralJson(raw: string): BlogContent {
     
     const jsonStr = cleanJson.slice(start, end + 1);
     
-    // Robust cleaning
+    // Robust cleaning while preserving inner string newlines
     const refinedJson = jsonStr
-      .replace(/\\n/g, "\\n")
-      .replace(/\r?\n|\r/g, " ")
+      .replace(/\\n/g, "\\n") // Preserve escaped newlines
       .replace(/,\s*}/g, "}")
       .replace(/,\s*]/g, "]");
       
