@@ -25,9 +25,23 @@ export async function getProviderResponse(
   messages: Message[]
 ): Promise<ProviderResponse> {
   
+  // High-Performance Link & Asset Pre-processor
+  const processedMessages = messages.map(m => {
+    let content = m.content;
+    if (m.attachments && m.attachments.length > 0) {
+      m.attachments.forEach(file => {
+        // If it's a text/code file (not a data URL image), inject it as context
+        if (!file.url.startsWith('data:image/') && !file.url.startsWith('data:application/pdf')) {
+          content += `\n\n[NEURAL ASSET DISCOVERED: ${file.name}]\n${file.url}\n[END OF ASSET DATA]`;
+        }
+      });
+    }
+    return { ...m, content };
+  });
+
   // 1. OPENROUTER
   if (provider === 'openrouter') {
-    const safeMessages = messages.map(m => ({ role: m.role, content: m.content }));
+    const safeMessages = processedMessages.map(m => ({ role: m.role, content: m.content }));
     const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -52,7 +66,7 @@ export async function getProviderResponse(
 
   // 2. GROQ
   if (provider === 'groq') {
-    const safeMessages = messages.map(m => ({ role: m.role, content: m.content }));
+    const safeMessages = processedMessages.map(m => ({ role: m.role, content: m.content }));
     const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -77,12 +91,10 @@ export async function getProviderResponse(
 
   // 3. GOOGLE GEMINI
   if (provider === 'gemini') {
-    // Filter system message and handle role mapping for Gemini
-    const systemInstruction = messages.find(m => m.role === 'system')?.content;
-    const chatMessages = messages.filter(m => m.role !== 'system');
+    const systemInstruction = processedMessages.find(m => m.role === 'system')?.content;
+    const chatMessages = processedMessages.filter(m => m.role !== 'system');
     
-    // Explicit model ID for stable vision support
-    const modelToUse = "gemini-1.5-flash"; // Optimized for v1beta Protocol Sync
+    const modelToUse = "gemini-1.5-flash"; 
     
     const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelToUse}:generateContent?key=${process.env.NEXT_PUBLIC_GEMINI_API_KEY}`, {
       method: "POST",
@@ -139,7 +151,7 @@ export async function getProviderResponse(
 
   // 4. MISTRAL AI
   if (provider === 'mistral') {
-    const safeMessages = messages.map(m => ({ role: m.role, content: m.content }));
+    const safeMessages = processedMessages.map(m => ({ role: m.role, content: m.content }));
     const res = await fetch("https://api.mistral.ai/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -164,7 +176,7 @@ export async function getProviderResponse(
 
   // 5. FIREWORKS AI
   if (provider === 'fireworks') {
-    const safeMessages = messages.map(m => ({ role: m.role, content: m.content }));
+    const safeMessages = processedMessages.map(m => ({ role: m.role, content: m.content }));
     const res = await fetch("https://api.fireworks.ai/inference/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -189,7 +201,7 @@ export async function getProviderResponse(
 
   // 6. CEREBRAS
   if (provider === 'cerebras') {
-     const safeMessages = messages.map(m => ({ role: m.role, content: m.content }));
+     const safeMessages = processedMessages.map(m => ({ role: m.role, content: m.content }));
      const res = await fetch("https://api.cerebras.ai/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -214,13 +226,14 @@ export async function getProviderResponse(
 
   // 6. HUGGING FACE
   if (provider === 'huggingface') {
+    const lastMsg = processedMessages[processedMessages.length - 1];
     const res = await fetch(`https://api-inference.huggingface.co/models/${model || 'microsoft/Phi-3-mini-4k-instruct'}`, {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${process.env.HF_TOKEN}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ inputs: messages[messages.length - 1].content })
+      body: JSON.stringify({ inputs: lastMsg.content })
     });
     const data = await res.json();
     return {
@@ -239,7 +252,7 @@ export async function getProviderResponse(
         "Authorization": `Bearer ${process.env.CLOUDFLARE_API_TOKEN}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ messages })
+      body: JSON.stringify({ messages: processedMessages })
     });
     const data = await res.json();
     if (!data.result?.response) {
@@ -253,5 +266,5 @@ export async function getProviderResponse(
   }
 
   // BEST FREE ROUTE (Fallback to Groq Llama 3 as it's the fastest and free)
-  return getProviderResponse('groq', 'llama-3.3-70b-versatile', messages);
+  return getProviderResponse('groq', 'llama-3.3-70b-versatile', processedMessages);
 }

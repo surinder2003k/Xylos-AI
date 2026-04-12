@@ -15,6 +15,7 @@ export function Navbar({ user }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
+    { href: "/chat", label: "Neural Chat" },
     { href: "/blog", label: "Blog" },
     { href: "/about", label: "About Us" },
   ];

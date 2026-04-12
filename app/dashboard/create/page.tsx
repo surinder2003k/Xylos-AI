@@ -485,10 +485,6 @@ export default function CreatePostPage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen flex items-center justify-center bg-background">
-        <div className="flex flex-col items-center gap-4">
-          <XylosLogo size={48} animated={true} />
-          <div className="text-primary font-mono text-[10px] uppercase tracking-[0.5em] animate-pulse">Preparing Editorial Suite v3.2...</div>
-        </div>
       </div>
     }>
       <CreatePostContent />

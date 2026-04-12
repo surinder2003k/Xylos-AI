@@ -48,36 +48,6 @@ export function SplashLoader() {
             >
               <XylosLogo size={140} animated={true} />
             </motion.div>
-
-            {/* Text Animations */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="mt-8 text-center"
-            >
-              <h1 className="text-4xl font-black font-fustat tracking-tighter uppercase leading-none">
-                Xylos <span className="text-violet-500 italic">AI</span>
-              </h1>
-            </motion.div>
-
-            {/* Progress Bar */}
-            <div className="w-48 h-[2px] bg-white/5 rounded-full mt-10 overflow-hidden relative border border-white/5">
-              <motion.div 
-                initial={{ width: "0%" }}
-                animate={{ width: `${progress}%` }}
-                className="h-full bg-gradient-to-r from-violet-600 to-indigo-600 shadow-[0_0_10px_rgba(139,92,246,0.8)]"
-              />
-            </div>
-            
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.4 }}
-              transition={{ delay: 0.2 }}
-              className="mt-4 font-mono text-[8px] uppercase tracking-widest text-muted-foreground"
-            >
-              Initializing Synaptic Pathways... {Math.round(progress)}%
-            </motion.div>
           </div>
         </motion.div>
       )}

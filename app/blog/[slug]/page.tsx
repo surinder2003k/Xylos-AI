@@ -144,7 +144,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                <div className="flex items-center gap-3">
                  <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center overflow-hidden border border-border">
                     {post.author?.avatar_url ? (
-                      <img src={post.author.avatar_url} alt={post.author.full_name} className="w-full h-full object-cover" />
+                      <img src={post.author.avatar_url} alt={post.author.full_name} title={post.author.full_name} className="w-full h-full object-cover" />
                     ) : (
                       <User className="w-4 h-4" />
                     )}
@@ -163,6 +163,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
              <Image 
                src={post.feature_image_url} 
                alt={post.alt_text || post.title} 
+               title={post.alt_text || post.title}
                fill
                priority
                className="object-cover opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105" 

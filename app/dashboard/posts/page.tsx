@@ -257,7 +257,7 @@ export default function AllStoriesPage() {
                       <div className="flex items-center gap-8">
                         <div className="relative w-28 aspect-video rounded-xl bg-muted overflow-hidden border border-border shadow-inner flex-shrink-0 group-hover:scale-105 transition-all duration-700">
                           {post.feature_image_url ? (
-                            <img src={post.feature_image_url} alt={post.title} className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" />
+                            <img src={post.feature_image_url} alt={post.title} title={post.title} className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" />
                           ) : (
                              <div className="w-full h-full flex items-center justify-center">
                                <div className="bg-gradient-to-br from-primary/10 to-primary/30 w-full h-full opacity-20" />

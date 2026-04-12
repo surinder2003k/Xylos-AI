@@ -94,7 +94,7 @@ export function ImageUpload({ onUploadComplete, onClear, currentUrl }: ImageUplo
         </button>
       ) : (
         <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 group">
-          <img src={currentUrl} alt="Uploaded asset" className="w-full h-full object-cover" />
+          <img src={currentUrl} alt="Uploaded asset" title="Uploaded asset" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/20 text-primary text-[10px] font-bold border border-primary/20 shadow-neon-sm">
                 <CheckCircle2 className="w-3.5 h-3.5" />

@@ -110,29 +110,21 @@ export default async function LandingPage() {
             "Bridging the gap between raw information and polished intelligence. Xylos AI empowers professionals to synthesize reality."
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 max-w-lg mx-auto w-full">
-            {user ? (
-              <Link 
-                href="/chat"
-                className="flex items-center justify-center gap-4 px-12 py-5 rounded-2xl bg-primary text-black font-black text-xs uppercase tracking-widest shadow-2xl hover:scale-105 active:scale-95 transition-all group w-full"
-              >
-                Launch Neural Link
-                <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-              </Link>
-            ) : (
-              <Link 
-                href="/login"
-                className="flex items-center justify-center gap-4 px-12 py-5 rounded-2xl bg-foreground text-background font-black text-xs uppercase tracking-widest shadow-2xl hover:scale-105 active:scale-95 transition-all group w-full"
-              >
-                Start Building
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-              </Link>
-            )}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-12 max-w-2xl mx-auto w-full">
             <Link 
-              href={user ? "/dashboard" : "#stories"}
-              className="px-12 py-5 rounded-2xl border border-border bg-card/40 backdrop-blur-md font-black text-xs uppercase tracking-widest hover:bg-muted/50 transition-all w-full text-foreground text-center"
+              href="/chat"
+              className="relative flex items-center justify-center gap-4 px-16 py-6 rounded-[2rem] bg-primary text-black font-black text-sm uppercase tracking-[0.2em] shadow-[0_0_50px_rgba(var(--primary),0.3)] hover:shadow-[0_0_80px_rgba(var(--primary),0.5)] hover:scale-105 active:scale-95 transition-all group w-full sm:w-auto"
             >
-              {user ? "Dashboard" : "Browse Stories"}
+              <div className="absolute inset-0 rounded-[2rem] border-2 border-white/20 animate-pulse" />
+              Launch Neural Link
+              <MessageSquare className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+            </Link>
+            
+            <Link 
+              href={user ? "/dashboard" : "/login"}
+              className="px-12 py-6 rounded-[2rem] border border-border bg-card/40 backdrop-blur-md font-black text-xs uppercase tracking-[0.2em] hover:bg-muted/50 transition-all w-full sm:w-auto text-foreground text-center"
+            >
+              {user ? "Admin Dashboard" : "Join the Matrix"}
             </Link>
           </div>
 

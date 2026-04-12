@@ -18,7 +18,12 @@ export type BlogContent = {
  * 2. OpenAI (Reliable Backup) - Proxied via OpenRouter
  * 3. Gemini (Long-form Depth)
  */
-export async function generateSmartBlog(prompt: string, recentTitles: string[] = [], category?: string): Promise<BlogContent> {
+export async function generateSmartBlog(
+  prompt: string, 
+  recentTitles: string[] = [], 
+  category?: string,
+  linkingContext: string[] = []
+): Promise<BlogContent> {
   const providers = [
     { name: 'groq', model: 'llama-3.3-70b-versatile' },
     { name: 'openrouter', model: 'openai/gpt-4o-mini' },
@@ -37,6 +42,11 @@ export async function generateSmartBlog(prompt: string, recentTitles: string[] =
   PRIMARY DIRECTIVE: 
   Write a high-authority, definitive article about: "${prompt.toUpperCase()}" in the context of ${category || 'General Technology'}.
   DO NOT repeat any of the recent titles mentioned above. Provide a fresh, insightful perspective.
+  
+  SEO & LINKING ARCHITECTURE:
+  You MUST naturally weave the following URLs into the content (using <a> tags with target="_blank"). These should appear as citations, further reading, or related insights.
+  LINKING TARGETS:
+  ${linkingContext.length > 0 ? linkingContext.join("\n") : "None provided. Use generic high-authority citations if needed."}
   
   STRUCTURE & LENGTH REQUIREMENTS (MINIMUM 1000 WORDS TOTAL):
   1. Introduction (250+ words): Start with a profound global perspective. Establish the gravity of the subject.

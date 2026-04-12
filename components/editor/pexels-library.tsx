@@ -77,6 +77,7 @@ export function PexelsLibrary({ onSelect, currentUrl }: PexelsLibraryProps) {
               <img 
                 src={photo.src.medium} 
                 alt={photo.alt} 
+                title={photo.alt}
                 className="w-full h-full object-cover transition-opacity group-hover:opacity-100 opacity-60" 
               />
               {currentUrl === photo.src.large2x && (

@@ -14,20 +14,6 @@ export default function RootLoading() {
           <div className="absolute -inset-8 bg-primary/5 rounded-full blur-3xl animate-pulse" />
           <XylosLogo size={120} animated={true} />
         </div>
-
-        <div className="flex flex-col items-center gap-4">
-          <div className="flex items-center gap-4 text-primary">
-            <div className="w-12 h-px bg-primary/20" />
-            <span className="text-[10px] font-black uppercase tracking-[0.8em] animate-pulse">Synthesizing Editorial Context</span>
-            <div className="w-12 h-px bg-primary/20" />
-          </div>
-          <p className="text-[9px] font-bold text-muted-foreground/40 uppercase tracking-[0.4em]">Aligning Narrative Intelligence v3.5</p>
-        </div>
-      </div>
-
-      {/* Progress Indicator */}
-      <div className="absolute bottom-20 w-48 h-1 bg-white/5 rounded-full overflow-hidden">
-        <div className="h-full bg-primary/40 animate-loading-bar" />
       </div>
     </div>
   );

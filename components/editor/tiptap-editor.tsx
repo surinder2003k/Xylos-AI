@@ -46,8 +46,28 @@ const CustomLink = Link.extend({
   addAttributes() {
     return {
       ...this.parent?.(),
+      href: {
+        default: null,
+      },
+      target: {
+        default: this.options.HTMLAttributes.target,
+      },
       rel: {
         default: 'noopener noreferrer', // Safe default
+      },
+    };
+  },
+});
+
+const CustomResizableImage = ResizableImage.extend({
+  addAttributes() {
+    return {
+      ...this.parent?.(),
+      alt: {
+        default: null,
+      },
+      title: {
+        default: null,
       },
     };
   },
@@ -95,7 +115,12 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
 
   // Custom Prompt States
   const [linkEditor, setLinkEditor] = useState({ isOpen: false, url: '', isNofollow: false });
-  const [altTextEditor, setAltTextEditor] = useState({ isOpen: false, altText: '', callback: (alt: string | null) => {} });
+  const [metadataEditor, setMetadataEditor] = useState({ 
+    isOpen: false, 
+    alt: '', 
+    title: '',
+    callback: (data: { alt: string; title: string } | null) => {} 
+  });
 
   useEffect(() => {
     setMounted(true);
@@ -110,7 +135,7 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
       TextStyle,
       Underline,
       Color,
-      Link.configure({
+      CustomLink.configure({
         openOnClick: false,
         HTMLAttributes: {
           class: 'neural-link cursor-pointer text-primary underline underline-offset-4 decoration-primary/30 hover:decoration-primary transition-all',
@@ -119,7 +144,7 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
       Placeholder.configure({
         placeholder: "The workspace is ready. Compose your story...",
       }),
-      ResizableImage.configure({
+      CustomResizableImage.configure({
         HTMLAttributes: {
           class: 'neural-resizable-image rounded-2xl border border-border bg-muted/20 shadow-2xl my-8 mx-auto block max-w-full h-auto',
         },
@@ -166,19 +191,32 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
   const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 
   const setLink = () => {
-    const previousUrl = editor.getAttributes('link').href || '';
+    // Determine if we're dealing with an image or text
+    const isImage = editor.isActive('image');
+    const previousUrl = isImage 
+      ? (editor.getAttributes('image').href || '')
+      : (editor.getAttributes('link').href || '');
+      
     setLinkEditor({ isOpen: true, url: previousUrl, isNofollow: false });
   };
 
   const applyLink = () => {
-    if (linkEditor.url) {
-      editor.chain().focus().extendMarkRange('link').setLink({ 
-        href: linkEditor.url,
-        target: '_blank',
-        rel: linkEditor.isNofollow ? 'nofollow noopener noreferrer' : 'dofollow noopener noreferrer'
+    if (editor.isActive('image')) {
+      // Apply to image
+      editor.chain().focus().updateAttributes('image', { 
+        href: linkEditor.url 
       }).run();
     } else {
-      editor.chain().focus().unsetLink().run();
+      // Apply to text
+      if (linkEditor.url) {
+        editor.chain().focus().extendMarkRange('link').setLink({ 
+          href: linkEditor.url,
+          target: '_blank',
+          rel: linkEditor.isNofollow ? 'nofollow noopener noreferrer' : 'dofollow noopener noreferrer'
+        }).run();
+      } else {
+        editor.chain().focus().unsetLink().run();
+      }
     }
     setLinkEditor((prev) => ({ ...prev, isOpen: false }));
   };
@@ -217,12 +255,17 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
         .from("blog-images")
         .getPublicUrl(fileName);
 
-      // Trigger Custom Alt Text UI
-      setAltTextEditor({
+      // Trigger Custom Metadata UI
+      setMetadataEditor({
         isOpen: true,
-        altText: '',
-        callback: (alt) => {
-          editor.chain().focus().setImage({ src: publicUrl, alt: alt || '' }).run();
+        alt: '',
+        title: '',
+        callback: (data) => {
+          editor.chain().focus().setImage({ 
+            src: publicUrl, 
+            alt: data?.alt || '',
+            title: data?.title || ''
+          }).run();
         }
       });
     } catch (err: any) {
@@ -254,15 +297,19 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
     editor.chain().focus().setColor(color).run();
   };
 
-  const setAltText = () => {
+  const setMetadata = () => {
     if (!editor.isActive('image')) return;
-    const currentAlt = editor.getAttributes('image').alt || '';
-    setAltTextEditor({
+    const attrs = editor.getAttributes('image');
+    setMetadataEditor({
       isOpen: true,
-      altText: currentAlt,
-      callback: (newAlt) => {
-        if (newAlt !== null) {
-          editor.chain().focus().updateAttributes('image', { alt: newAlt }).run();
+      alt: attrs.alt || '',
+      title: attrs.title || '',
+      callback: (data) => {
+        if (data !== null) {
+          editor.chain().focus().updateAttributes('image', { 
+            alt: data.alt,
+            title: data.title 
+          }).run();
         }
       }
     });
@@ -339,11 +386,11 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
         {editor.isActive('image') && (
           <div className="flex items-center gap-1 bg-primary/10 px-2 py-1 rounded-lg border border-primary/20 animate-in fade-in zoom-in duration-300">
             <ToolbarButton 
-              onClick={setAltText} 
+              onClick={setMetadata} 
               isActive={false}
               icon={FileText}
             />
-            <span className="text-[10px] font-bold text-primary uppercase tracking-tighter pr-1">SEO Alt</span>
+            <span className="text-[10px] font-bold text-primary uppercase tracking-tighter pr-1">SEO Data</span>
           </div>
         )}
 
@@ -494,9 +541,9 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
         )}
       </AnimatePresence>
 
-      {/* Custom Alt Text Modal */}
+      {/* Custom Metadata Modal */}
       <AnimatePresence>
-        {altTextEditor.isOpen && (
+        {metadataEditor.isOpen && (
           <div className="absolute inset-0 z-[60] bg-background/80 backdrop-blur-sm flex items-center justify-center p-4">
             <motion.div 
                initial={{ opacity: 0, scale: 0.95 }}
@@ -506,23 +553,38 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
             >
               <div className="space-y-2">
                 <h3 className="font-black text-lg uppercase tracking-widest text-primary flex items-center gap-2">
-                   <FileText className="w-5 h-5" /> SEO Metadata
+                   <FileText className="w-5 h-5" /> SEO Assets
                 </h3>
-                <p className="text-[10px] uppercase text-muted-foreground font-bold">Image Alt-Text Definition</p>
+                <p className="text-[10px] uppercase text-muted-foreground font-bold">Image Optimization Protocol</p>
               </div>
 
-              <input 
-                type="text" 
-                value={altTextEditor.altText}
-                onChange={(e) => setAltTextEditor(prev => ({ ...prev, altText: e.target.value }))}
-                placeholder="Describe image for search engines..."
-                className="w-full bg-muted/30 border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/50 transition-colors"
-                autoFocus
-              />
+              <div className="space-y-4">
+                <div className="space-y-1.5">
+                  <span className="text-[8px] font-black uppercase tracking-widest text-primary/70">Alt Text (Search & Accessibility)</span>
+                  <input 
+                    type="text" 
+                    value={metadataEditor.alt}
+                    onChange={(e) => setMetadataEditor(prev => ({ ...prev, alt: e.target.value }))}
+                    placeholder="Describe image for search engines..."
+                    className="w-full bg-muted/30 border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/50 transition-colors"
+                  />
+                </div>
+                
+                <div className="space-y-1.5">
+                  <span className="text-[8px] font-black uppercase tracking-widest text-primary/70">Title Attribute (Tooltips)</span>
+                  <input 
+                    type="text" 
+                    value={metadataEditor.title}
+                    onChange={(e) => setMetadataEditor(prev => ({ ...prev, title: e.target.value }))}
+                    placeholder="Brief description for tooltips..."
+                    className="w-full bg-muted/30 border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/50 transition-colors"
+                  />
+                </div>
+              </div>
 
               <div className="flex items-center gap-3 pt-2 border-t border-white/5">
-                <button onClick={() => { altTextEditor.callback(null); setAltTextEditor(prev => ({ ...prev, isOpen: false })); }} className="flex-1 py-3 rounded-xl border border-white/10 text-xs font-bold uppercase hover:bg-white/5 transition-all text-muted-foreground">Skip</button>
-                <button onClick={() => { altTextEditor.callback(altTextEditor.altText); setAltTextEditor(prev => ({ ...prev, isOpen: false })); }} className="flex-1 py-3 rounded-xl bg-primary text-black text-xs font-black uppercase hover:scale-105 transition-all shadow-neon">Apply Data</button>
+                <button onClick={() => { metadataEditor.callback(null); setMetadataEditor(prev => ({ ...prev, isOpen: false })); }} className="flex-1 py-3 rounded-xl border border-white/10 text-xs font-bold uppercase hover:bg-white/5 transition-all text-muted-foreground">Skip</button>
+                <button onClick={() => { metadataEditor.callback({ alt: metadataEditor.alt, title: metadataEditor.title }); setMetadataEditor(prev => ({ ...prev, isOpen: false })); }} className="flex-1 py-3 rounded-xl bg-primary text-black text-xs font-black uppercase hover:scale-105 transition-all shadow-neon">Verify Data</button>
               </div>
             </motion.div>
           </div>

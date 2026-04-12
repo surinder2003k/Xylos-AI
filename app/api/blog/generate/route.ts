@@ -17,25 +17,44 @@ export async function POST(req: Request) {
     // Get Auth User for author_id
     const { data: { user } } = await supabase.auth.getUser();
 
-    // 2. Fetch Recent Blog Titles (Context Injection)
+    // 2. Fetch Recent Blog Titles & internal links (Context & SEO Injection)
     let recentTitles: string[] = [];
+    let linkingContext: string[] = [];
     try {
       const { data: posts } = await supabase
         .from("blogs")
-        .select("title")
+        .select("title, slug")
         .order("created_at", { ascending: false })
         .limit(15);
       
-      if (posts) recentTitles = posts.map(p => p.title);
+      if (posts) {
+        recentTitles = posts.map(p => p.title);
+        linkingContext = posts.slice(0, 3).map(p => `https://xylos-ai.com/blog/${p.slug}`); // Internal Backlinks
+      }
     } catch {
       console.warn("[Strategy Sync] Failed to fetch context, proceeding without it.");
+    }
+
+    // Attempt to grab latest partner site post for external backlinking strategy
+    try {
+      const partnerRes = await fetch("https://pulse-blog-ai.vercel.app/", { next: { revalidate: 3600 } });
+      const html = await partnerRes.text();
+      const match = html.match(/"\/blog\/([^"?]+)"/);
+      if (match && match[1] && match[1] !== 'undefined') {
+        const partnerLink = `https://pulse-blog-ai.vercel.app/blog/${match[1]}`;
+        linkingContext.push(partnerLink);
+        console.log(`[SEO Engine] Linked Partner Site Post: ${partnerLink}`);
+      }
+    } catch (err) {
+      console.warn("[SEO Engine] Partner site link fetching failed.", err);
     }
 
     // 3. Generate AI Content (With Multi-Provider Fallback)
     const blogData = await generateSmartBlog(
       userPrompt || "Latest Global Technological & Strategic Shifts 2026", 
       recentTitles,
-      userCategory
+      userCategory,
+      linkingContext
     );
 
     // 4. AI Image Production Engine (Feature Image)
@@ -77,7 +96,7 @@ export async function POST(req: Request) {
           }
 
           if (inArticleUrl) {
-            const imgHtml = `<figure class="my-8"><img src="${inArticleUrl}" alt="${prompt}" class="rounded-2xl border border-white/10 shadow-2xl w-full h-auto" /><figcaption class="text-center text-[10px] text-muted-foreground uppercase tracking-widest mt-3">${prompt}</figcaption></figure>`;
+            const imgHtml = `<figure class="my-8"><img src="${inArticleUrl}" alt="${prompt}" title="${prompt}" class="rounded-2xl border border-white/10 shadow-2xl w-full h-auto" /><figcaption class="text-center text-[10px] text-muted-foreground uppercase tracking-widest mt-3">${prompt}</figcaption></figure>`;
             processedContent = processedContent.replace(marker, imgHtml);
           } else {
             processedContent = processedContent.replace(marker, ""); 

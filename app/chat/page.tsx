@@ -239,8 +239,13 @@ export default function ChatPage() {
   const stopGeneration = () => {
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
-      setIsLoading(false);
     }
+    setIsLoading(false);
+    // Add a system message to indicate termination
+    setMessages(prev => [...prev, { 
+      role: 'assistant', 
+      content: '[Neural Link Terminated by User]' 
+    }]);
   };
 
   const copyToClipboard = (text: string) => {
@@ -471,16 +476,26 @@ export default function ChatPage() {
                 </div>
 
                 <div className="flex items-center gap-2">
-                   {isLoading ? (
-                     <button onClick={stopGeneration} className="p-3.5 rounded-2xl bg-muted/50 border border-white/5 text-red-500 hover:bg-red-500/10 transition-all flex items-center gap-2">
-                        <Square className="w-5 h-5 fill-current" />
-                        <span className="text-[10px] font-black uppercase tracking-widest hidden sm:inline">Terminate</span>
-                     </button>
-                   ) : (
-                     <button onClick={handleSend} disabled={!input.trim() && !stagedFile} className="p-3.5 rounded-2xl bg-foreground text-background hover:scale-105 active:scale-95 transition-all shadow-xl disabled:opacity-50">
-                        <Send className="w-5 h-5" />
-                     </button>
-                   )}
+                    {isLoading ? (
+                      <button 
+                        onClick={(e) => {
+                          e.preventDefault();
+                          stopGeneration();
+                        }} 
+                        className="p-3.5 rounded-2xl bg-red-500/10 border border-red-500/20 text-red-500 hover:bg-red-500 hover:text-white transition-all flex items-center gap-2 group/stop"
+                      >
+                         <Square className="w-5 h-5 fill-current group-hover:scale-90 transition-transform" />
+                         <span className="text-[10px] font-black uppercase tracking-widest hidden sm:inline">Terminate</span>
+                      </button>
+                    ) : (
+                      <button 
+                        onClick={handleSend} 
+                        disabled={(!input.trim() && !stagedFile) || isLoading} 
+                        className="p-3.5 rounded-2xl bg-foreground text-background hover:scale-105 active:scale-95 transition-all shadow-xl disabled:opacity-50"
+                      >
+                         <Send className="w-5 h-5" />
+                      </button>
+                    )}
                 </div>
               </div>
             </div>

@@ -1,8 +1,9 @@
+import { generateSmartBlog } from "@/lib/ai/smart-generator";
+import { searchSmartImage } from "@/lib/utils/image-search";
+import { discoverLatestPosts, discoverInternalPosts } from "@/lib/utils/link-discovery";
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { createClient as createAuthClient } from "@/utils/supabase/server";
-import { generateSmartBlog } from "@/lib/ai/smart-generator";
-import { searchSmartImage } from "@/lib/utils/image-search";
 
 export const maxDuration = 60; // Max execution time to prevent Vercel timeouts
 export const dynamic = "force-dynamic"; // Prevent aggressive route caching for auth checks
@@ -104,7 +105,21 @@ export async function GET(req: Request) {
 
     console.log(`[Neural Sync] Targeted Topic: ${baseTopic}`);
 
-    const blogData = await generateSmartBlog(baseTopic, recentTitles, "Technology");
+    // --- SEO & LINK DISCOVERY PROTOCOL ---
+    console.log("[Neural Sync] Initiating Link Discovery...");
+    const partnerSite = "https://pulse-blog-ai.vercel.app/sitemap.xml";
+    const [partnerPosts, internalPosts] = await Promise.all([
+      discoverLatestPosts(partnerSite, 1), // Fetch the very latest post from partner
+      discoverInternalPosts(supabaseAdmin, 1) // Fetch 1 recent internal post
+    ]);
+
+    const linkingContext = [
+      ...partnerPosts.map(p => p.url),
+      ...internalPosts.map(p => p.url)
+    ];
+    console.log(`[Neural Sync] Discovered ${linkingContext.length} linking targets.`);
+
+    const blogData = await generateSmartBlog(baseTopic, recentTitles, "Technology", linkingContext);
     const imageResult = await searchSmartImage(blogData.search_term || blogData.title, blogData.category);
 
     // Generate a URL-friendly slug

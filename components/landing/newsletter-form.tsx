@@ -107,6 +107,7 @@ export function NewsletterForm() {
            <img 
              src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" 
              alt="Xylos AI Newsletter"
+             title="Xylos AI Newsletter"
              loading="lazy"
              decoding="async"
              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
