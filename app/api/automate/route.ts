@@ -17,10 +17,11 @@ export async function GET(req: Request) {
     );
 
     // 2. Automated Trigger Authorization
+    const { searchParams } = new URL(req.url);
+    const count = Math.min(parseInt(searchParams.get("count") || "1"), 5); // Caps at 5 for stability
+    
     const authHeader = req.headers.get("authorization");
     const vercelCronHeader = req.headers.get("x-vercel-cron");
-    
-    // Support both manual CRON_SECRET and standard Vercel Cron headers
     const isCron = (authHeader === `Bearer ${process.env.CRON_SECRET}`) || (vercelCronHeader === "1");
     
     let isAuthorizedAdmin = false;
@@ -29,7 +30,6 @@ export async function GET(req: Request) {
         const authClient = await createAuthClient();
         const { data: { user } } = await authClient.auth.getUser();
         if (user) {
-          // Hardcoded Super Admin Check (Mirroring layout.tsx)
           const superAdmins = ["sendltestmaill@gmail.com", "xyzg135@gmail.com"];
           if (superAdmins.includes(user.email || "")) {
             isAuthorizedAdmin = true;
@@ -53,40 +53,32 @@ export async function GET(req: Request) {
       return NextResponse.json({ error: "Unauthorized neural operation. Validation Failed." }, { status: 401 });
     }
 
-    console.log(`[Neural Sync] Starting automated generation. Trigger: ${isCron ? 'Cron' : 'Manual'}`);
+    console.log(`[Neural Sync] Starting automated generation. Count: ${count}, Trigger: ${isCron ? 'Cron' : 'Manual'}`);
     const startTime = Date.now();
 
-    // 3. Single-Post Protocol (Optimized for Hobby Tier 10s Limit)
-    // Fetch context to prevent duplicate topics
+    // 3. Fetch Neural Context & Settings
     let recentTitles: string[] = [];
+    let activeCategory = "Technology";
+    
     try {
-      const { data: posts } = await supabaseAdmin
-        .from("blogs")
-        .select("title")
-        .order("created_at", { ascending: false })
-        .limit(10);
-      if (posts) recentTitles = posts.map(p => p.title);
+      const [latestPosts, categorySetting] = await Promise.all([
+        supabaseAdmin.from("blogs").select("title").order("created_at", { ascending: false }).limit(10),
+        supabaseAdmin.from("app_settings").select("value").eq("key", "auto_category").single()
+      ]);
+      
+      if (latestPosts.data) recentTitles = latestPosts.data.map(p => p.title);
+      if (categorySetting.data) activeCategory = categorySetting.data.value;
     } catch (err: unknown) {
-      console.warn("[Editorial Sync] Context block unavailable:", err);
+      console.warn("[Editorial Sync] Settings retrieval failed:", err);
     }
 
     // Fetch an admin user ID to assign authorship
     let authorId = null;
     try {
-      const { data: admins } = await supabaseAdmin
-         .from("profiles")
-         .select("user_id")
-         .in("role", ["super_admin", "admin"])
-         .limit(1);
-      
-      if (admins && admins.length > 0) {
-        authorId = admins[0].user_id;
-      } else {
-        // Fallback to a valid profile ID if no admin found (if needed)
-        console.warn("[Editorial Sync] No admin profile found. Proceeding with null author.");
-      }
+      const { data: admins } = await supabaseAdmin.from("profiles").select("user_id").in("role", ["super_admin", "admin"]).limit(1);
+      if (admins && admins.length > 0) authorId = admins[0].user_id;
     } catch(e) {
-      console.error("[Editorial Sync] Author resolution failure:", e);
+       console.error("[Editorial Sync] Author resolution failure:", e);
     }
 
     const topics = [
@@ -95,72 +87,82 @@ export async function GET(req: Request) {
       "Artificial Intelligence & Ethics", 
       "Cybersecurity Protocols",
       "Neural Networks & Deep Learning",
-      "Quantum Computing Frontiers"
+      "Quantum Computing Frontiers",
+      "Renewable Energy Innovation",
+      "Biotechnology Breakthroughs"
     ];
-    
-    // Pick a topic based on day + hour to ensure variety even with 4 calls/day
-    const now = new Date();
-    const topicIndex = (now.getDate() + now.getHours()) % topics.length;
-    const baseTopic = topics[topicIndex];
 
-    console.log(`[Neural Sync] Targeted Topic: ${baseTopic}`);
+    const results = [];
 
-    // --- SEO & LINK DISCOVERY PROTOCOL ---
-    console.log("[Neural Sync] Initiating Link Discovery...");
-    const partnerSite = "https://pulse-blog-ai.vercel.app/sitemap.xml";
-    const [partnerPosts, internalPosts] = await Promise.all([
-      discoverLatestPosts(partnerSite, 1), // Fetch the very latest post from partner
-      discoverInternalPosts(supabaseAdmin, 1) // Fetch 1 recent internal post
-    ]);
+    // 4. Generation Core Loop
+    for (let i = 0; i < count; i++) {
+        // Pick individual topics with offsets to ensure variety in a single multi-post run
+        const now = new Date();
+        const baseOffset = i * 3; // Ensure different topics for each post in the batch
+        const topicIndex = (now.getDate() + now.getHours() + baseOffset) % topics.length;
+        const baseTopic = topics[topicIndex];
 
-    const linkingContext = [
-      ...partnerPosts.map(p => p.url),
-      ...internalPosts.map(p => p.url)
-    ];
-    console.log(`[Neural Sync] Discovered ${linkingContext.length} linking targets.`);
+        console.log(`[Neural Sync] Initiating Post ${i+1}/${count} | Topic: ${baseTopic} | Category: ${activeCategory}`);
 
-    const blogData = await generateSmartBlog(baseTopic, recentTitles, "Technology", linkingContext);
-    const imageResult = await searchSmartImage(blogData.search_term || blogData.title, blogData.category);
+        // --- SEO & LINK DISCOVERY ---
+        const partnerSite = "https://pulse-blog-ai.vercel.app/sitemap.xml";
+        const [partnerPosts, internalPosts] = await Promise.all([
+          discoverLatestPosts(partnerSite, 1), 
+          discoverInternalPosts(supabaseAdmin, 1) 
+        ]);
 
-    // Generate a URL-friendly slug
-    const slug = blogData.title
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/(^-|-$)+/g, '') + '-' + Date.now().toString(36);
+        const linkingContext = [
+          ...partnerPosts.map(p => p.url),
+          ...internalPosts.map(p => p.url)
+        ];
 
-    const postPayload = {
-      title: blogData.title,
-      slug: slug,
-      excerpt: blogData.excerpt,
-      content: blogData.content,
-      category: blogData.category,
-      feature_image_url: imageResult.url,
-      alt_text: blogData.alt_text || imageResult.alt,
-      status: "published",
-      author_id: authorId,
-      published_at: new Date().toISOString(),
-      meta_title: blogData.meta_title,
-      meta_description: blogData.meta_description,
-      keywords: blogData.keywords
-    };
+        // --- SYNTHESIS ---
+        const blogData = await generateSmartBlog(baseTopic, recentTitles, activeCategory, linkingContext);
+        const imageResult = await searchSmartImage(blogData.search_term || blogData.title, blogData.category);
 
-    const { data: newPost, error: insertError } = await supabaseAdmin
-      .from("blogs")
-      .insert(postPayload)
-      .select()
-      .single();
+        const slug = blogData.title
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)+/g, '') + '-' + Math.random().toString(36).substring(2, 7);
 
-    if (insertError) {
-      throw new Error(`DB Insert Failed: ${insertError.message}`);
+        const postPayload = {
+          title: blogData.title,
+          slug: slug,
+          excerpt: blogData.excerpt,
+          content: blogData.content,
+          category: activeCategory, // Use the active global category
+          feature_image_url: imageResult.url,
+          alt_text: blogData.alt_text || imageResult.alt,
+          status: "published",
+          author_id: authorId,
+          published_at: new Date().toISOString(),
+          meta_title: blogData.meta_title,
+          meta_description: blogData.meta_description,
+          keywords: blogData.keywords
+        };
+
+        const { data: newPost, error: insertError } = await supabaseAdmin
+          .from("blogs")
+          .insert(postPayload)
+          .select()
+          .single();
+
+        if (insertError) {
+          console.error(`[Neural Sync] Post ${i+1} failed:`, insertError.message);
+          continue;
+        }
+
+        results.push({ id: newPost.id, title: newPost.title });
+        recentTitles.push(newPost.title); // Update context for next iteration
     }
 
     const duration = (Date.now() - startTime) / 1000;
-    console.log(`[Neural Sync] Synthesis completed in ${duration}s`);
+    console.log(`[Neural Sync] Multi-Post Synthesis completed in ${duration}s. Created ${results.length} posts.`);
 
     return NextResponse.json({ 
       success: true, 
-      id: newPost.id, 
-      title: newPost.title,
+      count: results.length,
+      posts: results,
       duration: `${duration}s`,
       timestamp: new Date().toISOString()
     });

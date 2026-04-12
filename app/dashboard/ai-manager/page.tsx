@@ -70,9 +70,11 @@ export default function AIManagerPage() {
     try {
       const publishResult = await getAppSetting("auto_publish");
       const categoryResult = await getAppSetting("auto_category");
+      const listResult = await getAppSetting("available_categories");
       
       if (publishResult.success && publishResult.value !== null) setIsAutoPublish(publishResult.value);
-      if (categoryResult.success && categoryResult.value) setAutoCategory(typeof categoryResult.value === 'string' ? categoryResult.value : categoryResult.value);
+      if (categoryResult.success && categoryResult.value) setAutoCategory(categoryResult.value as string);
+      if (listResult.success && Array.isArray(listResult.value)) setAutoCategoriesList(listResult.value);
     } catch (err) {
       console.warn("Settings fetch failed");
     }
@@ -108,14 +110,24 @@ export default function AIManagerPage() {
   }, []);
 
   const updateGlobalCategory = async (cat: string) => {
-    setAutoCategory(cat);
-    if (cat.trim() && !autoCategoriesList.includes(cat.trim())) {
-      setAutoCategoriesList(prev => [...prev, cat.trim()]);
+    const trimmedCat = cat.trim();
+    if (!trimmedCat) return;
+
+    setAutoCategory(trimmedCat);
+    
+    // Check if it's a new category and update the global list if so
+    let newList = autoCategoriesList;
+    if (!autoCategoriesList.some(c => c.toLowerCase() === trimmedCat.toLowerCase())) {
+      newList = [...autoCategoriesList, trimmedCat];
+      setAutoCategoriesList(newList);
+      // Persist the updated list globally
+      await updateAppSetting("available_categories", newList);
     }
+
     try {
-      const result = await updateAppSetting("auto_category", cat);
+      const result = await updateAppSetting("auto_category", trimmedCat);
       if (!result.success) throw new Error(result.error);
-      showToast(`Protocol: Category set to ${cat.toUpperCase()}`, "success");
+      showToast(`Protocol: Category set to ${trimmedCat.toUpperCase()}`, "success");
     } catch (err: any) {
       showToast("Sync Error: " + (err.message || "Failed to update global category."), "error");
     }
@@ -137,7 +149,7 @@ export default function AIManagerPage() {
   const runAutomation = async () => {
     setIsRunning(true);
     try {
-      const res = await fetch('/api/automate', { 
+      const res = await fetch('/api/automate?count=2', { 
         method: 'GET'
       });
       const data = await res.json();
