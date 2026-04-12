@@ -175,20 +175,19 @@ export default async function LandingPage() {
                 <p className="text-muted-foreground font-medium text-sm leading-relaxed">Advanced parsing for large-scale datasets. Extract strategic insights from complex documentation in seconds.</p>
              </BentoCard>
 
-              <div className="col-span-1 md:col-span-4" style={{ perspective: "2000px" }}>
-                <div 
-                  style={{ transform: "rotateX(12deg) scale(0.97)", transformOrigin: "top center" }} 
-                  className="flex flex-col md:flex-row items-center gap-12 justify-between bg-primary text-black p-12 rounded-[2.5rem] overflow-hidden relative border-none shadow-2xl shadow-primary/20 transition-all duration-700 hover:rotateX(4deg) hover:scale-100 will-change-transform"
-                >
-                 <div className="absolute -left-[5%] top-0 bottom-0 w-[20%] bg-white/30 blur-[100px] animate-pulse" />
-                 <div className="max-w-2xl space-y-6 relative z-10">
-                    <div className="text-[10px] font-black uppercase tracking-[0.4em] opacity-60">Security Standards</div>
-                    <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-none italic">Hardened Data Governance</h2>
-                    <p className="text-lg font-bold opacity-80 leading-relaxed italic">"Privacy is our foundation." Encrypted workflows, local session storage, and zero-data-retention models to protect your professional edge.</p>
-                 </div>
-                 <Shield className="w-32 h-32 opacity-20 relative z-10" />
-               </div>
-             </div>
+             <BentoCard delay={0.4} className="col-span-1 md:col-span-4 bg-card/40 border border-border backdrop-blur-xl overflow-hidden group/card">
+                <div className="absolute top-0 right-0 p-12 opacity-5 group-hover/card:opacity-10 transition-opacity">
+                   <Shield className="w-64 h-64 text-primary" />
+                </div>
+                <div className="flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
+                  <div className="max-w-2xl space-y-6">
+                     <div className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">Security Standards</div>
+                     <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-none italic">Hardened <span className="text-muted-foreground">Data Governance</span></h2>
+                     <p className="text-muted-foreground text-lg font-medium leading-relaxed italic">"Privacy is our foundation." Encrypted workflows, local session storage, and zero-data-retention models to protect your professional edge.</p>
+                  </div>
+                  <Shield className="w-32 h-32 text-primary/20 shrink-0" />
+                </div>
+             </BentoCard>
            </BentoGrid>
         </div>
 
