@@ -1,6 +1,6 @@
 {
   "name": "xylos-ai",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Xylos AI - The Ultimate Free AI Editorial Architecture. Access elite AI models including Llama 3, Gemini, and Mistral in one zero-cost generative interface.",
   "private": true,
   "scripts": {
