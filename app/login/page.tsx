@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { signInWithGoogle, signInWithEmail, signUpWithEmail } from "@/app/auth/actions";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { 
   Mail, 
   Lock, 
@@ -15,7 +15,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { AnimatedLogo } from "@/components/premium/animated-logo";
 
-export default function LoginPage() {
+function LoginContent() {
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const searchParams = useSearchParams();
@@ -146,5 +146,13 @@ export default function LoginPage() {
         </p>
       </motion.div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-black flex items-center justify-center"><div className="w-8 h-8 rounded-full border-2 border-primary border-t-transparent animate-spin" /></div>}>
+       <LoginContent />
+    </Suspense>
   );
 }
