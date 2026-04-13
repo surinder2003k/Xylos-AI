@@ -43,8 +43,31 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const [isAdmin, setIsAdmin] = useState(false);
   const [userEmail, setUserEmail] = useState("");
   const [userRole, setUserRole] = useState("user");
+  const [mounted, setMounted] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(1200); // Safe default for SSR
   const pathname = usePathname();
   const { showToast } = useToast();
+
+  useEffect(() => {
+    setMounted(true);
+    setScreenWidth(window.innerWidth);
+    
+    if (window.innerWidth < 1024) {
+      setIsSidebarOpen(false);
+    }
+
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+      if (window.innerWidth < 1024) {
+        setIsSidebarOpen(false);
+      } else {
+        setIsSidebarOpen(true);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     async function fetchUserProfile() {
@@ -82,19 +105,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   const sidebarItems = isAdmin ? [...baseNavItems, adminNavItem] : baseNavItems;
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 1024) {
-        setIsSidebarOpen(false);
-      } else {
-        setIsSidebarOpen(true);
-      }
-    };
-    handleResize(); // Set initial state
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
   return (
     <div className="min-h-screen bg-background text-foreground flex transition-colors duration-500 relative">
       {/* Mobile Sidebar Toggle - Only visible when sidebar is closed on small screens */}
@@ -115,7 +125,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => {
-              if (window.innerWidth < 1024) setIsSidebarOpen(false);
+              if (mounted && window.innerWidth < 1024) setIsSidebarOpen(false);
             }}
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
           />
@@ -126,8 +136,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <motion.aside 
         initial={false}
         animate={{ 
-          width: isSidebarOpen ? 280 : (typeof window !== 'undefined' && window.innerWidth < 1024 ? 0 : 80),
-          x: !isSidebarOpen && (typeof window !== 'undefined' && window.innerWidth < 1024) ? -280 : 0
+          width: isSidebarOpen ? 280 : (mounted && screenWidth < 1024 ? 0 : 80),
+          x: !isSidebarOpen && (mounted && screenWidth < 1024) ? -280 : 0
         }}
         className={`fixed lg:relative z-50 border-r border-border bg-sidebar backdrop-blur-2xl flex flex-col transition-all duration-300 flex-shrink-0 h-full ${!isSidebarOpen && 'hidden lg:flex'}`}
       >

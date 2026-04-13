@@ -28,11 +28,21 @@ import {
 } from "lucide-react";
 import { createClient } from "@/utils/supabase/client";
 import { useToast } from "@/components/ui/toast";
-import { TiptapEditor } from "@/components/editor/tiptap-editor";
+import dynamic from "next/dynamic";
 import { PexelsLibrary } from "@/components/editor/pexels-library";
 import { ImageUpload } from "@/components/editor/image-upload";
 import { XylosLogo } from "@/components/premium/xylos-logo";
 import { slugify } from "@/lib/utils/slugify";
+import { EditorialErrorBoundary } from "@/components/error-boundary";
+
+const TiptapEditor = dynamic(() => import("@/components/editor/tiptap-editor").then(mod => mod.TiptapEditor), { 
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-[500px] bg-muted/20 animate-pulse rounded-[1.5rem] border border-border flex items-center justify-center">
+      <span className="text-muted-foreground font-mono text-xs uppercase tracking-widest">Loading Editorial Matrix...</span>
+    </div>
+  )
+});
 
 function CreatePostContent() {
   const searchParams = useSearchParams();
@@ -483,13 +493,15 @@ function CreatePostContent() {
 
 export default function CreatePostPage() {
   return (
-    <Suspense fallback={
-      <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">
-        <Loader2 className="w-10 h-10 text-primary animate-spin" />
-        <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground animate-pulse">Initializing Editorial Engine...</span>
-      </div>
-    }>
-      <CreatePostContent />
-    </Suspense>
+    <EditorialErrorBoundary name="Article Creation Engine">
+      <Suspense fallback={
+        <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">
+          <Loader2 className="w-10 h-10 text-primary animate-spin" />
+          <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground animate-pulse">Initializing Editorial Engine...</span>
+        </div>
+      }>
+        <CreatePostContent />
+      </Suspense>
+    </EditorialErrorBoundary>
   );
 }

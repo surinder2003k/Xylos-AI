@@ -1,3 +1,4 @@
+// Build Invalidation Trigger: V1.0.5 - Stability & Hydration Fixes Phase 2
 import { createClient as createPublicClient } from "@supabase/supabase-js";
 import { createClient } from "@/utils/supabase/server";
 import { ArrowRight, MessageSquare, Code2, FileText, Shield, Sparkles, Zap, Globe } from "lucide-react";
