@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { Suspense, useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Send, 
@@ -35,7 +35,7 @@ const providers = [
   { id: "openrouter", name: "OpenRouter Flash", icon: Diamond },
 ];
 
-export default function ChatPage() {
+function ChatContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const activeId = searchParams.get("id");
@@ -512,5 +512,19 @@ export default function ChatPage() {
       </div>
       <input type="file" ref={fileInputRef} className="hidden" onChange={handleFileUpload} />
     </div>
+  );
+}
+
+export default function ChatPage() {
+  return (
+    <Suspense fallback={
+       <div className="flex h-full w-full items-center justify-center bg-background">
+         <div className="w-12 h-12 rounded-[1.5rem] bg-primary/5 flex items-center justify-center border border-primary/10 animate-pulse">
+           <Sparkles className="w-6 h-6 text-primary animate-spin" />
+         </div>
+       </div>
+    }>
+      <ChatContent />
+    </Suspense>
   );
 }
