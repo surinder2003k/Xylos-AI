@@ -127,15 +127,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
           
           <div className="flex items-center gap-3">
-             <div className="hidden xs:block">
-               <ShareButtons title={post.title} excerpt={post.excerpt} slug={post.slug} />
-             </div>
-             <Link 
-               href="/dashboard"
-               className="hidden md:flex px-5 py-2 rounded-full bg-primary text-black font-black text-[10px] tracking-widest uppercase hover:scale-105 transition-all shadow-neon"
-             >
-               Launch App
-             </Link>
+             <ShareButtons title={post.title} excerpt={post.excerpt} slug={post.slug} />
           </div>
         </div>
       </nav>
