@@ -10,6 +10,14 @@ export function SplashLoader() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    const hasShown = sessionStorage.getItem("splashShown");
+    if (hasShown) {
+      setIsVisible(false);
+      return;
+    }
+
+    sessionStorage.setItem("splashShown", "true");
+
     const timer = setTimeout(() => setIsVisible(false), 2400);
     
     const interval = setInterval(() => {
