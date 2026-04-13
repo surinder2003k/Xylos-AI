@@ -5,18 +5,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { XylosLogo } from "@/components/premium/xylos-logo";
 
+let hasPlayedThisSession = false;
+
 export function SplashLoader() {
-  const [isVisible, setIsVisible] = useState(true);
+  // SSR: hasPlayedThisSession is false -> isVisible = true
+  // CSR (Navigation): hasPlayedThisSession is true -> isVisible = false
+  const [isVisible, setIsVisible] = useState(!hasPlayedThisSession);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const hasShown = sessionStorage.getItem("splashShown");
-    if (hasShown) {
-      setIsVisible(false);
+    // Only play once per JS context lifecycle (resets on F5, survives internal links)
+    if (hasPlayedThisSession) {
       return;
     }
-
-    sessionStorage.setItem("splashShown", "true");
+    
+    hasPlayedThisSession = true;
 
     const timer = setTimeout(() => setIsVisible(false), 2400);
     
