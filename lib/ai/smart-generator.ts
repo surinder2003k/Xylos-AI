@@ -67,8 +67,8 @@ export async function generateSmartBlog(
   - Professional, sophisticated, and slightly futuristic/noir.
   - High vocabulary but clear logic.
   - Avoid generic "AI-isms" (e.g., "In the fast-paced world of...").
-  - Use <h2> for section headers and <p> for paragraphs.
-  - IMPORTANT: Ensure every header (<h2>) and every paragraph block is separated by exactly TWO NEWLINES (\n\n) to ensure correct markdown parsing.
+  - Use <h2> for section headers and <p> for paragraphs within the text.
+  - IMPORTANT: You MUST ensure every header (<h2>) and every paragraph block is preceded and followed by TWO NEWLINES (\n\n) to ensure correct structural parsing. DO NOT omit these newlines.
 
   METADATA QUALITY STANDARDS:
   - keywords: Provide 10-15 high-intent, LSI (Latent Semantic Indexing) keywords that match the investigative depth of the article.
@@ -145,8 +145,13 @@ function sanitizeNeuralContent(content: string): string {
     .replace(/<\/body>/gi, '')
     .replace(/<head[^>]*>[\s\S]*?<\/head>/gi, '')
     
-    // Clean up excessive newlines
+    // Clean up excessive newlines but ensure structural integrity
     .replace(/\n{3,}/g, '\n\n')
+    
+    // Guarantee newlines before headers if missing
+    .replace(/([^\n])<(h[2-3]|p)>/gi, '$1\n\n<$2>')
+    .replace(/<\/(h[2-3]|p)>([^\n])/gi, '</$1>\n\n$2')
+    
     .trim();
 }
 

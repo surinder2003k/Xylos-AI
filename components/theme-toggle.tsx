@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Moon, Sun, Sparkles, Palette } from "lucide-react";
+import { Moon, Sun, Sparkles, Palette as PaletteIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePrimaryColor } from "./primary-color-provider";
@@ -64,7 +64,7 @@ export function ThemeToggle() {
         aria-label="Change Primary Color"
       >
         <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-        <Palette className="w-5 h-5 text-primary drop-shadow-neon" />
+        <PaletteIcon className="w-5 h-5 text-primary drop-shadow-neon" />
         
         <input 
           type="color"

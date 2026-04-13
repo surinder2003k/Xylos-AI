@@ -33,7 +33,7 @@ import {
   Plus,
   Loader2,
   Strikethrough,
-  Palette,
+  Palette as PaletteIcon,
   Underline as UnderlineIcon
 } from "lucide-react";
 import { createClient } from "@/utils/supabase/client";
@@ -398,7 +398,7 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
           <ToolbarButton 
             onClick={() => setShowColorPicker(!showColorPicker)} 
             isActive={showColorPicker}
-            icon={Palette}
+            icon={PaletteIcon}
           />
           {/* Editorial Color Palette */}
           <AnimatePresence>

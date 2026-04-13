@@ -250,13 +250,13 @@ export default function AIManagerPage() {
   return (
     <div className="max-w-7xl mx-auto space-y-10 animate-in fade-in slide-in-from-bottom-8 duration-700">
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 bg-card border border-white/5 p-8 rounded-[2.5rem] backdrop-blur-xl relative overflow-hidden group shadow-2xl">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 bg-card border border-white/5 p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] backdrop-blur-xl relative overflow-hidden group shadow-2xl">
          <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
             <Cpu className="w-32 h-32 text-primary" />
          </div>
          <div>
-            <h1 className="text-4xl font-black font-fustat tracking-tighter uppercase leading-none">Autonomous <span className="text-red-500">Manager</span></h1>
-            <p className="text-white/40 mt-2 font-medium uppercase tracking-[0.2em] text-[10px]">Editorial Synthesis Core V3.1 // Status: Online</p>
+            <h1 className="text-3xl md:text-4xl font-black font-fustat tracking-tighter uppercase leading-none">Autonomous <span className="text-red-500">Manager</span></h1>
+            <p className="text-white/40 mt-3 font-medium uppercase tracking-[0.2em] text-[8px] md:text-[10px]">Editorial Synthesis Core V3.1 // Status: Online</p>
          </div>
          <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-primary text-xs font-black uppercase tracking-widest">
@@ -276,8 +276,8 @@ export default function AIManagerPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Core Control & Logs */}
-        <div className="lg:col-span-2 space-y-8">
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="lg:col-span-2 space-y-6 md:space-y-8">
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <StatusCard 
                 icon={Timer} 
                 title="Next Scheduled Sync" 
@@ -294,7 +294,7 @@ export default function AIManagerPage() {
               />
            </div>
 
-           <div className="bg-card border border-white/5 rounded-[2.5rem] p-8 backdrop-blur-md space-y-6 shadow-xl">
+           <div className="bg-card border border-white/5 rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-8 backdrop-blur-md space-y-6 shadow-xl">
               <h3 className="font-bold text-lg flex items-center gap-3">
                  <Terminal className="w-5 h-5 text-white/40" />
                  Editorial Strategy Logs
@@ -310,7 +310,7 @@ export default function AIManagerPage() {
         </div>
 
         {/* Sync Protocols */}
-        <div className="bg-card border border-white/5 rounded-[2.5rem] p-8 backdrop-blur-md space-y-8 shadow-xl">
+        <div className="bg-card border border-white/5 rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-8 backdrop-blur-md space-y-8 shadow-xl">
            <h3 className="font-bold text-lg flex items-center gap-3 underline decoration-primary decoration-4 underline-offset-8">
               <Settings2 className="w-5 h-5 text-white/40" />
               Sync Protocols
@@ -467,7 +467,7 @@ export default function AIManagerPage() {
       </div>
 
       {/* User Management Section */}
-      <div className="bg-navy-900/20 border border-white/5 rounded-[2.5rem] p-8 space-y-8 backdrop-blur-xl">
+      <div className="bg-navy-900/20 border border-white/5 rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-8 space-y-8 backdrop-blur-xl">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="flex items-center gap-4">
              <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-primary">
@@ -489,7 +489,7 @@ export default function AIManagerPage() {
           </div>
         </div>
 
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto -mx-6 md:mx-0 px-6 md:px-0">
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-white/5">

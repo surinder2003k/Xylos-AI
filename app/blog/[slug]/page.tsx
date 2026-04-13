@@ -118,12 +118,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       {/* Premium Breadcrumbs Navigation */}
       <nav className="fixed top-0 w-full z-50 border-b border-border bg-background/80 backdrop-blur-xl px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-            <ChevronRight className="w-3 h-3 opacity-20" />
-            <Link href="/blog" className="hover:text-primary transition-colors">Archive</Link>
-            <ChevronRight className="w-3 h-3 opacity-20" />
-            <span className="text-foreground truncate max-w-[200px]">{post.category}</span>
+          <div className="flex items-center gap-2 md:gap-4 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-muted-foreground overflow-hidden">
+            <Link href="/" className="hover:text-primary transition-colors flex-shrink-0">Home</Link>
+            <ChevronRight className="w-3 h-3 opacity-20 flex-shrink-0" />
+            <Link href="/blog" className="hover:text-primary transition-colors flex-shrink-0">Archive</Link>
+            <ChevronRight className="w-3 h-3 opacity-20 flex-shrink-0 hidden xs:block" />
+            <span className="text-foreground truncate max-w-[100px] md:max-w-[200px] hidden xs:block">{post.category}</span>
           </div>
           
           <div className="flex items-center gap-6">
@@ -146,7 +146,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                {post.category} Report
             </div>
             
-            <h1 className="text-3xl md:text-7xl font-black font-fustat tracking-tighter leading-[0.9] md:leading-none balance">
+            <h1 className="text-3xl md:text-7xl font-black font-fustat tracking-tighter leading-[1.1] md:leading-none break-words">
                <AnimeText text={post.title} />
             </h1>
 
@@ -189,7 +189,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {/* Vertical Accents */}
             <div className="absolute -left-12 top-0 bottom-0 w-px bg-gradient-to-b from-primary/20 via-transparent to-transparent hidden xl:block" />
             
-            <div className="prose prose-invert prose-p:text-foreground/80 prose-p:leading-[1.8] prose-p:text-xl prose-headings:font-fustat prose-headings:tracking-tighter prose-a:text-primary max-w-none prose-img:rounded-[2rem] prose-code:text-primary px-0 selection:bg-primary/20">
+            <div className="prose prose-invert prose-p:text-foreground/80 prose-p:leading-[1.8] prose-p:text-lg md:text-xl prose-headings:font-fustat prose-headings:tracking-tighter prose-a:text-primary max-w-none prose-img:rounded-[2rem] prose-code:text-primary px-0 selection:bg-primary/20 break-words overflow-hidden">
                {post.content && post.content.startsWith('<') ? (
                  <div dangerouslySetInnerHTML={{ __html: post.content }} />
                ) : (

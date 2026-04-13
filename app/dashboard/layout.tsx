@@ -101,7 +101,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       {!isSidebarOpen && (
         <button 
           onClick={() => setIsSidebarOpen(true)}
-          className="fixed bottom-6 right-6 z-[60] lg:hidden p-4 rounded-full bg-primary text-black shadow-2xl shadow-primary/40 active:scale-90 transition-all border border-white/20"
+          className="fixed bottom-6 left-6 z-[60] lg:hidden p-4 rounded-2xl bg-primary text-black shadow-2xl shadow-primary/40 active:scale-90 transition-all border border-white/20"
         >
           <Menu className="w-6 h-6" />
         </button>
@@ -212,8 +212,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       {/* Main Content */}
       <div className="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
         {/* Header */}
-        <header className="h-20 border-b border-border flex items-center justify-between px-8 bg-background/50 backdrop-blur-md flex-shrink-0 sticky top-0 z-40">
-          <div className="flex items-center gap-3 bg-muted border border-border px-4 py-2.5 rounded-xl w-96 shadow-inner group focus-within:border-primary/50 transition-all">
+        <header className="h-20 border-b border-border flex items-center justify-between px-4 md:px-8 bg-background/50 backdrop-blur-md flex-shrink-0 sticky top-0 z-40">
+          <div className="hidden sm:flex items-center gap-3 bg-muted border border-border px-4 py-2.5 rounded-xl w-32 md:w-96 shadow-inner group focus-within:border-primary/50 transition-all">
             <Search className="w-4 h-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
             <input 
               type="text" 
@@ -286,7 +286,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           </div>
         </header>
 
-        <main className="flex-1 overflow-y-auto p-8 custom-scrollbar">
+        <main className="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
