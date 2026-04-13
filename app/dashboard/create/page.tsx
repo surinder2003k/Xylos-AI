@@ -484,7 +484,9 @@ function CreatePostContent() {
 export default function CreatePostPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center bg-background">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">
+        <Loader2 className="w-10 h-10 text-primary animate-spin" />
+        <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground animate-pulse">Initializing Editorial Engine...</span>
       </div>
     }>
       <CreatePostContent />
