@@ -1,5 +1,7 @@
-import { MetadataRoute } from 'next'
 import { createClient } from '@supabase/supabase-js'
+
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://xylosai.vercel.app').replace(/\/$/, '')
@@ -11,19 +13,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   )
 
   // Fetch all published blog posts for the sitemap
-  const { data: posts } = await supabase
-    .from('blogs')
-    .select('slug, updated_at')
-    .eq('status', 'published')
+  let blogEntries: MetadataRoute.Sitemap = []
+  
+  try {
+    const { data: posts, error } = await supabase
+      .from('blogs')
+      .select('slug, updated_at')
+      .eq('status', 'published')
 
-  const blogEntries: MetadataRoute.Sitemap = (posts || [])
-    .filter(post => post.slug)
-    .map((post) => ({
-      url: `${siteUrl}/blog/${post.slug}`,
-      lastModified: post.updated_at ? new Date(post.updated_at) : new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    }))
+    if (!error && posts) {
+      blogEntries = posts
+        .filter(post => post.slug)
+        .map((post) => ({
+          url: `${siteUrl}/blog/${post.slug}`,
+          lastModified: post.updated_at ? new Date(post.updated_at) : new Date(),
+          changeFrequency: 'weekly',
+          priority: 0.7,
+        }))
+    }
+  } catch (err) {
+    console.error("[Sitemap] Failed to fetch blog posts:", err)
+  }
 
   return [
     {
