@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   if (!post) return {};
 
-  const canonicalUrl = `https://xylos-ai.com/blog/${post.slug}`;
-  const imageUrl = post.feature_image_url || 'https://xylos-ai.com/og-image.png';
+  const canonicalUrl = `https://xylosai.vercel.app/blog/${post.slug}`;
+  const imageUrl = post.feature_image_url || 'https://xylosai.vercel.app/og-image.png';
 
   return {
     title: post.meta_title || post.title,
@@ -105,7 +105,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             "@type": "BlogPosting",
             "headline": post.title,
             "description": post.excerpt,
-            "image": post.feature_image_url || "https://xylos-ai.com/og-image.png",
+            "image": post.feature_image_url || "https://xylosai.vercel.app/og-image.png",
             "datePublished": post.created_at,
             "dateModified": post.updated_at || post.created_at,
             "author": {

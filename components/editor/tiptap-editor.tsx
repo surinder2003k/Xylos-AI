@@ -518,7 +518,7 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
                   type="url" 
                   value={linkEditor.url}
                   onChange={(e) => setLinkEditor(prev => ({ ...prev, url: e.target.value }))}
-                  placeholder="https://xylos-ai.com"
+                  placeholder="https://xylosai.vercel.app"
                   className="w-full bg-muted/30 border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/50 transition-colors"
                   autoFocus
                 />
