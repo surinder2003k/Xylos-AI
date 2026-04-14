@@ -78,7 +78,7 @@ export async function discoverInternalPosts(supabase: any, limit: number = 5): P
 
     if (error) throw error;
 
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://xylos-ai.com";
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://xylosai.vercel.app";
     return (data || []).map((post: any) => ({
       url: `${baseUrl}/blog/${post.slug}`
     }));

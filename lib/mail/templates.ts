@@ -37,7 +37,7 @@ export const WELCOME_TEMPLATE = (fullName: string) => `
       </p>
       
       <div class="cta-container">
-        <a href="https://xylos-ai.com/dashboard" class="button">Access Command Center</a>
+        <a href="https://xylosai.vercel.app/dashboard" class="button">Access Command Center</a>
       </div>
 
       <div class="feature-grid">

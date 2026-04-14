@@ -1,6 +1,6 @@
 # Xylos AI - The Ultimate Free AI Editorial Architecture
 
-![Xylos AI Banner](https://xylos-ai.com/og-image.png)
+![Xylos AI Banner](https://xylosai.vercel.app/og-image.png)
 
 ## 🚀 Overview
 **Xylos** is a high-performance, generative editorial intelligence platform. It empowers creators and businesses with an elite suite of AI models—including **Llama 3, Gemini, and Mistral**—all within a premium, zero-cost workspace. Built with a focus on investigative analysis and architectural design, Xylos transforms raw data into polished, high-fidelity editorial content.

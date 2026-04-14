@@ -11,7 +11,7 @@ interface ShareButtonsProps {
 
 export function ShareButtons({ title, excerpt, slug }: ShareButtonsProps) {
   const { showToast } = useToast();
-  const url = `https://xylos-ai.com/blog/${slug}`;
+  const url = `https://xylosai.vercel.app/blog/${slug}`;
 
   const handleShare = () => {
     if (navigator.share) {

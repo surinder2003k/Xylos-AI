@@ -29,7 +29,7 @@ export async function POST(req: Request) {
       
       if (posts) {
         recentTitles = posts.map(p => p.title);
-        linkingContext = posts.slice(0, 3).map(p => `https://xylos-ai.com/blog/${p.slug}`); // Internal Backlinks
+        linkingContext = posts.slice(0, 3).map(p => `https://xylosai.vercel.app/blog/${p.slug}`); // Internal Backlinks
       }
     } catch {
       console.warn("[Strategy Sync] Failed to fetch context, proceeding without it.");

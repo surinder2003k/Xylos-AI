@@ -14,7 +14,7 @@ const fustat = Fustat({ subsets: ["latin"], variable: "--font-fustat" });
 import { GlobalEffects } from "@/components/ui/global-effects";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://xylos-ai.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://xylosai.vercel.app'),
   title: {
     default: "Xylos AI — Free AI Chat & Blog Platform | Llama, Gemini, Mistral",
     template: "%s | Xylos AI",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description: "Access Llama 3, Gemini, Mistral, and 7+ elite AI models in one zero-cost premium platform. Built for professionals — AI chat, content creation, and editorial intelligence.",
   applicationName: "Xylos AI",
   referrer: "origin-when-cross-origin",
-  authors: [{ name: "Xylos AI Research", url: "https://xylos-ai.com" }],
+  authors: [{ name: "Xylos AI Research", url: "https://xylosai.vercel.app" }],
   creator: "21dev.in",
   publisher: "Xylos AI Research",
   icons: {
@@ -48,12 +48,12 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://xylos-ai.com',
+    canonical: 'https://xylosai.vercel.app',
   },
   openGraph: {
     title: "Xylos AI — Free AI Chat & Blog Platform",
     description: "Access 7+ free AI models (Llama 3, Gemini, Mistral) in one premium workspace. Zero cost, professional grade.",
-    url: 'https://xylos-ai.com',
+    url: 'https://xylosai.vercel.app',
     siteName: 'Xylos AI',
     images: [
       {
@@ -141,13 +141,13 @@ export default function RootLayout({
                         "@context": "https://schema.org",
                         "@type": "WebSite",
                         "name": "Xylos AI",
-                        "url": "https://xylos-ai.com",
+                        "url": "https://xylosai.vercel.app",
                         "description": "Free AI chat and content platform with Llama 3, Gemini, and Mistral.",
                         "potentialAction": {
                           "@type": "SearchAction",
                           "target": {
                             "@type": "EntryPoint",
-                            "urlTemplate": "https://xylos-ai.com/blog?q={search_term_string}"
+                            "urlTemplate": "https://xylosai.vercel.app/blog?q={search_term_string}"
                           },
                           "query-input": "required name=search_term_string"
                         }
@@ -156,7 +156,7 @@ export default function RootLayout({
                         "@context": "https://schema.org",
                         "@type": "SoftwareApplication",
                         "name": "Xylos AI",
-                        "url": "https://xylos-ai.com",
+                        "url": "https://xylosai.vercel.app",
                         "applicationCategory": "BusinessApplication",
                         "operatingSystem": "Web",
                         "description": "Access elite AI models including Llama 3, Gemini, and Mistral in one zero-cost generative interface.",
@@ -175,10 +175,10 @@ export default function RootLayout({
                         "@context": "https://schema.org",
                         "@type": "Organization",
                         "name": "Xylos AI Research",
-                        "url": "https://xylos-ai.com",
+                        "url": "https://xylosai.vercel.app",
                         "logo": {
                           "@type": "ImageObject",
-                          "url": "https://xylos-ai.com/icon.svg"
+                          "url": "https://xylosai.vercel.app/icon.svg"
                         },
                         "contactPoint": {
                           "@type": "ContactPoint",
