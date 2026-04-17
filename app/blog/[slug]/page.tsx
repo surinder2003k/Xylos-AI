@@ -1,5 +1,5 @@
 import { createClient } from "@/utils/supabase/server";
-import { ArrowLeft, Clock, User, Share2, MessageSquare, Twitter, Facebook, ChevronRight } from "lucide-react";
+import { Clock, User, Share2, MessageSquare, Twitter, Facebook, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
@@ -116,26 +116,21 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           })
         }}
       />
-      {/* Premium Breadcrumbs Navigation */}
-      <nav className="fixed top-0 w-full z-50 border-b border-border bg-background/80 backdrop-blur-xl px-6 py-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2 md:gap-4 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-muted-foreground overflow-hidden">
-            <Link href="/" className="hover:text-primary transition-colors flex-shrink-0">Home</Link>
-            <ChevronRight className="w-3 h-3 opacity-20 flex-shrink-0" />
-            <Link href="/blog" className="hover:text-primary transition-colors flex-shrink-0">Archive</Link>
-            <ChevronRight className="w-3 h-3 opacity-20 flex-shrink-0 hidden xs:block" />
-            <span className="text-foreground truncate max-w-[100px] md:max-w-[200px] hidden xs:block">{post.category}</span>
-          </div>
-          
-          <div className="flex items-center gap-3">
 
-             <ShareButtons title={post.title} excerpt={post.excerpt} slug={post.slug} />
-          </div>
-        </div>
-      </nav>
-
-      <main className="pt-32 pb-24 px-6 relative">
+      <main className="pt-40 pb-24 px-6 relative">
         <article className="max-w-4xl mx-auto">
+          {/* Breadcrumb strip */}
+          <div className="flex items-center justify-between mb-12 pb-6 border-b border-border">
+            <div className="flex items-center gap-2 md:gap-4 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+              <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+              <ChevronRight className="w-3 h-3 opacity-30" />
+              <Link href="/blog" className="hover:text-primary transition-colors">Archive</Link>
+              <ChevronRight className="w-3 h-3 opacity-30" />
+              <span className="text-primary">{post.category}</span>
+            </div>
+            <ShareButtons title={post.title} excerpt={post.excerpt} slug={post.slug} />
+          </div>
+
           {/* Editorial Header */}
           <div className="space-y-8 mb-16">
             <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.2em]">
