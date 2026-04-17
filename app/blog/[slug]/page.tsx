@@ -192,7 +192,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               prose-blockquote:border-l-primary/40 prose-img:rounded-[2rem] 
               prose-code:text-primary px-0 selection:bg-primary/20 break-words overflow-hidden">
                {post.content && post.content.startsWith('<') ? (
-                 <div className="space-y-6 text-foreground/90" dangerouslySetInnerHTML={{ __html: post.content }} />
+                 <div 
+                   className="space-y-6 text-foreground/90" 
+                   dangerouslySetInnerHTML={{ 
+                     __html: post.content
+                       .replace(/color:\s*(#ffffff|#fff|#000000|#000|rgb\(255,\s*255,\s*255\)|rgb\(0,\s*0,\s*0\));?/gi, "") 
+                   }} 
+                 />
                ) : (
                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{formatMarkdown(post.content)}</ReactMarkdown>
                )}
