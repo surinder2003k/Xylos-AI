@@ -106,10 +106,11 @@ function ChatContent() {
     loadChat();
   }, [activeId]);
 
+  // Scroll to bottom only when switching chats, not on every message update
   useEffect(() => {
-    const timeout = setTimeout(() => scrollToBottom(), 50);
+    const timeout = setTimeout(() => scrollToBottom(true), 100);
     return () => clearTimeout(timeout);
-  }, [messages, isLoading]);
+  }, [activeId]);
 
   // 2. Speech Recognition Engine
   useEffect(() => {
@@ -271,7 +272,7 @@ function ChatContent() {
   const getDisplayContent = (msg: Message) => msg.content;
 
   return (
-    <div className="flex h-[100dvh] w-full bg-background overflow-hidden relative">
+    <div className="flex h-[100dvh] w-full bg-background overflow-hidden relative pt-16 md:pt-16">
       {/* Mobile Sidebar Overlay */}
       {isSidebarOpen && (
         <div 
@@ -290,9 +291,14 @@ function ChatContent() {
             <span className="font-fustat font-black text-xl uppercase tracking-wider">Missions</span>
             <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">{sessions.length} Deployments</span>
           </div>
-          <button onClick={() => router.push('/chat')} className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20 transition-colors">
-            <Plus className="w-4 h-4" />
-          </button>
+          <div className="flex items-center gap-2">
+            <a href="/" className="w-8 h-8 rounded-full bg-muted hover:bg-primary/10 hover:text-primary text-muted-foreground flex items-center justify-center transition-colors" title="Back to Home">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </a>
+            <button onClick={() => router.push('/chat')} className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20 transition-colors">
+              <Plus className="w-4 h-4" />
+            </button>
+          </div>
         </div>
         <div className="flex-1 overflow-y-auto p-4 space-y-2 custom-scrollbar">
           {sessions.map(s => (
@@ -419,6 +425,14 @@ function ChatContent() {
                             ) : (
                               <>
                                 <div className="whitespace-pre-wrap">{message.content}</div>
+                                <div className="flex items-center gap-2 mt-2">
+                                  <button 
+                                    onClick={() => copyToClipboard(message.content)}
+                                    className="p-1 px-3 rounded-lg bg-background/20 text-background/70 hover:bg-background/30 text-[9px] font-black uppercase tracking-widest transition-all flex items-center gap-1"
+                                  >
+                                    <Copy className="w-3 h-3" /> Copy
+                                  </button>
+                                </div>
                                 <button 
                                   onClick={() => { setEditingMsgIndex(i); setEditContent(message.content); }}
                                   className="absolute -left-10 top-1/2 -translate-y-1/2 p-2 rounded-full bg-muted/50 text-muted-foreground hover:text-foreground opacity-0 group-hover/msg:opacity-100 transition-opacity"
@@ -468,9 +482,9 @@ function ChatContent() {
                         {message.role === 'assistant' && (
                           <button 
                             onClick={() => copyToClipboard(message.content)}
-                            className="p-1 px-3 rounded-lg hover:bg-muted text-[9px] font-black uppercase tracking-widest text-muted-foreground hover:text-primary transition-all border border-transparent hover:border-border mt-1"
+                            className="p-1 px-3 rounded-lg hover:bg-muted text-[9px] font-black uppercase tracking-widest text-muted-foreground hover:text-primary transition-all border border-transparent hover:border-border mt-1 flex items-center gap-1"
                           >
-                            Copy Matrix Logic
+                            <Copy className="w-3 h-3" /> Copy Response
                           </button>
                         )}
                       </div>

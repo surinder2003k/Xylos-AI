@@ -41,7 +41,7 @@ export function XylosLogo({ size = 40, className = "", animated = true }: XylosL
         {/* Left arm of X */}
         <motion.path
           d="M-90,-90 L-20,0 L-90,90"
-          stroke="var(--logo-color, #0f0f0f)"
+          stroke="var(--logo-color, #8B5CF6)"
           strokeWidth="28"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -53,7 +53,7 @@ export function XylosLogo({ size = 40, className = "", animated = true }: XylosL
         {/* Right arm of X */}
         <motion.path
           d="M90,-90 L20,0 L90,90"
-          stroke="var(--logo-color, #0f0f0f)"
+          stroke="var(--logo-color, #8B5CF6)"
           strokeWidth="28"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -65,7 +65,7 @@ export function XylosLogo({ size = 40, className = "", animated = true }: XylosL
         {/* Center node — static, no pulse */}
         <circle
           cx="0" cy="0" r="16"
-          fill="var(--logo-color, #0f0f0f)"
+          fill="var(--logo-color, #8B5CF6)"
           opacity="0.9"
         />
 
@@ -81,7 +81,7 @@ export function XylosLogo({ size = 40, className = "", animated = true }: XylosL
             cx={cx}
             cy={cy}
             r="8"
-            fill="var(--logo-color, #0f0f0f)"
+            fill="var(--logo-color, #8B5CF6)"
             initial={animated ? { opacity: 0, scale: 0 } : { opacity: 0.6, scale: 1 }}
             animate={{ opacity: 0.6, scale: 1 }}
             transition={{ delay: 0.5 + i * 0.1, duration: 0.4, ease: "backOut" }}
