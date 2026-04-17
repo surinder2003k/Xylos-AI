@@ -61,7 +61,7 @@ export default async function PrivacyPage() {
           />
         </section>
 
-        <article className="prose prose-invert max-w-none space-y-8 text-muted-foreground leading-relaxed">
+        <article className="prose dark:prose-invert max-w-none space-y-8 text-muted-foreground leading-relaxed">
           <div className="space-y-4">
             <h2 className="text-2xl font-black text-white uppercase tracking-tight font-fustat">1. Data Collection</h2>
             <p>Xylos AI collects minimal metadata required to provide the service. This includes account identifiers and usage logs necessary for system stability. We do NOT monetize user data or sell it to third-party advertisers.</p>

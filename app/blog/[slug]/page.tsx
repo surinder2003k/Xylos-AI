@@ -183,7 +183,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {/* Vertical Accents */}
             <div className="absolute -left-12 top-0 bottom-0 w-px bg-gradient-to-b from-primary/20 via-transparent to-transparent hidden xl:block" />
             
-            <div className="prose prose-invert prose-p:text-foreground/80 prose-p:leading-[1.8] prose-p:text-lg md:text-xl prose-headings:font-fustat prose-headings:tracking-tighter prose-a:text-primary max-w-none prose-img:rounded-[2rem] prose-code:text-primary px-0 selection:bg-primary/20 break-words overflow-hidden">
+            <div className="prose dark:prose-invert prose-p:text-foreground/80 prose-p:leading-[1.8] prose-p:text-lg md:text-xl prose-headings:font-fustat prose-headings:tracking-tighter prose-a:text-primary max-w-none prose-img:rounded-[2rem] prose-code:text-primary px-0 selection:bg-primary/20 break-words overflow-hidden">
                {post.content && post.content.startsWith('<') ? (
                  <div dangerouslySetInnerHTML={{ __html: post.content }} />
                ) : (

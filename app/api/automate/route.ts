@@ -25,9 +25,11 @@ export async function GET(req: Request) {
 
     const authHeader = req.headers.get("authorization");
     const vercelCronHeader = req.headers.get("x-vercel-cron");
-    const isCron =
-      authHeader === `Bearer ${process.env.CRON_SECRET}` ||
-      vercelCronHeader === "1";
+    
+    // Auth logic: Prioritize Vercel Cron header, then check secret if provided
+    const isCron = 
+      vercelCronHeader === "1" || 
+      (process.env.CRON_SECRET && authHeader === `Bearer ${process.env.CRON_SECRET}`);
 
     let isAuthorizedAdmin = false;
     if (!isCron) {
@@ -130,17 +132,31 @@ export async function GET(req: Request) {
       const externalLinks = partnerPosts.map((p) => p.url);
 
       // --- SYNTHESIS ---
-      const blogData = await generateSmartBlog(
-        activeCategory,
-        recentTitles,
-        activeCategory,
-        internalLinks,
-        externalLinks,
-      );
-      const imageResult = await searchSmartImage(
-        blogData.search_term || blogData.title,
-        blogData.category,
-      );
+      let blogData;
+      try {
+        blogData = await generateSmartBlog(
+          activeCategory,
+          recentTitles,
+          activeCategory,
+          internalLinks,
+          externalLinks,
+        );
+      } catch (genErr: any) {
+        console.error(`[Neural Sync] Content generation failed:`, genErr.message);
+        results.push({ status: "failed", reason: "AI Generation Failure", error: genErr.message });
+        continue;
+      }
+
+      let imageResult;
+      try {
+        imageResult = await searchSmartImage(
+          blogData.search_term || blogData.title,
+          blogData.category,
+        );
+      } catch (imgErr: any) {
+        console.warn(`[Neural Sync] Image search failed, using fallback:`, imgErr.message);
+        imageResult = { url: "https://images.unsplash.com/photo-1677442136019-21780ecad995", alt: "AI Neural Network" };
+      }
 
       const slug =
         blogData.title
@@ -177,10 +193,11 @@ export async function GET(req: Request) {
           `[Neural Sync] Post ${i + 1} failed:`,
           insertError.message,
         );
+        results.push({ status: "failed", reason: "Database Insert Error", error: insertError.message });
         continue;
       }
 
-      results.push({ id: newPost.id, title: newPost.title });
+      results.push({ status: "success", id: newPost.id, title: newPost.title });
       recentTitles.push(newPost.title); // Update context for next iteration
     }
 
