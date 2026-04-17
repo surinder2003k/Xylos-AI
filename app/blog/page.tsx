@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { createClient } from "@/utils/supabase/server";
-import { ArrowLeft, Diamond, Search, Filter, BookOpen } from "lucide-react";
+import { Diamond, Search, Filter, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { BlogGrid } from "@/components/landing/blog-grid";
 import { BlogFilters } from "@/components/landing/blog-filters";
 import { createClient as createPublicClient } from "@supabase/supabase-js";
-import { XylosLogo } from "@/components/premium/xylos-logo";
+
 
 
 export const metadata: Metadata = {
@@ -71,25 +71,6 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
-      {/* Editorial Navigation */}
-      <nav className="fixed top-0 w-full z-50 border-b border-border bg-background/80 backdrop-blur-xl px-6 py-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group/logo cursor-pointer">
-            <XylosLogo className="w-10 h-10" />
-            <span className="font-fustat font-black text-2xl tracking-tighter uppercase">Xylos<span className="text-primary italic">AI</span></span>
-          </Link>
-          
-          <div className="flex items-center gap-6">
-
-            <Link 
-              href="/"
-              className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.3em] text-muted-foreground hover:text-foreground transition-all flex items-center group/back"
-            >
-               <ArrowLeft className="w-4 h-4 group-hover/back:-translate-x-1 transition-transform" /> Back to Home
-            </Link>
-          </div>
-        </div>
-      </nav>
 
       <main className="pt-40 pb-24 px-6 relative">
         <div className="max-w-7xl mx-auto space-y-20">
