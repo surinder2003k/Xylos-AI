@@ -231,9 +231,9 @@ export default async function LandingPage() {
               <AnimatedLogo className="scale-110" />
               
               <div className="flex gap-8 text-[9px] font-black uppercase tracking-[0.3em] text-muted-foreground mb-8">
-                 <Link href="#" className="hover:text-primary transition-colors">Privacy</Link>
-                 <Link href="#" className="hover:text-primary transition-colors">Ethics</Link>
-                 <Link href="#" className="hover:text-primary transition-colors">Resources</Link>
+                 <Link href="/privacy" className="hover:text-primary transition-colors">Privacy</Link>
+                 <Link href="/privacy" className="hover:text-primary transition-colors">Ethics</Link>
+                 <Link href="/about" className="hover:text-primary transition-colors">Resources</Link>
               </div>
 
               <div className="space-y-2">
