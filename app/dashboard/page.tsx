@@ -70,9 +70,8 @@ export default function Dashboard() {
                 {tool.desc}
               </p>
               
-              <div className="mt-8 pt-6 border-t border-border/20 flex items-center justify-between text-[10px] font-mono tracking-widest uppercase text-muted-foreground/30">
-                 <span>v1.0.2-patch</span>
-                 <span className="group-hover:text-primary transition-colors">Open Tool</span>
+              <div className="mt-8 pt-6 border-t border-border/20 flex items-center justify-end text-[10px] font-mono tracking-widest uppercase text-muted-foreground/30">
+                 <span className="group-hover:text-primary transition-colors">Open Tool →</span>
               </div>
             </Link>
           </motion.div>

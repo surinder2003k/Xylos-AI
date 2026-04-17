@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Shield, Lock, Eye, Gavel, Scale, FileCheck } from "lucide-react";
+import { Shield, Lock, Eye, Scale, FileCheck } from "lucide-react";
 
 
 export const metadata: Metadata = {
