@@ -161,9 +161,7 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
     },
     editorProps: {
       attributes: {
-        class: `focus:outline-none min-h-[500px] p-8 leading-relaxed font-medium transition-colors duration-300 ${
-          mounted && resolvedTheme === 'dark' ? 'prose prose-invert prose-p:text-white/70' : 'prose prose-neutral'
-        } max-w-none`,
+        class: "focus:outline-none min-h-[500px] p-8 leading-relaxed font-medium transition-colors duration-300 prose prose-neutral dark:prose-invert max-w-none",
       },
     },
   });
@@ -407,14 +405,14 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
                 initial={{ opacity: 0, y: 10, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                className="absolute top-full left-0 mt-3 bg-[#0d0d0d] border border-white/10 p-2.5 rounded-2xl shadow-2xl z-[100] flex flex-col gap-2.5 min-w-[40px] backdrop-blur-xl"
+                className="absolute top-full left-0 mt-3 bg-card border border-border p-2.5 rounded-2xl shadow-2xl z-[100] flex flex-col gap-2.5 min-w-[40px] backdrop-blur-xl"
               >
                 <button onClick={() => { setColor("#8b5cf6"); setShowColorPicker(false); }} className="w-6 h-6 rounded-full bg-violet-500 hover:scale-110 transition-transform shadow-[0_0_10px_rgba(139,92,246,0.3)]" title="Xylos Violet" />
                 <button onClick={() => { setColor("#6366f1"); setShowColorPicker(false); }} className="w-6 h-6 rounded-full bg-indigo-500 hover:scale-110 transition-transform shadow-[0_0_10px_rgba(99,102,241,0.3)]" title="Indigo Insight" />
                 <button onClick={() => { setColor("#a855f7"); setShowColorPicker(false); }} className="w-6 h-6 rounded-full bg-purple-500 hover:scale-110 transition-transform shadow-[0_0_10px_rgba(168,85,247,0.3)]" title="Purple Prestige" />
                 <button onClick={() => { setColor("#ef4444"); setShowColorPicker(false); }} className="w-6 h-6 rounded-full bg-red-500 hover:scale-110 transition-transform shadow-[0_0_10px_rgba(239,68,68,0.3)]" title="Alert Red" />
-                <div className="h-px bg-white/10 mx-1" />
-                <button onClick={() => { setColor(resolvedTheme === 'dark' ? "#ffffff" : "#000000"); setShowColorPicker(false); }} className={`w-6 h-6 rounded-full border border-white/10 ${resolvedTheme === 'dark' ? 'bg-white' : 'bg-black'} hover:scale-110 transition-transform`} title="Default Text Color" />
+                <div className="h-px bg-border mx-1" />
+                <button onClick={() => { setColor(resolvedTheme === 'dark' ? "currentColor" : "currentColor"); setShowColorPicker(false); }} className={`w-6 h-6 rounded-full border border-border ${resolvedTheme === 'dark' ? 'bg-white' : 'bg-black'} hover:scale-110 transition-transform`} title="Default Text Color" />
               </motion.div>
             )}
           </AnimatePresence>
@@ -436,7 +434,7 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
 
       <div className="relative">
         {editor && (
-          <BubbleMenuComponent editor={editor} tippyOptions={{ duration: 100 }} className="flex items-center gap-1 p-2 bg-card/90 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl animate-in fade-in zoom-in duration-200">
+          <BubbleMenuComponent editor={editor} tippyOptions={{ duration: 100 }} className="flex items-center gap-1 p-2 bg-card/90 backdrop-blur-xl border border-border shadow-2xl rounded-2xl animate-in fade-in zoom-in duration-200">
              <ToolbarButton onClick={() => editor.chain().focus().toggleBold().run()} isActive={editor.isActive('bold')} icon={Bold} />
              <ToolbarButton onClick={() => editor.chain().focus().toggleItalic().run()} isActive={editor.isActive('italic')} icon={Italic} />
              <div className="w-px h-4 bg-border mx-1" />
@@ -504,7 +502,7 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
                initial={{ opacity: 0, scale: 0.95 }}
                animate={{ opacity: 1, scale: 1 }}
                exit={{ opacity: 0, scale: 0.95 }}
-               className="w-full max-w-sm bg-[#0d0d0d] border border-border rounded-3xl p-6 shadow-2xl space-y-6"
+               className="w-full max-w-sm bg-card border border-border rounded-3xl p-6 shadow-2xl space-y-6"
             >
               <div className="space-y-2">
                 <h3 className="font-black text-lg uppercase tracking-widest text-primary flex items-center gap-2">
@@ -532,8 +530,8 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
                 </label>
               </div>
 
-              <div className="flex items-center gap-3 pt-2 border-t border-white/5">
-                <button onClick={() => setLinkEditor(prev => ({ ...prev, isOpen: false }))} className="flex-1 py-3 rounded-xl border border-white/10 text-xs font-bold uppercase hover:bg-white/5 transition-all text-muted-foreground">Cancel</button>
+              <div className="flex items-center gap-3 pt-2 border-t border-border">
+                <button onClick={() => setLinkEditor(prev => ({ ...prev, isOpen: false }))} className="flex-1 py-3 rounded-xl border border-border text-xs font-bold uppercase hover:bg-muted transition-all text-muted-foreground">Cancel</button>
                 <button onClick={applyLink} className="flex-1 py-3 rounded-xl bg-primary text-black text-xs font-black uppercase hover:scale-105 transition-all shadow-neon">Confirm</button>
               </div>
             </motion.div>
@@ -549,7 +547,7 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
                initial={{ opacity: 0, scale: 0.95 }}
                animate={{ opacity: 1, scale: 1 }}
                exit={{ opacity: 0, scale: 0.95 }}
-               className="w-full max-w-sm bg-[#0d0d0d] border border-border rounded-3xl p-6 shadow-2xl space-y-6"
+               className="w-full max-w-sm bg-card border border-border rounded-3xl p-6 shadow-2xl space-y-6"
             >
               <div className="space-y-2">
                 <h3 className="font-black text-lg uppercase tracking-widest text-primary flex items-center gap-2">
@@ -582,8 +580,8 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 pt-2 border-t border-white/5">
-                <button onClick={() => { metadataEditor.callback(null); setMetadataEditor(prev => ({ ...prev, isOpen: false })); }} className="flex-1 py-3 rounded-xl border border-white/10 text-xs font-bold uppercase hover:bg-white/5 transition-all text-muted-foreground">Skip</button>
+              <div className="flex items-center gap-3 pt-2 border-t border-border">
+                <button onClick={() => { metadataEditor.callback(null); setMetadataEditor(prev => ({ ...prev, isOpen: false })); }} className="flex-1 py-3 rounded-xl border border-border text-xs font-bold uppercase hover:bg-muted transition-all text-muted-foreground">Skip</button>
                 <button onClick={() => { metadataEditor.callback({ alt: metadataEditor.alt, title: metadataEditor.title }); setMetadataEditor(prev => ({ ...prev, isOpen: false })); }} className="flex-1 py-3 rounded-xl bg-primary text-black text-xs font-black uppercase hover:scale-105 transition-all shadow-neon">Verify Data</button>
               </div>
             </motion.div>

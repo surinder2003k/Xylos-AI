@@ -38,13 +38,13 @@ export function PexelsLibrary({ onSelect, currentUrl }: PexelsLibraryProps) {
   return (
     <div className="space-y-4">
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20" />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && searchPexels()}
           placeholder="Search global imagery..."
-          className="w-full bg-white/5 border border-white/10 rounded-xl py-2.5 pl-10 pr-4 text-sm focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all"
+          className="w-full bg-muted/30 border border-border rounded-xl py-2.5 pl-10 pr-4 text-sm focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all"
         />
         <button 
           onClick={searchPexels}
@@ -72,7 +72,7 @@ export function PexelsLibrary({ onSelect, currentUrl }: PexelsLibraryProps) {
               whileHover={{ scale: 0.95 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => onSelect(photo.src.large2x, photo.alt || query)}
-              className="relative aspect-video rounded-lg overflow-hidden border border-white/5 group shadow-lg"
+              className="relative aspect-video rounded-lg overflow-hidden border border-border group shadow-lg"
             >
               <img 
                 src={photo.src.medium} 

@@ -47,7 +47,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
                 flex items-center gap-4 px-6 py-4 rounded-2xl border backdrop-blur-xl shadow-2xl min-w-[320px]
                 ${toast.type === "success" ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-500" : ""}
                 ${toast.type === "error" ? "bg-red-600/10 border-red-600/20 text-red-600" : ""}
-                ${toast.type === "info" ? "bg-white/5 border-white/10 text-white/70" : ""}
+                ${toast.type === "info" ? "bg-muted border-border text-foreground/70" : ""}
                 ${toast.type === "neural" ? "bg-primary/20 border-primary/30 text-primary-light" : ""}
               `}>
                 <div className="flex-shrink-0">

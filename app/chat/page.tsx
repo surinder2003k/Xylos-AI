@@ -306,7 +306,7 @@ function ChatContent() {
                       
                       <div className="flex-1 space-y-2">
                         {message.attachment && message.attachment.type.startsWith('image/') && (
-                          <div className="rounded-2xl overflow-hidden border border-white/5 shadow-2xl mb-2 max-w-[300px]">
+                          <div className="rounded-2xl overflow-hidden border border-border shadow-2xl mb-2 max-w-[300px]">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img src={message.attachment.url} alt="Neural Asset" className="w-full h-auto object-cover" />
                           </div>
@@ -348,7 +348,7 @@ function ChatContent() {
                               </>
                             )
                           ) : (
-                            <div className="prose prose-sm md:prose-base dark:prose-invert max-w-none prose-p:my-1 prose-headings:mb-2 prose-code:text-primary prose-pre:bg-black/40 prose-pre:border-white/5 prose-pre:p-0">
+                            <div className="prose prose-sm md:prose-base dark:prose-invert max-w-none prose-p:my-1 prose-headings:mb-2 prose-code:text-primary prose-pre:bg-muted/40 prose-pre:border-border prose-pre:p-0">
                               <ReactMarkdown 
                                 remarkPlugins={[remarkGfm]}
                                 components={{
@@ -357,15 +357,15 @@ function ChatContent() {
                                     return !inline && match ? (
                                       <div className="relative group/code mt-4 mb-4">
                                         <div className="flex items-center justify-between px-4 py-2 bg-black/60 rounded-t-lg border border-white/10 border-b-0">
-                                          <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">{match[1]}</span>
+                                          <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">{match[1]}</span>
                                           <button 
                                             onClick={() => copyToClipboard(String(children).replace(/\n$/, ''))}
-                                            className="text-white/40 hover:text-primary transition-colors flex items-center gap-1 text-[10px] uppercase font-bold tracking-widest"
+                                            className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 text-[10px] uppercase font-bold tracking-widest"
                                           >
                                             <Copy className="w-3 h-3" /> Copy
                                           </button>
                                         </div>
-                                        <div className="overflow-x-auto bg-[#0a0a0a] p-4 border border-white/10 rounded-b-lg shadow-2xl">
+                                        <div className="overflow-x-auto bg-card p-4 border border-border rounded-b-lg shadow-2xl">
                                           <code className={`${className} text-primary/90 font-mono`} {...props}>
                                             {children}
                                           </code>
@@ -388,7 +388,7 @@ function ChatContent() {
                         {message.role === 'assistant' && (
                           <button 
                             onClick={() => copyToClipboard(message.content)}
-                            className="p-1 px-3 rounded-lg hover:bg-muted text-[9px] font-black uppercase tracking-widest text-muted-foreground hover:text-violet-400 transition-all border border-transparent hover:border-white/5 mt-1"
+                            className="p-1 px-3 rounded-lg hover:bg-muted text-[9px] font-black uppercase tracking-widest text-muted-foreground hover:text-primary transition-all border border-transparent hover:border-border mt-1"
                           >
                             Copy Matrix Logic
                           </button>
@@ -403,7 +403,7 @@ function ChatContent() {
                   <div className="w-8 h-8 rounded-full bg-violet-500/10 border border-violet-500/20 flex items-center justify-center">
                     <Sparkles className="w-4 h-4 text-violet-500 animate-spin" />
                   </div>
-                  <div className="bg-muted/10 border border-white/5 px-6 py-4 rounded-[2rem] flex gap-2 items-center">
+                  <div className="bg-muted border border-border px-6 py-4 rounded-[2rem] flex gap-2 items-center">
                     <div className="w-1.5 h-1.5 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                     <div className="w-1.5 h-1.5 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
                     <div className="w-1.5 h-1.5 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
@@ -420,7 +420,7 @@ function ChatContent() {
           <div className="max-w-3xl mx-auto relative">
             <div className={`bg-card/80 backdrop-blur-2xl border ${isLoading ? 'border-violet-500/50' : 'border-border/50'} rounded-[2.5rem] shadow-2xl transition-all focus-within:border-violet-500/50 overflow-hidden`}>
               {stagedFile && (
-                <div className="mx-6 mt-4 flex items-center gap-3 bg-white/5 border border-white/5 pl-3 pr-2 py-2 rounded-2xl animate-in fade-in slide-in-from-bottom-2">
+                <div className="mx-6 mt-4 flex items-center gap-3 bg-muted border border-border pl-3 pr-2 py-2 rounded-2xl animate-in fade-in slide-in-from-bottom-2">
                   <div className="w-8 h-8 rounded bg-violet-500/10 flex items-center justify-center text-violet-500">
                     {stagedFile.type.startsWith('image/') ? <ImageIcon className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
                   </div>
@@ -465,7 +465,7 @@ function ChatContent() {
                            exit={{ opacity: 0, scale: 0.95 }}
                            className="absolute bottom-[110%] left-0 w-64 bg-card/90 backdrop-blur-2xl border border-border shadow-2xl rounded-2xl overflow-hidden z-[100]"
                          > {providers.map((p) => (
-                            <button key={p.id} onClick={() => { setSelectedProvider(p); setIsProviderMenuOpen(false); }} className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all ${selectedProvider.id === p.id ? 'bg-violet-500/10 text-violet-500' : 'hover:bg-white/5'}`}>
+                            <button key={p.id} onClick={() => { setSelectedProvider(p); setIsProviderMenuOpen(false); }} className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all ${selectedProvider.id === p.id ? 'bg-primary/10 text-primary' : 'hover:bg-muted'}`}>
                               <div className="flex items-center gap-3 text-xs font-bold"><p.icon className="w-4 h-4" />{p.name}</div>
                             </button>
                           ))}

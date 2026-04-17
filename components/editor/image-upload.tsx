@@ -78,22 +78,22 @@ export function ImageUpload({ onUploadComplete, onClear, currentUrl }: ImageUplo
         <button 
           onClick={() => fileInputRef.current?.click()}
           disabled={isUploading}
-          className="w-full aspect-video rounded-2xl bg-white/5 border-2 border-dashed border-white/10 flex flex-col items-center justify-center gap-3 hover:bg-white/10 hover:border-primary/40 transition-all group disabled:opacity-50"
+          className="w-full aspect-video rounded-2xl bg-muted/30 border-2 border-dashed border-border flex flex-col items-center justify-center gap-3 hover:bg-muted/50 hover:border-primary/40 transition-all group disabled:opacity-50"
         >
           {isUploading ? (
             <Loader2 className="w-8 h-8 text-primary animate-spin" />
           ) : (
-            <Upload className="w-8 h-8 text-white/20 group-hover:text-primary transition-colors" />
+            <Upload className="w-8 h-8 text-muted-foreground group-hover:text-primary transition-colors" />
           )}
           <div className="text-center">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-white/40 group-hover:text-white transition-colors">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground group-hover:text-foreground transition-colors">
               {isUploading ? "Uploading to Core..." : "Upload from Device"}
             </p>
-            <p className="text-[8px] text-white/20 uppercase tracking-tighter mt-1">PNG, JPG up to 5MB</p>
+            <p className="text-[8px] text-muted-foreground/70 uppercase tracking-tighter mt-1">PNG, JPG up to 5MB</p>
           </div>
         </button>
       ) : (
-        <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 group">
+        <div className="relative aspect-video rounded-2xl overflow-hidden border border-border group">
           <img src={currentUrl} alt="Uploaded asset" title="Uploaded asset" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/20 text-primary text-[10px] font-bold border border-primary/20 shadow-neon-sm">
