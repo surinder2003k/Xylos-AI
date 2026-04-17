@@ -203,9 +203,6 @@ function ChatContent() {
     setInput("");
     setStagedFile(null);
     setIsLoading(true);
-    // Force scroll to bottom when user sends
-    isNearBottomRef.current = true;
-    setTimeout(() => scrollToBottom(true), 50);
 
     // Save User Intent to Matrix
     await chatService.saveMessage(currentId, userMsg);
