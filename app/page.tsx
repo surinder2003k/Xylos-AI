@@ -114,9 +114,9 @@ export default async function LandingPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-12 max-w-2xl mx-auto w-full">
             <Link 
               href="/chat"
-              className="relative flex items-center justify-center gap-4 px-16 py-6 rounded-[2rem] bg-primary text-black font-black text-sm uppercase tracking-[0.2em] shadow-[0_0_50px_rgba(var(--primary),0.3)] hover:shadow-[0_0_80px_rgba(var(--primary),0.5)] hover:scale-105 active:scale-95 transition-all group w-full sm:w-auto"
+              className="relative flex items-center justify-center gap-4 px-16 py-6 rounded-[2rem] bg-foreground text-background font-black text-sm uppercase tracking-[0.2em] shadow-[0_0_40px_rgba(var(--foreground),0.1)] hover:shadow-[0_0_60px_rgba(var(--foreground),0.2)] hover:scale-105 active:scale-95 transition-all group w-full sm:w-auto"
             >
-              <div className="absolute inset-0 rounded-[2rem] border-2 border-white/20 animate-pulse" />
+              <div className="absolute inset-0 rounded-[2rem] border-2 border-background/20 animate-pulse" />
               Launch Neural Link
               <MessageSquare className="w-5 h-5 group-hover:rotate-12 transition-transform" />
             </Link>
