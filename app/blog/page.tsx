@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import { createClient } from "@/utils/supabase/server";
 import { ArrowLeft, Diamond, Search, Filter, BookOpen } from "lucide-react";
@@ -6,6 +7,20 @@ import { BlogGrid } from "@/components/landing/blog-grid";
 import { BlogFilters } from "@/components/landing/blog-filters";
 import { createClient as createPublicClient } from "@supabase/supabase-js";
 import { XylosLogo } from "@/components/premium/xylos-logo";
+
+export const metadata: Metadata = {
+  title: "AI Blog — Insights on Technology, AI & Innovation | Xylos AI",
+  description: "Explore expert articles on artificial intelligence, technology trends, and digital innovation. Written and curated by the Xylos AI editorial engine.",
+  alternates: {
+    canonical: 'https://xylosai.vercel.app/blog',
+  },
+  openGraph: {
+    title: "AI Blog — Technology & Innovation Insights | Xylos AI",
+    description: "Deep-dive articles on AI, machine learning, and emerging tech — curated by automated intelligence.",
+    url: 'https://xylosai.vercel.app/blog',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Xylos AI Blog' }],
+  },
+};
 
 export default async function BlogArchivePage(props: { searchParams: Promise<{ [key: string]: string | undefined }> }) {
   const searchParams = await props.searchParams;

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     default: "Xylos AI — Free AI Chat & Blog Platform | Llama, Gemini, Mistral",
     template: "%s | Xylos AI",
   },
-  description: "Access Llama 3, Gemini, Mistral, and 7+ elite AI models in one zero-cost premium platform. Built for professionals — AI chat, content creation, and editorial intelligence.",
+  description: "Access Llama 3, Gemini & Mistral in one free AI platform. Built for professionals — AI chat, content creation, and editorial intelligence. Zero cost.",
   applicationName: "Xylos AI",
   referrer: "origin-when-cross-origin",
   authors: [{ name: "Xylos AI Research", url: "https://xylosai.vercel.app" }],
