@@ -46,12 +46,12 @@ export function NewsletterForm() {
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto my-24 bg-[#0a0a0a] border border-white/10 rounded-[2rem] p-6 md:p-12 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-12">
+    <div className="w-full max-w-5xl mx-auto my-24 bg-card border border-border rounded-[2rem] p-6 md:p-12 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-12">
       
       {/* Left Content Area */}
       <div className="relative z-10 w-full lg:w-1/2 space-y-6 text-center lg:text-left">
         <div className="space-y-4">
-          <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight uppercase">Stay ahead with Xylos AI.</h3>
+          <h3 className="text-3xl md:text-4xl font-black text-foreground tracking-tight uppercase">Stay ahead with Xylos AI.</h3>
           <p className="text-muted-foreground font-medium leading-relaxed max-w-md mx-auto lg:mx-0">
             Join thousands of professionals who trust Xylos AI for innovative editorial and design intelligence solutions.
           </p>
@@ -66,7 +66,7 @@ export function NewsletterForm() {
               onChange={(e) => setEmail(e.target.value)}
               disabled={status === 'loading' || status === 'success'}
               placeholder="Enter your email" 
-              className="w-full bg-white/5 border border-white/10 text-white rounded-xl py-4 px-6 text-sm focus:outline-none focus:border-primary/50 transition-all disabled:opacity-50 font-bold uppercase tracking-widest"
+              className="w-full bg-muted border border-border text-foreground rounded-xl py-4 px-6 text-sm focus:outline-none focus:border-primary/50 transition-all disabled:opacity-50 font-bold uppercase tracking-widest"
             />
           </div>
           <button 
@@ -100,10 +100,10 @@ export function NewsletterForm() {
       {/* Right Image Area */}
       <div className="relative z-10 w-full lg:w-1/2 flex justify-center lg:justify-end items-center h-48 sm:h-64 lg:h-auto perspective-1000">
          {/* Shadow / Back image */}
-         <div className="absolute right-0 top-0 lg:top-auto lg:-right-8 w-[90%] lg:w-full max-w-[400px] aspect-video bg-[#1a1a1a] rounded-2xl transform rotate-3 translate-y-4 shadow-xl pointer-events-none opacity-50 lg:opacity-100" />
+         <div className="absolute right-0 top-0 lg:top-auto lg:-right-8 w-[90%] lg:w-full max-w-[400px] aspect-video bg-muted rounded-2xl transform rotate-3 translate-y-4 shadow-xl pointer-events-none opacity-50 lg:opacity-100" />
          
          {/* Front image */}
-         <div className="relative w-[90%] lg:w-full max-w-[400px] aspect-video rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500 border border-white/10 group">
+         <div className="relative w-[90%] lg:w-full max-w-[400px] aspect-video rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500 border border-border group">
            <img 
              src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" 
              alt="Xylos AI Newsletter"

@@ -111,7 +111,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       {!isSidebarOpen && (
         <button 
           onClick={() => setIsSidebarOpen(true)}
-          className="fixed bottom-6 left-6 z-[60] lg:hidden p-4 rounded-2xl bg-primary text-black shadow-2xl shadow-primary/40 active:scale-90 transition-all border border-white/20"
+          className="fixed bottom-6 left-6 z-[60] lg:hidden p-4 rounded-2xl bg-primary text-primary-foreground shadow-2xl shadow-primary/40 active:scale-90 transition-all border border-border"
         >
           <Menu className="w-6 h-6" />
         </button>
@@ -243,10 +243,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             <div className="relative" data-profile-menu>
               <button 
                 onClick={() => setIsProfileOpen(!isProfileOpen)}
-                className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 border border-white/10 flex items-center justify-center hover:scale-105 transition-all cursor-pointer"
+                className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 border border-border flex items-center justify-center hover:scale-105 transition-all cursor-pointer"
               >
                 <div className="w-5 h-5 rounded-full bg-primary/40 flex items-center justify-center">
-                  <User className="w-3.5 h-3.5 text-white" />
+                  <User className="w-3.5 h-3.5 text-foreground" />
                 </div>
               </button>
               
@@ -256,33 +256,33 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                     initial={{ opacity: 0, y: 10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    className="absolute right-0 top-full mt-3 w-52 bg-[#0d0d0d] border border-white/10 rounded-2xl shadow-2xl z-[100] overflow-hidden"
+                    className="absolute right-0 top-full mt-3 w-52 bg-card border border-border rounded-2xl shadow-2xl z-[100] overflow-hidden"
                   >
                     <div className="p-3">
-                      <div className="px-3 py-3 mb-2 bg-white/5 rounded-xl border border-white/5">
-                        <p className="text-xs font-bold text-white/90 truncate">{userEmail || "Editorial Lead"}</p>
+                      <div className="px-3 py-3 mb-2 bg-muted rounded-xl border border-border">
+                        <p className="text-xs font-bold text-foreground/90 truncate">{userEmail || "Editorial Lead"}</p>
                         <p className="text-[9px] font-black text-violet-400 uppercase tracking-[0.2em] mt-1 flex items-center gap-1">
                           <Sparkles className="w-2.5 h-2.5" />
                           {userRole}
                         </p>
                       </div>
                       <div className="p-1 space-y-1">
-                        <div className="my-1 border-t border-white/5" />
+                        <div className="my-1 border-t border-border" />
                         <Link 
                           href="/settings"
                           onClick={() => setIsProfileOpen(false)}
-                          className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl hover:bg-white/5 transition-all text-sm text-white/60 hover:text-white"
+                          className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl hover:bg-muted transition-all text-sm text-muted-foreground hover:text-foreground"
                         >
                           <Settings className="w-4 h-4" />
                           Settings
                         </Link>
-                        <div className="my-1 border-t border-white/5" />
+                        <div className="my-1 border-t border-border" />
                         <button 
                           onClick={async () => {
                             await signOut();
                             showToast("Security session terminated. Safe travels.", "success");
                           }}
-                          className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl hover:bg-red-500/10 text-sm text-white/60 hover:text-red-400 transition-all font-medium"
+                          className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl hover:bg-red-500/10 text-sm text-muted-foreground hover:text-red-400 transition-all font-medium"
                         >
                           <LogOut className="w-4 h-4" />
                           Sign Out

@@ -250,13 +250,13 @@ export default function AIManagerPage() {
   return (
     <div className="max-w-7xl mx-auto space-y-10 animate-in fade-in slide-in-from-bottom-8 duration-700">
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 bg-card border border-white/5 p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] backdrop-blur-xl relative overflow-hidden group shadow-2xl">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 bg-card border border-border p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] backdrop-blur-xl relative overflow-hidden group shadow-2xl">
          <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
             <Cpu className="w-32 h-32 text-primary" />
          </div>
          <div>
             <h1 className="text-3xl md:text-4xl font-black font-fustat tracking-tighter uppercase leading-none">Autonomous <span className="text-red-500">Manager</span></h1>
-            <p className="text-white/40 mt-3 font-medium uppercase tracking-[0.2em] text-[8px] md:text-[10px]">Editorial Synthesis Core V3.1 // Status: Online</p>
+            <p className="text-muted-foreground mt-3 font-medium uppercase tracking-[0.2em] text-[8px] md:text-[10px]">Editorial Synthesis Core V3.1 // Status: Online</p>
          </div>
          <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-primary text-xs font-black uppercase tracking-widest">
@@ -294,12 +294,12 @@ export default function AIManagerPage() {
               />
            </div>
 
-           <div className="bg-card border border-white/5 rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-8 backdrop-blur-md space-y-6 shadow-xl">
+           <div className="bg-card border border-border rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-8 backdrop-blur-md space-y-6 shadow-xl">
               <h3 className="font-bold text-lg flex items-center gap-3">
-                 <Terminal className="w-5 h-5 text-white/40" />
+                 <Terminal className="w-5 h-5 text-muted-foreground/50" />
                  Editorial Strategy Logs
               </h3>
-              <div className="bg-black/60 rounded-2xl p-6 font-mono text-[10px] text-white/40 space-y-2 max-h-52 overflow-y-auto custom-scrollbar">
+              <div className="bg-muted/50 rounded-2xl p-6 font-mono text-[10px] text-muted-foreground space-y-2 max-h-52 overflow-y-auto custom-scrollbar">
                  <div className="flex gap-4"><span className="text-primary">[SYNC_START]</span> Initializing Gemini 2.5 Flash pipeline...</div>
                  <div className="flex gap-4"><span className="text-primary">[PROMPT_INGEST]</span> context: "Major ${autoCategory || 'Global'} Analysis" (1000+ words target)</div>
                  <div className="flex gap-4"><span className="text-secondary">[PEXELS_SYNC]</span> fetching random assets for diversified visual...</div>
@@ -310,9 +310,9 @@ export default function AIManagerPage() {
         </div>
 
         {/* Sync Protocols */}
-        <div className="bg-card border border-white/5 rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-8 backdrop-blur-md space-y-8 shadow-xl">
+        <div className="bg-card border border-border rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-8 backdrop-blur-md space-y-8 shadow-xl">
            <h3 className="font-bold text-lg flex items-center gap-3 underline decoration-primary decoration-4 underline-offset-8">
-              <Settings2 className="w-5 h-5 text-white/40" />
+              <Settings2 className="w-5 h-5 text-muted-foreground/50" />
               Sync Protocols
            </h3>
            
@@ -334,10 +334,10 @@ export default function AIManagerPage() {
            </div>
 
            {/* Auto-Post Settings */}
-           <div className="pt-6 border-t border-white/5 space-y-6">
+           <div className="pt-6 border-t border-border space-y-6">
 
               <div className="space-y-3">
-                 <p className="text-[10px] font-black text-white/20 uppercase tracking-widest">Auto-Post Category</p>
+                 <p className="text-[10px] font-black text-muted-foreground/30 uppercase tracking-widest">Auto-Post Category</p>
                  <Select
                    value={isCustomCategory ? "Add Category..." : autoCategory}
                    onValueChange={(val) => {
@@ -350,12 +350,12 @@ export default function AIManagerPage() {
                      }
                    }}
                  >
-                   <SelectTrigger className="w-full bg-white/5 border border-white/10 rounded-xl py-5 px-4 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-primary/50 text-white cursor-pointer h-auto leading-none">
+                   <SelectTrigger className="w-full bg-muted border border-border rounded-xl py-5 px-4 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-primary/50 text-foreground cursor-pointer h-auto leading-none">
                      <SelectValue placeholder="Select Category" />
                    </SelectTrigger>
-                   <SelectContent className="bg-black/90 border border-white/10 text-white backdrop-blur-xl">
+                   <SelectContent className="bg-card border border-border text-foreground backdrop-blur-xl">
                      {autoCategoriesList.map(cat => (
-                       <SelectItem key={cat} value={cat} className="text-white hover:bg-white/10 cursor-pointer">
+                       <SelectItem key={cat} value={cat} className="text-foreground hover:bg-muted cursor-pointer">
                          {cat}
                        </SelectItem>
                      ))}
@@ -372,7 +372,7 @@ export default function AIManagerPage() {
                          value={autoCategory}
                          onChange={(e) => setAutoCategory(e.target.value)}
                          placeholder="Type new category..."
-                         className="flex-1 bg-white/5 border border-white/10 rounded-xl py-2 px-3 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-primary/50 text-white"
+                         className="flex-1 bg-muted border border-border rounded-xl py-2 px-3 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-primary/50 text-foreground"
                        />
                        <button 
                          onClick={() => {
@@ -419,24 +419,24 @@ export default function AIManagerPage() {
       </div>
 
       {/* User Management Section */}
-      <div className="bg-navy-900/20 border border-white/5 rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-8 space-y-8 backdrop-blur-xl">
+      <div className="bg-card border border-border rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-8 space-y-8 backdrop-blur-xl">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="flex items-center gap-4">
-             <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-primary">
+             <div className="w-12 h-12 rounded-2xl bg-muted flex items-center justify-center text-primary">
                 <Users className="w-6 h-6" />
              </div>
              <div>
                 <h3 className="text-xl font-bold font-outfit">Neural Network Directory</h3>
-                <p className="text-[10px] font-bold text-white/20 uppercase tracking-widest mt-1">Manage platform access levels</p>
+                <p className="text-[10px] font-bold text-muted-foreground/30 uppercase tracking-widest mt-1">Manage platform access levels</p>
              </div>
           </div>
           <div className="relative w-full md:w-96">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/30" />
             <input 
               value={userSearch}
               onChange={(e) => setUserSearch(e.target.value)}
               placeholder="Search by name or email..." 
-              className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-11 pr-4 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50"
+              className="w-full bg-muted border border-border rounded-2xl py-3 pl-11 pr-4 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50"
             />
           </div>
         </div>
@@ -444,42 +444,42 @@ export default function AIManagerPage() {
         <div className="overflow-x-auto -mx-6 md:mx-0 px-6 md:px-0">
           <table className="w-full text-left">
             <thead>
-              <tr className="border-b border-white/5">
-                <th className="pb-4 text-[9px] font-bold text-white/20 uppercase tracking-widest">Digital ID / User</th>
-                <th className="pb-4 text-[9px] font-bold text-white/20 uppercase tracking-widest">Email Access</th>
-                <th className="pb-4 text-[9px] font-bold text-white/20 uppercase tracking-widest">Permission Level</th>
-                <th className="pb-4 text-[9px] font-bold text-white/20 uppercase tracking-widest text-center">Global Protocol</th>
+              <tr className="border-b border-border">
+                <th className="pb-4 text-[9px] font-bold text-muted-foreground/30 uppercase tracking-widest">Digital ID / User</th>
+                <th className="pb-4 text-[9px] font-bold text-muted-foreground/30 uppercase tracking-widest">Email Access</th>
+                <th className="pb-4 text-[9px] font-bold text-muted-foreground/30 uppercase tracking-widest">Permission Level</th>
+                <th className="pb-4 text-[9px] font-bold text-muted-foreground/30 uppercase tracking-widest text-center">Global Protocol</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/5">
+            <tbody className="divide-y divide-border">
               {loadingUsers ? (
                 <tr><td colSpan={4} className="py-10 text-center opacity-20 italic">Scanning directory...</td></tr>
               ) : filteredUsers.length === 0 ? (
                 <tr><td colSpan={4} className="py-10 text-center opacity-20 italic">No users found.</td></tr>
               ) : (
                 filteredUsers.map((user) => (
-                  <tr key={user.id} className="group hover:bg-white/[0.02] transition-all">
+                  <tr key={user.id} className="group hover:bg-muted transition-all">
                     <td className="py-6">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-white/5 to-white/10 flex items-center justify-center font-bold text-xs">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-muted to-muted/80 flex items-center justify-center font-bold text-xs">
                           {user.full_name?.[0] || <Users className="w-4 h-4" />}
                         </div>
                         <div>
                           <div className="flex items-center gap-2">
-                            <p className="text-sm font-bold text-white/90">{user.full_name || "Neural Pilot"}</p>
+                            <p className="text-sm font-bold text-foreground/90">{user.full_name || "Neural Pilot"}</p>
                             {user.user_id === currentUserId && (
                               <span className="text-[8px] px-1.5 py-0.5 rounded-md bg-primary/20 text-primary font-black border border-primary/20">YOU</span>
                             )}
                           </div>
-                          <p className="text-[10px] text-white/20 font-mono tracking-tighter uppercase">{user.user_id.substring(0, 12)}</p>
+                          <p className="text-[10px] text-muted-foreground/30 font-mono tracking-tighter uppercase">{user.user_id.substring(0, 12)}</p>
                         </div>
                       </div>
                     </td>
-                    <td className="py-6 text-xs text-white/40">{user.email || "Confidential Entry"}</td>
+                    <td className="py-6 text-xs text-muted-foreground/50">{user.email || "Confidential Entry"}</td>
                     <td className="py-6">
                       <div className={`
                         inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest
-                        ${(user.role === 'super_admin' || user.user_id === currentUserId && user.role !== 'user') ? 'bg-red-500/10 text-red-500 border border-red-500/20' : user.role === 'admin' ? 'bg-primary/10 text-primary border border-primary/20' : 'bg-white/5 text-white/40 border border-white/5'}
+                        ${(user.role === 'super_admin' || user.user_id === currentUserId && user.role !== 'user') ? 'bg-red-500/10 text-red-500 border border-red-500/20' : user.role === 'admin' ? 'bg-primary/10 text-primary border border-primary/20' : 'bg-muted text-muted-foreground/50 border border-border'}
                       `}>
                         {user.role === 'super_admin' ? <ShieldAlert className="w-3 h-3" /> : user.role === 'admin' ? <ShieldCheck className="w-3 h-3" /> : <Users className="w-3 h-3" />}
                         {user.role === 'super_admin' ? 'Super Admin' : user.role || 'user'}
@@ -515,7 +515,7 @@ export default function AIManagerPage() {
                         {user.user_id !== currentUserId && user.role !== 'super_admin' && (
                           <button 
                             onClick={() => handleDeleteUser(user)}
-                            className="p-2.5 rounded-xl hover:bg-red-500/10 text-white/20 hover:text-red-500 transition-all border border-transparent hover:border-red-500/20"
+                            className="p-2.5 rounded-xl hover:bg-red-500/10 text-muted-foreground/30 hover:text-red-500 transition-all border border-transparent hover:border-red-500/20"
                             title="Purge User Protocol"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -560,12 +560,12 @@ function ApiItem({ icon: Icon, name, status, desc }: any) {
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-3">
-        <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center">
-          <Icon className="w-4 h-4 text-white/40" />
+        <div className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center">
+          <Icon className="w-4 h-4 text-muted-foreground/50" />
         </div>
         <div>
           <p className="text-[11px] font-bold">{name}</p>
-          <p className="text-[9px] text-white/20 uppercase tracking-tighter">{desc}</p>
+          <p className="text-[9px] text-muted-foreground/30 uppercase tracking-tighter">{desc}</p>
         </div>
       </div>
       <div className="flex items-center gap-1.5">
@@ -580,14 +580,14 @@ function ApiItem({ icon: Icon, name, status, desc }: any) {
 
 function StatusCard({ icon: Icon, title, value, subtitle, color }: any) {
   return (
-    <div className="bg-navy-900/30 border border-white/5 rounded-[2.5rem] p-8 backdrop-blur-md space-y-4 hover:border-white/10 transition-colors group">
-       <div className={`w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center ${color} group-hover:scale-110 transition-transform`}>
+    <div className="bg-card border border-border rounded-[2.5rem] p-8 backdrop-blur-md space-y-4 hover:border-primary/50 transition-colors group">
+       <div className={`w-12 h-12 rounded-2xl bg-muted flex items-center justify-center ${color} group-hover:scale-110 transition-transform`}>
           <Icon className="w-6 h-6" />
        </div>
        <div>
-          <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest">{title}</p>
-          <p className="text-2xl font-bold mt-1 text-white group-hover:text-primary transition-colors">{value}</p>
-          <p className="text-[10px] text-white/40 font-medium mt-1">{subtitle}</p>
+          <p className="text-[10px] font-bold text-muted-foreground/50 uppercase tracking-widest">{title}</p>
+          <p className="text-2xl font-bold mt-1 text-foreground group-hover:text-primary transition-colors">{value}</p>
+          <p className="text-[10px] text-muted-foreground/50 font-medium mt-1">{subtitle}</p>
        </div>
     </div>
   );
@@ -600,16 +600,16 @@ function ToggleOption({ icon: Icon, title, description, active, onClick }: any) 
       className="flex items-center justify-between group cursor-pointer"
     >
        <div className="flex items-center gap-4">
-          <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300">
-             <Icon className={`w-4 h-4 ${active ? 'text-primary' : 'text-white/40'}`} />
+          <div className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300">
+             <Icon className={`w-4 h-4 ${active ? 'text-primary' : 'text-muted-foreground/50'}`} />
           </div>
           <div>
              <p className="text-sm font-bold">{title}</p>
-             <p className="text-[10px] text-white/20 font-medium">{description}</p>
+             <p className="text-[10px] text-muted-foreground/30 font-medium">{description}</p>
           </div>
        </div>
-       <div className={`w-10 h-5 rounded-full relative p-1 transition-colors ${active ? 'bg-primary shadow-neon' : 'bg-white/10'}`}>
-          <div className={`w-3 h-3 bg-black rounded-full transition-all ${active ? 'ml-5' : 'ml-0'}`} />
+       <div className={`w-10 h-5 rounded-full relative p-1 transition-colors ${active ? 'bg-primary shadow-neon' : 'bg-muted'}`}>
+          <div className={`w-3 h-3 bg-background rounded-full transition-all ${active ? 'ml-5' : 'ml-0'}`} />
        </div>
     </div>
   );
@@ -619,12 +619,12 @@ function GlobeOverlay() {
   return (
     <div className="flex items-center justify-between group">
        <div className="flex items-center gap-4">
-          <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+          <div className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center group-hover:scale-110 transition-transform">
              <Globe className="w-4 h-4 text-secondary" />
           </div>
           <div>
              <p className="text-sm font-bold">Regional Sync</p>
-             <p className="text-[10px] text-white/20 font-medium">India Focus Active</p>
+             <p className="text-[10px] text-muted-foreground/30 font-medium">India Focus Active</p>
           </div>
        </div>
        <div className="flex items-center gap-1">

@@ -76,7 +76,7 @@ export default function AboutPageClient() {
                 The Protocol
               </h2>
               <p className="text-muted-foreground leading-loose text-lg">
-                At the core of Xylos AI lies the <span className="text-white font-bold">Aether Intelligence Layer</span>. This proprietary stack aggregates multi-model responses from Gemini, Llama, and Mistral, refining them through a specialized editorial filter to produce content that feels organic, authoritative, and precise.
+                At the core of Xylos AI lies the <span className="text-foreground font-bold">Aether Intelligence Layer</span>. This proprietary stack aggregates multi-model responses from Gemini, Llama, and Mistral, refining them through a specialized editorial filter to produce content that feels organic, authoritative, and precise.
               </p>
             </div>
             
@@ -100,7 +100,7 @@ export default function AboutPageClient() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-video rounded-[2.5rem] bg-gradient-to-br from-primary/20 via-background to-secondary/10 border border-white/5 p-1 overflow-hidden shadow-2xl group">
+            <div className="aspect-video rounded-[2.5rem] bg-gradient-to-br from-primary/20 via-background to-secondary/10 border border-border p-1 overflow-hidden shadow-2xl group">
                <div className="w-full h-full rounded-[2.4rem] overflow-hidden relative">
                   <img 
                     src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80" 
@@ -109,7 +109,7 @@ export default function AboutPageClient() {
                   />
                   <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
                   <div className="absolute inset-0 flex items-center justify-center p-12 text-center">
-                    <p className="text-2xl font-black font-fustat uppercase tracking-widest text-white leading-relaxed italic">
+                    <p className="text-2xl font-black font-fustat uppercase tracking-widest text-foreground leading-relaxed italic">
                       "Bridging the gap between binary logic and human emotion."
                     </p>
                   </div>
@@ -117,7 +117,7 @@ export default function AboutPageClient() {
             </div>
             
             {/* Float Badge */}
-            <div className="absolute -bottom-6 -left-6 bg-card border border-white/10 p-6 rounded-3xl shadow-2xl backdrop-blur-xl animate-bounce-slow">
+            <div className="absolute -bottom-6 -left-6 bg-card border border-border p-6 rounded-3xl shadow-2xl backdrop-blur-xl animate-bounce-slow">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center text-primary">
                   <Brain className="w-6 h-6" />
@@ -139,13 +139,13 @@ export default function AboutPageClient() {
         </div>
 
         {/* Mission Statement */}
-        <section className="bg-muted/30 border border-white/5 rounded-[3rem] p-12 md:p-24 text-center space-y-8 relative overflow-hidden">
+        <section className="bg-muted/30 border border-border rounded-[3rem] p-12 md:p-24 text-center space-y-8 relative overflow-hidden">
            <div className="absolute top-0 right-0 p-12 opacity-5">
               <Layers className="w-64 h-64 text-primary" />
            </div>
            
            <h2 className="text-3xl md:text-5xl font-black font-fustat uppercase italic underline decoration-primary decoration-4 underline-offset-8">Our Mission</h2>
-           <p className="text-xl md:text-3xl font-bold font-outfit text-white/80 max-w-4xl mx-auto leading-tight italic">
+           <p className="text-xl md:text-3xl font-bold font-outfit text-foreground/80 max-w-4xl mx-auto leading-tight italic">
              Xylos was founded on a singular premise: that technology should empower human expression, not replace it. We are building the infrastructure for the next century of digital storytelling.
            </p>
         </section>
@@ -154,8 +154,8 @@ export default function AboutPageClient() {
         <NewsletterForm />
       </main>
 
-      <footer className="py-12 px-6 border-t border-white/5 text-center">
-        <p className="text-[10px] font-black text-white/20 uppercase tracking-[0.4em]">
+      <footer className="py-12 px-6 border-t border-border text-center">
+        <p className="text-[10px] font-black text-muted-foreground/30 uppercase tracking-[0.4em]">
           &copy; 2026 Xylos AI Research Systems // All Rights Reserved
         </p>
       </footer>
@@ -165,8 +165,8 @@ export default function AboutPageClient() {
 
 function FeatureCard({ icon: Icon, title, desc }: any) {
   return (
-    <div className="bg-card border border-white/5 p-6 rounded-3xl hover:border-primary/30 transition-all group">
-      <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white group-hover:bg-primary group-hover:text-black transition-all mb-4">
+    <div className="bg-card border border-border p-6 rounded-3xl hover:border-primary/30 transition-all group">
+      <div className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center text-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-all mb-4">
         <Icon className="w-5 h-5" />
       </div>
       <h3 className="font-bold text-sm uppercase tracking-widest mb-2">{title}</h3>
@@ -177,9 +177,9 @@ function FeatureCard({ icon: Icon, title, desc }: any) {
 
 function StatBox({ label, value }: any) {
   return (
-    <div className="bg-[#0a0a0a] border border-white/10 p-8 rounded-[2rem] text-center space-y-2 hover:scale-105 transition-transform cursor-default group">
-      <p className="text-[10px] font-black text-white/40 uppercase tracking-[0.3em]">{label}</p>
-      <p className="text-4xl font-black font-fustat text-white group-hover:text-primary transition-colors">{value}</p>
+    <div className="bg-card border border-border p-8 rounded-[2rem] text-center space-y-2 hover:scale-105 transition-transform cursor-default group">
+      <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em]">{label}</p>
+      <p className="text-4xl font-black font-fustat text-foreground group-hover:text-primary transition-colors">{value}</p>
     </div>
   );
 }

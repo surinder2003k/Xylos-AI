@@ -22,7 +22,7 @@ export function Navbar({ user }: NavbarProps) {
 
   return (
     <nav className="fixed top-0 w-full z-50 px-4 py-4 md:px-6 md:py-6 transition-all duration-300">
-      <div className="max-w-4xl mx-auto flex items-center justify-between bg-background/40 dark:bg-card/40 backdrop-blur-3xl border border-border/50 dark:border-white/5 rounded-2xl px-4 py-2 md:px-6 md:py-3 shadow-2xl shadow-black/5 dark:shadow-none">
+      <div className="max-w-4xl mx-auto flex items-center justify-between bg-card/40 backdrop-blur-3xl border border-border/50 rounded-2xl px-4 py-2 md:px-6 md:py-3 shadow-2xl shadow-black/5 dark:shadow-none">
         
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group/logo cursor-pointer">
@@ -43,7 +43,7 @@ export function Navbar({ user }: NavbarProps) {
           <ThemeToggle />
           <Link 
             href={user ? "/dashboard" : "/login"}
-            className="px-6 py-2.5 rounded-xl border border-border/50 dark:border-white/10 bg-background dark:bg-white/5 hover:border-primary/50 transition-all text-[10px] font-black uppercase tracking-widest shadow-sm hover:shadow-primary/20"
+            className="px-6 py-2.5 rounded-xl border border-border bg-background dark:bg-muted/50 hover:border-primary/50 transition-all text-[10px] font-black uppercase tracking-widest shadow-sm hover:shadow-primary/20"
           >
             {user ? "Systems" : "Sign In"}
           </Link>
