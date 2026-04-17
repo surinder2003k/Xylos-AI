@@ -77,7 +77,6 @@ export async function updateSession(request: NextRequest) {
     request.nextUrl.pathname !== '/privacy' &&
     request.nextUrl.pathname !== '/'
   ) {
-  ) {
     const url = request.nextUrl.clone()
     url.pathname = '/'
     return NextResponse.redirect(url)
