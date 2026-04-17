@@ -257,7 +257,7 @@ function ChatContent() {
   const getDisplayContent = (msg: Message) => msg.content;
 
   return (
-    <div className="flex h-full w-full bg-background overflow-hidden relative">
+    <div className="flex h-[100dvh] w-full bg-background overflow-hidden relative">
       {/* Mobile Sidebar Overlay */}
       {isSidebarOpen && (
         <div 
