@@ -103,10 +103,10 @@ export async function generateMetadata({ params }: { params: Promise<{ tool: str
   }
 
   return {
-    title: `${tool.title} | Pulse AI`,
-    description: `${tool.description} - Powered by Pulse AI.`,
+    title: `${tool.title} | Xylos AI`,
+    description: `${tool.description} - Powered by Xylos AI.`,
     openGraph: {
-      title: `${tool.title} | Pulse AI`,
+      title: `${tool.title} | Xylos AI`,
       description: tool.description,
       type: 'article',
     }
@@ -136,7 +136,7 @@ export default async function ToolProxyPage({ params }: { params: Promise<{ tool
     },
     provider: {
       '@type': 'Organization',
-      name: 'Pulse AI'
+      name: 'Xylos AI'
     }
   };
 
@@ -152,7 +152,7 @@ export default async function ToolProxyPage({ params }: { params: Promise<{ tool
           <tool.icon className="w-8 h-8 text-primary" />
         </div>
         
-        <p className="text-[10px] font-black text-foreground/10 uppercase tracking-[0.5em]">Pulse AI Protocol // Auto-Blogging Era</p>
+        <p className="text-[10px] font-black text-foreground/10 uppercase tracking-[0.5em]">Xylos AI Protocol // Intelligence Engine</p>
         <AnimeText 
           text={tool.h1} 
           className="text-5xl md:text-7xl font-black font-fustat tracking-tighter uppercase leading-none max-w-4xl italic"
@@ -186,7 +186,7 @@ export default async function ToolProxyPage({ params }: { params: Promise<{ tool
              <div className="flex flex-col h-full justify-between">
                 <Shield className="w-10 h-10 text-primary mb-4" />
                 <h3 className="text-2xl font-bold mb-2">Enterprise Grade Security</h3>
-                <p className="text-sm text-muted-foreground font-medium">This report was autonomously synthesized using Pulse AI's Neural Buffer.</p>
+                <p className="text-sm text-muted-foreground font-medium">This tool is powered by Xylos AI's Neural Intelligence Layer — enterprise-grade, privacy-first.</p>
              </div>
           </BentoCard>
         </BentoGrid>

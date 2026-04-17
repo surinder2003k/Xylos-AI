@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Clock, User, Bookmark } from "lucide-react";
 import Link from "next/link";
 import { TiltCard } from "../premium/tilt-card";
+import { formatIST } from "@/lib/utils/date-format";
 
 interface Blog {
   id: string;
@@ -70,7 +71,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                     <div className="flex items-center gap-4 text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] mb-6">
                        <div className="flex items-center gap-2 bg-muted/50 px-3 py-1 rounded-full">
                           <Clock className="w-3 h-3 text-primary" /> 
-                          {new Date(blog.published_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
+                          {formatIST(blog.published_at)}
                        </div>
                     </div>
 

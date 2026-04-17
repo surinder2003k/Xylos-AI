@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { usePathname } from "next/navigation";
 import { AnimatedLogo } from "@/components/premium/animated-logo";
 
 interface NavbarProps {
@@ -13,6 +13,7 @@ interface NavbarProps {
 
 export function Navbar({ user }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const navLinks = [
     { href: "/chat", label: "Neural Chat" },
@@ -20,9 +21,12 @@ export function Navbar({ user }: NavbarProps) {
     { href: "/about", label: "About Us" },
   ];
 
+  const isActive = (href: string) =>
+    pathname === href || pathname?.startsWith(href + "/");
+
   return (
     <nav className="fixed top-0 w-full z-50 px-4 py-4 md:px-6 md:py-6 transition-all duration-300">
-      <div className="max-w-4xl mx-auto flex items-center justify-between bg-card/40 backdrop-blur-3xl border border-border/50 rounded-2xl px-4 py-2 md:px-6 md:py-3 shadow-2xl shadow-black/5 dark:shadow-none">
+      <div className="max-w-4xl mx-auto flex items-center justify-between bg-card/40 backdrop-blur-3xl border border-border/50 rounded-2xl px-4 py-2 md:px-6 md:py-3 shadow-2xl shadow-black/5">
         
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group/logo cursor-pointer">
@@ -30,9 +34,17 @@ export function Navbar({ user }: NavbarProps) {
         </Link>
         
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8 text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/60">
+        <div className="hidden md:flex items-center gap-8 text-[10px] font-black uppercase tracking-[0.3em]">
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="hover:text-primary transition-colors">
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`transition-colors hover:text-primary ${
+                isActive(link.href)
+                  ? "text-primary underline underline-offset-4 decoration-primary/40"
+                  : "text-muted-foreground/60"
+              }`}
+            >
               {link.label}
             </Link>
           ))}
@@ -40,10 +52,9 @@ export function Navbar({ user }: NavbarProps) {
 
         {/* Actions (Desktop) */}
         <div className="hidden md:flex items-center gap-4">
-
           <Link 
             href={user ? "/dashboard" : "/login"}
-            className="px-6 py-2.5 rounded-xl border border-border bg-background dark:bg-muted/50 hover:border-primary/50 transition-all text-[10px] font-black uppercase tracking-widest shadow-sm hover:shadow-primary/20"
+            className="px-6 py-2.5 rounded-xl border border-border bg-background hover:border-primary/50 transition-all text-[10px] font-black uppercase tracking-widest shadow-sm hover:shadow-primary/20"
           >
             {user ? "Systems" : "Sign In"}
           </Link>
@@ -51,7 +62,6 @@ export function Navbar({ user }: NavbarProps) {
 
         {/* Mobile Toggle */}
         <div className="flex md:hidden items-center gap-3">
-
           <button 
             onClick={() => setIsOpen(!isOpen)}
             className="p-2 rounded-xl bg-primary/10 text-primary border border-primary/20"
@@ -77,9 +87,14 @@ export function Navbar({ user }: NavbarProps) {
                     key={link.href} 
                     href={link.href} 
                     onClick={() => setIsOpen(false)}
-                    className="text-2xl font-black font-fustat uppercase tracking-tight hover:text-primary transition-colors"
+                    className={`text-2xl font-black font-fustat uppercase tracking-tight transition-colors ${
+                      isActive(link.href) ? "text-primary" : "hover:text-primary"
+                    }`}
                   >
                     {link.label}
+                    {isActive(link.href) && (
+                      <span className="ml-3 text-[9px] font-black text-primary/60 uppercase tracking-widest align-middle">— Active</span>
+                    )}
                   </Link>
                 ))}
               </div>
