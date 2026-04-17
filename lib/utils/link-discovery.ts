@@ -80,7 +80,7 @@ export function sanitizeDiscoveryLink(url: string): string {
 /**
  * Discovers internal posts from Xylos AI database for internal linking
  */
-export async function discoverInternalPosts(supabase: any, limit: number = 5): Promise<DiscoveryResult[]> {
+export async function discoverInternalPosts(supabase: import('@supabase/supabase-js').SupabaseClient, limit: number = 5): Promise<DiscoveryResult[]> {
   try {
     const { data, error } = await supabase
       .from("blogs")
@@ -92,7 +92,7 @@ export async function discoverInternalPosts(supabase: any, limit: number = 5): P
     if (error) throw error;
 
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://xylosai.vercel.app";
-    return (data || []).map((post: any) => ({
+    return (data || []).map((post: { slug: string }) => ({
       url: `${baseUrl}/blog/${post.slug}`
     }));
   } catch (error) {

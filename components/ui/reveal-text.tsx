@@ -8,6 +8,7 @@ interface RevealTextProps {
   overlayColor?: string;
   fontSize?: string;
   className?: string;
+  letterDelay?: number;
 }
 
 export function RevealText({

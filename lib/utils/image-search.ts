@@ -39,7 +39,7 @@ export async function searchSmartImage(query: string, category: string = "Techno
             provider: 'pexels'
           };
         }
-      } catch (err) {
+      } catch {
         console.warn("[Neural Sync] Pexels search failed, trying next provider...");
       }
     }

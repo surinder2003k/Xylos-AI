@@ -25,7 +25,7 @@ export function formatIST(dateString: string | Date | null | undefined): string 
     const dayPeriod = getPart('dayPeriod').toUpperCase();
     
     return `${month} ${day}, ${year} at ${hour}:${minute} ${dayPeriod}`;
-  } catch (err) {
+  } catch {
     return "Unknown Time";
   }
 }
