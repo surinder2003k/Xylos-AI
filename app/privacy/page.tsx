@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Shield, Lock, Eye, Gavel, Scale, FileCheck } from "lucide-react";
-import { Navbar } from "@/components/landing/navbar";
-import { createClient } from "@/utils/supabase/server";
+
 
 export const metadata: Metadata = {
   title: "Privacy & Ethics — Xylos AI Governance Standards",
@@ -11,13 +10,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function PrivacyPage() {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+export default function PrivacyPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 relative overflow-hidden">
-      <Navbar user={user} />
+
       
       {/* Background decoration */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-10">

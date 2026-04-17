@@ -12,6 +12,8 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const fustat = Fustat({ subsets: ["latin"], variable: "--font-fustat" });
 
 import { GlobalEffects } from "@/components/ui/global-effects";
+import { createClient } from "@/utils/supabase/server";
+import { GlobalNavbar } from "@/components/global-navbar";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://xylosai.vercel.app'),
@@ -82,11 +84,14 @@ export const metadata: Metadata = {
 
 import Script from "next/script";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${fustat.variable} antialiased selection:bg-primary/30 selection:text-primary-foreground`}>
@@ -127,6 +132,7 @@ export default function RootLayout({
             <AuthListener />
             <TopProgressBar />
             <SplashLoader />
+            <GlobalNavbar user={user} />
             <main className="relative min-h-screen">
                 <script
                   type="application/ld+json"
