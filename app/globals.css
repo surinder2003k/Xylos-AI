@@ -6,24 +6,24 @@
   :root {
     --background: 240 5% 98%;
     --sidebar: 60 5% 96%;
-    --foreground: 0 0% 0%;
-    --primary: 262 83% 58%; /* Electric Violet */
-    --primary-foreground: 0 0% 100%;
+    --foreground: 0 0% 4%;
+    --primary: 0 0% 6%;            /* Pure Black */
+    --primary-foreground: 0 0% 98%; /* Pure White */
     --card: 0 0% 100%;
     --card-foreground: 0 0% 11%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 11%;
-    --secondary: 217 91% 60%; /* Azure Blue */
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: 217 91% 60%;       /* Azure Blue — used for accents only */
+    --secondary-foreground: 0 0% 100%;
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
-    --accent: 271 91% 75%; /* Light Purple */
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 0 0% 12%;             /* Dark Gray accent */
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 262 83% 58%;
+    --ring: 0 0% 6%;               /* Black ring */
     --radius: 1rem;
     
     /* Font Variables */
