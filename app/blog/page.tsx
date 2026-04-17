@@ -6,7 +6,7 @@ import Link from "next/link";
 import { BlogGrid } from "@/components/landing/blog-grid";
 import { BlogFilters } from "@/components/landing/blog-filters";
 import { createClient as createPublicClient } from "@supabase/supabase-js";
-
+import { XylosLogo } from "@/components/premium/xylos-logo";
 
 
 export const metadata: Metadata = {
