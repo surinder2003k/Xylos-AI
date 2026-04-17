@@ -63,23 +63,23 @@ export default async function PrivacyPage() {
 
         <article className="prose dark:prose-invert max-w-none space-y-8 text-muted-foreground leading-relaxed">
           <div className="space-y-4">
-            <h2 className="text-2xl font-black text-white uppercase tracking-tight font-fustat">1. Data Collection</h2>
+            <h2 className="text-2xl font-black text-foreground uppercase tracking-tight font-fustat">1. Data Collection</h2>
             <p>Xylos AI collects minimal metadata required to provide the service. This includes account identifiers and usage logs necessary for system stability. We do NOT monetize user data or sell it to third-party advertisers.</p>
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-2xl font-black text-white uppercase tracking-tight font-fustat">2. AI Training</h2>
+            <h2 className="text-2xl font-black text-foreground uppercase tracking-tight font-fustat">2. AI Training</h2>
             <p>Content synthesized using Xylos AI is NOT used to train the underlying models (Llama, Gemini, Mistral) by default. We leverage API-level privacy flags to ensure your corporate and personal secrets remain private.</p>
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-2xl font-black text-white uppercase tracking-tight font-fustat">3. Ethics Commitment</h2>
+            <h2 className="text-2xl font-black text-foreground uppercase tracking-tight font-fustat">3. Ethics Commitment</h2>
             <p>Our editorial engine is tuned to recognize and mitigate bias. While AI can still generate unexpected responses, our 'Aether Intelligence Layer' acts as a secondary filter to maintain professional standards of communication.</p>
           </div>
         </article>
 
-        <footer className="text-center pt-10 border-t border-white/5">
-          <p className="text-[10px] font-black text-white/20 uppercase tracking-[0.4em]">
+        <footer className="text-center pt-10 border-t border-border/50">
+          <p className="text-[10px] font-black text-muted-foreground/40 uppercase tracking-[0.4em]">
             Last Updated: April 17, 2026 // Xylos Legal Division
           </p>
         </footer>
@@ -90,8 +90,8 @@ export default async function PrivacyPage() {
 
 function InfoCard({ icon: Icon, title, content }: any) {
   return (
-    <div className="p-8 rounded-3xl bg-card/40 border border-white/5 backdrop-blur-md space-y-4 hover:border-primary/20 transition-all group">
-      <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+    <div className="p-8 rounded-3xl bg-card/40 border border-border backdrop-blur-md space-y-4 hover:border-primary/20 transition-all group">
+      <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
         <Icon className="w-6 h-6" />
       </div>
       <h3 className="text-xl font-black uppercase font-fustat tracking-tight italic">{title}</h3>

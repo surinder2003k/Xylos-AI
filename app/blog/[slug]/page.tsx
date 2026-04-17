@@ -11,6 +11,7 @@ import { NewsletterCard } from "@/components/blog/newsletter-card";
 import { ShareButtons } from "@/components/blog/share-buttons";
 import { Metadata } from "next";
 import remarkGfm from "remark-gfm";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const supabase = await createClient();
@@ -127,6 +128,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
           
           <div className="flex items-center gap-3">
+             <ThemeToggle />
              <ShareButtons title={post.title} excerpt={post.excerpt} slug={post.slug} />
           </div>
         </div>
@@ -173,8 +175,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                className="object-cover opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105" 
                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
              />
-             <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 p-3 md:p-4 rounded-xl md:rounded-2xl bg-background/20 backdrop-blur-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <p className="text-[8px] md:text-[10px] font-bold text-white uppercase tracking-widest text-center">Visual Intelligence Sync Status: Calibrated</p>
+             <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 p-3 md:p-4 rounded-xl md:rounded-2xl bg-background/40 backdrop-blur-md border border-border/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <p className="text-[8px] md:text-[10px] font-bold text-foreground uppercase tracking-widest text-center">Visual Intelligence Sync Status: Calibrated</p>
              </div>
           </div>
 
