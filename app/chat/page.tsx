@@ -54,12 +54,26 @@ function ChatContent() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const recognitionRef = useRef<any>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
+  const isNearBottomRef = useRef(true);
+  const [showScrollBtn, setShowScrollBtn] = useState(false);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  const checkIfNearBottom = () => {
+    const el = messagesContainerRef.current;
+    if (!el) return;
+    const distFromBottom = el.scrollHeight - el.scrollTop - el.clientHeight;
+    const near = distFromBottom < 150;
+    isNearBottomRef.current = near;
+    setShowScrollBtn(!near);
+  };
+
+  const scrollToBottom = (force = false) => {
+    if (force || isNearBottomRef.current) {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   // 1. Initial Load & Session Management
@@ -93,7 +107,7 @@ function ChatContent() {
   }, [activeId]);
 
   useEffect(() => {
-    const timeout = setTimeout(scrollToBottom, 50);
+    const timeout = setTimeout(() => scrollToBottom(), 50);
     return () => clearTimeout(timeout);
   }, [messages, isLoading]);
 
@@ -189,6 +203,9 @@ function ChatContent() {
     setInput("");
     setStagedFile(null);
     setIsLoading(true);
+    // Force scroll to bottom when user sends
+    isNearBottomRef.current = true;
+    setTimeout(() => scrollToBottom(true), 50);
 
     // Save User Intent to Matrix
     await chatService.saveMessage(currentId, userMsg);
@@ -323,7 +340,11 @@ function ChatContent() {
 
 
         {/* Message Thread */}
-        <div className="flex-1 w-full overflow-y-auto custom-scrollbar pt-6 pb-48">
+        <div
+          ref={messagesContainerRef}
+          onScroll={checkIfNearBottom}
+          className="flex-1 w-full overflow-y-auto custom-scrollbar pt-6 pb-48"
+        >
           <div className="max-w-3xl mx-auto px-4 md:px-6 space-y-8">
             <AnimatePresence mode="popLayout">
               {messages.length === 0 ? (
@@ -476,6 +497,16 @@ function ChatContent() {
             <div ref={messagesEndRef} className="h-4" />
           </div>
         </div>
+
+        {/* Scroll to bottom button */}
+        {showScrollBtn && (
+          <button
+            onClick={() => { isNearBottomRef.current = true; scrollToBottom(true); }}
+            className="absolute bottom-44 right-6 z-20 p-2.5 rounded-full bg-foreground text-background shadow-xl border border-border hover:scale-110 transition-all animate-bounce"
+          >
+            <ChevronDown className="w-4 h-4" />
+          </button>
+        )}
 
         {/* Neural Input Interface */}
         <div className="absolute bottom-0 w-full bg-gradient-to-t from-background via-background/95 to-transparent pt-12 pb-8 px-4 md:px-12">
