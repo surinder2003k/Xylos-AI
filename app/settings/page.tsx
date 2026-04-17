@@ -45,7 +45,7 @@ export default function SettingsPage() {
     <div className="max-w-4xl mx-auto space-y-10">
       <header className="space-y-2">
         <h1 className="text-4xl font-black font-fustat tracking-tighter uppercase">Settings<span className="text-primary italic">.</span></h1>
-        <p className="text-white/40 mt-1 text-[10px] font-bold uppercase tracking-widest">Global API Integrations // Studio Protocol</p>
+        <p className="text-muted-foreground mt-1 text-[10px] font-bold uppercase tracking-widest">Global API Integrations // Studio Protocol</p>
  admissions      </header>
 
       <section className="grid grid-cols-1 gap-6">
@@ -55,15 +55,15 @@ export default function SettingsPage() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: idx * 0.05 }}
-            className="group p-6 rounded-3xl glass border-white/5 hover:border-primary/20 transition-all"
+            className="group p-6 rounded-3xl glass border-border hover:border-primary/20 transition-all"
           >
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary/30 transition-colors">
-                   <provider.icon className="w-6 h-6 text-white/60 group-hover:text-primary transition-colors" />
+                <div className="w-12 h-12 rounded-2xl bg-muted border border-border flex items-center justify-center group-hover:border-primary/30 transition-colors">
+                   <provider.icon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
                 </div>
                 <div>
-                   <h3 className="text-lg font-bold font-fustat text-white">{provider.name} Integration</h3>
+                   <h3 className="text-lg font-bold font-fustat text-foreground">{provider.name} Integration</h3>
                    <div className="flex items-center gap-2 text-[10px] font-black text-foreground uppercase tracking-widest mt-0.5">
                       <span className="text-[10px] font-black text-foreground uppercase tracking-widest">Pulse Core</span>
                       <Lock className="w-3 h-3" />
@@ -76,22 +76,22 @@ export default function SettingsPage() {
                 <input 
                   type="password"
                   placeholder={provider.placeholder}
-                  className="w-full bg-navy-950/50 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-primary/50 outline-none transition-all placeholder:text-white/10"
+                  className="w-full bg-muted border border-border rounded-xl px-4 py-3 text-sm focus:border-primary/50 outline-none transition-all placeholder:text-muted-foreground/30"
                   onChange={(e) => setKeys({ ...keys, [provider.id]: e.target.value })}
                 />
-                <Key className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/10" />
+                <Key className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/20" />
               </div>
             </div>
           </motion.div>
         ))}
       </section>
 
-      <footer className="sticky bottom-8 flex items-center justify-between p-6 rounded-3xl glass border-primary/20 bg-navy-950/80 backdrop-blur-xl shadow-2xl">
+      <footer className="sticky bottom-8 flex items-center justify-between p-6 rounded-3xl glass border-primary/20 bg-card/80 backdrop-blur-xl shadow-2xl">
         <div className="flex items-center gap-3">
            <ShieldCheck className="w-6 h-6 text-primary" />
            <div className="text-sm">
               <div className="font-bold">Security Shield Active</div>
-              <div className="text-white/40 text-xs">Your keys never leave Xylos' secure perimeter.</div>
+              <div className="text-muted-foreground text-xs">Your keys never leave Xylos' secure perimeter.</div>
            </div>
         </div>
 
@@ -100,12 +100,12 @@ export default function SettingsPage() {
           disabled={isSaving}
           className={`
             px-8 py-3 rounded-2xl font-bold flex items-center gap-2 transition-all duration-300
-            ${saveStatus === 'success' ? 'bg-green-500 text-white' : 'bg-primary text-navy-950 hover:scale-105 active:scale-95'}
+            ${saveStatus === 'success' ? 'bg-green-500 text-white' : 'bg-primary text-primary-foreground hover:scale-105 active:scale-95'}
             disabled:opacity-50
           `}
         >
           {isSaving ? (
-            <div className="w-5 h-5 border-2 border-navy-950 border-t-transparent rounded-full animate-spin" />
+            <div className="w-5 h-5 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin" />
           ) : saveStatus === 'success' ? (
             <><CheckCircle2 className="w-5 h-5" /> Saved Successfully</>
           ) : (

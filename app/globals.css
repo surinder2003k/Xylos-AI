@@ -72,17 +72,17 @@
 
 @layer components {
   .glass-navbar {
-    @apply backdrop-blur-[50px] bg-white/30 border border-black/10 rounded-[16px];
-    box-shadow: inset 0px 4px 4px 0px rgba(255,255,255,0.25);
+    @apply backdrop-blur-[50px] bg-card/30 border border-border/50 rounded-[16px];
+    box-shadow: inset 0px 4px 4px 0px rgba(255,255,255,0.05);
   }
 
   .glass-cta {
-    @apply bg-primary/80 backdrop-blur-[2px] rounded-[16px] text-white font-bold transition-all duration-300;
-    box-shadow: inset 0px 4px 4px 0px rgba(255,255,255,0.35);
+    @apply bg-primary/80 backdrop-blur-[2px] rounded-[16px] text-primary-foreground font-bold transition-all duration-300;
+    box-shadow: inset 0px 4px 4px 0px rgba(255,255,255,0.15);
   }
 
   .glass-cta:hover {
-    @apply scale-[1.02] bg-red-600;
+    @apply scale-[1.02] bg-primary;
   }
 
   .orb-video-filter {

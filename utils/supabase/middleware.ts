@@ -72,12 +72,11 @@ export async function updateSession(request: NextRequest) {
     !request.nextUrl.pathname.startsWith('/login') &&
     !request.nextUrl.pathname.startsWith('/auth') &&
     !request.nextUrl.pathname.startsWith('/api') &&
-    !request.nextUrl.pathname.startsWith('/tools') &&
     !request.nextUrl.pathname.startsWith('/blog') &&
     request.nextUrl.pathname !== '/about' &&
-    request.nextUrl.pathname !== '/chat' &&
     request.nextUrl.pathname !== '/privacy' &&
     request.nextUrl.pathname !== '/'
+  ) {
   ) {
     const url = request.nextUrl.clone()
     url.pathname = '/'
