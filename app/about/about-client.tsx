@@ -11,27 +11,15 @@ import {
   Layers,
   Fingerprint
 } from "lucide-react";
-import { Navbar } from "@/components/landing/navbar";
 import { NewsletterForm } from "@/components/landing/newsletter-form";
-import { RevealText } from "@/components/ui/reveal-text";
-import { useState, useEffect } from "react";
-import { createClient } from "@/utils/supabase/client";
+
+
 
 export default function AboutPageClient() {
-  const [user, setUser] = useState<any>(null);
-  const supabase = createClient();
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      setUser(user);
-    };
-    fetchUser();
-  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 relative overflow-hidden">
-      <Navbar user={user} />
+
       
       {/* Background elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-20">
