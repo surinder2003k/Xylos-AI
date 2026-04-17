@@ -8,7 +8,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { createClient as createAuthClient } from "@/utils/supabase/server";
 
-export const maxDuration = 60; // Max execution time to prevent Vercel timeouts
+export const maxDuration = 300; // Increased to 300s to handle multiple generations
 export const dynamic = "force-dynamic"; // Prevent aggressive route caching for auth checks
 
 export async function GET(req: Request) {

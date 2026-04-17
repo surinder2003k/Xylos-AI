@@ -57,11 +57,24 @@ export async function discoverLatestPosts(sitemapUrl: string, limit: number = 5)
       return new Date(b.lastmod).getTime() - new Date(a.lastmod).getTime();
     });
 
-    return results.slice(0, limit);
+    return results.slice(0, limit).map(r => ({ ...r, url: sanitizeDiscoveryLink(r.url) }));
   } catch (error) {
     console.error("[LinkDiscovery] Protocol Error:", error);
     return [];
   }
+}
+
+/**
+ * Ensures links to partner sites are free from known typographical errors
+ * that cause 404s.
+ */
+export function sanitizeDiscoveryLink(url: string): string {
+  if (!url) return url;
+  
+  return url.replace(
+    "revisioning-education-through-artificial-intelligence",
+    "revolutionizing-education-through-artificial-intelligence"
+  );
 }
 
 /**

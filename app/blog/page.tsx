@@ -7,6 +7,7 @@ import { BlogGrid } from "@/components/landing/blog-grid";
 import { BlogFilters } from "@/components/landing/blog-filters";
 import { createClient as createPublicClient } from "@supabase/supabase-js";
 import { XylosLogo } from "@/components/premium/xylos-logo";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export const metadata: Metadata = {
   title: "AI Blog — Insights on Technology, AI & Innovation | Xylos AI",
@@ -78,12 +79,15 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
             <span className="font-fustat font-black text-2xl tracking-tighter uppercase">Xylos<span className="text-primary italic">AI</span></span>
           </Link>
           
-          <Link 
-            href="/"
-            className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.3em] text-muted-foreground hover:text-foreground transition-all flex items-center group/back"
-          >
-             <ArrowLeft className="w-4 h-4 group-hover/back:-translate-x-1 transition-transform" /> Back to Home
-          </Link>
+          <div className="flex items-center gap-6">
+            <ThemeToggle />
+            <Link 
+              href="/"
+              className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.3em] text-muted-foreground hover:text-foreground transition-all flex items-center group/back"
+            >
+               <ArrowLeft className="w-4 h-4 group-hover/back:-translate-x-1 transition-transform" /> Back to Home
+            </Link>
+          </div>
         </div>
       </nav>
 

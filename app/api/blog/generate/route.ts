@@ -3,6 +3,7 @@ import { generateSmartBlog } from "@/lib/ai/smart-generator";
 import { searchSmartImage } from "@/lib/utils/image-search";
 import { generateAIImage } from "@/lib/ai/image-generator";
 import { slugify } from "@/lib/utils/slugify";
+import { sanitizeDiscoveryLink } from "@/lib/utils/link-discovery";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -41,7 +42,7 @@ export async function POST(req: Request) {
       const html = await partnerRes.text();
       const match = html.match(/"\/blog\/([^"?]+)"/);
       if (match && match[1] && match[1] !== 'undefined') {
-        const partnerLink = `https://pulse-blog-ai.vercel.app/blog/${match[1]}`;
+        const partnerLink = sanitizeDiscoveryLink(`https://pulse-blog-ai.vercel.app/blog/${match[1]}`);
         linkingContext.push(partnerLink);
         console.log(`[SEO Engine] Linked Partner Site Post: ${partnerLink}`);
       }
@@ -96,7 +97,7 @@ export async function POST(req: Request) {
           }
 
           if (inArticleUrl) {
-            const imgHtml = `<figure class="my-8"><img src="${inArticleUrl}" alt="${prompt}" title="${prompt}" class="rounded-2xl border border-white/10 shadow-2xl w-full h-auto" /><figcaption class="text-center text-[10px] text-muted-foreground uppercase tracking-widest mt-3">${prompt}</figcaption></figure>`;
+            const imgHtml = `<figure class="my-8"><img src="${inArticleUrl}" alt="${prompt}" title="${prompt}" class="rounded-2xl border border-border shadow-2xl w-full h-auto" /><figcaption class="text-center text-[10px] text-muted-foreground uppercase tracking-widest mt-3">${prompt}</figcaption></figure>`;
             processedContent = processedContent.replace(marker, imgHtml);
           } else {
             processedContent = processedContent.replace(marker, ""); 
