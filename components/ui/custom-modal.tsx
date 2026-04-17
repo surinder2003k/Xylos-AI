@@ -60,7 +60,7 @@ export function CustomModal({
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="w-full max-w-md bg-card border border-white/5 rounded-[2.5rem] shadow-2xl overflow-hidden pointer-events-auto relative"
+              className="w-full max-w-md bg-card border border-border rounded-[2.5rem] shadow-2xl overflow-hidden pointer-events-auto relative"
             >
               {/* Artistic Accent */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
@@ -68,11 +68,11 @@ export function CustomModal({
               <div className="p-8 space-y-6">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-2xl bg-white/5 border border-white/5 shadow-inner">
+                    <div className="p-3 rounded-2xl bg-muted border border-border shadow-inner">
                       {icons[type]}
                     </div>
                     <div>
-                      <h3 className="text-xl font-black font-fustat uppercase tracking-tight text-white/90">
+                      <h3 className="text-xl font-black font-fustat uppercase tracking-tight text-foreground/90">
                         {title}
                       </h3>
                       <p className="text-[10px] font-black text-primary uppercase tracking-[0.3em] mt-1 flex items-center gap-1">
@@ -83,7 +83,7 @@ export function CustomModal({
                   </div>
                   <button 
                     onClick={onClose}
-                    className="p-2 rounded-xl hover:bg-white/5 transition-colors text-muted-foreground hover:text-white"
+                    className="p-2 rounded-xl hover:bg-muted transition-colors text-muted-foreground hover:text-foreground"
                   >
                     <X className="w-4 h-4" />
                   </button>
@@ -109,7 +109,7 @@ export function CustomModal({
                       </button>
                       <button
                         onClick={onClose}
-                        className="flex-1 px-6 py-3 rounded-2xl bg-white/5 border border-white/5 text-white/60 font-black text-[10px] uppercase tracking-widest hover:bg-white/10 transition-all"
+                        className="flex-1 px-6 py-3 rounded-2xl bg-muted border border-border text-foreground/60 font-black text-[10px] uppercase tracking-widest hover:bg-muted/80 transition-all"
                       >
                         {cancelText}
                       </button>
@@ -117,7 +117,7 @@ export function CustomModal({
                   ) : (
                     <button
                       onClick={onClose}
-                      className="w-full px-6 py-3 rounded-2xl bg-white/5 border border-white/5 text-white/60 font-black text-[10px] uppercase tracking-widest hover:bg-white/10 transition-all"
+                      className="w-full px-6 py-3 rounded-2xl bg-muted border border-border text-foreground/60 font-black text-[10px] uppercase tracking-widest hover:bg-muted/80 transition-all"
                     >
                       {cancelText}
                     </button>

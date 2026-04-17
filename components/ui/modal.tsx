@@ -46,7 +46,7 @@ export function ConfirmationModal({
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="bg-navy-950 border border-white/10 rounded-[2.5rem] shadow-2xl w-full max-w-md overflow-hidden pointer-events-auto"
+              className="bg-card border border-border rounded-[2.5rem] shadow-2xl w-full max-w-md overflow-hidden pointer-events-auto"
             >
               <div className="p-8 space-y-6">
                 {/* Icon & Close */}
@@ -63,23 +63,23 @@ export function ConfirmationModal({
                   </div>
                   <button 
                     onClick={onClose}
-                    className="p-2 rounded-xl hover:bg-white/5 transition-colors"
+                    className="p-2 rounded-xl hover:bg-muted transition-colors"
                   >
-                    <X className="w-5 h-5 text-white/40" />
+                    <X className="w-5 h-5 text-muted-foreground" />
                   </button>
                 </div>
 
                 {/* Content */}
                 <div className="space-y-2">
                   <h3 className="text-2xl font-bold font-outfit tracking-tight">{title}</h3>
-                  <p className="text-white/40 text-sm leading-relaxed">{message}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{message}</p>
                 </div>
 
                 {/* Actions */}
                 <div className="flex flex-col sm:flex-row gap-3 pt-4">
                   <button
                     onClick={onClose}
-                    className="flex-1 px-6 py-4 rounded-2xl bg-white/5 border border-white/10 font-bold hover:bg-white/10 transition-all text-sm"
+                    className="flex-1 px-6 py-4 rounded-2xl bg-muted border border-border font-bold hover:bg-muted/80 transition-all text-sm"
                   >
                     {cancelText}
                   </button>

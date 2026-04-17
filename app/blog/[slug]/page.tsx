@@ -185,9 +185,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {/* Vertical Accents */}
             <div className="absolute -left-12 top-0 bottom-0 w-px bg-gradient-to-b from-primary/20 via-transparent to-transparent hidden xl:block" />
             
-            <div className="prose dark:prose-invert prose-headings:text-foreground prose-p:text-foreground/80 prose-p:leading-[1.8] prose-p:text-lg md:text-xl prose-headings:font-fustat prose-headings:tracking-tighter prose-a:text-primary prose-strong:text-foreground prose-li:text-foreground/80 prose-blockquote:text-foreground/60 prose-blockquote:border-l-primary/40 max-w-none prose-img:rounded-[2rem] prose-code:text-primary px-0 selection:bg-primary/20 break-words overflow-hidden">
+            <div className="prose dark:prose-invert max-w-none 
+              [&_*]:text-foreground/90 
+              prose-headings:text-foreground prose-headings:font-fustat prose-headings:tracking-tighter
+              prose-a:text-primary prose-strong:text-foreground
+              prose-blockquote:border-l-primary/40 prose-img:rounded-[2rem] 
+              prose-code:text-primary px-0 selection:bg-primary/20 break-words overflow-hidden">
                {post.content && post.content.startsWith('<') ? (
-                 <div className="space-y-6" dangerouslySetInnerHTML={{ __html: post.content }} />
+                 <div className="space-y-6 text-foreground/90" dangerouslySetInnerHTML={{ __html: post.content }} />
                ) : (
                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{formatMarkdown(post.content)}</ReactMarkdown>
                )}
