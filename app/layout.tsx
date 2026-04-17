@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Fustat } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+
 import { PrimaryColorProvider } from "@/components/primary-color-provider";
 import { TopProgressBar } from "@/components/premium/progress-bar";
 import { ToastProvider } from "@/components/ui/toast";
@@ -122,17 +122,12 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        <ThemeProvider 
-          attribute="class" 
-          defaultTheme="dark" 
-          enableSystem={false}
-        >
-          <PrimaryColorProvider>
-            <ToastProvider>
-              <AuthListener />
-              <TopProgressBar />
-              <SplashLoader />
-              <main className="relative min-h-screen">
+        <PrimaryColorProvider>
+          <ToastProvider>
+            <AuthListener />
+            <TopProgressBar />
+            <SplashLoader />
+            <main className="relative min-h-screen">
                 <script
                   type="application/ld+json"
                   dangerouslySetInnerHTML={{
@@ -197,7 +192,6 @@ export default function RootLayout({
               </main>
             </ToastProvider>
           </PrimaryColorProvider>
-        </ThemeProvider>
       </body>
     </html>
   );

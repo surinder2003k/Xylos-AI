@@ -14,7 +14,7 @@ import {
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { AnimatedLogo } from "@/components/premium/animated-logo";
-import { ThemeToggle } from "@/components/theme-toggle";
+
 
 function LoginContent() {
   const [isLogin, setIsLogin] = useState(true);
@@ -29,10 +29,7 @@ function LoginContent() {
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center p-6 relative overflow-hidden">
-      {/* Global Theme Toggle */}
-      <div className="absolute top-6 right-6 z-50">
-        <ThemeToggle />
-      </div>
+
 
       {/* Dynamic Background */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">

@@ -19,7 +19,8 @@ import {
   X,
   FileText,
   Trash2,
-  Square
+  Square,
+  Menu
 } from "lucide-react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { chatService, Message, ChatSession } from "@/lib/supabase/chat-service";
@@ -50,6 +51,7 @@ function ChatContent() {
   const [sessions, setSessions] = useState<ChatSession[]>([]);
   const [editingMsgIndex, setEditingMsgIndex] = useState<number | null>(null);
   const [editContent, setEditContent] = useState("");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -256,8 +258,68 @@ function ChatContent() {
 
   return (
     <div className="flex h-full w-full bg-background overflow-hidden relative">
+      {/* Mobile Sidebar Overlay */}
+      {isSidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40 md:hidden"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
+      {/* Chat History Sidebar */}
+      <div className={`
+        absolute md:static top-0 left-0 z-50 h-full w-72 md:w-80 bg-card border-r border-border flex flex-col transition-transform duration-300
+        ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
+      `}>
+        <div className="p-6 border-b border-border flex items-center justify-between">
+          <div className="flex flex-col">
+            <span className="font-fustat font-black text-xl uppercase tracking-wider">Missions</span>
+            <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">{sessions.length} Deployments</span>
+          </div>
+          <button onClick={() => router.push('/chat')} className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20 transition-colors">
+            <Plus className="w-4 h-4" />
+          </button>
+        </div>
+        <div className="flex-1 overflow-y-auto p-4 space-y-2 custom-scrollbar">
+          {sessions.map(s => (
+            <div key={s.id} className="relative group">
+              <button 
+                onClick={() => { router.push(`/chat?id=${s.id}`); setIsSidebarOpen(false); }}
+                className={`w-full text-left p-3 pt-4 rounded-xl transition-all ${activeId === s.id ? 'bg-primary/10 border-primary/20' : 'hover:bg-muted border-transparent'} border`}
+              >
+                <p className="text-sm font-bold truncate pr-8">{s.title}</p>
+                <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest mt-1">
+                  {new Date(s.updatedAt).toLocaleDateString()}
+                </p>
+              </button>
+              <button 
+                onClick={async (e) => { 
+                  e.stopPropagation(); 
+                  await chatService.deleteSession(s.id); 
+                  loadSessions(); 
+                  if (activeId === s.id) router.push('/chat'); 
+                }}
+                className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-muted-foreground hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <Trash2 className="w-4 h-4" />
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Primary Neural Workspace */}
       <div className="flex-1 flex flex-col relative h-full">
+
+        {/* Top Nav (Mobile mostly) */}
+        <div className="absolute top-4 left-4 z-30 md:hidden">
+          <button 
+            onClick={() => setIsSidebarOpen(true)}
+            className="p-2 bg-card border border-border rounded-xl shadow-lg text-foreground hover:text-primary transition-colors"
+          >
+            <Menu className="w-5 h-5" />
+          </button>
+        </div>
 
 
         {/* Message Thread */}

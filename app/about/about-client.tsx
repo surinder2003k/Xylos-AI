@@ -109,7 +109,7 @@ export default function AboutPageClient() {
                   />
                   <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
                   <div className="absolute inset-0 flex items-center justify-center p-12 text-center">
-                    <p className="text-2xl font-black font-fustat uppercase tracking-widest text-foreground leading-relaxed italic">
+                    <p className="text-2xl font-black font-fustat uppercase tracking-widest text-white leading-relaxed italic">
                       "Bridging the gap between binary logic and human emotion."
                     </p>
                   </div>

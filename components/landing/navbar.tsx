@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ThemeToggle } from "@/components/theme-toggle";
+
 import { AnimatedLogo } from "@/components/premium/animated-logo";
 
 interface NavbarProps {
@@ -40,7 +40,7 @@ export function Navbar({ user }: NavbarProps) {
 
         {/* Actions (Desktop) */}
         <div className="hidden md:flex items-center gap-4">
-          <ThemeToggle />
+
           <Link 
             href={user ? "/dashboard" : "/login"}
             className="px-6 py-2.5 rounded-xl border border-border bg-background dark:bg-muted/50 hover:border-primary/50 transition-all text-[10px] font-black uppercase tracking-widest shadow-sm hover:shadow-primary/20"
@@ -51,7 +51,7 @@ export function Navbar({ user }: NavbarProps) {
 
         {/* Mobile Toggle */}
         <div className="flex md:hidden items-center gap-3">
-          <ThemeToggle />
+
           <button 
             onClick={() => setIsOpen(!isOpen)}
             className="p-2 rounded-xl bg-primary/10 text-primary border border-primary/20"

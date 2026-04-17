@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 240 5% 98%;
     --sidebar: 60 5% 96%;
     --foreground: 0 0% 0%;
     --primary: 262 83% 58%; /* Electric Violet */
@@ -31,28 +31,7 @@
     --font-inter: 'Inter', sans-serif;
   }
 
-  .dark {
-    --background: 0 0% 2%;
-    --foreground: 0 0% 98%;
-    --primary: 262 83% 58%; /* Electric Violet */
-    --primary-foreground: 0 0% 100%;
-    --card: 0 0% 4%;
-    --card-foreground: 0 0% 90%;
-    --popover: 0 0% 4%;
-    --popover-foreground: 0 0% 90%;
-    --secondary: 217 91% 60%; /* Azure Blue */
-    --secondary-foreground: 0 0% 100%;
-    --muted: 240 5% 10%;
-    --muted-foreground: 240 5% 65%;
-    --accent: 271 91% 75%; /* Light Purple */
-    --accent-foreground: 224 71% 4%;
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 240 5% 12%;
-    --input: 240 5% 12%;
-    --ring: 262 83% 58%;
-    --sidebar: 240 5% 5%;
-  }
+
 
   * {
     @apply border-border;
