@@ -24,7 +24,7 @@ export const historyManager = {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (!stored) return [];
     try {
-      return JSON.parse(stored).sort((a: any, b: any) => b.updatedAt - a.updatedAt);
+      return JSON.parse(stored).sort((a: ChatSession, b: ChatSession) => b.updatedAt - a.updatedAt);
     } catch (e) {
       console.error('Failed to parse history:', e);
       return [];

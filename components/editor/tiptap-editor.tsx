@@ -129,7 +129,6 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
   const editor = useEditor({
     extensions: [
       StarterKit.configure({
-        history: false,
         dropcursor: false,
       }),
       TextStyle,
@@ -145,9 +144,7 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
         placeholder: "The workspace is ready. Compose your story...",
       }),
       CustomResizableImage.configure({
-        HTMLAttributes: {
-          class: 'neural-resizable-image rounded-2xl border border-border bg-muted/20 shadow-2xl my-8 mx-auto block max-w-full h-auto',
-        },
+        inline: true,
       }),
       Dropcursor.configure({
         color: 'oklch(var(--p))',
@@ -259,7 +256,7 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
         alt: '',
         title: '',
         callback: (data) => {
-          editor.chain().focus().setImage({ 
+          (editor.chain().focus() as any).setImage({ 
             src: publicUrl, 
             alt: data?.alt || '',
             title: data?.title || ''
@@ -434,7 +431,7 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
 
       <div className="relative">
         {editor && (
-          <BubbleMenuComponent editor={editor} tippyOptions={{ duration: 100 }} className="flex items-center gap-1 p-2 bg-card/90 backdrop-blur-xl border border-border shadow-2xl rounded-2xl animate-in fade-in zoom-in duration-200">
+          <BubbleMenuComponent editor={editor} className="flex items-center gap-1 p-2 bg-card/90 backdrop-blur-xl border border-border shadow-2xl rounded-2xl animate-in fade-in zoom-in duration-200">
              <ToolbarButton onClick={() => editor.chain().focus().toggleBold().run()} isActive={editor.isActive('bold')} icon={Bold} />
              <ToolbarButton onClick={() => editor.chain().focus().toggleItalic().run()} isActive={editor.isActive('italic')} icon={Italic} />
              <div className="w-px h-4 bg-border mx-1" />
