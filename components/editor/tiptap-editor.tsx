@@ -39,7 +39,7 @@ import {
 import { createClient } from "@/utils/supabase/client";
 import { CustomModal } from "../ui/custom-modal";
 import { useToast } from "@/components/ui/toast";
-import { useTheme } from "next-themes";
+
 
 // Custom extension to allow dynamic 'rel' attribute toggling for SEO
 const CustomLink = Link.extend({
@@ -94,7 +94,7 @@ interface TiptapEditorProps {
 }
 
 export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
-  const { resolvedTheme } = useTheme();
+
   const [mounted, setMounted] = useState(false);
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
@@ -409,7 +409,7 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
                 <button onClick={() => { setColor("#a855f7"); setShowColorPicker(false); }} className="w-6 h-6 rounded-full bg-purple-500 hover:scale-110 transition-transform shadow-[0_0_10px_rgba(168,85,247,0.3)]" title="Purple Prestige" />
                 <button onClick={() => { setColor("#ef4444"); setShowColorPicker(false); }} className="w-6 h-6 rounded-full bg-red-500 hover:scale-110 transition-transform shadow-[0_0_10px_rgba(239,68,68,0.3)]" title="Alert Red" />
                 <div className="h-px bg-border mx-1" />
-                <button onClick={() => { setColor(resolvedTheme === 'dark' ? "currentColor" : "currentColor"); setShowColorPicker(false); }} className={`w-6 h-6 rounded-full border border-border ${resolvedTheme === 'dark' ? 'bg-white' : 'bg-black'} hover:scale-110 transition-transform`} title="Default Text Color" />
+                <button onClick={() => { setColor("currentColor"); setShowColorPicker(false); }} className={`w-6 h-6 rounded-full border border-border bg-black hover:scale-110 transition-transform`} title="Default Text Color" />
               </motion.div>
             )}
           </AnimatePresence>

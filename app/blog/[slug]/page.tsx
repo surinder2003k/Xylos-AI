@@ -11,7 +11,7 @@ import { NewsletterCard } from "@/components/blog/newsletter-card";
 import { ShareButtons } from "@/components/blog/share-buttons";
 import { Metadata } from "next";
 import remarkGfm from "remark-gfm";
-import { ThemeToggle } from "@/components/theme-toggle";
+
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const supabase = await createClient();
@@ -128,7 +128,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
           
           <div className="flex items-center gap-3">
-             <ThemeToggle />
+
              <ShareButtons title={post.title} excerpt={post.excerpt} slug={post.slug} />
           </div>
         </div>
@@ -196,7 +196,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                    className="space-y-6 text-foreground/90" 
                    dangerouslySetInnerHTML={{ 
                      __html: post.content
-                       .replace(/color:\s*(#ffffff|#fff|#000000|#000|rgb\(255,\s*255,\s*255\)|rgb\(0,\s*0,\s*0\));?/gi, "") 
+                       .replace(/color:\s*[^;"]+;?/gi, "") // Aggressively strip ALL explicit colors to allow theme override
+                       .replace(/background-color:\s*[^;"]+;?/gi, "") // Aggressively strip inline backgrounds
+                       .replace(/background:\s*[^;"]+;?/gi, "") 
                    }} 
                  />
                ) : (

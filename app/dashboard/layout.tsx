@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 import { signOut } from "@/app/auth/actions";
 import { createClient } from "@/utils/supabase/client";
-import { ThemeToggle } from "@/components/theme-toggle";
+
 import { AnimatedLogo } from "@/components/premium/animated-logo";
 import { useToast } from "@/components/ui/toast";
 
@@ -233,7 +233,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           </div>
 
           <div className="flex items-center gap-6">
-            <ThemeToggle />
+
             {isAdmin && (
               <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 shadow-neon-sm">
                 <ShieldCheck className="w-3.5 h-3.5 text-primary" />
