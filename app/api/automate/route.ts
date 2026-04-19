@@ -19,6 +19,20 @@ export async function GET(req: Request) {
       process.env.SUPABASE_SERVICE_ROLE_KEY!,
     );
 
+    // Logging helper
+    const logEvent = async (event: string, status: string, details?: string, duration?: number) => {
+      try {
+        await supabaseAdmin.from("automation_logs").insert({
+          event,
+          status,
+          details: typeof details === 'object' ? JSON.stringify(details) : details,
+          duration_sec: duration
+        });
+      } catch (e) {
+        console.error("[Neural Log] Failed to write log:", e);
+      }
+    };
+
     // 2. Automated Trigger Authorization
     const { searchParams } = new URL(req.url);
     const count = Math.min(parseInt(searchParams.get("count") || "1"), 5); // Caps at 5 for stability
@@ -75,6 +89,7 @@ export async function GET(req: Request) {
     console.log(
       `[Neural Sync] Starting automated generation. Count: ${count}, Trigger: ${isCron ? "Cron" : "Manual"}`,
     );
+    await logEvent("start", "info", `Trigger: ${isCron ? "Cron" : "Manual"}, Requested: ${count}`);
     const startTime = Date.now();
 
     // 3. Fetch Neural Context & Settings
@@ -144,6 +159,7 @@ export async function GET(req: Request) {
       } catch (genErr: any) {
         console.error(`[Neural Sync] Content generation failed:`, genErr.message);
         results.push({ status: "failed", reason: "AI Generation Failure", error: genErr.message });
+        await logEvent("generation", "failed", genErr.message);
         continue;
       }
 
@@ -194,14 +210,17 @@ export async function GET(req: Request) {
           insertError.message,
         );
         results.push({ status: "failed", reason: "Database Insert Error", error: insertError.message });
+        await logEvent("insertion", "failed", insertError.message);
         continue;
       }
 
       results.push({ status: "success", id: newPost.id, title: newPost.title });
+      await logEvent("insertion", "success", `Created: ${newPost.title}`);
       recentTitles.push(newPost.title); // Update context for next iteration
     }
 
     const duration = (Date.now() - startTime) / 1000;
+    await logEvent("complete", "success", `Created ${results.filter(r => r.status === "success").length} posts`, duration);
     console.log(
       `[Neural Sync] Multi-Post Synthesis completed in ${duration}s. Created ${results.length} posts.`,
     );

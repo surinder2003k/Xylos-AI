@@ -55,13 +55,13 @@ export async function generateSmartBlog(
   
   MANDATORY RULE: You MUST include AT LEAST ONE link from the Internal Targets list AND AT LEAST ONE from the External Targets list within the body content.
   
-  STRUCTURE & LENGTH REQUIREMENTS (MINIMUM 800 WORDS TOTAL):
-  1. Introduction (150+ words): Start with a profound global perspective. Establish the gravity of the subject.
-  2. Background & Genesis (150+ words): Historical context and the evolution of the current state.
-  3. Strategic Deep Dive (250+ words): Intense analysis of core dynamics, data points, and key stakeholders.
-  4. Global & Sociopolitical Implications (100+ words): How this reshapes industries or global relations.
-  5. Challenges & Neural Outlook (100+ words): Critical hurdles and a visionary future forecast.
-  6. Synthesis/Conclusion (100+ words): Final authoritative verdict.
+  STRUCTURE & LENGTH REQUIREMENTS (MINIMUM 600 WORDS TOTAL):
+  1. Introduction (100+ words): Start with a profound global perspective. Establish the gravity of the subject.
+  2. Background & Genesis (100+ words): Historical context and the evolution of the current state.
+  3. Strategic Deep Dive (200+ words): Intense analysis of core dynamics, data points, and key stakeholders.
+  4. Global & Sociopolitical Implications (70+ words): How this reshapes industries or global relations.
+  5. Challenges & Neural Outlook (70+ words): Critical hurdles and a visionary future forecast.
+  6. Synthesis/Conclusion (60+ words): Final authoritative verdict.
 
   WRITING STYLE:
   - Professional, sophisticated, and slightly futuristic/noir.
