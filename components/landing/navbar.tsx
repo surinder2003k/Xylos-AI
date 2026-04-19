@@ -29,7 +29,14 @@ export function Navbar({ user }: NavbarProps) {
       <div className="max-w-4xl mx-auto flex items-center justify-between bg-card/40 backdrop-blur-3xl border border-border/50 rounded-2xl px-4 py-2 md:px-6 md:py-3 shadow-2xl shadow-black/5">
         
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group/logo cursor-pointer">
+        <Link 
+          href="/" 
+          className="flex items-center gap-3 group/logo cursor-pointer"
+          onMouseEnter={() => {
+            const audio = new Audio("/sounds/fahhhhhhhhhhhhhh.mp3");
+            audio.play().catch(e => console.log("Audio play blocked:", e));
+          }}
+        >
           <AnimatedLogo />
         </Link>
         
