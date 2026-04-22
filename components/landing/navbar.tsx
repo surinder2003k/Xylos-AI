@@ -33,7 +33,7 @@ export function Navbar({ user }: NavbarProps) {
           href="/" 
           className="flex items-center gap-3 group/logo cursor-pointer"
           onMouseEnter={() => {
-            const audio = new Audio("/sounds/fahhhhhhhhhhhhhh.mp3");
+            const audio = new Audio("/sounds/anime-ahh.mp3");
             audio.play().catch(e => console.log("Audio play blocked:", e));
           }}
         >
