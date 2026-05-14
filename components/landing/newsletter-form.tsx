@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 
 export function NewsletterForm() {
   const [email, setEmail] = useState("");
@@ -62,6 +63,7 @@ export function NewsletterForm() {
             <input 
               type="email" 
               required
+              aria-label="Email address for newsletter"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               disabled={status === 'loading' || status === 'success'}
@@ -104,13 +106,13 @@ export function NewsletterForm() {
          
          {/* Front image */}
          <div className="relative w-[90%] lg:w-full max-w-[400px] aspect-video rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500 border border-border group">
-           <img 
+           <Image 
              src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" 
-             alt="Xylos AI Newsletter"
+             alt="Xylos AI Newsletter — High-tech nature visualization"
              title="Xylos AI Newsletter"
-             loading="lazy"
-             decoding="async"
+             fill
              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+             sizes="(max-width: 768px) 100vw, 400px"
            />
            <div className="absolute inset-0 bg-primary/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity" />
          </div>

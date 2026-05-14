@@ -20,6 +20,7 @@ import {
   EyeOff
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { createClient } from "@/utils/supabase/client";
 import { useToast } from "@/components/ui/toast";
 import { ConfirmationModal } from "@/components/ui/modal";
@@ -195,6 +196,7 @@ export default function AllStoriesPage() {
           <input 
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            aria-label="Search stories by title or category"
             placeholder="Search stories by title or category..." 
             className="w-full bg-muted/30 border border-border rounded-2xl py-4 pl-14 pr-6 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all font-medium placeholder:text-muted-foreground/30 shadow-inner"
           />
@@ -257,7 +259,12 @@ export default function AllStoriesPage() {
                       <div className="flex items-center gap-8">
                         <div className="relative w-28 aspect-video rounded-xl bg-muted overflow-hidden border border-border shadow-inner flex-shrink-0 group-hover:scale-105 transition-all duration-700">
                           {post.feature_image_url ? (
-                            <img src={post.feature_image_url} alt={post.title} title={post.title} className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" />
+                            <Image 
+                              src={post.feature_image_url} 
+                              alt={post.title} 
+                              fill
+                              className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" 
+                            />
                           ) : (
                              <div className="w-full h-full flex items-center justify-center">
                                <div className="bg-gradient-to-br from-primary/10 to-primary/30 w-full h-full opacity-20" />
