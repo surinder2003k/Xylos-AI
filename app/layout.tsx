@@ -18,25 +18,28 @@ import { GlobalNavbar } from "@/components/global-navbar";
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://xylosai.vercel.app'),
   title: {
-    default: "Xylos AI — Free AI Chat & Blog Platform | Llama, Gemini, Mistral",
+    default: "Xylos AI — Free AI Chat & Blog | Llama 3, Gemini, Mistral",
     template: "%s | Xylos AI",
   },
-  description: "Access Llama 3, Gemini & Mistral in one free AI platform. Built for professionals — AI chat, content creation, and editorial intelligence. Zero cost.",
+  description: "Access Llama 3, Gemini & Mistral in one free AI platform. Professional AI chat, content creation, and editorial intelligence at zero cost.",
   applicationName: "Xylos AI",
   referrer: "origin-when-cross-origin",
   authors: [{ name: "Xylos AI Research", url: "https://xylosai.vercel.app" }],
   creator: "21dev.in",
   publisher: "Xylos AI Research",
   icons: {
-    icon: "/icon.svg",
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
     shortcut: "/icon.svg",
     apple: "/icon.svg",
   },
   keywords: [
     "Xylos AI", "Free AI Chat", "Llama 3 Online Free", "Gemini Pro Free",
     "Mistral AI", "AI Blog Generator", "ChatGPT Alternative Free",
-    "AI Content Strategy", "Free AI Platform", "Xylos", "AI Writing Tool",
-    "AI Research Tool", "Free Llama 3", "Free Gemini", "AI for professionals"
+    "AI Content Strategy", "Free AI Platform", "AI Writing Tool",
+    "AI Research Tool", "Free Llama 3", "Free Gemini"
   ],
   robots: {
     index: true,

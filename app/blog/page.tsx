@@ -132,9 +132,9 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
             <XylosLogo className="w-12 h-12 mx-auto opacity-20" />
             <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.6em]">Xylos Editorial Core // Human-Guided AI</p>
             <div className="flex justify-center gap-10 opacity-30 text-[9px] font-bold uppercase tracking-widest">
-               <a href="#" className="hover:text-primary transition-colors">Integrity Policy</a>
-               <a href="#" className="hover:text-primary transition-colors">Neural Standards</a>
-               <a href="#" className="hover:text-primary transition-colors">Privacy</a>
+               <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+               <Link href="/about" className="hover:text-primary transition-colors">About Xylos</Link>
+               <Link href="/blog" className="hover:text-primary transition-colors">Archive</Link>
             </div>
          </div>
       </footer>

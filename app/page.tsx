@@ -92,8 +92,8 @@ export default async function LandingPage() {
           <div className="space-y-4 max-w-5xl mx-auto">
             <h1 className="block">
               <RevealText 
-                text="REFINE YOUR NARRATIVE." 
-                fontSize="text-[2.2rem] sm:text-[3rem] md:text-[5.5rem] lg:text-[7rem]"
+                text="XYLOS AI: REFINE YOUR NARRATIVE." 
+                fontSize="text-[1.8rem] sm:text-[2.5rem] md:text-[5rem] lg:text-[6.5rem]"
                 textColor="text-foreground"
                 overlayColor="text-primary"
                 letterDelay={0.05}
@@ -113,11 +113,12 @@ export default async function LandingPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-12 max-w-2xl mx-auto w-full">
             <Link 
               href="/chat"
+              aria-label="Launch Xylos AI Neural Link Chat"
               className="relative flex items-center justify-center gap-4 px-16 py-6 rounded-[2rem] bg-foreground text-background font-black text-sm uppercase tracking-[0.2em] shadow-[0_0_40px_rgba(var(--foreground),0.1)] hover:shadow-[0_0_60px_rgba(var(--foreground),0.2)] hover:scale-105 active:scale-95 transition-all group w-full sm:w-auto"
             >
               <div className="absolute inset-0 rounded-[2rem] border-2 border-background/20 animate-pulse" />
               Launch Neural Link
-              <MessageSquare className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+              <MessageSquare aria-hidden="true" className="w-5 h-5 group-hover:rotate-12 transition-transform" />
             </Link>
             
             <Link 
@@ -156,11 +157,11 @@ export default async function LandingPage() {
            <BentoGrid>
              <BentoCard delay={0.1} className="col-span-1 md:col-span-2 bg-card/40 border border-border backdrop-blur-xl group/card">
                 <div className="absolute top-0 right-0 p-8 opacity-5 group-hover/card:opacity-10 transition-opacity">
-                   <Globe className="w-32 h-32 text-primary" />
+                   <Globe aria-hidden="true" className="w-32 h-32 text-primary" />
                 </div>
-                <MessageSquare className="w-10 h-10 text-primary mb-8" />
+                <MessageSquare aria-hidden="true" className="w-10 h-10 text-primary mb-8" />
                 <h3 className="text-2xl font-black mb-4 uppercase tracking-tight">Unified Intelligence</h3>
-                <p className="text-muted-foreground text-lg font-medium leading-relaxed max-w-md">Access 7+ industry-leading AI models in one interface. Our smart engine automatically routes requests to the optimal provider for your specific needs.</p>
+                <p className="text-muted-foreground text-lg font-medium leading-relaxed max-w-md">Access 7+ industry-leading AI models like Llama 3, Gemini, and Mistral in one interface. Our smart engine routes requests to the optimal provider.</p>
              </BentoCard>
 
              <BentoCard delay={0.2} className="col-span-1 md:col-span-1 bg-card/40 border border-border backdrop-blur-xl">
@@ -177,15 +178,15 @@ export default async function LandingPage() {
 
              <BentoCard delay={0.4} className="col-span-1 md:col-span-4 bg-card/40 border border-border backdrop-blur-xl overflow-hidden group/card">
                 <div className="absolute top-0 right-0 p-12 opacity-5 group-hover/card:opacity-10 transition-opacity">
-                   <Shield className="w-64 h-64 text-primary" />
+                   <Shield aria-hidden="true" className="w-64 h-64 text-primary" />
                 </div>
                 <div className="flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
                   <div className="max-w-2xl space-y-6">
                      <div className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">Security Standards</div>
                      <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-none italic">Hardened <span className="text-muted-foreground">Data Governance</span></h2>
-                     <p className="text-muted-foreground text-lg font-medium leading-relaxed italic">"Privacy is our foundation." Encrypted workflows, local session storage, and zero-data-retention models to protect your professional edge.</p>
+                     <p className="text-muted-foreground text-lg font-medium leading-relaxed italic">"Privacy is our foundation." Encrypted workflows and local session storage protect your professional edge.</p>
                   </div>
-                  <Shield className="w-32 h-32 text-primary/20 shrink-0" />
+                  <Shield aria-hidden="true" className="w-32 h-32 text-primary/20 shrink-0" />
                 </div>
              </BentoCard>
            </BentoGrid>
@@ -231,8 +232,8 @@ export default async function LandingPage() {
               
               <div className="flex gap-8 text-[9px] font-black uppercase tracking-[0.3em] text-muted-foreground mb-8">
                  <Link href="/privacy" className="hover:text-primary transition-colors">Privacy</Link>
-                 <Link href="/about" className="hover:text-primary transition-colors">Ethics</Link>
-                 <Link href="/about" className="hover:text-primary transition-colors">Resources</Link>
+                 <Link href="/about" className="hover:text-primary transition-colors">About</Link>
+                 <Link href="/blog" className="hover:text-primary transition-colors">Archive</Link>
               </div>
 
               <div className="space-y-2">

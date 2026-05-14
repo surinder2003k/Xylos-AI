@@ -41,7 +41,7 @@ export default function AboutPageClient() {
           
           <div className="space-y-4">
             <h1 className="text-5xl md:text-8xl font-black font-fustat tracking-tighter uppercase leading-tight">
-              NEURAL <span className="text-primary italic">SYNTHESIS</span><br />
+              XYLOS AI: NEURAL <span className="text-primary italic">SYNTHESIS</span><br />
               AND HUMAN <span className="underline decoration-secondary decoration-8 underline-offset-8">INTEL</span>
             </h1>
             <p className="text-muted-foreground text-lg md:text-xl font-medium max-w-3xl mx-auto leading-relaxed">
@@ -60,7 +60,7 @@ export default function AboutPageClient() {
           >
             <div className="space-y-4">
               <h2 className="text-3xl font-bold font-outfit uppercase tracking-tight flex items-center gap-4">
-                <Cpu className="w-8 h-8 text-primary" />
+                <Cpu aria-hidden="true" className="w-8 h-8 text-primary" />
                 The Protocol
               </h2>
               <p className="text-muted-foreground leading-loose text-lg">
