@@ -116,6 +116,35 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           })
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://xylosai.vercel.app"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://xylosai.vercel.app/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": post.title,
+                "item": `https://xylosai.vercel.app/blog/${post.slug}`
+              }
+            ]
+          })
+        }}
+      />
 
       <main className="pt-40 pb-24 px-6 relative">
         <article className="max-w-4xl mx-auto">
@@ -123,9 +152,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <div className="flex items-center justify-between mb-12 pb-6 border-b border-border">
             <div className="flex items-center gap-2 md:gap-4 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
               <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-              <ChevronRight className="w-3 h-3 opacity-30" />
+              <ChevronRight aria-hidden="true" className="w-3 h-3 opacity-30" />
               <Link href="/blog" className="hover:text-primary transition-colors">Archive</Link>
-              <ChevronRight className="w-3 h-3 opacity-30" />
+              <ChevronRight aria-hidden="true" className="w-3 h-3 opacity-30" />
               <span className="text-primary">{post.category}</span>
             </div>
             <ShareButtons title={post.title} excerpt={post.excerpt} slug={post.slug} />
@@ -230,9 +259,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
          <div className="max-w-md mx-auto space-y-6">
             <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.5em]">The Xylos AI Protocol // Human Intelligence Amplified</p>
             <div className="flex justify-center gap-8 opacity-40">
-               <span className="text-[9px] font-bold uppercase tracking-widest">Standards</span>
-               <span className="text-[9px] font-bold uppercase tracking-widest">Ethics</span>
-               <span className="text-[9px] font-bold uppercase tracking-widest">Archive</span>
+               <Link href="/about" className="text-[9px] font-bold uppercase tracking-widest hover:text-primary transition-colors">Standards</Link>
+               <Link href="/about" className="text-[9px] font-bold uppercase tracking-widest hover:text-primary transition-colors">Ethics</Link>
+               <Link href="/blog" className="text-[9px] font-bold uppercase tracking-widest hover:text-primary transition-colors">Archive</Link>
             </div>
          </div>
       </footer>

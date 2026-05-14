@@ -71,6 +71,7 @@ export function Navbar({ user }: NavbarProps) {
         <div className="flex md:hidden items-center gap-3">
           <button 
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
             className="p-2 rounded-xl bg-primary/10 text-primary border border-primary/20"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

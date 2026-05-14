@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export function AnimatedLogo({ className = "", showText = true }: { className?: string, showText?: boolean }) {
   return (
-    <Link href="/" className={`flex items-center gap-3 group/logo ${className}`}>
+    <Link href="/" aria-label="Xylos AI Home" className={`flex items-center gap-3 group/logo ${className}`}>
       <div className="relative">
         <div className="relative z-10">
           <XylosLogo size={40} animated={true} />

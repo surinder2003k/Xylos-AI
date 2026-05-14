@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Clock, User, Bookmark } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { TiltCard } from "../premium/tilt-card";
 import { formatIST } from "@/lib/utils/date-format";
 
@@ -48,16 +49,16 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
             viewport={{ once: true }}
           >
             <TiltCard degree={5} className="h-full">
-              <Link href={`/blog/${blog.slug || blog.id}`} className="group block h-full">
+              <Link href={`/blog/${blog.slug || blog.id}`} aria-label={`Read full article: ${blog.title}`} className="group block h-full">
                 <div className="relative bg-card/40 border border-border/50 rounded-[3rem] overflow-hidden backdrop-blur-xl hover:border-primary/50 transition-all duration-700 h-full flex flex-col hover:shadow-2xl hover:shadow-primary/5">
                   {/* Premium Image Header */}
                   <div className="relative aspect-[16/11] overflow-hidden">
-                    <img 
+                    <Image 
                       src={blog.feature_image_url || "https://images.pexels.com/photos/1031201/pexels-photo-1031201.jpeg?auto=compress&cs=tinysrgb&w=800"} 
                       alt={blog.title}
-                      loading="lazy"
-                      decoding="async"
+                      fill
                       className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     <div className="absolute top-6 left-6 z-20">
                       <div className="px-5 py-2 rounded-2xl bg-background/90 backdrop-blur-md border border-border text-[10px] font-black uppercase tracking-[0.2em] text-foreground shadow-xl">
