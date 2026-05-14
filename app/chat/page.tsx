@@ -20,9 +20,11 @@ import {
   FileText,
   Trash2,
   Square,
+  LogOut,
   Menu
 } from "lucide-react";
 import { useSearchParams, useRouter } from "next/navigation";
+import { signOut } from "@/app/auth/actions";
 import { chatService, Message, ChatSession } from "@/lib/supabase/chat-service";
 import { AnimatedLogo } from "@/components/premium/animated-logo";
 import { historyManager } from "@/lib/chat/history";
@@ -283,7 +285,7 @@ function ChatContent() {
 
       {/* Chat History Sidebar */}
       <div className={`
-        absolute md:static top-0 left-0 z-50 h-full w-72 md:w-80 bg-card border-r border-border flex flex-col transition-transform duration-300
+        fixed md:static top-0 left-0 z-50 h-full w-72 md:w-80 bg-sidebar border-r border-border flex flex-col transition-transform duration-300
         ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
       `}>
         <div className="p-6 border-b border-border flex items-center justify-between">
@@ -326,19 +328,37 @@ function ChatContent() {
             </div>
           ))}
         </div>
+        <div className="p-4 mt-auto border-t border-border">
+          <button 
+            onClick={async () => {
+              await signOut();
+              router.push('/login');
+            }}
+            className="flex items-center gap-3 w-full px-4 py-3 rounded-xl hover:bg-red-500/10 text-sm text-muted-foreground hover:text-red-400 transition-all font-medium"
+          >
+            <LogOut className="w-4 h-4" />
+            Sign Out
+          </button>
+        </div>
       </div>
 
       {/* Primary Neural Workspace */}
       <div className="flex-1 flex flex-col relative h-full">
 
-        {/* Top Nav (Mobile mostly) */}
-        <div className="absolute top-4 left-4 z-30 md:hidden">
+        <div className="h-16 md:h-20 border-b border-border/50 flex items-center px-4 md:px-8 bg-background/50 backdrop-blur-md sticky top-0 z-40">
           <button 
             onClick={() => setIsSidebarOpen(true)}
-            className="p-2 bg-card border border-border rounded-xl shadow-lg text-foreground hover:text-primary transition-colors"
+            className="md:hidden p-2.5 rounded-xl bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-all mr-4"
           >
             <Menu className="w-5 h-5" />
           </button>
+          
+          <div className="flex-1 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/40 hidden sm:inline">Active Link:</span>
+               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">{selectedProvider.name}</span>
+            </div>
+          </div>
         </div>
 
 

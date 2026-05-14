@@ -22,14 +22,14 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
   if (!blogs || blogs.length === 0) return null;
 
   return (
-    <div id="stories" className="w-full max-w-7xl mx-auto px-6 py-24 space-y-16">
+    <div id="stories" className="w-full max-w-7xl mx-auto px-6 py-12 md:py-24 space-y-12 md:space-y-16">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-border pb-10">
         <div className="space-y-4">
           <div className="flex items-center gap-3 text-primary font-bold text-[10px] uppercase tracking-[0.4em]">
             <Bookmark className="w-4 h-4 fill-primary/20" />
             Curated Insights
           </div>
-          <h2 className="text-5xl md:text-7xl font-black font-fustat tracking-tighter uppercase leading-none">
+          <h2 className="text-4xl md:text-7xl font-black font-fustat tracking-tighter uppercase leading-none">
             Human <span className="text-muted-foreground italic">&</span> Tech
           </h2>
         </div>
@@ -68,7 +68,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                   </div>
 
                   {/* Editorial Content body */}
-                  <div className="p-10 flex-1 flex flex-col">
+                  <div className="p-6 md:p-10 flex-1 flex flex-col">
                     <div className="flex items-center gap-4 text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] mb-6">
                        <div className="flex items-center gap-2 bg-muted/50 px-3 py-1 rounded-full">
                           <Clock className="w-3 h-3 text-primary" /> 

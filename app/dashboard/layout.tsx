@@ -107,16 +107,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   return (
     <div className="min-h-screen bg-background text-foreground flex transition-colors duration-500 relative">
-      {/* Mobile Sidebar Toggle - Only visible when sidebar is closed on small screens */}
-      {!isSidebarOpen && (
-        <button 
-          onClick={() => setIsSidebarOpen(true)}
-          className="fixed bottom-6 left-6 z-[60] lg:hidden p-4 rounded-2xl bg-primary text-primary-foreground shadow-2xl shadow-primary/40 active:scale-90 transition-all border border-border"
-        >
-          <Menu className="w-6 h-6" />
-        </button>
-      )}
-
       {/* Sidebar Overlay (Mobile) */}
       <AnimatePresence>
         {isSidebarOpen && (
@@ -124,10 +114,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => {
-              if (mounted && window.innerWidth < 1024) setIsSidebarOpen(false);
-            }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+            onClick={() => setIsSidebarOpen(false)}
+            className="fixed inset-0 bg-background/80 backdrop-blur-sm z-[45] lg:hidden"
           />
         )}
       </AnimatePresence>
@@ -139,7 +127,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           width: isSidebarOpen ? 280 : (mounted && screenWidth < 1024 ? 0 : 80),
           x: !isSidebarOpen && (mounted && screenWidth < 1024) ? -280 : 0
         }}
-        className={`fixed lg:relative z-50 border-r border-border bg-sidebar backdrop-blur-2xl flex flex-col transition-all duration-300 flex-shrink-0 h-full ${!isSidebarOpen && 'hidden lg:flex'}`}
+        className={`fixed lg:relative z-50 border-r border-border bg-sidebar backdrop-blur-2xl flex flex-col transition-all duration-300 flex-shrink-0 h-full ${!isSidebarOpen && (mounted && screenWidth < 1024 ? 'hidden' : 'lg:flex')}`}
       >
         <div className="p-6 flex items-center justify-between">
           <AnimatePresence mode="wait">
@@ -174,7 +162,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           </button>
         </div>
 
-        <nav className="flex-1 px-4 space-y-1 mt-4">
+        <nav className="flex-1 px-4 space-y-1 mt-4 overflow-y-auto custom-scrollbar">
           {sidebarItems.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -199,16 +187,30 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           })}
         </nav>
 
-        {/* Admin Badge in Sidebar */}
-        {isSidebarOpen && isAdmin && (
-          <div className="mx-4 mb-4 p-3 rounded-xl bg-primary/5 border border-primary/10 flex items-center gap-3 shadow-inner">
-            <ShieldCheck className="w-4 h-4 text-primary flex-shrink-0" />
-            <div className="min-w-0">
-              <p className="text-[10px] font-black text-primary uppercase tracking-widest">Super Admin</p>
-              <p className="text-[9px] text-muted-foreground truncate">{userEmail}</p>
+        {/* Bottom Actions for Sidebar */}
+        <div className="p-4 space-y-2">
+          {isSidebarOpen && isAdmin && (
+            <div className="p-3 rounded-xl bg-primary/5 border border-primary/10 flex items-center gap-3 shadow-inner">
+              <ShieldCheck className="w-4 h-4 text-primary flex-shrink-0" />
+              <div className="min-w-0">
+                <p className="text-[10px] font-black text-primary uppercase tracking-widest">Super Admin</p>
+                <p className="text-[9px] text-muted-foreground truncate">{userEmail}</p>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+          
+          <button 
+            onClick={async () => {
+              await signOut();
+              showToast("Security session terminated. Safe travels.", "success");
+            }}
+            className={`flex items-center gap-3 px-3 py-3 rounded-xl w-full text-muted-foreground hover:text-red-400 hover:bg-red-500/10 transition-all border border-transparent group ${!isSidebarOpen && 'justify-center'}`}
+            title="Sign Out"
+          >
+            <LogOut className="w-5 h-5 flex-shrink-0 group-hover:scale-110 transition-transform" />
+            {isSidebarOpen && <span className="font-medium text-sm">Sign Out</span>}
+          </button>
+        </div>
 
         {/* Toggle Button */}
         <button 
@@ -223,7 +225,16 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <div className="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
         {/* Header */}
         <header className="h-20 border-b border-border flex items-center justify-between px-4 md:px-8 bg-background/50 backdrop-blur-md flex-shrink-0 sticky top-0 z-40">
-          <div className="hidden sm:flex items-center gap-3 bg-muted border border-border px-4 py-2.5 rounded-xl w-32 md:w-96 shadow-inner group focus-within:border-primary/50 transition-all">
+          <div className="flex items-center gap-4">
+            {!isSidebarOpen && (
+              <button 
+                onClick={() => setIsSidebarOpen(true)}
+                className="lg:hidden p-2.5 rounded-xl bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-all"
+              >
+                <Menu className="w-5 h-5" />
+              </button>
+            )}
+            <div className="hidden sm:flex items-center gap-3 bg-muted border border-border px-4 py-2.5 rounded-xl w-32 md:w-96 shadow-inner group focus-within:border-primary/50 transition-all">
             <Search className="w-4 h-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
             <input 
               type="text" 
@@ -252,11 +263,12 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               
               <AnimatePresence>
                 {isProfileOpen && (
+
                   <motion.div 
                     initial={{ opacity: 0, y: 10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    className="absolute right-0 top-full mt-3 w-52 bg-card border border-border rounded-2xl shadow-2xl z-[100] overflow-hidden"
+                    className="absolute right-0 top-full mt-3 w-48 sm:w-56 bg-card border border-border rounded-2xl shadow-2xl z-[100] overflow-hidden"
                   >
                     <div className="p-3">
                       <div className="px-3 py-3 mb-2 bg-muted rounded-xl border border-border">

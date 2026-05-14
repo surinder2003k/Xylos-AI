@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogOut, Settings } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { AnimatedLogo } from "@/components/premium/animated-logo";
+import { signOut } from "@/app/auth/actions";
 
 interface NavbarProps {
   user: any;
@@ -14,6 +15,7 @@ interface NavbarProps {
 export function Navbar({ user }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   const navLinks = [
     { href: "/chat", label: "Neural Chat" },
@@ -107,7 +109,7 @@ export function Navbar({ user }: NavbarProps) {
                 ))}
               </div>
               
-              <div className="pt-6 border-t border-border">
+              <div className="pt-6 border-t border-border space-y-4">
                 <Link 
                   href={user ? "/dashboard" : "/login"}
                   onClick={() => setIsOpen(false)}
@@ -115,11 +117,26 @@ export function Navbar({ user }: NavbarProps) {
                 >
                   {user ? "Enter Systems" : "Get Started"}
                 </Link>
+
+                {user && (
+                  <button 
+                    onClick={async () => {
+                      setIsOpen(false);
+                      await signOut();
+                      router.push('/');
+                    }}
+                    className="flex items-center justify-center gap-3 w-full px-6 py-4 rounded-2xl border border-border bg-muted/40 text-muted-foreground hover:text-red-400 hover:bg-red-500/10 transition-all text-xs font-black uppercase tracking-widest"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    Sign Out
+                  </button>
+                )}
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </nav>
+
   );
 }

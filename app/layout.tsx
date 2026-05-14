@@ -86,6 +86,7 @@ export const metadata: Metadata = {
 };
 
 import Script from "next/script";
+import { ScrollToTop } from "@/components/premium/scroll-to-top";
 
 export default async function RootLayout({
   children,
@@ -135,6 +136,7 @@ export default async function RootLayout({
             <AuthListener />
             <TopProgressBar />
             <SplashLoader />
+            <ScrollToTop />
             <GlobalNavbar user={user} />
             <main className="relative min-h-screen">
                 <script
