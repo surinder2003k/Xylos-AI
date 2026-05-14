@@ -41,7 +41,7 @@ export function NewsletterCard() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email..." 
-            className="px-6 py-4 rounded-xl bg-background border border-border focus:outline-none focus:ring-2 focus:ring-primary/50 font-medium text-sm min-w-[300px]"
+            className="px-6 py-4 rounded-xl bg-background border border-border focus:outline-none focus:ring-2 focus:ring-primary/50 font-medium text-sm w-full sm:min-w-[300px]"
             required
           />
           <button 

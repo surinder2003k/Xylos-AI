@@ -72,8 +72,8 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
 
-      <main className="pt-40 pb-24 px-6 relative">
-        <div className="max-w-7xl mx-auto space-y-20">
+      <main className="pt-32 md:pt-40 pb-24 px-6 relative">
+        <div className="max-w-7xl mx-auto space-y-12 md:space-y-20">
           {/* Refined Editorial Hero */}
           <div className="text-center space-y-6 max-w-4xl mx-auto">
              <div className="flex justify-center">
@@ -81,7 +81,7 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
                    <BookOpen className="w-3 h-3" /> The Perspective
                 </div>
              </div>
-             <h1 className="text-6xl md:text-8xl font-black font-fustat tracking-[ -0.05em] uppercase leading-[0.85] italic">Editorial <br /><span className="text-muted-foreground underline decoration-primary/30 underline-offset-8">Archives</span></h1>
+             <h1 className="text-5xl md:text-8xl font-black font-fustat tracking-[-0.05em] uppercase leading-[0.85] italic">Editorial <br /><span className="text-muted-foreground underline decoration-primary/30 underline-offset-8">Archives</span></h1>
              <p className="text-muted-foreground text-xl font-medium pt-4 max-w-2xl mx-auto leading-relaxed">
                Deep dives into the intersection of artificial intelligence, high-stakes reporting, and the human narrative.
              </p>

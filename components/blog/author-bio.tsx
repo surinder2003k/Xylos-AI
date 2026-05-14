@@ -17,7 +17,7 @@ export function AuthorBio({
   avatarUrl 
 }: AuthorBioProps) {
   return (
-    <div className="mt-24 p-10 rounded-[2.5rem] bg-card border border-border shadow-sm backdrop-blur-xl relative overflow-hidden group">
+    <div className="mt-24 p-6 md:p-10 rounded-[2.5rem] bg-card border border-border shadow-sm backdrop-blur-xl relative overflow-hidden group">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50" />
       
       <div className="relative z-10 flex flex-col md:flex-row items-center gap-10">

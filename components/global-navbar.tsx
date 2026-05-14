@@ -9,7 +9,8 @@ export function GlobalNavbar({ user }: { user: any }) {
   // Only exclude true app interfaces — dashboard, chat, login
   if (
     pathname?.startsWith("/dashboard") ||
-    pathname?.startsWith("/login")
+    pathname?.startsWith("/login") ||
+    pathname?.startsWith("/chat")
   ) {
     return null;
   }
