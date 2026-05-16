@@ -22,9 +22,9 @@ const fustat = Fustat({
   preload: true,
 });
 
-const GlobalNavbar = dynamic(() => import("@/components/global-navbar").then(m => m.GlobalNavbar), { ssr: true });
-const SplashLoader = dynamic(() => import("@/components/premium/splash-loader").then(m => m.SplashLoader), { ssr: false });
-const ScrollToTop = dynamic(() => import("@/components/premium/scroll-to-top").then(m => m.ScrollToTop), { ssr: false });
+const GlobalNavbar = dynamic(() => import("@/components/global-navbar").then(m => m.GlobalNavbar));
+const SplashLoader = dynamic(() => import("@/components/premium/splash-loader").then(m => m.SplashLoader));
+const ScrollToTop = dynamic(() => import("@/components/premium/scroll-to-top").then(m => m.ScrollToTop));
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://xylosai.vercel.app'),
