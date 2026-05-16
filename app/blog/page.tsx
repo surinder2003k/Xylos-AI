@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   },
 };
 
+// ISR: Revalidate every 10 minutes so new posts appear without full redeploy
+export const revalidate = 600;
+
 export default async function BlogArchivePage(props: { searchParams: Promise<{ [key: string]: string | undefined }> }) {
   const searchParams = await props.searchParams;
   const page = parseInt(searchParams.page || "1");

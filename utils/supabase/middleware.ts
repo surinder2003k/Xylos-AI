@@ -14,6 +14,17 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.next({ request });
   }
 
+  // Fast-path: Public routes don't need auth, skip Supabase call to allow ISR caching.
+  // The Supabase middleware must NOT run on these paths, otherwise it adds latency
+  // and bypasses Vercel's CDN edge cache for ISR pages.
+  const publicPaths = ['/', '/blog', '/about', '/privacy'];
+  const isPublicPath = publicPaths.some(p =>
+    request.nextUrl.pathname === p || request.nextUrl.pathname.startsWith('/blog/')
+  );
+  if (isPublicPath) {
+    return NextResponse.next({ request });
+  }
+
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
