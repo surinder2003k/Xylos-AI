@@ -113,6 +113,7 @@ html {
 
 .animate-loading-bar {
   animation: loading-bar 2s ease-in-out infinite;
+  will-change: transform;
 }
 
 @keyframes bounce-slow {
@@ -122,6 +123,7 @@ html {
 
 .animate-bounce-slow {
   animation: bounce-slow 3s infinite;
+  will-change: transform;
 }
 
 @keyframes float {
@@ -131,6 +133,7 @@ html {
 
 .animate-float {
   animation: float 5s ease-in-out infinite;
+  will-change: transform;
 }
 
 

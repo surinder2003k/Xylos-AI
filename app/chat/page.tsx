@@ -278,14 +278,14 @@ function ChatContent() {
       {/* Mobile Sidebar Overlay */}
       {isSidebarOpen && (
         <div 
-          className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40 md:hidden"
+          className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 md:hidden"
           onClick={() => setIsSidebarOpen(false)}
         />
       )}
 
       {/* Chat History Sidebar */}
       <div className={`
-        fixed md:static top-0 left-0 z-50 h-full w-72 md:w-80 bg-sidebar border-r border-border flex flex-col transition-transform duration-300
+        fixed md:static top-0 left-0 z-[60] h-full w-72 md:w-80 bg-sidebar border-r border-border flex flex-col transition-transform duration-300
         ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
       `}>
         <div className="p-6 border-b border-border flex items-center justify-between">
@@ -366,7 +366,7 @@ function ChatContent() {
         <div
           ref={messagesContainerRef}
           onScroll={checkIfNearBottom}
-          className="flex-1 w-full overflow-y-auto custom-scrollbar pt-6 pb-48"
+          className="flex-1 w-full overflow-y-auto custom-scrollbar pt-6 pb-40 md:pb-48"
         >
           <div className="max-w-3xl mx-auto px-4 md:px-6 space-y-8">
             <AnimatePresence mode="popLayout">
@@ -388,9 +388,9 @@ function ChatContent() {
                     />
                   </div>
                   <div className="space-y-4">
-                    <h1 className="text-6xl md:text-8xl font-black font-fustat tracking-tighter uppercase leading-none italic opacity-10 select-none">Neural Link</h1>
-                    <h3 className="text-4xl font-fustat font-black tracking-tighter uppercase mt-[-40px]">Initiate <span className="text-primary italic">Xylos</span> AI</h3>
-                    <p className="text-muted-foreground max-w-sm mx-auto text-lg leading-relaxed font-medium">
+                    <h1 className="text-5xl md:text-8xl font-black font-fustat tracking-tighter uppercase leading-none italic opacity-10 select-none">Neural Link</h1>
+                    <h3 className="text-3xl md:text-4xl font-fustat font-black tracking-tighter uppercase mt-[-30px] md:mt-[-40px]">Initiate <span className="text-primary italic">Xylos</span> AI</h3>
+                    <p className="text-muted-foreground max-w-sm mx-auto text-base md:text-lg leading-relaxed font-medium">
                       Senior content strategist and research engineer at your disposal. Select a core model to begin.
                     </p>
                   </div>
@@ -540,9 +540,9 @@ function ChatContent() {
         )}
 
         {/* Neural Input Interface */}
-        <div className="absolute bottom-0 w-full bg-gradient-to-t from-background via-background/95 to-transparent pt-12 pb-8 px-4 md:px-12">
+        <div className="absolute bottom-0 w-full bg-gradient-to-t from-background via-background/95 to-transparent pt-8 pb-4 px-2 md:pt-12 md:pb-8 md:px-12">
           <div className="max-w-3xl mx-auto relative">
-            <div className={`bg-card/80 backdrop-blur-2xl border ${isLoading ? 'border-violet-500/50' : 'border-border/50'} rounded-[2.5rem] shadow-2xl transition-all focus-within:border-violet-500/50 overflow-hidden`}>
+            <div className={`bg-card/80 backdrop-blur-2xl border ${isLoading ? 'border-violet-500/50' : 'border-border/50'} rounded-[2rem] md:rounded-[2.5rem] shadow-2xl transition-all focus-within:border-violet-500/50 overflow-hidden`}>
               {stagedFile && (
                 <div className="mx-6 mt-4 flex items-center gap-3 bg-muted border border-border pl-3 pr-2 py-2 rounded-2xl animate-in fade-in slide-in-from-bottom-2">
                   <div className="w-8 h-8 rounded bg-violet-500/10 flex items-center justify-center text-violet-500">
@@ -559,10 +559,10 @@ function ChatContent() {
                 onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && (e.preventDefault(), handleSend())}
                 placeholder={isLoading ? "Neural Engine Processing..." : "What mission shall we deploy?"}
                 disabled={isLoading}
-                className="w-full bg-transparent border-none focus:ring-0 px-8 py-6 text-base md:text-lg resize-none min-h-[72px] max-h-[300px] outline-none font-medium placeholder:text-muted-foreground/30 disabled:opacity-50"
+                className="w-full bg-transparent border-none focus:ring-0 px-5 md:px-8 py-4 md:py-6 text-sm md:text-lg resize-none min-h-[56px] md:min-h-[72px] max-h-[200px] md:max-h-[300px] outline-none font-medium placeholder:text-muted-foreground/30 disabled:opacity-50"
               />
               
-              <div className="flex items-center justify-between px-6 pb-4 pt-2">
+              <div className="flex items-center justify-between px-4 md:px-6 pb-3 md:pb-4 pt-2">
                 <div className="flex items-center gap-3">
                    <button onClick={() => fileInputRef.current?.click()} className="p-2.5 hover:bg-white/5 rounded-xl transition-all text-muted-foreground hover:text-primary">
                       <Paperclip className="w-5 h-5" />
