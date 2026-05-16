@@ -255,11 +255,11 @@ export default async function LandingPage() {
               <div className="space-y-4">
                 <h4 className="text-[10px] font-black text-foreground uppercase tracking-[0.3em]">Connect</h4>
                 <div className="flex flex-col gap-3 text-xs text-muted-foreground font-medium">
-                  <a href="https://twitter.com/xylos_ai" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Twitter (X)</a>
-                  <a href="https://www.linkedin.com/company/xylosai" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
-                  <a href="https://www.youtube.com/@xylosai" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">YouTube</a>
-                  <a href="https://www.facebook.com/xylosai" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Facebook</a>
-                  <a href="https://www.instagram.com/xylosai" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Instagram</a>
+                  <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Twitter (X)</a>
+                  <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
+                  <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">YouTube</a>
+                  <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Facebook</a>
+                  <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Instagram</a>
                 </div>
               </div>
             </div>
