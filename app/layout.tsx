@@ -6,9 +6,10 @@ import { PrimaryColorProvider } from "@/components/primary-color-provider";
 import dynamic from "next/dynamic";
 const TopProgressBar = dynamic(() => import("@/components/premium/progress-bar").then(m => m.TopProgressBar));
 const ScrollToTop = dynamic(() => import("@/components/premium/scroll-to-top").then(m => m.ScrollToTop));
-import { ToastProvider } from "@/components/ui/toast";
-import { SplashLoader } from "@/components/premium/splash-loader";
-import { AuthListener } from "@/components/auth-listener";
+const AuthListener = dynamic(() => import("@/components/auth-listener").then(m => m.AuthListener));
+const GlobalEffects = dynamic(() => import("@/components/ui/global-effects").then(m => m.GlobalEffects));
+const SplashLoader = dynamic(() => import("@/components/premium/splash-loader").then(m => m.SplashLoader));
+const ToastProvider = dynamic(() => import("@/components/ui/toast").then(m => m.ToastProvider));
 
 const inter = Inter({ 
   subsets: ["latin"], 
@@ -24,8 +25,8 @@ const fustat = Fustat({
   preload: true,
 });
 
-import { GlobalEffects } from "@/components/ui/global-effects";
-import { GlobalNavbar } from "@/components/global-navbar";
+
+const GlobalNavbar = dynamic(() => import("@/components/global-navbar").then(m => m.GlobalNavbar));
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://xylosai.vercel.app'),
