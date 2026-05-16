@@ -1,7 +1,6 @@
-// Build Invalidation Trigger: V1.0.5 - Stability & Hydration Fixes Phase 2
+// Build Invalidation Trigger: V1.1.0 - ISR Static Optimization
 import { createClient as createPublicClient } from "@supabase/supabase-js";
-import { createClient } from "@/utils/supabase/server";
-import { ArrowRight, MessageSquare, Code2, FileText, Shield, Sparkles, Zap, Globe } from "lucide-react";
+import { ArrowRight, Code2, FileText, Shield, Sparkles, Zap, Globe } from "lucide-react";
 import Link from "next/link";
 import { RevealText } from "@/components/ui/reveal-text";
 import { BentoGrid, BentoCard } from "@/components/premium/bento-grid";
@@ -10,16 +9,16 @@ import { AnimatedHeader, AnimatedItem, FadeIn } from "@/components/landing/anima
 import { TiltCard } from "@/components/premium/tilt-card";
 import { AnimatedLogo } from "@/components/premium/animated-logo";
 import { NewsletterForm } from "@/components/landing/newsletter-form";
+import { HeroCTA } from "@/components/landing/hero-cta";
 
 // ISR: Cache this page at Vercel CDN edge for 30 minutes.
 // Eliminates the 960ms document request latency on repeat visits.
 export const revalidate = 1800;
 
 export default async function LandingPage() {
-  const supabase = await createClient();
+  // No server-side auth check — auth is handled client-side by HeroCTA.
+  // This makes the page a true ISR static page, cached at Vercel CDN edge.
   const publicSupabase = createPublicClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
-  
-  const { data: { user } } = await supabase.auth.getUser();
   // Initial Fetch: Blogs without join to avoid 406 Not Acceptable errors on missing FKs
   const { data: blogsData, error: blogsError } = await publicSupabase
     .from("blogs")
@@ -115,36 +114,7 @@ export default async function LandingPage() {
             "Bridging the gap between raw information and polished intelligence. Xylos AI empowers professionals to synthesize reality."
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-12 max-w-2xl mx-auto w-full">
-            <Link 
-              href="/chat"
-              aria-label="Launch Xylos AI Neural Link Chat"
-              className="relative flex items-center justify-center gap-4 px-10 md:px-16 py-5 md:py-6 rounded-[2rem] bg-foreground text-background font-black text-sm uppercase tracking-[0.2em] shadow-[0_0_40px_rgba(var(--foreground),0.1)] hover:shadow-[0_0_60px_rgba(var(--foreground),0.2)] hover:scale-105 active:scale-95 transition-all group w-full sm:w-auto"
-            >
-              <div className="absolute inset-0 rounded-[2rem] border-2 border-background/20 animate-pulse" />
-              Launch Neural Link
-              <MessageSquare aria-hidden="true" className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-            </Link>
-            
-            <Link 
-              href={user ? "/dashboard" : "/login"}
-              className="px-12 py-6 rounded-[2rem] border border-border bg-card/40 backdrop-blur-md font-black text-xs uppercase tracking-[0.2em] hover:bg-muted/50 transition-all w-full sm:w-auto text-foreground text-center"
-            >
-              {user ? "Admin Dashboard" : "Join the Matrix"}
-            </Link>
-          </div>
-
-          {/* Mobile Pulse Link (Floating Action) */}
-          {user && (
-            <Link 
-              href="/chat"
-              aria-label="Launch Neural Link"
-              className="md:hidden fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-2xl bg-primary text-black flex items-center justify-center shadow-[0_0_30px_rgba(var(--primary),0.3)] animate-bounce-slow"
-            >
-              <MessageSquare className="w-6 h-6" />
-            </Link>
-          )}
-        </div>
+          <HeroCTA />
 
         {/* Blog Feed Section */}
         <div id="stories" className="w-full mt-20">
