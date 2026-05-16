@@ -72,7 +72,7 @@ export default async function LandingPage() {
       {/* Dynamic Background Glows - Hidden on mobile for performance and clarity */}
       <div className="hidden md:block absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-40 dark:opacity-60">
          <div className="absolute -top-[10%] -left-[5%] w-[40%] h-[40%] bg-primary/20 blur-[120px] rounded-full mix-blend-overlay animate-pulse" />
-         <div className="absolute top-[15%] -right-[5%] w-[40%] h-[40%] bg-secondary/15 blur-[120px] rounded-full mix-blend-overlay animate-pulse" style={{ animationDelay: '2s' }} />
+         <div className="absolute top-[15%] -right-[5%] w-[40%] h-[40%] bg-secondary/15 blur-[120px] rounded-full mix-blend-overlay animate-pulse [animation-delay:2s]" />
       </div>
 
 
