@@ -11,26 +11,12 @@ export function SplashLoader() {
   // SSR: hasPlayedThisSession is false -> isVisible = true
   // CSR (Navigation): hasPlayedThisSession is true -> isVisible = false
   const [isVisible, setIsVisible] = useState(!hasPlayedThisSession);
-  const [progress, setProgress] = useState(0);
-
   useEffect(() => {
-    // Only play once per JS context lifecycle (resets on F5, survives internal links)
-    if (hasPlayedThisSession) {
-      return;
-    }
-    
+    if (hasPlayedThisSession) return;
     hasPlayedThisSession = true;
 
-    const timer = setTimeout(() => setIsVisible(false), 400);
-    
-    const interval = setInterval(() => {
-      setProgress(prev => (prev < 100 ? prev + (100 / 8) : 100));
-    }, 100);
-
-    return () => {
-      clearTimeout(timer);
-      clearInterval(interval);
-    };
+    const timer = setTimeout(() => setIsVisible(false), 500);
+    return () => clearTimeout(timer);
   }, []);
 
   return (

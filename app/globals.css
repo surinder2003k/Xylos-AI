@@ -20,7 +20,7 @@ html {
     --secondary: 217 91% 60%;       /* Azure Blue — used for accents only */
     --secondary-foreground: 0 0% 100%;
     --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted-foreground: 240 3.8% 30%; /* Darkened for accessibility */
     --accent: 0 0% 12%;             /* Dark Gray accent */
     --accent-foreground: 0 0% 98%;
     --destructive: 0 84.2% 60.2%;

@@ -103,9 +103,9 @@ export default async function LandingPage() {
                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
              </span>
-             <span className="text-[9px] font-black tracking-[0.4em] uppercase text-muted-foreground">
-                Xylos Platform <span className="text-primary">v3.5</span> Certified
-             </span>
+              <span className="text-[9px] font-black tracking-[0.4em] uppercase text-foreground">
+                 Xylos Platform <span className="text-primary font-bold">v3.5</span> Certified
+              </span>
           </div>
 
           <div className="space-y-4 max-w-5xl mx-auto">
@@ -126,7 +126,7 @@ export default async function LandingPage() {
             </div>
           </div>
 
-          <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto font-medium leading-relaxed mt-4 italic px-4 md:px-0">
+          <p className="text-base md:text-xl text-foreground/80 max-w-2xl mx-auto font-medium leading-relaxed mt-4 italic px-4 md:px-0">
             "Bridging the gap between raw information and polished intelligence. Xylos AI empowers professionals to synthesize reality."
           </p>
 

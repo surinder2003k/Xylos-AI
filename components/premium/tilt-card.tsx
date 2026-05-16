@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { m, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 interface TiltCardProps {
   children: React.ReactNode;
@@ -48,27 +48,23 @@ export const TiltCard: React.FC<TiltCardProps> = ({
     y.set(0);
   };
 
-  // On mobile: just a plain div, no framer overhead
-  if (isMobile) {
-    return (
-      <div className={`relative rounded-[2rem] overflow-hidden ${className}`}>
-        {children}
-      </div>
-    );
-  }
-
+  // Use m.div but disable logic if mobile
   return (
-    <motion.div
+    <m.div
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
-      style={{ rotateX, rotateY, transformPerspective: 1200 }}
+      style={{ 
+        rotateX: isMobile ? 0 : rotateX, 
+        rotateY: isMobile ? 0 : rotateY, 
+        transformPerspective: 1200 
+      }}
       className={`relative rounded-[2rem] transition-colors duration-500 overflow-hidden ${className} will-change-transform`}
     >
       <div className="relative z-10 h-full">
         {children}
       </div>
-    </motion.div>
+    </m.div>
   );
 };

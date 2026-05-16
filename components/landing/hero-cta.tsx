@@ -50,7 +50,7 @@ export function HeroCTA() {
         <Link
           href="/chat"
           aria-label="Launch Neural Link"
-          className="md:hidden fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-2xl bg-primary text-black flex items-center justify-center shadow-[0_0_30px_rgba(var(--primary),0.3)] animate-bounce-slow"
+          className="md:hidden fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center shadow-[0_0_30px_rgba(var(--primary),0.3)] animate-bounce-slow"
         >
           <MessageSquare className="w-6 h-6" />
         </Link>

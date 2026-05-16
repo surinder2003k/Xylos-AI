@@ -146,15 +146,6 @@ export default async function RootLayout({
         </Script>
 
         <GlobalEffects />
-        <noscript>
-          <iframe 
-            src="https://www.googletagmanager.com/ns.html?id=GTM-N3CBBBLM"
-            height="0" 
-            width="0" 
-            className="hidden"
-          />
-        </noscript>
-
         <LazyMotion features={domAnimation} strict>
           <PrimaryColorProvider>
             <ToastProvider>
@@ -169,6 +160,15 @@ export default async function RootLayout({
             </ToastProvider>
           </PrimaryColorProvider>
         </LazyMotion>
+
+        <noscript>
+          <iframe 
+            src="https://www.googletagmanager.com/ns.html?id=GTM-N3CBBBLM"
+            height="0" 
+            width="0" 
+            className="hidden"
+          />
+        </noscript>
       </body>
     </html>
   );

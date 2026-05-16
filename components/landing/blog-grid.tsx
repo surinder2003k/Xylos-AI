@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowUpRight, Clock, User, Bookmark } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -41,7 +41,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         {blogs.map((blog, idx) => (
-          <motion.div
+          <m.div
             key={blog.id}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -80,7 +80,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                       {blog.title}
                     </h3>
 
-                    <p className="text-base text-muted-foreground font-medium leading-relaxed line-clamp-3 mb-10 opacity-70 group-hover:opacity-100 transition-opacity">
+                    <p className="text-base text-muted-foreground font-medium leading-relaxed line-clamp-3 mb-10 group-hover:text-foreground transition-colors">
                       {blog.excerpt}
                     </p>
 
@@ -94,7 +94,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                             <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Verified Author</span>
                          </div>
                       </div>
-                      <div className="w-14 h-14 rounded-full bg-muted border border-border flex items-center justify-center group-hover:bg-primary group-hover:text-black group-hover:border-primary transition-all duration-500 group-hover:scale-110">
+                      <div className="w-14 h-14 rounded-full bg-muted border border-border flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all duration-500 group-hover:scale-110">
                          <ArrowUpRight className="w-6 h-6 transition-transform duration-500 group-hover:rotate-45" />
                       </div>
                     </div>
@@ -102,7 +102,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                 </div>
               </Link>
             </TiltCard>
-          </motion.div>
+          </m.div>
         ))}
       </div>
     </div>
