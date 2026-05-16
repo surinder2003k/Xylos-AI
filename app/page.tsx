@@ -92,12 +92,13 @@ export default async function LandingPage() {
           <div className="space-y-4 max-w-5xl mx-auto">
             <h1 className="block">
               <RevealText 
-                text="XYLOS AI: REFINE YOUR NARRATIVE." 
-                fontSize="text-[1.8rem] sm:text-[2.5rem] md:text-[5rem] lg:text-[6.5rem]"
+                text="XYLOS AI: FREE AI CHAT. REFINE YOUR NARRATIVE." 
+                fontSize="text-[1.5rem] sm:text-[2.2rem] md:text-[4.5rem] lg:text-[5.5rem]"
                 textColor="text-foreground"
                 overlayColor="text-primary"
-                letterDelay={0.05}
+                letterDelay={0.04}
               />
+              <span className="sr-only">Access Llama 3, Gemini, and Mistral in one free platform.</span>
             </h1>
             <div className="flex items-center justify-center gap-4 mt-8">
               <div className="h-px w-8 md:w-16 bg-primary/30" />
@@ -190,7 +191,15 @@ export default async function LandingPage() {
                 </div>
              </BentoCard>
            </BentoGrid>
-        </div>
+         </div>
+
+         {/* About Xylos Text Content for SEO */}
+         <div className="w-full max-w-4xl mx-auto mt-32 px-6 text-center space-y-6 bg-card/20 p-8 md:p-12 rounded-[3rem] border border-border/30 backdrop-blur-sm">
+           <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight">The Ultimate Free AI Chat & Content Platform</h2>
+           <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+             Xylos AI is designed to bridge the gap between raw data and polished intelligence. As a premier <strong className="text-foreground">free AI chat</strong> platform, we provide unparalleled access to industry-leading models including <strong className="text-foreground">Llama 3, Gemini, and Mistral</strong> without the burden of subscription fees. Our intelligent routing system automatically selects the optimal neural network for your specific queries, whether you are drafting professional blogs, writing complex code, or conducting deep academic research. By aggregating these powerful tools into a single, unified workspace, Xylos AI empowers creators, developers, and professionals to refine their narratives and amplify their productivity at zero cost. Experience the future of generative AI today.
+           </p>
+         </div>
 
         {/* FAQ Section */}
         <div className="w-full max-w-4xl mx-auto mt-40 mb-10 px-6">
@@ -223,24 +232,49 @@ export default async function LandingPage() {
         <NewsletterForm />
       </main>
       
-      {/* Footer */}
-      <footer className="border-t border-border py-16 bg-card/40 backdrop-blur-3xl px-8 text-center relative overflow-hidden">
+      <footer className="border-t border-border pt-16 pb-8 bg-card/40 backdrop-blur-3xl px-8 relative overflow-hidden">
          <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-50" />
-         <div className="relative z-10 max-w-7xl mx-auto">
-            <div className="flex flex-col items-center gap-6">
-              <AnimatedLogo className="scale-110" />
-              
-              <div className="flex gap-8 text-[9px] font-black uppercase tracking-[0.3em] text-muted-foreground mb-8">
-                 <Link href="/privacy" className="hover:text-primary transition-colors">Privacy</Link>
-                 <Link href="/about" className="hover:text-primary transition-colors">About</Link>
-                 <Link href="/blog" className="hover:text-primary transition-colors">Archive</Link>
+         <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div className="flex flex-col items-center md:items-start gap-6">
+              <AnimatedLogo className="scale-110 origin-center md:origin-left" />
+              <p className="text-xs text-muted-foreground font-medium max-w-xs text-center md:text-left">
+                Empowering professionals with top-tier AI models including Llama 3, Gemini, and Mistral.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-12 text-center md:text-left">
+              <div className="space-y-4">
+                <h4 className="text-[10px] font-black text-foreground uppercase tracking-[0.3em]">Platform</h4>
+                <div className="flex flex-col gap-3 text-xs text-muted-foreground font-medium">
+                  <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+                  <Link href="/about" className="hover:text-primary transition-colors">About Us</Link>
+                  <Link href="/blog" className="hover:text-primary transition-colors">Blog Archive</Link>
+                </div>
               </div>
-
-              <div className="space-y-2">
-                <p className="text-[10px] font-black text-muted-foreground/30 uppercase tracking-[0.6em] mb-4">Professional Intelligence Standard</p>
-                <p className="text-[10px] font-bold text-primary/60 uppercase tracking-widest">© 2026 Xylos Foundation // Research by 21dev.in</p>
+              
+              <div className="space-y-4">
+                <h4 className="text-[10px] font-black text-foreground uppercase tracking-[0.3em]">Connect</h4>
+                <div className="flex flex-col gap-3 text-xs text-muted-foreground font-medium">
+                  <a href="https://twitter.com/xylos_ai" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Twitter (X)</a>
+                  <a href="https://www.linkedin.com/company/xylosai" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
+                  <a href="https://www.youtube.com/@xylosai" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">YouTube</a>
+                  <a href="https://www.facebook.com/xylosai" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Facebook</a>
+                  <a href="https://www.instagram.com/xylosai" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Instagram</a>
+                </div>
               </div>
             </div>
+
+            <div className="flex flex-col items-center md:items-end gap-3 text-center md:text-right">
+                <p className="text-[10px] font-black text-muted-foreground/50 uppercase tracking-[0.3em]">Contact</p>
+                <p className="text-xs text-muted-foreground font-medium">100 Innovation Drive</p>
+                <p className="text-xs text-muted-foreground font-medium">San Francisco, CA 94105, USA</p>
+                <p className="text-xs text-muted-foreground font-medium">+1-800-555-0199</p>
+                <p className="text-xs text-muted-foreground font-medium">support@xylosai.com</p>
+            </div>
+         </div>
+         
+         <div className="relative z-10 max-w-7xl mx-auto mt-16 pt-8 border-t border-border/50 text-center">
+            <p className="text-[10px] font-bold text-primary/60 uppercase tracking-widest">© 2026 Xylos Foundation // Research by 21dev.in</p>
          </div>
       </footer>
     </div>
