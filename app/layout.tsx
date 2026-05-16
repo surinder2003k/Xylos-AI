@@ -122,14 +122,31 @@ export default async function RootLayout({
           `}
         </Script>
 
+        {/* Facebook Pixel Code */}
+        <Script id="fb-pixel" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', 'YOUR_PIXEL_ID');
+            fbq('track', 'PageView');
+          `}
+        </Script>
+
         <GlobalEffects />
         <noscript>
           <iframe 
             src="https://www.googletagmanager.com/ns.html?id=GTM-N3CBBBLM"
             height="0" 
             width="0" 
-            style={{ display: "none", visibility: "hidden" }}
+            className="hidden"
           />
+          <img height="1" width="1" className="hidden" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1" alt="fb-pixel" />
         </noscript>
         <PrimaryColorProvider>
           <ToastProvider>
@@ -189,12 +206,33 @@ export default async function RootLayout({
                         "contactPoint": {
                           "@type": "ContactPoint",
                           "contactType": "customer support",
-                          "availableLanguage": "English"
+                          "availableLanguage": "English",
+                          "telephone": "+1-800-555-0199"
                         },
                         "sameAs": [
                           "https://twitter.com/xylos_ai",
-                          "https://github.com/21devin"
+                          "https://github.com/21devin",
+                          "https://www.facebook.com/xylosai",
+                          "https://www.instagram.com/xylosai",
+                          "https://www.linkedin.com/company/xylosai",
+                          "https://www.youtube.com/@xylosai"
                         ]
+                      },
+                      {
+                        "@context": "https://schema.org",
+                        "@type": "LocalBusiness",
+                        "name": "Xylos AI",
+                        "image": "https://xylosai.vercel.app/og-image.png",
+                        "url": "https://xylosai.vercel.app",
+                        "telephone": "+1-800-555-0199",
+                        "address": {
+                          "@type": "PostalAddress",
+                          "streetAddress": "100 Innovation Drive",
+                          "addressLocality": "San Francisco",
+                          "addressRegion": "CA",
+                          "postalCode": "94105",
+                          "addressCountry": "US"
+                        }
                       }
                     ])
                   }}
