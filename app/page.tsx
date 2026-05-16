@@ -1,6 +1,6 @@
-// Build Invalidation Trigger: V1.1.0 - ISR Static Optimization
+// Build Invalidation Trigger: V1.1.1 - ISR Static Optimization & Fixes
 import { createClient as createPublicClient } from "@supabase/supabase-js";
-import { ArrowRight, Code2, FileText, Shield, Sparkles, Zap, Globe } from "lucide-react";
+import { ArrowRight, Code2, FileText, Shield, Sparkles, Zap, Globe, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import { RevealText } from "@/components/ui/reveal-text";
 import { BentoGrid, BentoCard } from "@/components/premium/bento-grid";
@@ -18,7 +18,11 @@ export const revalidate = 1800;
 export default async function LandingPage() {
   // No server-side auth check — auth is handled client-side by HeroCTA.
   // This makes the page a true ISR static page, cached at Vercel CDN edge.
-  const publicSupabase = createPublicClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+  const publicSupabase = createPublicClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!, 
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+
   // Initial Fetch: Blogs without join to avoid 406 Not Acceptable errors on missing FKs
   const { data: blogsData, error: blogsError } = await publicSupabase
     .from("blogs")
@@ -78,8 +82,6 @@ export default async function LandingPage() {
          <div className="absolute top-[15%] -right-[5%] w-[40%] h-[40%] bg-secondary/15 blur-[120px] rounded-full mix-blend-overlay animate-pulse [animation-delay:2s]" />
       </div>
 
-
-
       <main className="flex-1 flex flex-col items-center pt-28 md:pt-48 px-4 md:px-6 pb-20 relative z-10 w-full">
         <div className="max-w-6xl w-full text-center space-y-12">
           <div className="hidden md:inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-muted/30 border border-border shadow-sm mb-4">
@@ -115,6 +117,7 @@ export default async function LandingPage() {
           </p>
 
           <HeroCTA />
+        </div>
 
         {/* Blog Feed Section */}
         <div id="stories" className="w-full mt-20">
