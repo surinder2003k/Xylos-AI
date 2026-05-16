@@ -8,8 +8,19 @@ import { ToastProvider } from "@/components/ui/toast";
 import { SplashLoader } from "@/components/premium/splash-loader";
 import { AuthListener } from "@/components/auth-listener";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const fustat = Fustat({ subsets: ["latin"], variable: "--font-fustat" });
+const inter = Inter({ 
+  subsets: ["latin"], 
+  variable: "--font-inter",
+  display: 'swap',
+  preload: true,
+  adjustFontFallback: true,
+});
+const fustat = Fustat({ 
+  subsets: ["latin"], 
+  variable: "--font-fustat",
+  display: 'swap',
+  preload: true,
+});
 
 import { GlobalEffects } from "@/components/ui/global-effects";
 import { createClient } from "@/utils/supabase/server";
@@ -122,21 +133,8 @@ export default async function RootLayout({
           `}
         </Script>
 
-        {/* Facebook Pixel Code */}
-        <Script id="fb-pixel" strategy="afterInteractive">
-          {`
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', 'YOUR_PIXEL_ID');
-            fbq('track', 'PageView');
-          `}
-        </Script>
+        {/* Facebook Pixel - Disabled until Pixel ID is configured */}
+        {/* Uncomment and replace YOUR_PIXEL_ID when ready */}
 
         <GlobalEffects />
         <noscript>
@@ -146,7 +144,6 @@ export default async function RootLayout({
             width="0" 
             className="hidden"
           />
-          <img height="1" width="1" className="hidden" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1" alt="fb-pixel" />
         </noscript>
         <PrimaryColorProvider>
           <ToastProvider>

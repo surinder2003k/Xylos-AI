@@ -43,7 +43,7 @@ export async function signInWithEmail(formData: FormData) {
     return redirect(`/login?error=${encodeURIComponent(msg)}`);
   }
 
-  return redirect('/dashboard')
+  return redirect('/chat')
 }
 
 export async function signUpWithEmail(formData: FormData) {
@@ -79,7 +79,7 @@ export async function signUpWithEmail(formData: FormData) {
     console.error('[Auth] Failed to send welcome email:', err);
   }
 
-  return redirect('/dashboard?message=Check your email to confirm your account')
+  return redirect('/chat?message=Check your email to confirm your account')
 }
 
 export async function signOut() {

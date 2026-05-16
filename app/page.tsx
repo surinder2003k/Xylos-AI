@@ -77,7 +77,7 @@ export default async function LandingPage() {
 
 
 
-      <main className="flex-1 flex flex-col items-center pt-48 px-6 pb-20 relative z-10 w-full">
+      <main className="flex-1 flex flex-col items-center pt-28 md:pt-48 px-4 md:px-6 pb-20 relative z-10 w-full">
         <div className="max-w-6xl w-full text-center space-y-12">
           <div className="hidden md:inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-muted/30 border border-border shadow-sm mb-4">
              <span className="relative flex h-2 w-2">
@@ -107,7 +107,7 @@ export default async function LandingPage() {
             </div>
           </div>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto font-medium leading-relaxed mt-4 italic">
+          <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto font-medium leading-relaxed mt-4 italic px-4 md:px-0">
             "Bridging the gap between raw information and polished intelligence. Xylos AI empowers professionals to synthesize reality."
           </p>
 
@@ -115,7 +115,7 @@ export default async function LandingPage() {
             <Link 
               href="/chat"
               aria-label="Launch Xylos AI Neural Link Chat"
-              className="relative flex items-center justify-center gap-4 px-16 py-6 rounded-[2rem] bg-foreground text-background font-black text-sm uppercase tracking-[0.2em] shadow-[0_0_40px_rgba(var(--foreground),0.1)] hover:shadow-[0_0_60px_rgba(var(--foreground),0.2)] hover:scale-105 active:scale-95 transition-all group w-full sm:w-auto"
+              className="relative flex items-center justify-center gap-4 px-10 md:px-16 py-5 md:py-6 rounded-[2rem] bg-foreground text-background font-black text-sm uppercase tracking-[0.2em] shadow-[0_0_40px_rgba(var(--foreground),0.1)] hover:shadow-[0_0_60px_rgba(var(--foreground),0.2)] hover:scale-105 active:scale-95 transition-all group w-full sm:w-auto"
             >
               <div className="absolute inset-0 rounded-[2rem] border-2 border-background/20 animate-pulse" />
               Launch Neural Link

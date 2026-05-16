@@ -94,9 +94,15 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           if (!profileError && profile?.role === "admin") {
             setIsAdmin(true);
             setUserRole("admin");
+          } else if (!superAdmins.includes(email)) {
+            // Normal users should not access the dashboard, redirect to chat
+            window.location.href = "/chat";
           }
         } catch (e) {
           console.warn("[Editorial Sync] Role validation skipped:", e);
+          if (!superAdmins.includes(email)) {
+            window.location.href = "/chat";
+          }
         }
       }
     }
