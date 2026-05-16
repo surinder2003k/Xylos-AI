@@ -3,7 +3,9 @@ import { Inter, Fustat } from "next/font/google";
 import "./globals.css";
 
 import { PrimaryColorProvider } from "@/components/primary-color-provider";
-import { TopProgressBar } from "@/components/premium/progress-bar";
+import dynamic from "next/dynamic";
+const TopProgressBar = dynamic(() => import("@/components/premium/progress-bar").then(m => m.TopProgressBar), { ssr: false });
+const ScrollToTop = dynamic(() => import("@/components/premium/scroll-to-top").then(m => m.ScrollToTop), { ssr: false });
 import { ToastProvider } from "@/components/ui/toast";
 import { SplashLoader } from "@/components/premium/splash-loader";
 import { AuthListener } from "@/components/auth-listener";
@@ -106,8 +108,8 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${fustat.variable} antialiased selection:bg-primary/30 selection:text-primary-foreground`}>
-        {/* Google Tag Manager - Next.js Script Strategy */}
-        <Script id="gtm-script" strategy="afterInteractive">
+        {/* Google Tag Manager - Optimized for performance */}
+        <Script id="gtm-script" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -118,9 +120,9 @@ export default async function RootLayout({
         {/* Global site tag (gtag.js) - Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-HSZJRM7GKQ"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="ga-config" strategy="afterInteractive">
+        <Script id="ga-config" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
