@@ -3,12 +3,28 @@ import { createClient as createPublicClient } from "@supabase/supabase-js";
 import { ArrowRight, Code2, FileText, Shield, Sparkles, Zap, Globe, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import { RevealText } from "@/components/ui/reveal-text";
-import { BentoGrid, BentoCard } from "@/components/premium/bento-grid";
-import { BlogGrid } from "@/components/landing/blog-grid";
-import { AnimatedHeader, AnimatedItem, FadeIn } from "@/components/landing/animated-sections";
-import { TiltCard } from "@/components/premium/tilt-card";
+import dynamic from "next/dynamic";
+
+const BlogGrid = dynamic(() => import("@/components/landing/blog-grid").then(m => m.BlogGrid), {
+  loading: () => <div className="h-96 w-full animate-pulse bg-muted/20 rounded-3xl" />,
+  ssr: true // Allow SSR for SEO but defer hydration
+});
+
+const BentoGrid = dynamic(() => import("@/components/premium/bento-grid").then(m => m.BentoGrid), {
+  loading: () => <div className="h-[600px] w-full animate-pulse bg-muted/10 rounded-3xl" />
+});
+
+const BentoCard = dynamic(() => import("@/components/premium/bento-grid").then(m => m.BentoCard));
+
+const NewsletterForm = dynamic(() => import("@/components/landing/newsletter-form").then(m => m.NewsletterForm), {
+  ssr: false // This is deep at the bottom, safe to only load on client
+});
+
+const AnimatedHeader = dynamic(() => import("@/components/landing/animated-sections").then(m => m.AnimatedHeader));
+const AnimatedItem = dynamic(() => import("@/components/landing/animated-sections").then(m => m.AnimatedItem));
+const FadeIn = dynamic(() => import("@/components/landing/animated-sections").then(m => m.FadeIn));
+const TiltCard = dynamic(() => import("@/components/premium/tilt-card").then(m => m.TiltCard));
 import { AnimatedLogo } from "@/components/premium/animated-logo";
-import { NewsletterForm } from "@/components/landing/newsletter-form";
 import { HeroCTA } from "@/components/landing/hero-cta";
 
 // ISR: Cache this page at Vercel CDN edge for 30 minutes.
