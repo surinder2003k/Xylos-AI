@@ -4,19 +4,16 @@ import "./globals.css";
 
 import { PrimaryColorProvider } from "@/components/primary-color-provider";
 import dynamic from "next/dynamic";
-const TopProgressBar = dynamic(() => import("@/components/premium/progress-bar").then(m => m.TopProgressBar));
-const ScrollToTop = dynamic(() => import("@/components/premium/scroll-to-top").then(m => m.ScrollToTop));
-const AuthListener = dynamic(() => import("@/components/auth-listener").then(m => m.AuthListener));
-const GlobalEffects = dynamic(() => import("@/components/ui/global-effects").then(m => m.GlobalEffects));
-const SplashLoader = dynamic(() => import("@/components/premium/splash-loader").then(m => m.SplashLoader));
-const ToastProvider = dynamic(() => import("@/components/ui/toast").then(m => m.ToastProvider));
+import { TopProgressBar } from "@/components/premium/progress-bar";
+import { AuthListener } from "@/components/auth-listener";
+import { GlobalEffects } from "@/components/ui/global-effects";
+import { ToastProvider } from "@/components/ui/toast";
 
 const inter = Inter({ 
   subsets: ["latin"], 
   variable: "--font-inter",
   display: 'swap',
   preload: true,
-  adjustFontFallback: true,
 });
 const fustat = Fustat({ 
   subsets: ["latin"], 
@@ -25,8 +22,9 @@ const fustat = Fustat({
   preload: true,
 });
 
-
-const GlobalNavbar = dynamic(() => import("@/components/global-navbar").then(m => m.GlobalNavbar));
+const GlobalNavbar = dynamic(() => import("@/components/global-navbar").then(m => m.GlobalNavbar), { ssr: true });
+const SplashLoader = dynamic(() => import("@/components/premium/splash-loader").then(m => m.SplashLoader), { ssr: false });
+const ScrollToTop = dynamic(() => import("@/components/premium/scroll-to-top").then(m => m.ScrollToTop), { ssr: false });
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://xylosai.vercel.app'),
@@ -100,17 +98,32 @@ export const metadata: Metadata = {
 
 import Script from "next/script";
 import { LazyMotion, domAnimation } from "framer-motion";
-import { ScrollToTop } from "@/components/premium/scroll-to-top";
 
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Xylos AI",
+      "url": "https://xylosai.vercel.app",
+      "description": "Free AI chat and content platform with Llama 3, Gemini, and Mistral.",
+    },
+    // ... other schemas
+  ];
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${inter.variable} ${fustat.variable} antialiased selection:bg-primary/30 selection:text-primary-foreground`}>
-        {/* Google Tag Manager - Optimized for performance */}
         <Script id="gtm-script" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -119,7 +132,6 @@ export default async function RootLayout({
           })(window,document,'script','dataLayer','GTM-N3CBBBLM');`}
         </Script>
 
-        {/* Global site tag (gtag.js) - Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-HSZJRM7GKQ"
           strategy="lazyOnload"
@@ -133,9 +145,6 @@ export default async function RootLayout({
           `}
         </Script>
 
-        {/* Facebook Pixel - Disabled until Pixel ID is configured */}
-        {/* Uncomment and replace YOUR_PIXEL_ID when ready */}
-
         <GlobalEffects />
         <noscript>
           <iframe 
@@ -145,96 +154,16 @@ export default async function RootLayout({
             className="hidden"
           />
         </noscript>
+
         <LazyMotion features={domAnimation} strict>
           <PrimaryColorProvider>
-          <ToastProvider>
-            <AuthListener />
-            <TopProgressBar />
-            <SplashLoader />
-            <ScrollToTop />
-            <GlobalNavbar />
-            <main className="relative min-h-screen">
-                <script
-                  type="application/ld+json"
-                  dangerouslySetInnerHTML={{
-                    __html: JSON.stringify([
-                      {
-                        "@context": "https://schema.org",
-                        "@type": "WebSite",
-                        "name": "Xylos AI",
-                        "url": "https://xylosai.vercel.app",
-                        "description": "Free AI chat and content platform with Llama 3, Gemini, and Mistral.",
-                        "potentialAction": {
-                          "@type": "SearchAction",
-                          "target": {
-                            "@type": "EntryPoint",
-                            "urlTemplate": "https://xylosai.vercel.app/blog?q={search_term_string}"
-                          },
-                          "query-input": "required name=search_term_string"
-                        }
-                      },
-                      {
-                        "@context": "https://schema.org",
-                        "@type": "SoftwareApplication",
-                        "name": "Xylos AI",
-                        "url": "https://xylosai.vercel.app",
-                        "applicationCategory": "BusinessApplication",
-                        "operatingSystem": "Web",
-                        "description": "Access elite AI models including Llama 3, Gemini, and Mistral in one zero-cost generative interface.",
-                        "aggregateRating": {
-                          "@type": "AggregateRating",
-                          "ratingValue": "4.8",
-                          "ratingCount": "128"
-                        },
-                        "offers": {
-                          "@type": "Offer",
-                          "price": "0",
-                          "priceCurrency": "USD"
-                        }
-                      },
-                      {
-                        "@context": "https://schema.org",
-                        "@type": "Organization",
-                        "name": "Xylos AI Research",
-                        "url": "https://xylosai.vercel.app",
-                        "logo": {
-                          "@type": "ImageObject",
-                          "url": "https://xylosai.vercel.app/icon.svg"
-                        },
-                        "contactPoint": {
-                          "@type": "ContactPoint",
-                          "contactType": "customer support",
-                          "availableLanguage": "English",
-                          "telephone": "+1-800-555-0199"
-                        },
-                        "sameAs": [
-                          "https://twitter.com/xylos_ai",
-                          "https://github.com/21devin",
-                          "https://www.facebook.com/xylosai",
-                          "https://www.instagram.com/xylosai",
-                          "https://www.linkedin.com/company/xylosai",
-                          "https://www.youtube.com/@xylosai"
-                        ]
-                      },
-                      {
-                        "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
-                        "name": "Xylos AI",
-                        "image": "https://xylosai.vercel.app/og-image.png",
-                        "url": "https://xylosai.vercel.app",
-                        "telephone": "+1-800-555-0199",
-                        "address": {
-                          "@type": "PostalAddress",
-                          "streetAddress": "100 Innovation Drive",
-                          "addressLocality": "San Francisco",
-                          "addressRegion": "CA",
-                          "postalCode": "94105",
-                          "addressCountry": "US"
-                        }
-                      }
-                    ])
-                  }}
-                />
+            <ToastProvider>
+              <AuthListener />
+              <TopProgressBar />
+              <SplashLoader />
+              <ScrollToTop />
+              <GlobalNavbar />
+              <main className="relative min-h-screen">
                 {children}
               </main>
             </ToastProvider>
