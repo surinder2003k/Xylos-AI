@@ -74,7 +74,7 @@ export function NewsletterForm() {
           <button 
             type="submit"
             disabled={status === 'loading' || status === 'success'}
-            className="flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-xl bg-primary text-black font-black text-[10px] uppercase tracking-widest hover:bg-primary/90 transition-all disabled:opacity-80 disabled:pointer-events-none shadow-lg shadow-primary/20"
+            className="flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-xl bg-primary text-primary-foreground font-black text-[10px] uppercase tracking-widest hover:bg-primary/90 transition-all disabled:opacity-80 disabled:pointer-events-none shadow-lg shadow-primary/20"
           >
             {status === 'loading' ? (
               <span className="flex items-center gap-2">

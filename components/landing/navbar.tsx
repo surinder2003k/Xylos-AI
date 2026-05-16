@@ -34,10 +34,6 @@ export function Navbar({ user }: NavbarProps) {
         <Link 
           href="/" 
           className="flex items-center gap-3 group/logo cursor-pointer"
-          onMouseEnter={() => {
-            const audio = new Audio("/sounds/anime-ahh.mp3");
-            audio.play().catch(e => console.log("Audio play blocked:", e));
-          }}
         >
           <AnimatedLogo />
         </Link>
@@ -51,7 +47,7 @@ export function Navbar({ user }: NavbarProps) {
               className={`transition-colors hover:text-primary ${
                 isActive(link.href)
                   ? "text-primary underline underline-offset-4 decoration-primary/40"
-                  : "text-muted-foreground/60"
+                  : "text-muted-foreground"
               }`}
             >
               {link.label}
@@ -113,7 +109,7 @@ export function Navbar({ user }: NavbarProps) {
                 <Link 
                   href={user ? "/dashboard" : "/login"}
                   onClick={() => setIsOpen(false)}
-                  className="block w-full text-center px-6 py-4 rounded-2xl bg-primary text-black font-black text-xs uppercase tracking-[0.2em] shadow-lg shadow-primary/20"
+                  className="block w-full text-center px-6 py-4 rounded-2xl bg-primary text-primary-foreground font-black text-xs uppercase tracking-[0.2em] shadow-lg shadow-primary/20"
                 >
                   {user ? "Enter Systems" : "Get Started"}
                 </Link>
