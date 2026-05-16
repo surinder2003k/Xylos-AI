@@ -22,8 +22,8 @@ const AnimatedHeader = dynamic(() => import("@/components/landing/animated-secti
 const AnimatedItem = dynamic(() => import("@/components/landing/animated-sections").then(m => m.AnimatedItem));
 const FadeIn = dynamic(() => import("@/components/landing/animated-sections").then(m => m.FadeIn));
 const TiltCard = dynamic(() => import("@/components/premium/tilt-card").then(m => m.TiltCard));
+const HeroCTA = dynamic(() => import("@/components/landing/hero-cta").then(m => m.HeroCTA));
 import { AnimatedLogo } from "@/components/premium/animated-logo";
-import { HeroCTA } from "@/components/landing/hero-cta";
 
 // ISR: Cache this page at Vercel CDN edge for 30 minutes.
 // Eliminates the 960ms document request latency on repeat visits.
