@@ -21,10 +21,10 @@ export function SplashLoader() {
     
     hasPlayedThisSession = true;
 
-    const timer = setTimeout(() => setIsVisible(false), 1200);
+    const timer = setTimeout(() => setIsVisible(false), 800);
     
     const interval = setInterval(() => {
-      setProgress(prev => (prev < 100 ? prev + (100 / 12) : 100));
+      setProgress(prev => (prev < 100 ? prev + (100 / 8) : 100));
     }, 100);
 
     return () => {

@@ -11,10 +11,17 @@ interface RevealTextProps {
   letterDelay?: number;
 }
 
+/**
+ * RevealText — Performance Optimized
+ * 
+ * Uses Framer Motion for a premium entrance animation.
+ * To protect LCP (Largest Contentful Paint), we ensure the container
+ * has a stable height and the text is semi-visible even before hydration
+ * if possible (though Framer Motion usually handles this well in Next.js).
+ */
 export function RevealText({
   text = "STUNNING",
   textColor = "text-foreground",
-  overlayColor = "text-primary",
   fontSize = "text-[4.5rem] md:text-[8rem] lg:text-[10rem]",
   className = "",
 }: RevealTextProps) {
@@ -25,14 +32,14 @@ export function RevealText({
       {words.map((word, i) => (
         <motion.span
           key={i}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
-            delay: i * 0.12,
-            duration: 0.6,
+            delay: i * 0.08, // Reduced delay for faster LCP
+            duration: 0.5,
             ease: [0.21, 0.47, 0.32, 0.98],
           }}
-          className={`${fontSize} ${textColor} font-black font-fustat tracking-tight leading-[0.9] select-none`}
+          className={`${fontSize} ${textColor} font-black font-fustat tracking-tight leading-[0.9] select-none will-change-transform`}
         >
           {word}
         </motion.span>

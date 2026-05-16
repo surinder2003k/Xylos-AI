@@ -23,7 +23,6 @@ const fustat = Fustat({
 });
 
 import { GlobalEffects } from "@/components/ui/global-effects";
-import { createClient } from "@/utils/supabase/server";
 import { GlobalNavbar } from "@/components/global-navbar";
 
 export const metadata: Metadata = {
@@ -104,9 +103,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${fustat.variable} antialiased selection:bg-primary/30 selection:text-primary-foreground`}>
@@ -151,7 +147,7 @@ export default async function RootLayout({
             <TopProgressBar />
             <SplashLoader />
             <ScrollToTop />
-            <GlobalNavbar user={user} />
+            <GlobalNavbar />
             <main className="relative min-h-screen">
                 <script
                   type="application/ld+json"
