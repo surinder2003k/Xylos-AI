@@ -16,9 +16,7 @@ const BentoGrid = dynamic(() => import("@/components/premium/bento-grid").then(m
 
 const BentoCard = dynamic(() => import("@/components/premium/bento-grid").then(m => m.BentoCard));
 
-const NewsletterForm = dynamic(() => import("@/components/landing/newsletter-form").then(m => m.NewsletterForm), {
-  ssr: false // This is deep at the bottom, safe to only load on client
-});
+const NewsletterForm = dynamic(() => import("@/components/landing/newsletter-form").then(m => m.NewsletterForm));
 
 const AnimatedHeader = dynamic(() => import("@/components/landing/animated-sections").then(m => m.AnimatedHeader));
 const AnimatedItem = dynamic(() => import("@/components/landing/animated-sections").then(m => m.AnimatedItem));
