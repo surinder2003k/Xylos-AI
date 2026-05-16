@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 interface XylosLogoProps {
   size?: number;
@@ -22,7 +22,7 @@ export function XylosLogo({ size = 40, className = "", animated = true }: XylosL
   };
 
   return (
-    <motion.svg
+    <m.svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
       fill="none"
@@ -39,7 +39,7 @@ export function XylosLogo({ size = 40, className = "", animated = true }: XylosL
 
 
         {/* Left arm of X */}
-        <motion.path
+        <m.path
           d="M-90,-90 L-20,0 L-90,90"
           stroke="var(--logo-color, #8B5CF6)"
           strokeWidth="28"
@@ -51,7 +51,7 @@ export function XylosLogo({ size = 40, className = "", animated = true }: XylosL
         />
 
         {/* Right arm of X */}
-        <motion.path
+        <m.path
           d="M90,-90 L20,0 L90,90"
           stroke="var(--logo-color, #8B5CF6)"
           strokeWidth="28"
@@ -76,7 +76,7 @@ export function XylosLogo({ size = 40, className = "", animated = true }: XylosL
           [-90, 90],
           [90, 90],
         ].map(([cx, cy], i) => (
-          <motion.circle
+          <m.circle
             key={i}
             cx={cx}
             cy={cy}
@@ -88,6 +88,6 @@ export function XylosLogo({ size = 40, className = "", animated = true }: XylosL
           />
         ))}
       </g>
-    </motion.svg>
+    </m.svg>
   );
 }

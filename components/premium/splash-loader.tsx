@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { XylosLogo } from "@/components/premium/xylos-logo";
 
@@ -36,7 +36,7 @@ export function SplashLoader() {
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.div
+        <m.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.1, filter: "blur(20px)" }}
           transition={{ duration: 0.8, ease: "circOut" }}
@@ -44,23 +44,23 @@ export function SplashLoader() {
         >
           <div className="relative flex flex-col items-center">
             {/* Background Glow */}
-            <motion.div 
+            <m.div 
                animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0.6, 0.3] }}
                transition={{ duration: 2, repeat: Infinity }}
                className="absolute inset-0 bg-violet-600/20 blur-[100px] -z-10 rounded-full"
             />
 
             {/* Logo Animation */}
-            <motion.div
+            <m.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1, ease: "backOut" }}
               className="flex items-center justify-center relative my-4"
             >
               <XylosLogo size={140} animated={true} />
-            </motion.div>
+            </m.div>
           </div>
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

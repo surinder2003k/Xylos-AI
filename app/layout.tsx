@@ -99,6 +99,7 @@ export const metadata: Metadata = {
 };
 
 import Script from "next/script";
+import { LazyMotion, domAnimation } from "framer-motion";
 import { ScrollToTop } from "@/components/premium/scroll-to-top";
 
 export default async function RootLayout({
@@ -144,7 +145,8 @@ export default async function RootLayout({
             className="hidden"
           />
         </noscript>
-        <PrimaryColorProvider>
+        <LazyMotion features={domAnimation} strict>
+          <PrimaryColorProvider>
           <ToastProvider>
             <AuthListener />
             <TopProgressBar />
@@ -237,6 +239,7 @@ export default async function RootLayout({
               </main>
             </ToastProvider>
           </PrimaryColorProvider>
+        </LazyMotion>
       </body>
     </html>
   );
