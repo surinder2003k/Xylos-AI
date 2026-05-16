@@ -4,8 +4,8 @@ import "./globals.css";
 
 import { PrimaryColorProvider } from "@/components/primary-color-provider";
 import dynamic from "next/dynamic";
-const TopProgressBar = dynamic(() => import("@/components/premium/progress-bar").then(m => m.TopProgressBar), { ssr: false });
-const ScrollToTop = dynamic(() => import("@/components/premium/scroll-to-top").then(m => m.ScrollToTop), { ssr: false });
+const TopProgressBar = dynamic(() => import("@/components/premium/progress-bar").then(m => m.TopProgressBar));
+const ScrollToTop = dynamic(() => import("@/components/premium/scroll-to-top").then(m => m.ScrollToTop));
 import { ToastProvider } from "@/components/ui/toast";
 import { SplashLoader } from "@/components/premium/splash-loader";
 import { AuthListener } from "@/components/auth-listener";
