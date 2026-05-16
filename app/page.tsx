@@ -11,6 +11,10 @@ import { TiltCard } from "@/components/premium/tilt-card";
 import { AnimatedLogo } from "@/components/premium/animated-logo";
 import { NewsletterForm } from "@/components/landing/newsletter-form";
 
+// ISR: Cache this page at Vercel CDN edge for 30 minutes.
+// Eliminates the 960ms document request latency on repeat visits.
+export const revalidate = 1800;
+
 export default async function LandingPage() {
   const supabase = await createClient();
   const publicSupabase = createPublicClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
