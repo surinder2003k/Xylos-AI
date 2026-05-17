@@ -1,53 +1,54 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { m, AnimatePresence } from "framer-motion";
-import { Sparkles } from "lucide-react";
 import { XylosLogo } from "@/components/premium/xylos-logo";
 
 let hasPlayedThisSession = false;
 
 export function SplashLoader() {
-  // SSR: hasPlayedThisSession is false -> isVisible = true
-  // CSR (Navigation): hasPlayedThisSession is true -> isVisible = false
-  const [isVisible, setIsVisible] = useState(!hasPlayedThisSession);
+  const [isMounted, setIsMounted] = useState(!hasPlayedThisSession);
+  const [isFading, setIsFading] = useState(false);
+
   useEffect(() => {
-    if (hasPlayedThisSession) return;
+    if (hasPlayedThisSession) {
+      setIsMounted(false);
+      return;
+    }
     hasPlayedThisSession = true;
 
-    const timer = setTimeout(() => setIsVisible(false), 500);
-    return () => clearTimeout(timer);
+    // Start fading out
+    const fadeTimer = setTimeout(() => {
+      setIsFading(true);
+    }, 450);
+
+    // Unmount from DOM completely
+    const unmountTimer = setTimeout(() => {
+      setIsMounted(false);
+    }, 1100);
+
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(unmountTimer);
+    };
   }, []);
 
-  return (
-    <AnimatePresence>
-      {isVisible && (
-        <m.div
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.1, filter: "blur(20px)" }}
-          transition={{ duration: 0.8, ease: "circOut" }}
-          className="fixed inset-0 z-[1000] bg-background flex flex-col items-center justify-center pointer-events-none"
-        >
-          <div className="relative flex flex-col items-center">
-            {/* Background Glow */}
-            <m.div 
-               animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0.6, 0.3] }}
-               transition={{ duration: 2, repeat: Infinity }}
-               className="absolute inset-0 bg-violet-600/20 blur-[100px] -z-10 rounded-full"
-            />
+  if (!isMounted) return null;
 
-            {/* Logo Animation */}
-            <m.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1, ease: "backOut" }}
-              className="flex items-center justify-center relative my-4"
-            >
-              <XylosLogo size={140} animated={true} />
-            </m.div>
-          </div>
-        </m.div>
-      )}
-    </AnimatePresence>
+  return (
+    <div
+      className={`fixed inset-0 z-[1000] bg-background flex flex-col items-center justify-center pointer-events-none transition-all duration-[650ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        isFading ? "opacity-0 scale-110 blur-[20px]" : "opacity-100 scale-100"
+      }`}
+    >
+      <div className="relative flex flex-col items-center">
+        {/* Background Glow */}
+        <div className="absolute inset-0 bg-violet-600/20 blur-[100px] -z-10 rounded-full animate-pulse" />
+
+        {/* Logo Animation */}
+        <div className="flex items-center justify-center relative my-4 animate-in fade-in zoom-in-75 duration-[700ms] ease-out">
+          <XylosLogo size={140} animated={true} />
+        </div>
+      </div>
+    </div>
   );
 }
