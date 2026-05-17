@@ -50,16 +50,26 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
               animationTimingFunction: 'cubic-bezier(0.2, 0.8, 0.2, 1)'
             }}
           >
-            <TiltCard degree={5} className="h-full">
+            <TiltCard degree={3} className="h-full">
               <Link href={`/blog/${blog.slug || blog.id}`} aria-label={`Read full article: ${blog.title}`} className="group block h-full">
-                <div className="relative bg-card/40 border border-border/50 rounded-[3rem] overflow-hidden backdrop-blur-xl hover:border-primary/50 transition-all duration-700 h-full flex flex-col hover:shadow-2xl hover:shadow-primary/5">
+                <div className="relative bg-card/25 border border-border/40 rounded-[3rem] overflow-hidden backdrop-blur-xl hover:border-primary/40 hover:bg-card/45 hover:shadow-[0_15px_45px_rgba(0,0,0,0.03)] transition-all duration-700 h-full flex flex-col group/blog">
+                  
+                  {/* Tech Grid Pattern inside the card */}
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.01)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.01)_1px,transparent_1px)] bg-[size:24px_24px] opacity-40 pointer-events-none" />
+
+                  {/* Corner brackets */}
+                  <span className="absolute top-4 left-4 w-2.5 h-2.5 border-t border-l border-primary/20 group-hover/blog:border-primary/60 transition-colors z-20" />
+                  <span className="absolute top-4 right-4 w-2.5 h-2.5 border-t border-r border-primary/20 group-hover/blog:border-primary/60 transition-colors z-20" />
+                  <span className="absolute bottom-4 left-4 w-2.5 h-2.5 border-b border-l border-primary/20 group-hover/blog:border-primary/60 transition-colors z-20" />
+                  <span className="absolute bottom-4 right-4 w-2.5 h-2.5 border-b border-r border-primary/20 group-hover/blog:border-primary/60 transition-colors z-20" />
+
                   {/* Premium Image Header */}
                   <div className="relative aspect-[16/11] overflow-hidden">
                     <Image 
                       src={blog.feature_image_url || "https://images.pexels.com/photos/1031201/pexels-photo-1031201.jpeg?auto=compress&cs=tinysrgb&w=800"} 
                       alt={blog.title}
                       fill
-                      className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out"
+                      className="w-full h-full object-cover grayscale-[0.4] group-hover:grayscale-0 group-hover:scale-[1.03] transition-all duration-1000 ease-out"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     <div className="absolute top-6 left-6 z-20">

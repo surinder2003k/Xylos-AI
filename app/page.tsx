@@ -81,10 +81,8 @@ export default async function LandingPage() {
         }
       }
     ]
-  };
-
-  return (
-    <div className="flex flex-col min-h-screen bg-background relative overflow-hidden selection:bg-primary/30 text-foreground transition-colors duration-500">
+  };  return (
+    <div className="flex flex-col min-h-screen bg-background relative overflow-hidden selection:bg-primary/30 text-foreground transition-colors duration-500 cyber-grid-pattern cyber-scanline">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -98,13 +96,14 @@ export default async function LandingPage() {
 
       <main className="flex-1 flex flex-col items-center pt-28 md:pt-48 px-4 md:px-6 pb-20 relative z-10 w-full">
         <div className="max-w-6xl w-full text-center space-y-12">
-          <div className="hidden md:inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-muted/30 border border-border shadow-sm mb-4">
+          <div className="hidden md:inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-primary/5 border border-primary/20 shadow-[0_0_15px_rgba(var(--primary),0.03)] mb-6 relative group overflow-hidden">
+             <span className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out" />
              <span className="relative flex h-2 w-2">
                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
              </span>
-              <span className="text-[9px] font-black tracking-[0.4em] uppercase text-foreground">
-                 Xylos Platform <span className="text-primary font-bold">v3.5</span> Certified
+              <span className="text-[9px] font-black tracking-[0.35em] uppercase text-foreground/90 flex items-center gap-2">
+                 [ STATUS: <span className="text-primary font-bold animate-pulse">ONLINE</span> ] // XYLOS_SYS_v3.5
               </span>
           </div>
 
@@ -119,10 +118,14 @@ export default async function LandingPage() {
               />
               <span className="sr-only">Access Llama 3, Gemini, and Mistral in one free platform.</span>
             </h1>
-            <div className="flex items-center justify-center gap-4 mt-8">
-              <div className="h-px w-8 md:w-16 bg-primary/30" />
-              <span className="text-[10px] md:text-[12px] font-black uppercase tracking-[0.4em] md:tracking-[0.6em] text-primary italic animate-pulse">Intelligent Editorial Suite</span>
-              <div className="h-px w-8 md:w-16 bg-primary/30" />
+            <div className="flex items-center justify-center gap-6 mt-8">
+              <span className="text-[9px] font-black text-muted-foreground/60 tracking-[0.2em] uppercase hidden md:inline">[ SECURE_GATEWAY: ACTIVE ]</span>
+              <div className="h-px w-10 md:w-20 bg-gradient-to-r from-transparent via-primary/45 to-transparent" />
+              <span className="text-[10px] md:text-[13px] font-extrabold uppercase tracking-[0.45em] md:tracking-[0.65em] text-primary italic drop-shadow-[0_0_10px_rgba(var(--primary),0.2)] animate-pulse">
+                Intelligent Editorial Suite
+              </span>
+              <div className="h-px w-10 md:w-20 bg-gradient-to-r from-transparent via-primary/45 to-transparent" />
+              <span className="text-[9px] font-black text-muted-foreground/60 tracking-[0.2em] uppercase hidden md:inline">[ CONSOLE: READY ]</span>
             </div>
           </div>
 
