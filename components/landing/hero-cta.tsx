@@ -30,18 +30,20 @@ export function HeroCTA() {
         <Link
           href="/chat"
           aria-label="Launch Xylos AI Neural Link Chat"
-          className="relative flex items-center justify-center gap-4 px-10 md:px-16 py-5 md:py-6 rounded-[2rem] bg-foreground text-background font-black text-sm uppercase tracking-[0.2em] shadow-[0_0_40px_rgba(var(--foreground),0.1)] hover:shadow-[0_0_60px_rgba(var(--foreground),0.2)] hover:scale-105 active:scale-95 transition-all group w-full sm:w-auto"
+          className="relative flex items-center justify-center gap-4 px-10 md:px-16 py-5 md:py-6 rounded-[2rem] bg-gradient-to-r from-primary via-primary/95 to-secondary text-primary-foreground font-black text-sm uppercase tracking-[0.2em] shadow-[0_10px_35px_rgba(139,92,246,0.25)] hover:shadow-[0_15px_50px_rgba(139,92,246,0.45)] hover:scale-[1.03] active:scale-95 transition-all duration-300 group w-full sm:w-auto overflow-hidden"
         >
-          <div className="absolute inset-0 rounded-[2rem] border-2 border-background/20 animate-pulse" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out" />
+          <div className="absolute inset-0 rounded-[2rem] border-2 border-white/10" />
           Launch Neural Link
           <MessageSquare aria-hidden="true" className="w-5 h-5 group-hover:rotate-12 transition-transform" />
         </Link>
 
         <Link
           href={isLoggedIn ? "/dashboard" : "/login"}
-          className="px-12 py-6 rounded-[2rem] border border-border bg-card/40 backdrop-blur-md font-black text-xs uppercase tracking-[0.2em] hover:bg-muted/50 transition-all w-full sm:w-auto text-foreground text-center"
+          className="relative px-12 py-6 rounded-[2rem] border border-border/80 bg-card/25 backdrop-blur-md font-black text-xs uppercase tracking-[0.2em] hover:bg-card/60 hover:border-secondary/40 transition-all duration-300 w-full sm:w-auto text-foreground text-center group"
         >
-          {isLoggedIn ? "Admin Dashboard" : "Join the Matrix"}
+          <span className="absolute inset-0 rounded-[2rem] bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <span className="relative z-10">{isLoggedIn ? "Admin Dashboard" : "Join the Matrix"}</span>
         </Link>
       </div>
 
