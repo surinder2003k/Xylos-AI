@@ -30,20 +30,17 @@ export function HeroCTA() {
         <Link
           href="/chat"
           aria-label="Launch Xylos AI Neural Link Chat"
-          className="relative flex items-center justify-center gap-4 px-10 md:px-16 py-5 md:py-6 rounded-[2rem] bg-gradient-to-r from-primary via-primary/95 to-secondary text-primary-foreground font-black text-sm uppercase tracking-[0.2em] shadow-[0_10px_35px_rgba(139,92,246,0.25)] hover:shadow-[0_15px_50px_rgba(139,92,246,0.45)] hover:scale-[1.03] active:scale-95 transition-all duration-300 group w-full sm:w-auto overflow-hidden"
+          className="relative flex items-center justify-center gap-4 px-10 md:px-16 py-5 md:py-6 rounded-none bg-foreground text-background font-black text-sm uppercase tracking-[0.2em] shadow-[4px_4px_0px_rgba(0,0,0,0.15)] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.2)] hover:-translate-y-0.5 active:translate-y-0 active:shadow-[2px_2px_0px_rgba(0,0,0,0.1)] transition-all duration-200 group w-full sm:w-auto overflow-hidden"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out" />
-          <div className="absolute inset-0 rounded-[2rem] border-2 border-white/10" />
           Launch Neural Link
           <MessageSquare aria-hidden="true" className="w-5 h-5 group-hover:rotate-12 transition-transform" />
         </Link>
 
         <Link
           href={isLoggedIn ? "/dashboard" : "/login"}
-          className="relative px-12 py-6 rounded-[2rem] border border-border/80 bg-card/25 backdrop-blur-md font-black text-xs uppercase tracking-[0.2em] hover:bg-card/60 hover:border-secondary/40 transition-all duration-300 w-full sm:w-auto text-foreground text-center group"
+          className="relative px-12 py-6 rounded-none border border-foreground bg-transparent font-black text-xs uppercase tracking-[0.2em] hover:bg-foreground hover:text-background transition-all duration-300 w-full sm:w-auto text-foreground text-center group"
         >
-          <span className="absolute inset-0 rounded-[2rem] bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          <span className="relative z-10">{isLoggedIn ? "Admin Dashboard" : "Join the Matrix"}</span>
+          <span className="relative z-10">{isLoggedIn ? "Admin Dashboard" : "Access Interface"}</span>
         </Link>
       </div>
 
@@ -52,7 +49,7 @@ export function HeroCTA() {
         <Link
           href="/chat"
           aria-label="Launch Neural Link"
-          className="md:hidden fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center shadow-[0_0_30px_rgba(var(--primary),0.3)] animate-bounce-slow"
+          className="md:hidden fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-none bg-foreground text-background flex items-center justify-center shadow-lg border border-border"
         >
           <MessageSquare className="w-6 h-6" />
         </Link>

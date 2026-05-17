@@ -80,11 +80,11 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
           {/* Refined Editorial Hero */}
           <div className="text-center space-y-6 max-w-4xl mx-auto">
              <div className="flex justify-center">
-                <div className="px-5 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.4em] flex items-center gap-2">
+                <div className="px-5 py-2 rounded-none bg-muted border border-border text-foreground text-[10px] font-black uppercase tracking-[0.4em] flex items-center gap-2">
                    <BookOpen className="w-3 h-3" /> The Perspective
                 </div>
              </div>
-             <h1 className="text-5xl md:text-8xl font-black font-fustat tracking-[-0.05em] uppercase leading-[0.85] italic">Editorial <br /><span className="text-muted-foreground underline decoration-primary/30 underline-offset-8">Archives</span></h1>
+             <h1 className="text-5xl md:text-8xl font-black font-fustat tracking-[-0.05em] uppercase leading-[0.85]">Editorial <br /><span className="text-muted-foreground">Archives</span></h1>
              <p className="text-muted-foreground text-xl font-medium pt-4 max-w-2xl mx-auto leading-relaxed">
                Deep dives into the intersection of artificial intelligence, high-stakes reporting, and the human narrative.
              </p>
@@ -102,11 +102,11 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
           {totalPages > 1 && (
             <div className="flex justify-center items-center gap-8 pt-12 border-t border-border mt-20">
               {page > 1 ? (
-                 <Link href={`/blog?page=${page - 1}${category !== 'all' ? `&category=${category}` : ''}${query ? `&q=${query}` : ''}`} className="px-8 py-4 rounded-2xl bg-muted border border-border text-foreground font-black text-[10px] uppercase tracking-[0.3em] hover:bg-primary hover:text-black hover:border-primary transition-all">
+                 <Link href={`/blog?page=${page - 1}${category !== 'all' ? `&category=${category}` : ''}${query ? `&q=${query}` : ''}`} className="px-8 py-4 rounded-none bg-muted border border-border text-foreground font-black text-[10px] uppercase tracking-[0.3em] hover:bg-foreground hover:text-background hover:border-foreground transition-all duration-300">
                    Previous
                  </Link>
               ) : (
-                 <div className="px-8 py-4 rounded-2xl bg-muted/50 border border-border/50 text-muted-foreground/30 font-black text-[10px] uppercase tracking-[0.3em] cursor-not-allowed">
+                 <div className="px-8 py-4 rounded-none bg-muted/50 border border-border/50 text-muted-foreground/30 font-black text-[10px] uppercase tracking-[0.3em] cursor-not-allowed">
                    Previous
                  </div>
               )}
@@ -116,11 +116,11 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
               </div>
 
               {page < totalPages ? (
-                  <Link href={`/blog?page=${page + 1}${category !== 'all' ? `&category=${category}` : ''}${query ? `&q=${query}` : ''}`} className="px-8 py-4 rounded-2xl bg-muted border border-border text-foreground font-black text-[10px] uppercase tracking-[0.3em] hover:bg-primary hover:text-black hover:border-primary transition-all">
+                  <Link href={`/blog?page=${page + 1}${category !== 'all' ? `&category=${category}` : ''}${query ? `&q=${query}` : ''}`} className="px-8 py-4 rounded-none bg-muted border border-border text-foreground font-black text-[10px] uppercase tracking-[0.3em] hover:bg-foreground hover:text-background hover:border-foreground transition-all duration-300">
                    Next
                  </Link>
               ) : (
-                 <div className="px-8 py-4 rounded-2xl bg-muted/50 border border-border/50 text-muted-foreground/30 font-black text-[10px] uppercase tracking-[0.3em] cursor-not-allowed">
+                 <div className="px-8 py-4 rounded-none bg-muted/50 border border-border/50 text-muted-foreground/30 font-black text-[10px] uppercase tracking-[0.3em] cursor-not-allowed">
                    Next
                  </div>
               )}
@@ -135,13 +135,12 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
             <XylosLogo className="w-12 h-12 mx-auto opacity-20" />
             <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.6em]">Xylos Editorial Core // Human-Guided AI</p>
             <div className="flex justify-center gap-10 opacity-30 text-[9px] font-bold uppercase tracking-widest">
-               <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
-               <Link href="/about" className="hover:text-primary transition-colors">About Xylos</Link>
-               <Link href="/blog" className="hover:text-primary transition-colors">Archive</Link>
+               <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
+               <Link href="/about" className="hover:text-foreground transition-colors">About Xylos</Link>
+               <Link href="/blog" className="hover:text-foreground transition-colors">Archive</Link>
             </div>
          </div>
       </footer>
     </div>
   );
 }
-

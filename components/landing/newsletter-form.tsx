@@ -47,22 +47,7 @@ export function NewsletterForm() {
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto my-24 bg-card/30 border border-border/40 backdrop-blur-md rounded-[2.5rem] p-6 md:p-12 shadow-[0_8px_30px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:border-primary/30 transition-all duration-500 relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-12 group">
-      
-      {/* Corner Bracket Tech Accents */}
-      <span className="absolute top-4 left-4 w-2.5 h-2.5 border-t border-l border-primary/20 group-hover:border-primary/60 transition-all duration-300" />
-      <span className="absolute top-4 right-4 w-2.5 h-2.5 border-t border-r border-primary/20 group-hover:border-primary/60 transition-all duration-300" />
-      <span className="absolute bottom-4 left-4 w-2.5 h-2.5 border-b border-l border-primary/20 group-hover:border-primary/60 transition-all duration-300" />
-      <span className="absolute bottom-4 right-4 w-2.5 h-2.5 border-b border-r border-primary/20 group-hover:border-primary/60 transition-all duration-300" />
-
-      {/* Tech Grid Pattern inside the card */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.01)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.01)_1px,transparent_1px)] bg-[size:30px_30px] opacity-40 pointer-events-none" />
-
-      {/* Cyber ambient dot */}
-      <div className="absolute top-4 right-4 flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-primary/5 border border-primary/10 text-[7px] font-black uppercase tracking-widest text-primary/70">
-        <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-        SECURE_SUBSCRIBE_MODULE // v1.0.8
-      </div>
+    <div className="w-full max-w-5xl mx-auto my-24 bg-card border border-border/80 p-6 md:p-12 shadow-[0_2px_8px_rgba(0,0,0,0.015)] transition-all duration-300 relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-12 group">
       
       {/* Left Content Area */}
       <div className="relative z-10 w-full lg:w-1/2 space-y-6 text-center lg:text-left">
@@ -72,7 +57,7 @@ export function NewsletterForm() {
             Join thousands of professionals who trust Xylos AI for innovative editorial and design intelligence solutions.
           </p>
         </div>
-
+ 
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 pt-2 max-w-md mx-auto lg:mx-0">
           <div className="relative flex-1">
             <input 
@@ -83,17 +68,17 @@ export function NewsletterForm() {
               onChange={(e) => setEmail(e.target.value)}
               disabled={status === 'loading' || status === 'success'}
               placeholder="Enter your email" 
-              className="w-full bg-muted border border-border text-foreground rounded-xl py-4 px-6 text-sm focus:outline-none focus:border-primary/50 transition-all disabled:opacity-50 font-bold uppercase tracking-widest"
+              className="w-full bg-muted border border-border text-foreground rounded-none py-4 px-6 text-sm focus:outline-none focus:border-foreground/50 transition-all disabled:opacity-50 font-bold uppercase tracking-widest"
             />
           </div>
           <button 
             type="submit"
             disabled={status === 'loading' || status === 'success'}
-            className="flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-xl bg-primary text-primary-foreground font-black text-[10px] uppercase tracking-widest hover:bg-primary/90 transition-all disabled:opacity-80 disabled:pointer-events-none shadow-lg shadow-primary/20"
+            className="flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-none bg-foreground text-background font-black text-[10px] uppercase tracking-widest hover:bg-transparent hover:text-foreground border border-foreground transition-all disabled:opacity-80 disabled:pointer-events-none shadow-sm"
           >
             {status === 'loading' ? (
               <span className="flex items-center gap-2">
-                <span className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                <span className="w-4 h-4 border-2 border-foreground border-t-transparent rounded-full animate-spin" />
                 Processing
               </span>
             ) : status === 'success' ? (
@@ -106,30 +91,30 @@ export function NewsletterForm() {
             )}
           </button>
         </form>
-
+ 
         {message && (
-          <div className={`mt-2 text-[10px] font-black uppercase tracking-widest ${status === 'success' ? 'text-primary' : 'text-red-500'}`}>
+          <div className={`mt-2 text-[10px] font-black uppercase tracking-widest ${status === 'success' ? 'text-foreground' : 'text-red-600'}`}>
             {message}
           </div>
         )}
       </div>
-
+ 
       {/* Right Image Area */}
-      <div className="relative z-10 w-full lg:w-1/2 flex justify-center lg:justify-end items-center h-48 sm:h-64 lg:h-auto perspective-1000">
+      <div className="relative z-10 w-full lg:w-1/2 flex justify-center lg:justify-end items-center h-48 sm:h-64 lg:h-auto">
          {/* Shadow / Back image */}
-         <div className="absolute right-0 top-0 lg:top-auto lg:-right-8 w-[90%] lg:w-full max-w-[400px] aspect-video bg-muted rounded-2xl transform rotate-3 translate-y-4 shadow-xl pointer-events-none opacity-50 lg:opacity-100" />
+         <div className="absolute right-0 top-0 lg:top-auto lg:-right-8 w-[90%] lg:w-full max-w-[400px] aspect-video bg-muted rounded-none border border-border shadow-sm pointer-events-none opacity-50 lg:opacity-100" />
          
          {/* Front image */}
-         <div className="relative w-[90%] lg:w-full max-w-[400px] aspect-video rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500 border border-border group">
+         <div className="relative w-[90%] lg:w-full max-w-[400px] aspect-video rounded-none overflow-hidden shadow-md border border-border group">
            <Image 
              src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" 
              alt="Xylos AI Newsletter — High-tech nature visualization"
              title="Xylos AI Newsletter"
              fill
-             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
              sizes="(max-width: 768px) 100vw, 400px"
            />
-           <div className="absolute inset-0 bg-primary/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity" />
+           <div className="absolute inset-0 bg-foreground/5 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity" />
          </div>
       </div>
     </div>

@@ -63,7 +63,7 @@ export function XylosLogo({ size = 40, className = "", animated = true }: XylosL
         {/* Left arm of X */}
         <path
           d="M-90,-90 L-20,0 L-90,90"
-          stroke="var(--logo-color, #8B5CF6)"
+          stroke="currentColor"
           strokeWidth="28"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -74,7 +74,7 @@ export function XylosLogo({ size = 40, className = "", animated = true }: XylosL
         {/* Right arm of X */}
         <path
           d="M90,-90 L20,0 L90,90"
-          stroke="var(--logo-color, #8B5CF6)"
+          stroke="currentColor"
           strokeWidth="28"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -85,7 +85,7 @@ export function XylosLogo({ size = 40, className = "", animated = true }: XylosL
         {/* Center node — static, no pulse */}
         <circle
           cx="0" cy="0" r="16"
-          fill="var(--logo-color, #8B5CF6)"
+          fill="currentColor"
           opacity="0.9"
         />
 
@@ -101,7 +101,7 @@ export function XylosLogo({ size = 40, className = "", animated = true }: XylosL
             cx={cx}
             cy={cy}
             r="8"
-            fill="var(--logo-color, #8B5CF6)"
+            fill="currentColor"
             style={animated ? {
               transformOrigin: `${cx}px ${cy}px`,
               animationDelay: `${0.5 + i * 0.1}s`,
