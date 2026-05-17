@@ -88,10 +88,11 @@ export default async function LandingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       
-      {/* Dynamic Background Glows - Hidden on mobile for performance and clarity */}
-      <div className="hidden md:block absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-40 dark:opacity-60">
-         <div className="absolute -top-[10%] -left-[5%] w-[40%] h-[40%] bg-primary/20 blur-[120px] rounded-full mix-blend-overlay animate-pulse" />
-         <div className="absolute top-[15%] -right-[5%] w-[40%] h-[40%] bg-secondary/15 blur-[120px] rounded-full mix-blend-overlay animate-pulse [animation-delay:2s]" />
+      {/* Premium Dynamic Background Glows - mesh gradients for stunning aesthetics */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-60">
+         <div className="absolute -top-[5%] left-[10%] w-[50%] h-[45%] bg-primary/15 blur-[150px] rounded-full mix-blend-screen animate-pulse" />
+         <div className="absolute top-[10%] right-[10%] w-[45%] h-[40%] bg-secondary/10 blur-[150px] rounded-full mix-blend-screen animate-pulse [animation-delay:2.5s]" />
+         <div className="absolute top-[40%] left-[20%] w-[60%] h-[30%] bg-purple-600/5 blur-[180px] rounded-full mix-blend-screen" />
       </div>
 
       <main className="flex-1 flex flex-col items-center pt-28 md:pt-48 px-4 md:px-6 pb-20 relative z-10 w-full">
@@ -112,7 +113,7 @@ export default async function LandingPage() {
               <RevealText 
                 text="XYLOS AI: FREE AI CHAT. REFINE YOUR NARRATIVE." 
                 fontSize="text-[1.5rem] sm:text-[2.2rem] md:text-[4.5rem] lg:text-[5.5rem]"
-                textColor="text-foreground"
+                textColor="text-transparent bg-clip-text bg-gradient-to-r from-white via-primary to-secondary drop-shadow-[0_2px_15px_rgba(139,92,246,0.15)]"
                 overlayColor="text-primary"
                 letterDelay={0.04}
               />
@@ -150,7 +151,7 @@ export default async function LandingPage() {
            </AnimatedHeader>
            
            <BentoGrid>
-             <BentoCard delay={0.1} className="col-span-1 md:col-span-2 bg-card/40 border border-border backdrop-blur-xl group/card">
+             <BentoCard delay={0.1} className="col-span-1 md:col-span-2">
                 <div className="absolute top-0 right-0 p-8 opacity-5 group-hover/card:opacity-10 transition-opacity">
                    <Globe aria-hidden="true" className="w-32 h-32 text-primary" />
                 </div>
@@ -159,19 +160,19 @@ export default async function LandingPage() {
                 <p className="text-muted-foreground text-lg font-medium leading-relaxed max-w-md">Access 7+ industry-leading AI models like Llama 3, Gemini, and Mistral in one interface. Our smart engine routes requests to the optimal provider.</p>
              </BentoCard>
 
-             <BentoCard delay={0.2} className="col-span-1 md:col-span-1 bg-card/40 border border-border backdrop-blur-xl">
+             <BentoCard delay={0.2} className="col-span-1 md:col-span-1">
                 <Code2 className="w-10 h-10 text-secondary mb-8" />
                 <h3 className="text-xl font-black mb-4 uppercase tracking-tight italic">Dev Suite</h3>
                 <p className="text-muted-foreground font-medium text-sm leading-relaxed">Synthesize clean, optimized code. Our assistants are specialized in full-stack architectures and modern frameworks.</p>
              </BentoCard>
 
-             <BentoCard delay={0.3} className="col-span-1 md:col-span-1 bg-card/40 border border-border backdrop-blur-xl">
+             <BentoCard delay={0.3} className="col-span-1 md:col-span-1">
                 <FileText className="w-10 h-10 text-accent mb-8" />
                 <h3 className="text-xl font-black mb-4 uppercase tracking-tight italic">Content Intelligence</h3>
                 <p className="text-muted-foreground font-medium text-sm leading-relaxed">Advanced parsing for large-scale datasets. Extract strategic insights from complex documentation in seconds.</p>
              </BentoCard>
 
-             <BentoCard delay={0.4} className="col-span-1 md:col-span-4 bg-card/40 border border-border backdrop-blur-xl overflow-hidden group/card">
+             <BentoCard delay={0.4} className="col-span-1 md:col-span-4 overflow-hidden">
                 <div className="absolute top-0 right-0 p-12 opacity-5 group-hover/card:opacity-10 transition-opacity">
                    <Shield aria-hidden="true" className="w-64 h-64 text-primary" />
                 </div>
