@@ -47,7 +47,22 @@ export function NewsletterForm() {
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto my-24 bg-card border border-border rounded-[2rem] p-6 md:p-12 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-12">
+    <div className="w-full max-w-5xl mx-auto my-24 bg-card/30 border border-border/40 backdrop-blur-md rounded-[2.5rem] p-6 md:p-12 shadow-[0_8px_30px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:border-primary/30 transition-all duration-500 relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-12 group">
+      
+      {/* Corner Bracket Tech Accents */}
+      <span className="absolute top-4 left-4 w-2.5 h-2.5 border-t border-l border-primary/20 group-hover:border-primary/60 transition-all duration-300" />
+      <span className="absolute top-4 right-4 w-2.5 h-2.5 border-t border-r border-primary/20 group-hover:border-primary/60 transition-all duration-300" />
+      <span className="absolute bottom-4 left-4 w-2.5 h-2.5 border-b border-l border-primary/20 group-hover:border-primary/60 transition-all duration-300" />
+      <span className="absolute bottom-4 right-4 w-2.5 h-2.5 border-b border-r border-primary/20 group-hover:border-primary/60 transition-all duration-300" />
+
+      {/* Tech Grid Pattern inside the card */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.01)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.01)_1px,transparent_1px)] bg-[size:30px_30px] opacity-40 pointer-events-none" />
+
+      {/* Cyber ambient dot */}
+      <div className="absolute top-4 right-4 flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-primary/5 border border-primary/10 text-[7px] font-black uppercase tracking-widest text-primary/70">
+        <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+        SECURE_SUBSCRIBE_MODULE // v1.0.8
+      </div>
       
       {/* Left Content Area */}
       <div className="relative z-10 w-full lg:w-1/2 space-y-6 text-center lg:text-left">
