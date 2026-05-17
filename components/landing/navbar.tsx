@@ -27,8 +27,8 @@ export function Navbar({ user }: NavbarProps) {
     pathname === href || pathname?.startsWith(href + "/");
 
   return (
-    <nav className="fixed top-0 w-full z-50 px-4 py-4 md:px-6 md:py-6 transition-all duration-300">
-      <div className="max-w-4xl mx-auto flex items-center justify-between bg-card/40 backdrop-blur-3xl border border-border/50 rounded-2xl px-4 py-2 md:px-6 md:py-3 shadow-2xl shadow-black/5">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-card/80 backdrop-blur-md border-b border-border/80 transition-all duration-300">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         
         {/* Logo */}
         <Link 
@@ -44,10 +44,10 @@ export function Navbar({ user }: NavbarProps) {
             <Link
               key={link.href}
               href={link.href}
-              className={`transition-colors hover:text-primary ${
+              className={`transition-colors hover:text-foreground/80 ${
                 isActive(link.href)
-                  ? "text-primary underline underline-offset-4 decoration-primary/40"
-                  : "text-muted-foreground"
+                  ? "text-foreground underline underline-offset-4 decoration-foreground"
+                  : "text-foreground/60"
               }`}
             >
               {link.label}
@@ -59,7 +59,7 @@ export function Navbar({ user }: NavbarProps) {
         <div className="hidden md:flex items-center gap-4">
           <Link 
             href={user ? "/dashboard" : "/login"}
-            className="px-6 py-2.5 rounded-xl border border-border bg-background hover:border-primary/50 transition-all text-[10px] font-black uppercase tracking-widest shadow-sm hover:shadow-primary/20"
+            className="px-6 py-2.5 rounded-none border border-foreground bg-foreground text-background hover:bg-transparent hover:text-foreground transition-all text-[10px] font-black uppercase tracking-widest shadow-sm"
           >
             {user ? "Systems" : "Sign In"}
           </Link>
@@ -70,7 +70,7 @@ export function Navbar({ user }: NavbarProps) {
           <button 
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
-            className="p-2 rounded-xl bg-primary/10 text-primary border border-primary/20"
+            className="p-2 rounded-none bg-muted text-foreground border border-border"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -85,7 +85,7 @@ export function Navbar({ user }: NavbarProps) {
             : "opacity-0 -translate-y-4 pointer-events-none"
         }`}
       >
-        <div className="bg-background/95 backdrop-blur-3xl border border-border rounded-[2rem] p-8 shadow-2xl space-y-6">
+        <div className="bg-card border border-border rounded-none p-8 shadow-2xl space-y-6">
           <div className="flex flex-col gap-6">
             {navLinks.map((link) => (
               <Link 
@@ -93,12 +93,12 @@ export function Navbar({ user }: NavbarProps) {
                 href={link.href} 
                 onClick={() => setIsOpen(false)}
                 className={`text-2xl font-black font-fustat uppercase tracking-tight transition-colors ${
-                  isActive(link.href) ? "text-primary" : "hover:text-primary"
+                  isActive(link.href) ? "text-foreground" : "hover:text-foreground"
                 }`}
               >
                 {link.label}
                 {isActive(link.href) && (
-                  <span className="ml-3 text-[9px] font-black text-primary/60 uppercase tracking-widest align-middle">— Active</span>
+                  <span className="ml-3 text-[9px] font-black text-foreground/60 uppercase tracking-widest align-middle">— Active</span>
                 )}
               </Link>
             ))}
@@ -108,7 +108,7 @@ export function Navbar({ user }: NavbarProps) {
             <Link 
               href={user ? "/dashboard" : "/login"}
               onClick={() => setIsOpen(false)}
-              className="block w-full text-center px-6 py-4 rounded-2xl bg-primary text-primary-foreground font-black text-xs uppercase tracking-[0.2em] shadow-lg shadow-primary/20"
+              className="block w-full text-center px-6 py-4 rounded-none bg-foreground text-background font-black text-xs uppercase tracking-[0.2em] shadow-lg"
             >
               {user ? "Enter Systems" : "Get Started"}
             </Link>
@@ -120,7 +120,7 @@ export function Navbar({ user }: NavbarProps) {
                   await signOut();
                   router.push('/');
                 }}
-                className="flex items-center justify-center gap-3 w-full px-6 py-4 rounded-2xl border border-border bg-muted/40 text-muted-foreground hover:text-red-400 hover:bg-red-500/10 transition-all text-xs font-black uppercase tracking-widest"
+                className="flex items-center justify-center gap-3 w-full px-6 py-4 rounded-none border border-border bg-muted/40 text-muted-foreground hover:text-red-600 transition-all text-xs font-black uppercase tracking-widest"
               >
                 <LogOut className="w-4 h-4" />
                 Sign Out

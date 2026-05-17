@@ -8,27 +8,27 @@ html {
 
 @layer base {
   :root {
-    --background: 240 10% 4%;       /* Midnight dark */
-    --sidebar: 240 10% 4%;
-    --foreground: 0 0% 98%;         /* Pure white text */
-    --primary: 263 90% 64%;          /* Electric Violet */
+    --background: 0 0% 98%;          /* Premium porcelain white */
+    --sidebar: 0 0% 98%;
+    --foreground: 0 0% 6%;           /* Deep charcoal black */
+    --primary: 0 0% 0%;              /* Pure bold black */
     --primary-foreground: 0 0% 100%;
-    --card: 240 10% 6%;             /* Sleek dark cards */
-    --card-foreground: 240 5% 96%;
-    --popover: 240 10% 4%;
-    --popover-foreground: 0 0% 98%;
-    --secondary: 191 91% 50%;       /* Neon Cyan accent */
+    --card: 0 0% 100%;               /* Pristine white card bases */
+    --card-foreground: 0 0% 6%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 6%;
+    --secondary: 240 5.9% 15%;       /* Graphite slate accent */
     --secondary-foreground: 0 0% 100%;
-    --muted: 240 5.9% 10%;
-    --muted-foreground: 240 5% 65%;
-    --accent: 240 5.9% 12%;
-    --accent-foreground: 0 0% 98%;
+    --muted: 240 4.8% 95%;
+    --muted-foreground: 240 4% 45%;
+    --accent: 240 4.8% 95%;
+    --accent-foreground: 0 0% 6%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 14%;         /* Dark tech borders */
-    --input: 240 5.9% 14%;
-    --ring: 263 90% 64%;
-    --radius: 1.5rem;
+    --border: 240 5.9% 88%;          /* Ultra-subtle hairline borders */
+    --input: 240 5.9% 88%;
+    --ring: 0 0% 0%;                 /* Solid charcoal focus ring */
+    --radius: 0px;                   /* Crisp modern architectural sharp shapes */
     
     /* Font Variables */
     --font-fustat: 'Fustat', sans-serif;
@@ -138,9 +138,9 @@ html {
 
 .cyber-grid-pattern {
   background-image: 
-    radial-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(to right, rgba(255, 255, 255, 0.008) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.008) 1px, transparent 1px);
+    radial-gradient(rgba(0, 0, 0, 0.015) 1px, transparent 1px),
+    linear-gradient(to right, rgba(0, 0, 0, 0.005) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.005) 1px, transparent 1px);
   background-size: 24px 24px, 72px 72px, 72px 72px;
 }
 
@@ -150,19 +150,12 @@ html {
 }
 
 .cyber-scanline::after {
-  content: " ";
-  display: block;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.003) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.004), rgba(0, 255, 0, 0.002), rgba(0, 0, 255, 0.004));
-  z-index: 2;
-  background-size: 100% 4px, 6px 100%;
-  pointer-events: none;
+  display: none; /* Disabled scanlines for crisp minimalist editorial style */
 }
 
 .cyber-header-glow {
-  background: linear-gradient(135deg, hsl(var(--foreground)) 30%, hsl(var(--primary)) 70%, hsl(var(--secondary)) 100%);
+  background: linear-gradient(135deg, hsl(var(--foreground)) 30%, hsl(var(--secondary)) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 15px rgba(139, 92, 246, 0.15));
+  filter: none;
 }

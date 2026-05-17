@@ -40,7 +40,7 @@ export function BlogFilters() {
   const categories = ["all", "Technology", "Politics", "Science"];
 
   return (
-    <div className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-4 py-6 md:py-8 border-y border-border bg-muted/30 rounded-[2rem] md:rounded-[3rem] backdrop-blur-md px-4 md:px-8">
+    <div className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-4 py-6 md:py-8 border border-border/80 bg-card px-4 md:px-8 rounded-none shadow-[0_2px_8px_rgba(0,0,0,0.01)]">
       <div className="flex flex-wrap justify-center gap-2 md:gap-4 order-2 md:order-1">
         {categories.map((cat) => {
           const isActive = currentCategory === cat;
@@ -48,10 +48,10 @@ export function BlogFilters() {
             <button 
               key={cat}
               onClick={() => handleCategoryChange(cat)}
-              className={`px-4 md:px-6 py-2 rounded-full font-black text-[9px] md:text-[10px] uppercase tracking-widest transition-all ${
+              className={`px-4 md:px-6 py-2 rounded-none font-black text-[9px] md:text-[10px] uppercase tracking-widest transition-all ${
                 isActive 
-                  ? "bg-primary text-black" 
-                  : "bg-muted border border-border text-muted-foreground hover:bg-muted/80 hover:text-foreground"
+                  ? "bg-foreground text-background" 
+                  : "bg-muted border border-border text-muted-foreground hover:bg-foreground/5 hover:text-foreground"
               }`}
             >
               {cat === "all" ? "All Categories" : cat}
@@ -60,8 +60,8 @@ export function BlogFilters() {
         })}
       </div>
       
-      <form onSubmit={handleSearch} className="flex w-full md:w-auto md:ml-auto items-center gap-3 bg-muted border border-border px-6 py-3 md:py-2 rounded-full group focus-within:border-primary/50 transition-all order-1 md:order-2">
-        <Search className="w-4 h-4 text-muted-foreground/50 group-focus-within:text-primary" />
+      <form onSubmit={handleSearch} className="flex w-full md:w-auto md:ml-auto items-center gap-3 bg-muted border border-border px-6 py-3 md:py-2 rounded-none group focus-within:border-foreground/50 transition-all order-1 md:order-2">
+        <Search className="w-4 h-4 text-muted-foreground/50 group-focus-within:text-foreground" />
         <input 
           value={query}
           onChange={(e) => setQuery(e.target.value)}
