@@ -1,6 +1,6 @@
 "use client";
 
-import { m } from "framer-motion";
+
 import { ArrowUpRight, Clock, User, Bookmark } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -41,12 +41,14 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         {blogs.map((blog, idx) => (
-          <m.div
+          <div
             key={blog.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: idx * 0.1 }}
-            viewport={{ once: true }}
+            className="animate-in fade-in slide-in-from-bottom-5 fill-mode-both"
+            style={{
+              animationDuration: '600ms',
+              animationDelay: `${idx * 100}ms`,
+              animationTimingFunction: 'cubic-bezier(0.2, 0.8, 0.2, 1)'
+            }}
           >
             <TiltCard degree={5} className="h-full">
               <Link href={`/blog/${blog.slug || blog.id}`} aria-label={`Read full article: ${blog.title}`} className="group block h-full">
@@ -77,7 +79,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                     </div>
 
                     <h3 className="text-3xl font-black font-fustat leading-[1] group-hover:text-primary transition-colors line-clamp-2 uppercase tracking-tighter mb-5">
-                      {blog.title}
+                       {blog.title}
                     </h3>
 
                     <p className="text-base text-muted-foreground font-medium leading-relaxed line-clamp-3 mb-10 group-hover:text-foreground transition-colors">
@@ -102,7 +104,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                 </div>
               </Link>
             </TiltCard>
-          </m.div>
+          </div>
         ))}
       </div>
     </div>
