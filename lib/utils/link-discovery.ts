@@ -9,43 +9,67 @@ export interface DiscoveryResult {
 }
 
 /**
- * Fetches and parses a sitemap to find the most recent blog posts.
- * Optimized for standard XML sitemaps.
+ * Fetches and parses a sitemap or RSS feed to find the most recent blog posts.
+ * Optimized for both standard XML sitemaps and RSS feeds.
  */
-export async function discoverLatestPosts(sitemapUrl: string, limit: number = 5): Promise<DiscoveryResult[]> {
+export async function discoverLatestPosts(feedUrl: string, limit: number = 5): Promise<DiscoveryResult[]> {
   try {
-    const response = await fetch(sitemapUrl, {
+    const response = await fetch(feedUrl, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'application/xml, text/xml, */*'
+      },
       next: { revalidate: 3600 } // Cache for 1 hour
     });
 
     if (!response.ok) {
-      console.warn(`[LinkDiscovery] Failed to fetch sitemap: ${response.statusText}`);
+      console.warn(`[LinkDiscovery] Failed to fetch feed/sitemap: ${response.statusText}`);
       return [];
     }
 
     const xml = await response.text();
-    
-    // Simple regex to extract <loc> and <lastmod> from sitemap
-    const urlRegex = /<url>([\s\S]*?)<\/url>/g;
-    const locRegex = /<loc>(.*?)<\/loc>/;
-    const lastmodRegex = /<lastmod>(.*?)<\/lastmod>/;
-
     const results: DiscoveryResult[] = [];
-    let match;
 
-    while ((match = urlRegex.exec(xml)) !== null) {
-      const urlContent = match[1];
-      const locMatch = urlContent.match(locRegex);
-      const lastmodMatch = urlContent.match(lastmodRegex);
+    // Check if it's an RSS Feed
+    if (xml.includes('<rss') || xml.includes('<channel>')) {
+      const itemRegex = /<item>([\s\S]*?)<\/item>/g;
+      const linkRegex = /<link>(.*?)<\/link>/;
+      const pubDateRegex = /<pubDate>(.*?)<\/pubDate>/;
+      let match;
 
-      if (locMatch && locMatch[1]) {
-        // Exclude generic pages if possible (e.g., /about, /contact)
-        const url = locMatch[1].trim();
-        if (url.includes('/blog/') || url.split('/').length > 4) {
+      while ((match = itemRegex.exec(xml)) !== null) {
+        const itemContent = match[1];
+        const linkMatch = itemContent.match(linkRegex);
+        const pubDateMatch = itemContent.match(pubDateRegex);
+
+        if (linkMatch && linkMatch[1]) {
           results.push({
-            url,
-            lastmod: lastmodMatch ? lastmodMatch[1] : undefined
+            url: linkMatch[1].trim(),
+            lastmod: pubDateMatch ? pubDateMatch[1] : undefined
           });
+        }
+      }
+    } else {
+      // Standard XML Sitemap
+      const urlRegex = /<url>([\s\S]*?)<\/url>/g;
+      const locRegex = /<loc>(.*?)<\/loc>/;
+      const lastmodRegex = /<lastmod>(.*?)<\/lastmod>/;
+      let match;
+
+      while ((match = urlRegex.exec(xml)) !== null) {
+        const urlContent = match[1];
+        const locMatch = urlContent.match(locRegex);
+        const lastmodMatch = urlContent.match(lastmodRegex);
+
+        if (locMatch && locMatch[1]) {
+          const url = locMatch[1].trim();
+          // Filter to avoid generic pages and target actual articles
+          if (url.includes('/blog/') || url.split('/').length > 4) {
+            results.push({
+              url,
+              lastmod: lastmodMatch ? lastmodMatch[1] : undefined
+            });
+          }
         }
       }
     }

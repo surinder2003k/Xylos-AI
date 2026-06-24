@@ -79,7 +79,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         
         // Super Admin Fallback (Hardcoded for user's specific emails)
         const superAdmins = ["sendltestmaill@gmail.com", "xyzg135@gmail.com"];
-        if (superAdmins.includes(email)) {
+        let isUserAdmin = superAdmins.includes(email);
+        
+        if (isUserAdmin) {
           setIsAdmin(true);
           setUserRole("admin");
         }
@@ -91,23 +93,31 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             .eq("user_id", user.id)
             .maybeSingle();
           
-          if (!profileError && profile?.role === "admin") {
+          if (!profileError && (profile?.role === "admin" || profile?.role === "super_admin")) {
+            isUserAdmin = true;
             setIsAdmin(true);
             setUserRole("admin");
-          } else if (!superAdmins.includes(email)) {
-            // Normal users should not access the dashboard, redirect to chat
-            window.location.href = "/chat";
           }
         } catch (e) {
           console.warn("[Editorial Sync] Role validation skipped:", e);
-          if (!superAdmins.includes(email)) {
-            window.location.href = "/chat";
+        }
+
+        // Redirect logic for non-admin users
+        if (!isUserAdmin) {
+          setIsAdmin(false);
+          setUserRole("user");
+          // Non-admins should not access the admin-only panel page
+          if (pathname === "/dashboard/ai-manager") {
+            window.location.href = "/dashboard";
           }
         }
+      } else {
+        // Guest user: redirect to login
+        window.location.href = "/login";
       }
     }
     fetchUserProfile();
-  }, []);
+  }, [pathname]);
 
   const sidebarItems = isAdmin ? [...baseNavItems, adminNavItem] : baseNavItems;
 

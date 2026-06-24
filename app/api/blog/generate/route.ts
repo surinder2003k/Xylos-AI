@@ -3,7 +3,7 @@ import { generateSmartBlog } from "@/lib/ai/smart-generator";
 import { searchSmartImage } from "@/lib/utils/image-search";
 import { generateAIImage } from "@/lib/ai/image-generator";
 import { slugify } from "@/lib/utils/slugify";
-import { sanitizeDiscoveryLink } from "@/lib/utils/link-discovery";
+import { discoverLatestPosts, sanitizeDiscoveryLink } from "@/lib/utils/link-discovery";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -18,9 +18,10 @@ export async function POST(req: Request) {
     // Get Auth User for author_id
     const { data: { user } } = await supabase.auth.getUser();
 
-    // 2. Fetch Recent Blog Titles & internal links (Context & SEO Injection)
+    // 2. Fetch Recent Blog Titles & internal/external links (Context & SEO Injection)
     let recentTitles: string[] = [];
-    let linkingContext: string[] = [];
+    let internalLinks: string[] = [];
+    let externalLinks: string[] = [];
     try {
       const { data: posts } = await supabase
         .from("blogs")
@@ -30,24 +31,25 @@ export async function POST(req: Request) {
       
       if (posts) {
         recentTitles = posts.map(p => p.title);
-        linkingContext = posts.slice(0, 3).map(p => `https://xylosai.vercel.app/blog/${p.slug}`); // Internal Backlinks
+        internalLinks = posts.slice(0, 3).map(p => `https://xylosai.vercel.app/blog/${p.slug}`); // Internal Backlinks
       }
     } catch {
       console.warn("[Strategy Sync] Failed to fetch context, proceeding without it.");
     }
 
-    // Attempt to grab latest partner site post for external backlinking strategy
+    // Fetch partner sitemaps for external backlinking strategy
     try {
-      const partnerRes = await fetch("https://pulse-blog-ai.vercel.app/", { next: { revalidate: 3600 } });
-      const html = await partnerRes.text();
-      const match = html.match(/"\/blog\/([^"?]+)"/);
-      if (match && match[1] && match[1] !== 'undefined') {
-        const partnerLink = sanitizeDiscoveryLink(`https://pulse-blog-ai.vercel.app/blog/${match[1]}`);
-        linkingContext.push(partnerLink);
-        console.log(`[SEO Engine] Linked Partner Site Post: ${partnerLink}`);
-      }
+      const [partner1Posts, partner2Posts] = await Promise.all([
+        discoverLatestPosts("https://techcrunch.com/feed/", 1),
+        discoverLatestPosts("https://www.theverge.com/rss/index.xml", 1)
+      ]);
+      externalLinks = [
+        ...partner1Posts.map(p => p.url),
+        ...partner2Posts.map(p => p.url)
+      ];
+      console.log(`[SEO Engine] Discovered Partner Links:`, externalLinks);
     } catch (err) {
-      console.warn("[SEO Engine] Partner site link fetching failed.", err);
+      console.warn("[SEO Engine] Partner site link discovery failed.", err);
     }
 
     // 3. Generate AI Content (With Multi-Provider Fallback)
@@ -55,7 +57,8 @@ export async function POST(req: Request) {
       userPrompt || "Latest Global Technological & Strategic Shifts 2026", 
       recentTitles,
       userCategory,
-      linkingContext
+      internalLinks,
+      externalLinks
     );
 
     // 4. AI Image Production Engine (Feature Image)

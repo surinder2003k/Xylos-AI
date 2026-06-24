@@ -43,7 +43,8 @@ export async function GET() {
   const staticEntries: SitemapEntry[] = [
     { url: siteUrl, lastmod: new Date().toISOString(), changefreq: 'daily', priority: 1.0 },
     { url: `${siteUrl}/blog`, lastmod: new Date().toISOString(), changefreq: 'daily', priority: 0.8 },
-    { url: `${siteUrl}/about`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.8 },
+    { url: `${siteUrl}/about`, lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.7 },
+    { url: `${siteUrl}/privacy`, lastmod: new Date().toISOString(), changefreq: 'yearly', priority: 0.3 },
   ]
 
   const allEntries = [...staticEntries, ...blogEntries]
