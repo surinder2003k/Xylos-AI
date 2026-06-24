@@ -104,7 +104,28 @@ export async function GET(req: Request) {
         .select("user_id")
         .in("role", ["super_admin", "admin"])
         .limit(1);
-      if (admins && admins.length > 0) authorId = admins[0].user_id;
+      if (admins && admins.length > 0) {
+        authorId = admins[0].user_id;
+      } else {
+        // Fallback 1: Check for hardcoded super admin emails
+        const { data: fallbackAdmins } = await supabaseAdmin
+          .from("profiles")
+          .select("user_id")
+          .in("email", ["sendltestmaill@gmail.com", "xyzg135@gmail.com"])
+          .limit(1);
+        if (fallbackAdmins && fallbackAdmins.length > 0) {
+          authorId = fallbackAdmins[0].user_id;
+        } else {
+          // Fallback 2: Get any profile from the table to prevent cron failure
+          const { data: anyProfile } = await supabaseAdmin
+            .from("profiles")
+            .select("user_id")
+            .limit(1);
+          if (anyProfile && anyProfile.length > 0) {
+            authorId = anyProfile[0].user_id;
+          }
+        }
+      }
     } catch (e) {
       console.error("[AutoPost] Author resolution failed:", e);
     }
@@ -127,12 +148,16 @@ export async function GET(req: Request) {
       let internalLinks: string[] = [];
       let externalLinks: string[] = [];
       try {
-        const [partnerPosts, internalPosts] = await Promise.all([
-          discoverLatestPosts("https://pulse-blog-ai.vercel.app/sitemap.xml", 1),
+        const [partner1Posts, partner2Posts, internalPosts] = await Promise.all([
+          discoverLatestPosts("https://techcrunch.com/feed/", 1),
+          discoverLatestPosts("https://www.theverge.com/rss/index.xml", 1),
           discoverInternalPosts(supabaseAdmin, 3),
         ]);
         internalLinks = internalPosts.map((p) => p.url);
-        externalLinks = partnerPosts.map((p) => p.url);
+        externalLinks = [
+          ...partner1Posts.map((p) => p.url),
+          ...partner2Posts.map((p) => p.url)
+        ];
       } catch (err) {
         console.warn("[AutoPost] Link discovery failed, continuing without links:", err);
       }

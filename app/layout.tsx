@@ -29,10 +29,10 @@ const ScrollToTop = dynamic(() => import("@/components/premium/scroll-to-top").t
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://xylosai.vercel.app'),
   title: {
-    default: "Xylos AI — Free AI Chat & Blog | Llama 3, Gemini, Mistral",
+    default: "Xylos AI (xylosai) — Free AI Chat & Blog | Llama 3, Gemini, Mistral",
     template: "%s | Xylos AI",
   },
-  description: "Access Llama 3, Gemini & Mistral in one free AI platform. Professional AI chat, content creation, and editorial intelligence at zero cost.",
+  description: "Xylos AI (xylosai) is the ultimate free AI platform. Access Llama 3, Gemini & Mistral in one free AI chat, content generator, and editorial suite at zero cost.",
   applicationName: "Xylos AI",
   referrer: "origin-when-cross-origin",
   authors: [{ name: "Xylos AI Research", url: "https://xylosai.vercel.app" }],
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     apple: "/icon.svg",
   },
   keywords: [
-    "Xylos AI", "Free AI Chat", "Llama 3 Online Free", "Gemini Pro Free",
+    "xylosai", "xylos-ai", "xylos.ai", "xylos ai", "Xylos AI", "Free AI Chat", "Llama 3 Online Free", "Gemini Pro Free",
     "Mistral AI", "AI Blog Generator", "ChatGPT Alternative Free",
     "AI Content Strategy", "Free AI Platform", "AI Writing Tool",
     "AI Research Tool", "Free Llama 3", "Free Gemini"
@@ -109,10 +109,21 @@ export default async function RootLayout({
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Xylos AI",
+      "alternateName": ["xylosai", "xylos-ai", "XylosAI"],
       "url": "https://xylosai.vercel.app",
       "description": "Free AI chat and content platform with Llama 3, Gemini, and Mistral.",
     },
-    // ... other schemas
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Xylos AI",
+      "alternateName": "xylosai",
+      "url": "https://xylosai.vercel.app",
+      "logo": "https://xylosai.vercel.app/icon.svg",
+      "sameAs": [
+        "https://github.com/surinder2003k"
+      ]
+    }
   ];
 
   return (

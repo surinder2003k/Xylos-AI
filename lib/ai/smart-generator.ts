@@ -45,7 +45,7 @@ export async function generateSmartBlog(
   DO NOT repeat any of the recent titles mentioned above. Provide a fresh, insightful perspective.
   
   SEO & LINKING ARCHITECTURE (CRITICAL):
-  You MUST naturally weave both internal and external citations into the narrative using <a> tags with target="_blank".
+  You MUST naturally weave internal citations, external partner citations, and general high-authority reference citations into the narrative using <a> tags with target="_blank" and rel="noopener noreferrer".
   
   1. INTERNAL TARGETS (Link at least ONE of these for deep-dive contextual exploration):
   ${internalLinks.length > 0 ? internalLinks.join("\n") : "None provided. Use relevant internal site structure references."}
@@ -53,7 +53,15 @@ export async function generateSmartBlog(
   2. EXTERNAL PARTNER TARGETS (Link at least ONE of these for global authority/verification):
   ${externalLinks.length > 0 ? externalLinks.join("\n") : "None provided. Use generic high-authority citations if needed."}
   
-  MANDATORY RULE: You MUST include AT LEAST ONE link from the Internal Targets list AND AT LEAST ONE from the External Targets list within the body content.
+  3. GENERAL HIGH-AUTHORITY CITATIONS (Link at least TWO of these to key concepts/keywords in the article):
+  - Hyperlink major technologies, companies, or scientific terms to their official websites or highly authoritative Wikipedia pages.
+  - Examples of keywords and their targets:
+    * "artificial intelligence", "AI" or "machine learning" -> link to "https://en.wikipedia.org/wiki/Artificial_intelligence" or "https://arxiv.org"
+    * "Next.js", "React", "TypeScript", "Node.js", "Python" -> link to their official websites ("https://nextjs.org", "https://react.dev", "https://www.typescriptlang.org", "https://nodejs.org", "https://www.python.org")
+    * "OpenAI", "Gemini", "Llama 3", "Mistral AI", "Google DeepMind" -> link to their official pages ("https://openai.com", "https://deepmind.google/technologies/gemini/", "https://llama.meta.com", "https://mistral.ai", "https://deepmind.google")
+  - Avoid generic "click here" text. The hyperlinked text MUST be the exact name of the concept, technology, or company.
+
+  MANDATORY RULE: You MUST include AT LEAST ONE link from the Internal Targets list, AT LEAST ONE link from the External Partner Targets list, and AT LEAST TWO General High-Authority Citations in the body content.
   
   STRUCTURE & LENGTH REQUIREMENTS (MINIMUM 600 WORDS TOTAL):
   1. Introduction (100+ words): Start with a profound global perspective. Establish the gravity of the subject.
