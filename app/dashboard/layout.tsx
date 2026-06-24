@@ -44,6 +44,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const [userEmail, setUserEmail] = useState("");
   const [userRole, setUserRole] = useState("user");
   const [mounted, setMounted] = useState(false);
+  const [authChecked, setAuthChecked] = useState(false);
   const [screenWidth, setScreenWidth] = useState(1200); // Safe default for SSR
   const pathname = usePathname();
   const { showToast } = useToast();
@@ -72,52 +73,72 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   useEffect(() => {
     async function fetchUserProfile() {
       const supabase = createClient();
-      const { data: { user } } = await supabase.auth.getUser();
-      if (user) {
-        const email = user.email || "";
-        setUserEmail(email);
-        
-        // Super Admin Fallback (Hardcoded for user's specific emails)
-        const superAdmins = ["sendltestmaill@gmail.com", "xyzg135@gmail.com"];
-        let isUserAdmin = superAdmins.includes(email);
-        
-        if (isUserAdmin) {
-          setIsAdmin(true);
-          setUserRole("admin");
-        }
+      try {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user) {
+          const email = user.email || "";
+          setUserEmail(email);
+          
+          // Super Admin Fallback (Hardcoded for user's specific emails)
+          const superAdmins = ["sendltestmaill@gmail.com", "xyzg135@gmail.com"];
+          let isUserAdmin = superAdmins.includes(email);
+          
+          if (isUserAdmin) {
+            setIsAdmin(true);
+            setUserRole("admin");
+          }
 
-        try {
           const { data: profile, error: profileError } = await supabase
             .from("profiles")
             .select("role")
             .eq("user_id", user.id)
             .maybeSingle();
           
-          if (!profileError && (profile?.role === "admin" || profile?.role === "super_admin")) {
-            isUserAdmin = true;
-            setIsAdmin(true);
-            setUserRole("admin");
+          if (!profileError && profile) {
+            if (profile.role === "admin" || profile.role === "super_admin") {
+              isUserAdmin = true;
+              setIsAdmin(true);
+              setUserRole("admin");
+            }
+          } else if (!profileError && !profile) {
+            // Profile is missing! Let's create it on the fly to prevent downstream RLS or FK errors.
+            console.log("[Editorial Sync] Profile missing, creating on the fly for:", user.id);
+            const { error: insertError } = await supabase
+              .from("profiles")
+              .insert({
+                user_id: user.id,
+                email: email,
+                full_name: user.user_metadata?.full_name || email.split("@")[0],
+                role: isUserAdmin ? "admin" : "user"
+              });
+            if (insertError) {
+              console.error("[Editorial Sync] Failed to auto-create profile:", insertError);
+            }
           }
-        } catch (e) {
-          console.warn("[Editorial Sync] Role validation skipped:", e);
-        }
-
-        // Redirect logic for non-admin users
-        if (!isUserAdmin) {
-          setIsAdmin(false);
-          setUserRole("user");
-          // Non-admins should not access the admin-only panel page
-          if (pathname === "/dashboard/ai-manager") {
-            window.location.href = "/dashboard";
+          
+          if (!isUserAdmin) {
+            setIsAdmin(false);
+            setUserRole("user");
           }
+        } else {
+          // Guest user: redirect to login
+          window.location.href = "/login";
         }
-      } else {
-        // Guest user: redirect to login
-        window.location.href = "/login";
+      } catch (e) {
+        console.warn("[Editorial Sync] Role validation error:", e);
+      } finally {
+        setAuthChecked(true);
       }
     }
     fetchUserProfile();
-  }, [pathname]);
+  }, []);
+
+  // Strict route protection for admin-only pages
+  useEffect(() => {
+    if (authChecked && !isAdmin && pathname === "/dashboard/ai-manager") {
+      window.location.href = "/dashboard";
+    }
+  }, [pathname, isAdmin, authChecked]);
 
   const sidebarItems = isAdmin ? [...baseNavItems, adminNavItem] : baseNavItems;
 

@@ -65,7 +65,7 @@ export default function SettingsPage() {
                 <div>
                    <h3 className="text-lg font-bold font-fustat text-foreground">{provider.name} Integration</h3>
                    <div className="flex items-center gap-2 text-[10px] font-black text-foreground uppercase tracking-widest mt-0.5">
-                      <span className="text-[10px] font-black text-foreground uppercase tracking-widest">Pulse Core</span>
+                      <span className="text-[10px] font-black text-foreground uppercase tracking-widest">Xylos Core</span>
                       <Lock className="w-3 h-3" />
                       End-to-End Encrypted
                    </div>
