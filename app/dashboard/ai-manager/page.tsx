@@ -261,7 +261,7 @@ export default function AIManagerPage() {
          <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-primary text-xs font-black uppercase tracking-widest">
                <Activity className="w-4 h-4 animate-pulse" />
-               Pulse Active
+               Xylos Active
             </div>
             <button 
               onClick={runAutomation}
@@ -547,7 +547,7 @@ export default function AIManagerPage() {
         onClose={() => setIsDeleteModalOpen(false)}
         onConfirm={confirmDeleteUser}
         title="CRITICAL: Purge User Protocol"
-        message={`Confirm PERMANENT removal of "${targetUser?.full_name || targetUser?.email}" from the Pulse AI directory. This action cannot be undone.`}
+        message={`Confirm PERMANENT removal of "${targetUser?.full_name || targetUser?.email}" from the Xylos AI directory. This action cannot be undone.`}
         confirmText="INITIATE PURGE"
         cancelText="ABORT"
         type="danger"
