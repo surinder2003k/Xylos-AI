@@ -2,8 +2,7 @@ import { createClient } from "@/utils/supabase/server";
 import { generateSmartBlog } from "@/lib/ai/smart-generator";
 import { searchSmartImage } from "@/lib/utils/image-search";
 import { generateAIImage } from "@/lib/ai/image-generator";
-import { slugify } from "@/lib/utils/slugify";
-import { discoverLatestPosts, sanitizeDiscoveryLink } from "@/lib/utils/link-discovery";
+import { discoverLatestPosts } from "@/lib/utils/link-discovery";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -28,7 +27,7 @@ export async function POST(req: Request) {
         .select("title, slug")
         .order("created_at", { ascending: false })
         .limit(15);
-      
+
       if (posts) {
         recentTitles = posts.map(p => p.title);
         internalLinks = posts.slice(0, 3).map(p => `https://xylosai.vercel.app/blog/${p.slug}`); // Internal Backlinks
@@ -54,7 +53,7 @@ export async function POST(req: Request) {
 
     // 3. Generate AI Content (With Multi-Provider Fallback)
     const blogData = await generateSmartBlog(
-      userPrompt || "Latest Global Technological & Strategic Shifts 2026", 
+      userPrompt || "Latest Global Technological & Strategic Shifts 2026",
       recentTitles,
       userCategory,
       internalLinks,
@@ -74,7 +73,7 @@ export async function POST(req: Request) {
     // Fallback to stock search if generation fails
     if (!featureImageUrl) {
       const imageResult = await searchSmartImage(
-        `${blogData.search_term || blogData.title} ${Math.random().toString(36).substring(7)}`, 
+        `${blogData.search_term || blogData.title} ${Math.random().toString(36).substring(7)}`,
         blogData.category
       );
       featureImageUrl = imageResult.url;
@@ -83,7 +82,7 @@ export async function POST(req: Request) {
     // 5. In-Article Image Processing
     let processedContent = blogData.content;
     const imageMarkers = blogData.content.match(/\[AI_IMAGE_PROMPT: (.*?)\]/g);
-    
+
     if (imageMarkers && imageMarkers.length > 0) {
       console.log(`[Neural Engine] Found ${imageMarkers.length} in-article image markers.`);
       for (const marker of imageMarkers) {
@@ -91,7 +90,7 @@ export async function POST(req: Request) {
         try {
           // 1. Attempt High-Fidelity Generation
           let inArticleUrl = await generateAIImage(prompt);
-          
+
           // 2. Fallback to Stock Search on failure
           if (!inArticleUrl) {
             console.log(`[Neural Engine] Generation failed for segment, falling back to stock search: ${prompt}`);
@@ -103,7 +102,7 @@ export async function POST(req: Request) {
             const imgHtml = `<figure class="my-8"><img src="${inArticleUrl}" alt="${prompt}" title="${prompt}" class="rounded-2xl border border-border shadow-2xl w-full h-auto" /><figcaption class="text-center text-[10px] text-muted-foreground uppercase tracking-widest mt-3">${prompt}</figcaption></figure>`;
             processedContent = processedContent.replace(marker, imgHtml);
           } else {
-            processedContent = processedContent.replace(marker, ""); 
+            processedContent = processedContent.replace(marker, "");
           }
         } catch (err) {
           console.warn(`[Neural Engine] In-article image processing failed for: ${prompt}`, err);
@@ -137,7 +136,11 @@ export async function POST(req: Request) {
         meta_title: blogData.meta_title,
         meta_description: blogData.meta_description,
         keywords: blogData.keywords,
-        slug: slugify(blogData.title),
+        // Build unique slug with random suffix to avoid DB collisions
+        slug: blogData.title
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/(^-|-$)+/g, "") + "-" + Math.random().toString(36).substring(2, 7),
         status: autoPublish ? "published" : "draft",
         published_at: autoPublish ? new Date().toISOString() : null,
         author_id: user?.id || null, // Ensure author is linked
@@ -151,18 +154,18 @@ export async function POST(req: Request) {
 
       if (error) throw error;
 
-      return NextResponse.json({ 
-        success: true, 
+      return NextResponse.json({
+        success: true,
         post: data,
         message: `Successfully synchronized: "${blogData.title}"`
       });
     } catch (dbError: unknown) {
       const errorMsg = dbError instanceof Error ? dbError.message : "Database persistence failed";
       console.error("[Strategy Sync] Database persistence failed:", errorMsg);
-      
+
       // CRITICAL FALLBACK: Return the generated content so the UI can display it
-      return NextResponse.json({ 
-        success: true, 
+      return NextResponse.json({
+        success: true,
         post: {
           ...blogData,
           content: processedContent,

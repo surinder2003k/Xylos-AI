@@ -24,7 +24,7 @@ export async function getProviderResponse(
   model: string,
   messages: Message[]
 ): Promise<ProviderResponse> {
-  
+
   // High-Performance Link & Asset Pre-processor
   const processedMessages = messages.map(m => {
     let content = m.content;
@@ -93,10 +93,10 @@ export async function getProviderResponse(
   if (provider === 'gemini') {
     const systemInstruction = processedMessages.find(m => m.role === 'system')?.content;
     const chatMessages = processedMessages.filter(m => m.role !== 'system');
-    
-    const modelToUse = "gemini-1.5-flash"; 
-    
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelToUse}:generateContent?key=${process.env.NEXT_PUBLIC_GEMINI_API_KEY}`, {
+
+    const modelToUse = "gemini-1.5-flash";
+
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelToUse}:generateContent?key=${process.env.GOOGLE_GEMINI_API_KEY}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -105,7 +105,7 @@ export async function getProviderResponse(
         } : undefined,
         contents: chatMessages.map(m => {
           const parts: any[] = [{ text: m.content || " " }];
-          
+
           if (m.attachments && m.attachments.length > 0) {
             m.attachments.forEach(file => {
               if (file.type.startsWith('image/')) {
@@ -127,14 +127,14 @@ export async function getProviderResponse(
         })
       })
     });
-    
+
     const data = await res.json();
-    
+
     if (data.error) {
-       console.error('[Neural Sync] Gemini Interface Error:', data.error);
-       throw new Error(`Gemini Protocol Rejected: ${data.error.message || 'Invalid Request / Key'}`);
+      console.error('[Neural Sync] Gemini Interface Error:', data.error);
+      throw new Error(`Gemini Protocol Rejected: ${data.error.message || 'Invalid Request / Key'}`);
     }
-    
+
     if (!data.candidates?.[0]?.content?.parts?.[0]?.text) {
       if (data.candidates?.[0]?.finishReason === 'SAFETY') {
         throw new Error('Xylos AI Safety Protocol: Content blocked due to sensitive material.');
@@ -201,8 +201,8 @@ export async function getProviderResponse(
 
   // 6. CEREBRAS
   if (provider === 'cerebras') {
-     const safeMessages = processedMessages.map(m => ({ role: m.role, content: m.content }));
-     const res = await fetch("https://api.cerebras.ai/v1/chat/completions", {
+    const safeMessages = processedMessages.map(m => ({ role: m.role, content: m.content }));
+    const res = await fetch("https://api.cerebras.ai/v1/chat/completions", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${process.env.CEREBRAS_API_KEY}`,

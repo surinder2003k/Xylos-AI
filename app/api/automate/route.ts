@@ -12,6 +12,30 @@ import { createClient as createAuthClient } from "@/utils/supabase/server";
 export const maxDuration = 60;
 export const dynamic = "force-dynamic";
 
+// Available categories to rotate through
+const CATEGORIES = [
+  "Technology",
+  "Business",
+  "Science",
+  "Health",
+  "AI & Machine Learning",
+  "Cybersecurity",
+  "Blockchain",
+  "Space & Astronomy"
+];
+
+// Available topics mapped to categories
+const CATEGORY_TOPICS: Record<string, string[]> = {
+  "Technology": ["Global Technology Advancements", "Future of Computing", "Digital Transformation", "Emerging Tech Trends"],
+  "Business": ["Startup & VC Ecosystem", "Market Analysis", "Business Strategy", "Economic Trends"],
+  "Science": ["Scientific Breakthroughs", "Research & Development", "Innovation in Science", "Discovery & Exploration"],
+  "Health": ["Healthcare Innovation", "Medical Breakthroughs", "Wellness & Technology", "Public Health Trends"],
+  "AI & Machine Learning": ["Artificial Intelligence & Ethics", "Neural Networks & Deep Learning", "AI in Enterprise", "Machine Learning Applications"],
+  "Cybersecurity": ["Cybersecurity Protocols", "Data Privacy", "Network Security", "Threat Intelligence"],
+  "Blockchain": ["Blockchain Technology", "DeFi & Web3", "Cryptocurrency Trends", "Smart Contracts"],
+  "Space & Astronomy": ["Space Exploration", "Astronomy Discoveries", "Space Technology", "Cosmic Phenomena"]
+};
+
 export async function GET(req: Request) {
   const startTime = Date.now();
 
@@ -24,7 +48,7 @@ export async function GET(req: Request) {
 
     // 2. Authorization Check
     const { searchParams } = new URL(req.url);
-    const count = Math.min(parseInt(searchParams.get("count") || "1"), 3);
+    const count = Math.min(parseInt(searchParams.get("count") || "2"), 3);
 
     const authHeader = req.headers.get("authorization");
     const vercelCronHeader = req.headers.get("x-vercel-cron");
@@ -69,23 +93,27 @@ export async function GET(req: Request) {
     const trigger = isCron ? "Cron" : "Manual";
     console.log(`[AutoPost] START | Trigger: ${trigger} | Count: ${count}`);
 
-    // 3. Fetch Context — use separate queries to avoid one failure killing everything
+    // 3. Fetch ALL existing titles for deduplication
+    let allExistingTitles: string[] = [];
     let recentTitles: string[] = [];
     let activeCategory = "Technology";
 
     try {
       const { data: latestPosts } = await supabaseAdmin
         .from("blogs")
-        .select("title")
+        .select("title, category")
         .order("created_at", { ascending: false })
-        .limit(10);
-      if (latestPosts) recentTitles = latestPosts.map((p) => p.title);
+        .limit(100); // Fetch more for better dedup
+      if (latestPosts) {
+        allExistingTitles = latestPosts.map((p) => p.title);
+        recentTitles = latestPosts.slice(0, 10).map((p) => p.title);
+      }
     } catch (err) {
       console.warn("[AutoPost] Could not fetch recent titles:", err);
     }
 
+    // 4. Get or auto-select category with rotation
     try {
-      // FIX: Use .maybeSingle() instead of .single() to avoid error on missing row
       const { data: categorySetting } = await supabaseAdmin
         .from("app_settings")
         .select("value")
@@ -96,7 +124,10 @@ export async function GET(req: Request) {
       console.warn("[AutoPost] Could not fetch auto_category setting, using default:", err);
     }
 
-    // 4. Resolve Author ID
+    // Category rotation: use the configured category for first post, then rotate
+    let currentCategory = activeCategory;
+
+    // 5. Resolve Author ID
     let authorId: string | null = null;
     try {
       const { data: admins } = await supabaseAdmin
@@ -140,9 +171,30 @@ export async function GET(req: Request) {
 
     const results: any[] = [];
 
-    // 5. Generation Loop
+    // 6. Generation Loop
     for (let i = 0; i < count; i++) {
-      console.log(`[AutoPost] Generating post ${i + 1}/${count} | Category: ${activeCategory}`);
+      // Check remaining time - abort if less than 15 seconds left
+      const elapsed = Date.now() - startTime;
+      if (elapsed > 45000) {
+        console.warn(`[AutoPost] Timeout approaching after ${i} posts. Aborting remaining.`);
+        break;
+      }
+
+      // Rotate category for each post to avoid duplicate content
+      if (i > 0) {
+        const categoryIndex = CATEGORIES.indexOf(currentCategory);
+        const nextCategoryIndex = (categoryIndex + 1) % CATEGORIES.length;
+        currentCategory = CATEGORIES[nextCategoryIndex];
+      } else {
+        currentCategory = activeCategory;
+      }
+
+      // Get topic for the current category
+      const topics = CATEGORY_TOPICS[currentCategory] || ["Latest Developments", "Industry Trends", "Expert Analysis"];
+      const topicIndex = allExistingTitles.length % topics.length;
+      const currentTopic = topics[topicIndex];
+
+      console.log(`[AutoPost] Generating post ${i + 1}/${count} | Category: ${currentCategory} | Topic: ${currentTopic}`);
 
       // Link Discovery
       let internalLinks: string[] = [];
@@ -162,13 +214,13 @@ export async function GET(req: Request) {
         console.warn("[AutoPost] Link discovery failed, continuing without links:", err);
       }
 
-      // AI Content Generation
+      // AI Content Generation with dedup context
       let blogData;
       try {
         blogData = await generateSmartBlog(
-          activeCategory,
-          recentTitles,
-          activeCategory,
+          currentTopic,
+          allExistingTitles, // Pass ALL existing titles for better dedup
+          currentCategory,
           internalLinks,
           externalLinks,
         );
@@ -178,12 +230,32 @@ export async function GET(req: Request) {
         continue;
       }
 
+      // Check for duplicate title - if too similar to existing, skip
+      const titleLower = blogData.title.toLowerCase();
+      const isDuplicate = allExistingTitles.some(existingTitle => {
+        const existingLower = existingTitle.toLowerCase();
+        // Check if title is exactly same or very similar
+        if (existingLower === titleLower) return true;
+        // Check if share more than 60% of words (indicating similar content)
+        const existingWords = new Set(existingLower.split(/\s+/));
+        const newWords = titleLower.split(/\s+/);
+        const commonWords = newWords.filter(w => existingWords.has(w));
+        const similarity = commonWords.length / Math.max(newWords.length, existingWords.size);
+        return similarity > 0.6;
+      });
+
+      if (isDuplicate) {
+        console.warn(`[AutoPost] DUPLICATE DETECTED: "${blogData.title}" is too similar to existing posts. Skipping.`);
+        results.push({ status: "skipped", reason: "Duplicate content detected", title: blogData.title });
+        continue;
+      }
+
       // Image Search
       let imageResult;
       try {
         imageResult = await searchSmartImage(
           blogData.search_term || blogData.title,
-          blogData.category,
+          blogData.category || currentCategory,
         );
       } catch (imgErr: any) {
         console.warn(`[AutoPost] Image search failed, using fallback:`, imgErr.message);
@@ -194,13 +266,11 @@ export async function GET(req: Request) {
       }
 
       // Build slug with random suffix to avoid collisions
-      const slug =
-        blogData.title
-          .toLowerCase()
-          .replace(/[^a-z0-9]+/g, "-")
-          .replace(/(^-|-$)+/g, "") +
-        "-" +
-        Math.random().toString(36).substring(2, 7);
+      const baseSlug = blogData.title
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)+/g, "");
+      const slug = baseSlug + "-" + Math.random().toString(36).substring(2, 7);
 
       // Database Insert
       const { data: newPost, error: insertError } = await supabaseAdmin
@@ -210,7 +280,7 @@ export async function GET(req: Request) {
           slug,
           excerpt: blogData.excerpt,
           content: blogData.content,
-          category: activeCategory,
+          category: currentCategory,
           feature_image_url: imageResult.url,
           alt_text: blogData.alt_text || imageResult.alt,
           status: "published",
@@ -229,18 +299,22 @@ export async function GET(req: Request) {
         continue;
       }
 
-      console.log(`[AutoPost] Post ${i + 1} created: "${newPost.title}" (${newPost.id})`);
-      results.push({ status: "success", id: newPost.id, title: newPost.title });
-      recentTitles.push(newPost.title);
+      console.log(`[AutoPost] Post ${i + 1} created: "${newPost.title}" (${newPost.id}) | Category: ${currentCategory}`);
+      results.push({ status: "success", id: newPost.id, title: newPost.title, category: currentCategory });
+
+      // Add to existing titles for subsequent dedup checks
+      allExistingTitles.push(newPost.title);
     }
 
     const duration = ((Date.now() - startTime) / 1000).toFixed(2);
     const successCount = results.filter((r) => r.status === "success").length;
-    console.log(`[AutoPost] DONE | ${successCount}/${count} posts created | ${duration}s`);
+    const skippedCount = results.filter((r) => r.status === "skipped").length;
+    console.log(`[AutoPost] DONE | ${successCount}/${count} posts created | ${skippedCount} skipped | ${duration}s`);
 
     return NextResponse.json({
       success: true,
       created: successCount,
+      skipped: skippedCount,
       total_requested: count,
       posts: results,
       duration: `${duration}s`,

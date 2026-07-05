@@ -8,7 +8,7 @@ export async function updateSession(request: NextRequest) {
 
   // IMPORTANT: Explicitly bypass SEO files to prevent "Sitemap is HTML" errors in Search Console
   if (
-    request.nextUrl.pathname === '/sitemap.xml' || 
+    request.nextUrl.pathname === '/sitemap.xml' ||
     request.nextUrl.pathname === '/robots.txt'
   ) {
     return NextResponse.next({ request });
@@ -58,24 +58,22 @@ export async function updateSession(request: NextRequest) {
     }
   } catch (e: any) {
     // Silent fallback for network/DNS errors to prevent terminal noise
-    const isNetworkError = 
-      e.message?.includes('fetch failed') || 
-      e.code === 'ENOTFOUND' || 
+    const isNetworkError =
+      e.message?.includes('fetch failed') ||
+      e.code === 'ENOTFOUND' ||
       e.code === 'UND_ERR_CONNECT_TIMEOUT';
-      
+
     if (!isNetworkError) {
       console.error("Supabase Auth Error:", e);
     }
   }
 
-  // IMPORTANT: Logged in users can still view the landing page (public blog)
-  /* 
-  if (user && request.nextUrl.pathname === '/') {
+  // If user IS logged in and tries to access /login, redirect to dashboard
+  if (user && request.nextUrl.pathname.startsWith('/login')) {
     const url = request.nextUrl.clone()
     url.pathname = '/dashboard'
     return NextResponse.redirect(url)
   }
-  */
 
   // If user is NOT logged in and tries to access protected routes, redirect to landing
   if (
