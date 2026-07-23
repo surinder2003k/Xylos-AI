@@ -1,60 +1,170 @@
-# Xylos AI - The Ultimate Free AI Editorial Architecture
+<p align="center">
+  <img src="public/screenshots/landing-hero.png" alt="Xylos AI" width="700" />
+</p>
 
-![Xylos AI Banner](https://xylosai.vercel.app/og-image.png)
+<p align="center">
+  <strong>Free AI Chat &amp; Blog Platform</strong><br/>
+  Llama 3 · Gemini · Mistral — Zero cost, professional grade.
+</p>
 
-## 🚀 Overview
-**Xylos** is a high-performance, generative editorial intelligence platform. It empowers creators and businesses with an elite suite of AI models—including **Llama 3, Gemini, and Mistral**—all within a premium, zero-cost workspace. Built with a focus on investigative analysis and architectural design, Xylos transforms raw data into polished, high-fidelity editorial content.
-
-## ✨ Key Features
-- **Multi-Model Intelligence**: Seamless access to 7+ top-tier AI providers (Groq, Google, Mistral, Cerebras, etc.).
-- **Strategic Workspace**: A professional-grade Tiptap editor with custom SEO link management (Do-Follow/No-Follow).
-- **Automated Engagement**: Integrated **Resend** pipeline for instant newsletter subscriptions and welcome briefings.
-- **Neural Branding**: A dynamic, animated logo system and glassmorphism-inspired UI for an immersive dashboard experience.
-- **Deep SEO Architecture**: Built-in Robots.txt, dynamic Sitemap.xml, and injected JSON-LD Structured Data for maximum search visibility.
-
-## 🛠️ Tech Stack
-- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
-- **Database / Auth**: [Supabase](https://supabase.com/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/) & [Animejs](https://animejs.com/)
-- **Email Service**: [Resend](https://resend.com/)
-- **Icons**: [Lucide React](https://lucide.dev/)
+<p align="center">
+  <a href="https://xylosai.vercel.app"><img src="https://img.shields.io/badge/Live-xylosai.vercel.app-000?style=flat-square" /></a>
+  <a href="#-tech-stack"><img src="https://img.shields.io/badge/Next.js%2015-000?style=flat-square&logo=next.js" /></a>
+  <a href="#-tech-stack"><img src="https://img.shields.io/badge/Supabase-000?style=flat-square&logo=supabase" /></a>
+  <a href="https://github.com/surinder2003k/Xylos-AI"><img src="https://img.shields.io/badge/52%20tests-passing-22c55e?style=flat-square" /></a>
+</p>
 
 ---
 
-## 🏗️ Getting Started
+## Overview
 
-### 1. Supabase Initialization
-To ensure the platform is stable, run the migration scripts found in the `database/` folder in your Supabase SQL Editor.
+**Xylos AI** is a high-performance generative editorial intelligence platform. It brings 7+ AI models together under one premium workspace — completely free. Built for creators, analysts, and developers who need professional-grade AI tools without the paywall.
 
-#### Essential Tables:
-- `blogs`: Stores your intellectual property and editorial articles.
-- `automation_logs`: Tracks neural processing and event logs.
+| Feature | Detail |
+|---|---|
+| AI Models | Llama 3.3 70B, Gemini Pro, Mistral, Cerebras, and more |
+| Chat | Multi-model chat with automatic failover routing |
+| Blog Engine | AI-powered generation, rich editing, SEO optimization |
+| Dashboard | Post management, analytics, AI settings |
+| Automation | Cron-based auto-publishing pipeline |
+| Auth | Email/password + Google OAuth via Supabase |
 
-### 2. Storage Setup
-The editorial engine requires a storage bucket for visual assets.
-1. Create a **New Bucket** named `blog-images`.
-2. Set the bucket to **Public**.
+---
 
-### 3. Local Configuration
-Create a `.env.local` file with the following neural keys:
-```env
-NEXT_PUBLIC_SUPABASE_URL=your_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_key
-RESEND_API_KEY=your_key
-# API keys for AI Providers (Groq, Google, etc.)
+## Screenshots
+
+| Landing Page | Blog Archive |
+|---|---|
+| <img src="public/screenshots/landing-full.png" width="340"/> | <img src="public/screenshots/blog-archive.png" width="340"/> |
+
+| Blog Post | Login |
+|---|---|
+| <img src="public/screenshots/blog-post.png" width="340"/> | <img src="public/screenshots/login.png" width="340"/> |
+
+---
+
+## Tech Stack
+
+| Category | Technology |
+|---|---|
+| **Framework** | Next.js 15 (App Router, ISR, React 19) |
+| **Database / Auth** | Supabase (Postgres, SSR auth, Storage) |
+| **Styling** | Tailwind CSS 3 + `@tailwindcss/typography` |
+| **Animations** | Framer Motion 11, Animejs 4 |
+| **Editor** | TipTap 3 (ProseMirror) |
+| **AI Providers** | Groq, OpenRouter, Google Gemini, Mistral, Fireworks, Cerebras, Hugging Face, Cloudflare |
+| **Email** | Resend |
+| **Icons** | Lucide React |
+| **Testing** | Playwright (52 E2E tests) |
+| **Deployment** | Vercel |
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- Supabase project
+- API keys for desired AI providers
+
+### Setup
+
+```bash
+git clone https://github.com/surinder2003k/Xylos-AI.git
+cd Xylos-AI
+npm install
 ```
 
-## 🔍 SEO & Standards
-Xylos is built for visibility. 
-- **Sitemap**: Auto-generated at `/sitemap.xml`.
-- **Robots**: Configured at `/robots.txt`.
-- **Schema**: JSON-LD `SoftwareApplication` and `BlogPosting` markup injected for rich snippets.
+### Environment Variables
+
+Create `.env.local`:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+RESEND_API_KEY=your_resend_key
+GROQ_API_KEY=your_groq_key
+# See DESIGN.md for all supported variables
+```
+
+### Database
+
+Run the migration files in `database/` via Supabase SQL Editor:
+
+| File | Purpose |
+|---|---|
+| `cms_v3_migration.sql` | Core tables: blogs, profiles, chats, conversations, messages, app_settings |
+| `fix_columns_and_indexes.sql` | Column fixes and performance indexes |
+| `supabase-init.sql` | Storage buckets, triggers, policies |
+
+### Storage
+
+Create a **public** bucket named `blog-images` in Supabase Storage for image uploads.
+
+### Development
+
+```bash
+npm run dev
+# Open http://localhost:3000
+```
+
+### Production Build
+
+```bash
+npm run build
+npm start
+```
 
 ---
 
-## ⚖️ Ethics & Protocol
-Xylos AI follows a strict protocol of **Human Intelligence Amplified**. We believe in using AI to augment human creativity, not replace it.
+## Project Structure
+
+```
+app/                  Next.js App Router pages and API routes
+├── page.tsx          Landing page (ISR: 30 min)
+├── layout.tsx        Root layout with providers
+├── blog/             Blog archive + individual posts
+├── chat/             Multi-model AI chat
+├── dashboard/        Protected dashboard (editor, posts, settings)
+├── login/            Authentication page
+├── about/            About page
+├── privacy/          Privacy policy
+└── api/              API routes (chat, blog/generate, automate, subscribe, upload)
+
+components/           React components
+├── landing/          Navbar, hero, blog-grid, newsletter-form
+├── blog/             AuthorBio, NewsletterCard, ShareButtons
+├── premium/          Animated logo, splash loader, tilt cards, mouse glow
+├── ui/               Toast, modal, select, text animations
+└── editor/           TipTap editor, Pexels library, image upload
+
+tests/                Playwright E2E tests (52 tests, all passing)
+lib/                  Server utilities (AI providers, image generation, utils)
+database/             SQL migration files
+```
 
 ---
-*Created by the Xylos AI Intelligence Team.*
+
+## Testing
+
+Playwright runs against the live production site:
+
+```bash
+npx playwright test
+```
+
+10 test suites covering landing, blog, auth, about, chat, static pages, API endpoints, navigation, performance, and dashboard — all 52 tests passing with zero console errors.
+
+---
+
+## Design System
+
+See [DESIGN.md](DESIGN.md) for the complete design documentation — color tokens, typography, component architecture, and visual guidelines.
+
+---
+
+## License
+
+This project is provided for educational and research purposes. All trademarks and model rights belong to their respective owners.
