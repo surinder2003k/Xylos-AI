@@ -5,8 +5,8 @@ import { createClient } from '@/utils/supabase/server'
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url)
   const code = searchParams.get('code')
-  // if "next" is in search params, use it as the redirection URL
-  const next = searchParams.get('next') ?? '/dashboard'
+  const rawNext = searchParams.get('next') ?? '/dashboard'
+  const next = rawNext.startsWith('/') ? rawNext : '/dashboard'
 
   if (code) {
     const supabase = await createClient()
@@ -38,15 +38,9 @@ export async function GET(request: Request) {
         console.error('[AuthCallback] Welcome email error:', err);
       }
 
-      const forwardedHost = request.headers.get('x-forwarded-host') 
-      const isLocalEnv = process.env.NODE_ENV === 'development'
-      if (isLocalEnv) {
-        return NextResponse.redirect(`${origin}${next}`)
-      } else if (forwardedHost) {
-        return NextResponse.redirect(`https://${forwardedHost}${next}`)
-      } else {
-        return NextResponse.redirect(`${origin}${next}`)
-      }
+      const forwardedHost = request.headers.get('x-forwarded-host')
+      const targetOrigin = forwardedHost ? `https://${forwardedHost}` : origin
+      return NextResponse.redirect(`${targetOrigin}${next}`)
     }
   }
 

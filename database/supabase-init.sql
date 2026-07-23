@@ -123,7 +123,7 @@ CREATE TABLE public.subscribers (
 );
 
 ALTER TABLE public.subscribers ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Anyone can subscribe" ON public.subscribers FOR INSERT WITH CHECK (true);
+CREATE POLICY "Authenticated can subscribe" ON public.subscribers FOR INSERT WITH CHECK (auth.role() = 'authenticated');
 CREATE POLICY "Admins can view subscribers" ON public.subscribers FOR SELECT USING (auth.role() = 'authenticated');
 
 -- 8. APP SETTINGS

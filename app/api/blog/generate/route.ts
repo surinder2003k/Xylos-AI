@@ -136,11 +136,12 @@ export async function POST(req: Request) {
         meta_title: blogData.meta_title,
         meta_description: blogData.meta_description,
         keywords: blogData.keywords,
-        // Build unique slug with random suffix to avoid DB collisions
         slug: blogData.title
           .toLowerCase()
           .replace(/[^a-z0-9]+/g, "-")
-          .replace(/(^-|-$)+/g, "") + "-" + Math.random().toString(36).substring(2, 7),
+          .replace(/(^-|-$)+/g, "")
+          .replace(/^-+|-+$/g, "")
+          .substring(0, 80),
         status: autoPublish ? "published" : "draft",
         published_at: autoPublish ? new Date().toISOString() : null,
         author_id: user?.id || null, // Ensure author is linked

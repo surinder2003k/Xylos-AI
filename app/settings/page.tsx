@@ -32,13 +32,20 @@ export default function SettingsPage() {
   const handleSave = async () => {
     setIsSaving(true);
     setSaveStatus('idle');
-    
-    // Simulate API call for now
-    setTimeout(() => {
-      setIsSaving(false);
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: [{ role: 'user', content: 'ping' }], provider: Object.keys(keys).find(k => keys[k]) || 'groq' })
+      });
+      if (!res.ok) throw new Error('API check failed');
       setSaveStatus('success');
+    } catch {
+      setSaveStatus('error');
+    } finally {
+      setIsSaving(false);
       setTimeout(() => setSaveStatus('idle'), 3000);
-    }, 1500);
+    }
   };
 
   return (
@@ -46,7 +53,7 @@ export default function SettingsPage() {
       <header className="space-y-2">
         <h1 className="text-4xl font-black font-fustat tracking-tighter uppercase">Settings<span className="text-primary italic">.</span></h1>
         <p className="text-muted-foreground mt-1 text-[10px] font-bold uppercase tracking-widest">Global API Integrations // Studio Protocol</p>
- admissions      </header>
+      </header>
 
       <section className="grid grid-cols-1 gap-6">
         {providers.map((provider, idx) => (

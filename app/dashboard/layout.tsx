@@ -79,15 +79,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           const email = user.email || "";
           setUserEmail(email);
           
-          // Super Admin Fallback (Hardcoded for user's specific emails)
-          const superAdmins = ["sendltestmaill@gmail.com", "xyzg135@gmail.com"];
-          let isUserAdmin = superAdmins.includes(email);
-          
-          if (isUserAdmin) {
-            setIsAdmin(true);
-            setUserRole("admin");
-          }
-
           const { data: profile, error: profileError } = await supabase
             .from("profiles")
             .select("role")
@@ -96,9 +87,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           
           if (!profileError && profile) {
             if (profile.role === "admin" || profile.role === "super_admin") {
-              isUserAdmin = true;
               setIsAdmin(true);
-              setUserRole("admin");
+              setUserRole(profile.role);
             }
           } else if (!profileError && !profile) {
             // Profile is missing! Let's create it on the fly to prevent downstream RLS or FK errors.

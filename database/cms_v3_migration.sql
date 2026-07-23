@@ -72,11 +72,10 @@ END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
 -- 6. Attach Trigger to auth.users (Requires superuser/dash access)
--- Note: This is an optional but powerful automation
--- DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
--- CREATE TRIGGER on_auth_user_created
---   AFTER INSERT OR UPDATE ON auth.users
---   FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
+DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
+CREATE TRIGGER on_auth_user_created
+  AFTER INSERT ON auth.users
+  FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
 
 -- 7. Permissions & RLS (If tables newly created)
 ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
@@ -88,12 +87,18 @@ ALTER TABLE public.app_settings ENABLE ROW LEVEL SECURITY;
 DO $$ 
 BEGIN
     IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Admin CRUD Blogs') THEN
-        CREATE POLICY "Admin CRUD Blogs" ON public.blogs FOR ALL TO authenticated USING (true);
+        CREATE POLICY "Admin CRUD Blogs" ON public.blogs FOR ALL TO authenticated USING (
+          EXISTS (SELECT 1 FROM public.profiles WHERE user_id = auth.uid() AND role IN ('admin', 'super_admin'))
+        );
     END IF;
     IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Admin CRUD Profiles') THEN
-        CREATE POLICY "Admin CRUD Profiles" ON public.profiles FOR ALL TO authenticated USING (true);
+        CREATE POLICY "Admin CRUD Profiles" ON public.profiles FOR ALL TO authenticated USING (
+          EXISTS (SELECT 1 FROM public.profiles WHERE user_id = auth.uid() AND role IN ('admin', 'super_admin'))
+        );
     END IF;
     IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Admin CRUD Settings') THEN
-        CREATE POLICY "Admin CRUD Settings" ON public.app_settings FOR ALL TO authenticated USING (true);
+        CREATE POLICY "Admin CRUD Settings" ON public.app_settings FOR ALL TO authenticated USING (
+          EXISTS (SELECT 1 FROM public.profiles WHERE user_id = auth.uid() AND role IN ('admin', 'super_admin'))
+        );
     END IF;
 END $$;

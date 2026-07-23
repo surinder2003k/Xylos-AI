@@ -45,15 +45,15 @@ export function AuthorBio({
           </p>
 
           <div className="flex items-center justify-center md:justify-start gap-4 pt-2">
-            <button className="p-2 rounded-lg bg-muted hover:bg-primary hover:text-black transition-all cursor-pointer">
+            <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-muted hover:bg-primary hover:text-black transition-all cursor-pointer inline-flex" aria-label="Twitter">
               <Twitter className="w-4 h-4" />
-            </button>
-            <button className="p-2 rounded-lg bg-muted hover:bg-primary hover:text-black transition-all cursor-pointer">
+            </a>
+            <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-muted hover:bg-primary hover:text-black transition-all cursor-pointer inline-flex" aria-label="LinkedIn">
               <Linkedin className="w-4 h-4" />
-            </button>
-            <button className="p-2 rounded-lg bg-muted hover:bg-primary hover:text-black transition-all cursor-pointer">
+            </a>
+            <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-muted hover:bg-primary hover:text-black transition-all cursor-pointer inline-flex" aria-label="GitHub">
               <Github className="w-4 h-4" />
-            </button>
+            </a>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Search, Loader2, Image as ImageIcon, Check } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const PEXELS_API_KEY = "hbOSnkQWR075kZRaeNOJFcfmpdIGaVfQo52TleTWVZCtiELKkDVatskt";
+const PEXELS_API_KEY = process.env.NEXT_PUBLIC_PEXELS_API_KEY || "";
 
 interface PexelsLibraryProps {
   onSelect: (url: string, alt: string) => void;

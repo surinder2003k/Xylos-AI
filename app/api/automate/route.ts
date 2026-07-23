@@ -64,18 +64,13 @@ export async function GET(req: Request) {
         const authClient = await createAuthClient();
         const { data: { user } } = await authClient.auth.getUser();
         if (user) {
-          const superAdmins = ["sendltestmaill@gmail.com", "xyzg135@gmail.com"];
-          if (superAdmins.includes(user.email || "")) {
+          const { data: profile } = await authClient
+            .from("profiles")
+            .select("role")
+            .eq("user_id", user.id)
+            .maybeSingle();
+          if (profile && (profile.role === "admin" || profile.role === "super_admin")) {
             isAuthorizedAdmin = true;
-          } else {
-            const { data: profile } = await authClient
-              .from("profiles")
-              .select("role")
-              .eq("user_id", user.id)
-              .single();
-            if (profile && (profile.role === "admin" || profile.role === "super_admin")) {
-              isAuthorizedAdmin = true;
-            }
           }
         }
       } catch (e) {
@@ -138,16 +133,15 @@ export async function GET(req: Request) {
       if (admins && admins.length > 0) {
         authorId = admins[0].user_id;
       } else {
-        // Fallback 1: Check for hardcoded super admin emails
+        // Fallback: Get any admin/super_admin profile to prevent cron failure
         const { data: fallbackAdmins } = await supabaseAdmin
           .from("profiles")
           .select("user_id")
-          .in("email", ["sendltestmaill@gmail.com", "xyzg135@gmail.com"])
+          .in("role", ["super_admin", "admin"])
           .limit(1);
         if (fallbackAdmins && fallbackAdmins.length > 0) {
           authorId = fallbackAdmins[0].user_id;
         } else {
-          // Fallback 2: Get any profile from the table to prevent cron failure
           const { data: anyProfile } = await supabaseAdmin
             .from("profiles")
             .select("user_id")
@@ -265,12 +259,12 @@ export async function GET(req: Request) {
         };
       }
 
-      // Build slug with random suffix to avoid collisions
-      const baseSlug = blogData.title
+      const slug = blogData.title
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, "-")
-        .replace(/(^-|-$)+/g, "");
-      const slug = baseSlug + "-" + Math.random().toString(36).substring(2, 7);
+        .replace(/(^-|-$)+/g, "")
+        .replace(/^-+|-+$/g, "")
+        .substring(0, 80);
 
       // Database Insert
       const { data: newPost, error: insertError } = await supabaseAdmin

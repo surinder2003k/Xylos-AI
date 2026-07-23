@@ -8,11 +8,21 @@ export function NewsletterCard() {
   const [email, setEmail] = useState("");
   const { showToast } = useToast();
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    showToast("Subscription successful! Welcome to the circle.", "success");
-    setEmail("");
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      if (!res.ok) throw new Error('Subscribe failed');
+      showToast("Subscription successful! Welcome to the circle.", "success");
+      setEmail("");
+    } catch {
+      showToast("Subscription failed. Please try again.", "error");
+    }
   };
 
   return (

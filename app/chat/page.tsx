@@ -398,7 +398,7 @@ function ChatContent() {
               ) : (
                 messages.map((message, i) => (
                   <motion.div 
-                    key={i}
+                    key={message.id || i}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}

@@ -12,6 +12,21 @@ import { ShareButtons } from "@/components/blog/share-buttons";
 import { Metadata } from "next";
 import remarkGfm from "remark-gfm";
 
+function sanitizeHtml(html: string): string {
+  return html
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+    .replace(/on\w+\s*=\s*"[^"]*"/gi, '')
+    .replace(/on\w+\s*=\s*'[^']*'/gi, '')
+    .replace(/on\w+\s*=\s*[^\s>]+/gi, '')
+    .replace(/javascript\s*:/gi, '')
+    .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, '')
+    .replace(/<embed\b[^>]*>/gi, '')
+    .replace(/<object\b[^>]*>.*?<\/object>/gi, '')
+    .replace(/color:\s*[^;"]+;?/gi, "")
+    .replace(/background-color:\s*[^;"]+;?/gi, "")
+    .replace(/background:\s*[^;"]+;?/gi, "");
+}
+
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const supabase = await createClient();
@@ -215,19 +230,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               prose-a:text-primary prose-strong:text-foreground
               prose-blockquote:border-l-primary/40 prose-img:rounded-[2rem] 
               prose-code:text-primary px-0 selection:bg-primary/20 break-words overflow-hidden">
-               {post.content && post.content.startsWith('<') ? (
-                 <div 
-                   className="space-y-6 text-foreground/90" 
-                   dangerouslySetInnerHTML={{ 
-                     __html: post.content
-                       .replace(/color:\s*[^;"]+;?/gi, "") // Aggressively strip ALL explicit colors to allow theme override
-                       .replace(/background-color:\s*[^;"]+;?/gi, "") // Aggressively strip inline backgrounds
-                       .replace(/background:\s*[^;"]+;?/gi, "") 
-                   }} 
-                 />
-               ) : (
-                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{formatMarkdown(post.content)}</ReactMarkdown>
-               )}
+                {post.content && post.content.startsWith('<') ? (
+                  <div 
+                    className="space-y-6 text-foreground/90" 
+                    dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content) }} 
+                  />
+                ) : (
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{formatMarkdown(post.content)}</ReactMarkdown>
+                )}
             </div>
           </div>
 

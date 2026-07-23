@@ -47,7 +47,9 @@ ALTER TABLE public.app_settings ENABLE ROW LEVEL SECURITY;
 DO $$
 BEGIN
   IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Admin CRUD Settings' AND tablename = 'app_settings') THEN
-    CREATE POLICY "Admin CRUD Settings" ON public.app_settings FOR ALL TO authenticated USING (true);
+    CREATE POLICY "Admin CRUD Settings" ON public.app_settings FOR ALL TO authenticated USING (
+      EXISTS (SELECT 1 FROM public.profiles WHERE user_id = auth.uid() AND role IN ('admin', 'super_admin'))
+    );
   END IF;
 END $$;
 

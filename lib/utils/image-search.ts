@@ -3,7 +3,7 @@
  * Tiered strategy: Pexels (Primary) -> Fallback Logic
  */
 
-const PEXELS_API_KEY = "hbOSnkQWR075kZRaeNOJFcfmpdIGaVfQo52TleTWVZCtiELKkDVatskt";
+const PEXELS_API_KEY = process.env.NEXT_PUBLIC_PEXELS_API_KEY || "";
 
 export type ImageSearchResult = {
   url: string;
