@@ -31,12 +31,7 @@ export function Navbar({ user }: NavbarProps) {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         
         {/* Logo */}
-        <Link 
-          href="/" 
-          className="flex items-center gap-3 group/logo cursor-pointer"
-        >
-          <AnimatedLogo />
-        </Link>
+        <AnimatedLogo />
         
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8 text-[10px] font-black uppercase tracking-[0.3em]">

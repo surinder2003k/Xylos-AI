@@ -9,13 +9,16 @@ export async function POST(req: Request) {
   try {
     const supabase = await createClient();
 
-    // 1. Parse Request Body
+    // 1. Auth Check — return 401 early before any heavy work
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) {
+      return NextResponse.json({ error: "Authentication required" }, { status: 401 });
+    }
+
+    // 2. Parse Request Body
     const body = await req.json().catch(() => ({}));
     const userPrompt = body.prompt || "";
     const userCategory = body.category || "";
-
-    // Get Auth User for author_id
-    const { data: { user } } = await supabase.auth.getUser();
 
     // 2. Fetch Recent Blog Titles & internal/external links (Context & SEO Injection)
     let recentTitles: string[] = [];

@@ -157,7 +157,7 @@ export default async function RootLayout({
         </Script>
 
         <GlobalEffects />
-        <LazyMotion features={domAnimation} strict>
+        <LazyMotion features={domAnimation}>
           <PrimaryColorProvider>
             <ToastProvider>
               <AuthListener />

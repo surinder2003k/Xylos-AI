@@ -49,7 +49,7 @@ const nextConfig: NextConfig = {
         { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
         { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
         { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()' },
-        { key: 'Content-Security-Policy', value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' https: data: blob:; connect-src 'self' https://*.supabase.co https://*.groq.com https://api.openai.com https://api.mistral.ai https://api.cerebras.ai https://openrouter.ai https://generativelanguage.googleapis.com https://api-inference.huggingface.co https://api.pexels.com https://api.cloudflare.com https://*.vercel.app; font-src 'self' data:; frame-ancestors 'none';" },
+        { key: 'Content-Security-Policy', value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' https: data: blob: https://www.google-analytics.com; connect-src 'self' https://*.supabase.co https://*.groq.com https://api.openai.com https://api.mistral.ai https://api.cerebras.ai https://openrouter.ai https://generativelanguage.googleapis.com https://api-inference.huggingface.co https://api.pexels.com https://api.cloudflare.com https://*.vercel.app https://www.google-analytics.com https://analytics.google.com https://www.google.com; font-src 'self' data:; frame-src https://www.googletagmanager.com; frame-ancestors 'none';" },
       ],
     },
     {
