@@ -27,10 +27,10 @@ export default function PrivacyPage() {
             <Shield className="w-3 h-3" />
             Data Governance v2.0
           </div>
-          <h1 className="text-5xl md:text-7xl font-black font-fustat uppercase tracking-tighter italic">
+          <h1 className="text-5xl md:text-7xl font-black font-fustat uppercase tracking-tighter italic text-white">
             Privacy & <span className="text-primary">Ethics</span>
           </h1>
-          <p className="text-muted-foreground text-lg font-medium max-w-2xl mx-auto italic">
+          <p className="text-white/50 text-lg font-medium max-w-2xl mx-auto italic">
             "Trust is the currency of intelligence. Xylos AI is built on a foundation of zero-compromise data integrity."
           </p>
         </header>
@@ -58,25 +58,25 @@ export default function PrivacyPage() {
           />
         </section>
 
-        <article className="prose dark:prose-invert max-w-none space-y-8 text-muted-foreground leading-relaxed">
+        <article className="prose dark:prose-invert max-w-none space-y-8 text-white/50 leading-relaxed">
           <div className="space-y-4">
-            <h2 className="text-2xl font-black text-foreground uppercase tracking-tight font-fustat">1. Data Collection</h2>
+            <h2 className="text-2xl font-black text-white uppercase tracking-tight font-fustat">1. Data Collection</h2>
             <p>Xylos AI collects minimal metadata required to provide the service. This includes account identifiers and usage logs necessary for system stability. We do NOT monetize user data or sell it to third-party advertisers.</p>
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-2xl font-black text-foreground uppercase tracking-tight font-fustat">2. AI Training</h2>
+            <h2 className="text-2xl font-black text-white uppercase tracking-tight font-fustat">2. AI Training</h2>
             <p>Content synthesized using Xylos AI is NOT used to train the underlying models (Llama, Gemini, Mistral) by default. We leverage API-level privacy flags to ensure your corporate and personal secrets remain private.</p>
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-2xl font-black text-foreground uppercase tracking-tight font-fustat">3. Ethics Commitment</h2>
+            <h2 className="text-2xl font-black text-white uppercase tracking-tight font-fustat">3. Ethics Commitment</h2>
             <p>Our editorial engine is tuned to recognize and mitigate bias. While AI can still generate unexpected responses, our 'Aether Intelligence Layer' acts as a secondary filter to maintain professional standards of communication.</p>
           </div>
         </article>
 
-        <footer className="text-center pt-10 border-t border-border/50">
-          <p className="text-[10px] font-black text-muted-foreground/40 uppercase tracking-[0.4em]">
+        <footer className="text-center pt-10 border-t border-white/10">
+          <p className="text-[10px] font-black text-white/20 uppercase tracking-[0.4em]">
             Last Updated: April 17, 2026 // Xylos Legal Division
           </p>
         </footer>
@@ -87,12 +87,12 @@ export default function PrivacyPage() {
 
 function InfoCard({ icon: Icon, title, content }: any) {
   return (
-    <div className="p-8 rounded-3xl bg-card/40 border border-border backdrop-blur-md space-y-4 hover:border-primary/20 transition-all group">
-      <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+    <div className="p-8 rounded-none glass-card space-y-4 hover:border-white/20 transition-all group">
+      <div className="w-12 h-12 rounded-none bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
         <Icon className="w-6 h-6" />
       </div>
-      <h3 className="text-xl font-black uppercase font-fustat tracking-tight italic">{title}</h3>
-      <p className="text-sm text-muted-foreground font-medium leading-relaxed">{content}</p>
+      <h3 className="text-xl font-black uppercase font-fustat tracking-tight italic text-white">{title}</h3>
+      <p className="text-sm text-white/50 font-medium leading-relaxed">{content}</p>
     </div>
   );
 }

@@ -21,12 +21,12 @@ export default function NotFound() {
           </div>
 
           <h1 className="text-[8rem] font-black font-fustat leading-none tracking-tighter">
-            <span className="text-foreground">4</span>
+            <span className="text-white">4</span>
             <span className="text-primary italic">0</span>
-            <span className="text-foreground">4</span>
+            <span className="text-white">4</span>
           </h1>
 
-          <p className="text-xl text-muted-foreground font-medium leading-relaxed italic">
+          <p className="text-xl text-white/50 font-medium leading-relaxed italic">
             "This neural pathway doesn't exist. The signal you were chasing has dissipated into the void."
           </p>
         </div>
@@ -34,20 +34,20 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full">
           <Link
             href="/"
-            className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-foreground text-background font-black text-xs uppercase tracking-[0.2em] hover:scale-105 transition-all w-full sm:w-auto"
+            className="flex items-center justify-center gap-3 px-8 py-4 rounded-none bg-primary text-black font-black text-xs uppercase tracking-[0.2em] hover:shadow-[0_0_30px_rgba(210,187,255,0.3)] transition-all w-full sm:w-auto"
           >
             <ArrowLeft className="w-4 h-4" />
             Return to Base
           </Link>
           <Link
             href="/chat"
-            className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl border border-border bg-card/40 font-black text-xs uppercase tracking-[0.2em] hover:border-primary/50 hover:bg-muted/50 transition-all w-full sm:w-auto"
+            className="flex items-center justify-center gap-3 px-8 py-4 rounded-none border border-primary/40 bg-primary/10 font-black text-xs uppercase tracking-[0.2em] hover:bg-primary/20 hover:border-primary transition-all w-full sm:w-auto text-primary"
           >
             Open Neural Chat
           </Link>
         </div>
 
-        <p className="text-[9px] font-black text-muted-foreground/30 uppercase tracking-[0.5em]">
+        <p className="text-[9px] font-black text-white/20 uppercase tracking-[0.5em]">
           Xylos AI // Signal Intelligence Protocol
         </p>
       </div>

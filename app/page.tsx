@@ -82,20 +82,19 @@ export default async function LandingPage() {
       }
     ]
   };  return (
-    <div className="flex flex-col min-h-screen bg-background relative overflow-hidden selection:bg-primary/30 text-foreground transition-colors duration-500 cyber-grid-pattern cyber-scanline">
+    <div className="flex flex-col min-h-screen bg-background relative overflow-hidden selection:bg-primary/30 text-foreground transition-colors duration-500">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       
-      {/* Premium Minimal Background */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-20">
-         <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-70" />
-      </div>
+      {/* Aurora Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none aurora-bg" />
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none cyber-grid-pattern opacity-40" />
 
       <main className="flex-1 flex flex-col items-center pt-28 md:pt-36 px-4 md:px-6 pb-20 relative z-10 w-full">
         <div className="max-w-6xl w-full text-center space-y-12">
-          <div className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-none border border-foreground bg-foreground text-background font-mono text-[9px] uppercase tracking-[0.25em] mb-6">
+          <div className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-white/10 bg-white/[0.04] backdrop-blur-xl font-mono text-[9px] text-primary uppercase tracking-[0.25em] mb-6">
              STATUS: ONLINE // CONSOLE v3.5
           </div>
 
@@ -104,24 +103,24 @@ export default async function LandingPage() {
               <RevealText 
                 text="XYLOS AI: FREE AI CHAT. REFINE YOUR NARRATIVE." 
                 fontSize="text-[1.8rem] sm:text-[2.6rem] md:text-[5rem] lg:text-[6rem]"
-                textColor="text-foreground"
-                overlayColor="text-foreground/80"
+                textColor="text-white"
+                overlayColor="text-white/80"
                 letterDelay={0.04}
               />
               <span className="sr-only">Access Llama 3, Gemini, and Mistral in one free platform.</span>
             </h1>
             <div className="flex items-center justify-center gap-6 mt-8">
-              <span className="text-[9px] font-black text-muted-foreground/60 tracking-[0.2em] uppercase hidden md:inline">[ SECURE GATEWAY ]</span>
-              <div className="h-px w-10 md:w-20 bg-foreground/20" />
-              <span className="text-[10px] md:text-[13px] font-extrabold uppercase tracking-[0.45em] md:tracking-[0.65em] text-foreground italic">
+              <span className="text-[9px] font-black text-white/40 tracking-[0.2em] uppercase hidden md:inline">[ SECURE GATEWAY ]</span>
+              <div className="h-px w-10 md:w-20 bg-white/20" />
+              <span className="text-[10px] md:text-[13px] font-extrabold uppercase tracking-[0.45em] md:tracking-[0.65em] text-white italic">
                 Intelligent Editorial Suite
               </span>
-              <div className="h-px w-10 md:w-20 bg-foreground/20" />
-              <span className="text-[9px] font-black text-muted-foreground/60 tracking-[0.2em] uppercase hidden md:inline">[ DEV CONSOLE ]</span>
+              <div className="h-px w-10 md:w-20 bg-white/20" />
+              <span className="text-[9px] font-black text-white/40 tracking-[0.2em] uppercase hidden md:inline">[ DEV CONSOLE ]</span>
             </div>
           </div>
 
-          <p className="text-base md:text-xl text-foreground/80 max-w-2xl mx-auto font-medium leading-relaxed mt-4 italic px-4 md:px-0">
+          <p className="text-base md:text-xl text-white/60 max-w-2xl mx-auto font-medium leading-relaxed mt-4 italic px-4 md:px-0">
             "Bridging the gap between raw information and polished intelligence. Xylos AI empowers professionals to synthesize reality."
           </p>
 
@@ -137,76 +136,76 @@ export default async function LandingPage() {
         <div id="features" className="w-full max-w-7xl mx-auto mt-24 space-y-16">
            <AnimatedHeader className="text-center space-y-4 px-4">
               <AnimatedItem className="text-[10px] font-black text-primary uppercase tracking-[0.4em] mb-4">Core Capacities</AnimatedItem>
-              <AnimatedItem y={20} className="text-3xl md:text-6xl font-black font-fustat uppercase tracking-tighter">Human <span className="italic text-muted-foreground">Intelligence</span> Amplified</AnimatedItem>
-              <AnimatedItem y={20} className="hidden md:block text-lg text-muted-foreground font-medium max-w-2xl mx-auto italic">High-fidelity tools meeting modern architectural standards.</AnimatedItem>
+              <AnimatedItem y={20} className="text-3xl md:text-6xl font-black font-fustat uppercase tracking-tighter text-white">Human <span className="italic text-white/50">Intelligence</span> Amplified</AnimatedItem>
+              <AnimatedItem y={20} className="hidden md:block text-lg text-white/50 font-medium max-w-2xl mx-auto italic">High-fidelity tools meeting modern architectural standards.</AnimatedItem>
            </AnimatedHeader>
            
            <BentoGrid>
              <BentoCard delay={0.1} className="col-span-1 md:col-span-2">
                 <div className="absolute top-0 right-0 p-8 opacity-5 group-hover/card:opacity-10 transition-opacity">
-                   <Globe aria-hidden="true" className="w-32 h-32 text-foreground" />
+                   <Globe aria-hidden="true" className="w-32 h-32 text-white" />
                 </div>
-                <MessageSquare aria-hidden="true" className="w-10 h-10 text-foreground mb-8" />
-                <h3 className="text-2xl font-black mb-4 uppercase tracking-tight">Unified Intelligence</h3>
-                <p className="text-muted-foreground text-lg font-medium leading-relaxed max-w-md">Access 7+ industry-leading AI models like <a href="https://llama.meta.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary underline decoration-border/60 hover:decoration-primary/60 transition-colors underline-offset-4">Llama 3</a>, <a href="https://deepmind.google/technologies/gemini/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary underline decoration-border/60 hover:decoration-primary/60 transition-colors underline-offset-4">Gemini</a>, and <a href="https://mistral.ai" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary underline decoration-border/60 hover:decoration-primary/60 transition-colors underline-offset-4">Mistral</a> in one interface. Our smart engine routes requests to the optimal provider.</p>
+                <MessageSquare aria-hidden="true" className="w-10 h-10 text-primary mb-8" />
+                <h3 className="text-2xl font-black mb-4 uppercase tracking-tight text-white">Unified Intelligence</h3>
+                <p className="text-white/50 text-lg font-medium leading-relaxed max-w-md">Access 7+ industry-leading AI models like <a href="https://llama.meta.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary underline decoration-white/20 hover:decoration-primary/60 transition-colors underline-offset-4">Llama 3</a>, <a href="https://deepmind.google/technologies/gemini/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary underline decoration-white/20 hover:decoration-primary/60 transition-colors underline-offset-4">Gemini</a>, and <a href="https://mistral.ai" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary underline decoration-white/20 hover:decoration-primary/60 transition-colors underline-offset-4">Mistral</a> in one interface. Our smart engine routes requests to the optimal provider.</p>
              </BentoCard>
 
              <BentoCard delay={0.2} className="col-span-1 md:col-span-1">
-                <Code2 className="w-10 h-10 text-foreground mb-8" />
-                <h3 className="text-xl font-black mb-4 uppercase tracking-tight">Dev Suite</h3>
-                <p className="text-muted-foreground font-medium text-sm leading-relaxed">Synthesize clean, optimized code. Our assistants are specialized in full-stack architectures and modern frameworks like <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary underline decoration-border/60 hover:decoration-primary/60 transition-colors underline-offset-4">Next.js</a> and <a href="https://react.dev" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary underline decoration-border/60 hover:decoration-primary/60 transition-colors underline-offset-4">React</a>.</p>
+                <Code2 className="w-10 h-10 text-secondary mb-8" />
+                <h3 className="text-xl font-black mb-4 uppercase tracking-tight text-white">Dev Suite</h3>
+                <p className="text-white/50 font-medium text-sm leading-relaxed">Synthesize clean, optimized code. Our assistants are specialized in full-stack architectures and modern frameworks like <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary underline decoration-white/20 hover:decoration-primary/60 transition-colors underline-offset-4">Next.js</a> and <a href="https://react.dev" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary underline decoration-white/20 hover:decoration-primary/60 transition-colors underline-offset-4">React</a>.</p>
              </BentoCard>
 
              <BentoCard delay={0.3} className="col-span-1 md:col-span-1">
-                <FileText className="w-10 h-10 text-foreground mb-8" />
-                <h3 className="text-xl font-black mb-4 uppercase tracking-tight">Content Intelligence</h3>
-                <p className="text-muted-foreground font-medium text-sm leading-relaxed">Advanced parsing for large-scale datasets. Extract strategic insights from complex documentation in seconds.</p>
+                <FileText className="w-10 h-10 text-tertiary mb-8" />
+                <h3 className="text-xl font-black mb-4 uppercase tracking-tight text-white">Content Intelligence</h3>
+                <p className="text-white/50 font-medium text-sm leading-relaxed">Advanced parsing for large-scale datasets. Extract strategic insights from complex documentation in seconds.</p>
              </BentoCard>
 
              <BentoCard delay={0.4} className="col-span-1 md:col-span-4 overflow-hidden">
                 <div className="absolute top-0 right-0 p-12 opacity-5 group-hover/card:opacity-10 transition-opacity">
-                   <Shield aria-hidden="true" className="w-64 h-64 text-foreground" />
+                   <Shield aria-hidden="true" className="w-64 h-64 text-white" />
                 </div>
                 <div className="flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
-                  <div className="max-w-2xl space-y-6">
-                     <div className="text-[10px] font-black uppercase tracking-[0.4em] text-foreground/70">Security Standards</div>
-                     <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-none">Hardened Data Governance</h2>
-                     <p className="text-muted-foreground text-lg font-medium leading-relaxed italic">"Privacy is our foundation." Encrypted workflows and local session storage protect your professional edge.</p>
-                  </div>
-                  <Shield aria-hidden="true" className="w-32 h-32 text-foreground/20 shrink-0" />
+                   <div className="max-w-2xl space-y-6">
+                      <div className="text-[10px] font-black uppercase tracking-[0.4em] text-white/50">Security Standards</div>
+                      <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-none text-white">Hardened Data Governance</h2>
+                      <p className="text-white/50 text-lg font-medium leading-relaxed italic">"Privacy is our foundation." Encrypted workflows and local session storage protect your professional edge.</p>
+                   </div>
+                   <Shield aria-hidden="true" className="w-32 h-32 text-white/10 shrink-0" />
                 </div>
              </BentoCard>
            </BentoGrid>
          </div>
 
          {/* About Xylos Text Content for SEO */}
-         <div className="w-full max-w-4xl mx-auto mt-20 px-6 text-center space-y-6 bg-card p-8 md:p-12 rounded-none border border-border/80 shadow-[0_2px_8px_rgba(0,0,0,0.015)]">
-           <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight">The Ultimate Free AI Chat & Content Platform</h2>
-           <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-             Xylos AI is designed to bridge the gap between raw data and polished intelligence. As a premier <strong className="text-foreground">free AI chat</strong> platform, we provide unparalleled access to industry-leading models including <a href="https://llama.meta.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary underline decoration-border/60 hover:decoration-primary/60 transition-colors underline-offset-4 font-bold">Llama 3</a>, <a href="https://deepmind.google/technologies/gemini/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary underline decoration-border/60 hover:decoration-primary/60 transition-colors underline-offset-4 font-bold">Gemini</a>, and <a href="https://mistral.ai" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary underline decoration-border/60 hover:decoration-primary/60 transition-colors underline-offset-4 font-bold">Mistral</a> without the burden of subscription fees. Our intelligent routing system automatically selects the optimal neural network for your specific queries, whether you are drafting professional blogs, writing complex code, or conducting deep academic research. By aggregating these powerful tools into a single, unified workspace, Xylos AI empowers creators, developers, and professionals to refine their narratives and amplify their productivity at zero cost. Experience the future of generative AI today.
+         <div className="w-full max-w-4xl mx-auto mt-20 px-6 text-center space-y-6 glass-card p-8 md:p-12">
+           <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white">The Ultimate Free AI Chat & Content Platform</h2>
+           <p className="text-white/50 leading-relaxed text-sm md:text-base">
+             Xylos AI is designed to bridge the gap between raw data and polished intelligence. As a premier <strong className="text-white">free AI chat</strong> platform, we provide unparalleled access to industry-leading models including <a href="https://llama.meta.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary underline decoration-white/20 hover:decoration-primary/60 transition-colors underline-offset-4 font-bold">Llama 3</a>, <a href="https://deepmind.google/technologies/gemini/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary underline decoration-white/20 hover:decoration-primary/60 transition-colors underline-offset-4 font-bold">Gemini</a>, and <a href="https://mistral.ai" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary underline decoration-white/20 hover:decoration-primary/60 transition-colors underline-offset-4 font-bold">Mistral</a> without the burden of subscription fees. Our intelligent routing system automatically selects the optimal neural network for your specific queries, whether you are drafting professional blogs, writing complex code, or conducting deep academic research. By aggregating these powerful tools into a single, unified workspace, Xylos AI empowers creators, developers, and professionals to refine their narratives and amplify their productivity at zero cost. Experience the future of generative AI today.
            </p>
          </div>
 
         {/* FAQ Section */}
         <div className="w-full max-w-4xl mx-auto mt-24 mb-10 px-6">
           <FadeIn className="text-center mb-16 space-y-4">
-             <div className="text-[10px] font-black text-foreground uppercase tracking-[0.4em]">Help & Support</div>
-             <h2 className="text-4xl font-black uppercase tracking-tighter">Common Clarifications</h2>
+             <div className="text-[10px] font-black text-primary uppercase tracking-[0.4em]">Help & Support</div>
+             <h2 className="text-4xl font-black uppercase tracking-tighter text-white">Common Clarifications</h2>
           </FadeIn>
           <div className="space-y-6">
-             <div className="p-6 md:p-10 rounded-none bg-card border border-border/85 shadow-[0_2px_8px_rgba(0,0,0,0.01)] hover:border-foreground/35 transition-all duration-300 group h-full relative z-10">
-                <h3 className="text-xl font-black mb-3 uppercase tracking-tight flex items-center gap-3">
-                   <Zap className="w-5 h-5 text-foreground" />
+             <div className="p-6 md:p-10 glass-card hover:border-white/20 transition-all duration-300 group h-full relative z-10">
+                <h3 className="text-xl font-black mb-3 uppercase tracking-tight flex items-center gap-3 text-white">
+                   <Zap className="w-5 h-5 text-primary" />
                    How is the platform zero-cost?
                 </h3>
-                <p className="text-muted-foreground font-medium leading-relaxed italic">We utilize <a href="https://huggingface.co" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary underline decoration-border/60 hover:decoration-primary/60 transition-colors underline-offset-4">open-source models</a> and intelligent tiered routing to ensure high-performance AI tools remain accessible for professional research and development.</p>
+                <p className="text-white/50 font-medium leading-relaxed italic">We utilize <a href="https://huggingface.co" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary underline decoration-white/20 hover:decoration-primary/60 transition-colors underline-offset-4">open-source models</a> and intelligent tiered routing to ensure high-performance AI tools remain accessible for professional research and development.</p>
              </div>
-             <div className="p-6 md:p-10 rounded-none bg-card border border-border/85 shadow-[0_2px_8px_rgba(0,0,0,0.01)] hover:border-foreground/35 transition-all duration-300 group h-full relative z-10">
-                <h3 className="text-xl font-black mb-3 uppercase tracking-tight flex items-center gap-3">
-                   <Sparkles className="w-5 h-5 text-foreground" />
+             <div className="p-6 md:p-10 glass-card hover:border-white/20 transition-all duration-300 group h-full relative z-10">
+                <h3 className="text-xl font-black mb-3 uppercase tracking-tight flex items-center gap-3 text-white">
+                   <Sparkles className="w-5 h-5 text-secondary" />
                    What about reliability?
                 </h3>
-                <p className="text-muted-foreground font-medium leading-relaxed italic">Our infrastructure employs a multi-provider strategy. If a primary model experiences latency, the system seamlessly redirects tasks to ensure consistent professional workflows.</p>
+                <p className="text-white/50 font-medium leading-relaxed italic">Our infrastructure employs a multi-provider strategy. If a primary model experiences latency, the system seamlessly redirects tasks to ensure consistent professional workflows.</p>
              </div>
           </div>
         </div>
@@ -214,20 +213,20 @@ export default async function LandingPage() {
         <NewsletterForm />
       </main>
       
-      <footer className="border-t border-border pt-16 pb-8 bg-card/40 backdrop-blur-3xl px-8 relative overflow-hidden">
+      <footer className="border-t border-white/10 pt-16 pb-8 bg-white/[0.02] backdrop-blur-xl px-8 relative overflow-hidden">
          <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-50" />
          <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
             <div className="flex flex-col items-center md:items-start gap-6">
               <AnimatedLogo className="scale-110 origin-center md:origin-left" />
-              <p className="text-xs text-muted-foreground font-medium max-w-xs text-center md:text-left">
+              <p className="text-xs text-white/40 font-medium max-w-xs text-center md:text-left">
                 Empowering professionals with top-tier AI models including Llama 3, Gemini, and Mistral.
               </p>
             </div>
             
             <div className="grid grid-cols-2 gap-12 text-center md:text-left">
               <div className="space-y-4">
-                <h4 className="text-[10px] font-black text-foreground uppercase tracking-[0.3em]">Platform</h4>
-                <div className="flex flex-col gap-3 text-xs text-muted-foreground font-medium">
+                <h4 className="text-[10px] font-black text-white uppercase tracking-[0.3em]">Platform</h4>
+                <div className="flex flex-col gap-3 text-xs text-white/40 font-medium">
                   <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
                   <Link href="/about" className="hover:text-primary transition-colors">About Us</Link>
                   <Link href="/blog" className="hover:text-primary transition-colors">Blog Archive</Link>
@@ -235,8 +234,8 @@ export default async function LandingPage() {
               </div>
               
               <div className="space-y-4">
-                <h4 className="text-[10px] font-black text-foreground uppercase tracking-[0.3em]">Connect</h4>
-                <div className="flex flex-col gap-3 text-xs text-muted-foreground font-medium">
+                <h4 className="text-[10px] font-black text-white uppercase tracking-[0.3em]">Connect</h4>
+                <div className="flex flex-col gap-3 text-xs text-white/40 font-medium">
                   <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a>
                   <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
                   <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">YouTube</a>
@@ -245,15 +244,15 @@ export default async function LandingPage() {
             </div>
 
             <div className="flex flex-col items-center md:items-end gap-3 text-center md:text-right">
-                <p className="text-[10px] font-black text-muted-foreground/50 uppercase tracking-[0.3em]">Contact</p>
-                <p className="text-xs text-muted-foreground font-medium">100 Innovation Drive</p>
-                <p className="text-xs text-muted-foreground font-medium">San Francisco, CA 94105, USA</p>
-                <p className="text-xs text-muted-foreground font-medium">+1-800-555-0199</p>
-                <p className="text-xs text-muted-foreground font-medium">support@xylosai.com</p>
+                <p className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em]">Contact</p>
+                <p className="text-xs text-white/40 font-medium">100 Innovation Drive</p>
+                <p className="text-xs text-white/40 font-medium">San Francisco, CA 94105, USA</p>
+                <p className="text-xs text-white/40 font-medium">+1-800-555-0199</p>
+                <p className="text-xs text-white/40 font-medium">support@xylosai.com</p>
             </div>
          </div>
          
-         <div className="relative z-10 max-w-7xl mx-auto mt-16 pt-8 border-t border-border/50 text-center">
+         <div className="relative z-10 max-w-7xl mx-auto mt-16 pt-8 border-t border-white/10 text-center">
             <p className="text-[10px] font-bold text-primary/60 uppercase tracking-widest">© 2026 Xylos Foundation // Research by 21dev.in</p>
          </div>
       </footer>

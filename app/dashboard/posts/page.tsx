@@ -171,13 +171,13 @@ export default function AllStoriesPage() {
         <div className="space-y-1">
           <div className="flex items-center gap-2 text-primary">
             <Layers className="w-4 h-4 animate-pulse" />
-            <h1 className="text-4xl lg:text-5xl font-black font-fustat tracking-tighter uppercase leading-none">Content <span className="text-primary italic">Archive</span></h1>
+            <h1 className="text-4xl lg:text-5xl font-black font-fustat tracking-tighter uppercase leading-none text-white">Content <span className="text-primary italic">Archive</span></h1>
           </div>
         </div>
         
         <Link 
           href="/dashboard/create"
-          className="group flex items-center gap-4 bg-foreground text-background px-10 py-5 rounded-2xl font-black text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-2xl"
+          className="group flex items-center gap-4 bg-primary text-black px-10 py-5 rounded-none font-black text-xs uppercase tracking-widest hover:shadow-[0_0_30px_rgba(210,187,255,0.3)] transition-all"
         >
           <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
           Draft New Story
@@ -185,43 +185,43 @@ export default function AllStoriesPage() {
       </div>
 
       {/* Filter Bar */}
-      <div className="flex items-center gap-4 bg-card border border-border p-4 rounded-[2rem] shadow-sm backdrop-blur-xl">
+      <div className="flex items-center gap-4 glass-card p-4">
         <div className="flex-1 relative group">
-          <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground transition-colors group-focus-within:text-primary" />
+          <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 transition-colors group-focus-within:text-primary" />
           <input 
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             aria-label="Search stories by title or category"
             placeholder="Search stories by title or category..." 
-            className="w-full bg-muted/30 border border-border rounded-2xl py-4 pl-14 pr-6 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all font-medium placeholder:text-muted-foreground/30 shadow-inner"
+            className="w-full bg-white/5 border border-white/10 rounded-none py-4 pl-14 pr-6 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all font-medium placeholder:text-white/20 text-white"
           />
         </div>
         <button 
           onClick={fetchPosts}
           disabled={loading}
-          className="p-4 rounded-2xl bg-muted/50 border border-border hover:bg-muted transition-all text-muted-foreground hover:text-foreground shadow-sm disabled:opacity-50"
+          className="p-4 rounded-none bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-white/40 hover:text-white disabled:opacity-50"
         >
           <RefreshCcw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
         </button>
       </div>
 
       {/* Content Feed Table */}
-      <div className="bg-card border border-border rounded-[2.5rem] overflow-hidden shadow-sm backdrop-blur-xl">
+      <div className="glass-card overflow-hidden">
         <div className="overflow-x-auto custom-scrollbar">
           <table className="w-full text-left border-collapse min-w-[1000px]">
             <thead>
-              <tr className="border-b border-border bg-muted/20">
-                <th className="px-10 py-8 text-[10px] font-black text-muted-foreground uppercase tracking-[0.4em]">Status</th>
-                <th className="px-8 py-8 text-[10px] font-black text-muted-foreground uppercase tracking-[0.4em]">Asset Details</th>
-                <th className="px-8 py-8 text-[10px] font-black text-muted-foreground uppercase tracking-[0.4em]">Taxonomy</th>
-                <th className="px-10 py-8 text-[10px] font-black text-muted-foreground uppercase tracking-[0.4em] text-center">Actions</th>
+              <tr className="border-b border-white/10 bg-white/[0.02]">
+                <th className="px-10 py-8 text-[10px] font-black text-white/40 uppercase tracking-[0.4em]">Status</th>
+                <th className="px-8 py-8 text-[10px] font-black text-white/40 uppercase tracking-[0.4em]">Asset Details</th>
+                <th className="px-8 py-8 text-[10px] font-black text-white/40 uppercase tracking-[0.4em]">Taxonomy</th>
+                <th className="px-10 py-8 text-[10px] font-black text-white/40 uppercase tracking-[0.4em] text-center">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-border">
+            <tbody className="divide-y divide-white/5">
               {loading ? (
                 Array(3).fill(0).map((_, i) => (
                   <tr key={i} className="animate-pulse">
-                    <td colSpan={5} className="px-10 py-12 text-center text-muted-foreground/30 font-mono text-[10px] uppercase tracking-[0.4em] italic">
+                    <td colSpan={5} className="px-10 py-12 text-center text-white/15 font-mono text-[10px] uppercase tracking-[0.4em] italic">
                       Scanning Archive Buffer Protocol...
                     </td>
                   </tr>
@@ -230,20 +230,20 @@ export default function AllStoriesPage() {
                 <tr>
                   <td colSpan={5} className="px-10 py-24 text-center">
                     <div className="flex flex-col items-center gap-6 opacity-30">
-                      <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center">
-                        <BookOpen className="w-8 h-8" />
+                      <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center">
+                        <BookOpen className="w-8 h-8 text-white" />
                       </div>
-                      <p className="text-xs font-black uppercase tracking-[0.3em]">Story Archive Empty</p>
+                      <p className="text-xs font-black uppercase tracking-[0.3em] text-white">Story Archive Empty</p>
                       <Link href="/dashboard/create" className="text-xs text-primary font-bold hover:underline">Draft your first story →</Link>
                     </div>
                   </td>
                 </tr>
               ) : (
                 filteredPosts.map((post) => (
-                  <tr key={post.id} className="group hover:bg-muted/30 transition-colors">
+                  <tr key={post.id} className="group hover:bg-white/[0.03] transition-colors">
                     <td className="px-10 py-5">
                       <div className={`
-                        inline-flex items-center gap-3 px-5 py-2.5 rounded-xl font-black text-[9px] uppercase tracking-[0.2em] transition-all
+                        inline-flex items-center gap-3 px-5 py-2.5 rounded-none font-black text-[9px] uppercase tracking-[0.2em] transition-all
                         ${post.status === 'published' ? 'bg-primary/10 text-primary border border-primary/20' : 'bg-orange-500/10 text-orange-500 border border-orange-500/20'}
                       `}>
                         <span className={`w-2 h-2 rounded-full animate-pulse ${post.status === 'published' ? 'bg-primary shadow-sm' : 'bg-orange-500 shadow-sm'}`}></span>
@@ -252,7 +252,7 @@ export default function AllStoriesPage() {
                     </td>
                     <td className="px-8 py-5">
                       <div className="flex items-center gap-8">
-                        <div className="relative w-28 aspect-video rounded-xl bg-muted overflow-hidden border border-border shadow-inner flex-shrink-0 group-hover:scale-105 transition-all duration-700">
+                        <div className="relative w-28 aspect-video rounded-none bg-white/5 overflow-hidden border border-white/10 flex-shrink-0 group-hover:scale-105 transition-all duration-700">
                           {post.feature_image_url ? (
                             <Image 
                               src={post.feature_image_url} 
@@ -263,21 +263,21 @@ export default function AllStoriesPage() {
                           ) : (
                              <div className="w-full h-full flex items-center justify-center">
                                <div className="bg-gradient-to-br from-primary/10 to-primary/30 w-full h-full opacity-20" />
-                               <ImageIcon className="absolute w-5 h-5 text-muted-foreground" />
+                               <ImageIcon className="absolute w-5 h-5 text-white/30" />
                             </div>
                           )}
                         </div>
                         <div className="max-w-md">
-                          <div className="font-black text-base text-foreground group-hover:text-primary transition-colors leading-tight line-clamp-1 mb-1 uppercase tracking-tight">{post.title}</div>
-                          <div className="text-[9px] font-black text-muted-foreground/50 uppercase tracking-widest flex items-center gap-2">
-                             <span className="w-1.5 h-px bg-border" />
+                          <div className="font-black text-base text-white group-hover:text-primary transition-colors leading-tight line-clamp-1 mb-1 uppercase tracking-tight">{post.title}</div>
+                          <div className="text-[9px] font-black text-white/30 uppercase tracking-widest flex items-center gap-2">
+                             <span className="w-1.5 h-px bg-white/10" />
                              SERIAL_{post.id.substring(0, 8).toUpperCase()}
                           </div>
                         </div>
                       </div>
                     </td>
                     <td className="px-8 py-5">
-                      <div className="inline-flex items-center px-4 py-2 rounded-xl bg-muted/50 border border-border text-[9px] font-black uppercase tracking-[0.2em] text-muted-foreground group-hover:text-foreground transition-all">
+                      <div className="inline-flex items-center px-4 py-2 rounded-none bg-white/5 border border-white/10 text-[9px] font-black uppercase tracking-[0.2em] text-white/40 group-hover:text-white transition-all">
                         {post.category}
                       </div>
                     </td>
@@ -285,7 +285,7 @@ export default function AllStoriesPage() {
                        <div className="flex items-center justify-center gap-3">
                           <button 
                             onClick={() => toggleStatus(post)}
-                            className={`p-3.5 rounded-xl border border-border shadow-sm transition-all group/btn ${post.status === 'published' ? 'bg-orange-500/10 hover:bg-orange-500 text-orange-500 hover:text-white' : 'bg-primary/10 hover:bg-primary text-primary hover:text-black'}`}
+                            className={`p-3.5 rounded-none border border-white/10 transition-all group/btn ${post.status === 'published' ? 'bg-orange-500/10 hover:bg-orange-500 text-orange-500 hover:text-white' : 'bg-primary/10 hover:bg-primary text-primary hover:text-black'}`}
                             title={post.status === 'published' ? "Unpublish Protocol" : "Deploy Protocol"}
                           >
                              {post.status === 'published' ? <EyeOff className="w-4 h-4 opacity-70 group-hover/btn:opacity-100" /> : <Eye className="w-4 h-4 opacity-70 group-hover/btn:opacity-100" />}
@@ -293,21 +293,21 @@ export default function AllStoriesPage() {
                           <a 
                             href={`/blog/${post.slug || post.id}`} 
                             target="_blank"
-                            className="p-3.5 rounded-xl border border-border bg-card hover:bg-foreground hover:text-background transition-all group/btn shadow-sm"
+                            className="p-3.5 rounded-none border border-white/10 bg-white/5 hover:bg-primary hover:text-black transition-all group/btn"
                             title="View Public"
                           >
                              <ExternalLink className="w-4 h-4 opacity-50 group-hover/btn:opacity-100 transition-opacity" />
                           </a>
                           <Link 
                             href={`/dashboard/create?id=${post.id}`} 
-                            className="p-3.5 rounded-xl border border-border bg-card hover:bg-primary hover:text-black transition-all group/btn shadow-sm"
+                            className="p-3.5 rounded-none border border-white/10 bg-white/5 hover:bg-primary hover:text-black transition-all group/btn"
                             title="Refine Story"
                           >
                              <Edit2 className="w-4 h-4 opacity-50 group-hover/btn:opacity-100 transition-opacity" />
                           </Link>
                           <button 
                             onClick={() => handleDeleteClick(post)}
-                            className="p-3.5 rounded-xl border border-border bg-card hover:bg-destructive hover:text-destructive-foreground transition-all group/btn shadow-sm"
+                            className="p-3.5 rounded-none border border-white/10 bg-white/5 hover:bg-red-500 hover:text-white transition-all group/btn"
                             title="Decommission Story"
                           >
                              <Trash2 className="w-4 h-4 opacity-50 group-hover/btn:opacity-100 transition-opacity" />

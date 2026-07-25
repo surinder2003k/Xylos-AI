@@ -26,18 +26,18 @@ export default function AboutPageClient() {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-none bg-muted border border-border text-foreground text-[10px] font-black uppercase tracking-[0.3em]"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-none bg-white/5 border border-white/10 text-primary text-[10px] font-black uppercase tracking-[0.3em]"
           >
             <Sparkles className="w-3 h-3" />
             Neural Genesis
           </motion.div>
           
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-8xl font-black font-fustat tracking-tighter uppercase leading-tight">
+            <h1 className="text-5xl md:text-8xl font-black font-fustat tracking-tighter uppercase leading-tight text-white">
               XYLOS AI: NEURAL SYNTHESIS<br />
               AND HUMAN INTELLIGENCE
             </h1>
-            <p className="text-muted-foreground text-lg md:text-xl font-medium max-w-3xl mx-auto leading-relaxed">
+            <p className="text-white/50 text-lg md:text-xl font-medium max-w-3xl mx-auto leading-relaxed">
               Xylos AI is more than just a platform—it's a decentralized editorial engine designed to augment human creativity with industrial-grade artificial intelligence.
             </p>
           </div>
@@ -52,12 +52,12 @@ export default function AboutPageClient() {
             className="space-y-8"
           >
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold font-outfit uppercase tracking-tight flex items-center gap-4">
-                <Cpu aria-hidden="true" className="w-8 h-8 text-foreground" />
+              <h2 className="text-3xl font-bold font-outfit uppercase tracking-tight flex items-center gap-4 text-white">
+                <Cpu aria-hidden="true" className="w-8 h-8 text-primary" />
                 The Protocol
               </h2>
-              <p className="text-muted-foreground leading-loose text-lg">
-                At the core of Xylos AI lies the <span className="text-foreground font-bold">Aether Intelligence Layer</span>. This proprietary stack aggregates multi-model responses from Gemini, Llama, and Mistral, refining them through a specialized editorial filter to produce content that feels organic, authoritative, and precise.
+              <p className="text-white/50 leading-loose text-lg">
+                At the core of Xylos AI lies the <span className="text-white font-bold">Aether Intelligence Layer</span>. This proprietary stack aggregates multi-model responses from Gemini, Llama, and Mistral, refining them through a specialized editorial filter to produce content that feels organic, authoritative, and precise.
               </p>
             </div>
             
@@ -81,7 +81,7 @@ export default function AboutPageClient() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-video rounded-none bg-card border border-border p-1 overflow-hidden shadow-md group">
+            <div className="aspect-video rounded-none glass-card p-1 overflow-hidden shadow-md group">
                <div className="w-full h-full rounded-none overflow-hidden relative">
                   <img 
                     src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80" 
@@ -98,14 +98,14 @@ export default function AboutPageClient() {
             </div>
             
             {/* Float Badge */}
-            <div className="absolute -bottom-6 -left-6 bg-card border border-border p-6 rounded-none shadow-lg">
+            <div className="absolute -bottom-6 -left-6 glass-card p-6 rounded-none shadow-lg">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-none bg-muted flex items-center justify-center text-foreground">
+                <div className="w-12 h-12 rounded-none bg-white/5 flex items-center justify-center text-primary">
                   <Brain className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-xs font-black uppercase tracking-widest text-muted-foreground">Active nodes</p>
-                  <p className="text-2xl font-bold font-fustat">4,821</p>
+                  <p className="text-xs font-black uppercase tracking-widest text-white/40">Active nodes</p>
+                  <p className="text-2xl font-bold font-fustat text-white">4,821</p>
                 </div>
               </div>
             </div>
@@ -120,9 +120,9 @@ export default function AboutPageClient() {
         </div>
 
         {/* Mission Statement */}
-        <section className="bg-card border border-border rounded-none p-12 md:p-24 text-center space-y-8 relative overflow-hidden shadow-sm">
-           <h2 className="text-3xl md:text-5xl font-black font-fustat uppercase">Our Mission</h2>
-           <p className="text-xl md:text-3xl font-bold font-outfit text-foreground/80 max-w-4xl mx-auto leading-tight italic">
+        <section className="glass-card p-12 md:p-24 text-center space-y-8 relative overflow-hidden">
+           <h2 className="text-3xl md:text-5xl font-black font-fustat uppercase text-white">Our Mission</h2>
+           <p className="text-xl md:text-3xl font-bold font-outfit text-white/70 max-w-4xl mx-auto leading-tight italic">
              Xylos was founded on a singular premise: that technology should empower human expression, not replace it. We are building the infrastructure for the next century of digital storytelling.
            </p>
         </section>
@@ -131,8 +131,8 @@ export default function AboutPageClient() {
         <NewsletterForm />
       </main>
 
-      <footer className="py-12 px-6 border-t border-border text-center">
-        <p className="text-[10px] font-black text-muted-foreground/30 uppercase tracking-[0.4em]">
+      <footer className="py-12 px-6 border-t border-white/10 text-center">
+        <p className="text-[10px] font-black text-white/20 uppercase tracking-[0.4em]">
           &copy; 2026 Xylos AI Research Systems // All Rights Reserved
         </p>
       </footer>
@@ -142,21 +142,21 @@ export default function AboutPageClient() {
 
 function FeatureCard({ icon: Icon, title, desc }: any) {
   return (
-    <div className="bg-card border border-border p-6 rounded-none hover:border-foreground/45 transition-all duration-300 group">
-      <div className="w-10 h-10 rounded-none bg-muted flex items-center justify-center text-foreground group-hover:bg-foreground group-hover:text-background transition-all duration-300 mb-4">
+    <div className="glass-card p-6 rounded-none hover:border-white/20 transition-all duration-300 group">
+      <div className="w-10 h-10 rounded-none bg-white/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-all duration-300 mb-4">
         <Icon className="w-5 h-5" />
       </div>
-      <h3 className="font-bold text-sm uppercase tracking-widest mb-2">{title}</h3>
-      <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+      <h3 className="font-bold text-sm uppercase tracking-widest mb-2 text-white">{title}</h3>
+      <p className="text-xs text-white/50 leading-relaxed">{desc}</p>
     </div>
   );
 }
 
 function StatBox({ label, value }: any) {
   return (
-    <div className="bg-card border border-border p-8 rounded-none text-center space-y-2 transition-all duration-300 hover:border-foreground/30 cursor-default group shadow-[0_2px_8px_rgba(0,0,0,0.01)]">
-      <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em]">{label}</p>
-      <p className="text-4xl font-black font-fustat text-foreground group-hover:text-foreground/90 transition-colors">{value}</p>
+    <div className="glass-card p-8 rounded-none text-center space-y-2 transition-all duration-300 hover:border-white/20 cursor-default group">
+      <p className="text-[10px] font-black text-white/40 uppercase tracking-[0.3em]">{label}</p>
+      <p className="text-4xl font-black font-fustat text-white group-hover:text-primary transition-colors">{value}</p>
     </div>
   );
 }

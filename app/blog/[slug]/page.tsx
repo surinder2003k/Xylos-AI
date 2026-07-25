@@ -112,7 +112,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
+    <div className="min-h-screen bg-background text-white selection:bg-primary/30">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -164,8 +164,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <main className="pt-40 pb-24 px-6 relative">
         <article className="max-w-4xl mx-auto">
           {/* Breadcrumb strip */}
-          <div className="flex items-center justify-between mb-12 pb-6 border-b border-border">
-            <div className="flex items-center gap-2 md:gap-4 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+          <div className="flex items-center justify-between mb-12 pb-6 border-b border-white/10">
+            <div className="flex items-center gap-2 md:gap-4 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-white/40">
               <Link href="/" className="hover:text-primary transition-colors">Home</Link>
               <ChevronRight aria-hidden="true" className="w-3 h-3 opacity-30" />
               <Link href="/blog" className="hover:text-primary transition-colors">Archive</Link>
@@ -185,9 +185,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                <AnimeText text={post.title} />
             </h1>
 
-            <div className="flex flex-col md:flex-row md:items-center gap-6 text-[11px] font-bold text-muted-foreground uppercase tracking-widest border-y border-border py-6">
+            <div className="flex flex-col md:flex-row md:items-center gap-6 text-[11px] font-bold text-white/40 uppercase tracking-widest border-y border-white/10 py-6">
                <div className="flex items-center gap-3">
-                 <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center overflow-hidden border border-border">
+                 <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center overflow-hidden border border-white/10">
                     {post.author?.avatar_url ? (
                       <img src={post.author.avatar_url} alt={post.author.full_name} title={post.author.full_name} className="w-full h-full object-cover" />
                     ) : (
@@ -196,15 +196,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                  </div>
                  <span>By {post.author?.full_name || 'Xylos Editorial Team'}</span>
                </div>
-               <div className="hidden md:block w-1 h-1 rounded-full bg-border" />
+               <div className="hidden md:block w-1 h-1 rounded-full bg-white/10" />
                <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-primary" /> Published {formatIST(post.published_at || post.created_at)}</div>
-               <div className="hidden md:block w-1 h-1 rounded-full bg-border" />
+               <div className="hidden md:block w-1 h-1 rounded-full bg-white/10" />
                <div className="flex items-center gap-2"><MessageSquare className="w-4 h-4" /> Editorial Review Verified</div>
             </div>
           </div>
 
           {/* Feature Image with Premium Caption */}
-          <div className="w-full aspect-[4/3] md:aspect-[21/9] rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-border shadow-2xl mb-12 md:mb-16 relative group bg-muted/20">
+          <div className="w-full aspect-[4/3] md:aspect-[21/9] rounded-none overflow-hidden border border-white/10 mb-12 md:mb-16 relative group bg-white/5">
              <Image 
                src={post.feature_image_url} 
                alt={post.alt_text || post.title} 
@@ -214,8 +214,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                className="object-cover opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105" 
                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
              />
-             <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 p-3 md:p-4 rounded-xl md:rounded-2xl bg-background/40 backdrop-blur-md border border-border/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <p className="text-[8px] md:text-[10px] font-bold text-foreground uppercase tracking-widest text-center">Visual Intelligence Sync Status: Calibrated</p>
+             <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 p-3 md:p-4 rounded-none bg-black/40 backdrop-blur-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <p className="text-[8px] md:text-[10px] font-bold text-white uppercase tracking-widest text-center">Visual Intelligence Sync Status: Calibrated</p>
              </div>
           </div>
 
@@ -225,14 +225,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <div className="absolute -left-12 top-0 bottom-0 w-px bg-gradient-to-b from-primary/20 via-transparent to-transparent hidden xl:block" />
             
             <div className="prose dark:prose-invert max-w-none 
-              [&_*]:text-foreground/90 
-              prose-headings:text-foreground prose-headings:font-fustat prose-headings:tracking-tighter
-              prose-a:text-primary prose-strong:text-foreground
-              prose-blockquote:border-l-primary/40 prose-img:rounded-[2rem] 
+              [&_*]:text-white/90 
+              prose-headings:text-white prose-headings:font-fustat prose-headings:tracking-tighter
+              prose-a:text-primary prose-strong:text-white
+              prose-blockquote:border-l-primary/40 prose-img:rounded-none 
               prose-code:text-primary px-0 selection:bg-primary/20 break-words overflow-hidden">
                 {post.content && post.content.startsWith('<') ? (
                   <div 
-                    className="space-y-6 text-foreground/90" 
+                    className="space-y-6 text-white/90" 
                     dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content) }} 
                   />
                 ) : (
@@ -243,13 +243,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           {/* Professional Callouts */}
           <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-8 rounded-3xl bg-muted/30 border border-border hover:border-primary/20 transition-colors group">
+            <div className="p-8 rounded-none glass-card hover:border-white/20 transition-colors group">
               <h4 className="text-xs font-black uppercase tracking-widest text-primary mb-3">Key Insight</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">"The intersection of algorithmic accuracy and journalistic integrity defines the next era of news."</p>
+              <p className="text-sm text-white/50 leading-relaxed">"The intersection of algorithmic accuracy and journalistic integrity defines the next era of news."</p>
             </div>
-            <div className="p-8 rounded-3xl bg-muted/30 border border-border hover:border-primary/20 transition-colors">
+            <div className="p-8 rounded-none glass-card hover:border-white/20 transition-colors">
               <h4 className="text-xs font-black uppercase tracking-widest text-primary mb-3">Verification</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">This report has been cross-referenced with multiple neural nodes to ensure factual reliability.</p>
+              <p className="text-sm text-white/50 leading-relaxed">This report has been cross-referenced with multiple neural nodes to ensure factual reliability.</p>
             </div>
           </div>
 
@@ -265,13 +265,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       </main>
 
       {/* Premium Footer */}
-      <footer className="border-t border-border py-20 px-8 text-center bg-card/30">
+      <footer className="border-t border-white/10 py-20 px-8 text-center bg-white/[0.02]">
          <div className="max-w-md mx-auto space-y-6">
-            <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.5em]">The Xylos AI Protocol // Human Intelligence Amplified</p>
+            <p className="text-[10px] font-black text-white/30 uppercase tracking-[0.5em]">The Xylos AI Protocol // Human Intelligence Amplified</p>
             <div className="flex justify-center gap-8 opacity-40">
-               <Link href="/about" className="text-[9px] font-bold uppercase tracking-widest hover:text-primary transition-colors">Standards</Link>
-               <Link href="/about" className="text-[9px] font-bold uppercase tracking-widest hover:text-primary transition-colors">Ethics</Link>
-               <Link href="/blog" className="text-[9px] font-bold uppercase tracking-widest hover:text-primary transition-colors">Archive</Link>
+               <Link href="/about" className="text-[9px] font-bold uppercase tracking-widest hover:text-primary transition-colors text-white/40">Standards</Link>
+               <Link href="/about" className="text-[9px] font-bold uppercase tracking-widest hover:text-primary transition-colors text-white/40">Ethics</Link>
+               <Link href="/blog" className="text-[9px] font-bold uppercase tracking-widest hover:text-primary transition-colors text-white/40">Archive</Link>
             </div>
          </div>
       </footer>

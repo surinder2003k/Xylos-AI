@@ -30,13 +30,13 @@ export default function Dashboard() {
     <div className="max-w-7xl mx-auto px-6 py-12 space-y-12">
       <header className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div className="space-y-2">
-          <h1 className="text-4xl font-fustat font-black tracking-tight uppercase leading-none">Your <span className="text-primary italic">Suite</span></h1>
-          <p className="text-muted-foreground text-lg">Deploy specialized editorial tools to accelerate your mission.</p>
+          <h1 className="text-4xl font-fustat font-black tracking-tight uppercase leading-none text-white">Your <span className="text-primary italic">Suite</span></h1>
+          <p className="text-white/50 text-lg">Deploy specialized editorial tools to accelerate your mission.</p>
         </div>
         
         <Link 
           href="/chat"
-          className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-foreground text-background font-bold hover:scale-105 transition-all shadow-xl group"
+          className="flex items-center gap-2 px-6 py-3 rounded-none bg-primary text-black font-bold hover:shadow-[0_0_30px_rgba(210,187,255,0.3)] transition-all group"
         >
           <Plus className="w-4 h-4" />
           General Workspace
@@ -53,7 +53,7 @@ export default function Dashboard() {
           >
             <Link 
               href={`/tools/${tool.id}`}
-              className="group flex flex-col h-full p-8 rounded-[2rem] bg-sidebar border border-border/40 hover:border-primary/40 hover:bg-muted/50 transition-all cursor-pointer relative overflow-hidden"
+              className="group flex flex-col h-full p-8 rounded-none glass-card hover:border-white/20 hover:shadow-[0_0_40px_rgba(210,187,255,0.08)] transition-all cursor-pointer relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
@@ -61,16 +61,16 @@ export default function Dashboard() {
                  </div>
               </div>
 
-              <div className={`p-4 rounded-2xl bg-background border border-border/50 w-fit mb-6 group-hover:scale-110 transition-transform ${tool.color}`}>
+              <div className={`p-4 rounded-none bg-white/5 border border-white/10 w-fit mb-6 group-hover:scale-110 transition-transform ${tool.color}`}>
                  <tool.icon className="w-6 h-6" />
               </div>
 
-              <h3 className="text-xl font-bold mb-2">{tool.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed flex-1">
+              <h3 className="text-xl font-bold mb-2 text-white">{tool.title}</h3>
+              <p className="text-sm text-white/50 leading-relaxed flex-1">
                 {tool.desc}
               </p>
               
-              <div className="mt-8 pt-6 border-t border-border/20 flex items-center justify-end text-[10px] font-mono tracking-widest uppercase text-muted-foreground/30">
+              <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-end text-[10px] font-mono tracking-widest uppercase text-white/30">
                  <span className="group-hover:text-primary transition-colors">Open Tool →</span>
               </div>
             </Link>

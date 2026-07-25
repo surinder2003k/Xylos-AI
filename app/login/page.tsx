@@ -32,14 +32,15 @@ function LoginContent() {
 
 
       {/* Dynamic Background */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-         <div className="absolute top-[-10%] left-[-5%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full animate-pulse" />
-         <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] bg-secondary/10 blur-[120px] rounded-full animate-pulse" />
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none aurora-bg">
+         <div className="absolute top-[-10%] left-[-5%] w-[40%] h-[40%] bg-primary/15 blur-[120px] rounded-full animate-pulse" />
+         <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] bg-secondary/15 blur-[120px] rounded-full animate-pulse" />
+         <div className="absolute top-[40%] left-[50%] w-[30%] h-[30%] bg-tertiary/10 blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
       {/* Back to home */}
       <div className="absolute top-6 left-6 z-10">
-        <Link href="/" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground hover:text-primary transition-colors group">
+        <Link href="/" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-white/40 hover:text-primary transition-colors group">
           <ArrowRight className="w-3 h-3 rotate-180 group-hover:-translate-x-1 transition-transform" />
           Back to Home
         </Link>
@@ -52,10 +53,10 @@ function LoginContent() {
       >
         <div className="flex flex-col items-center mb-8">
           <AnimatedLogo className="scale-125 mb-8" />
-          <h1 className="text-2xl font-bold tracking-tight text-foreground/90">
+          <h1 className="text-2xl font-bold tracking-tight text-white">
             {isLogin ? "Welcome back, Pilot" : "Create your Neural ID"}
           </h1>
-          <p className="text-muted-foreground text-sm mt-2">
+          <p className="text-white/50 text-sm mt-2">
             {isLogin ? "Access your unified AI workspace." : "Join the ultimate free AI arsenal."}
           </p>
         </div>
@@ -71,49 +72,49 @@ function LoginContent() {
           </motion.div>
         )}
 
-        <div className="bg-card/50 backdrop-blur-3xl border border-border rounded-[2.5rem] p-8 shadow-2xl relative overflow-hidden">
+        <div className="glass-card p-8 shadow-2xl relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-50" />
           <form action={isLogin ? signInWithEmail : signUpWithEmail} onSubmit={handleSubmit} className="space-y-4 relative z-10">
             {!isLogin && (
               <div className="space-y-1.5">
-                <label className="text-xs font-bold text-muted-foreground uppercase tracking-widest ml-1">Full Name</label>
+                <label className="text-xs font-bold text-white/40 uppercase tracking-widest ml-1">Full Name</label>
                 <div className="relative">
-                  <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
+                  <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
                   <input 
                     name="fullName"
                     type="text" 
                     placeholder="Enter your name" 
                     required
-                    className="w-full bg-background/50 border border-border rounded-2xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-foreground placeholder:text-muted-foreground/30"
+                    className="w-full bg-white/5 border border-white/10 rounded-none py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-white placeholder:text-white/20"
                   />
                 </div>
               </div>
             )}
 
             <div className="space-y-1.5">
-              <label className="text-xs font-bold text-muted-foreground uppercase tracking-widest ml-1">Email Address</label>
+              <label className="text-xs font-bold text-white/40 uppercase tracking-widest ml-1">Email Address</label>
               <div className="relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
                 <input 
                   name="email"
                   type="email" 
                   placeholder="name@example.com" 
                   required
-                  className="w-full bg-background/50 border border-border rounded-2xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-foreground placeholder:text-muted-foreground/30"
+                  className="w-full bg-white/5 border border-white/10 rounded-none py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-white placeholder:text-white/20"
                 />
               </div>
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-bold text-muted-foreground uppercase tracking-widest ml-1">Secure Password</label>
+              <label className="text-xs font-bold text-white/40 uppercase tracking-widest ml-1">Secure Password</label>
               <div className="relative">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
                 <input 
                   name="password"
                   type="password" 
                   placeholder="••••••••" 
                   required
-                  className="w-full bg-background/50 border border-border rounded-2xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-foreground placeholder:text-muted-foreground/30"
+                  className="w-full bg-white/5 border border-white/10 rounded-none py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-white placeholder:text-white/20"
                 />
               </div>
             </div>
@@ -121,7 +122,7 @@ function LoginContent() {
             <button 
               type="submit"
               disabled={isLoading}
-              className="w-full bg-foreground text-background font-bold py-4 rounded-2xl hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 group mt-6 disabled:opacity-50 disabled:pointer-events-none shadow-neon"
+              className="w-full bg-primary text-black font-bold py-4 rounded-none hover:shadow-[0_0_30px_rgba(210,187,255,0.3)] transition-all flex items-center justify-center gap-2 group mt-6 disabled:opacity-50 disabled:pointer-events-none"
             >
               {isLoading ? "Synchronizing..." : isLogin ? "Launch Workspace" : "Generate Neural ID"}
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -130,24 +131,24 @@ function LoginContent() {
 
           <div className="relative my-8 z-10">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-border"></div>
+              <div className="w-full border-t border-white/10"></div>
             </div>
             <div className="relative flex justify-center text-xs uppercase tracking-widest font-bold">
-              <span className="bg-card px-4 text-muted-foreground/30">or deploy via</span>
+              <span className="bg-transparent px-4 text-white/20">or deploy via</span>
             </div>
           </div>
 
           <button 
             type="button"
             onClick={() => signInWithGoogle()}
-            className="w-full bg-background/50 border border-border text-foreground font-semibold py-4 rounded-2xl flex items-center justify-center gap-3 hover:bg-muted/50 transition-all group relative z-10"
+            className="w-full bg-white/5 border border-white/10 text-white font-semibold py-4 rounded-none flex items-center justify-center gap-3 hover:bg-white/10 transition-all group relative z-10"
           >
             <Chrome className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
             Continue with Google
           </button>
         </div>
 
-        <p className="mt-8 text-center text-muted-foreground text-sm">
+        <p className="mt-8 text-center text-white/40 text-sm">
           {isLogin ? "New to Xylos AI?" : "Already have an ID?"}
           <button 
             onClick={() => setIsLogin(!isLogin)}

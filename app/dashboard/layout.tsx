@@ -154,7 +154,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           width: isSidebarOpen ? 280 : (mounted && screenWidth < 1024 ? 0 : 80),
           x: !isSidebarOpen && (mounted && screenWidth < 1024) ? -280 : 0
         }}
-        className={`fixed lg:relative z-50 border-r border-border bg-sidebar backdrop-blur-2xl flex flex-col transition-all duration-300 flex-shrink-0 h-full ${!isSidebarOpen && (mounted && screenWidth < 1024 ? 'hidden' : 'lg:flex')}`}
+        className={`fixed lg:relative z-50 border-r border-white/10 bg-white/[0.02] backdrop-blur-xl flex flex-col transition-all duration-300 flex-shrink-0 h-full ${!isSidebarOpen && (mounted && screenWidth < 1024 ? 'hidden' : 'lg:flex')}`}
       >
         <div className="p-6 flex items-center justify-between">
           <AnimatePresence mode="wait">
@@ -183,7 +183,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           {/* Close button for mobile */}
           <button 
             onClick={() => setIsSidebarOpen(false)}
-            className="lg:hidden p-2 text-muted-foreground hover:text-foreground hover:bg-muted rounded-xl transition-colors"
+            className="lg:hidden p-2 text-white/40 hover:text-white hover:bg-white/10 rounded-xl transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -200,7 +200,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                   flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200 group
                   ${isActive 
                     ? 'bg-primary/10 text-primary border border-primary/20' 
-                    : 'hover:bg-muted text-muted-foreground hover:text-foreground border border-transparent'
+                    : 'hover:bg-white/5 text-white/50 hover:text-white border border-transparent'
                   }
                 `}
               >
@@ -221,7 +221,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               <ShieldCheck className="w-4 h-4 text-primary flex-shrink-0" />
               <div className="min-w-0">
                 <p className="text-[10px] font-black text-primary uppercase tracking-widest">Super Admin</p>
-                <p className="text-[9px] text-muted-foreground truncate">{userEmail}</p>
+                <p className="text-[9px] text-white/40 truncate">{userEmail}</p>
               </div>
             </div>
           )}
@@ -231,7 +231,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               await signOut();
               showToast("Security session terminated. Safe travels.", "success");
             }}
-            className={`flex items-center gap-3 px-3 py-3 rounded-xl w-full text-muted-foreground hover:text-red-400 hover:bg-red-500/10 transition-all border border-transparent group ${!isSidebarOpen && 'justify-center'}`}
+            className={`flex items-center gap-3 px-3 py-3 rounded-xl w-full text-white/50 hover:text-red-400 hover:bg-red-500/10 transition-all border border-transparent group ${!isSidebarOpen && 'justify-center'}`}
             title="Sign Out"
           >
             <LogOut className="w-5 h-5 flex-shrink-0 group-hover:scale-110 transition-transform" />
@@ -242,16 +242,16 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         {/* Toggle Button */}
         <button 
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="absolute -right-4 top-10 w-8 h-8 rounded-full border border-border bg-sidebar flex items-center justify-center hover:bg-muted transition-colors shadow-lg z-[60]"
+          className="absolute -right-4 top-10 w-8 h-8 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors shadow-lg z-[60]"
         >
-          {isSidebarOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+          {isSidebarOpen ? <X className="w-4 h-4 text-white/50" /> : <Menu className="w-4 h-4 text-white/50" />}
         </button>
       </motion.aside>
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
         {/* Header */}
-        <header className="h-20 border-b border-border flex items-center justify-between px-4 md:px-8 bg-background/50 backdrop-blur-md flex-shrink-0 sticky top-0 z-40">
+        <header className="h-20 border-b border-white/10 flex items-center justify-between px-4 md:px-8 bg-white/[0.02] backdrop-blur-xl flex-shrink-0 sticky top-0 z-40">
           <div className="flex items-center gap-4">
             {!isSidebarOpen && (
               <button 
@@ -261,12 +261,12 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 <Menu className="w-5 h-5" />
               </button>
             )}
-            <div className="hidden sm:flex items-center gap-3 bg-muted border border-border px-4 py-2.5 rounded-xl w-32 md:w-96 shadow-inner group focus-within:border-primary/50 transition-all">
-            <Search className="w-4 h-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
+            <div className="hidden sm:flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2.5 rounded-xl w-32 md:w-96 shadow-inner group focus-within:border-primary/50 transition-all">
+            <Search className="w-4 h-4 text-white/30 group-focus-within:text-primary transition-colors" />
             <input 
               type="text" 
               placeholder="Search stories, contributors, insights..." 
-              className="bg-transparent border-none outline-none text-sm w-full placeholder:text-muted-foreground"
+              className="bg-transparent border-none outline-none text-sm w-full placeholder:text-white/20 text-white"
             />
           </div>
         </div>
@@ -274,7 +274,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <div className="flex items-center gap-6">
 
             {isAdmin && (
-              <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 shadow-neon-sm">
+              <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20">
                 <ShieldCheck className="w-3.5 h-3.5 text-primary" />
                 <span className="text-[10px] font-black text-primary uppercase tracking-widest">Admin</span>
               </div>
@@ -282,10 +282,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             <div className="relative" data-profile-menu>
               <button 
                 onClick={() => setIsProfileOpen(!isProfileOpen)}
-                className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 border border-border flex items-center justify-center hover:scale-105 transition-all cursor-pointer"
+                className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/20 via-secondary/20 to-tertiary/20 border border-white/10 flex items-center justify-center hover:scale-105 transition-all cursor-pointer"
               >
                 <div className="w-5 h-5 rounded-full bg-primary/40 flex items-center justify-center">
-                  <User className="w-3.5 h-3.5 text-foreground" />
+                  <User className="w-3.5 h-3.5 text-white" />
                 </div>
               </button>
               
@@ -296,33 +296,33 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                     initial={{ opacity: 0, y: 10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    className="absolute right-0 top-full mt-3 w-48 sm:w-56 bg-card border border-border rounded-2xl shadow-2xl z-[100] overflow-hidden"
+                    className="absolute right-0 top-full mt-3 w-48 sm:w-56 glass-card rounded-2xl shadow-2xl z-[100] overflow-hidden"
                   >
                     <div className="p-3">
-                      <div className="px-3 py-3 mb-2 bg-muted rounded-xl border border-border">
-                        <p className="text-xs font-bold text-foreground/90 truncate">{userEmail || "Editorial Lead"}</p>
+                      <div className="px-3 py-3 mb-2 bg-white/5 rounded-xl border border-white/10">
+                        <p className="text-xs font-bold text-white truncate">{userEmail || "Editorial Lead"}</p>
                         <p className="text-[9px] font-black text-violet-400 uppercase tracking-[0.2em] mt-1 flex items-center gap-1">
                           <Sparkles className="w-2.5 h-2.5" />
                           {userRole}
                         </p>
                       </div>
                       <div className="p-1 space-y-1">
-                        <div className="my-1 border-t border-border" />
+                        <div className="my-1 border-t border-white/10" />
                         <Link 
                           href="/settings"
                           onClick={() => setIsProfileOpen(false)}
-                          className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl hover:bg-muted transition-all text-sm text-muted-foreground hover:text-foreground"
+                          className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl hover:bg-white/5 transition-all text-sm text-white/50 hover:text-white"
                         >
                           <Settings className="w-4 h-4" />
                           Settings
                         </Link>
-                        <div className="my-1 border-t border-border" />
+                        <div className="my-1 border-t border-white/10" />
                         <button 
                           onClick={async () => {
                             await signOut();
                             showToast("Security session terminated. Safe travels.", "success");
                           }}
-                          className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl hover:bg-red-500/10 text-sm text-muted-foreground hover:text-red-400 transition-all font-medium"
+                          className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl hover:bg-red-500/10 text-sm text-white/50 hover:text-red-400 transition-all font-medium"
                         >
                           <LogOut className="w-4 h-4" />
                           Sign Out

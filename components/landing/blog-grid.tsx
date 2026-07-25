@@ -23,17 +23,17 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
 
   return (
     <div id="stories" className="w-full max-w-7xl mx-auto py-8 md:py-12 space-y-8 md:space-y-12">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-border pb-10">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-10">
         <div className="space-y-4">
-          <div className="flex items-center gap-3 text-foreground font-bold text-[10px] uppercase tracking-[0.4em]">
-            <Bookmark className="w-4 h-4 fill-foreground/15 text-foreground" />
+          <div className="flex items-center gap-3 text-primary font-bold text-[10px] uppercase tracking-[0.4em]">
+            <Bookmark className="w-4 h-4 fill-primary/15 text-primary" />
             Curated Insights
           </div>
-          <h2 className="text-4xl md:text-7xl font-black font-fustat tracking-tighter uppercase leading-none">
-            Human <span className="text-muted-foreground italic">&</span> Tech
+          <h2 className="text-4xl md:text-7xl font-black font-fustat tracking-tighter uppercase leading-none text-white">
+            Human <span className="text-white/40 italic">&</span> Tech
           </h2>
         </div>
-        <Link href="/blog" className="group text-xs font-black text-muted-foreground hover:text-foreground uppercase tracking-[0.3em] transition-all flex items-center gap-2">
+        <Link href="/blog" className="group text-xs font-black text-white/50 hover:text-primary uppercase tracking-[0.3em] transition-all flex items-center gap-2">
            View Full Archive 
            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
         </Link>
@@ -52,7 +52,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
           >
             <div>
               <Link href={`/blog/${blog.slug || blog.id}`} aria-label={`Read full article: ${blog.title}`} className="group block h-full">
-                <div className="relative bg-card border border-border/80 rounded-none overflow-hidden hover:border-foreground/35 hover:shadow-[0_12px_32px_rgba(0,0,0,0.03)] transition-all duration-700 h-full flex flex-col group/blog">
+                <div className="relative glass-card rounded-none overflow-hidden hover:border-white/20 hover:shadow-[0_0_40px_rgba(210,187,255,0.08)] transition-all duration-700 h-full flex flex-col group/blog">
                   
                   {/* Premium Image Header */}
                   <div className="relative aspect-[16/11] overflow-hidden">
@@ -64,7 +64,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     <div className="absolute top-6 left-6 z-20">
-                      <div className="px-4 py-1.5 bg-foreground text-background text-[9px] font-bold uppercase tracking-[0.2em] shadow-md rounded-none">
+                      <div className="px-4 py-1.5 bg-primary text-black text-[9px] font-bold uppercase tracking-[0.2em] shadow-md rounded-none">
                         {blog.category}
                       </div>
                     </div>
@@ -72,32 +72,32 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
 
                   {/* Editorial Content body */}
                   <div className="p-8 md:p-10 flex-1 flex flex-col">
-                    <div className="flex items-center gap-4 text-[9px] font-bold text-muted-foreground uppercase tracking-[0.2em] mb-6">
-                       <div className="flex items-center gap-2 bg-muted px-3 py-1 rounded-none border border-border/60">
-                          <Clock className="w-3 h-3 text-foreground/75" /> 
+                    <div className="flex items-center gap-4 text-[9px] font-bold text-white/40 uppercase tracking-[0.2em] mb-6">
+                       <div className="flex items-center gap-2 bg-white/5 px-3 py-1 rounded-none border border-white/10">
+                          <Clock className="w-3 h-3 text-white/50" /> 
                           {formatIST(blog.published_at)}
                        </div>
                     </div>
 
-                    <h3 className="text-2xl font-black font-fustat leading-[1.1] group-hover:text-foreground/80 transition-colors line-clamp-2 uppercase tracking-tighter mb-5">
+                    <h3 className="text-2xl font-black font-fustat leading-[1.1] group-hover:text-primary transition-colors line-clamp-2 uppercase tracking-tighter mb-5 text-white">
                        {blog.title}
                     </h3>
 
-                    <p className="text-sm text-muted-foreground font-medium leading-relaxed line-clamp-3 mb-10 group-hover:text-foreground transition-colors">
+                    <p className="text-sm text-white/50 font-medium leading-relaxed line-clamp-3 mb-10 group-hover:text-white/70 transition-colors">
                       {blog.excerpt}
                     </p>
 
-                    <div className="mt-auto pt-8 border-t border-border/70 flex items-center justify-between">
+                    <div className="mt-auto pt-8 border-t border-white/10 flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                         <div className="w-12 h-12 rounded-none bg-muted border border-border flex items-center justify-center overflow-hidden">
-                            <User className="w-6 h-6 text-foreground/45" />
+                         <div className="w-12 h-12 rounded-none bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
+                            <User className="w-6 h-6 text-white/30" />
                          </div>
                          <div className="flex flex-col">
-                            <span className="text-[11px] font-black text-foreground uppercase tracking-widest">{blog.profiles?.full_name || 'Xylos Team'}</span>
-                            <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Verified Author</span>
+                            <span className="text-[11px] font-black text-white uppercase tracking-widest">{blog.profiles?.full_name || 'Xylos Team'}</span>
+                            <span className="text-[9px] font-bold text-white/40 uppercase tracking-widest">Verified Author</span>
                          </div>
                       </div>
-                      <div className="w-12 h-12 rounded-none bg-muted border border-border flex items-center justify-center group-hover:bg-foreground group-hover:text-background group-hover:border-foreground transition-all duration-300">
+                      <div className="w-12 h-12 rounded-none bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:text-black group-hover:border-primary transition-all duration-300">
                          <ArrowUpRight className="w-5 h-5 transition-transform duration-500 group-hover:rotate-45" />
                       </div>
                     </div>

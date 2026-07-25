@@ -30,7 +30,7 @@ export function HeroCTA() {
         <Link
           href="/chat"
           aria-label="Launch Xylos AI Neural Link Chat"
-          className="relative flex items-center justify-center gap-4 px-10 md:px-16 py-5 md:py-6 rounded-none bg-foreground text-background font-black text-sm uppercase tracking-[0.2em] shadow-[4px_4px_0px_rgba(0,0,0,0.15)] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.2)] hover:-translate-y-0.5 active:translate-y-0 active:shadow-[2px_2px_0px_rgba(0,0,0,0.1)] transition-all duration-200 group w-full sm:w-auto overflow-hidden"
+          className="relative flex items-center justify-center gap-4 px-10 md:px-16 py-5 md:py-6 rounded-none bg-primary text-black font-black text-sm uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(210,187,255,0.3)] hover:shadow-[0_0_50px_rgba(210,187,255,0.5)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group w-full sm:w-auto overflow-hidden"
         >
           Launch Neural Link
           <MessageSquare aria-hidden="true" className="w-5 h-5 group-hover:rotate-12 transition-transform" />
@@ -38,7 +38,7 @@ export function HeroCTA() {
 
         <Link
           href={isLoggedIn ? "/dashboard" : "/login"}
-          className="relative px-12 py-6 rounded-none border border-foreground bg-transparent font-black text-xs uppercase tracking-[0.2em] hover:bg-foreground hover:text-background transition-all duration-300 w-full sm:w-auto text-foreground text-center group"
+          className="relative px-12 py-6 rounded-none border border-primary/40 bg-primary/10 font-black text-xs uppercase tracking-[0.2em] hover:bg-primary/20 hover:border-primary transition-all duration-300 w-full sm:w-auto text-primary text-center group"
         >
           <span className="relative z-10">{isLoggedIn ? "Admin Dashboard" : "Access Interface"}</span>
         </Link>
@@ -49,7 +49,7 @@ export function HeroCTA() {
         <Link
           href="/chat"
           aria-label="Launch Neural Link"
-          className="md:hidden fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-none bg-foreground text-background flex items-center justify-center shadow-lg border border-border"
+          className="md:hidden fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-none bg-primary text-black flex items-center justify-center shadow-lg shadow-primary/30"
         >
           <MessageSquare className="w-6 h-6" />
         </Link>
