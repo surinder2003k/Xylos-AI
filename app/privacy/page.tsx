@@ -21,7 +21,7 @@ export default function PrivacyPage() {
          <div className="absolute top-[20%] right-[10%] w-[40%] h-[40%] bg-primary/20 blur-[150px] rounded-full" />
       </div>
 
-      <main className="relative z-10 pt-48 px-6 pb-20 max-w-4xl mx-auto space-y-20">
+      <main className="relative z-10 pt-32 px-6 pb-20 max-w-4xl mx-auto space-y-12">
         <header className="space-y-6 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.3em]">
             <Shield className="w-3 h-3" />

@@ -76,7 +76,7 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
 
       <main className="pt-32 md:pt-40 pb-24 px-6 relative">
-        <div className="max-w-7xl mx-auto space-y-12 md:space-y-20">
+        <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
           {/* Refined Editorial Hero */}
           <div className="text-center space-y-6 max-w-4xl mx-auto">
              <div className="flex justify-center">

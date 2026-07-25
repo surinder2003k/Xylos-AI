@@ -26,7 +26,7 @@ export function NewsletterCard() {
   };
 
   return (
-    <div className="mt-12 p-8 rounded-[2rem] bg-gradient-to-br from-primary/10 via-card to-background border border-primary/20 shadow-lg relative overflow-hidden group animate-in zoom-in duration-700">
+    <div className="mt-8 p-8 rounded-[2rem] bg-gradient-to-br from-primary/10 via-card to-background border border-primary/20 shadow-lg relative overflow-hidden group animate-in zoom-in duration-700">
       <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
         <Sparkles className="w-32 h-32 text-primary" />
       </div>

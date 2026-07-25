@@ -93,7 +93,7 @@ export default async function LandingPage() {
          <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-70" />
       </div>
 
-      <main className="flex-1 flex flex-col items-center pt-28 md:pt-48 px-4 md:px-6 pb-20 relative z-10 w-full">
+      <main className="flex-1 flex flex-col items-center pt-28 md:pt-36 px-4 md:px-6 pb-20 relative z-10 w-full">
         <div className="max-w-6xl w-full text-center space-y-12">
           <div className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-none border border-foreground bg-foreground text-background font-mono text-[9px] uppercase tracking-[0.25em] mb-6">
              STATUS: ONLINE // CONSOLE v3.5
@@ -129,13 +129,13 @@ export default async function LandingPage() {
         </div>
 
         {/* Blog Feed Section */}
-        <div id="stories" className="w-full mt-20">
+        <div id="stories" className="w-full mt-12">
           <BlogGrid blogs={blogs || []} />
         </div>
 
         {/* Modular Systems Section */}
-        <div id="features" className="w-full max-w-7xl mx-auto mt-40 space-y-24">
-           <AnimatedHeader className="text-center space-y-4 px-4 mt-20 md:mt-40">
+        <div id="features" className="w-full max-w-7xl mx-auto mt-24 space-y-16">
+           <AnimatedHeader className="text-center space-y-4 px-4">
               <AnimatedItem className="text-[10px] font-black text-primary uppercase tracking-[0.4em] mb-4">Core Capacities</AnimatedItem>
               <AnimatedItem y={20} className="text-3xl md:text-6xl font-black font-fustat uppercase tracking-tighter">Human <span className="italic text-muted-foreground">Intelligence</span> Amplified</AnimatedItem>
               <AnimatedItem y={20} className="hidden md:block text-lg text-muted-foreground font-medium max-w-2xl mx-auto italic">High-fidelity tools meeting modern architectural standards.</AnimatedItem>
@@ -180,7 +180,7 @@ export default async function LandingPage() {
          </div>
 
          {/* About Xylos Text Content for SEO */}
-         <div className="w-full max-w-4xl mx-auto mt-32 px-6 text-center space-y-6 bg-card p-8 md:p-12 rounded-none border border-border/80 shadow-[0_2px_8px_rgba(0,0,0,0.015)]">
+         <div className="w-full max-w-4xl mx-auto mt-20 px-6 text-center space-y-6 bg-card p-8 md:p-12 rounded-none border border-border/80 shadow-[0_2px_8px_rgba(0,0,0,0.015)]">
            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight">The Ultimate Free AI Chat & Content Platform</h2>
            <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
              Xylos AI is designed to bridge the gap between raw data and polished intelligence. As a premier <strong className="text-foreground">free AI chat</strong> platform, we provide unparalleled access to industry-leading models including <a href="https://llama.meta.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary underline decoration-border/60 hover:decoration-primary/60 transition-colors underline-offset-4 font-bold">Llama 3</a>, <a href="https://deepmind.google/technologies/gemini/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary underline decoration-border/60 hover:decoration-primary/60 transition-colors underline-offset-4 font-bold">Gemini</a>, and <a href="https://mistral.ai" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary underline decoration-border/60 hover:decoration-primary/60 transition-colors underline-offset-4 font-bold">Mistral</a> without the burden of subscription fees. Our intelligent routing system automatically selects the optimal neural network for your specific queries, whether you are drafting professional blogs, writing complex code, or conducting deep academic research. By aggregating these powerful tools into a single, unified workspace, Xylos AI empowers creators, developers, and professionals to refine their narratives and amplify their productivity at zero cost. Experience the future of generative AI today.
@@ -188,7 +188,7 @@ export default async function LandingPage() {
          </div>
 
         {/* FAQ Section */}
-        <div className="w-full max-w-4xl mx-auto mt-40 mb-10 px-6">
+        <div className="w-full max-w-4xl mx-auto mt-24 mb-10 px-6">
           <FadeIn className="text-center mb-16 space-y-4">
              <div className="text-[10px] font-black text-foreground uppercase tracking-[0.4em]">Help & Support</div>
              <h2 className="text-4xl font-black uppercase tracking-tighter">Common Clarifications</h2>

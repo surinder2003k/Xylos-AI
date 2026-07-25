@@ -22,7 +22,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
   if (!blogs || blogs.length === 0) return null;
 
   return (
-    <div id="stories" className="w-full max-w-7xl mx-auto px-6 py-12 md:py-24 space-y-12 md:space-y-16">
+    <div id="stories" className="w-full max-w-7xl mx-auto py-8 md:py-12 space-y-8 md:space-y-12">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-border pb-10">
         <div className="space-y-4">
           <div className="flex items-center gap-3 text-foreground font-bold text-[10px] uppercase tracking-[0.4em]">

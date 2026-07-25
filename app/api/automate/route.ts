@@ -169,8 +169,8 @@ export async function GET(req: Request) {
     for (let i = 0; i < count; i++) {
       // Check remaining time - abort if less than 15 seconds left
       const elapsed = Date.now() - startTime;
-      if (elapsed > 45000) {
-        console.warn(`[AutoPost] Timeout approaching after ${i} posts. Aborting remaining.`);
+      if (elapsed > 50000) {
+        console.warn(`[AutoPost] Timeout approaching after ${i} posts (${(elapsed/1000).toFixed(1)}s). Aborting remaining.`);
         break;
       }
 

@@ -20,9 +20,9 @@ export default function AboutPageClient() {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 relative overflow-hidden">
 
-      <main className="relative z-10 pt-48 px-6 pb-20 max-w-7xl mx-auto">
+      <main className="relative z-10 pt-32 px-6 pb-20 max-w-7xl mx-auto">
         {/* Hero Section */}
-        <div className="text-center space-y-8 mb-32">
+        <div className="text-center space-y-8 mb-20">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -44,7 +44,7 @@ export default function AboutPageClient() {
         </div>
 
         {/* Content Matrix */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-40">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -113,7 +113,7 @@ export default function AboutPageClient() {
         </div>
 
         {/* Vision Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-40">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           <StatBox label="Execution Time" value="< 2.4s" />
           <StatBox label="Neural Accuracy" value="99.9%" />
           <StatBox label="Global Reach" value="Syncing" />
