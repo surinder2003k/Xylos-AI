@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Fustat } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 import { PrimaryColorProvider } from "@/components/primary-color-provider";
@@ -8,6 +9,12 @@ import { TopProgressBar } from "@/components/premium/progress-bar";
 import { AuthListener } from "@/components/auth-listener";
 import { GlobalEffects } from "@/components/ui/global-effects";
 import { ToastProvider } from "@/components/ui/toast";
+
+const geistSans = localFont({
+  src: "../node_modules/geist/dist/fonts/geist-sans/Geist-Variable.woff2",
+  variable: "--font-geist",
+  display: "swap",
+});
 
 const inter = Inter({ 
   subsets: ["latin"], 
@@ -134,7 +141,7 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} ${fustat.variable} antialiased selection:bg-primary/30 selection:text-primary-foreground`}>
+      <body className={`${inter.variable} ${fustat.variable} ${geistSans.variable} antialiased selection:bg-primary/30 selection:text-primary-foreground`}>
         <Script id="gtm-script" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
