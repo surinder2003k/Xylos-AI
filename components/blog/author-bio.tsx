@@ -1,7 +1,6 @@
 "use client";
 
 import { User, Twitter, Linkedin, Github } from "lucide-react";
-import Image from "next/image";
 
 interface AuthorBioProps {
   name: string;
@@ -17,41 +16,41 @@ export function AuthorBio({
   avatarUrl 
 }: AuthorBioProps) {
   return (
-    <div className="mt-12 p-6 md:p-10 rounded-[2.5rem] bg-card border border-border shadow-sm backdrop-blur-xl relative overflow-hidden group">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50" />
+    <div className="mt-12 p-6 md:p-10 rounded-3xl bg-white/[0.02] border border-white/[0.05] relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-violet-500/[0.03] to-transparent" />
       
       <div className="relative z-10 flex flex-col md:flex-row items-center gap-10">
         <div className="relative">
-          <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-primary to-secondary p-0.5 animate-in fade-in duration-1000">
-            <div className="w-full h-full rounded-[0.9rem] bg-background flex items-center justify-center overflow-hidden">
+          <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-violet-500 to-cyan-500 p-0.5">
+            <div className="w-full h-full rounded-[0.9rem] bg-[#0f0f14] flex items-center justify-center overflow-hidden">
               {avatarUrl ? (
                 <img src={avatarUrl} alt={name} className="w-full h-full object-cover" />
               ) : (
-                <User className="w-10 h-10 text-primary/40" />
+                <User className="w-10 h-10 text-white/15" />
               )}
             </div>
           </div>
-          <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-green-500 border-4 border-background" title="Verified Author" />
+          <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-green-500 border-4 border-[#0f0f14]" title="Verified Author" />
         </div>
 
         <div className="flex-1 space-y-4 text-center md:text-left">
           <div>
-            <h3 className="text-2xl font-black font-fustat tracking-tighter uppercase">{name}</h3>
-            <p className="text-xs font-bold text-primary uppercase tracking-[0.2em]">{role}</p>
+            <h3 className="text-2xl font-black tracking-tighter uppercase text-white">{name}</h3>
+            <p className="text-xs font-bold text-violet-400 uppercase tracking-[0.2em]">{role}</p>
           </div>
           
-          <p className="text-muted-foreground text-sm leading-relaxed font-medium max-w-2xl">
+          <p className="text-white/25 text-sm leading-relaxed font-medium max-w-2xl">
             {bio}
           </p>
 
           <div className="flex items-center justify-center md:justify-start gap-4 pt-2">
-            <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-muted hover:bg-primary hover:text-black transition-all cursor-pointer inline-flex" aria-label="Twitter">
+            <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="p-2 rounded-2xl bg-white/[0.03] border border-white/[0.05] hover:bg-violet-500/20 hover:text-violet-400 hover:border-violet-500/20 transition-all inline-flex text-white/25" aria-label="Twitter">
               <Twitter className="w-4 h-4" />
             </a>
-            <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-muted hover:bg-primary hover:text-black transition-all cursor-pointer inline-flex" aria-label="LinkedIn">
+            <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="p-2 rounded-2xl bg-white/[0.03] border border-white/[0.05] hover:bg-violet-500/20 hover:text-violet-400 hover:border-violet-500/20 transition-all inline-flex text-white/25" aria-label="LinkedIn">
               <Linkedin className="w-4 h-4" />
             </a>
-            <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-muted hover:bg-primary hover:text-black transition-all cursor-pointer inline-flex" aria-label="GitHub">
+            <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="p-2 rounded-2xl bg-white/[0.03] border border-white/[0.05] hover:bg-violet-500/20 hover:text-violet-400 hover:border-violet-500/20 transition-all inline-flex text-white/25" aria-label="GitHub">
               <Github className="w-4 h-4" />
             </a>
           </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Shield, Lock, Eye, Scale, FileCheck } from "lucide-react";
+import { Shield, Lock, Eye, Scale, FileCheck, Database, Code, Users } from "lucide-react";
 
 
 export const metadata: Metadata = {
@@ -13,70 +13,86 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
 
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 relative overflow-hidden">
+    <div className="min-h-screen bg-[#0f0f14] text-white selection:bg-violet-500/30 relative overflow-hidden">
 
-      
       {/* Background decoration */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-10">
-         <div className="absolute top-[20%] right-[10%] w-[40%] h-[40%] bg-primary/20 blur-[150px] rounded-full" />
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-violet-500/[0.04] rounded-full blur-[150px]" />
       </div>
 
-      <main className="relative z-10 pt-32 px-6 pb-20 max-w-4xl mx-auto space-y-12">
+      <main className="relative z-10 pt-32 px-6 pb-20 max-w-4xl mx-auto space-y-16">
+        {/* Hero */}
         <header className="space-y-6 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.3em]">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-2xl bg-violet-500/10 border border-violet-500/20 text-violet-400 text-[10px] font-bold uppercase tracking-[0.3em]">
             <Shield className="w-3 h-3" />
             Data Governance v2.0
           </div>
-          <h1 className="text-5xl md:text-7xl font-black font-fustat uppercase tracking-tighter italic text-white">
-            Privacy & <span className="text-primary">Ethics</span>
+          <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-white">
+            Privacy & <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">Ethics</span>
           </h1>
-          <p className="text-white/50 text-lg font-medium max-w-2xl mx-auto italic">
-            "Trust is the currency of intelligence. Xylos AI is built on a foundation of zero-compromise data integrity."
+          <p className="text-white/25 text-lg font-medium max-w-2xl mx-auto">
+            &quot;Trust is the currency of intelligence. Xylos AI is built on a foundation of zero-compromise data integrity.&quot;
           </p>
         </header>
 
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Feature Cards */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <InfoCard 
             icon={Lock} 
             title="Zero Retention" 
             content="We do not store your chat logs or generated content on our servers for training. Every session is ephemeral and remains your intellectual property."
+            color="violet"
           />
           <InfoCard 
             icon={Eye} 
             title="Encryption" 
             content="End-to-end encryption for all data transmissions. Your interactions with elite models pass through secure, audited tunnels."
+            color="cyan"
           />
           <InfoCard 
             icon={Scale} 
             title="Ethical Models" 
             content="We only aggregate models that adhere to safety alignment and ethical AI development standards defined by the open-source community."
+            color="pink"
           />
           <InfoCard 
             icon={FileCheck} 
             title="User Sovereignty" 
             content="You have full control over your data. Delete your profile or history with a single click — no hidden archives, no recovery lags."
+            color="violet"
           />
         </section>
 
-        <article className="prose dark:prose-invert max-w-none space-y-8 text-white/50 leading-relaxed">
+        {/* Privacy Details */}
+        <article className="space-y-12 text-white/25 leading-relaxed">
           <div className="space-y-4">
-            <h2 className="text-2xl font-black text-white uppercase tracking-tight font-fustat">1. Data Collection</h2>
-            <p>Xylos AI collects minimal metadata required to provide the service. This includes account identifiers and usage logs necessary for system stability. We do NOT monetize user data or sell it to third-party advertisers.</p>
+            <h2 className="text-2xl font-black text-white uppercase tracking-tight flex items-center gap-3">
+              <Database className="w-5 h-5 text-violet-400" />
+              1. Data Collection
+            </h2>
+            <p className="text-lg">Xylos AI collects minimal metadata required to provide the service. This includes account identifiers and usage logs necessary for system stability. We do NOT monetize user data or sell it to third-party advertisers.</p>
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-2xl font-black text-white uppercase tracking-tight font-fustat">2. AI Training</h2>
-            <p>Content synthesized using Xylos AI is NOT used to train the underlying models (Llama, Gemini, Mistral) by default. We leverage API-level privacy flags to ensure your corporate and personal secrets remain private.</p>
+            <h2 className="text-2xl font-black text-white uppercase tracking-tight flex items-center gap-3">
+              <Code className="w-5 h-5 text-cyan-400" />
+              2. AI Training
+            </h2>
+            <p className="text-lg">Content synthesized using Xylos AI is NOT used to train the underlying models (Llama, Gemini, Mistral) by default. We leverage API-level privacy flags to ensure your corporate and personal secrets remain private.</p>
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-2xl font-black text-white uppercase tracking-tight font-fustat">3. Ethics Commitment</h2>
-            <p>Our editorial engine is tuned to recognize and mitigate bias. While AI can still generate unexpected responses, our 'Aether Intelligence Layer' acts as a secondary filter to maintain professional standards of communication.</p>
+            <h2 className="text-2xl font-black text-white uppercase tracking-tight flex items-center gap-3">
+              <Users className="w-5 h-5 text-pink-400" />
+              3. Ethics Commitment
+            </h2>
+            <p className="text-lg">Our editorial engine is tuned to recognize and mitigate bias. While AI can still generate unexpected responses, our &apos;Aether Intelligence Layer&apos; acts as a secondary filter to maintain professional standards of communication.</p>
           </div>
         </article>
 
-        <footer className="text-center pt-10 border-t border-white/10">
-          <p className="text-[10px] font-black text-white/20 uppercase tracking-[0.4em]">
+        {/* Footer */}
+        <footer className="text-center pt-10 border-t border-white/[0.05]">
+          <p className="text-[10px] font-bold text-white/15 uppercase tracking-[0.4em]">
             Last Updated: April 17, 2026 // Xylos Legal Division
           </p>
         </footer>
@@ -85,14 +101,25 @@ export default function PrivacyPage() {
   );
 }
 
-function InfoCard({ icon: Icon, title, content }: any) {
+function InfoCard({ icon: Icon, title, content, color }: any) {
+  const colorMap: Record<string, string> = {
+    violet: "bg-violet-500/10 text-violet-400 group-hover:bg-violet-500/20",
+    cyan: "bg-cyan-500/10 text-cyan-400 group-hover:bg-cyan-500/20",
+    pink: "bg-pink-500/10 text-pink-400 group-hover:bg-pink-500/20",
+  };
+  const borderMap: Record<string, string> = {
+    violet: "hover:border-violet-500/20",
+    cyan: "hover:border-cyan-500/20",
+    pink: "hover:border-pink-500/20",
+  };
+
   return (
-    <div className="p-8 rounded-none glass-card space-y-4 hover:border-white/20 transition-all group">
-      <div className="w-12 h-12 rounded-none bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+    <div className={`p-8 rounded-3xl bg-white/[0.02] border border-white/[0.05] space-y-4 ${borderMap[color]} transition-all group`}>
+      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all ${colorMap[color]}`}>
         <Icon className="w-6 h-6" />
       </div>
-      <h3 className="text-xl font-black uppercase font-fustat tracking-tight italic text-white">{title}</h3>
-      <p className="text-sm text-white/50 font-medium leading-relaxed">{content}</p>
+      <h3 className="text-xl font-black uppercase tracking-tight text-white">{title}</h3>
+      <p className="text-sm text-white/25 font-medium leading-relaxed">{content}</p>
     </div>
   );
 }

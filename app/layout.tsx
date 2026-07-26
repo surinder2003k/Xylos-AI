@@ -141,7 +141,7 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} ${fustat.variable} ${geistSans.variable} antialiased selection:bg-primary/30 selection:text-primary-foreground`}>
+      <body className={`${inter.variable} ${fustat.variable} ${geistSans.variable} antialiased selection:bg-violet-500/30 selection:text-white`}>
         <Script id="gtm-script" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
