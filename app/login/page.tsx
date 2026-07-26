@@ -30,14 +30,14 @@ function LoginContent() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0f0f14] text-white flex relative overflow-hidden selection:bg-violet-500/30">
+    <div className="min-h-screen bg-[#0d1117] text-white flex relative overflow-hidden selection:bg-emerald-500/30">
       {/* Left Panel - Visual (hidden on mobile) */}
       <div className="hidden lg:flex lg:w-1/2 relative items-center justify-center p-12">
         {/* Background gradients */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-500/[0.08] rounded-full blur-[150px]" />
-          <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-cyan-500/[0.05] rounded-full blur-[120px]" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pink-500/[0.04] rounded-full blur-[100px]" />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/[0.08] rounded-full blur-[150px]" />
+          <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-amber-500/[0.05] rounded-full blur-[120px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-emerald-500/[0.03] rounded-full blur-[100px]" />
         </div>
 
         {/* Dot grid */}
@@ -52,8 +52,8 @@ function LoginContent() {
               transition={{ delay: 0.2 }}
               className="flex items-center gap-4 p-5 bg-white/[0.02] border border-white/[0.05] rounded-2xl backdrop-blur-xl"
             >
-              <div className="w-11 h-11 rounded-2xl bg-violet-500/10 flex items-center justify-center shrink-0">
-                <MessageSquare className="w-5 h-5 text-violet-400" />
+              <div className="w-11 h-11 rounded-2xl bg-emerald-500/10 flex items-center justify-center shrink-0">
+                <MessageSquare className="w-5 h-5 text-emerald-400" />
               </div>
               <div>
                 <p className="text-sm font-bold text-white">Unified AI Chat</p>
@@ -67,8 +67,8 @@ function LoginContent() {
               transition={{ delay: 0.4 }}
               className="flex items-center gap-4 p-5 bg-white/[0.02] border border-white/[0.05] rounded-2xl backdrop-blur-xl ml-8"
             >
-              <div className="w-11 h-11 rounded-2xl bg-cyan-500/10 flex items-center justify-center shrink-0">
-                <Code2 className="w-5 h-5 text-cyan-400" />
+              <div className="w-11 h-11 rounded-2xl bg-amber-500/10 flex items-center justify-center shrink-0">
+                <Code2 className="w-5 h-5 text-amber-400" />
               </div>
               <div>
                 <p className="text-sm font-bold text-white">Code Assistant</p>
@@ -82,8 +82,8 @@ function LoginContent() {
               transition={{ delay: 0.6 }}
               className="flex items-center gap-4 p-5 bg-white/[0.02] border border-white/[0.05] rounded-2xl backdrop-blur-xl ml-4"
             >
-              <div className="w-11 h-11 rounded-2xl bg-pink-500/10 flex items-center justify-center shrink-0">
-                <FileText className="w-5 h-5 text-pink-400" />
+              <div className="w-11 h-11 rounded-2xl bg-emerald-500/10 flex items-center justify-center shrink-0">
+                <FileText className="w-5 h-5 text-emerald-400" />
               </div>
               <div>
                 <p className="text-sm font-bold text-white">Content Factory</p>
@@ -100,7 +100,7 @@ function LoginContent() {
             className="space-y-2"
           >
             <h2 className="text-3xl font-black tracking-tight">Free AI Chat.</h2>
-            <h2 className="text-3xl font-black bg-gradient-to-r from-violet-400 via-cyan-400 to-pink-400 bg-clip-text text-transparent tracking-tight">Refine Your Narrative.</h2>
+            <h2 className="text-3xl font-black bg-gradient-to-r from-emerald-400 via-amber-400 to-emerald-400 bg-clip-text text-transparent tracking-tight">Refine Your Narrative.</h2>
             <p className="text-white/25 text-sm">Zero cost. Infinite possibilities.</p>
           </motion.div>
         </div>
@@ -110,7 +110,7 @@ function LoginContent() {
       <div className="flex-1 flex items-center justify-center p-6 md:p-12 relative">
         {/* Back to home */}
         <div className="absolute top-6 left-6 z-10">
-          <Link href="/" className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.3em] text-white/25 hover:text-violet-400 transition-colors">
+          <Link href="/" className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.3em] text-white/25 hover:text-emerald-400 transition-colors">
             ← Back to Home
           </Link>
         </div>
@@ -144,7 +144,7 @@ function LoginContent() {
 
           {/* Auth Card */}
           <div className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.05] p-8 rounded-3xl relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-violet-500/[0.03] via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/[0.03] via-transparent to-transparent" />
             
             <form action={isLogin ? signInWithEmail : signUpWithEmail} onSubmit={handleSubmit} className="space-y-4 relative z-10">
               {!isLogin && (
@@ -157,7 +157,7 @@ function LoginContent() {
                       type="text" 
                       placeholder="Enter your name" 
                       required
-                      className="w-full bg-white/[0.03] border border-white/[0.06] rounded-2xl py-3.5 pl-12 pr-4 focus:outline-none focus:border-violet-500/40 transition-all text-white placeholder:text-white/15 text-sm"
+                      className="w-full bg-white/[0.03] border border-white/[0.06] rounded-2xl py-3.5 pl-12 pr-4 focus:outline-none focus:border-emerald-500/40 transition-all text-white placeholder:text-white/15 text-sm"
                     />
                   </div>
                 </div>
@@ -172,7 +172,7 @@ function LoginContent() {
                     type="email" 
                     placeholder="name@example.com" 
                     required
-                    className="w-full bg-white/[0.03] border border-white/[0.06] rounded-2xl py-3.5 pl-12 pr-4 focus:outline-none focus:border-violet-500/40 transition-all text-white placeholder:text-white/15 text-sm"
+                    className="w-full bg-white/[0.03] border border-white/[0.06] rounded-2xl py-3.5 pl-12 pr-4 focus:outline-none focus:border-emerald-500/40 transition-all text-white placeholder:text-white/15 text-sm"
                   />
                 </div>
               </div>
@@ -186,7 +186,7 @@ function LoginContent() {
                     type="password" 
                     placeholder="••••••••" 
                     required
-                    className="w-full bg-white/[0.03] border border-white/[0.06] rounded-2xl py-3.5 pl-12 pr-4 focus:outline-none focus:border-violet-500/40 transition-all text-white placeholder:text-white/15 text-sm"
+                    className="w-full bg-white/[0.03] border border-white/[0.06] rounded-2xl py-3.5 pl-12 pr-4 focus:outline-none focus:border-emerald-500/40 transition-all text-white placeholder:text-white/15 text-sm"
                   />
                 </div>
               </div>
@@ -194,7 +194,7 @@ function LoginContent() {
               <button 
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-violet-500 to-cyan-500 text-white font-bold py-4 rounded-2xl hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all duration-300 flex items-center justify-center gap-2 group mt-6 disabled:opacity-50 disabled:pointer-events-none text-sm uppercase tracking-wider"
+                className="w-full bg-gradient-to-r from-emerald-500 to-amber-500 text-white font-bold py-4 rounded-2xl hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all duration-300 flex items-center justify-center gap-2 group mt-6 disabled:opacity-50 disabled:pointer-events-none text-sm uppercase tracking-wider"
               >
                 {isLoading ? "Synchronizing..." : isLogin ? "Launch Workspace" : "Generate Neural ID"}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -215,7 +215,7 @@ function LoginContent() {
               onClick={() => signInWithGoogle()}
               className="w-full bg-white/[0.03] border border-white/[0.06] text-white font-semibold py-4 rounded-2xl flex items-center justify-center gap-3 hover:bg-white/[0.05] transition-all group relative z-10 text-sm"
             >
-              <Chrome className="w-5 h-5 text-violet-400 group-hover:scale-110 transition-transform" />
+              <Chrome className="w-5 h-5 text-emerald-400 group-hover:scale-110 transition-transform" />
               Continue with Google
             </button>
           </div>
@@ -224,7 +224,7 @@ function LoginContent() {
             {isLogin ? "New to Xylos AI?" : "Already have an ID?"}
             <button 
               onClick={() => setIsLogin(!isLogin)}
-              className="ml-2 text-violet-400 font-bold hover:underline"
+              className="ml-2 text-emerald-400 font-bold hover:underline"
             >
               {isLogin ? "Create an account" : "Sign in to workspace"}
             </button>
@@ -237,7 +237,7 @@ function LoginContent() {
 
 export default function LoginPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-[#0f0f14] flex items-center justify-center"><div className="w-8 h-8 rounded-full border-2 border-violet-500 border-t-transparent animate-spin" /></div>}>
+    <Suspense fallback={<div className="min-h-screen bg-[#0d1117] flex items-center justify-center"><div className="w-8 h-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" /></div>}>
        <LoginContent />
     </Suspense>
   );

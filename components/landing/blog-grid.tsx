@@ -25,15 +25,15 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
     <div id="stories" className="w-full max-w-7xl mx-auto py-8 md:py-12 space-y-8 md:space-y-12">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/[0.05] pb-10">
         <div className="space-y-4">
-          <div className="flex items-center gap-3 text-violet-400 font-bold text-[10px] uppercase tracking-[0.4em]">
-            <Bookmark className="w-4 h-4 fill-violet-500/15 text-violet-400" />
+          <div className="flex items-center gap-3 text-emerald-400 font-bold text-[10px] uppercase tracking-[0.4em]">
+            <Bookmark className="w-4 h-4 fill-emerald-500/15 text-emerald-400" />
             Curated Insights
           </div>
           <h2 className="text-4xl md:text-7xl font-black tracking-tighter leading-none text-white">
             Human <span className="text-white/15 italic">&</span> Tech
           </h2>
         </div>
-        <Link href="/blog" className="group text-xs font-bold text-white/25 hover:text-violet-400 uppercase tracking-[0.3em] transition-all flex items-center gap-2">
+        <Link href="/blog" className="group text-xs font-bold text-white/25 hover:text-emerald-400 uppercase tracking-[0.3em] transition-all flex items-center gap-2">
            View Full Archive 
            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
         </Link>
@@ -52,7 +52,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
           >
             <div>
               <Link href={`/blog/${blog.slug || blog.id}`} aria-label={`Read full article: ${blog.title}`} className="group block h-full">
-                <div className="relative bg-white/[0.02] border border-white/[0.05] rounded-3xl overflow-hidden hover:border-violet-500/20 hover:shadow-[0_0_40px_rgba(139,92,246,0.06)] transition-all duration-700 h-full flex flex-col">
+                <div className="relative bg-white/[0.02] border border-white/[0.05] rounded-3xl overflow-hidden hover:border-emerald-500/20 hover:shadow-[0_0_40px_rgba(16,185,129,0.06)] transition-all duration-700 h-full flex flex-col">
                   
                   {/* Image Header */}
                   <div className="relative aspect-[16/11] overflow-hidden">
@@ -64,7 +64,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     <div className="absolute top-4 left-4 z-20">
-                      <div className="px-4 py-1.5 bg-violet-500/80 backdrop-blur-md text-white text-[9px] font-bold uppercase tracking-[0.2em] rounded-2xl">
+                      <div className="px-4 py-1.5 bg-emerald-500/80 backdrop-blur-md text-white text-[9px] font-bold uppercase tracking-[0.2em] rounded-2xl">
                         {blog.category}
                       </div>
                     </div>
@@ -79,7 +79,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                        </div>
                     </div>
 
-                    <h3 className="text-xl font-black leading-[1.1] group-hover:text-violet-400 transition-colors line-clamp-2 uppercase tracking-tight mb-3 text-white">
+                    <h3 className="text-xl font-black leading-[1.1] group-hover:text-emerald-400 transition-colors line-clamp-2 uppercase tracking-tight mb-3 text-white">
                        {blog.title}
                     </h3>
 
@@ -97,7 +97,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                            <span className="text-[9px] font-bold text-white/15 uppercase tracking-widest">Author</span>
                          </div>
                       </div>
-                      <div className="w-10 h-10 rounded-2xl bg-white/[0.03] border border-white/[0.05] flex items-center justify-center group-hover:bg-violet-500 group-hover:text-white group-hover:border-violet-500 transition-all duration-300">
+                      <div className="w-10 h-10 rounded-2xl bg-white/[0.03] border border-white/[0.05] flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white group-hover:border-emerald-500 transition-all duration-300">
                          <ArrowUpRight className="w-4 h-4 transition-transform duration-500 group-hover:rotate-45" />
                       </div>
                     </div>

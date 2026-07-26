@@ -49,7 +49,7 @@ export function BlogFilters() {
               onClick={() => handleCategoryChange(cat)}
               className={`px-4 md:px-6 py-2 rounded-2xl font-bold text-[9px] md:text-[10px] uppercase tracking-widest transition-all ${
                 isActive 
-                  ? "bg-violet-500 text-white" 
+                  ? "bg-emerald-500 text-white" 
                   : "bg-white/[0.03] border border-white/[0.05] text-white/25 hover:bg-white/[0.05] hover:text-white/50"
               }`}
             >
@@ -59,7 +59,7 @@ export function BlogFilters() {
         })}
       </div>
       
-      <form onSubmit={handleSearch} className="flex w-full md:w-auto md:ml-auto items-center gap-3 bg-white/[0.03] border border-white/[0.05] px-6 py-3 md:py-2 rounded-2xl group focus-within:border-violet-500/40 transition-all order-1 md:order-2">
+      <form onSubmit={handleSearch} className="flex w-full md:w-auto md:ml-auto items-center gap-3 bg-white/[0.03] border border-white/[0.05] px-6 py-3 md:py-2 rounded-2xl group focus-within:border-emerald-500/40 transition-all order-1 md:order-2">
         <Search className="w-4 h-4 text-white/15 group-focus-within:text-white/40" />
         <input 
           value={query}

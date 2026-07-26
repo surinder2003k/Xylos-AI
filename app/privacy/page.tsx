@@ -13,22 +13,22 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
 
   return (
-    <div className="min-h-screen bg-[#0f0f14] text-white selection:bg-violet-500/30 relative overflow-hidden">
+    <div className="min-h-screen bg-[#0d1117] text-white selection:bg-emerald-500/30 relative overflow-hidden">
 
       {/* Background decoration */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-violet-500/[0.04] rounded-full blur-[150px]" />
+         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-emerald-500/[0.04] rounded-full blur-[150px]" />
       </div>
 
       <main className="relative z-10 pt-32 px-6 pb-20 max-w-4xl mx-auto space-y-16">
         {/* Hero */}
         <header className="space-y-6 text-center">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-2xl bg-violet-500/10 border border-violet-500/20 text-violet-400 text-[10px] font-bold uppercase tracking-[0.3em]">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-[0.3em]">
             <Shield className="w-3 h-3" />
             Data Governance v2.0
           </div>
           <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-white">
-            Privacy & <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">Ethics</span>
+            Privacy & <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Ethics</span>
           </h1>
           <p className="text-white/25 text-lg font-medium max-w-2xl mx-auto">
             &quot;Trust is the currency of intelligence. Xylos AI is built on a foundation of zero-compromise data integrity.&quot;
@@ -67,7 +67,7 @@ export default function PrivacyPage() {
         <article className="space-y-12 text-white/25 leading-relaxed">
           <div className="space-y-4">
             <h2 className="text-2xl font-black text-white uppercase tracking-tight flex items-center gap-3">
-              <Database className="w-5 h-5 text-violet-400" />
+              <Database className="w-5 h-5 text-emerald-400" />
               1. Data Collection
             </h2>
             <p className="text-lg">Xylos AI collects minimal metadata required to provide the service. This includes account identifiers and usage logs necessary for system stability. We do NOT monetize user data or sell it to third-party advertisers.</p>
@@ -75,7 +75,7 @@ export default function PrivacyPage() {
 
           <div className="space-y-4">
             <h2 className="text-2xl font-black text-white uppercase tracking-tight flex items-center gap-3">
-              <Code className="w-5 h-5 text-cyan-400" />
+              <Code className="w-5 h-5 text-amber-400" />
               2. AI Training
             </h2>
             <p className="text-lg">Content synthesized using Xylos AI is NOT used to train the underlying models (Llama, Gemini, Mistral) by default. We leverage API-level privacy flags to ensure your corporate and personal secrets remain private.</p>
@@ -83,7 +83,7 @@ export default function PrivacyPage() {
 
           <div className="space-y-4">
             <h2 className="text-2xl font-black text-white uppercase tracking-tight flex items-center gap-3">
-              <Users className="w-5 h-5 text-pink-400" />
+              <Users className="w-5 h-5 text-emerald-400" />
               3. Ethics Commitment
             </h2>
             <p className="text-lg">Our editorial engine is tuned to recognize and mitigate bias. While AI can still generate unexpected responses, our &apos;Aether Intelligence Layer&apos; acts as a secondary filter to maintain professional standards of communication.</p>
@@ -103,14 +103,14 @@ export default function PrivacyPage() {
 
 function InfoCard({ icon: Icon, title, content, color }: any) {
   const colorMap: Record<string, string> = {
-    violet: "bg-violet-500/10 text-violet-400 group-hover:bg-violet-500/20",
-    cyan: "bg-cyan-500/10 text-cyan-400 group-hover:bg-cyan-500/20",
-    pink: "bg-pink-500/10 text-pink-400 group-hover:bg-pink-500/20",
+    violet: "bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-500/20",
+    cyan: "bg-amber-500/10 text-amber-400 group-hover:bg-amber-500/20",
+    pink: "bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-500/20",
   };
   const borderMap: Record<string, string> = {
-    violet: "hover:border-violet-500/20",
-    cyan: "hover:border-cyan-500/20",
-    pink: "hover:border-pink-500/20",
+    violet: "hover:border-emerald-500/20",
+    cyan: "hover:border-amber-500/20",
+    pink: "hover:border-emerald-500/20",
   };
 
   return (

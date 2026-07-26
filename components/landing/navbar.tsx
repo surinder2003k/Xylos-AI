@@ -27,7 +27,7 @@ export function Navbar({ user }: NavbarProps) {
     pathname === href || pathname?.startsWith(href + "/");
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-[#0f0f14]/80 backdrop-blur-xl border-b border-white/[0.05] transition-all duration-300">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-[#0d1117]/80 backdrop-blur-xl border-b border-white/[0.05] transition-all duration-300">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         
         {/* Logo */}
@@ -39,7 +39,7 @@ export function Navbar({ user }: NavbarProps) {
             <Link
               key={link.href}
               href={link.href}
-              className={`transition-colors hover:text-violet-400 ${
+              className={`transition-colors hover:text-emerald-400 ${
                 isActive(link.href)
                   ? "text-white"
                   : "text-white/25"
@@ -54,7 +54,7 @@ export function Navbar({ user }: NavbarProps) {
         <div className="hidden md:flex items-center gap-4">
           <Link 
             href={user ? "/dashboard" : "/login"}
-            className="px-6 py-2.5 rounded-2xl border border-white/[0.06] bg-white/[0.03] text-white hover:bg-violet-500 hover:text-white hover:border-violet-500 transition-all text-[10px] font-bold uppercase tracking-widest"
+            className="px-6 py-2.5 rounded-2xl border border-white/[0.06] bg-white/[0.03] text-white hover:bg-emerald-500 hover:text-white hover:border-emerald-500 transition-all text-[10px] font-bold uppercase tracking-widest"
           >
             {user ? "Systems" : "Sign In"}
           </Link>
@@ -93,7 +93,7 @@ export function Navbar({ user }: NavbarProps) {
               >
                 {link.label}
                 {isActive(link.href) && (
-                  <span className="ml-3 text-[9px] font-bold text-violet-400 uppercase tracking-widest align-middle">— Active</span>
+                  <span className="ml-3 text-[9px] font-bold text-emerald-400 uppercase tracking-widest align-middle">— Active</span>
                 )}
               </Link>
             ))}
@@ -103,7 +103,7 @@ export function Navbar({ user }: NavbarProps) {
             <Link 
               href={user ? "/dashboard" : "/login"}
               onClick={() => setIsOpen(false)}
-              className="block w-full text-center px-6 py-4 rounded-2xl bg-gradient-to-r from-violet-500 to-cyan-500 text-white font-bold text-xs uppercase tracking-[0.2em]"
+              className="block w-full text-center px-6 py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-amber-500 text-white font-bold text-xs uppercase tracking-[0.2em]"
             >
               {user ? "Enter Systems" : "Get Started"}
             </Link>

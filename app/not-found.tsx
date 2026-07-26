@@ -4,11 +4,11 @@ import { ArrowLeft, Cpu, MessageSquare } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-[#0f0f14] text-white flex flex-col items-center justify-center p-6 relative overflow-hidden selection:bg-violet-500/30">
+    <div className="min-h-screen bg-[#0d1117] text-white flex flex-col items-center justify-center p-6 relative overflow-hidden selection:bg-emerald-500/30">
       {/* Background glows */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-500/[0.06] rounded-full blur-[150px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-cyan-500/[0.04] rounded-full blur-[120px]" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/[0.06] rounded-full blur-[150px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-amber-500/[0.04] rounded-full blur-[120px]" />
       </div>
 
       {/* Dot grid */}
@@ -18,14 +18,14 @@ export default function NotFound() {
         <AnimatedLogo className="scale-125" />
 
         <div className="space-y-4">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-2xl bg-violet-500/10 border border-violet-500/20 text-violet-400 text-[10px] font-bold uppercase tracking-[0.3em]">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-[0.3em]">
             <Cpu className="w-3 h-3" />
             Signal Lost — Error 404
           </div>
 
           <h1 className="text-[8rem] font-black leading-none tracking-tighter">
             <span className="text-white">4</span>
-            <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent italic">0</span>
+            <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent italic">0</span>
             <span className="text-white">4</span>
           </h1>
 
@@ -37,7 +37,7 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full">
           <Link
             href="/"
-            className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-500 to-cyan-500 text-white font-bold text-xs uppercase tracking-[0.2em] hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all w-full sm:w-auto"
+            className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-amber-500 text-white font-bold text-xs uppercase tracking-[0.2em] hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] transition-all w-full sm:w-auto"
           >
             <ArrowLeft className="w-4 h-4" />
             Return to Base

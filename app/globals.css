@@ -8,40 +8,40 @@ html {
 
 @layer base {
   :root {
-    --background: 240 6% 7%;              /* Deep dark #0f0f14 */
-    --sidebar: 240 6% 7%;
-    --foreground: 240 5% 90%;             /* Soft white text */
-    --primary: 263 85% 65%;               /* Violet #8b5cf6 */
-    --primary-foreground: 240 6% 7%;      /* Dark text on primary */
-    --card: 240 6% 10%;                   /* Card surface #1a1a24 */
-    --card-foreground: 240 5% 90%;
-    --popover: 240 6% 10%;
-    --popover-foreground: 240 5% 90%;
-    --secondary: 187 90% 43%;             /* Cyan #06b6d4 */
-    --secondary-foreground: 240 6% 7%;
-    --muted: 240 6% 12%;                  /* Muted surface */
-    --muted-foreground: 240 5% 50%;       /* Muted text */
-    --accent: 263 85% 65%;
-    --accent-foreground: 240 6% 7%;
+    --background: 213 35% 7%;              /* Deep navy #0d1117 */
+    --sidebar: 213 35% 7%;
+    --foreground: 210 20% 90%;             /* Soft white text */
+    --primary: 160 84% 39%;               /* Emerald #10b981 */
+    --primary-foreground: 213 35% 7%;      /* Dark text on primary */
+    --card: 213 30% 10%;                   /* Card surface */
+    --card-foreground: 210 20% 90%;
+    --popover: 213 30% 10%;
+    --popover-foreground: 210 20% 90%;
+    --secondary: 38 92% 50%;              /* Amber #f59e0b */
+    --secondary-foreground: 213 35% 7%;
+    --muted: 213 30% 12%;                 /* Muted surface */
+    --muted-foreground: 210 15% 50%;       /* Muted text */
+    --accent: 160 84% 39%;
+    --accent-foreground: 213 35% 7%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 6% 16%;                 /* Subtle border */
-    --input: 240 6% 12%;
-    --ring: 263 85% 65%;
+    --border: 213 25% 16%;                /* Subtle border */
+    --input: 213 30% 12%;
+    --ring: 160 84% 39%;
     --radius: 12px;                       /* Rounded corners */
     
     /* Extended palette */
-    --primary-container: 263 85% 55%;     /* Vivid violet */
-    --secondary-container: 187 90% 35%;   /* Vivid cyan */
-    --tertiary: 330 80% 70%;              /* Pink #f472b6 */
-    --tertiary-container: 330 80% 50%;    /* Vivid pink */
-    --surface-dim: 240 6% 7%;
-    --surface-bright: 240 6% 15%;
-    --surface-container-lowest: 240 6% 5%;
-    --surface-container-low: 240 6% 8%;
-    --surface-container: 240 6% 10%;
-    --surface-container-high: 240 6% 13%;
-    --surface-container-highest: 240 6% 16%;
+    --primary-container: 160 84% 35%;     /* Vivid emerald */
+    --secondary-container: 38 92% 40%;    /* Vivid amber */
+    --tertiary: 160 60% 45%;              /* Teal */
+    --tertiary-container: 160 60% 35%;    /* Vivid teal */
+    --surface-dim: 213 35% 7%;
+    --surface-bright: 213 30% 15%;
+    --surface-container-lowest: 213 35% 5%;
+    --surface-container-low: 213 35% 8%;
+    --surface-container: 213 30% 10%;
+    --surface-container-high: 213 25% 13%;
+    --surface-container-highest: 213 25% 16%;
 
     /* Font Variables */
     --font-fustat: 'Geist', 'Fustat', sans-serif;

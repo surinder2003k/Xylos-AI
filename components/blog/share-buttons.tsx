@@ -28,7 +28,7 @@ export function ShareButtons({ title, excerpt, slug }: ShareButtonsProps) {
         href={`https://twitter.com/intent/tweet?url=${url}&text=${encodeURIComponent(title)}`} 
         target="_blank" 
         rel="noopener noreferrer" 
-        className="text-white/25 hover:text-violet-400 transition-colors"
+        className="text-white/25 hover:text-emerald-400 transition-colors"
       >
         <Twitter className="w-4 h-4" />
       </a>
@@ -36,13 +36,13 @@ export function ShareButtons({ title, excerpt, slug }: ShareButtonsProps) {
         href={`https://www.facebook.com/sharer/sharer.php?u=${url}`} 
         target="_blank" 
         rel="noopener noreferrer" 
-        className="text-white/25 hover:text-violet-400 transition-colors"
+        className="text-white/25 hover:text-emerald-400 transition-colors"
       >
         <Facebook className="w-4 h-4" />
       </a>
       <button 
         onClick={handleShare} 
-        className="text-white/25 hover:text-violet-400 transition-colors"
+        className="text-white/25 hover:text-emerald-400 transition-colors"
       >
         <Share2 className="w-4 h-4" />
       </button>

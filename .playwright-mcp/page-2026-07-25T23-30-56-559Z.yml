@@ -1,0 +1,1807 @@
+- main [ref=f34e5]:
+  - iframe [active] [ref=f34e7]:
+    - main [ref=f35e5]:
+      - generic [ref=f35e734]:
+        - generic:
+          - generic [ref=f35e736]:
+            - button [ref=f35e738] [cursor=pointer]
+            - generic [ref=f35e743]:
+              - button "Xylos AI v4 Redesign" [ref=f35e744]
+              - button [ref=f35e746] [cursor=pointer]
+          - generic [ref=f35e751]:
+            - button [disabled] [ref=f35e1012]
+            - button [ref=f35e752] [cursor=pointer]:
+              - paragraph [ref=f35e756]: Export
+            - button [ref=f35e758] [cursor=pointer]:
+              - paragraph [ref=f35e762]: Share
+            - button "Account menu" [ref=f35e764] [cursor=pointer]:
+              - img "Profile image for Surinder Kumar" [ref=f35e766]
+        - generic [ref=f35e768]:
+          - generic [ref=f35e769]:
+            - button [ref=f35e771] [cursor=pointer]
+            - button [ref=f35e776] [cursor=pointer]
+            - button [ref=f35e781] [cursor=pointer]
+          - button [ref=f35e786] [cursor=pointer]
+          - button [ref=f35e792] [cursor=pointer]
+          - button [ref=f35e800] [cursor=pointer]
+        - generic [ref=f35e804]:
+          - generic [ref=f35e805]:
+            - generic [ref=f35e806]:
+              - button "Undo" [disabled]:
+                - generic: undo
+            - generic [ref=f35e808]:
+              - button "Redo" [disabled]:
+                - generic: redo
+          - button "21%" [ref=f35e3350] [cursor=pointer]
+          - button "Helpful links" [ref=f35e812] [cursor=pointer]
+        - button "Choose File" [ref=f35e816]
+        - application [ref=f35e818]:
+          - generic [ref=f35e820]:
+            - generic:
+              - generic:
+                - generic [ref=f35e1020]:
+                  - generic [ref=f35e1021]: devices
+                  - generic [ref=f35e1023]: Xylos AI - Secure Access
+                - generic [ref=f35e1034]:
+                  - generic [ref=f35e1035]: devices
+                  - generic [ref=f35e1037]: Xylos AI - Sidebar Navigation
+                - generic [ref=f35e1048]:
+                  - generic [ref=f35e1049]: devices
+                  - generic [ref=f35e1051]: Xylos AI - Privacy & Ethics
+                - generic [ref=f35e1062]:
+                  - generic [ref=f35e1063]: devices
+                  - generic [ref=f35e1065]: Three.js
+                - generic [ref=f35e1076]:
+                  - generic [ref=f35e1077]: devices
+                  - generic [ref=f35e1079]: Xylos AI - Editorial Archives (Glassmorphic)
+                - generic [ref=f35e1090]:
+                  - generic [ref=f35e1091]: devices
+                  - generic [ref=f35e1093]: Xylos AI - Autonomous Manager Admin Panel
+                - generic [ref=f35e1104]:
+                  - generic [ref=f35e1105]: devices
+                  - generic [ref=f35e1107]: Xylos AI - Biological Synthesis Blog Post
+                - generic [ref=f35e1118]:
+                  - generic [ref=f35e1119]: devices
+                  - generic [ref=f35e1121]: Xylos AI - Futuristic Landing Page
+                - generic [ref=f35e1132]:
+                  - generic [ref=f35e1133]: devices
+                  - generic [ref=f35e1135]: Shader
+                - generic [ref=f35e1146]:
+                  - generic [ref=f35e1147]: devices
+                  - generic [ref=f35e1149]: Xylos AI - Neural Chat Interface
+                - generic [ref=f35e1160]:
+                  - generic [ref=f35e1161]: devices
+                  - generic [ref=f35e1163]: Xylos AI - Secure Access Uplink
+                - generic [ref=f35e1174]:
+                  - generic [ref=f35e1175]: devices
+                  - generic [ref=f35e1177]: Xylos AI - Editorial Archives
+                - generic [ref=f35e1188]:
+                  - generic [ref=f35e1189]: devices
+                  - generic [ref=f35e1191]: Xylos AI - Privacy & Ethics
+                - generic [ref=f35e1202]:
+                  - generic [ref=f35e1203]: devices
+                  - generic [ref=f35e1205]: Shader
+                - generic [ref=f35e1216]:
+                  - generic [ref=f35e1217]: devices
+                  - generic [ref=f35e1219]: Xylos AI - Neural Chat Interface
+                - generic [ref=f35e1226]:
+                  - generic [ref=f35e1230]:
+                    - generic [ref=f35e1231]: devices
+                    - generic [ref=f35e1233]: Xylos AI - Content Archive (Glassmorphic)
+                  - iframe [ref=f35e2982]:
+                    - generic [ref=f64e1]:
+                      - banner [ref=f64e2]:
+                        - generic [ref=f64e3]:
+                          - generic [ref=f64e4]:
+                            - generic [ref=f64e5]: Xylos AI
+                            - navigation [ref=f64e6]:
+                              - link "Archive" [ref=f64e7] [cursor=pointer]:
+                                - /url: "#"
+                              - link "Research" [ref=f64e8] [cursor=pointer]:
+                                - /url: "#"
+                              - link "Neural Lab" [ref=f64e9] [cursor=pointer]:
+                                - /url: "#"
+                          - button "Sign In" [ref=f64e11] [cursor=pointer]
+                      - main [ref=f64e12]:
+                        - generic [ref=f64e13]:
+                          - generic [ref=f64e14]:
+                            - generic [ref=f64e15]:
+                              - generic [ref=f64e16]: layers
+                              - heading "Content Archive" [level=1] [ref=f64e17]
+                            - paragraph [ref=f64e18]: Manage your multi-dimensional neural assets and story archives within the Xylos Intelligence ecosystem.
+                          - link "add Draft New Story" [ref=f64e19] [cursor=pointer]:
+                            - /url: /dashboard/create
+                            - generic [ref=f64e20]: add
+                            - text: Draft New Story
+                        - generic [ref=f64e21]:
+                          - generic [ref=f64e22]:
+                            - generic [ref=f64e23]: search
+                            - textbox "Search stories by title or category..." [ref=f64e24]
+                          - button "refresh" [ref=f64e26] [cursor=pointer]
+                        - table [ref=f64e30]:
+                          - rowgroup [ref=f64e31]:
+                            - row [ref=f64e32]:
+                              - columnheader "Status" [ref=f64e33]
+                              - columnheader "Asset Details" [ref=f64e34]
+                              - columnheader "Taxonomy" [ref=f64e35]
+                              - columnheader "Actions" [ref=f64e36]
+                          - rowgroup [ref=f64e37]:
+                            - row [ref=f64e38]:
+                              - cell [ref=f64e39]
+                              - cell "The Quantum Frontier of Narrative AI XY-8829-QL" [ref=f64e42]:
+                                - generic [ref=f64e46]:
+                                  - generic [ref=f64e47]: The Quantum Frontier of Narrative AI
+                                  - generic [ref=f64e48]: XY-8829-QL
+                              - cell "Research AI Ethics" [ref=f64e49]:
+                                - generic [ref=f64e50]:
+                                  - generic [ref=f64e51]: Research
+                                  - generic [ref=f64e52]: AI Ethics
+                              - cell [ref=f64e53]:
+                                - generic [ref=f64e54]:
+                                  - button "visibility" [ref=f64e55] [cursor=pointer]
+                                  - button "open_in_new" [ref=f64e57] [cursor=pointer]
+                                  - button "edit" [ref=f64e59] [cursor=pointer]
+                                  - button "delete" [ref=f64e61] [cursor=pointer]
+                            - row [ref=f64e63]:
+                              - cell [ref=f64e64]
+                              - 'cell "Neural Synapse: Mapping Memory Voids XY-9021-MS" [ref=f64e67]':
+                                - generic [ref=f64e71]:
+                                  - generic [ref=f64e72]: "Neural Synapse: Mapping Memory Voids"
+                                  - generic [ref=f64e73]: XY-9021-MS
+                              - cell "Neural Lab" [ref=f64e74]
+                              - cell [ref=f64e77]:
+                                - generic [ref=f64e78]:
+                                  - button "visibility_off" [ref=f64e79] [cursor=pointer]
+                                  - button "open_in_new" [ref=f64e81] [cursor=pointer]
+                                  - button "edit" [ref=f64e83] [cursor=pointer]
+                                  - button "delete" [ref=f64e85] [cursor=pointer]
+                      - contentinfo [ref=f64e87]:
+                        - generic [ref=f64e88]:
+                          - generic [ref=f64e89]:
+                            - generic [ref=f64e90]: Xylos AI
+                            - paragraph [ref=f64e91]: © 2024 Xylos AI. Neural intelligence for the modern editor.
+                          - generic [ref=f64e92]:
+                            - link "Documentation" [ref=f64e93] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Privacy Policy" [ref=f64e94] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Terms of Service" [ref=f64e95] [cursor=pointer]:
+                              - /url: "#"
+                            - link "API Status" [ref=f64e96] [cursor=pointer]:
+                              - /url: "#"
+                - generic [ref=f35e1244]:
+                  - generic [ref=f35e1245]: devices
+                  - generic [ref=f35e1247]: Xylos AI - Secure Access (Glassmorphic)
+                - generic [ref=f35e1258]:
+                  - generic [ref=f35e1259]: devices
+                  - generic [ref=f35e1261]: Xylos AI - Biological Synthesis (Glassmorphic)
+                - generic [ref=f35e1268]:
+                  - generic [ref=f35e1272]:
+                    - generic [ref=f35e1273]: devices
+                    - generic [ref=f35e1275]: Xylos AI - Your Suite (Glassmorphic Dashboard)
+                  - iframe [ref=f35e2984]:
+                    - generic [ref=f63e1]:
+                      - complementary [ref=f63e2]:
+                        - generic [ref=f63e3]:
+                          - generic [ref=f63e4]:
+                            - generic [ref=f63e5]: dataset
+                            - generic [ref=f63e7]: Xylos AI
+                          - button "chevron_left" [ref=f63e8] [cursor=pointer]
+                        - navigation [ref=f63e10]:
+                          - link "home Main Portal" [ref=f63e11] [cursor=pointer]:
+                            - /url: "#"
+                            - generic [ref=f63e12]: home
+                            - generic [ref=f63e13]: Main Portal
+                          - link "chat_bubble Smart Chat" [ref=f63e14] [cursor=pointer]:
+                            - /url: "#"
+                            - generic [ref=f63e15]: chat_bubble
+                            - generic [ref=f63e16]: Smart Chat
+                          - link "menu_book All Stories" [ref=f63e17] [cursor=pointer]:
+                            - /url: "#"
+                            - generic [ref=f63e18]: menu_book
+                            - generic [ref=f63e19]: All Stories
+                          - link "edit_square Create New" [ref=f63e20] [cursor=pointer]:
+                            - /url: "#"
+                            - generic [ref=f63e21]: edit_square
+                            - generic [ref=f63e22]: Create New
+                          - link "terminal Platform Admin Admin" [ref=f63e23] [cursor=pointer]:
+                            - /url: "#"
+                            - generic [ref=f63e24]: terminal
+                            - generic [ref=f63e25]:
+                              - generic [ref=f63e26]: Platform Admin
+                              - generic [ref=f63e27]: Admin
+                        - generic [ref=f63e28]:
+                          - generic [ref=f63e31] [cursor=pointer]:
+                            - paragraph [ref=f63e32]: Super Admin
+                            - paragraph [ref=f63e33]: admin@xylos.ai
+                          - button "logout Sign Out" [ref=f63e34] [cursor=pointer]:
+                            - generic [ref=f63e35]: logout
+                            - generic [ref=f63e36]: Sign Out
+                      - main [ref=f63e37]:
+                        - generic [ref=f63e38]:
+                          - generic [ref=f63e39]:
+                            - generic [ref=f63e40]:
+                              - heading "Your Suite" [level=1] [ref=f63e41]
+                              - paragraph [ref=f63e42]: Deploy specialized editorial tools to accelerate your mission.
+                            - button "add General Workspace" [ref=f63e43] [cursor=pointer]:
+                              - generic [ref=f63e44]: add
+                              - text: General Workspace
+                          - generic [ref=f63e45]:
+                            - generic [ref=f63e46]:
+                              - generic [ref=f63e47]:
+                                - generic [ref=f63e48]: description
+                                - heading "PDF Analyzer" [level=3] [ref=f63e50]
+                                - paragraph [ref=f63e51]: Extract insights from 256K context documents
+                              - generic [ref=f63e52]:
+                                - generic [ref=f63e53]: Open Tool
+                                - generic [ref=f63e54]: arrow_forward
+                            - generic [ref=f63e55]:
+                              - generic [ref=f63e56]:
+                                - generic [ref=f63e57]: code
+                                - heading "Code Assistant" [level=3] [ref=f63e59]
+                                - paragraph [ref=f63e60]: Polyglot expert for refactoring and debugging
+                              - generic [ref=f63e61]:
+                                - generic [ref=f63e62]: Open Tool
+                                - generic [ref=f63e63]: arrow_forward
+                            - generic [ref=f63e64]:
+                              - generic [ref=f63e65]:
+                                - generic [ref=f63e66]: search
+                                - heading "Research Agent" [level=3] [ref=f63e68]
+                                - paragraph [ref=f63e69]: Expert deep-dives and cross-referenced synthesis
+                              - generic [ref=f63e70]:
+                                - generic [ref=f63e71]: Open Tool
+                                - generic [ref=f63e72]: arrow_forward
+                            - generic [ref=f63e73]:
+                              - generic [ref=f63e74]:
+                                - generic [ref=f63e75]: image
+                                - heading "Vision Lab" [level=3] [ref=f63e77]
+                                - paragraph [ref=f63e78]: Visual storytelling and layout analysis for diagrams
+                              - generic [ref=f63e79]:
+                                - generic [ref=f63e80]: Open Tool
+                                - generic [ref=f63e81]: arrow_forward
+                            - generic [ref=f63e82]:
+                              - generic [ref=f63e83]:
+                                - generic [ref=f63e84]: content_cut
+                                - heading "Content Factory" [level=3] [ref=f63e86]
+                                - paragraph [ref=f63e87]: Synthesize long-form content into social formats
+                              - generic [ref=f63e88]:
+                                - generic [ref=f63e89]: Open Tool
+                                - generic [ref=f63e90]: arrow_forward
+                            - generic [ref=f63e91]:
+                              - generic [ref=f63e92]:
+                                - generic [ref=f63e93]: work
+                                - heading "Drafting Suite" [level=3] [ref=f63e95]
+                                - paragraph [ref=f63e96]: Transform recordings into polished executive summaries
+                              - generic [ref=f63e97]:
+                                - generic [ref=f63e98]: Open Tool
+                                - generic [ref=f63e99]: arrow_forward
+                            - generic [ref=f63e100]:
+                              - generic [ref=f63e101]:
+                                - generic [ref=f63e102]: dashboard
+                                - heading "Editorial Logic" [level=3] [ref=f63e104]
+                                - paragraph [ref=f63e105]: Compare multiple perspective streams side-by-side
+                              - generic [ref=f63e106]:
+                                - generic [ref=f63e107]: Open Tool
+                                - generic [ref=f63e108]: arrow_forward
+                            - generic [ref=f63e109]:
+                              - generic [ref=f63e110]:
+                                - generic [ref=f63e111]: psychology
+                                - heading "Creative Journal" [level=3] [ref=f63e113]
+                                - paragraph [ref=f63e114]: Private workspace for reflective ideation and drafting
+                              - generic [ref=f63e115]:
+                                - generic [ref=f63e116]: Open Tool
+                                - generic [ref=f63e117]: arrow_forward
+                          - generic [ref=f63e118]:
+                            - paragraph [ref=f63e119]: © 2024 Xylos AI Intelligence. All systems nominal.
+                            - generic [ref=f63e120]:
+                              - link "Privacy Protocol" [ref=f63e121] [cursor=pointer]:
+                                - /url: "#"
+                              - link "API Terms" [ref=f63e122] [cursor=pointer]:
+                                - /url: "#"
+                              - link "Status" [ref=f63e123] [cursor=pointer]:
+                                - /url: "#"
+                - generic [ref=f35e1286]:
+                  - generic [ref=f35e1287]: devices
+                  - generic [ref=f35e1289]: Xylos AI - Content Archive Dashboard
+                - generic [ref=f35e1300]:
+                  - generic [ref=f35e1301]: image
+                  - generic [ref=f35e1303]: A futuristic, cinematic digital artwork for a tech blog post about AI neural networks and biological synthesis. Deep purples, electric blues, and dark obsidian tones. High-detail macro shot of glowing neural pathways or synthetic DNA strands. Sharp focus, volumetric lighting, 8k resolution, professional tech aesthetic.
+                - generic [ref=f35e1310]:
+                  - generic [ref=f35e1314]:
+                    - generic [ref=f35e1315]: devices
+                    - generic [ref=f35e1317]: Xylos AI - 404 Signal Lost (Glassmorphic)
+                  - iframe [ref=f35e2986]:
+                    - main [ref=f58e4]:
+                      - generic [ref=f58e11]:
+                        - generic [ref=f58e12]:
+                          - generic [ref=f58e13]: memory
+                          - generic [ref=f58e14]: Signal Lost - Error 404
+                        - heading "4 0 4" [level=1] [ref=f58e15]:
+                          - generic [ref=f58e16]: "4"
+                          - generic [ref=f58e17]: "0"
+                          - generic [ref=f58e18]: "4"
+                        - paragraph [ref=f58e19]: This neural pathway doesn't exist. The signal you were chasing has dissipated into the void.
+                        - generic [ref=f58e20]:
+                          - link "arrow_back Return to Base" [ref=f58e21] [cursor=pointer]:
+                            - /url: /
+                            - generic [ref=f58e22]: arrow_back
+                            - generic [ref=f58e23]: Return to Base
+                          - link "hub Open Neural Chat" [ref=f58e24] [cursor=pointer]:
+                            - /url: /chat
+                            - generic [ref=f58e25]: hub
+                            - generic [ref=f58e26]: Open Neural Chat
+                      - paragraph [ref=f58e28]: Xylos AI // Signal Intelligence Protocol
+                - generic [ref=f35e1328]:
+                  - generic [ref=f35e1329]: devices
+                  - generic [ref=f35e1331]: Shader
+                - generic [ref=f35e1342]:
+                  - generic [ref=f35e1343]: devices
+                  - generic [ref=f35e1345]: Xylos AI - 404 Signal Lost
+                - generic [ref=f35e1356]:
+                  - generic [ref=f35e1357]: devices
+                  - generic [ref=f35e1359]: Xylos AI - API Settings
+                - generic [ref=f35e1370]:
+                  - generic [ref=f35e1371]: devices
+                  - generic [ref=f35e1373]: Xylos AI - Editorial Archives
+                - generic [ref=f35e1380]:
+                  - generic [ref=f35e1384]:
+                    - generic [ref=f35e1385]: devices
+                    - generic [ref=f35e1387]: Xylos AI - Privacy & Ethics (Glassmorphic)
+                  - iframe [ref=f35e2988]:
+                    - generic [ref=f57e1]:
+                      - banner [ref=f57e2]:
+                        - navigation [ref=f57e3]:
+                          - generic [ref=f57e4]: Xylos AI
+                          - generic [ref=f57e5]:
+                            - link "Models" [ref=f57e6] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Security" [ref=f57e7] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Governance" [ref=f57e8] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Docs" [ref=f57e9] [cursor=pointer]:
+                              - /url: "#"
+                          - button "Platform Access" [ref=f57e11] [cursor=pointer]
+                      - main [ref=f57e12]:
+                        - generic [ref=f57e13]:
+                          - generic [ref=f57e14]:
+                            - generic [ref=f57e15]:
+                              - generic [ref=f57e16]: shield
+                              - text: Data Governance v2.0
+                            - heading "Privacy & Ethics" [level=1] [ref=f57e17]
+                            - paragraph [ref=f57e18]: Trust is the currency of intelligence. At Xylos, we architect our systems with ethical constraints as core primitives.
+                          - generic [ref=f57e19]:
+                            - generic [ref=f57e20]:
+                              - generic [ref=f57e21]: lock
+                              - heading "Zero Retention" [level=3] [ref=f57e23]
+                              - paragraph [ref=f57e24]: Ephemeral sessions designed to minimize footprint. We store nothing beyond the immediate interaction window, ensuring no training occurs on private inputs.
+                            - generic [ref=f57e25]:
+                              - generic [ref=f57e26]: visibility
+                              - heading "Encryption" [level=3] [ref=f57e28]
+                              - paragraph [ref=f57e29]: End-to-end encryption layers protect data in transit and at rest. Your cryptographic keys remain yours, creating a hard-walled digital sanctuary.
+                            - generic [ref=f57e30]:
+                              - generic [ref=f57e31]: balance
+                              - heading "Ethical Models" [level=3] [ref=f57e33]
+                              - paragraph [ref=f57e34]: Safety alignment is baked into our weights. Our models are continuously audited against a rigorous ethical charter to prevent bias and harmful generation.
+                            - generic [ref=f57e35]:
+                              - generic [ref=f57e36]: fact_check
+                              - heading "User Sovereignty" [level=3] [ref=f57e38]
+                              - paragraph [ref=f57e39]: Full data control via a unified interface. Export, delete, or audit your interaction history at any time with complete transparency.
+                          - generic [ref=f57e40]:
+                            - generic [ref=f57e41]:
+                              - heading "Data Collection" [level=2] [ref=f57e42]
+                              - paragraph [ref=f57e43]: Our collection philosophy is rooted in radical minimization. We only capture the essential metadata required for service stability and performance optimization. Xylos AI maintains a strict non-monetization policy; your data is never sold, traded, or shared with third-party advertising networks.
+                            - generic [ref=f57e44]:
+                              - heading "AI Training" [level=2] [ref=f57e45]
+                              - paragraph [ref=f57e46]: The content of your conversations, uploaded documents, and generated assets is never used to train or fine-tune our foundation models. We utilize synthetic datasets and verified public domain sources for development, ensuring that our collective intelligence is built without compromising individual privacy.
+                            - generic [ref=f57e47]:
+                              - heading "Ethics Commitment" [level=2] [ref=f57e48]
+                              - paragraph [ref=f57e49]: Our bias mitigation framework operates through the Aether Intelligence Layer—a proprietary secondary monitoring system that evaluates output for alignment with human values in real-time. We are committed to transparency, publishing regular audit reports on our model's ethical performance and safety metrics.
+                          - paragraph [ref=f57e51]: "Last Updated: April 17, 2026 // Xylos Legal Division"
+                      - contentinfo [ref=f57e52]:
+                        - generic [ref=f57e53]:
+                          - generic [ref=f57e54]: Xylos AI
+                          - generic [ref=f57e55]:
+                            - link "Privacy Policy" [ref=f57e56] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Terms of Service" [ref=f57e57] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Ethical Charter" [ref=f57e58] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Audit Reports" [ref=f57e59] [cursor=pointer]:
+                              - /url: "#"
+                          - generic [ref=f57e60]: "© 2024 Xylos AI. Last updated: October 2023."
+                - generic [ref=f35e1398]:
+                  - generic [ref=f35e1399]: image
+                  - generic [ref=f35e1401]: A futuristic, cinematic digital artwork for a tech blog post about AI neural networks and biological synthesis. Deep purples, electric blues, and dark obsidian tones. High-detail macro shot of glowing neural pathways or synthetic DNA strands. Sharp focus, volumetric lighting, 8k resolution, professional tech aesthetic.
+                - generic [ref=f35e1408]:
+                  - generic [ref=f35e1412]:
+                    - generic [ref=f35e1413]: devices
+                    - generic [ref=f35e1415]: Animated SVG
+                  - iframe [ref=f35e2990]:
+                    
+                - generic [ref=f35e1426]:
+                  - generic [ref=f35e1427]: devices
+                  - generic [ref=f35e1429]: Xylos AI - API Settings
+                - generic [ref=f35e1440]:
+                  - generic [ref=f35e1441]: devices
+                  - generic [ref=f35e1443]: Xylos AI - 404 Signal Lost
+                - generic [ref=f35e1450]:
+                  - generic [ref=f35e1454]:
+                    - generic [ref=f35e1455]: devices
+                    - generic [ref=f35e1457]: Xylos AI - API Settings (Glassmorphic)
+                  - iframe [ref=f35e2992]:
+                    - generic [ref=f61e1]:
+                      - banner [ref=f61e2]:
+                        - generic [ref=f61e3]:
+                          - generic [ref=f61e4]: Xylos AI
+                          - navigation [ref=f61e5]:
+                            - link "Models" [ref=f61e6] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Datasets" [ref=f61e7] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Deployments" [ref=f61e8] [cursor=pointer]:
+                              - /url: "#"
+                            - link "API" [ref=f61e9] [cursor=pointer]:
+                              - /url: "#"
+                        - generic [ref=f61e10]:
+                          - button "notifications" [ref=f61e11] [cursor=pointer]
+                          - button "settings" [ref=f61e12] [cursor=pointer]
+                      - main [ref=f61e15]:
+                        - generic [ref=f61e16]:
+                          - generic [ref=f61e17]:
+                            - heading "Settings." [level=1] [ref=f61e18]
+                            - paragraph [ref=f61e19]: Global API Integrations // Studio Protocol
+                          - generic [ref=f61e20]:
+                            - generic [ref=f61e21]:
+                              - generic [ref=f61e22]:
+                                - generic [ref=f61e23]: public
+                                - generic [ref=f61e25]:
+                                  - generic [ref=f61e26]:
+                                    - heading "OpenRouter" [level=3] [ref=f61e27]
+                                    - generic [ref=f61e28]:
+                                      - generic [ref=f61e29]: lock
+                                      - text: Xylos Core
+                                  - paragraph [ref=f61e30]: Universal AI model access gateway
+                              - textbox "sk-or-v1..." [ref=f61e32]
+                            - generic [ref=f61e33]:
+                              - generic [ref=f61e34]:
+                                - generic [ref=f61e35]: bolt
+                                - generic [ref=f61e37]:
+                                  - generic [ref=f61e38]:
+                                    - heading "Groq" [level=3] [ref=f61e39]
+                                    - generic [ref=f61e40]:
+                                      - generic [ref=f61e41]: lock
+                                      - text: Xylos Core
+                                  - paragraph [ref=f61e42]: LPU™ Inference Engine for ultra-fast response
+                              - textbox "gsk_..." [ref=f61e44]
+                            - generic [ref=f61e45]:
+                              - generic [ref=f61e46]:
+                                - generic [ref=f61e47]: memory
+                                - generic [ref=f61e49]:
+                                  - generic [ref=f61e50]:
+                                    - heading "Google Gemini" [level=3] [ref=f61e51]
+                                    - generic [ref=f61e52]:
+                                      - generic [ref=f61e53]: lock
+                                      - text: Xylos Core
+                                  - paragraph [ref=f61e54]: Advanced multimodal reasoning engine
+                              - textbox "AIzaSy..." [ref=f61e56]
+                            - generic [ref=f61e57]:
+                              - generic [ref=f61e58]:
+                                - generic [ref=f61e59]: lock
+                                - generic [ref=f61e61]:
+                                  - generic [ref=f61e62]:
+                                    - heading "Mistral AI" [level=3] [ref=f61e63]
+                                    - generic [ref=f61e64]:
+                                      - generic [ref=f61e65]: lock
+                                      - text: Xylos Core
+                                  - paragraph [ref=f61e66]: Efficient open-weight LLM frontier
+                              - textbox "..." [ref=f61e68]
+                            - generic [ref=f61e69]:
+                              - generic [ref=f61e70]:
+                                - generic [ref=f61e71]: bolt
+                                - generic [ref=f61e73]:
+                                  - generic [ref=f61e74]:
+                                    - heading "Cerebras" [level=3] [ref=f61e75]
+                                    - generic [ref=f61e76]:
+                                      - generic [ref=f61e77]: lock
+                                      - text: Xylos Core
+                                  - paragraph [ref=f61e78]: Wafer-scale cluster compute power
+                              - textbox "csk-..." [ref=f61e80]
+                            - generic [ref=f61e81]:
+                              - generic [ref=f61e82]:
+                                - generic [ref=f61e83]: verified_user
+                                - generic [ref=f61e85]:
+                                  - generic [ref=f61e86]:
+                                    - heading "Hugging Face" [level=3] [ref=f61e87]
+                                    - generic [ref=f61e88]:
+                                      - generic [ref=f61e89]: lock
+                                      - text: Xylos Core
+                                  - paragraph [ref=f61e90]: Model hub and community inference endpoints
+                              - textbox "hf_..." [ref=f61e92]
+                            - generic [ref=f61e93]:
+                              - generic [ref=f61e94]:
+                                - generic [ref=f61e95]: public
+                                - generic [ref=f61e97]:
+                                  - generic [ref=f61e98]:
+                                    - heading "Cloudflare" [level=3] [ref=f61e99]
+                                    - generic [ref=f61e100]:
+                                      - generic [ref=f61e101]: lock
+                                      - text: Xylos Core
+                                  - paragraph [ref=f61e102]: Edge computing and Workers AI runtime
+                              - textbox "Account ID | Token" [ref=f61e104]
+                      - contentinfo [ref=f61e106]:
+                        - generic [ref=f61e107]:
+                          - generic [ref=f61e108]: verified_user
+                          - generic [ref=f61e110]:
+                            - paragraph [ref=f61e111]: Security Shield Active
+                            - paragraph [ref=f61e112]: Your keys never leave Xylos secure perimeter.
+                        - generic [ref=f61e113]:
+                          - button "Discard Changes" [ref=f61e114] [cursor=pointer]
+                          - button "Save Configuration" [ref=f61e115] [cursor=pointer]
+                      - generic [ref=f61e117]:
+                        - generic [ref=f61e118]:
+                          - link "Documentation" [ref=f61e119] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Privacy Policy" [ref=f61e120] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Status" [ref=f61e121] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Contact Support" [ref=f61e122] [cursor=pointer]:
+                            - /url: "#"
+                        - generic [ref=f61e123]: © 2024 Xylos AI Platform. All rights reserved.
+                - generic [ref=f35e1468]:
+                  - generic [ref=f35e1469]: devices
+                  - generic [ref=f35e1471]: Xylos AI - Futuristic Landing Page
+                - generic [ref=f35e1482]:
+                  - generic [ref=f35e1483]: devices
+                  - generic [ref=f35e1485]: Xylos AI - Editorial Masterpiece Editor
+                - generic [ref=f35e890]:
+                  - generic [ref=f35e894]:
+                    - generic [ref=f35e895]: palette
+                    - generic [ref=f35e897]: Xylos AI Design System
+                  - generic [ref=f35e1493]:
+                    - generic [ref=f35e1494]:
+                      - generic [ref=f35e1495]:
+                        - generic [ref=f35e1496]:
+                          - generic [ref=f35e1497]: Primary
+                          - generic "Click to copy" [ref=f35e1498] [cursor=pointer]: "#7C3AED"
+                        - generic [ref=f35e1499]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f35e1500] [cursor=pointer]'
+                          - 'generic "T10 #25005a — Click to copy" [ref=f35e1501] [cursor=pointer]'
+                          - 'generic "T20 #3f008e — Click to copy" [ref=f35e1502] [cursor=pointer]'
+                          - 'generic "T30 #5a00c6 — Click to copy" [ref=f35e1503] [cursor=pointer]'
+                          - 'generic "T40 #732ee4 — Click to copy" [ref=f35e1504] [cursor=pointer]'
+                          - 'generic "T50 #8d4fff — Click to copy" [ref=f35e1505] [cursor=pointer]'
+                          - 'generic "T60 #a476ff — Click to copy" [ref=f35e1506] [cursor=pointer]'
+                          - 'generic "T70 #bb9aff — Click to copy" [ref=f35e1507] [cursor=pointer]'
+                          - 'generic "T80 #d2bbff — Click to copy" [ref=f35e1508] [cursor=pointer]'
+                          - 'generic "T90 #eaddff — Click to copy" [ref=f35e1509] [cursor=pointer]'
+                          - 'generic "T95 #f7edff — Click to copy" [ref=f35e1510] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f35e1511] [cursor=pointer]'
+                      - generic [ref=f35e1512]:
+                        - generic [ref=f35e1513]:
+                          - generic [ref=f35e1514]: Secondary
+                          - generic "Click to copy" [ref=f35e1515] [cursor=pointer]: "#0EA5E9"
+                        - generic [ref=f35e1516]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f35e1517] [cursor=pointer]'
+                          - 'generic "T10 #001e2f — Click to copy" [ref=f35e1518] [cursor=pointer]'
+                          - 'generic "T20 #00344d — Click to copy" [ref=f35e1519] [cursor=pointer]'
+                          - 'generic "T30 #004c6e — Click to copy" [ref=f35e1520] [cursor=pointer]'
+                          - 'generic "T40 #006591 — Click to copy" [ref=f35e1521] [cursor=pointer]'
+                          - 'generic "T50 #007fb5 — Click to copy" [ref=f35e1522] [cursor=pointer]'
+                          - 'generic "T60 #009ada — Click to copy" [ref=f35e1523] [cursor=pointer]'
+                          - 'generic "T70 #34b5fa — Click to copy" [ref=f35e1524] [cursor=pointer]'
+                          - 'generic "T80 #89ceff — Click to copy" [ref=f35e1525] [cursor=pointer]'
+                          - 'generic "T90 #c9e6ff — Click to copy" [ref=f35e1526] [cursor=pointer]'
+                          - 'generic "T95 #e5f2ff — Click to copy" [ref=f35e1527] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f35e1528] [cursor=pointer]'
+                      - generic [ref=f35e1529]:
+                        - generic [ref=f35e1530]:
+                          - generic [ref=f35e1531]: Tertiary
+                          - generic "Click to copy" [ref=f35e1532] [cursor=pointer]: "#D946EF"
+                        - generic [ref=f35e1533]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f35e1534] [cursor=pointer]'
+                          - 'generic "T10 #36003e — Click to copy" [ref=f35e1535] [cursor=pointer]'
+                          - 'generic "T20 #580065 — Click to copy" [ref=f35e1536] [cursor=pointer]'
+                          - 'generic "T30 #7c008e — Click to copy" [ref=f35e1537] [cursor=pointer]'
+                          - 'generic "T40 #a200ba — Click to copy" [ref=f35e1538] [cursor=pointer]'
+                          - 'generic "T50 #c32cda — Click to copy" [ref=f35e1539] [cursor=pointer]'
+                          - 'generic "T60 #e14ef6 — Click to copy" [ref=f35e1540] [cursor=pointer]'
+                          - 'generic "T70 #f27dff — Click to copy" [ref=f35e1541] [cursor=pointer]'
+                          - 'generic "T80 #fbabff — Click to copy" [ref=f35e1542] [cursor=pointer]'
+                          - 'generic "T90 #ffd6fd — Click to copy" [ref=f35e1543] [cursor=pointer]'
+                          - 'generic "T95 #ffebfb — Click to copy" [ref=f35e1544] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f35e1545] [cursor=pointer]'
+                      - generic [ref=f35e1546]:
+                        - generic [ref=f35e1547]:
+                          - generic [ref=f35e1548]: Neutral
+                          - generic "Click to copy" [ref=f35e1549] [cursor=pointer]: "#7A7581"
+                        - generic [ref=f35e1550]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f35e1551] [cursor=pointer]'
+                          - 'generic "T10 #1d1a24 — Click to copy" [ref=f35e1552] [cursor=pointer]'
+                          - 'generic "T20 #332f39 — Click to copy" [ref=f35e1553] [cursor=pointer]'
+                          - 'generic "T30 #494550 — Click to copy" [ref=f35e1554] [cursor=pointer]'
+                          - 'generic "T40 #615c68 — Click to copy" [ref=f35e1555] [cursor=pointer]'
+                          - 'generic "T50 #7a7581 — Click to copy" [ref=f35e1556] [cursor=pointer]'
+                          - 'generic "T60 #958e9b — Click to copy" [ref=f35e1557] [cursor=pointer]'
+                          - 'generic "T70 #afa9b6 — Click to copy" [ref=f35e1558] [cursor=pointer]'
+                          - 'generic "T80 #cbc4d2 — Click to copy" [ref=f35e1559] [cursor=pointer]'
+                          - 'generic "T90 #e8dfee — Click to copy" [ref=f35e1560] [cursor=pointer]'
+                          - 'generic "T95 #f6eefc — Click to copy" [ref=f35e1561] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f35e1562] [cursor=pointer]'
+                    - generic [ref=f35e1563]:
+                      - generic [ref=f35e1564]:
+                        - generic [ref=f35e1565]:
+                          - generic [ref=f35e1566]: Headline
+                          - generic [ref=f35e1567]: Geist
+                        - generic [ref=f35e1568]: Aa
+                      - generic [ref=f35e1569]:
+                        - generic [ref=f35e1570]:
+                          - button "Primary" [ref=f35e1571]
+                          - button "Secondary" [ref=f35e1572]
+                        - generic [ref=f35e1573]:
+                          - button "Inverted" [ref=f35e1574]
+                          - button "Outlined" [ref=f35e1575]
+                      - generic [ref=f35e1577]:
+                        - generic [ref=f35e1578]: search
+                        - generic [ref=f35e1579]: Search
+                      - generic [ref=f35e1580]:
+                        - generic [ref=f35e1581]:
+                          - generic [ref=f35e1582]: Body
+                          - generic [ref=f35e1583]: Inter
+                        - generic [ref=f35e1584]: Aa
+                      - generic [ref=f35e1593]:
+                        - generic [ref=f35e1594]: home
+                        - generic [ref=f35e1596]: search
+                        - generic [ref=f35e1598]: person
+                      - generic [ref=f35e1600]:
+                        - generic [ref=f35e1601]:
+                          - generic [ref=f35e1602]: Label
+                          - generic [ref=f35e1603]: Geist
+                        - generic [ref=f35e1604]: Aa
+                      - generic [ref=f35e1605]:
+                        - generic [ref=f35e1606]: edit
+                        - generic [ref=f35e1610]:
+                          - generic [ref=f35e1611]: edit
+                          - text: Label
+                      - generic [ref=f35e1613]:
+                        - generic [ref=f35e1614]: auto_fix_high
+                        - generic [ref=f35e1616]: category
+                        - generic [ref=f35e1618]: sell
+                        - generic [ref=f35e1620]: delete
+                - generic [ref=f35e902]:
+                  - generic [ref=f35e906]:
+                    - generic [ref=f35e907]: palette
+                    - generic [ref=f35e909]: Obsidian Nebula
+                  - generic [ref=f35e1623]:
+                    - generic [ref=f35e1624]:
+                      - generic [ref=f35e1625]:
+                        - generic [ref=f35e1626]:
+                          - generic [ref=f35e1627]: Primary
+                          - generic "Click to copy" [ref=f35e1628] [cursor=pointer]: "#7C3AED"
+                        - generic [ref=f35e1629]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f35e1630] [cursor=pointer]'
+                          - 'generic "T10 #25005a — Click to copy" [ref=f35e1631] [cursor=pointer]'
+                          - 'generic "T20 #3f008e — Click to copy" [ref=f35e1632] [cursor=pointer]'
+                          - 'generic "T30 #5a00c6 — Click to copy" [ref=f35e1633] [cursor=pointer]'
+                          - 'generic "T40 #732ee4 — Click to copy" [ref=f35e1634] [cursor=pointer]'
+                          - 'generic "T50 #8d4fff — Click to copy" [ref=f35e1635] [cursor=pointer]'
+                          - 'generic "T60 #a476ff — Click to copy" [ref=f35e1636] [cursor=pointer]'
+                          - 'generic "T70 #bb9aff — Click to copy" [ref=f35e1637] [cursor=pointer]'
+                          - 'generic "T80 #d2bbff — Click to copy" [ref=f35e1638] [cursor=pointer]'
+                          - 'generic "T90 #eaddff — Click to copy" [ref=f35e1639] [cursor=pointer]'
+                          - 'generic "T95 #f7edff — Click to copy" [ref=f35e1640] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f35e1641] [cursor=pointer]'
+                      - generic [ref=f35e1642]:
+                        - generic [ref=f35e1643]:
+                          - generic [ref=f35e1644]: Secondary
+                          - generic "Click to copy" [ref=f35e1645] [cursor=pointer]: "#0EA5E9"
+                        - generic [ref=f35e1646]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f35e1647] [cursor=pointer]'
+                          - 'generic "T10 #001e2f — Click to copy" [ref=f35e1648] [cursor=pointer]'
+                          - 'generic "T20 #00344d — Click to copy" [ref=f35e1649] [cursor=pointer]'
+                          - 'generic "T30 #004c6e — Click to copy" [ref=f35e1650] [cursor=pointer]'
+                          - 'generic "T40 #006591 — Click to copy" [ref=f35e1651] [cursor=pointer]'
+                          - 'generic "T50 #007fb5 — Click to copy" [ref=f35e1652] [cursor=pointer]'
+                          - 'generic "T60 #009ada — Click to copy" [ref=f35e1653] [cursor=pointer]'
+                          - 'generic "T70 #34b5fa — Click to copy" [ref=f35e1654] [cursor=pointer]'
+                          - 'generic "T80 #89ceff — Click to copy" [ref=f35e1655] [cursor=pointer]'
+                          - 'generic "T90 #c9e6ff — Click to copy" [ref=f35e1656] [cursor=pointer]'
+                          - 'generic "T95 #e5f2ff — Click to copy" [ref=f35e1657] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f35e1658] [cursor=pointer]'
+                      - generic [ref=f35e1659]:
+                        - generic [ref=f35e1660]:
+                          - generic [ref=f35e1661]: Tertiary
+                          - generic "Click to copy" [ref=f35e1662] [cursor=pointer]: "#F43F5E"
+                        - generic [ref=f35e1663]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f35e1664] [cursor=pointer]'
+                          - 'generic "T10 #40000d — Click to copy" [ref=f35e1665] [cursor=pointer]'
+                          - 'generic "T20 #67001b — Click to copy" [ref=f35e1666] [cursor=pointer]'
+                          - 'generic "T30 #92002a — Click to copy" [ref=f35e1667] [cursor=pointer]'
+                          - 'generic "T40 #bc0b3b — Click to copy" [ref=f35e1668] [cursor=pointer]'
+                          - 'generic "T50 #e02f51 — Click to copy" [ref=f35e1669] [cursor=pointer]'
+                          - 'generic "T60 #ff516a — Click to copy" [ref=f35e1670] [cursor=pointer]'
+                          - 'generic "T70 #ff8792 — Click to copy" [ref=f35e1671] [cursor=pointer]'
+                          - 'generic "T80 #ffb2b7 — Click to copy" [ref=f35e1672] [cursor=pointer]'
+                          - 'generic "T90 #ffdadb — Click to copy" [ref=f35e1673] [cursor=pointer]'
+                          - 'generic "T95 #ffecec — Click to copy" [ref=f35e1674] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f35e1675] [cursor=pointer]'
+                      - generic [ref=f35e1676]:
+                        - generic [ref=f35e1677]:
+                          - generic [ref=f35e1678]: Neutral
+                          - generic "Click to copy" [ref=f35e1679] [cursor=pointer]: "#0F172A"
+                        - generic [ref=f35e1680]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f35e1681] [cursor=pointer]'
+                          - 'generic "T10 #131b2e — Click to copy" [ref=f35e1682] [cursor=pointer]'
+                          - 'generic "T20 #283044 — Click to copy" [ref=f35e1683] [cursor=pointer]'
+                          - 'generic "T30 #3f465c — Click to copy" [ref=f35e1684] [cursor=pointer]'
+                          - 'generic "T40 #565e74 — Click to copy" [ref=f35e1685] [cursor=pointer]'
+                          - 'generic "T50 #6f778e — Click to copy" [ref=f35e1686] [cursor=pointer]'
+                          - 'generic "T60 #8990a8 — Click to copy" [ref=f35e1687] [cursor=pointer]'
+                          - 'generic "T70 #a3abc4 — Click to copy" [ref=f35e1688] [cursor=pointer]'
+                          - 'generic "T80 #bec6e0 — Click to copy" [ref=f35e1689] [cursor=pointer]'
+                          - 'generic "T90 #dae2fd — Click to copy" [ref=f35e1690] [cursor=pointer]'
+                          - 'generic "T95 #eef0ff — Click to copy" [ref=f35e1691] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f35e1692] [cursor=pointer]'
+                    - generic [ref=f35e1693]:
+                      - generic [ref=f35e1694]:
+                        - generic [ref=f35e1695]:
+                          - generic [ref=f35e1696]: Headline
+                          - generic [ref=f35e1697]: Geist
+                        - generic [ref=f35e1698]: Aa
+                      - generic [ref=f35e1699]:
+                        - generic [ref=f35e1700]:
+                          - button "Primary" [ref=f35e1701]
+                          - button "Secondary" [ref=f35e1702]
+                        - generic [ref=f35e1703]:
+                          - button "Inverted" [ref=f35e1704]
+                          - button "Outlined" [ref=f35e1705]
+                      - generic [ref=f35e1707]:
+                        - generic [ref=f35e1708]: search
+                        - generic [ref=f35e1709]: Search
+                      - generic [ref=f35e1710]:
+                        - generic [ref=f35e1711]:
+                          - generic [ref=f35e1712]: Body
+                          - generic [ref=f35e1713]: Geist
+                        - generic [ref=f35e1714]: Aa
+                      - generic [ref=f35e1723]:
+                        - generic [ref=f35e1724]: home
+                        - generic [ref=f35e1726]: search
+                        - generic [ref=f35e1728]: person
+                      - generic [ref=f35e1730]:
+                        - generic [ref=f35e1731]:
+                          - generic [ref=f35e1732]: Label
+                          - generic [ref=f35e1733]: Jetbrains Mono
+                        - generic [ref=f35e1734]: Aa
+                      - generic [ref=f35e1735]:
+                        - generic [ref=f35e1736]: edit
+                        - generic [ref=f35e1740]:
+                          - generic [ref=f35e1741]: edit
+                          - text: Label
+                      - generic [ref=f35e1743]:
+                        - generic [ref=f35e1744]: auto_fix_high
+                        - generic [ref=f35e1746]: category
+                        - generic [ref=f35e1748]: sell
+                        - generic [ref=f35e1750]: delete
+                - generic [ref=f35e914]:
+                  - generic [ref=f35e918]:
+                    - generic [ref=f35e919]: palette
+                    - generic [ref=f35e921]: Xylos Ethereal
+                  - generic [ref=f35e1753]:
+                    - generic [ref=f35e1754]:
+                      - generic [ref=f35e1755]:
+                        - generic [ref=f35e1756]:
+                          - generic [ref=f35e1757]: Primary
+                          - generic "Click to copy" [ref=f35e1758] [cursor=pointer]: "#8B5CF6"
+                        - generic [ref=f35e1759]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f35e1760] [cursor=pointer]'
+                          - 'generic "T10 #23005c — Click to copy" [ref=f35e1761] [cursor=pointer]'
+                          - 'generic "T20 #3c0091 — Click to copy" [ref=f35e1762] [cursor=pointer]'
+                          - 'generic "T30 #5516be — Click to copy" [ref=f35e1763] [cursor=pointer]'
+                          - 'generic "T40 #6d3bd7 — Click to copy" [ref=f35e1764] [cursor=pointer]'
+                          - 'generic "T50 #8758f2 — Click to copy" [ref=f35e1765] [cursor=pointer]'
+                          - 'generic "T60 #a078ff — Click to copy" [ref=f35e1766] [cursor=pointer]'
+                          - 'generic "T70 #b89bff — Click to copy" [ref=f35e1767] [cursor=pointer]'
+                          - 'generic "T80 #d0bcff — Click to copy" [ref=f35e1768] [cursor=pointer]'
+                          - 'generic "T90 #e9ddff — Click to copy" [ref=f35e1769] [cursor=pointer]'
+                          - 'generic "T95 #f6edff — Click to copy" [ref=f35e1770] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f35e1771] [cursor=pointer]'
+                      - generic [ref=f35e1772]:
+                        - generic [ref=f35e1773]:
+                          - generic [ref=f35e1774]: Secondary
+                          - generic "Click to copy" [ref=f35e1775] [cursor=pointer]: "#3B82F6"
+                        - generic [ref=f35e1776]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f35e1777] [cursor=pointer]'
+                          - 'generic "T10 #001a42 — Click to copy" [ref=f35e1778] [cursor=pointer]'
+                          - 'generic "T20 #002e6a — Click to copy" [ref=f35e1779] [cursor=pointer]'
+                          - 'generic "T30 #004395 — Click to copy" [ref=f35e1780] [cursor=pointer]'
+                          - 'generic "T40 #005ac2 — Click to copy" [ref=f35e1781] [cursor=pointer]'
+                          - 'generic "T50 #2573e6 — Click to copy" [ref=f35e1782] [cursor=pointer]'
+                          - 'generic "T60 #4d8eff — Click to copy" [ref=f35e1783] [cursor=pointer]'
+                          - 'generic "T70 #81aaff — Click to copy" [ref=f35e1784] [cursor=pointer]'
+                          - 'generic "T80 #adc6ff — Click to copy" [ref=f35e1785] [cursor=pointer]'
+                          - 'generic "T90 #d8e2ff — Click to copy" [ref=f35e1786] [cursor=pointer]'
+                          - 'generic "T95 #edf0ff — Click to copy" [ref=f35e1787] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f35e1788] [cursor=pointer]'
+                      - generic [ref=f35e1789]:
+                        - generic [ref=f35e1790]:
+                          - generic [ref=f35e1791]: Tertiary
+                          - generic "Click to copy" [ref=f35e1792] [cursor=pointer]: "#06B6D4"
+                        - generic [ref=f35e1793]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f35e1794] [cursor=pointer]'
+                          - 'generic "T10 #001f26 — Click to copy" [ref=f35e1795] [cursor=pointer]'
+                          - 'generic "T20 #003640 — Click to copy" [ref=f35e1796] [cursor=pointer]'
+                          - 'generic "T30 #004e5c — Click to copy" [ref=f35e1797] [cursor=pointer]'
+                          - 'generic "T40 #00687a — Click to copy" [ref=f35e1798] [cursor=pointer]'
+                          - 'generic "T50 #008399 — Click to copy" [ref=f35e1799] [cursor=pointer]'
+                          - 'generic "T60 #009eb9 — Click to copy" [ref=f35e1800] [cursor=pointer]'
+                          - 'generic "T70 #1abbd9 — Click to copy" [ref=f35e1801] [cursor=pointer]'
+                          - 'generic "T80 #4cd7f6 — Click to copy" [ref=f35e1802] [cursor=pointer]'
+                          - 'generic "T90 #acedff — Click to copy" [ref=f35e1803] [cursor=pointer]'
+                          - 'generic "T95 #d8f6ff — Click to copy" [ref=f35e1804] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f35e1805] [cursor=pointer]'
+                      - generic [ref=f35e1806]:
+                        - generic [ref=f35e1807]:
+                          - generic [ref=f35e1808]: Neutral
+                          - generic "Click to copy" [ref=f35e1809] [cursor=pointer]: "#050A0F"
+                        - generic [ref=f35e1810]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f35e1811] [cursor=pointer]'
+                          - 'generic "T10 #161c22 — Click to copy" [ref=f35e1812] [cursor=pointer]'
+                          - 'generic "T20 #2b3137 — Click to copy" [ref=f35e1813] [cursor=pointer]'
+                          - 'generic "T30 #41474d — Click to copy" [ref=f35e1814] [cursor=pointer]'
+                          - 'generic "T40 #595f65 — Click to copy" [ref=f35e1815] [cursor=pointer]'
+                          - 'generic "T50 #72787e — Click to copy" [ref=f35e1816] [cursor=pointer]'
+                          - 'generic "T60 #8b9198 — Click to copy" [ref=f35e1817] [cursor=pointer]'
+                          - 'generic "T70 #a6acb3 — Click to copy" [ref=f35e1818] [cursor=pointer]'
+                          - 'generic "T80 #c1c7ce — Click to copy" [ref=f35e1819] [cursor=pointer]'
+                          - 'generic "T90 #dee3ea — Click to copy" [ref=f35e1820] [cursor=pointer]'
+                          - 'generic "T95 #ecf1f9 — Click to copy" [ref=f35e1821] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f35e1822] [cursor=pointer]'
+                    - generic [ref=f35e1823]:
+                      - generic [ref=f35e1824]:
+                        - generic [ref=f35e1825]:
+                          - generic [ref=f35e1826]: Headline
+                          - generic [ref=f35e1827]: Geist
+                        - generic [ref=f35e1828]: Aa
+                      - generic [ref=f35e1829]:
+                        - generic [ref=f35e1830]:
+                          - button "Primary" [ref=f35e1831]
+                          - button "Secondary" [ref=f35e1832]
+                        - generic [ref=f35e1833]:
+                          - button "Inverted" [ref=f35e1834]
+                          - button "Outlined" [ref=f35e1835]
+                      - generic [ref=f35e1837]:
+                        - generic [ref=f35e1838]: search
+                        - generic [ref=f35e1839]: Search
+                      - generic [ref=f35e1840]:
+                        - generic [ref=f35e1841]:
+                          - generic [ref=f35e1842]: Body
+                          - generic [ref=f35e1843]: Inter
+                        - generic [ref=f35e1844]: Aa
+                      - generic [ref=f35e1853]:
+                        - generic [ref=f35e1854]: home
+                        - generic [ref=f35e1856]: search
+                        - generic [ref=f35e1858]: person
+                      - generic [ref=f35e1860]:
+                        - generic [ref=f35e1861]:
+                          - generic [ref=f35e1862]: Label
+                          - generic [ref=f35e1863]: Jetbrains Mono
+                        - generic [ref=f35e1864]: Aa
+                      - generic [ref=f35e1865]:
+                        - generic [ref=f35e1866]: edit
+                        - generic [ref=f35e1870]:
+                          - generic [ref=f35e1871]: edit
+                          - text: Label
+                      - generic [ref=f35e1873]:
+                        - generic [ref=f35e1874]: auto_fix_high
+                        - generic [ref=f35e1876]: category
+                        - generic [ref=f35e1878]: sell
+                        - generic [ref=f35e1880]: delete
+                - generic [ref=f35e1886]:
+                  - generic [ref=f35e1887]: devices
+                  - generic [ref=f35e1889]: Xylos AI - About Us (Glassmorphic)
+                - generic [ref=f35e1896]:
+                  - generic [ref=f35e1900]:
+                    - generic [ref=f35e1901]: devices
+                    - generic [ref=f35e1903]: Xylos AI - Editorial Masterpiece Editor (Glassmorphic)
+                  - iframe [ref=f35e2994]:
+                    - generic [ref=f65e1]:
+                      - banner [ref=f65e2]:
+                        - generic [ref=f65e3]: XYLOS AI
+                        - navigation [ref=f65e4]:
+                          - link "Archive" [ref=f65e5] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Research" [ref=f65e6] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Neural Lab" [ref=f65e7] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Network" [ref=f65e8] [cursor=pointer]:
+                            - /url: "#"
+                        - button "Connect" [ref=f65e9] [cursor=pointer]
+                      - main [ref=f65e10]:
+                        - generic [ref=f65e11]:
+                          - generic [ref=f65e12]:
+                            - generic [ref=f65e13]: Professional Editorial Editor v3.2
+                            - heading "Create Editorial Masterpiece" [level=1] [ref=f65e14]
+                            - paragraph [ref=f65e15]: Advanced strategic journalism engine powered by Xylos Neural Core.
+                          - generic [ref=f65e16]:
+                            - button "Discard" [ref=f65e17] [cursor=pointer]
+                            - button "Publish Article" [ref=f65e18] [cursor=pointer]
+                        - generic [ref=f65e19]:
+                          - generic [ref=f65e21]:
+                            - generic [ref=f65e22]:
+                              - text: Asset Headline
+                              - textbox "Enter a high-impact headline..." [ref=f65e23]
+                            - generic [ref=f65e24]:
+                              - text: Contextual Summary (Excerpt)
+                              - textbox "Summarize the strategic intent of this editorial piece..." [ref=f65e25]
+                            - generic [ref=f65e26]:
+                              - text: Core Narrative (Full Article)
+                              - generic [ref=f65e27]:
+                                - button "format_bold" [ref=f65e28] [cursor=pointer]
+                                - button "format_italic" [ref=f65e30] [cursor=pointer]
+                                - button "strikethrough_s" [ref=f65e32] [cursor=pointer]
+                                - button "code" [ref=f65e35] [cursor=pointer]
+                                - button "image" [ref=f65e37] [cursor=pointer]
+                                - button "format_align_left" [ref=f65e40] [cursor=pointer]
+                                - button "format_align_center" [ref=f65e42] [cursor=pointer]
+                                - button "ink_highlighter" [ref=f65e45] [cursor=pointer]
+                              - generic [ref=f65e47]: Begin your editorial narrative here...
+                          - complementary [ref=f65e48]:
+                            - generic [ref=f65e49]:
+                              - heading "filter_hdr Visual Asset Panel" [level=3] [ref=f65e50]:
+                                - generic [ref=f65e51]: filter_hdr
+                                - text: Visual Asset Panel
+                              - generic [ref=f65e52]:
+                                - button "Search" [ref=f65e53] [cursor=pointer]
+                                - button "Upload" [ref=f65e54] [cursor=pointer]
+                              - generic [ref=f65e55]:
+                                - generic [ref=f65e56]:
+                                  - generic [ref=f65e57]: search
+                                  - textbox "Find stock photos..." [ref=f65e58]
+                                - generic [ref=f65e59] [cursor=pointer]:
+                                  - generic [ref=f65e60]: cloud_upload
+                                  - paragraph [ref=f65e61]: Drag & drop zone
+                                - generic [ref=f65e62]:
+                                  - text: Alt text input field
+                                  - textbox "Describe this image for accessibility..." [ref=f65e63]
+                            - generic [ref=f65e66]:
+                              - heading "auto_awesome AI Co-Author Panel" [level=3] [ref=f65e67]:
+                                - generic [ref=f65e68]: auto_awesome
+                                - text: AI Co-Author Panel
+                              - 'textbox "Neural Prompt: Refine the tone of the second paragraph..." [ref=f65e69]'
+                              - button "temp_preferences_custom Generate Narrative" [ref=f65e70] [cursor=pointer]:
+                                - generic [ref=f65e71]: temp_preferences_custom
+                                - text: Generate Narrative
+                            - generic [ref=f65e72]:
+                              - heading "query_stats SEO Matrix Panel" [level=3] [ref=f65e73]:
+                                - generic [ref=f65e74]: query_stats
+                                - text: SEO Matrix Panel
+                              - generic [ref=f65e75]:
+                                - generic [ref=f65e76]:
+                                  - generic [ref=f65e77]: Slug input
+                                  - generic [ref=f65e78]: Auto / Manual
+                                - generic [ref=f65e82]:
+                                  - generic [ref=f65e83]: /blog/
+                                  - textbox [ref=f65e84]: "{slug}"
+                              - generic [ref=f65e85]:
+                                - generic [ref=f65e86]:
+                                  - generic [ref=f65e87]: Meta Title
+                                  - generic [ref=f65e88]: 0/60
+                                - textbox "Targeted editorial title..." [ref=f65e89]
+                              - generic [ref=f65e90]:
+                                - generic [ref=f65e91]:
+                                  - generic [ref=f65e92]: Meta Description
+                                  - generic [ref=f65e93]: 0/160
+                                - textbox "Compelling snippet for SERP..." [ref=f65e94]
+                              - generic [ref=f65e95]:
+                                - text: Keywords
+                                - generic [ref=f65e96]:
+                                  - generic [ref=f65e97]:
+                                    - text: "#Journalism"
+                                    - generic [ref=f65e98] [cursor=pointer]: close
+                                  - generic [ref=f65e99]:
+                                    - text: "#AI"
+                                    - generic [ref=f65e100] [cursor=pointer]: close
+                                  - generic [ref=f65e101] [cursor=pointer]: + Add Tag
+                      - contentinfo [ref=f65e102]:
+                        - generic [ref=f65e103]: XYLOS AI
+                        - paragraph [ref=f65e104]: © 2024 XYLOS AI. Processing at the edge of thought.
+                        - generic [ref=f65e105]:
+                          - link "Documentation" [ref=f65e106] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Privacy" [ref=f65e107] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Ethics" [ref=f65e108] [cursor=pointer]:
+                            - /url: "#"
+                          - link "API" [ref=f65e109] [cursor=pointer]:
+                            - /url: "#"
+                - generic [ref=f35e1914]:
+                  - generic [ref=f35e1915]: devices
+                  - generic [ref=f35e1917]: Shader
+                - generic [ref=f35e1928]:
+                  - generic [ref=f35e1929]: devices
+                  - generic [ref=f35e1931]: Shader
+                - generic [ref=f35e1938]:
+                  - generic [ref=f35e1942]:
+                    - generic [ref=f35e1943]: devices
+                    - generic [ref=f35e1945]: Xylos AI - Autonomous Manager V3.1
+                  - iframe [ref=f35e2996]:
+                    - generic [ref=f62e1]:
+                      - banner [ref=f62e4]:
+                        - generic [ref=f62e5]:
+                          - heading "Xylos AI" [level=1] [ref=f62e6]
+                          - navigation [ref=f62e7]:
+                            - link "Dashboard" [ref=f62e8] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Protocols" [ref=f62e9] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Pipeline" [ref=f62e10] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Users" [ref=f62e11] [cursor=pointer]:
+                              - /url: "#"
+                        - generic [ref=f62e12]:
+                          - button "CREATE 2 POST" [ref=f62e13] [cursor=pointer]
+                          - generic [ref=f62e14]:
+                            - generic [ref=f62e15] [cursor=pointer]: notifications
+                            - generic [ref=f62e16] [cursor=pointer]: settings
+                      - complementary [ref=f62e18]:
+                        - generic [ref=f62e19]:
+                          - paragraph [ref=f62e20]: Autonomous Manager
+                          - paragraph [ref=f62e21]: V2.4 Active
+                        - navigation [ref=f62e22]:
+                          - generic [ref=f62e23] [cursor=pointer]:
+                            - generic [ref=f62e24]: terminal
+                            - generic [ref=f62e25]: Terminal
+                          - generic [ref=f62e26] [cursor=pointer]:
+                            - generic [ref=f62e27]: account_tree
+                            - generic [ref=f62e28]: Protocols
+                          - generic [ref=f62e29] [cursor=pointer]:
+                            - generic [ref=f62e30]: cloud_download
+                            - generic [ref=f62e31]: Model Pipeline
+                          - generic [ref=f62e32] [cursor=pointer]:
+                            - generic [ref=f62e33]: group
+                            - generic [ref=f62e34]: User Management
+                          - generic [ref=f62e35] [cursor=pointer]:
+                            - generic [ref=f62e36]: history
+                            - generic [ref=f62e37]: System Logs
+                        - button "UPGRADE NODE" [ref=f62e39] [cursor=pointer]
+                      - main [ref=f62e40]:
+                        - generic [ref=f62e42]:
+                          - generic [ref=f62e43]:
+                            - heading "Autonomous Manager" [level=2] [ref=f62e44]
+                            - paragraph [ref=f62e45]: "Editorial Synthesis Core V3.1 // Status: Online"
+                          - generic [ref=f62e46]:
+                            - generic [ref=f62e47]: Xylos Active
+                            - button "CREATE 2 POST" [ref=f62e50] [cursor=pointer]
+                        - generic [ref=f62e51]:
+                          - generic [ref=f62e52]:
+                            - paragraph [ref=f62e53]:
+                              - generic [ref=f62e54]: schedule
+                              - text: Next Scheduled Sync
+                            - generic [ref=f62e55]:
+                              - heading "Tomorrow, 08:00 AM" [level=3] [ref=f62e56]
+                              - generic [ref=f62e57]: GLOBAL_CONTENT
+                          - generic [ref=f62e58]:
+                            - paragraph [ref=f62e59]:
+                              - generic [ref=f62e60]: task_alt
+                              - text: Last Execution Log
+                            - generic [ref=f62e61]:
+                              - heading "Today, 11:24 PM" [level=3] [ref=f62e62]
+                              - generic [ref=f62e63]:
+                                - generic [ref=f62e64]: SUCCESS
+                                - generic [ref=f62e67]: 98%
+                        - generic [ref=f62e68]:
+                          - generic [ref=f62e69]:
+                            - generic [ref=f62e70]: EDITORIAL_STRATEGY_STREAM
+                            - generic [ref=f62e76]:
+                              - generic [ref=f62e77]:
+                                - generic [ref=f62e78]: "[23:59:01]"
+                                - generic [ref=f62e79]: "[SYNC_START]"
+                                - generic [ref=f62e80]: Initializing temporal anchors for node clusters...
+                              - generic [ref=f62e81]:
+                                - generic [ref=f62e82]: "[23:59:04]"
+                                - generic [ref=f62e83]: "[PROMPT_INGEST]"
+                                - generic [ref=f62e84]: Analyzing 4,209 trending vectors via Gemini 2.5...
+                              - generic [ref=f62e85]:
+                                - generic [ref=f62e86]: "[23:59:12]"
+                                - generic [ref=f62e87]: "[PEXELS_SYNC]"
+                                - generic [ref=f62e88]: "Acquiring 8 high-fidelity assets (Ref: #A-901)..."
+                              - generic [ref=f62e89]:
+                                - generic [ref=f62e90]: "[23:59:22]"
+                                - generic [ref=f62e91]: "[V_DB_COMMIT]"
+                                - generic [ref=f62e92]: Writing vector embeddings to Supabase main_shards...
+                              - generic [ref=f62e93]:
+                                - generic [ref=f62e94]: "[23:59:45]"
+                                - generic [ref=f62e95]: "[SYNTHESIS]"
+                                - generic [ref=f62e96]: Generating final narrative layers for 2 publications...
+                              - generic [ref=f62e97]:
+                                - generic [ref=f62e98]: "[--:--:--]"
+                                - generic [ref=f62e99]: Waiting for neural completion...
+                              - generic [ref=f62e217]:
+                                - generic [ref=f62e218]: "[05:00:34]"
+                                - generic [ref=f62e219]: "[HEARTBEAT]"
+                                - generic [ref=f62e220]: "System consistency check at node 713: OK"
+                              - generic [ref=f62e221]:
+                                - generic [ref=f62e222]: "[05:00:42]"
+                                - generic [ref=f62e223]: "[HEARTBEAT]"
+                                - generic [ref=f62e224]: "System consistency check at node 941: OK"
+                              - generic [ref=f62e225]:
+                                - generic [ref=f62e226]: "[05:00:50]"
+                                - generic [ref=f62e227]: "[HEARTBEAT]"
+                                - generic [ref=f62e228]: "System consistency check at node 520: OK"
+                          - generic [ref=f62e100]:
+                            - heading "Sync Protocols" [level=3] [ref=f62e101]
+                            - generic [ref=f62e102]:
+                              - generic [ref=f62e103]:
+                                - generic [ref=f62e104]:
+                                  - generic [ref=f62e105]: format_image_left
+                                  - generic [ref=f62e106]: Auto-Publish
+                                - checkbox [checked] [ref=f62e107]
+                              - generic [ref=f62e108]:
+                                - generic [ref=f62e109]:
+                                  - generic [ref=f62e110]: public
+                                  - generic [ref=f62e111]: Regional Sync (INDIA)
+                                - generic [ref=f62e112]: lock
+                              - generic [ref=f62e113]:
+                                - generic [ref=f62e114]:
+                                  - generic [ref=f62e115]: database
+                                  - generic [ref=f62e116]: High Frequency (8AM)
+                                - checkbox [ref=f62e117]
+                            - generic [ref=f62e118]:
+                              - generic [ref=f62e119]: Auto-Post Category
+                              - generic [ref=f62e120]:
+                                - combobox [ref=f62e121]:
+                                  - option "Neural Architecture" [selected]
+                                  - option "Quantum Synthesis"
+                                  - option "Add Category..."
+                                - generic: expand_more
+                        - generic [ref=f62e122]:
+                          - generic [ref=f62e123]:
+                            - heading "Model Pipeline Status" [level=3] [ref=f62e124]
+                            - generic [ref=f62e125]:
+                              - generic [ref=f62e126]:
+                                - generic [ref=f62e127]:
+                                  - generic [ref=f62e128]: psychology
+                                  - generic [ref=f62e130]:
+                                    - heading "Google Gemini 2.5" [level=4] [ref=f62e131]
+                                    - paragraph [ref=f62e132]: Language Processing Core
+                                - generic [ref=f62e133]: ONLINE
+                              - generic [ref=f62e136]:
+                                - generic [ref=f62e137]:
+                                  - generic [ref=f62e138]: storage
+                                  - generic [ref=f62e140]:
+                                    - heading "Supabase Edge DB" [level=4] [ref=f62e141]
+                                    - paragraph [ref=f62e142]: Global Vector Storage
+                                - generic [ref=f62e143]: ONLINE
+                              - generic [ref=f62e146]:
+                                - generic [ref=f62e147]:
+                                  - generic [ref=f62e148]: photo_library
+                                  - generic [ref=f62e150]:
+                                    - heading "Pexels Asset API" [level=4] [ref=f62e151]
+                                    - paragraph [ref=f62e152]: Visual Asset Feed
+                                - generic [ref=f62e153]: LATENCY_HIGH
+                          - generic [ref=f62e156]:
+                            - generic [ref=f62e157]:
+                              - heading "Neural Network Directory" [level=3] [ref=f62e158]
+                              - generic [ref=f62e159]:
+                                - generic [ref=f62e160]: search
+                                - textbox "Search digital ID..." [ref=f62e161]
+                            - table [ref=f62e163]:
+                              - rowgroup [ref=f62e164]:
+                                - row [ref=f62e165]:
+                                  - columnheader "Digital ID / User" [ref=f62e166]
+                                  - columnheader "Email Access" [ref=f62e167]
+                                  - columnheader "Level" [ref=f62e168]
+                                  - columnheader "Protocol" [ref=f62e169]
+                                  - columnheader "Actions" [ref=f62e170]
+                              - rowgroup [ref=f62e171]:
+                                - row [ref=f62e172]:
+                                  - cell [ref=f62e173]:
+                                    - generic [ref=f62e176]:
+                                      - paragraph [ref=f62e177]: "X-801: Aris"
+                                      - paragraph [ref=f62e178]: Lead Synth
+                                  - cell "aris@xylos.ai" [ref=f62e179]
+                                  - cell "ADMIN" [ref=f62e180]
+                                  - cell "Core_Primary" [ref=f62e181]
+                                  - cell "delete" [ref=f62e182]
+                                - row [ref=f62e187]:
+                                  - cell [ref=f62e188]:
+                                    - generic [ref=f62e191]:
+                                      - paragraph [ref=f62e192]: "X-922: Lyra"
+                                      - paragraph [ref=f62e193]: Audit Node
+                                  - cell "lyra@xylos.ai" [ref=f62e194]
+                                  - cell "OPERATOR" [ref=f62e195]
+                                  - cell "Sync_Regional" [ref=f62e196]
+                                  - cell "delete" [ref=f62e197]
+                                - row [ref=f62e202]:
+                                  - cell [ref=f62e203]:
+                                    - generic [ref=f62e206]:
+                                      - paragraph [ref=f62e207]: "X-704: Kael"
+                                      - paragraph [ref=f62e208]: Data Sculptor
+                                  - cell "kael@xylos.ai" [ref=f62e209]
+                                  - cell "VIEWER" [ref=f62e210]
+                                  - cell "Audit_Read" [ref=f62e211]
+                                  - cell "delete" [ref=f62e212]
+                - generic [ref=f35e1952]:
+                  - generic [ref=f35e1956]:
+                    - generic [ref=f35e1957]: devices
+                    - generic [ref=f35e1959]: Shader
+                  - iframe [ref=f35e2998]:
+                    
+                - generic [ref=f35e1970]:
+                  - generic [ref=f35e1971]: devices
+                  - generic [ref=f35e1973]: Xylos AI - Your Suite Dashboard
+                - generic [ref=f35e1984]:
+                  - generic [ref=f35e1985]: devices
+                  - generic [ref=f35e1987]: Xylos AI - Biological Synthesis Blog Post
+                - generic [ref=f35e1998]:
+                  - generic [ref=f35e1999]: devices
+                  - generic [ref=f35e2001]: Xylos AI - Editorial Masterpiece Editor
+                - generic [ref=f35e2012]:
+                  - generic [ref=f35e2013]: devices
+                  - generic [ref=f35e2015]: Xylos AI - Autonomous Manager Admin Panel
+                - generic [ref=f35e2022]:
+                  - generic [ref=f35e2026]:
+                    - generic [ref=f35e2027]: devices
+                    - generic [ref=f35e2029]: Xylos AI - Neural Chat (Glassmorphic)
+                  - iframe [ref=f35e3000]:
+                    - generic [ref=f66e1]:
+                      - complementary [ref=f66e2]:
+                        - generic [ref=f66e3]:
+                          - generic [ref=f66e4]:
+                            - generic [ref=f66e5]:
+                              - heading "Missions" [level=2] [ref=f66e6]
+                              - text: 24 Deployments
+                            - button "menu_open" [ref=f66e7] [cursor=pointer]
+                          - generic [ref=f66e9]:
+                            - button "home Home" [ref=f66e10] [cursor=pointer]:
+                              - generic [ref=f66e11]: home
+                              - generic [ref=f66e12]: Home
+                            - button "add New Mission" [ref=f66e13] [cursor=pointer]:
+                              - generic [ref=f66e14]: add
+                              - generic [ref=f66e15]: New Mission
+                        - navigation [ref=f66e16]:
+                          - generic [ref=f66e17] [cursor=pointer]:
+                            - generic [ref=f66e18]:
+                              - generic [ref=f66e19]: Genomic Sequencing Analysis
+                              - generic [ref=f66e20]: Oct 12, 2024
+                            - button "delete" [ref=f66e21]
+                          - generic [ref=f66e23] [cursor=pointer]:
+                            - generic [ref=f66e24]:
+                              - generic [ref=f66e25]: Neural Network Optimization
+                              - generic [ref=f66e26]: Oct 11, 2024
+                            - button "delete" [ref=f66e27]
+                          - generic [ref=f66e29] [cursor=pointer]:
+                            - generic [ref=f66e30]:
+                              - generic [ref=f66e31]: Global Logistics Rerouting
+                              - generic [ref=f66e32]: Oct 09, 2024
+                            - button "delete" [ref=f66e33]
+                          - generic [ref=f66e35] [cursor=pointer]:
+                            - generic [ref=f66e36]:
+                              - generic [ref=f66e37]: Quantum Cryptography Review
+                              - generic [ref=f66e38]: Oct 08, 2024
+                            - button "delete" [ref=f66e39]
+                        - button "logout Sign Out arrow_forward" [ref=f66e42] [cursor=pointer]:
+                          - generic [ref=f66e43]:
+                            - generic [ref=f66e44]: logout
+                            - generic [ref=f66e45]: Sign Out
+                          - generic [ref=f66e46]: arrow_forward
+                      - main [ref=f66e47]:
+                        - generic [ref=f66e48]:
+                          - generic [ref=f66e49]: "Active Link: Best Free Route"
+                          - button "settings" [ref=f66e57] [cursor=pointer]
+                        - generic [ref=f66e61]:
+                          - generic [ref=f66e62]: auto_awesome
+                          - generic [ref=f66e65]:
+                            - heading "Initiate Xylos AI" [level=1] [ref=f66e66]
+                            - paragraph [ref=f66e67]: Senior content strategist and research engineer at your service.
+                          - generic [ref=f66e68]:
+                            - button "Analytical Optimize neural network weights for low-latency inference." [ref=f66e69] [cursor=pointer]:
+                              - generic [ref=f66e70]: Analytical
+                              - paragraph [ref=f66e71]: Optimize neural network weights for low-latency inference.
+                            - button "Creative Draft a strategic deployment plan for the new API protocols." [ref=f66e72] [cursor=pointer]:
+                              - generic [ref=f66e73]: Creative
+                              - paragraph [ref=f66e74]: Draft a strategic deployment plan for the new API protocols.
+                        - generic [ref=f66e76]:
+                          - generic [ref=f66e77]:
+                            - textbox "What mission shall we deploy?" [ref=f66e78]
+                            - generic [ref=f66e79]:
+                              - generic [ref=f66e80]:
+                                - button "attach_file" [ref=f66e81] [cursor=pointer]
+                                - button "mic" [ref=f66e83] [cursor=pointer]
+                                - button "Best Free Route expand_more" [ref=f66e87] [cursor=pointer]:
+                                  - generic [ref=f66e88]: Best Free Route
+                                  - generic [ref=f66e89]: expand_more
+                              - generic [ref=f66e90]:
+                                - button "Terminate" [ref=f66e91] [cursor=pointer]
+                                - button "send" [ref=f66e92] [cursor=pointer]
+                          - generic [ref=f66e94]:
+                            - generic [ref=f66e95]:
+                              - generic [ref=f66e96]: verified_user
+                              - generic [ref=f66e97]: AES-256 SECURED
+                            - generic [ref=f66e98]:
+                              - generic [ref=f66e99]: memory
+                              - generic [ref=f66e100]: NEURAL MATRIX V3.5
+                            - generic [ref=f66e101]:
+                              - generic [ref=f66e102]: sync
+                              - generic [ref=f66e103]: PERSISTENCE ACTIVE
+                - generic [ref=f35e2040]:
+                  - generic [ref=f35e2041]: devices
+                  - generic [ref=f35e2043]: Xylos AI - Your Suite Dashboard
+                - generic [ref=f35e2054]:
+                  - generic [ref=f35e2055]: devices
+                  - generic [ref=f35e2057]: Xylos AI - Content Archive Dashboard
+                - generic [ref=f35e2166]:
+                  - generic [ref=f35e2365]: image
+                  - generic [ref=f35e2167]: A cinematic, futuristic digital artwork for an AI blog hero. Glowing neural lattices and synthetic crystalline structures in deep space. Electric blue, neon purple, and soft pink bioluminescent pulses. High-detail macro photography style, 8k, sharp edges, dark obsidian background. "Xylos AI" aesthetic.
+                - generic [ref=f35e2176]:
+                  - generic [ref=f35e2180]:
+                    - generic [ref=f35e2181]: palette
+                    - generic [ref=f35e2183]: Xylos AI Editorial
+                  - generic [ref=f35e2186]:
+                    - generic [ref=f35e2187]:
+                      - generic [ref=f35e2188]:
+                        - generic [ref=f35e2189]:
+                          - generic [ref=f35e2190]: Primary
+                          - generic "Click to copy" [ref=f35e2191] [cursor=pointer]: "#D2BBFF"
+                        - generic [ref=f35e2192]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f35e2193] [cursor=pointer]'
+                          - 'generic "T10 #230e48 — Click to copy" [ref=f35e2194] [cursor=pointer]'
+                          - 'generic "T20 #38255e — Click to copy" [ref=f35e2195] [cursor=pointer]'
+                          - 'generic "T30 #4f3c76 — Click to copy" [ref=f35e2196] [cursor=pointer]'
+                          - 'generic "T40 #685490 — Click to copy" [ref=f35e2197] [cursor=pointer]'
+                          - 'generic "T50 #816dab — Click to copy" [ref=f35e2198] [cursor=pointer]'
+                          - 'generic "T60 #9b86c6 — Click to copy" [ref=f35e2199] [cursor=pointer]'
+                          - 'generic "T70 #b6a0e2 — Click to copy" [ref=f35e2200] [cursor=pointer]'
+                          - 'generic "T80 #d2bbff — Click to copy" [ref=f35e2201] [cursor=pointer]'
+                          - 'generic "T90 #eaddff — Click to copy" [ref=f35e2202] [cursor=pointer]'
+                          - 'generic "T95 #f6edff — Click to copy" [ref=f35e2203] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f35e2204] [cursor=pointer]'
+                      - generic [ref=f35e2205]:
+                        - generic [ref=f35e2206]:
+                          - generic [ref=f35e2207]: Secondary
+                          - generic "Click to copy" [ref=f35e2208] [cursor=pointer]: "#89CEFF"
+                        - generic [ref=f35e2209]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f35e2210] [cursor=pointer]'
+                          - 'generic "T10 #001e2f — Click to copy" [ref=f35e2211] [cursor=pointer]'
+                          - 'generic "T20 #00344d — Click to copy" [ref=f35e2212] [cursor=pointer]'
+                          - 'generic "T30 #004c6e — Click to copy" [ref=f35e2213] [cursor=pointer]'
+                          - 'generic "T40 #056490 — Click to copy" [ref=f35e2214] [cursor=pointer]'
+                          - 'generic "T50 #327eaa — Click to copy" [ref=f35e2215] [cursor=pointer]'
+                          - 'generic "T60 #5098c6 — Click to copy" [ref=f35e2216] [cursor=pointer]'
+                          - 'generic "T70 #6db2e2 — Click to copy" [ref=f35e2217] [cursor=pointer]'
+                          - 'generic "T80 #89ceff — Click to copy" [ref=f35e2218] [cursor=pointer]'
+                          - 'generic "T90 #c9e6ff — Click to copy" [ref=f35e2219] [cursor=pointer]'
+                          - 'generic "T95 #e5f2ff — Click to copy" [ref=f35e2220] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f35e2221] [cursor=pointer]'
+                      - generic [ref=f35e2222]:
+                        - generic [ref=f35e2223]:
+                          - generic [ref=f35e2224]: Tertiary
+                          - generic "Click to copy" [ref=f35e2225] [cursor=pointer]: "#FBABFF"
+                        - generic [ref=f35e2226]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f35e2227] [cursor=pointer]'
+                          - 'generic "T10 #36003e — Click to copy" [ref=f35e2228] [cursor=pointer]'
+                          - 'generic "T20 #53105d — Click to copy" [ref=f35e2229] [cursor=pointer]'
+                          - 'generic "T30 #6d2b75 — Click to copy" [ref=f35e2230] [cursor=pointer]'
+                          - 'generic "T40 #88438f — Click to copy" [ref=f35e2231] [cursor=pointer]'
+                          - 'generic "T50 #a35caa — Click to copy" [ref=f35e2232] [cursor=pointer]'
+                          - 'generic "T60 #c076c5 — Click to copy" [ref=f35e2233] [cursor=pointer]'
+                          - 'generic "T70 #dd90e2 — Click to copy" [ref=f35e2234] [cursor=pointer]'
+                          - 'generic "T80 #fbabff — Click to copy" [ref=f35e2235] [cursor=pointer]'
+                          - 'generic "T90 #ffd6fd — Click to copy" [ref=f35e2236] [cursor=pointer]'
+                          - 'generic "T95 #ffebfb — Click to copy" [ref=f35e2237] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f35e2238] [cursor=pointer]'
+                      - generic [ref=f35e2239]:
+                        - generic [ref=f35e2240]:
+                          - generic [ref=f35e2241]: Neutral
+                          - generic "Click to copy" [ref=f35e2242] [cursor=pointer]: "#79767B"
+                        - generic [ref=f35e2243]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f35e2244] [cursor=pointer]'
+                          - 'generic "T10 #1d1b1f — Click to copy" [ref=f35e2245] [cursor=pointer]'
+                          - 'generic "T20 #322f34 — Click to copy" [ref=f35e2246] [cursor=pointer]'
+                          - 'generic "T30 #48464a — Click to copy" [ref=f35e2247] [cursor=pointer]'
+                          - 'generic "T40 #605d62 — Click to copy" [ref=f35e2248] [cursor=pointer]'
+                          - 'generic "T50 #79767b — Click to copy" [ref=f35e2249] [cursor=pointer]'
+                          - 'generic "T60 #938f95 — Click to copy" [ref=f35e2250] [cursor=pointer]'
+                          - 'generic "T70 #aeaaaf — Click to copy" [ref=f35e2251] [cursor=pointer]'
+                          - 'generic "T80 #cac5cb — Click to copy" [ref=f35e2252] [cursor=pointer]'
+                          - 'generic "T90 #e6e1e7 — Click to copy" [ref=f35e2253] [cursor=pointer]'
+                          - 'generic "T95 #f5eff5 — Click to copy" [ref=f35e2254] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f35e2255] [cursor=pointer]'
+                    - generic [ref=f35e2256]:
+                      - generic [ref=f35e2257]:
+                        - generic [ref=f35e2258]:
+                          - generic [ref=f35e2259]: Headline
+                          - generic [ref=f35e2260]: Geist
+                        - generic [ref=f35e2261]: Aa
+                      - generic [ref=f35e2262]:
+                        - generic [ref=f35e2263]:
+                          - button "Primary" [ref=f35e2264]
+                          - button "Secondary" [ref=f35e2265]
+                        - generic [ref=f35e2266]:
+                          - button "Inverted" [ref=f35e2267]
+                          - button "Outlined" [ref=f35e2268]
+                      - generic [ref=f35e2270]:
+                        - generic [ref=f35e2271]: search
+                        - generic [ref=f35e2272]: Search
+                      - generic [ref=f35e2273]:
+                        - generic [ref=f35e2274]:
+                          - generic [ref=f35e2275]: Body
+                          - generic [ref=f35e2276]: Geist
+                        - generic [ref=f35e2277]: Aa
+                      - generic [ref=f35e2286]:
+                        - generic [ref=f35e2287]: home
+                        - generic [ref=f35e2289]: search
+                        - generic [ref=f35e2291]: person
+                      - generic [ref=f35e2293]:
+                        - generic [ref=f35e2294]:
+                          - generic [ref=f35e2295]: Label
+                          - generic [ref=f35e2296]: Jetbrains Mono
+                        - generic [ref=f35e2297]: Aa
+                      - generic [ref=f35e2298]:
+                        - generic [ref=f35e2299]: edit
+                        - generic [ref=f35e2303]:
+                          - generic [ref=f35e2304]: edit
+                          - text: Label
+                      - generic [ref=f35e2306]:
+                        - generic [ref=f35e2307]: auto_fix_high
+                        - generic [ref=f35e2309]: category
+                        - generic [ref=f35e2311]: sell
+                        - generic [ref=f35e2313]: delete
+                - generic [ref=f35e2316]:
+                  - generic [ref=f35e2320]:
+                    - generic [ref=f35e2367]: devices
+                    - generic [ref=f35e2321]: Xylos AI - Editorial Archives (Glassmorphic)
+                  - iframe [ref=f35e3002]:
+                    - generic [ref=f56e1]:
+                      - navigation [ref=f56e2]:
+                        - generic [ref=f56e3]:
+                          - generic [ref=f56e4]: XYLOS AI
+                          - generic [ref=f56e5]:
+                            - link "Archive" [ref=f56e6] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Research" [ref=f56e7] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Lab" [ref=f56e8] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Network" [ref=f56e9] [cursor=pointer]:
+                              - /url: "#"
+                          - generic [ref=f56e10]:
+                            - button "search" [ref=f56e11] [cursor=pointer]
+                            - button "account_circle" [ref=f56e12] [cursor=pointer]
+                      - main [ref=f56e13]:
+                        - generic [ref=f56e17]:
+                          - generic [ref=f56e18]: Featured Article / Neural Lab
+                          - 'heading "The Neural Frontier: Biological Synthesis in the AI Era" [level=1] [ref=f56e20]'
+                          - paragraph [ref=f56e21]: Exploring the convergence of synaptic architecture and deep learning frameworks to redefine the boundaries of synthetic intelligence.
+                          - button "Read Report" [ref=f56e22] [cursor=pointer]
+                        - generic [ref=f56e23]:
+                          - button "All" [ref=f56e24] [cursor=pointer]
+                          - button "Research" [ref=f56e25] [cursor=pointer]
+                          - button "Neural" [ref=f56e26] [cursor=pointer]
+                          - button "Bio-Synth" [ref=f56e27] [cursor=pointer]
+                          - button "Ethics" [ref=f56e28] [cursor=pointer]
+                          - button "Network" [ref=f56e29] [cursor=pointer]
+                        - generic [ref=f56e30]:
+                          - article [ref=f56e31]:
+                            - generic [ref=f56e34]:
+                              - generic [ref=f56e35]:
+                                - generic [ref=f56e36]: Network Topology
+                                - heading "Mapping the Latent Space of Synthetic Consciousness" [level=2] [ref=f56e39]
+                                - paragraph [ref=f56e40]: A deep dive into the visualization of weights and biases in massive-scale transformers through a neuro-biological lens.
+                              - generic [ref=f56e41]:
+                                - generic [ref=f56e42]: March 24, 2024
+                                - generic [ref=f56e43]: arrow_forward
+                          - article [ref=f56e44]:
+                            - generic [ref=f56e45]: Frameworks
+                            - 'heading "The Socratic Machine: Establishing a Universal Ethics Code" [level=2] [ref=f56e46]'
+                            - paragraph [ref=f56e47]: Proposing a cryptographic foundation for moral alignment in autonomous decision engines.
+                            - generic [ref=f56e48]: Theory Paper
+                          - article [ref=f56e51]:
+                            - generic [ref=f56e52]: Quantum
+                            - generic [ref=f56e56]:
+                              - heading "Sub-Atomic Inference Engines" [level=2] [ref=f56e57]
+                              - paragraph [ref=f56e58]: Bridging the gap between decoherence and cognitive processing at the edge of physics.
+                              - text: Read Full Analysis
+                          - article [ref=f56e59]:
+                            - generic [ref=f56e60]:
+                              - generic [ref=f56e61]:
+                                - generic [ref=f56e62]: terminal
+                                - generic [ref=f56e63]: v0.4.2
+                              - heading "Network Protocols for Decentralized AGI" [level=2] [ref=f56e64]
+                              - paragraph [ref=f56e65]: Analyzing the security implications of peer-to-peer intelligence distribution.
+                            - link "View Specs trending_flat" [ref=f56e67] [cursor=pointer]:
+                              - /url: "#"
+                              - text: View Specs
+                              - generic [ref=f56e68]: trending_flat
+                          - article [ref=f56e69]:
+                            - generic [ref=f56e70]: Ongoing Research
+                            - 'heading "Project: MYCELIUM" [level=3] [ref=f56e71]'
+                            - paragraph [ref=f56e72]: Autonomous environmental remediation via swarm-based biological nanobots. First field test results are now live for internal review.
+                            - generic [ref=f56e75]:
+                              - generic [ref=f56e76]: Validation Phase
+                              - generic [ref=f56e77]: 72%
+                      - contentinfo [ref=f56e78]:
+                        - generic [ref=f56e79]:
+                          - generic [ref=f56e80]:
+                            - text: XYLOS AI
+                            - paragraph [ref=f56e81]: DEFINING THE NEURAL FRONTIER
+                          - generic [ref=f56e82]:
+                            - link "Privacy" [ref=f56e83] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Terms" [ref=f56e84] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Contact" [ref=f56e85] [cursor=pointer]:
+                              - /url: "#"
+                          - generic [ref=f56e86]: © 2024 XYLOS AI. ALL RIGHTS RESERVED.
+                - generic [ref=f35e2746]:
+                  - generic [ref=f35e2796]: image
+                  - generic [ref=f35e2747]: A dark, futuristic digital background with a subtle grid pattern and large, blurred, glowing orbs in neon purple (#d2bbff) and secondary blue (#89ceff). Cinematic lighting, deep obsidian base (#0a0a0f). High-detail macro photography style. Minimalist and atmospheric.
+                - generic [ref=f35e2756]:
+                  - generic [ref=f35e2760]:
+                    - generic [ref=f35e2798]: devices
+                    - generic [ref=f35e2761]: Shader
+                  - iframe [ref=f35e2766]:
+                    
+                - generic [ref=f35e2771]:
+                  - generic [ref=f35e2775]:
+                    - generic [ref=f35e2800]: devices
+                    - generic [ref=f35e2776]: Xylos AI - Secure Access Uplink (Split)
+                  - iframe [ref=f35e2781]:
+                    - generic [ref=f52e2]:
+                      - generic [ref=f52e6]:
+                        - text: Next-Gen Intelligence
+                        - heading "Free AI Chat. Refine Your Narrative." [level=1] [ref=f52e7]
+                        - generic [ref=f52e8]:
+                          - generic [ref=f52e9]:
+                            - generic [ref=f52e10]: forum
+                            - generic [ref=f52e12]:
+                              - heading "Unified AI Chat" [level=3] [ref=f52e13]
+                              - paragraph [ref=f52e14]: Context-aware multi-modal interaction.
+                          - generic [ref=f52e15]:
+                            - generic [ref=f52e16]: terminal
+                            - generic [ref=f52e18]:
+                              - heading "Code Assistant" [level=3] [ref=f52e19]
+                              - paragraph [ref=f52e20]: Deterministic debugging & architecture.
+                          - generic [ref=f52e21]:
+                            - generic [ref=f52e22]: factory
+                            - generic [ref=f52e24]:
+                              - heading "Content Factory" [level=3] [ref=f52e25]
+                              - paragraph [ref=f52e26]: Infinite scaling for narrative production.
+                      - generic [ref=f52e27]:
+                        - link "arrow_back Back to Home" [ref=f52e29] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=f52e30]: arrow_back
+                          - text: Back to Home
+                        - generic [ref=f52e32]:
+                          - generic [ref=f52e33]:
+                            - generic [ref=f52e34]: Xylos AI
+                            - paragraph [ref=f52e35]: Authentication Protocol
+                          - generic [ref=f52e36]:
+                            - generic [ref=f52e37]:
+                              - generic [ref=f52e38]:
+                                - text: Interface Identifier
+                                - textbox "Interface Identifier" [ref=f52e40]:
+                                  - /placeholder: name@xylos.ai
+                              - generic [ref=f52e41]:
+                                - generic [ref=f52e42]:
+                                  - generic [ref=f52e43]: Access Token
+                                  - link "Forgot?" [ref=f52e44] [cursor=pointer]:
+                                    - /url: "#"
+                                - textbox "Access Token" [ref=f52e46]:
+                                  - /placeholder: ••••••••
+                              - button "Launch Workspace bolt" [ref=f52e47] [cursor=pointer]:
+                                - text: Launch Workspace
+                                - generic [ref=f52e48]: bolt
+                            - generic [ref=f52e49]: or proceed with
+                            - button "Connect via Google Account" [ref=f52e53] [cursor=pointer]
+                          - button "New to Xylos? Create an account" [ref=f52e60] [cursor=pointer]
+                        - generic [ref=f52e61]:
+                          - paragraph [ref=f52e62]: © 2024 Xylos AI. Engineered for Intelligence.
+                          - generic [ref=f52e63]:
+                            - link "Privacy Policy" [ref=f52e64] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Terms of Service" [ref=f52e65] [cursor=pointer]:
+                              - /url: "#"
+                - generic [ref=f35e2863]:
+                  - generic [ref=f35e2867]:
+                    - generic [ref=f35e2952]: devices
+                    - generic [ref=f35e2868]: Shader
+                  - iframe [ref=f35e2873]:
+                    
+                - generic [ref=f35e2882]:
+                  - generic [ref=f35e2954]: image
+                  - generic [ref=f35e2883]: A cinematic, high-detail macro shot of glowing synthetic neural lattices and crystalline structures in deep space. Neon purple (#d2bbff), electric blue (#89ceff), and soft pink (#fbabff) bioluminescent pulses against a deep obsidian background (#0a0a0f). Futuristic tech aesthetic, sharp focus, volumetric lighting, 8k resolution. Xylos AI brand style.
+                - generic [ref=f35e2933]:
+                  - generic [ref=f35e2937]:
+                    - generic [ref=f35e2956]: devices
+                    - generic [ref=f35e2938]: Xylos AI - About Us (Editorial)
+                  - iframe [ref=f35e2943]:
+                    - generic [ref=f55e1]:
+                      - navigation [ref=f55e2]:
+                        - generic [ref=f55e3]:
+                          - generic [ref=f55e4]: XylosAI
+                          - generic [ref=f55e5]:
+                            - link "Neural Chat" [ref=f55e6] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Blog" [ref=f55e7] [cursor=pointer]:
+                              - /url: "#"
+                            - link "About Us" [ref=f55e8] [cursor=pointer]:
+                              - /url: "#"
+                          - button "Sign In" [ref=f55e9] [cursor=pointer]
+                      - banner [ref=f55e10]:
+                        - heading "WHERE MACHINES THINK. MACHINES CREATE." [level=1] [ref=f55e13]:
+                          - generic [ref=f55e14]: WHERE MACHINES
+                          - generic [ref=f55e15]: THINK.
+                          - generic [ref=f55e16]: MACHINES
+                          - generic [ref=f55e17]: CREATE.
+                      - generic [ref=f55e21]:
+                        - generic [ref=f55e22]:
+                          - generic [ref=f55e23]: < 2s
+                          - generic [ref=f55e24]: Avg Response
+                        - generic [ref=f55e25]:
+                          - generic [ref=f55e26]: 99.9%
+                          - generic [ref=f55e27]: Uptime
+                        - generic [ref=f55e28]:
+                          - generic [ref=f55e29]: 4.8K
+                          - generic [ref=f55e30]: Active Users
+                        - generic [ref=f55e31]:
+                          - generic [ref=f55e32]: 7+
+                          - generic [ref=f55e33]: AI Models
+                      - generic [ref=f55e34]:
+                        - generic [ref=f55e36]:
+                          - generic [ref=f55e37]: Manifesto v2.6
+                          - heading "The Neural Paradigm" [level=2] [ref=f55e38]
+                          - paragraph [ref=f55e39]: XylosAI isn't just an engine; it's a synthesis. We operate at the intersection of raw computational power and the fluid nuance of human expression. By dissolving the boundaries between code and creativity, we unlock possibilities previously confined to the realm of fiction.
+                          - paragraph [ref=f55e40]: "\"Intelligence is no longer a biological monopoly. It is a shared architecture.\""
+                        - img "Neural Lattice Visualization" [ref=f55e44]
+                      - generic [ref=f55e45]:
+                        - heading "Core Architectures" [level=2] [ref=f55e47]
+                        - generic [ref=f55e49]:
+                          - generic [ref=f55e50]:
+                            - generic [ref=f55e51]: "01"
+                            - heading "Deterministic Logic" [level=3] [ref=f55e52]
+                            - paragraph [ref=f55e53]: Unwavering precision in data processing and decision-making frameworks. No hallucinations, only validated outputs.
+                          - generic [ref=f55e54]:
+                            - generic [ref=f55e55]: "02"
+                            - heading "Creative Synthesis" [level=3] [ref=f55e56]
+                            - paragraph [ref=f55e57]: Merging artistic sensibility with algorithmic speed. Generating assets that resonate with human emotion.
+                          - generic [ref=f55e58]:
+                            - generic [ref=f55e59]: "03"
+                            - heading "Algorithmic Ethics" [level=3] [ref=f55e60]
+                            - paragraph [ref=f55e61]: Safety by design. Every layer of XylosAI is governed by a transparent and rigorous ethical protocol.
+                          - generic [ref=f55e62]:
+                            - generic [ref=f55e63]: "04"
+                            - heading "Scalable Intelligence" [level=3] [ref=f55e64]
+                            - paragraph [ref=f55e65]: Built for enterprise. Infinite expansion across vertical nodes with zero latency compromise.
+                      - generic [ref=f55e66]:
+                        - heading "The Evolution of Thought" [level=2] [ref=f55e68]
+                        - generic [ref=f55e71]:
+                          - generic [ref=f55e73]:
+                            - generic [ref=f55e74]: "2024"
+                            - heading "Inception" [level=4] [ref=f55e75]
+                            - paragraph [ref=f55e76]: Foundation of the Xylos research protocol in Zurich. Seed stage intelligence models launched.
+                          - generic [ref=f55e80]:
+                            - generic [ref=f55e81]: "2025"
+                            - heading "The Aether Uplink" [level=4] [ref=f55e82]
+                            - paragraph [ref=f55e83]: Release of the global neural API. Real-time multi-model orchestration becomes standard.
+                          - generic [ref=f55e85]:
+                            - generic [ref=f55e86]: "2026"
+                            - heading "Global Synthesis" [level=4] [ref=f55e87]
+                            - paragraph [ref=f55e88]: Autonomous problem solving at scale. Xylos becomes the primary backbone for creative AI.
+                      - heading "To bridge the gap between binary logic and human intuition." [level=2] [ref=f55e95]
+                      - contentinfo [ref=f55e98]:
+                        - generic [ref=f55e99]:
+                          - generic [ref=f55e100]: XylosAI
+                          - generic [ref=f55e101]:
+                            - generic [ref=f55e102]: (c) 2026 Xylos AI Research Systems // All Rights Reserved
+                            - generic [ref=f55e103]:
+                              - link "Privacy Policy" [ref=f55e104] [cursor=pointer]:
+                                - /url: "#"
+                              - link "Terms of Service" [ref=f55e105] [cursor=pointer]:
+                                - /url: "#"
+                              - link "Contact" [ref=f55e106] [cursor=pointer]:
+                                - /url: "#"
+          - generic [ref=f35e956]:
+            - textbox [active] [ref=f35e960]:
+              - paragraph [ref=f35e961]: What would you like to change or create?
+            - generic [ref=f35e962]:
+              - button "Choose File" [ref=f35e963]
+              - button [ref=f35e965] [cursor=pointer]
+              - button [ref=f35e970] [cursor=pointer]:
+                - img [ref=f35e971]:
+                  - generic [ref=f35e972]: /
+              - generic [ref=f35e973]:
+                - button [ref=f35e975] [cursor=pointer]
+                - button [ref=f35e981] [cursor=pointer]
+                - button "3 Flash" [ref=f35e985] [cursor=pointer]
+                - button [ref=f35e992] [cursor=pointer]
+                - button [disabled] [ref=f35e996]
+          - generic [ref=f35e2065]:
+            - button [expanded] [ref=f35e2066] [cursor=pointer]:
+              - status [ref=f35e2067]:
+                - generic [ref=f35e2068]: Agent log
+            - menu "Agent log" [ref=f35e3007]:
+              - generic [ref=f35e3009]:
+                - menuitem "Design an about page for \"Xylos AI\" with a complet..." [ref=f35e3010] [cursor=pointer]
+                - menuitem "Design a split-screen login page for \"Xylos AI\". L..." [ref=f35e3018] [cursor=pointer]
+                - menuitem "Design a dark futuristic blog archive page for \"Xy..." [ref=f35e3026] [cursor=pointer]
+                - menuitem "EXACT CONTENT FROM LIVE SITE - DO NOT CHANGE ANY T..." [ref=f35e3034] [cursor=pointer]
+                - menuitem "EXACT CONTENT FROM LIVE SITE - DO NOT CHANGE ANY T..." [ref=f35e3042] [cursor=pointer]
+                - menuitem "EXACT CONTENT FROM LIVE SITE - DO NOT CHANGE ANY T..." [ref=f35e3050] [cursor=pointer]
+                - menuitem "EXACT CONTENT FROM LIVE SITE - DO NOT CHANGE ANY T..." [ref=f35e3058] [cursor=pointer]
+                - menuitem "EXACT CONTENT FROM LIVE SITE - DO NOT CHANGE ANY T..." [ref=f35e3066] [cursor=pointer]
+                - menuitem "EXACT CONTENT FROM LIVE SITE - DO NOT CHANGE ANY T..." [ref=f35e3074] [cursor=pointer]
+                - menuitem "EXACT CONTENT FROM LIVE SITE - DO NOT CHANGE ANY T..." [ref=f35e3082] [cursor=pointer]
+                - menuitem "EXACT CONTENT FROM LIVE SITE - DO NOT CHANGE ANY T..." [ref=f35e3090] [cursor=pointer]
+                - menuitem "EXACT CONTENT FROM LIVE SITE - DO NOT CHANGE ANY T..." [ref=f35e3098] [cursor=pointer]
+                - menuitem "EXACT CONTENT FROM LIVE SITE - DO NOT CHANGE ANY T..." [ref=f35e3106] [cursor=pointer]
+                - menuitem "EXACT CONTENT FROM LIVE SITE - DO NOT CHANGE ANY T..." [ref=f35e3114] [cursor=pointer]
+                - menuitem "EXACT CONTENT FROM LIVE SITE - DO NOT CHANGE ANY T..." [ref=f35e3122] [cursor=pointer]
+                - menuitem "EXACT CONTENT FROM LIVE SITE - DO NOT CHANGE ANY T..." [ref=f35e3130] [cursor=pointer]
+                - menuitem "Design privacy page for Xylos AI. DARK MODE. Badge..." [ref=f35e3138] [cursor=pointer]
+                - menuitem "Design 404 page for Xylos AI. DARK MODE centered. ..." [ref=f35e3146] [cursor=pointer]
+                - menuitem "Design settings page for Xylos AI. DARK MODE. HEAD..." [ref=f35e3154] [cursor=pointer]
+                - menuitem "Design AI manager admin for Xylos AI. DARK MODE. H..." [ref=f35e3162] [cursor=pointer]
+                - menuitem "Design posts management table for Xylos AI. DARK M..." [ref=f35e3170] [cursor=pointer]
+                - menuitem "Design a blog post editor for Xylos AI. DARK MODE ..." [ref=f35e3178] [cursor=pointer]
+                - menuitem "Design a dashboard home for Xylos AI. DARK MODE gl..." [ref=f35e3186] [cursor=pointer]
+                - menuitem "Design an AI chat interface for Xylos AI. DARK MOD..." [ref=f35e3194] [cursor=pointer]
+                - menuitem "Design a login page for Xylos AI. DARK MODE center..." [ref=f35e3202] [cursor=pointer]
+                - menuitem "Design a blog post page for Xylos AI. DARK MODE gl..." [ref=f35e3210] [cursor=pointer]
+                - menuitem "Design a blog archive page for Xylos AI. DARK MODE..." [ref=f35e3218] [cursor=pointer]
+                - menuitem "Design a privacy policy page for 'Xylos AI'. DARK ..." [ref=f35e3226] [cursor=pointer]
+                - menuitem "Design a 404 error page for 'Xylos AI'. DARK MODE...." [ref=f35e3234] [cursor=pointer]
+                - menuitem "Design a settings page for 'Xylos AI'. DARK MODE. ..." [ref=f35e3242] [cursor=pointer]
+                - menuitem "Design an AI manager admin panel for 'Xylos AI'. D..." [ref=f35e3250] [cursor=pointer]
+                - menuitem "Design a posts management table for 'Xylos AI'. DA..." [ref=f35e3258] [cursor=pointer]
+                - menuitem "Design a blog post editor for 'Xylos AI'. DARK MOD..." [ref=f35e3266] [cursor=pointer]
+                - menuitem "Design a dashboard sidebar navigation for 'Xylos A..." [ref=f35e3274] [cursor=pointer]
+                - menuitem "Design a dashboard home page for 'Xylos AI'. DARK ..." [ref=f35e3282] [cursor=pointer]
+                - menuitem "Design an AI chat interface for 'Xylos AI'. DARK M..." [ref=f35e3290] [cursor=pointer]
+                - menuitem "Design a login/signup page for 'Xylos AI'. DARK MO..." [ref=f35e3298] [cursor=pointer]
+                - menuitem "Design a blog post page for 'Xylos AI'. DARK MODE ..." [ref=f35e3306] [cursor=pointer]
+                - menuitem "Design a blog archive page for 'Xylos AI'. DARK MO..." [ref=f35e3314] [cursor=pointer]
+                - menuitem "Design a futuristic AI platform landing page for '..." [ref=f35e3322] [cursor=pointer]
+          - generic [ref=f35e1001]:
+            - button "Collapse panel" [ref=f35e2077] [cursor=pointer]
+            - generic [ref=f35e2892]:
+              - generic [ref=f35e2896]:
+                - generic [ref=f35e2898] [cursor=pointer]:
+                  - img "Surinder Kumar" [ref=f35e2899]
+                  - paragraph [ref=f35e2900]: "Design an about page for \"Xylos AI\" with a completely new layout. Full viewport hero with massive stacked typography \"WHERE MACHINES THINK. MACHINES CREATE.\" with a parallax scroll effect. Below: a stats ribbon that sticks on scroll showing \"< 2s Avg Response\", \"99.9% Uptime\", \"4.8K Active Users\", \"7+ AI Models\". Then a philosophy section with split layout — bold text on left, full-bleed image with gradient overlay on right. Next: a 2x2 values grid with glassmorphic cards and hover states. Then a horizontal timeline showing the company journey from 2024-2026 with alternating top/bottom cards. Full-width mission statement section with gradient background. Dark #0a0a0f, purple #d2bbff, blue #89ceff, pink #fbabff. Sharp edges, editorial typography."
+                - generic [ref=f35e2901]:
+                  - button "Copy prompt" [ref=f35e2902] [cursor=pointer]
+                  - button "Show more" [ref=f35e2906] [cursor=pointer]
+              - generic [ref=f35e2914]:
+                - paragraph [ref=f35e2962]:
+                  - text: I've designed the
+                  - strong [ref=f35e2963]: Xylos AI About Us
+                  - text: page, pivoting to a high-fidelity editorial layout that emphasizes the brand's position at the intersection of machines and creativity.
+                - heading "Key Design Elements:" [level=3] [ref=f35e2964]
+                - list [ref=f35e2965]:
+                  - listitem [ref=f35e2966]:
+                    - strong [ref=f35e2967]: Massive Typography Hero
+                    - text: ": A full-viewport entrance featuring a parallax-enabled grid background and bold, stacked headlines to establish immediate visual authority."
+                  - listitem [ref=f35e2968]:
+                    - strong [ref=f35e2969]: Sticky Performance Ribbon
+                    - text: ": A high-utility stats bar that anchors to the top on scroll, ensuring core reliability metrics like uptime and response speed are always visible."
+                  - listitem [ref=f35e2970]:
+                    - strong [ref=f35e2971]: Neural Philosophy Split
+                    - text: ": A balanced layout pairing deep editorial manifesto text with a custom-generated high-detail macro shot of synthetic neural lattices ("
+                    - code [ref=f35e2972]: A cinematic, high-detail macro shot of glowing synthetic neural lattices and crystalline structures in deep space. Neon purple (#d2bbff), electric blue (#89ceff), and soft pink (#fbabff) bioluminescent pulses against a deep obsidian background (#0a0a0f). Futuristic tech aesthetic, sharp focus, volumetric lighting, 8k resolution. Xylos AI brand style.
+                    - text: ).
+                  - listitem [ref=f35e2973]:
+                    - strong [ref=f35e2974]: Glassmorphic Values Architecture
+                    - text: ": A 2x2 grid of sharp-edged cards with responsive hover states, utilizing the brand's obsidian and neon palette for a futuristic depth."
+                  - listitem [ref=f35e2975]:
+                    - strong [ref=f35e2976]: The Evolution Timeline
+                    - text: ": A horizontal journey tracking the protocol from inception in 2024 to global synthesis in 2026, using an alternating card structure."
+                  - listitem [ref=f35e2977]:
+                    - strong [ref=f35e2978]: Atmospheric Mission Finale
+                    - text: ": A full-width section powered by a custom WebGL fragment shader ("
+                    - code [ref=f35e2979]: "[Animation]"
+                    - text: ) that creates a pulsing, liquid-gradient backdrop for the core mission statement.
+                - paragraph [ref=f35e2980]: Does this new editorial direction and the addition of the animated mission section capture the scale of Xylos AI?

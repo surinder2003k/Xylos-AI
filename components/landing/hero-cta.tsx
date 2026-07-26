@@ -26,7 +26,7 @@ export function HeroCTA() {
         <Link
           href="/chat"
           aria-label="Launch Xylos AI Neural Link Chat"
-          className="relative flex items-center justify-center gap-4 px-10 md:px-16 py-5 md:py-6 rounded-2xl bg-gradient-to-r from-violet-500 to-cyan-500 text-white font-bold text-sm uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(139,92,246,0.3)] hover:shadow-[0_0_50px_rgba(139,92,246,0.5)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group w-full sm:w-auto overflow-hidden"
+          className="relative flex items-center justify-center gap-4 px-10 md:px-16 py-5 md:py-6 rounded-2xl bg-gradient-to-r from-emerald-500 to-amber-500 text-white font-bold text-sm uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(16,185,129,0.3)] hover:shadow-[0_0_50px_rgba(16,185,129,0.5)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group w-full sm:w-auto overflow-hidden"
         >
           Launch Neural Link
           <MessageSquare aria-hidden="true" className="w-5 h-5 group-hover:rotate-12 transition-transform" />
@@ -45,7 +45,7 @@ export function HeroCTA() {
         <Link
           href="/chat"
           aria-label="Launch Neural Link"
-          className="md:hidden fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-2xl bg-gradient-to-r from-violet-500 to-cyan-500 text-white flex items-center justify-center shadow-lg shadow-violet-500/30"
+          className="md:hidden fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-2xl bg-gradient-to-r from-emerald-500 to-amber-500 text-white flex items-center justify-center shadow-lg shadow-emerald-500/30"
         >
           <MessageSquare className="w-6 h-6" />
         </Link>

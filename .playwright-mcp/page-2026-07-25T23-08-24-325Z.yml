@@ -1,0 +1,77 @@
+- main [ref=f24e5]:
+  - iframe [active] [ref=f24e7]:
+    - main [ref=f25e5]:
+      - generic [ref=f25e360]:
+        - generic:
+          - generic [ref=f25e362]:
+            - button [ref=f25e364] [cursor=pointer]
+            - generic [ref=f25e369]:
+              - button "Xylos AI Landing Page" [ref=f25e370]
+              - button [ref=f25e372] [cursor=pointer]
+          - generic [ref=f25e377]:
+            - button [ref=f25e378] [cursor=pointer]:
+              - paragraph [ref=f25e382]: Export
+            - button [ref=f25e384] [cursor=pointer]:
+              - paragraph [ref=f25e388]: Share
+            - button "Account menu" [ref=f25e390] [cursor=pointer]:
+              - img "Profile image for Surinder Kumar" [ref=f25e392]
+        - generic [ref=f25e394]:
+          - generic [ref=f25e395]:
+            - button [ref=f25e397] [cursor=pointer]
+            - button [ref=f25e402] [cursor=pointer]
+            - button [ref=f25e407] [cursor=pointer]
+          - button [ref=f25e412] [cursor=pointer]
+          - generic [ref=f25e417]:
+            - button "Choose File" [ref=f25e418]
+            - button [ref=f25e419] [cursor=pointer]
+          - button [ref=f25e424] [cursor=pointer]
+          - button [ref=f25e432] [cursor=pointer]
+        - generic [ref=f25e436]:
+          - generic [ref=f25e437]:
+            - generic [ref=f25e438]:
+              - button "Undo" [disabled]:
+                - generic: undo
+            - generic [ref=f25e440]:
+              - button "Redo" [disabled]:
+                - generic: redo
+          - button "75%" [ref=f25e441] [cursor=pointer]
+          - button "Helpful links" [ref=f25e444] [cursor=pointer]
+        - button "Choose File" [ref=f25e448]
+        - application [ref=f25e450]:
+          - generic [ref=f25e453]:
+            - generic: "Tip: You can ask for specific outcomes: \"make this screen more appealing for designers\", \"help me convert more users"
+            - generic [ref=f25e458]:
+              - textbox [ref=f25e462]:
+                - paragraph [ref=f25e463]: What would you like to change or create?
+              - generic [ref=f25e464]:
+                - button "Choose File" [ref=f25e465]
+                - button [ref=f25e467] [cursor=pointer]
+                - button [ref=f25e472] [cursor=pointer]:
+                  - img [ref=f25e473]:
+                    - generic [ref=f25e474]: /
+                - generic [ref=f25e475]:
+                  - button [ref=f25e477] [cursor=pointer]
+                  - button [ref=f25e483] [cursor=pointer]
+                  - button "3 Flash" [ref=f25e487] [cursor=pointer]
+                  - button [ref=f25e494] [cursor=pointer]
+                  - button [disabled] [ref=f25e498]
+          - generic [ref=f25e503]:
+            - button [expanded] [ref=f25e504] [cursor=pointer]:
+              - status [ref=f25e505]:
+                - generic [ref=f25e506]: Agent log
+            - menu "Agent log" [active] [ref=f25e519]:
+              - menuitem [ref=f25e522] [cursor=pointer]:
+                - generic [ref=f25e526]:
+                  - generic [ref=f25e527]: "Design a futuristic dark-themed landing page for \"Xylos AI\" — a free AI chat platform. The layout should be completely different from a typical SaaS landing page. Use a full-screen hero with massive typography \"WHERE MACHINES THINK.\" stacked vertically on the left side, with a floating 3D glassmorphic card on the right showing a live chat preview animation. Below the hero, use a horizontal scroll section with feature cards that tilt on hover. Then a full-width alternating left-right split section showing \"Before AI\" vs \"After AI\" comparison with a slider. Dark background #0a0a0f, primary purple #d2bbff, secondary blue #89ceff, tertiary pink #fbabff. Glassmorphic cards with backdrop-blur. No rounded corners — use sharp edges. Minimal navbar with just logo and two buttons. Color scheme: deep dark with glowing purple/blue accents."
+                  - generic [ref=f25e528]: "Design a futuristic dark-themed landing page for \"Xylos AI\" — a free AI chat platform. The layout should be completely different from a typical SaaS landing page. Use a full-screen hero with massive typography \"WHERE MACHINES THINK.\" stacked vertically on the left side, with a floating 3D glassmorphic card on the right showing a live chat preview animation. Below the hero, use a horizontal scroll section with feature cards that tilt on hover. Then a full-width alternating left-right split section showing \"Before AI\" vs \"After AI\" comparison with a slider. Dark background #0a0a0f, primary purple #d2bbff, secondary blue #89ceff, tertiary pink #fbabff. Glassmorphic cards with backdrop-blur. No rounded corners — use sharp edges. Minimal navbar with just logo and two buttons. Color scheme: deep dark with glowing purple/blue accents."
+          - generic [ref=f25e534]:
+            - button "Collapse panel" [ref=f25e535] [cursor=pointer]
+            - generic [ref=f25e544]:
+              - generic [ref=f25e548]:
+                - generic [ref=f25e550] [cursor=pointer]:
+                  - img "Surinder Kumar" [ref=f25e551]
+                  - paragraph [ref=f25e552]: "Design a futuristic dark-themed landing page for \"Xylos AI\" — a free AI chat platform. The layout should be completely different from a typical SaaS landing page. Use a full-screen hero with massive typography \"WHERE MACHINES THINK.\" stacked vertically on the left side, with a floating 3D glassmorphic card on the right showing a live chat preview animation. Below the hero, use a horizontal scroll section with feature cards that tilt on hover. Then a full-width alternating left-right split section showing \"Before AI\" vs \"After AI\" comparison with a slider. Dark background #0a0a0f, primary purple #d2bbff, secondary blue #89ceff, tertiary pink #fbabff. Glassmorphic cards with backdrop-blur. No rounded corners — use sharp edges. Minimal navbar with just logo and two buttons. Color scheme: deep dark with glowing purple/blue accents."
+                - generic [ref=f25e553]:
+                  - button "Copy prompt" [ref=f25e554] [cursor=pointer]
+                  - button "Show more" [ref=f25e558] [cursor=pointer]
+              - generic [ref=f25e562]: Thinking…

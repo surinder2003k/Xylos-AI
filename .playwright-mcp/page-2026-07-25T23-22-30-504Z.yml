@@ -1,0 +1,67 @@
+- main [ref=f34e5]:
+  - iframe [active] [ref=f34e7]:
+    - main [ref=f35e5]:
+      - generic [ref=f35e734]:
+        - generic:
+          - generic [ref=f35e736]:
+            - button [ref=f35e738] [cursor=pointer]
+            - generic [ref=f35e743]:
+              - button "Xylos AI v4 Redesign" [ref=f35e744]
+              - button [ref=f35e746] [cursor=pointer]
+          - generic [ref=f35e751]:
+            - button [ref=f35e752] [cursor=pointer]:
+              - paragraph [ref=f35e756]: Export
+            - button [ref=f35e758] [cursor=pointer]:
+              - paragraph [ref=f35e762]: Share
+            - button "Account menu" [ref=f35e764] [cursor=pointer]:
+              - img "Profile image for Surinder Kumar" [ref=f35e766]
+        - generic [ref=f35e768]:
+          - generic [ref=f35e769]:
+            - button [ref=f35e771] [cursor=pointer]
+            - button [ref=f35e776] [cursor=pointer]
+            - button [ref=f35e781] [cursor=pointer]
+          - button [ref=f35e786] [cursor=pointer]
+          - button [ref=f35e792] [cursor=pointer]
+          - button [ref=f35e800] [cursor=pointer]
+        - generic [ref=f35e804]:
+          - generic [ref=f35e805]:
+            - generic [ref=f35e806]:
+              - button "Undo" [disabled]:
+                - generic: undo
+            - generic [ref=f35e808]:
+              - button "Redo" [disabled]:
+                - generic: redo
+          - button "5%" [ref=f35e809] [cursor=pointer]
+          - button "Helpful links" [ref=f35e812] [cursor=pointer]
+        - button "Choose File" [ref=f35e816]
+        - application [ref=f35e818]:
+          - generic [ref=f35e820]:
+            - generic:
+              - generic:
+                - generic [ref=f35e894]:
+                  - generic [ref=f35e895]: palette
+                  - generic [ref=f35e897]: Untitled
+                - generic [ref=f35e906]:
+                  - generic [ref=f35e907]: palette
+                  - generic [ref=f35e909]: Untitled
+                - generic [ref=f35e918]:
+                  - generic [ref=f35e919]: palette
+                  - generic [ref=f35e921]: Untitled
+          - generic [ref=f35e956]:
+            - textbox [ref=f35e960]:
+              - paragraph [ref=f35e961]: "Design a dark futuristic blog archive page for \"Xylos AI\". Instead of a standard grid, use a masonry-style layout with varying card heights. The top features one large \"featured post\" hero card that spans full width with a cinematic background image, overlay text, and category tags. Below it, the masonry grid has 3 columns on desktop with posts of different heights — some with large images, some text-only with gradient backgrounds. Each card has a sharp glassmorphic border, no rounded corners. Include a floating category filter bar that sticks to the top on scroll. Dark background #0a0a0f, primary purple #d2bbff, secondary blue #89ceff, tertiary pink #fbabff. Typography should be bold and editorial. Footer should be minimal with just a logo and copyright."
+            - generic [ref=f35e962]:
+              - button "Choose File" [ref=f35e963]
+              - button [ref=f35e965] [cursor=pointer]
+              - button [ref=f35e970] [cursor=pointer]:
+                - img [ref=f35e971]:
+                  - generic [ref=f35e972]: /
+              - generic [ref=f35e973]:
+                - button [ref=f35e975] [cursor=pointer]
+                - button [ref=f35e981] [cursor=pointer]
+                - button "3 Flash" [ref=f35e985] [cursor=pointer]
+                - button [ref=f35e992] [cursor=pointer]
+                - button [disabled] [ref=f35e996]
+          - generic [ref=f35e1001]:
+            - button "Expand panel" [ref=f35e1002] [cursor=pointer]
+            - generic "Exit Zen Mode" [ref=f35e1007]

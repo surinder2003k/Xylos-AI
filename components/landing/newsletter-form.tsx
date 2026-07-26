@@ -50,7 +50,7 @@ export function NewsletterForm() {
     <div className="w-full max-w-5xl mx-auto my-24 bg-white/[0.02] border border-white/[0.05] p-6 md:p-12 rounded-3xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-12">
       
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-violet-500/[0.03] via-transparent to-cyan-500/[0.03]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/[0.03] via-transparent to-amber-500/[0.03]" />
 
       {/* Left Content Area */}
       <div className="relative z-10 w-full lg:w-1/2 space-y-6 text-center lg:text-left">
@@ -71,13 +71,13 @@ export function NewsletterForm() {
               onChange={(e) => setEmail(e.target.value)}
               disabled={status === 'loading' || status === 'success'}
               placeholder="Enter your email" 
-              className="w-full bg-white/[0.03] border border-white/[0.05] text-white rounded-2xl py-4 px-6 text-sm focus:outline-none focus:border-violet-500/40 transition-all disabled:opacity-50 placeholder:text-white/15"
+              className="w-full bg-white/[0.03] border border-white/[0.05] text-white rounded-2xl py-4 px-6 text-sm focus:outline-none focus:border-emerald-500/40 transition-all disabled:opacity-50 placeholder:text-white/15"
             />
           </div>
           <button 
             type="submit"
             disabled={status === 'loading' || status === 'success'}
-            className="flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-500 to-cyan-500 text-white font-bold text-[10px] uppercase tracking-widest hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all disabled:opacity-80 disabled:pointer-events-none"
+            className="flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-amber-500 text-white font-bold text-[10px] uppercase tracking-widest hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] transition-all disabled:opacity-80 disabled:pointer-events-none"
           >
             {status === 'loading' ? (
               <span className="flex items-center gap-2">
@@ -99,7 +99,7 @@ export function NewsletterForm() {
         </form>
  
         {message && (
-          <div className={`mt-2 text-[10px] font-bold uppercase tracking-widest ${status === 'success' ? 'text-violet-400' : 'text-pink-400'}`}>
+          <div className={`mt-2 text-[10px] font-bold uppercase tracking-widest ${status === 'success' ? 'text-emerald-400' : 'text-emerald-400'}`}>
             {message}
           </div>
         )}

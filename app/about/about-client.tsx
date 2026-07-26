@@ -22,7 +22,7 @@ import { NewsletterForm } from "@/components/landing/newsletter-form";
 export default function AboutPageClient() {
 
   return (
-    <div className="min-h-screen bg-[#0f0f14] text-white selection:bg-violet-500/30 relative overflow-hidden">
+    <div className="min-h-screen bg-[#0d1117] text-white selection:bg-emerald-500/30 relative overflow-hidden">
 
       <main className="relative z-10 pt-32 px-6 pb-20 max-w-7xl mx-auto">
         {/* Hero Section */}
@@ -30,7 +30,7 @@ export default function AboutPageClient() {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-2xl bg-violet-500/10 border border-violet-500/20 text-violet-400 text-[10px] font-bold uppercase tracking-[0.3em]"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-[0.3em]"
           >
             <Sparkles className="w-3 h-3" />
             Neural Genesis
@@ -39,7 +39,7 @@ export default function AboutPageClient() {
           <div className="space-y-4">
             <h1 className="text-5xl md:text-8xl font-black tracking-tighter leading-tight text-white">
               XYLOS AI: NEURAL SYNTHESIS<br />
-              <span className="bg-gradient-to-r from-violet-400 via-cyan-400 to-pink-400 bg-clip-text text-transparent">AND HUMAN INTELLIGENCE</span>
+              <span className="bg-gradient-to-r from-emerald-400 via-amber-400 to-emerald-400 bg-clip-text text-transparent">AND HUMAN INTELLIGENCE</span>
             </h1>
             <p className="text-white/25 text-lg md:text-xl font-medium max-w-3xl mx-auto leading-relaxed">
               Xylos AI is more than just a platform — it&apos;s a decentralized editorial engine designed to augment human creativity with industrial-grade artificial intelligence.
@@ -57,7 +57,7 @@ export default function AboutPageClient() {
           >
             <div className="space-y-4">
               <h2 className="text-3xl font-black uppercase tracking-tight flex items-center gap-4 text-white">
-                <Cpu aria-hidden="true" className="w-8 h-8 text-violet-400" />
+                <Cpu aria-hidden="true" className="w-8 h-8 text-emerald-400" />
                 The Protocol
               </h2>
               <p className="text-white/25 leading-loose text-lg">
@@ -104,7 +104,7 @@ export default function AboutPageClient() {
             {/* Float Badge */}
             <div className="absolute -bottom-6 -left-6 bg-white/[0.02] backdrop-blur-xl border border-white/[0.05] p-6 rounded-3xl shadow-lg">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-violet-500/10 flex items-center justify-center text-violet-400">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
                   <Brain className="w-6 h-6" />
                 </div>
                 <div>
@@ -124,10 +124,10 @@ export default function AboutPageClient() {
             viewport={{ once: true }}
             className="md:col-span-2 bg-white/[0.02] border border-white/[0.05] p-10 rounded-3xl relative overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-violet-500/[0.05] via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/[0.05] via-transparent to-transparent" />
             <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-6">
-              <div className="w-16 h-16 rounded-2xl bg-violet-500/10 flex items-center justify-center shrink-0">
-                <MessageSquare className="w-8 h-8 text-violet-400" />
+              <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 flex items-center justify-center shrink-0">
+                <MessageSquare className="w-8 h-8 text-emerald-400" />
               </div>
               <div className="flex-1">
                 <h3 className="text-2xl font-black text-white mb-2">Unified AI Chat</h3>
@@ -146,10 +146,10 @@ export default function AboutPageClient() {
             viewport={{ once: true }}
             className="bg-white/[0.02] border border-white/[0.05] p-10 rounded-3xl relative overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/[0.05] via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-br from-amber-500/[0.05] via-transparent to-transparent" />
             <div className="relative z-10 space-y-4">
-              <div className="w-16 h-16 rounded-2xl bg-cyan-500/10 flex items-center justify-center">
-                <Code2 className="w-8 h-8 text-cyan-400" />
+              <div className="w-16 h-16 rounded-2xl bg-amber-500/10 flex items-center justify-center">
+                <Code2 className="w-8 h-8 text-amber-400" />
               </div>
               <h3 className="text-xl font-black text-white">Code Assistant</h3>
               <p className="text-white/25 leading-relaxed">Full-stack development tools powered by AI.</p>
@@ -162,10 +162,10 @@ export default function AboutPageClient() {
             viewport={{ once: true }}
             className="bg-white/[0.02] border border-white/[0.05] p-10 rounded-3xl relative overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-pink-500/[0.05] via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/[0.05] via-transparent to-transparent" />
             <div className="relative z-10 space-y-4">
-              <div className="w-16 h-16 rounded-2xl bg-pink-500/10 flex items-center justify-center">
-                <FileText className="w-8 h-8 text-pink-400" />
+              <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 flex items-center justify-center">
+                <FileText className="w-8 h-8 text-emerald-400" />
               </div>
               <h3 className="text-xl font-black text-white">Content Factory</h3>
               <p className="text-white/25 leading-relaxed">Blog & social media content generation.</p>
@@ -178,10 +178,10 @@ export default function AboutPageClient() {
             viewport={{ once: true }}
             className="bg-white/[0.02] border border-white/[0.05] p-10 rounded-3xl relative overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-violet-500/[0.05] via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/[0.05] via-transparent to-transparent" />
             <div className="relative z-10 space-y-4">
-              <div className="w-16 h-16 rounded-2xl bg-violet-500/10 flex items-center justify-center">
-                <Zap className="w-8 h-8 text-violet-400" />
+              <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 flex items-center justify-center">
+                <Zap className="w-8 h-8 text-emerald-400" />
               </div>
               <h3 className="text-xl font-black text-white">Smart Tools</h3>
               <p className="text-white/25 leading-relaxed">12+ specialized AI tools for productivity.</p>
@@ -198,7 +198,7 @@ export default function AboutPageClient() {
 
         {/* Mission Statement */}
         <section className="bg-white/[0.02] border border-white/[0.05] p-12 md:p-24 text-center space-y-8 relative overflow-hidden rounded-3xl">
-           <div className="absolute inset-0 bg-gradient-to-br from-violet-500/[0.03] via-transparent to-cyan-500/[0.03]" />
+           <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/[0.03] via-transparent to-amber-500/[0.03]" />
            <h2 className="text-3xl md:text-5xl font-black uppercase text-white relative z-10">Our Mission</h2>
            <p className="text-xl md:text-3xl font-bold text-white/40 max-w-4xl mx-auto leading-tight relative z-10">
              Xylos was founded on a singular premise: that technology should empower human expression, not replace it. We are building the infrastructure for the next century of digital storytelling.
@@ -220,8 +220,8 @@ export default function AboutPageClient() {
 
 function FeatureCard({ icon: Icon, title, desc }: any) {
   return (
-    <div className="bg-white/[0.02] border border-white/[0.05] p-6 rounded-3xl hover:border-violet-500/20 transition-all duration-300 group">
-      <div className="w-10 h-10 rounded-2xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500/20 transition-all duration-300 mb-4">
+    <div className="bg-white/[0.02] border border-white/[0.05] p-6 rounded-3xl hover:border-emerald-500/20 transition-all duration-300 group">
+      <div className="w-10 h-10 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500/20 transition-all duration-300 mb-4">
         <Icon className="w-5 h-5" />
       </div>
       <h3 className="font-black text-sm uppercase tracking-widest mb-2 text-white">{title}</h3>
@@ -232,9 +232,9 @@ function FeatureCard({ icon: Icon, title, desc }: any) {
 
 function StatBox({ label, value }: any) {
   return (
-    <div className="bg-white/[0.02] border border-white/[0.05] p-8 rounded-3xl text-center space-y-2 transition-all duration-300 hover:border-violet-500/20 cursor-default group">
+    <div className="bg-white/[0.02] border border-white/[0.05] p-8 rounded-3xl text-center space-y-2 transition-all duration-300 hover:border-emerald-500/20 cursor-default group">
       <p className="text-[10px] font-bold text-white/25 uppercase tracking-[0.3em]">{label}</p>
-      <p className="text-4xl font-black text-white group-hover:text-violet-400 transition-colors">{value}</p>
+      <p className="text-4xl font-black text-white group-hover:text-emerald-400 transition-colors">{value}</p>
     </div>
   );
 }

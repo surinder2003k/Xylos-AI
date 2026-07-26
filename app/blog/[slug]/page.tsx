@@ -109,7 +109,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   };
 
   return (
-    <div className="min-h-screen bg-[#0f0f14] text-white selection:bg-violet-500/30">
+    <div className="min-h-screen bg-[#0d1117] text-white selection:bg-emerald-500/30">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -163,18 +163,18 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           {/* Breadcrumb */}
           <div className="flex items-center justify-between mb-12 pb-6 border-b border-white/[0.05]">
             <div className="flex items-center gap-2 md:gap-4 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-white/25">
-              <Link href="/" className="hover:text-violet-400 transition-colors">Home</Link>
+              <Link href="/" className="hover:text-emerald-400 transition-colors">Home</Link>
               <ChevronRight aria-hidden="true" className="w-3 h-3 opacity-30" />
-              <Link href="/blog" className="hover:text-violet-400 transition-colors">Archive</Link>
+              <Link href="/blog" className="hover:text-emerald-400 transition-colors">Archive</Link>
               <ChevronRight aria-hidden="true" className="w-3 h-3 opacity-30" />
-              <span className="text-violet-400">{post.category}</span>
+              <span className="text-emerald-400">{post.category}</span>
             </div>
             <ShareButtons title={post.title} excerpt={post.excerpt} slug={post.slug} />
           </div>
 
           {/* Editorial Header */}
           <div className="space-y-8 mb-16">
-            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-2xl bg-violet-500/10 border border-violet-500/20 text-violet-400 text-[10px] font-bold uppercase tracking-[0.2em]">
+            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-[0.2em]">
                {post.category} Report
             </div>
             
@@ -194,7 +194,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                  <span>By {post.author?.full_name || 'Xylos Editorial Team'}</span>
                </div>
                <div className="hidden md:block w-1 h-1 rounded-full bg-white/10" />
-               <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-violet-400" /> Published {formatIST(post.published_at || post.created_at)}</div>
+               <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-emerald-400" /> Published {formatIST(post.published_at || post.created_at)}</div>
                <div className="hidden md:block w-1 h-1 rounded-full bg-white/10" />
                <div className="flex items-center gap-2"><MessageSquare className="w-4 h-4 text-white/15" /> Editorial Review Verified</div>
             </div>
@@ -218,9 +218,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <div className="prose dark:prose-invert max-w-none 
               [&_*]:text-white/75 
               prose-headings:text-white prose-headings:font-black prose-headings:tracking-tight
-              prose-a:text-violet-400 prose-strong:text-white
-              prose-blockquote:border-l-violet-500/40 prose-img:rounded-3xl 
-              prose-code:text-violet-400 px-0 selection:bg-violet-500/20 break-words overflow-hidden">
+              prose-a:text-emerald-400 prose-strong:text-white
+              prose-blockquote:border-l-emerald-500/40 prose-img:rounded-3xl 
+              prose-code:text-emerald-400 px-0 selection:bg-emerald-500/20 break-words overflow-hidden">
                 {post.content && post.content.startsWith('<') ? (
                   <div 
                     className="space-y-6 text-white/75" 
@@ -234,12 +234,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           {/* Professional Callouts */}
           <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-8 rounded-3xl bg-white/[0.02] border border-white/[0.05] hover:border-violet-500/20 transition-colors">
-              <h4 className="text-xs font-bold uppercase tracking-widest text-violet-400 mb-3">Key Insight</h4>
+            <div className="p-8 rounded-3xl bg-white/[0.02] border border-white/[0.05] hover:border-emerald-500/20 transition-colors">
+              <h4 className="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-3">Key Insight</h4>
               <p className="text-sm text-white/40 leading-relaxed">&quot;The intersection of algorithmic accuracy and journalistic integrity defines the next era of news.&quot;</p>
             </div>
-            <div className="p-8 rounded-3xl bg-white/[0.02] border border-white/[0.05] hover:border-violet-500/20 transition-colors">
-              <h4 className="text-xs font-bold uppercase tracking-widest text-violet-400 mb-3">Verification</h4>
+            <div className="p-8 rounded-3xl bg-white/[0.02] border border-white/[0.05] hover:border-emerald-500/20 transition-colors">
+              <h4 className="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-3">Verification</h4>
               <p className="text-sm text-white/40 leading-relaxed">This report has been cross-referenced with multiple neural nodes to ensure factual reliability.</p>
             </div>
           </div>
@@ -259,9 +259,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
          <div className="max-w-md mx-auto space-y-6">
             <p className="text-[10px] font-bold text-white/15 uppercase tracking-[0.5em]">The Xylos AI Protocol // Human Intelligence Amplified</p>
             <div className="flex justify-center gap-8">
-               <Link href="/about" className="text-[9px] font-bold uppercase tracking-widest hover:text-violet-400 transition-colors text-white/20">Standards</Link>
-               <Link href="/about" className="text-[9px] font-bold uppercase tracking-widest hover:text-violet-400 transition-colors text-white/20">Ethics</Link>
-               <Link href="/blog" className="text-[9px] font-bold uppercase tracking-widest hover:text-violet-400 transition-colors text-white/20">Archive</Link>
+               <Link href="/about" className="text-[9px] font-bold uppercase tracking-widest hover:text-emerald-400 transition-colors text-white/20">Standards</Link>
+               <Link href="/about" className="text-[9px] font-bold uppercase tracking-widest hover:text-emerald-400 transition-colors text-white/20">Ethics</Link>
+               <Link href="/blog" className="text-[9px] font-bold uppercase tracking-widest hover:text-emerald-400 transition-colors text-white/20">Archive</Link>
             </div>
          </div>
       </footer>

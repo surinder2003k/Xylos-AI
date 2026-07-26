@@ -1,0 +1,737 @@
+- main [ref=f116e5]:
+  - iframe [active] [ref=f116e7]:
+    - main [ref=f117e5]:
+      - generic [ref=f117e371]:
+        - generic:
+          - generic [ref=f117e373]:
+            - button [ref=f117e375] [cursor=pointer]
+            - generic [ref=f117e380]:
+              - button "Xylos AI v4 Redesign" [ref=f117e381]
+              - button [ref=f117e383] [cursor=pointer]
+          - generic [ref=f117e388]:
+            - button [disabled] [ref=f117e391]
+            - button [ref=f117e395] [cursor=pointer]:
+              - paragraph [ref=f117e399]: Export
+            - button [ref=f117e401] [cursor=pointer]:
+              - paragraph [ref=f117e405]: Share
+            - button "Account menu" [ref=f117e407] [cursor=pointer]:
+              - img "Profile image for Surinder Kumar" [ref=f117e409]
+        - generic [ref=f117e411]:
+          - generic [ref=f117e412]:
+            - button [ref=f117e414] [cursor=pointer]
+            - button [ref=f117e419] [cursor=pointer]
+            - button [ref=f117e424] [cursor=pointer]
+          - button [ref=f117e429] [cursor=pointer]
+          - button [ref=f117e435] [cursor=pointer]
+          - button [ref=f117e443] [cursor=pointer]
+        - generic [ref=f117e447]:
+          - generic [ref=f117e448]:
+            - generic [ref=f117e449]:
+              - button "Undo" [disabled]:
+                - generic: undo
+            - generic [ref=f117e451]:
+              - button "Redo" [disabled]:
+                - generic: redo
+          - button "5%" [ref=f117e452] [cursor=pointer]
+          - button "Helpful links" [ref=f117e455] [cursor=pointer]
+        - button "Choose File" [ref=f117e459]
+        - application [ref=f117e461]:
+          - generic [ref=f117e463]:
+            - generic:
+              - generic:
+                - generic [ref=f117e469]:
+                  - generic [ref=f117e470]: devices
+                  - generic [ref=f117e472]: Xylos AI - Secure Access
+                - generic [ref=f117e484]:
+                  - generic [ref=f117e485]: devices
+                  - generic [ref=f117e487]: Xylos AI - Sidebar Navigation
+                - generic [ref=f117e499]:
+                  - generic [ref=f117e500]: devices
+                  - generic [ref=f117e502]: Xylos AI - Privacy & Ethics
+                - generic [ref=f117e514]:
+                  - generic [ref=f117e515]: devices
+                  - generic [ref=f117e517]: Three.js
+                - generic [ref=f117e529]:
+                  - generic [ref=f117e530]: devices
+                  - generic [ref=f117e532]: Xylos AI - Editorial Archives (Glassmorphic)
+                - generic [ref=f117e544]:
+                  - generic [ref=f117e545]: devices
+                  - generic [ref=f117e547]: Xylos AI - Autonomous Manager Admin Panel
+                - generic [ref=f117e559]:
+                  - generic [ref=f117e560]: devices
+                  - generic [ref=f117e562]: Xylos AI - Biological Synthesis Blog Post
+                - generic [ref=f117e574]:
+                  - generic [ref=f117e575]: devices
+                  - generic [ref=f117e577]: Xylos AI - Futuristic Landing Page
+                - generic [ref=f117e589]:
+                  - generic [ref=f117e590]: devices
+                  - generic [ref=f117e592]: Shader
+                - generic [ref=f117e604]:
+                  - generic [ref=f117e605]: devices
+                  - generic [ref=f117e607]: Xylos AI - Neural Chat Interface
+                - generic [ref=f117e619]:
+                  - generic [ref=f117e620]: devices
+                  - generic [ref=f117e622]: Xylos AI - Secure Access Uplink
+                - generic [ref=f117e634]:
+                  - generic [ref=f117e635]: devices
+                  - generic [ref=f117e637]: Xylos AI - Editorial Archives
+                - generic [ref=f117e649]:
+                  - generic [ref=f117e650]: devices
+                  - generic [ref=f117e652]: Xylos AI - Privacy & Ethics
+                - generic [ref=f117e664]:
+                  - generic [ref=f117e665]: devices
+                  - generic [ref=f117e667]: Shader
+                - generic [ref=f117e679]:
+                  - generic [ref=f117e680]: devices
+                  - generic [ref=f117e682]: Xylos AI - Secure Access Uplink (Split)
+                - generic [ref=f117e694]:
+                  - generic [ref=f117e695]: devices
+                  - generic [ref=f117e697]: Xylos AI - Neural Chat Interface
+                - generic [ref=f117e709]:
+                  - generic [ref=f117e710]: devices
+                  - generic [ref=f117e712]: Xylos AI - Content Archive (Glassmorphic)
+                - generic [ref=f117e724]:
+                  - generic [ref=f117e725]: devices
+                  - generic [ref=f117e727]: Xylos AI - Secure Access (Glassmorphic)
+                - generic [ref=f117e739]:
+                  - generic [ref=f117e740]: devices
+                  - generic [ref=f117e742]: Xylos AI - Biological Synthesis (Glassmorphic)
+                - generic [ref=f117e754]:
+                  - generic [ref=f117e755]: image
+                  - generic [ref=f117e757]: A high-fidelity, clean technical diagram showing a secure data flow for an AI platform. Central shield icon protecting data nodes. Flows of neon purple (#d2bbff) and electric blue (#89ceff) lines moving from user input to a secured 'Neural Vault'. Dark obsidian background (#0a0a0f), sharp geometric style, no rounded corners, professional tech aesthetic.
+                - generic [ref=f117e769]:
+                  - generic [ref=f117e770]: devices
+                  - generic [ref=f117e772]: Shader
+                - generic [ref=f117e784]:
+                  - generic [ref=f117e785]: devices
+                  - generic [ref=f117e787]: Xylos AI - Your Suite (Glassmorphic Dashboard)
+                - generic [ref=f117e799]:
+                  - generic [ref=f117e800]: devices
+                  - generic [ref=f117e802]: Xylos AI - Content Archive Dashboard
+                - generic [ref=f117e814]:
+                  - generic [ref=f117e815]: devices
+                  - generic [ref=f117e817]: Xylos AI - Privacy & Ethics Protocol
+                - generic [ref=f117e829]:
+                  - generic [ref=f117e830]: devices
+                  - generic [ref=f117e832]: Xylos AI - About Us (Editorial)
+                - generic [ref=f117e844]:
+                  - generic [ref=f117e845]: image
+                  - generic [ref=f117e847]: A futuristic, cinematic digital artwork for a tech blog post about AI neural networks and biological synthesis. Deep purples, electric blues, and dark obsidian tones. High-detail macro shot of glowing neural pathways or synthetic DNA strands. Sharp focus, volumetric lighting, 8k resolution, professional tech aesthetic.
+                - generic [ref=f117e859]:
+                  - generic [ref=f117e860]: devices
+                  - generic [ref=f117e862]: Xylos AI - 404 Signal Lost (Glassmorphic)
+                - generic [ref=f117e874]:
+                  - generic [ref=f117e875]: devices
+                  - generic [ref=f117e877]: Shader
+                - generic [ref=f117e889]:
+                  - generic [ref=f117e890]: devices
+                  - generic [ref=f117e892]: Xylos AI - 404 Signal Lost
+                - generic [ref=f117e904]:
+                  - generic [ref=f117e905]: devices
+                  - generic [ref=f117e907]: Xylos AI - API Settings
+                - generic [ref=f117e919]:
+                  - generic [ref=f117e920]: image
+                  - generic [ref=f117e922]: A dark, futuristic digital background with a subtle grid pattern and large, blurred, glowing orbs in neon purple (#d2bbff) and secondary blue (#89ceff). Cinematic lighting, deep obsidian base (#0a0a0f). High-detail macro photography style. Minimalist and atmospheric.
+                - generic [ref=f117e934]:
+                  - generic [ref=f117e935]: devices
+                  - generic [ref=f117e937]: Xylos AI - Editorial Archives
+                - generic [ref=f117e949]:
+                  - generic [ref=f117e950]: devices
+                  - generic [ref=f117e952]: Xylos AI - Privacy & Ethics (Glassmorphic)
+                - generic [ref=f117e964]:
+                  - generic [ref=f117e965]: image
+                  - generic [ref=f117e967]: A futuristic, cinematic digital artwork for a tech blog post about AI neural networks and biological synthesis. Deep purples, electric blues, and dark obsidian tones. High-detail macro shot of glowing neural pathways or synthetic DNA strands. Sharp focus, volumetric lighting, 8k resolution, professional tech aesthetic.
+                - generic [ref=f117e979]:
+                  - generic [ref=f117e980]: devices
+                  - generic [ref=f117e982]: Animated SVG
+                - generic [ref=f117e994]:
+                  - generic [ref=f117e995]: devices
+                  - generic [ref=f117e997]: Xylos AI - API Settings
+                - generic [ref=f117e1009]:
+                  - generic [ref=f117e1010]: image
+                  - generic [ref=f117e1012]: A cinematic, high-detail macro shot of glowing synthetic neural lattices and crystalline structures in deep space. Neon purple (#d2bbff), electric blue (#89ceff), and soft pink (#fbabff) bioluminescent pulses against a deep obsidian background (#0a0a0f). Futuristic tech aesthetic, sharp focus, volumetric lighting, 8k resolution. Xylos AI brand style.
+                - generic [ref=f117e1024]:
+                  - generic [ref=f117e1025]: devices
+                  - generic [ref=f117e1027]: Xylos AI - 404 Signal Lost
+                - generic [ref=f117e1039]:
+                  - generic [ref=f117e1040]: image
+                  - generic [ref=f117e1042]: A cinematic, futuristic digital artwork for an AI blog hero. Glowing neural lattices and synthetic crystalline structures in deep space. Electric blue, neon purple, and soft pink bioluminescent pulses. High-detail macro photography style, 8k, sharp edges, dark obsidian background. "Xylos AI" aesthetic.
+                - generic [ref=f117e1054]:
+                  - generic [ref=f117e1055]: devices
+                  - generic [ref=f117e1057]: Xylos AI - API Settings (Glassmorphic)
+                - generic [ref=f117e1069]:
+                  - generic [ref=f117e1070]: devices
+                  - generic [ref=f117e1072]: Xylos AI - Futuristic Landing Page
+                - generic [ref=f117e1084]:
+                  - generic [ref=f117e1085]: devices
+                  - generic [ref=f117e1087]: Xylos AI - Editorial Masterpiece Editor
+                - generic [ref=f117e1095]:
+                  - generic [ref=f117e1099]:
+                    - generic [ref=f117e1100]: palette
+                    - generic [ref=f117e1102]: Xylos AI Editorial
+                  - generic [ref=f117e1105]:
+                    - generic [ref=f117e1106]:
+                      - generic [ref=f117e1107]:
+                        - generic [ref=f117e1108]:
+                          - generic [ref=f117e1109]: Primary
+                          - generic "Click to copy" [ref=f117e1110] [cursor=pointer]: "#D2BBFF"
+                        - generic [ref=f117e1111]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f117e1112] [cursor=pointer]'
+                          - 'generic "T10 #230e48 — Click to copy" [ref=f117e1113] [cursor=pointer]'
+                          - 'generic "T20 #38255e — Click to copy" [ref=f117e1114] [cursor=pointer]'
+                          - 'generic "T30 #4f3c76 — Click to copy" [ref=f117e1115] [cursor=pointer]'
+                          - 'generic "T40 #685490 — Click to copy" [ref=f117e1116] [cursor=pointer]'
+                          - 'generic "T50 #816dab — Click to copy" [ref=f117e1117] [cursor=pointer]'
+                          - 'generic "T60 #9b86c6 — Click to copy" [ref=f117e1118] [cursor=pointer]'
+                          - 'generic "T70 #b6a0e2 — Click to copy" [ref=f117e1119] [cursor=pointer]'
+                          - 'generic "T80 #d2bbff — Click to copy" [ref=f117e1120] [cursor=pointer]'
+                          - 'generic "T90 #eaddff — Click to copy" [ref=f117e1121] [cursor=pointer]'
+                          - 'generic "T95 #f6edff — Click to copy" [ref=f117e1122] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f117e1123] [cursor=pointer]'
+                      - generic [ref=f117e1124]:
+                        - generic [ref=f117e1125]:
+                          - generic [ref=f117e1126]: Secondary
+                          - generic "Click to copy" [ref=f117e1127] [cursor=pointer]: "#89CEFF"
+                        - generic [ref=f117e1128]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f117e1129] [cursor=pointer]'
+                          - 'generic "T10 #001e2f — Click to copy" [ref=f117e1130] [cursor=pointer]'
+                          - 'generic "T20 #00344d — Click to copy" [ref=f117e1131] [cursor=pointer]'
+                          - 'generic "T30 #004c6e — Click to copy" [ref=f117e1132] [cursor=pointer]'
+                          - 'generic "T40 #056490 — Click to copy" [ref=f117e1133] [cursor=pointer]'
+                          - 'generic "T50 #327eaa — Click to copy" [ref=f117e1134] [cursor=pointer]'
+                          - 'generic "T60 #5098c6 — Click to copy" [ref=f117e1135] [cursor=pointer]'
+                          - 'generic "T70 #6db2e2 — Click to copy" [ref=f117e1136] [cursor=pointer]'
+                          - 'generic "T80 #89ceff — Click to copy" [ref=f117e1137] [cursor=pointer]'
+                          - 'generic "T90 #c9e6ff — Click to copy" [ref=f117e1138] [cursor=pointer]'
+                          - 'generic "T95 #e5f2ff — Click to copy" [ref=f117e1139] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f117e1140] [cursor=pointer]'
+                      - generic [ref=f117e1141]:
+                        - generic [ref=f117e1142]:
+                          - generic [ref=f117e1143]: Tertiary
+                          - generic "Click to copy" [ref=f117e1144] [cursor=pointer]: "#FBABFF"
+                        - generic [ref=f117e1145]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f117e1146] [cursor=pointer]'
+                          - 'generic "T10 #36003e — Click to copy" [ref=f117e1147] [cursor=pointer]'
+                          - 'generic "T20 #53105d — Click to copy" [ref=f117e1148] [cursor=pointer]'
+                          - 'generic "T30 #6d2b75 — Click to copy" [ref=f117e1149] [cursor=pointer]'
+                          - 'generic "T40 #88438f — Click to copy" [ref=f117e1150] [cursor=pointer]'
+                          - 'generic "T50 #a35caa — Click to copy" [ref=f117e1151] [cursor=pointer]'
+                          - 'generic "T60 #c076c5 — Click to copy" [ref=f117e1152] [cursor=pointer]'
+                          - 'generic "T70 #dd90e2 — Click to copy" [ref=f117e1153] [cursor=pointer]'
+                          - 'generic "T80 #fbabff — Click to copy" [ref=f117e1154] [cursor=pointer]'
+                          - 'generic "T90 #ffd6fd — Click to copy" [ref=f117e1155] [cursor=pointer]'
+                          - 'generic "T95 #ffebfb — Click to copy" [ref=f117e1156] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f117e1157] [cursor=pointer]'
+                      - generic [ref=f117e1158]:
+                        - generic [ref=f117e1159]:
+                          - generic [ref=f117e1160]: Neutral
+                          - generic "Click to copy" [ref=f117e1161] [cursor=pointer]: "#79767B"
+                        - generic [ref=f117e1162]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f117e1163] [cursor=pointer]'
+                          - 'generic "T10 #1d1b1f — Click to copy" [ref=f117e1164] [cursor=pointer]'
+                          - 'generic "T20 #322f34 — Click to copy" [ref=f117e1165] [cursor=pointer]'
+                          - 'generic "T30 #48464a — Click to copy" [ref=f117e1166] [cursor=pointer]'
+                          - 'generic "T40 #605d62 — Click to copy" [ref=f117e1167] [cursor=pointer]'
+                          - 'generic "T50 #79767b — Click to copy" [ref=f117e1168] [cursor=pointer]'
+                          - 'generic "T60 #938f95 — Click to copy" [ref=f117e1169] [cursor=pointer]'
+                          - 'generic "T70 #aeaaaf — Click to copy" [ref=f117e1170] [cursor=pointer]'
+                          - 'generic "T80 #cac5cb — Click to copy" [ref=f117e1171] [cursor=pointer]'
+                          - 'generic "T90 #e6e1e7 — Click to copy" [ref=f117e1172] [cursor=pointer]'
+                          - 'generic "T95 #f5eff5 — Click to copy" [ref=f117e1173] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f117e1174] [cursor=pointer]'
+                    - generic [ref=f117e1175]:
+                      - generic [ref=f117e1176]:
+                        - generic [ref=f117e1177]:
+                          - generic [ref=f117e1178]: Headline
+                          - generic [ref=f117e1179]: Geist
+                        - generic [ref=f117e1180]: Aa
+                      - generic [ref=f117e1181]:
+                        - generic [ref=f117e1182]:
+                          - button "Primary" [ref=f117e1183]
+                          - button "Secondary" [ref=f117e1184]
+                        - generic [ref=f117e1185]:
+                          - button "Inverted" [ref=f117e1186]
+                          - button "Outlined" [ref=f117e1187]
+                      - generic [ref=f117e1189]:
+                        - generic [ref=f117e1190]: search
+                        - generic [ref=f117e1191]: Search
+                      - generic [ref=f117e1192]:
+                        - generic [ref=f117e1193]:
+                          - generic [ref=f117e1194]: Body
+                          - generic [ref=f117e1195]: Geist
+                        - generic [ref=f117e1196]: Aa
+                      - generic [ref=f117e1205]:
+                        - generic [ref=f117e1206]: home
+                        - generic [ref=f117e1208]: search
+                        - generic [ref=f117e1210]: person
+                      - generic [ref=f117e1212]:
+                        - generic [ref=f117e1213]:
+                          - generic [ref=f117e1214]: Label
+                          - generic [ref=f117e1215]: Jetbrains Mono
+                        - generic [ref=f117e1216]: Aa
+                      - generic [ref=f117e1217]:
+                        - generic [ref=f117e1218]: edit
+                        - generic [ref=f117e1222]:
+                          - generic [ref=f117e1223]: edit
+                          - text: Label
+                      - generic [ref=f117e1225]:
+                        - generic [ref=f117e1226]: auto_fix_high
+                        - generic [ref=f117e1228]: category
+                        - generic [ref=f117e1230]: sell
+                        - generic [ref=f117e1232]: delete
+                - generic [ref=f117e1235]:
+                  - generic [ref=f117e1239]:
+                    - generic [ref=f117e1240]: palette
+                    - generic [ref=f117e1242]: Xylos AI Design System
+                  - generic [ref=f117e1245]:
+                    - generic [ref=f117e1246]:
+                      - generic [ref=f117e1247]:
+                        - generic [ref=f117e1248]:
+                          - generic [ref=f117e1249]: Primary
+                          - generic "Click to copy" [ref=f117e1250] [cursor=pointer]: "#7C3AED"
+                        - generic [ref=f117e1251]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f117e1252] [cursor=pointer]'
+                          - 'generic "T10 #25005a — Click to copy" [ref=f117e1253] [cursor=pointer]'
+                          - 'generic "T20 #3f008e — Click to copy" [ref=f117e1254] [cursor=pointer]'
+                          - 'generic "T30 #5a00c6 — Click to copy" [ref=f117e1255] [cursor=pointer]'
+                          - 'generic "T40 #732ee4 — Click to copy" [ref=f117e1256] [cursor=pointer]'
+                          - 'generic "T50 #8d4fff — Click to copy" [ref=f117e1257] [cursor=pointer]'
+                          - 'generic "T60 #a476ff — Click to copy" [ref=f117e1258] [cursor=pointer]'
+                          - 'generic "T70 #bb9aff — Click to copy" [ref=f117e1259] [cursor=pointer]'
+                          - 'generic "T80 #d2bbff — Click to copy" [ref=f117e1260] [cursor=pointer]'
+                          - 'generic "T90 #eaddff — Click to copy" [ref=f117e1261] [cursor=pointer]'
+                          - 'generic "T95 #f7edff — Click to copy" [ref=f117e1262] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f117e1263] [cursor=pointer]'
+                      - generic [ref=f117e1264]:
+                        - generic [ref=f117e1265]:
+                          - generic [ref=f117e1266]: Secondary
+                          - generic "Click to copy" [ref=f117e1267] [cursor=pointer]: "#0EA5E9"
+                        - generic [ref=f117e1268]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f117e1269] [cursor=pointer]'
+                          - 'generic "T10 #001e2f — Click to copy" [ref=f117e1270] [cursor=pointer]'
+                          - 'generic "T20 #00344d — Click to copy" [ref=f117e1271] [cursor=pointer]'
+                          - 'generic "T30 #004c6e — Click to copy" [ref=f117e1272] [cursor=pointer]'
+                          - 'generic "T40 #006591 — Click to copy" [ref=f117e1273] [cursor=pointer]'
+                          - 'generic "T50 #007fb5 — Click to copy" [ref=f117e1274] [cursor=pointer]'
+                          - 'generic "T60 #009ada — Click to copy" [ref=f117e1275] [cursor=pointer]'
+                          - 'generic "T70 #34b5fa — Click to copy" [ref=f117e1276] [cursor=pointer]'
+                          - 'generic "T80 #89ceff — Click to copy" [ref=f117e1277] [cursor=pointer]'
+                          - 'generic "T90 #c9e6ff — Click to copy" [ref=f117e1278] [cursor=pointer]'
+                          - 'generic "T95 #e5f2ff — Click to copy" [ref=f117e1279] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f117e1280] [cursor=pointer]'
+                      - generic [ref=f117e1281]:
+                        - generic [ref=f117e1282]:
+                          - generic [ref=f117e1283]: Tertiary
+                          - generic "Click to copy" [ref=f117e1284] [cursor=pointer]: "#D946EF"
+                        - generic [ref=f117e1285]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f117e1286] [cursor=pointer]'
+                          - 'generic "T10 #36003e — Click to copy" [ref=f117e1287] [cursor=pointer]'
+                          - 'generic "T20 #580065 — Click to copy" [ref=f117e1288] [cursor=pointer]'
+                          - 'generic "T30 #7c008e — Click to copy" [ref=f117e1289] [cursor=pointer]'
+                          - 'generic "T40 #a200ba — Click to copy" [ref=f117e1290] [cursor=pointer]'
+                          - 'generic "T50 #c32cda — Click to copy" [ref=f117e1291] [cursor=pointer]'
+                          - 'generic "T60 #e14ef6 — Click to copy" [ref=f117e1292] [cursor=pointer]'
+                          - 'generic "T70 #f27dff — Click to copy" [ref=f117e1293] [cursor=pointer]'
+                          - 'generic "T80 #fbabff — Click to copy" [ref=f117e1294] [cursor=pointer]'
+                          - 'generic "T90 #ffd6fd — Click to copy" [ref=f117e1295] [cursor=pointer]'
+                          - 'generic "T95 #ffebfb — Click to copy" [ref=f117e1296] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f117e1297] [cursor=pointer]'
+                      - generic [ref=f117e1298]:
+                        - generic [ref=f117e1299]:
+                          - generic [ref=f117e1300]: Neutral
+                          - generic "Click to copy" [ref=f117e1301] [cursor=pointer]: "#7A7581"
+                        - generic [ref=f117e1302]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f117e1303] [cursor=pointer]'
+                          - 'generic "T10 #1d1a24 — Click to copy" [ref=f117e1304] [cursor=pointer]'
+                          - 'generic "T20 #332f39 — Click to copy" [ref=f117e1305] [cursor=pointer]'
+                          - 'generic "T30 #494550 — Click to copy" [ref=f117e1306] [cursor=pointer]'
+                          - 'generic "T40 #615c68 — Click to copy" [ref=f117e1307] [cursor=pointer]'
+                          - 'generic "T50 #7a7581 — Click to copy" [ref=f117e1308] [cursor=pointer]'
+                          - 'generic "T60 #958e9b — Click to copy" [ref=f117e1309] [cursor=pointer]'
+                          - 'generic "T70 #afa9b6 — Click to copy" [ref=f117e1310] [cursor=pointer]'
+                          - 'generic "T80 #cbc4d2 — Click to copy" [ref=f117e1311] [cursor=pointer]'
+                          - 'generic "T90 #e8dfee — Click to copy" [ref=f117e1312] [cursor=pointer]'
+                          - 'generic "T95 #f6eefc — Click to copy" [ref=f117e1313] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f117e1314] [cursor=pointer]'
+                    - generic [ref=f117e1315]:
+                      - generic [ref=f117e1316]:
+                        - generic [ref=f117e1317]:
+                          - generic [ref=f117e1318]: Headline
+                          - generic [ref=f117e1319]: Geist
+                        - generic [ref=f117e1320]: Aa
+                      - generic [ref=f117e1321]:
+                        - generic [ref=f117e1322]:
+                          - button "Primary" [ref=f117e1323]
+                          - button "Secondary" [ref=f117e1324]
+                        - generic [ref=f117e1325]:
+                          - button "Inverted" [ref=f117e1326]
+                          - button "Outlined" [ref=f117e1327]
+                      - generic [ref=f117e1329]:
+                        - generic [ref=f117e1330]: search
+                        - generic [ref=f117e1331]: Search
+                      - generic [ref=f117e1332]:
+                        - generic [ref=f117e1333]:
+                          - generic [ref=f117e1334]: Body
+                          - generic [ref=f117e1335]: Inter
+                        - generic [ref=f117e1336]: Aa
+                      - generic [ref=f117e1345]:
+                        - generic [ref=f117e1346]: home
+                        - generic [ref=f117e1348]: search
+                        - generic [ref=f117e1350]: person
+                      - generic [ref=f117e1352]:
+                        - generic [ref=f117e1353]:
+                          - generic [ref=f117e1354]: Label
+                          - generic [ref=f117e1355]: Geist
+                        - generic [ref=f117e1356]: Aa
+                      - generic [ref=f117e1357]:
+                        - generic [ref=f117e1358]: edit
+                        - generic [ref=f117e1362]:
+                          - generic [ref=f117e1363]: edit
+                          - text: Label
+                      - generic [ref=f117e1365]:
+                        - generic [ref=f117e1366]: auto_fix_high
+                        - generic [ref=f117e1368]: category
+                        - generic [ref=f117e1370]: sell
+                        - generic [ref=f117e1372]: delete
+                - generic [ref=f117e1375]:
+                  - generic [ref=f117e1379]:
+                    - generic [ref=f117e1380]: palette
+                    - generic [ref=f117e1382]: Obsidian Nebula
+                  - generic [ref=f117e1385]:
+                    - generic [ref=f117e1386]:
+                      - generic [ref=f117e1387]:
+                        - generic [ref=f117e1388]:
+                          - generic [ref=f117e1389]: Primary
+                          - generic "Click to copy" [ref=f117e1390] [cursor=pointer]: "#7C3AED"
+                        - generic [ref=f117e1391]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f117e1392] [cursor=pointer]'
+                          - 'generic "T10 #25005a — Click to copy" [ref=f117e1393] [cursor=pointer]'
+                          - 'generic "T20 #3f008e — Click to copy" [ref=f117e1394] [cursor=pointer]'
+                          - 'generic "T30 #5a00c6 — Click to copy" [ref=f117e1395] [cursor=pointer]'
+                          - 'generic "T40 #732ee4 — Click to copy" [ref=f117e1396] [cursor=pointer]'
+                          - 'generic "T50 #8d4fff — Click to copy" [ref=f117e1397] [cursor=pointer]'
+                          - 'generic "T60 #a476ff — Click to copy" [ref=f117e1398] [cursor=pointer]'
+                          - 'generic "T70 #bb9aff — Click to copy" [ref=f117e1399] [cursor=pointer]'
+                          - 'generic "T80 #d2bbff — Click to copy" [ref=f117e1400] [cursor=pointer]'
+                          - 'generic "T90 #eaddff — Click to copy" [ref=f117e1401] [cursor=pointer]'
+                          - 'generic "T95 #f7edff — Click to copy" [ref=f117e1402] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f117e1403] [cursor=pointer]'
+                      - generic [ref=f117e1404]:
+                        - generic [ref=f117e1405]:
+                          - generic [ref=f117e1406]: Secondary
+                          - generic "Click to copy" [ref=f117e1407] [cursor=pointer]: "#0EA5E9"
+                        - generic [ref=f117e1408]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f117e1409] [cursor=pointer]'
+                          - 'generic "T10 #001e2f — Click to copy" [ref=f117e1410] [cursor=pointer]'
+                          - 'generic "T20 #00344d — Click to copy" [ref=f117e1411] [cursor=pointer]'
+                          - 'generic "T30 #004c6e — Click to copy" [ref=f117e1412] [cursor=pointer]'
+                          - 'generic "T40 #006591 — Click to copy" [ref=f117e1413] [cursor=pointer]'
+                          - 'generic "T50 #007fb5 — Click to copy" [ref=f117e1414] [cursor=pointer]'
+                          - 'generic "T60 #009ada — Click to copy" [ref=f117e1415] [cursor=pointer]'
+                          - 'generic "T70 #34b5fa — Click to copy" [ref=f117e1416] [cursor=pointer]'
+                          - 'generic "T80 #89ceff — Click to copy" [ref=f117e1417] [cursor=pointer]'
+                          - 'generic "T90 #c9e6ff — Click to copy" [ref=f117e1418] [cursor=pointer]'
+                          - 'generic "T95 #e5f2ff — Click to copy" [ref=f117e1419] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f117e1420] [cursor=pointer]'
+                      - generic [ref=f117e1421]:
+                        - generic [ref=f117e1422]:
+                          - generic [ref=f117e1423]: Tertiary
+                          - generic "Click to copy" [ref=f117e1424] [cursor=pointer]: "#F43F5E"
+                        - generic [ref=f117e1425]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f117e1426] [cursor=pointer]'
+                          - 'generic "T10 #40000d — Click to copy" [ref=f117e1427] [cursor=pointer]'
+                          - 'generic "T20 #67001b — Click to copy" [ref=f117e1428] [cursor=pointer]'
+                          - 'generic "T30 #92002a — Click to copy" [ref=f117e1429] [cursor=pointer]'
+                          - 'generic "T40 #bc0b3b — Click to copy" [ref=f117e1430] [cursor=pointer]'
+                          - 'generic "T50 #e02f51 — Click to copy" [ref=f117e1431] [cursor=pointer]'
+                          - 'generic "T60 #ff516a — Click to copy" [ref=f117e1432] [cursor=pointer]'
+                          - 'generic "T70 #ff8792 — Click to copy" [ref=f117e1433] [cursor=pointer]'
+                          - 'generic "T80 #ffb2b7 — Click to copy" [ref=f117e1434] [cursor=pointer]'
+                          - 'generic "T90 #ffdadb — Click to copy" [ref=f117e1435] [cursor=pointer]'
+                          - 'generic "T95 #ffecec — Click to copy" [ref=f117e1436] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f117e1437] [cursor=pointer]'
+                      - generic [ref=f117e1438]:
+                        - generic [ref=f117e1439]:
+                          - generic [ref=f117e1440]: Neutral
+                          - generic "Click to copy" [ref=f117e1441] [cursor=pointer]: "#0F172A"
+                        - generic [ref=f117e1442]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f117e1443] [cursor=pointer]'
+                          - 'generic "T10 #131b2e — Click to copy" [ref=f117e1444] [cursor=pointer]'
+                          - 'generic "T20 #283044 — Click to copy" [ref=f117e1445] [cursor=pointer]'
+                          - 'generic "T30 #3f465c — Click to copy" [ref=f117e1446] [cursor=pointer]'
+                          - 'generic "T40 #565e74 — Click to copy" [ref=f117e1447] [cursor=pointer]'
+                          - 'generic "T50 #6f778e — Click to copy" [ref=f117e1448] [cursor=pointer]'
+                          - 'generic "T60 #8990a8 — Click to copy" [ref=f117e1449] [cursor=pointer]'
+                          - 'generic "T70 #a3abc4 — Click to copy" [ref=f117e1450] [cursor=pointer]'
+                          - 'generic "T80 #bec6e0 — Click to copy" [ref=f117e1451] [cursor=pointer]'
+                          - 'generic "T90 #dae2fd — Click to copy" [ref=f117e1452] [cursor=pointer]'
+                          - 'generic "T95 #eef0ff — Click to copy" [ref=f117e1453] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f117e1454] [cursor=pointer]'
+                    - generic [ref=f117e1455]:
+                      - generic [ref=f117e1456]:
+                        - generic [ref=f117e1457]:
+                          - generic [ref=f117e1458]: Headline
+                          - generic [ref=f117e1459]: Geist
+                        - generic [ref=f117e1460]: Aa
+                      - generic [ref=f117e1461]:
+                        - generic [ref=f117e1462]:
+                          - button "Primary" [ref=f117e1463]
+                          - button "Secondary" [ref=f117e1464]
+                        - generic [ref=f117e1465]:
+                          - button "Inverted" [ref=f117e1466]
+                          - button "Outlined" [ref=f117e1467]
+                      - generic [ref=f117e1469]:
+                        - generic [ref=f117e1470]: search
+                        - generic [ref=f117e1471]: Search
+                      - generic [ref=f117e1472]:
+                        - generic [ref=f117e1473]:
+                          - generic [ref=f117e1474]: Body
+                          - generic [ref=f117e1475]: Geist
+                        - generic [ref=f117e1476]: Aa
+                      - generic [ref=f117e1485]:
+                        - generic [ref=f117e1486]: home
+                        - generic [ref=f117e1488]: search
+                        - generic [ref=f117e1490]: person
+                      - generic [ref=f117e1492]:
+                        - generic [ref=f117e1493]:
+                          - generic [ref=f117e1494]: Label
+                          - generic [ref=f117e1495]: Jetbrains Mono
+                        - generic [ref=f117e1496]: Aa
+                      - generic [ref=f117e1497]:
+                        - generic [ref=f117e1498]: edit
+                        - generic [ref=f117e1502]:
+                          - generic [ref=f117e1503]: edit
+                          - text: Label
+                      - generic [ref=f117e1505]:
+                        - generic [ref=f117e1506]: auto_fix_high
+                        - generic [ref=f117e1508]: category
+                        - generic [ref=f117e1510]: sell
+                        - generic [ref=f117e1512]: delete
+                - generic [ref=f117e1515]:
+                  - generic [ref=f117e1519]:
+                    - generic [ref=f117e1520]: palette
+                    - generic [ref=f117e1522]: Xylos Ethereal
+                  - generic [ref=f117e1525]:
+                    - generic [ref=f117e1526]:
+                      - generic [ref=f117e1527]:
+                        - generic [ref=f117e1528]:
+                          - generic [ref=f117e1529]: Primary
+                          - generic "Click to copy" [ref=f117e1530] [cursor=pointer]: "#8B5CF6"
+                        - generic [ref=f117e1531]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f117e1532] [cursor=pointer]'
+                          - 'generic "T10 #23005c — Click to copy" [ref=f117e1533] [cursor=pointer]'
+                          - 'generic "T20 #3c0091 — Click to copy" [ref=f117e1534] [cursor=pointer]'
+                          - 'generic "T30 #5516be — Click to copy" [ref=f117e1535] [cursor=pointer]'
+                          - 'generic "T40 #6d3bd7 — Click to copy" [ref=f117e1536] [cursor=pointer]'
+                          - 'generic "T50 #8758f2 — Click to copy" [ref=f117e1537] [cursor=pointer]'
+                          - 'generic "T60 #a078ff — Click to copy" [ref=f117e1538] [cursor=pointer]'
+                          - 'generic "T70 #b89bff — Click to copy" [ref=f117e1539] [cursor=pointer]'
+                          - 'generic "T80 #d0bcff — Click to copy" [ref=f117e1540] [cursor=pointer]'
+                          - 'generic "T90 #e9ddff — Click to copy" [ref=f117e1541] [cursor=pointer]'
+                          - 'generic "T95 #f6edff — Click to copy" [ref=f117e1542] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f117e1543] [cursor=pointer]'
+                      - generic [ref=f117e1544]:
+                        - generic [ref=f117e1545]:
+                          - generic [ref=f117e1546]: Secondary
+                          - generic "Click to copy" [ref=f117e1547] [cursor=pointer]: "#3B82F6"
+                        - generic [ref=f117e1548]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f117e1549] [cursor=pointer]'
+                          - 'generic "T10 #001a42 — Click to copy" [ref=f117e1550] [cursor=pointer]'
+                          - 'generic "T20 #002e6a — Click to copy" [ref=f117e1551] [cursor=pointer]'
+                          - 'generic "T30 #004395 — Click to copy" [ref=f117e1552] [cursor=pointer]'
+                          - 'generic "T40 #005ac2 — Click to copy" [ref=f117e1553] [cursor=pointer]'
+                          - 'generic "T50 #2573e6 — Click to copy" [ref=f117e1554] [cursor=pointer]'
+                          - 'generic "T60 #4d8eff — Click to copy" [ref=f117e1555] [cursor=pointer]'
+                          - 'generic "T70 #81aaff — Click to copy" [ref=f117e1556] [cursor=pointer]'
+                          - 'generic "T80 #adc6ff — Click to copy" [ref=f117e1557] [cursor=pointer]'
+                          - 'generic "T90 #d8e2ff — Click to copy" [ref=f117e1558] [cursor=pointer]'
+                          - 'generic "T95 #edf0ff — Click to copy" [ref=f117e1559] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f117e1560] [cursor=pointer]'
+                      - generic [ref=f117e1561]:
+                        - generic [ref=f117e1562]:
+                          - generic [ref=f117e1563]: Tertiary
+                          - generic "Click to copy" [ref=f117e1564] [cursor=pointer]: "#06B6D4"
+                        - generic [ref=f117e1565]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f117e1566] [cursor=pointer]'
+                          - 'generic "T10 #001f26 — Click to copy" [ref=f117e1567] [cursor=pointer]'
+                          - 'generic "T20 #003640 — Click to copy" [ref=f117e1568] [cursor=pointer]'
+                          - 'generic "T30 #004e5c — Click to copy" [ref=f117e1569] [cursor=pointer]'
+                          - 'generic "T40 #00687a — Click to copy" [ref=f117e1570] [cursor=pointer]'
+                          - 'generic "T50 #008399 — Click to copy" [ref=f117e1571] [cursor=pointer]'
+                          - 'generic "T60 #009eb9 — Click to copy" [ref=f117e1572] [cursor=pointer]'
+                          - 'generic "T70 #1abbd9 — Click to copy" [ref=f117e1573] [cursor=pointer]'
+                          - 'generic "T80 #4cd7f6 — Click to copy" [ref=f117e1574] [cursor=pointer]'
+                          - 'generic "T90 #acedff — Click to copy" [ref=f117e1575] [cursor=pointer]'
+                          - 'generic "T95 #d8f6ff — Click to copy" [ref=f117e1576] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f117e1577] [cursor=pointer]'
+                      - generic [ref=f117e1578]:
+                        - generic [ref=f117e1579]:
+                          - generic [ref=f117e1580]: Neutral
+                          - generic "Click to copy" [ref=f117e1581] [cursor=pointer]: "#050A0F"
+                        - generic [ref=f117e1582]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f117e1583] [cursor=pointer]'
+                          - 'generic "T10 #161c22 — Click to copy" [ref=f117e1584] [cursor=pointer]'
+                          - 'generic "T20 #2b3137 — Click to copy" [ref=f117e1585] [cursor=pointer]'
+                          - 'generic "T30 #41474d — Click to copy" [ref=f117e1586] [cursor=pointer]'
+                          - 'generic "T40 #595f65 — Click to copy" [ref=f117e1587] [cursor=pointer]'
+                          - 'generic "T50 #72787e — Click to copy" [ref=f117e1588] [cursor=pointer]'
+                          - 'generic "T60 #8b9198 — Click to copy" [ref=f117e1589] [cursor=pointer]'
+                          - 'generic "T70 #a6acb3 — Click to copy" [ref=f117e1590] [cursor=pointer]'
+                          - 'generic "T80 #c1c7ce — Click to copy" [ref=f117e1591] [cursor=pointer]'
+                          - 'generic "T90 #dee3ea — Click to copy" [ref=f117e1592] [cursor=pointer]'
+                          - 'generic "T95 #ecf1f9 — Click to copy" [ref=f117e1593] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f117e1594] [cursor=pointer]'
+                    - generic [ref=f117e1595]:
+                      - generic [ref=f117e1596]:
+                        - generic [ref=f117e1597]:
+                          - generic [ref=f117e1598]: Headline
+                          - generic [ref=f117e1599]: Geist
+                        - generic [ref=f117e1600]: Aa
+                      - generic [ref=f117e1601]:
+                        - generic [ref=f117e1602]:
+                          - button "Primary" [ref=f117e1603]
+                          - button "Secondary" [ref=f117e1604]
+                        - generic [ref=f117e1605]:
+                          - button "Inverted" [ref=f117e1606]
+                          - button "Outlined" [ref=f117e1607]
+                      - generic [ref=f117e1609]:
+                        - generic [ref=f117e1610]: search
+                        - generic [ref=f117e1611]: Search
+                      - generic [ref=f117e1612]:
+                        - generic [ref=f117e1613]:
+                          - generic [ref=f117e1614]: Body
+                          - generic [ref=f117e1615]: Inter
+                        - generic [ref=f117e1616]: Aa
+                      - generic [ref=f117e1625]:
+                        - generic [ref=f117e1626]: home
+                        - generic [ref=f117e1628]: search
+                        - generic [ref=f117e1630]: person
+                      - generic [ref=f117e1632]:
+                        - generic [ref=f117e1633]:
+                          - generic [ref=f117e1634]: Label
+                          - generic [ref=f117e1635]: Jetbrains Mono
+                        - generic [ref=f117e1636]: Aa
+                      - generic [ref=f117e1637]:
+                        - generic [ref=f117e1638]: edit
+                        - generic [ref=f117e1642]:
+                          - generic [ref=f117e1643]: edit
+                          - text: Label
+                      - generic [ref=f117e1645]:
+                        - generic [ref=f117e1646]: auto_fix_high
+                        - generic [ref=f117e1648]: category
+                        - generic [ref=f117e1650]: sell
+                        - generic [ref=f117e1652]: delete
+                - generic [ref=f117e1659]:
+                  - generic [ref=f117e1660]: devices
+                  - generic [ref=f117e1662]: Xylos AI - 404 Signal Lost
+                - generic [ref=f117e1674]:
+                  - generic [ref=f117e1675]: devices
+                  - generic [ref=f117e1677]: Shader
+                - generic [ref=f117e1689]:
+                  - generic [ref=f117e1690]: devices
+                  - generic [ref=f117e1692]: Xylos AI - Editorial Archives (Glassmorphic)
+                - generic [ref=f117e1704]:
+                  - generic [ref=f117e1705]: devices
+                  - generic [ref=f117e1707]: Xylos AI - About Us (Glassmorphic)
+                - generic [ref=f117e1719]:
+                  - generic [ref=f117e1720]: devices
+                  - generic [ref=f117e1722]: Xylos AI - Editorial Masterpiece Editor (Glassmorphic)
+                - generic [ref=f117e1734]:
+                  - generic [ref=f117e1735]: devices
+                  - generic [ref=f117e1737]: Shader
+                - generic [ref=f117e1749]:
+                  - generic [ref=f117e1750]: devices
+                  - generic [ref=f117e1752]: Shader
+                - generic [ref=f117e1764]:
+                  - generic [ref=f117e1765]: devices
+                  - generic [ref=f117e1767]: Xylos AI - Autonomous Manager V3.1
+                - generic [ref=f117e1779]:
+                  - generic [ref=f117e1780]: devices
+                  - generic [ref=f117e1782]: Shader
+                - generic [ref=f117e1794]:
+                  - generic [ref=f117e1795]: devices
+                  - generic [ref=f117e1797]: Xylos AI - Your Suite Dashboard
+                - generic [ref=f117e1809]:
+                  - generic [ref=f117e1810]: devices
+                  - generic [ref=f117e1812]: Xylos AI - Biological Synthesis Blog Post
+                - generic [ref=f117e1824]:
+                  - generic [ref=f117e1825]: devices
+                  - generic [ref=f117e1827]: Xylos AI - Editorial Masterpiece Editor
+                - generic [ref=f117e1839]:
+                  - generic [ref=f117e1840]: devices
+                  - generic [ref=f117e1842]: Xylos AI - Autonomous Manager Admin Panel
+                - generic [ref=f117e1854]:
+                  - generic [ref=f117e1855]: devices
+                  - generic [ref=f117e1857]: Xylos AI - Neural Chat (Glassmorphic)
+                - generic [ref=f117e1869]:
+                  - generic [ref=f117e1870]: devices
+                  - generic [ref=f117e1872]: Xylos AI - Your Suite Dashboard
+                - generic [ref=f117e1884]:
+                  - generic [ref=f117e1885]: devices
+                  - generic [ref=f117e1887]: Xylos AI - Content Archive Dashboard
+                - generic [ref=f117e1899]:
+                  - generic [ref=f117e1900]: devices
+                  - generic [ref=f117e1902]: Shader
+          - generic [ref=f117e1909]:
+            - generic [ref=f117e1911]:
+              - button "Make the 404 glitch more aggressive 1" [ref=f117e1913] [cursor=pointer]:
+                - generic [ref=f117e1914]: Make the 404 glitch more aggressive
+                - generic [ref=f117e1915]: "1"
+              - button "Add a 'Scan for Signal' animation to the buttons 2" [ref=f117e1917] [cursor=pointer]:
+                - generic [ref=f117e1918]: Add a 'Scan for Signal' animation to the buttons
+                - generic [ref=f117e1919]: "2"
+              - button "Change the warning colors to a deep neon red only 3" [ref=f117e1921] [cursor=pointer]:
+                - generic [ref=f117e1922]: Change the warning colors to a deep neon red only
+                - generic [ref=f117e1923]: "3"
+            - generic [ref=f117e1928]:
+              - textbox [ref=f117e1932]:
+                - paragraph [ref=f117e1933]: What would you like to change or create?
+              - generic [ref=f117e1934]:
+                - button "Choose File" [ref=f117e1935]
+                - button [ref=f117e1937] [cursor=pointer]
+                - button [ref=f117e1942] [cursor=pointer]:
+                  - img [ref=f117e1943]:
+                    - generic [ref=f117e1944]: /
+                - generic [ref=f117e1945]:
+                  - button [ref=f117e1947] [cursor=pointer]
+                  - button [ref=f117e1953] [cursor=pointer]
+                  - button "3 Flash" [ref=f117e1957] [cursor=pointer]
+                  - button [ref=f117e1964] [cursor=pointer]
+                  - button [disabled] [ref=f117e1968]
+          - button [ref=f117e1974] [cursor=pointer]:
+            - status [ref=f117e1975]
+          - generic [ref=f117e1986]:
+            - button "Collapse panel" [ref=f117e1987] [cursor=pointer]
+            - generic [ref=f117e1996]:
+              - generic [ref=f117e2000]:
+                - generic [ref=f117e2002] [cursor=pointer]:
+                  - img "Surinder Kumar" [ref=f117e2003]
+                  - paragraph [ref=f117e2004]: "Design a creative 404 error page for \"Xylos AI\". Instead of a boring error message, create an interactive \"Signal Lost\" experience. Center: massive \"404\" text with a glitch/distortion animation effect, surrounded by floating broken glass fragments or data particles. Below: \"SIGNAL LOST — This neural pathway doesn't exist\" with a playful error code like \"[PROTOCOL_MISMATCH] // Node_ID: NULL\". Include two action buttons: \"Return to Base\" (home link) and \"Open Neural Chat\" (chat link). Add a footer with GPS coordinates and a running UTC timestamp that updates in real-time. Dark background #0a0a0f with pulsing red/orange warning accents mixed with the purple/blue palette. Sharp edges, glassmorphic elements, dramatic lighting."
+                - generic [ref=f117e2005]:
+                  - button "Copy prompt" [ref=f117e2006] [cursor=pointer]
+                  - button "Show more" [ref=f117e2010] [cursor=pointer]
+              - generic [ref=f117e2018]:
+                - paragraph [ref=f117e2019]:
+                  - text: I've designed the
+                  - strong [ref=f117e2020]: Xylos AI - 404 Signal Lost
+                  - text: experience, moving beyond a standard error message to create a thematic "protocol failure" event.
+                - heading "Key Interactive Features:" [level=3] [ref=f117e2021]
+                - list [ref=f117e2022]:
+                  - listitem [ref=f117e2023]:
+                    - strong [ref=f117e2024]: Atmospheric Warning Shader
+                    - text: ": Powered by a custom WebGL fragment shader ("
+                    - code [ref=f117e2025]: "[Animation]"
+                    - text: ), the background emits slow, rhythmic red and orange warning pulses mixed with the brand's signature purple and blue glows.
+                  - listitem [ref=f117e2026]:
+                    - strong [ref=f117e2027]: Glitching Neural Core
+                    - text: ": The massive \"404\" centerpiece features a CSS-driven glitch animation that creates a sense of digital instability, surrounded by floating glass shards and data particles."
+                  - listitem [ref=f117e2028]:
+                    - strong [ref=f117e2029]: Real-time Terminal Data
+                    - text: ": The footer displays a running UTC timestamp and static GPS coordinates, reinforcing the narrative that the user has reached an \"off-grid\" neural node."
+                  - listitem [ref=f117e2030]:
+                    - strong [ref=f117e2031]: Glassmorphic Navigation
+                    - text: ": Sharp-edged, high-contrast action buttons allow for immediate recovery, either by returning to the primary base or opening the neural chat interface."
+                  - listitem [ref=f117e2032]:
+                    - strong [ref=f117e2033]: Editorial Brand Fidelity
+                    - text: ": Strictly follows the Xylos AI design language with 0px corner radii, bold typography, and the #0a0a0f obsidian color palette."
+                - paragraph [ref=f117e2034]: Does this "Signal Lost" narrative and the glitching aesthetic feel like a natural extension of the Xylos AI experience?
