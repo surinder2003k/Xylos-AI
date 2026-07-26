@@ -8,40 +8,40 @@ html {
 
 @layer base {
   :root {
-    --background: 0 0% 100%;                /* Pure white */
-    --sidebar: 0 0% 100%;
-    --foreground: 222 47% 11%;              /* Dark navy text */
-    --primary: 221 83% 53%;                /* Clean blue #3b82f6 */
+    --background: 30 20% 6%;                /* Dark warm #141008 */
+    --sidebar: 30 20% 6%;
+    --foreground: 30 10% 95%;              /* Warm white text */
+    --primary: 38 92% 50%;                /* Amber #f59e0b */
     --primary-foreground: 0 0% 100%;        /* White on primary */
-    --card: 0 0% 100%;                      /* White card */
-    --card-foreground: 222 47% 11%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-    --secondary: 220 14% 96%;              /* Light gray */
-    --secondary-foreground: 222 47% 11%;
-    --muted: 220 14% 96%;                  /* Muted surface */
-    --muted-foreground: 220 9% 46%;         /* Muted text */
-    --accent: 221 83% 53%;
+    --card: 30 20% 8%;                      /* Slightly lighter dark */
+    --card-foreground: 30 10% 95%;
+    --popover: 30 20% 8%;
+    --popover-foreground: 30 10% 95%;
+    --secondary: 30 15% 12%;              /* Warm dark surface */
+    --secondary-foreground: 30 10% 95%;
+    --muted: 30 15% 12%;                  /* Muted surface */
+    --muted-foreground: 30 10% 55%;         /* Muted text */
+    --accent: 38 92% 50%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 13% 91%;                 /* Light border */
-    --input: 220 13% 91%;
-    --ring: 221 83% 53%;
+    --border: 30 15% 14%;                 /* Warm border */
+    --input: 30 15% 14%;
+    --ring: 38 92% 50%;
     --radius: 12px;                        /* Rounded corners */
     
     /* Extended palette */
-    --primary-container: 221 83% 95%;
-    --secondary-container: 220 14% 93%;
-    --tertiary: 160 84% 39%;
-    --tertiary-container: 160 84% 93%;
-    --surface-dim: 220 14% 96%;
-    --surface-bright: 0 0% 100%;
-    --surface-container-lowest: 0 0% 100%;
-    --surface-container-low: 220 14% 98%;
-    --surface-container: 220 14% 96%;
-    --surface-container-high: 220 13% 93%;
-    --surface-container-highest: 220 13% 91%;
+    --primary-container: 38 92% 95%;
+    --secondary-container: 30 15% 12%;
+    --tertiary: 25 95% 53%;
+    --tertiary-container: 25 95% 93%;
+    --surface-dim: 30 15% 12%;
+    --surface-bright: 30 20% 8%;
+    --surface-container-lowest: 30 20% 6%;
+    --surface-container-low: 30 18% 8%;
+    --surface-container: 30 15% 10%;
+    --surface-container-high: 30 15% 12%;
+    --surface-container-highest: 30 15% 14%;
 
     /* Font Variables */
     --font-fustat: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -66,13 +66,17 @@ html {
 
 @layer components {
   .glass-navbar {
-    @apply backdrop-blur-xl bg-white/80 border border-gray-200/60 rounded-2xl;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 24px rgba(0,0,0,0.03);
+    @apply backdrop-blur-xl border rounded-2xl;
+    background: rgba(20, 16, 8, 0.85);
+    border-color: rgba(245, 158, 11, 0.08);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 4px 24px rgba(245, 158, 11, 0.03);
   }
 
   .glass-card {
-    @apply backdrop-blur-xl bg-white border border-gray-200/60 rounded-2xl;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    @apply backdrop-blur-xl border rounded-2xl;
+    background: rgba(20, 16, 8, 0.6);
+    border-color: rgba(245, 158, 11, 0.08);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   }
 
   .glass-card-hover {
@@ -80,36 +84,43 @@ html {
   }
 
   .glass-card-hover:hover {
-    @apply border-gray-300 bg-white;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    border-color: rgba(245, 158, 11, 0.15);
+    background: rgba(20, 16, 8, 0.8);
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.06);
     transform: translateY(-1px);
   }
 
   .bento-card {
-    @apply relative overflow-hidden bg-white border border-gray-200/60 rounded-2xl p-8 transition-all duration-300;
+    @apply relative overflow-hidden border rounded-2xl p-8 transition-all duration-300;
+    background: rgba(20, 16, 8, 0.6);
+    border-color: rgba(245, 158, 11, 0.08);
   }
 
   .bento-card:hover {
-    @apply border-gray-300 bg-white;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+    border-color: rgba(245, 158, 11, 0.15);
+    background: rgba(20, 16, 8, 0.8);
+    box-shadow: 0 8px 32px rgba(245, 158, 11, 0.06);
   }
 
   .glass-cta {
-    @apply bg-blue-500 rounded-2xl text-white font-semibold transition-all duration-300;
-    box-shadow: 0 1px 3px rgba(59,130,246,0.3), 0 4px 16px rgba(59,130,246,0.2);
+    @apply bg-amber-500 rounded-2xl text-white font-semibold transition-all duration-300;
+    box-shadow: 0 1px 3px rgba(245,158,11,0.3), 0 4px 16px rgba(245,158,11,0.2);
   }
 
   .glass-cta:hover {
-    @apply bg-blue-600 scale-[1.02];
-    box-shadow: 0 4px 20px rgba(59,130,246,0.4);
+    @apply bg-amber-400 scale-[1.02];
+    box-shadow: 0 4px 20px rgba(245,158,11,0.4);
   }
 
   .glass-outline {
-    @apply bg-transparent border border-gray-200 rounded-2xl text-gray-600 font-medium transition-all duration-300;
+    @apply bg-transparent border rounded-2xl font-medium transition-all duration-300;
+    border-color: rgba(245, 158, 11, 0.15);
+    color: rgba(255, 255, 255, 0.6);
   }
 
   .glass-outline:hover {
-    @apply border-gray-300 bg-gray-50;
+    border-color: rgba(245, 158, 11, 0.25);
+    background: rgba(245, 158, 11, 0.05);
   }
 
   .orb-video-filter {
@@ -119,7 +130,7 @@ html {
   
   .hero-glow {
     @apply absolute pointer-events-none;
-    background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, rgba(59,130,246,0) 70%);
+    background: radial-gradient(circle, rgba(245,158,11,0.06) 0%, rgba(245,158,11,0) 70%);
   }
 }
 
@@ -138,14 +149,15 @@ html {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-300 rounded-full;
+  background: rgba(245, 158, 11, 0.2);
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-400;
+  background: rgba(245, 158, 11, 0.35);
 }
 
 ::selection {
-  background: rgba(59,130,246,0.15);
+  background: rgba(245,158,11,0.2);
   color: inherit;
 }
 
@@ -182,7 +194,7 @@ html {
 
 .cyber-grid-pattern {
   background-image: 
-    radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    radial-gradient(rgba(245, 158, 11, 0.03) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -196,23 +208,23 @@ html {
 }
 
 .cyber-header-glow {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: none;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+  background: linear-gradient(135deg, #f59e0b 0%, #f97316 50%, #eab308 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .aurora-bg {
   background: 
-    radial-gradient(ellipse at 20% 50%, rgba(59, 130, 246, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.03) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(236, 72, 153, 0.02) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 50%, rgba(245, 158, 11, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(249, 115, 22, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(234, 179, 8, 0.02) 0%, transparent 50%);
 }
 
 /* Bento Grid Animations */
@@ -231,7 +243,7 @@ html {
 }
 
 .animate-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.02), transparent);
+  background: linear-gradient(90deg, transparent, rgba(245,158,11,0.02), transparent);
   background-size: 200% 100%;
   animation: shimmer 3s ease-in-out infinite;
 }

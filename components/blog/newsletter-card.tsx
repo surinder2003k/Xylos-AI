@@ -26,19 +26,19 @@ export function NewsletterCard() {
   };
 
   return (
-    <div className="mt-8 p-8 rounded-2xl bg-gradient-to-br from-blue-50 via-white to-purple-50 border border-gray-200 relative overflow-hidden shadow-sm">
+    <div className="mt-8 p-8 rounded-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.06), rgba(20,16,8,0.6))', border: '1px solid rgba(245,158,11,0.1)' }}>
       <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
-        <Sparkles className="w-32 h-32 text-blue-500" />
+        <Sparkles className="w-32 h-32 text-amber-500" />
       </div>
       
       <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
         <div className="space-y-3 flex-1">
-          <div className="flex items-center gap-3 text-blue-500">
+          <div className="flex items-center gap-3 text-amber-400">
             <BellRing className="w-5 h-5 animate-bounce" />
             <span className="text-[10px] font-bold uppercase tracking-[0.4em]">Editorial Intelligence</span>
           </div>
-          <h3 className="text-3xl font-black tracking-tighter uppercase leading-tight text-gray-900">
-            Stay Ahead of the <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent italic">Curve</span>
+          <h3 className="text-3xl font-black tracking-tighter uppercase leading-tight text-white">
+            Stay Ahead of the <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent italic">Curve</span>
           </h3>
           <p className="text-gray-400 text-sm font-medium max-w-md">
             Join 12,000+ top strategists getting weekly human-curated editorial insights and deep-dives directly in their inbox.
@@ -51,12 +51,13 @@ export function NewsletterCard() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email..." 
-            className="px-6 py-4 rounded-xl bg-white border border-gray-200 focus:outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 font-medium text-sm w-full sm:min-w-[300px] text-gray-900 placeholder:text-gray-300"
+            className="px-6 py-4 rounded-xl focus:outline-none focus:ring-2 font-medium text-sm w-full sm:min-w-[300px] text-white placeholder:text-gray-500"
+            style={{ background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.12)' }}
             required
           />
           <button 
             type="submit"
-            className="px-8 py-4 rounded-xl bg-blue-500 text-white font-bold uppercase text-xs tracking-widest hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/20 transition-all flex items-center justify-center gap-2"
+            className="px-8 py-4 rounded-xl bg-amber-500 text-white font-bold uppercase text-xs tracking-widest hover:bg-amber-400 transition-all flex items-center justify-center gap-2"
           >
             Join Elite <Send className="w-3 h-3" />
           </button>

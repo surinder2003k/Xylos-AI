@@ -38,9 +38,10 @@ export function ScrollToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-24 md:bottom-8 right-6 md:right-8 z-[100] p-4 rounded-2xl bg-white text-gray-600 border border-gray-200 shadow-md hover:bg-blue-500 hover:text-white hover:border-blue-500 hover:scale-105 active:scale-95 transition-all duration-300 transform group ${
+      className={`fixed bottom-24 md:bottom-8 right-6 md:right-8 z-[100] p-4 rounded-2xl text-gray-400 shadow-md hover:bg-amber-500 hover:text-white hover:scale-105 active:scale-95 transition-all duration-300 transform group ${
         isVisible ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-50 translate-y-4 pointer-events-none"
       }`}
+      style={{ background: isVisible ? 'rgba(20,16,8,0.8)' : 'transparent', border: '1px solid rgba(245,158,11,0.1)' }}
       aria-label="Scroll to top"
     >
       <ChevronUp className="w-6 h-6 group-hover:-translate-y-1 transition-transform" />

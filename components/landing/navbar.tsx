@@ -27,7 +27,7 @@ export function Navbar({ user }: NavbarProps) {
     pathname === href || pathname?.startsWith(href + "/");
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100 transition-all duration-300">
+    <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b transition-all duration-300" style={{ background: 'rgba(20,16,8,0.85)', borderColor: 'rgba(245,158,11,0.08)' }}>
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         
         {/* Logo */}
@@ -39,10 +39,10 @@ export function Navbar({ user }: NavbarProps) {
             <Link
               key={link.href}
               href={link.href}
-              className={`transition-colors hover:text-blue-500 ${
+              className={`transition-colors hover:text-amber-400 ${
                 isActive(link.href)
-                  ? "text-gray-900"
-                  : "text-gray-400"
+                  ? "text-white"
+                  : "text-gray-500"
               }`}
             >
               {link.label}
@@ -54,7 +54,8 @@ export function Navbar({ user }: NavbarProps) {
         <div className="hidden md:flex items-center gap-4">
           <Link 
             href={user ? "/dashboard" : "/login"}
-            className="px-6 py-2.5 rounded-xl border border-gray-200 bg-white text-gray-600 hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all text-[10px] font-bold uppercase tracking-widest shadow-sm"
+            className="px-6 py-2.5 rounded-xl border bg-white/5 text-gray-300 hover:bg-amber-500 hover:text-white hover:border-amber-500 transition-all text-[10px] font-bold uppercase tracking-widest shadow-sm"
+            style={{ borderColor: 'rgba(245,158,11,0.15)' }}
           >
             {user ? "Systems" : "Sign In"}
           </Link>
@@ -65,7 +66,8 @@ export function Navbar({ user }: NavbarProps) {
           <button 
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
-            className="p-2 rounded-xl bg-gray-50 text-gray-600 border border-gray-200"
+            className="p-2 rounded-xl border"
+            style={{ background: 'rgba(245,158,11,0.05)', borderColor: 'rgba(245,158,11,0.1)', color: 'rgba(255,255,255,0.6)' }}
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -80,7 +82,7 @@ export function Navbar({ user }: NavbarProps) {
             : "opacity-0 -translate-y-4 pointer-events-none"
         }`}
       >
-        <div className="bg-white border border-gray-200 p-8 rounded-2xl shadow-lg space-y-6">
+        <div className="p-8 rounded-2xl shadow-lg space-y-6" style={{ background: 'rgba(20,16,8,0.95)', border: '1px solid rgba(245,158,11,0.1)' }}>
           <div className="flex flex-col gap-6">
             {navLinks.map((link) => (
               <Link 
@@ -88,22 +90,22 @@ export function Navbar({ user }: NavbarProps) {
                 href={link.href} 
                 onClick={() => setIsOpen(false)}
                 className={`text-2xl font-black uppercase tracking-tight transition-colors ${
-                  isActive(link.href) ? "text-gray-900" : "text-gray-400 hover:text-gray-900"
+                  isActive(link.href) ? "text-white" : "text-gray-500 hover:text-white"
                 }`}
               >
                 {link.label}
                 {isActive(link.href) && (
-                  <span className="ml-3 text-[9px] font-bold text-blue-500 uppercase tracking-widest align-middle">— Active</span>
+                  <span className="ml-3 text-[9px] font-bold text-amber-400 uppercase tracking-widest align-middle">— Active</span>
                 )}
               </Link>
             ))}
           </div>
           
-          <div className="pt-6 border-t border-gray-100 space-y-4">
+          <div className="pt-6 space-y-4" style={{ borderTop: '1px solid rgba(245,158,11,0.1)' }}>
             <Link 
               href={user ? "/dashboard" : "/login"}
               onClick={() => setIsOpen(false)}
-              className="block w-full text-center px-6 py-4 rounded-xl bg-blue-500 text-white font-bold text-xs uppercase tracking-[0.2em]"
+              className="block w-full text-center px-6 py-4 rounded-xl bg-amber-500 text-white font-bold text-xs uppercase tracking-[0.2em]"
             >
               {user ? "Enter Systems" : "Get Started"}
             </Link>
@@ -115,7 +117,8 @@ export function Navbar({ user }: NavbarProps) {
                   await signOut();
                   router.push('/');
                 }}
-                className="flex items-center justify-center gap-3 w-full px-6 py-4 rounded-xl border border-gray-200 bg-white text-gray-400 hover:text-red-500 hover:border-red-200 transition-all text-xs font-bold uppercase tracking-widest"
+                className="flex items-center justify-center gap-3 w-full px-6 py-4 rounded-xl border bg-white/5 text-gray-400 hover:text-red-500 transition-all text-xs font-bold uppercase tracking-widest"
+                style={{ borderColor: 'rgba(245,158,11,0.1)' }}
               >
                 <LogOut className="w-4 h-4" />
                 Sign Out
