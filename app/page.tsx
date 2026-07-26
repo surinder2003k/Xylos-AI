@@ -1,5 +1,5 @@
 import { createClient as createPublicClient } from "@supabase/supabase-js";
-import { ArrowRight, Code2, FileText, Shield, Sparkles, Zap, Globe, MessageSquare, ChevronRight, Brain, Cpu, Lock, ChevronDown, Terminal, Brackets, Hash } from "lucide-react";
+import { ArrowRight, Code2, FileText, Shield, Sparkles, Zap, Globe, MessageSquare, ChevronRight, Brain, Cpu, Lock, ChevronDown, BookOpen } from "lucide-react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { AnimatedLogo } from "@/components/premium/animated-logo";
@@ -59,167 +59,184 @@ export default async function LandingPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen relative overflow-hidden text-green-400 selection:bg-green-500/30 font-mono" style={{ background: '#0a0e14' }}>
+    <div className="flex flex-col min-h-screen relative overflow-hidden text-white selection:bg-emerald-500/30" style={{ background: '#0d1117' }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Scanlines */}
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.03]" style={{
-        backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,65,0.03) 2px, rgba(0,255,65,0.03) 4px)'
-      }} />
+      {/* Ambient background */}
+      <div className="fixed inset-0 z-0">
+        <div className="absolute inset-0" style={{ background: '#0d1117' }} />
+        <div className="absolute top-[-200px] left-0 w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-[200px]" />
+        <div className="absolute bottom-[-200px] right-0 w-[500px] h-[500px] bg-amber-600/8 rounded-full blur-[200px]" />
+      </div>
 
-      {/* CRT vignette */}
-      <div className="fixed inset-0 z-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.4) 100%)'
-      }} />
-
-      {/* ===== HERO ===== */}
-      <section className="relative z-10 min-h-screen flex items-center">
-        {/* Terminal window chrome */}
-        <div className="absolute top-0 left-0 right-0 z-20 px-4 pt-3">
-          <div className="max-w-6xl mx-auto flex items-center gap-2 px-4 py-2 rounded-t-lg" style={{ background: '#1a1f2e', borderBottom: '1px solid #2a3040' }}>
-            <div className="flex gap-1.5">
-              <div className="w-3 h-3 rounded-full bg-red-500/80" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-              <div className="w-3 h-3 rounded-full bg-green-500/80" />
+      {/* ===== HERO: Split Screen ===== */}
+      <section className="relative z-10 min-h-screen flex">
+        {/* Left half - Dark editorial */}
+        <div className="hidden lg:flex w-1/2 flex-col justify-center px-16 xl:px-24" style={{ background: '#0d1117' }}>
+          <div className="space-y-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 w-fit">
+              <BookOpen className="w-3 h-3 text-emerald-400" />
+              <span className="text-[10px] font-semibold text-emerald-300 uppercase tracking-widest">Editorial</span>
             </div>
-            <span className="text-[11px] text-gray-500 ml-4 font-mono">xylos-ai — bash — 80×24</span>
+            
+            <h1 className="text-5xl xl:text-6xl font-black leading-[0.95] tracking-[-0.03em] text-white">
+              The Future
+              <br />
+              of Free AI
+              <br />
+              <span className="text-emerald-400">Starts Here.</span>
+            </h1>
+
+            <p className="text-gray-400 text-lg max-w-md leading-relaxed">
+              A curated workspace of 7+ premium AI models. Zero cost, editorial quality, infinite depth.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/chat"
+                className="group flex items-center justify-center gap-3 px-8 py-4 bg-emerald-500 text-white font-bold text-sm uppercase tracking-wider rounded-xl hover:bg-emerald-400 hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300"
+              >
+                Start Free Chat
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                href="/about"
+                className="group flex items-center justify-center gap-3 px-8 py-4 border border-white/10 text-gray-300 font-bold text-sm uppercase tracking-wider rounded-xl hover:bg-white/5 hover:border-white/20 transition-all duration-300"
+              >
+                Explore
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </div>
         </div>
 
-        <div className="w-full px-6 md:px-12 lg:px-20 pt-20 pb-24">
-          <div className="max-w-6xl mx-auto">
-            {/* Terminal prompt */}
-            <div className="mb-8 font-mono text-sm">
-              <span className="text-gray-500">$</span>
-              <span className="text-green-400 ml-2">./launch_xylos_ai</span>
-              <span className="inline-block w-2 h-4 bg-green-400 ml-1 animate-pulse" />
+        {/* Right half - Amber accent */}
+        <div className="hidden lg:flex w-1/2 flex-col justify-center items-center px-16" style={{ background: 'linear-gradient(135deg, #1a1510, #0d1117)' }}>
+          <div className="w-full max-w-md space-y-6">
+            {/* Feature cards stacked */}
+            <div className="p-6 rounded-2xl" style={{ background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.12)' }}>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center">
+                  <MessageSquare className="w-5 h-5 text-amber-400" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-white">Unified AI Chat</p>
+                  <p className="text-[11px] text-gray-500">7+ models in one interface</p>
+                </div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              {/* Left: Text */}
-              <div className="space-y-8">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-black leading-[0.9] tracking-[-0.02em] text-white" style={{ fontFamily: 'monospace' }}>
-                  <span className="text-green-400">&gt;</span> XYLOS
-                  <br />
-                  <span className="text-green-400">&gt;</span> FREE_AI
-                  <br />
-                  <span className="text-green-400">&gt;</span> <span className="text-cyan-400">CHAT</span>
-                </h1>
-
-                <div className="space-y-2 font-mono text-sm">
-                  <p className="text-gray-500">// Access 7+ AI models in one terminal</p>
-                  <p className="text-gray-500">// Zero cost. Zero limits. Pure signal.</p>
+            <div className="p-6 rounded-2xl ml-8" style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.12)' }}>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center">
+                  <Code2 className="w-5 h-5 text-emerald-400" />
                 </div>
-
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link
-                    href="/chat"
-                    className="group flex items-center justify-center gap-3 px-8 py-4 bg-green-500 text-black font-bold text-sm uppercase tracking-wider rounded-lg hover:bg-green-400 hover:shadow-lg hover:shadow-green-500/25 transition-all duration-300"
-                  >
-                    <Terminal className="w-4 h-4" />
-                    EXECUTE
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                  <Link
-                    href="/about"
-                    className="group flex items-center justify-center gap-3 px-8 py-4 border border-green-500/30 text-green-400 font-bold text-sm uppercase tracking-wider rounded-lg hover:bg-green-500/10 hover:border-green-500/50 transition-all duration-300"
-                  >
-                    DOCS
-                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-
-                {/* Stats */}
-                <div className="flex gap-12 pt-8 border-t border-green-500/10 font-mono">
-                  <div>
-                    <p className="text-3xl font-black text-white">7+</p>
-                    <p className="text-[10px] text-gray-500 uppercase tracking-widest mt-1">MODELS</p>
-                  </div>
-                  <div>
-                    <p className="text-3xl font-black text-white">$0</p>
-                    <p className="text-[10px] text-gray-500 uppercase tracking-widest mt-1">COST</p>
-                  </div>
-                  <div>
-                    <p className="text-3xl font-black text-white">24/7</p>
-                    <p className="text-[10px] text-gray-500 uppercase tracking-widest mt-1">UPTIME</p>
-                  </div>
+                <div>
+                  <p className="text-sm font-bold text-white">Code Assistant</p>
+                  <p className="text-[11px] text-gray-500">Full-stack dev tools</p>
                 </div>
               </div>
+            </div>
 
-              {/* Right: Terminal Visual */}
-              <div className="hidden lg:block">
-                <div className="rounded-lg overflow-hidden" style={{ background: '#0d1117', border: '1px solid #21262d' }}>
-                  {/* Terminal header */}
-                  <div className="flex items-center gap-2 px-4 py-2" style={{ background: '#161b22', borderBottom: '1px solid #21262d' }}>
-                    <div className="flex gap-1.5">
-                      <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
-                    </div>
-                    <span className="text-[10px] text-gray-500 ml-2 font-mono">output</span>
-                  </div>
-                  {/* Terminal body */}
-                  <div className="p-6 space-y-3 font-mono text-sm">
-                    <p className="text-gray-500">$ xylos status</p>
-                    <p className="text-green-400">✓ Unified AI Chat... <span className="text-cyan-400">ONLINE</span></p>
-                    <p className="text-green-400">✓ Code Assistant... <span className="text-cyan-400">ONLINE</span></p>
-                    <p className="text-green-400">✓ Content Factory... <span className="text-cyan-400">ONLINE</span></p>
-                    <p className="text-gray-500 mt-4">$ xylos models</p>
-                    <p className="text-white">→ Llama 3.3 <span className="text-green-400">ready</span></p>
-                    <p className="text-white">→ Gemini 2.5 <span className="text-green-400">ready</span></p>
-                    <p className="text-white">→ Mistral <span className="text-green-400">ready</span></p>
-                    <p className="text-white">→ DeepSeek <span className="text-green-400">ready</span></p>
-                    <p className="text-gray-500 mt-4">$ _</p>
-                    <p className="inline-block w-2 h-4 bg-green-400 animate-pulse" />
-                  </div>
+            <div className="p-6 rounded-2xl mr-8" style={{ background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.12)' }}>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center">
+                  <FileText className="w-5 h-5 text-amber-400" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-white">Content Factory</p>
+                  <p className="text-[11px] text-gray-500">Blog &amp; social generation</p>
                 </div>
               </div>
+            </div>
+
+            {/* Stats */}
+            <div className="flex gap-8 pt-6 border-t border-white/5">
+              <div>
+                <p className="text-2xl font-black text-white">7+</p>
+                <p className="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Models</p>
+              </div>
+              <div>
+                <p className="text-2xl font-black text-white">$0</p>
+                <p className="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Cost</p>
+              </div>
+              <div>
+                <p className="text-2xl font-black text-white">24/7</p>
+                <p className="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Uptime</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile */}
+        <div className="lg:hidden w-full flex items-center px-6 py-24">
+          <div className="max-w-xl mx-auto space-y-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10">
+              <BookOpen className="w-3 h-3 text-emerald-400" />
+              <span className="text-[10px] font-semibold text-emerald-300 uppercase tracking-widest">Editorial</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-black leading-[0.95] tracking-[-0.03em] text-white">
+              The Future of Free AI <span className="text-emerald-400">Starts Here.</span>
+            </h1>
+            <p className="text-gray-400 text-lg leading-relaxed">
+              A curated workspace of 7+ premium AI models. Zero cost, editorial quality, infinite depth.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link href="/chat" className="group flex items-center justify-center gap-3 px-8 py-4 bg-emerald-500 text-white font-bold text-sm uppercase tracking-wider rounded-xl hover:bg-emerald-400 transition-all duration-300">
+                Start Free Chat
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link href="/about" className="group flex items-center justify-center gap-3 px-8 py-4 border border-white/10 text-gray-300 font-bold text-sm uppercase tracking-wider rounded-xl hover:bg-white/5 transition-all duration-300">
+                Explore
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+            <div className="flex gap-8 pt-6 border-t border-white/5">
+              <div><p className="text-2xl font-black text-white">7+</p><p className="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Models</p></div>
+              <div><p className="text-2xl font-black text-white">$0</p><p className="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Cost</p></div>
+              <div><p className="text-2xl font-black text-white">24/7</p><p className="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Uptime</p></div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ===== SECTION 2: BLOG ===== */}
-      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid #21262d' }}>
+      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-12">
             <div>
-              <p className="text-[10px] font-bold text-green-400 uppercase tracking-[0.4em] mb-4 font-mono">// LATEST LOGS</p>
-              <h2 className="text-4xl md:text-5xl font-black tracking-[-0.03em] text-white" style={{ fontFamily: 'monospace' }}>cat blog/*</h2>
+              <p className="text-[10px] font-bold text-amber-400 uppercase tracking-[0.4em] mb-4">Latest</p>
+              <h2 className="text-4xl md:text-5xl font-black tracking-[-0.03em] text-white">From the Archive</h2>
             </div>
-            <Link href="/blog" className="hidden md:flex items-center gap-2 text-xs font-bold text-gray-500 hover:text-green-400 transition-colors uppercase tracking-widest font-mono">
-              VIEW ALL <ArrowRight className="w-3 h-3" />
+            <Link href="/blog" className="hidden md:flex items-center gap-2 text-xs font-bold text-gray-500 hover:text-emerald-400 transition-colors uppercase tracking-widest">
+              View All <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {blogs?.map((blog) => (
-              <Link
-                key={blog.id}
-                href={`/blog/${blog.slug || blog.id}`}
-                className="group"
-              >
-                <div className="relative aspect-[16/10] overflow-hidden mb-4 rounded-lg" style={{ background: '#0d1117', border: '1px solid #21262d' }}>
+              <Link key={blog.id} href={`/blog/${blog.slug || blog.id}`} className="group">
+                <div className="relative aspect-[16/10] overflow-hidden mb-4 rounded-2xl" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
                   <img
                     src={blog.feature_image_url || "https://images.pexels.com/photos/1031201/pexels-photo-1031201.jpeg?auto=compress&cs=tinysrgb&w=800"}
                     alt={blog.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 opacity-60 group-hover:opacity-90"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 opacity-80 group-hover:opacity-100"
                   />
                   <div className="absolute top-3 left-3">
-                    <span className="px-3 py-1 bg-green-500/20 text-green-400 text-[9px] font-bold uppercase tracking-wider rounded border border-green-500/30 font-mono">{blog.category}</span>
+                    <span className="px-3 py-1 bg-emerald-600/80 text-white text-[9px] font-bold uppercase tracking-wider rounded-full backdrop-blur-sm">{blog.category}</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-bold text-white group-hover:text-green-400 transition-colors leading-tight mb-2 line-clamp-2" style={{ fontFamily: 'monospace' }}>
+                <h3 className="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors leading-tight mb-2 line-clamp-2">
                   {blog.title}
                 </h3>
-                <p className="text-sm text-gray-500 line-clamp-2 font-mono">{blog.excerpt}</p>
-                <div className="mt-3 flex items-center gap-2 text-[10px] text-gray-600 uppercase tracking-widest font-mono">
+                <p className="text-sm text-gray-500 line-clamp-2">{blog.excerpt}</p>
+                <div className="mt-3 flex items-center gap-2 text-[10px] text-gray-600 uppercase tracking-widest">
                   <span>{blog.profiles?.full_name || 'Xylos Team'}</span>
                   <span>·</span>
-                  <span className="text-green-400">READ_MORE →</span>
+                  <span className="text-emerald-400">Read More →</span>
                 </div>
               </Link>
             ))}
@@ -227,61 +244,100 @@ export default async function LandingPage() {
         </div>
       </section>
 
-      {/* ===== SECTION 3: FEATURES ===== */}
-      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid #21262d' }}>
+      {/* ===== SECTION 3: FEATURES - Split layout ===== */}
+      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-[10px] font-bold text-green-400 uppercase tracking-[0.4em] mb-4 font-mono">// MODULES</p>
-            <h2 className="text-4xl md:text-5xl font-black tracking-[-0.03em] text-white" style={{ fontFamily: 'monospace' }}>ls capabilities/</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: MessageSquare, title: 'multi_model_chat', desc: '7+ frontier AI models unified in one seamless conversational interface.', color: 'green' },
-              { icon: Brain, title: 'smart_router', desc: 'Intelligent engine auto-selects the best model for your specific task.', color: 'cyan' },
-              { icon: Code2, title: 'code_gen', desc: 'Write, debug, and refactor across 50+ programming languages instantly.', color: 'green' },
-              { icon: FileText, title: 'content_factory', desc: 'SEO-optimized articles, social posts, and marketing copy on demand.', color: 'cyan' },
-              { icon: Shield, title: 'zero_retention', desc: 'Enterprise-grade encryption. Your data never leaves the secure pipeline.', color: 'green' },
-              { icon: Zap, title: 'low_latency', desc: 'Sub-2-second responses via our global edge network infrastructure.', color: 'cyan' },
-            ].map((item, i) => (
-              <div key={i} className="group p-6 rounded-lg hover:bg-green-500/[0.03] transition-all duration-300" style={{ border: '1px solid #21262d' }}>
-                <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-4 ${
-                  item.color === 'green' ? 'bg-green-500/10 border border-green-500/20' : 'bg-cyan-500/10 border border-cyan-500/20'
-                }`}>
-                  <item.icon className={`w-5 h-5 ${
-                    item.color === 'green' ? 'text-green-400' : 'text-cyan-400'
-                  }`} />
-                </div>
-                <h3 className="text-sm font-bold text-white mb-2 font-mono">{item.title}</h3>
-                <p className="text-xs text-gray-500 leading-relaxed font-mono">{item.desc}</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Left - Editorial text */}
+            <div className="space-y-6">
+              <p className="text-[10px] font-bold text-emerald-400 uppercase tracking-[0.4em]">Capabilities</p>
+              <h2 className="text-4xl md:text-5xl font-black tracking-[-0.03em] text-white leading-tight">
+                Intelligence,
+                <br />
+                <span className="text-amber-400">Curated.</span>
+              </h2>
+              <p className="text-gray-400 text-lg leading-relaxed">
+                Each feature is carefully selected and refined. Our editorial approach ensures 
+                you get only the highest quality AI capabilities.
+              </p>
+              <div className="space-y-4 pt-4">
+                {[
+                  { step: '01', title: 'Multi-Model Chat', desc: '7+ frontier models in one interface' },
+                  { step: '02', title: 'Smart Routing', desc: 'Auto-selects the best model for your task' },
+                  { step: '03', title: 'Zero Retention', desc: 'Enterprise-grade privacy by design' },
+                ].map((item) => (
+                  <div key={item.step} className="flex items-start gap-4">
+                    <span className="text-xl font-black text-emerald-500/30">{item.step}</span>
+                    <div>
+                      <h4 className="text-sm font-bold text-white">{item.title}</h4>
+                      <p className="text-xs text-gray-500">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Right - Feature grid */}
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { icon: MessageSquare, title: 'Chat', sub: '7+ models', color: 'emerald' },
+                { icon: Code2, title: 'Code', sub: '50+ langs', color: 'amber' },
+                { icon: FileText, title: 'Content', sub: 'Auto-blog', color: 'emerald' },
+                { icon: Brain, title: 'Research', sub: 'Deep dive', color: 'amber' },
+                { icon: Shield, title: 'Secure', sub: 'AES-256', color: 'emerald' },
+                { icon: Zap, title: 'Fast', sub: '<2s response', color: 'amber' },
+              ].map((item, i) => (
+                <div key={i} className="p-5 rounded-2xl" style={{ 
+                  background: item.color === 'emerald' ? 'rgba(16,185,129,0.05)' : 'rgba(245,158,11,0.05)', 
+                  border: `1px solid ${item.color === 'emerald' ? 'rgba(16,185,129,0.1)' : 'rgba(245,158,11,0.1)'}` 
+                }}>
+                  <item.icon className={`w-6 h-6 mb-3 ${item.color === 'emerald' ? 'text-emerald-400' : 'text-amber-400'}`} />
+                  <p className="text-sm font-bold text-white">{item.title}</p>
+                  <p className="text-[10px] text-gray-500 mt-1">{item.sub}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ===== SECTION 4: PLATFORM ===== */}
-      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid #21262d' }}>
+      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
         <div className="max-w-5xl mx-auto">
-          <div className="text-center p-12 rounded-lg" style={{ background: '#0d1117', border: '1px solid #21262d' }}>
-            <h2 className="text-3xl md:text-4xl font-black tracking-[-0.03em] text-white mb-4" style={{ fontFamily: 'monospace' }}>
-              ~/xylos-ai README.md
-            </h2>
-            <p className="text-gray-400 text-sm max-w-2xl mx-auto leading-relaxed font-mono">
-              Xylos AI is the premier free platform for interacting with advanced language models. 
-              Our intelligent routing system ensures you always get the best response from models like 
-              Llama 3.3, Gemini 2.5, and Mistral Large — always free, always available.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden" style={{ border: '1px solid rgba(255,255,255,0.06)' }}>
+            <div className="p-12 flex items-center" style={{ background: '#0d1117' }}>
+              <div className="space-y-4">
+                <h2 className="text-3xl font-black tracking-[-0.03em] text-white">
+                  The Editorial AI Platform
+                </h2>
+                <p className="text-gray-400 leading-relaxed">
+                  Xylos AI delivers premium AI through a curated editorial lens. 
+                  Models like Llama 3.3, Gemini 2.5, and Mistral Large — always free, always refined.
+                </p>
+              </div>
+            </div>
+            <div className="p-12 flex items-center" style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.08), rgba(16,185,129,0.08))' }}>
+              <div className="space-y-4 w-full">
+                <div className="p-4 rounded-xl" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                  <p className="text-xs text-gray-500">Models online</p>
+                  <p className="text-lg font-black text-emerald-400">7 / 7</p>
+                </div>
+                <div className="p-4 rounded-xl" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                  <p className="text-xs text-gray-500">Queue status</p>
+                  <p className="text-lg font-black text-amber-400">Available</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ===== SECTION 5: FAQ ===== */}
-      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid #21262d' }}>
+      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-[10px] font-bold text-green-400 uppercase tracking-[0.4em] mb-4 font-mono">// HELP</p>
-            <h2 className="text-4xl font-black tracking-[-0.03em] text-white" style={{ fontFamily: 'monospace' }}>man faq</h2>
+            <p className="text-[10px] font-bold text-amber-400 uppercase tracking-[0.4em] mb-4">FAQ</p>
+            <h2 className="text-4xl font-black tracking-[-0.03em] text-white">Questions & Answers</h2>
           </div>
           
           <div className="space-y-3">
@@ -289,9 +345,9 @@ export default async function LandingPage() {
               { q: 'Is Xylos AI completely free?', a: 'Yes, we aggregate open-source models like Llama 3, Gemini, and Mistral to provide premium AI at zero cost. No subscriptions, no hidden fees.' },
               { q: 'What models are available?', a: 'We support 7+ models including Llama 3.3, Gemini 2.5 Flash, Mistral Large, Command R+, and DeepSeek V3. Our smart router picks the best one for your task.' },
             ].map((item, i) => (
-              <div key={i} className="group p-6 rounded-lg hover:bg-green-500/[0.03] transition-all duration-300" style={{ border: '1px solid #21262d' }}>
-                <h3 className="text-sm font-bold text-white mb-3 font-mono">> {item.q}</h3>
-                <p className="text-gray-400 leading-relaxed text-sm font-mono">{item.a}</p>
+              <div key={i} className="group p-6 rounded-2xl hover:bg-white/[0.02] transition-all duration-300" style={{ border: '1px solid rgba(255,255,255,0.06)' }}>
+                <h3 className="text-lg font-bold text-white mb-3">{item.q}</h3>
+                <p className="text-gray-400 leading-relaxed">{item.a}</p>
               </div>
             ))}
           </div>
@@ -299,32 +355,36 @@ export default async function LandingPage() {
       </section>
 
       {/* ===== SECTION 6: CTA ===== */}
-      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid #21262d' }}>
+      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
         <div className="max-w-5xl mx-auto">
-          <div className="relative rounded-lg overflow-hidden p-12 md:p-16 text-center" style={{ background: 'linear-gradient(135deg, rgba(0,255,65,0.05), rgba(0,212,255,0.05))', border: '1px solid #21262d' }}>
-            <div className="relative z-10 space-y-6">
-              <p className="text-green-400 font-mono text-sm">$ echo &quot;Welcome to the future&quot;</p>
-              <h2 className="text-4xl md:text-5xl font-black tracking-[-0.03em] text-white" style={{ fontFamily: 'monospace' }}>
-                INITIALIZE
-              </h2>
-              <p className="text-gray-400 text-sm max-w-xl mx-auto font-mono">
-                Boot up your AI workspace. Start your session with Xylos AI today.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden" style={{ border: '1px solid rgba(255,255,255,0.06)' }}>
+            <div className="p-12 md:p-16 flex items-center" style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1), rgba(245,158,11,0.05))' }}>
+              <div className="space-y-6">
+                <h2 className="text-4xl md:text-5xl font-black tracking-[-0.03em] text-white">
+                  Begin Your <span className="text-emerald-400">Story</span>
+                </h2>
+                <p className="text-gray-400 text-lg">
+                  Join thousands using Xylos AI to write their next chapter. No credit card required.
+                </p>
                 <Link
                   href="/chat"
-                  className="group inline-flex items-center gap-3 px-8 py-4 bg-green-500 text-black font-bold uppercase tracking-wider rounded-lg hover:bg-green-400 hover:shadow-lg hover:shadow-green-500/25 transition-all duration-300"
+                  className="group inline-flex items-center gap-3 px-8 py-4 bg-emerald-500 text-white font-bold uppercase tracking-wider rounded-xl hover:bg-emerald-400 hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300"
                 >
-                  <Terminal className="w-4 h-4" />
-                  RUN
+                  Start Free Chat
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <Link
-                  href="/about"
-                  className="group inline-flex items-center gap-3 px-8 py-4 border border-green-500/30 text-green-400 font-bold uppercase tracking-wider rounded-lg hover:bg-green-500/10 transition-all duration-300"
-                >
-                  DOCS
-                </Link>
+              </div>
+            </div>
+            <div className="hidden lg:flex flex-col justify-center p-12" style={{ background: '#0d1117' }}>
+              <div className="space-y-4 w-full max-w-xs mx-auto">
+                <div className="p-4 rounded-xl" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                  <p className="text-xs text-gray-500">Active users</p>
+                  <p className="text-lg font-black text-white">4.8K+</p>
+                </div>
+                <div className="p-4 rounded-xl" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                  <p className="text-xs text-gray-500">Uptime</p>
+                  <p className="text-lg font-black text-emerald-400">99.9%</p>
+                </div>
               </div>
             </div>
           </div>
@@ -334,34 +394,34 @@ export default async function LandingPage() {
       <NewsletterForm />
 
       {/* ===== FOOTER ===== */}
-      <footer className="relative z-10 border-t py-16 px-6 md:px-12 lg:px-20" style={{ borderColor: '#21262d', background: 'rgba(0,0,0,0.3)' }}>
+      <footer className="relative z-10 border-t py-16 px-6 md:px-12 lg:px-20" style={{ borderColor: 'rgba(255,255,255,0.05)', background: 'rgba(0,0,0,0.2)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             <div className="md:col-span-2 space-y-4">
               <AnimatedLogo />
-              <p className="text-sm text-gray-500 max-w-xs leading-relaxed font-mono">
+              <p className="text-sm text-gray-500 max-w-xs leading-relaxed">
                 Empowering professionals with top-tier AI models. Zero cost, infinite possibilities.
               </p>
             </div>
             <div className="space-y-4">
-              <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] font-mono">// PLATFORM</h4>
-              <div className="flex flex-col gap-2 text-sm text-gray-500 font-mono">
-                <Link href="/blog" className="hover:text-green-400 transition-colors">blog</Link>
-                <Link href="/about" className="hover:text-green-400 transition-colors">about</Link>
-                <Link href="/privacy" className="hover:text-green-400 transition-colors">privacy</Link>
+              <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em]">Platform</h4>
+              <div className="flex flex-col gap-2 text-sm text-gray-500">
+                <Link href="/blog" className="hover:text-emerald-400 transition-colors">Blog</Link>
+                <Link href="/about" className="hover:text-emerald-400 transition-colors">About</Link>
+                <Link href="/privacy" className="hover:text-emerald-400 transition-colors">Privacy</Link>
               </div>
             </div>
             <div className="space-y-4">
-              <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] font-mono">// CONNECT</h4>
-              <div className="flex flex-col gap-2 text-sm text-gray-500 font-mono">
-                <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition-colors">github</a>
-                <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition-colors">linkedin</a>
+              <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em]">Connect</h4>
+              <div className="flex flex-col gap-2 text-sm text-gray-500">
+                <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">GitHub</a>
+                <a href="https://github.com/surinder203k" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">LinkedIn</a>
               </div>
             </div>
           </div>
-          <div className="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4" style={{ borderColor: '#21262d' }}>
-            <p className="text-[10px] text-gray-600 uppercase tracking-widest font-mono">© 2026 XYLOS FOUNDATION</p>
-            <p className="text-[10px] text-gray-600 uppercase tracking-widest font-mono">RESEARCH BY 21DEV.IN</p>
+          <div className="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4" style={{ borderColor: 'rgba(255,255,255,0.05)' }}>
+            <p className="text-[10px] text-gray-600 uppercase tracking-widest">© 2026 Xylos Foundation</p>
+            <p className="text-[10px] text-gray-600 uppercase tracking-widest">Research by 21dev.in</p>
           </div>
         </div>
       </footer>
