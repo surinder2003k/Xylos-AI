@@ -1,5 +1,5 @@
 import { createClient as createPublicClient } from "@supabase/supabase-js";
-import { ArrowRight, Code2, FileText, Shield, Sparkles, Zap, Globe, MessageSquare, ChevronRight, Brain, Cpu, Lock, ChevronDown, Leaf } from "lucide-react";
+import { ArrowRight, Code2, FileText, Shield, Sparkles, Zap, Globe, MessageSquare, ChevronRight, Brain, Cpu, Lock, ChevronDown, Sun } from "lucide-react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { AnimatedLogo } from "@/components/premium/animated-logo";
@@ -59,7 +59,7 @@ export default async function LandingPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen relative overflow-hidden text-white selection:bg-emerald-500/30" style={{ background: '#0a1a12' }}>
+    <div className="flex flex-col min-h-screen relative overflow-hidden text-white selection:bg-orange-500/30" style={{ background: '#1a0a1a' }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -67,15 +67,16 @@ export default async function LandingPage() {
 
       {/* Ambient background */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0" style={{ background: '#0a1a12' }} />
-        <div className="absolute top-[-200px] right-[-100px] w-[700px] h-[700px] bg-emerald-600/15 rounded-full blur-[220px]" />
-        <div className="absolute bottom-[-200px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[200px]" />
-        <div className="absolute top-1/2 left-1/3 w-[400px] h-[400px] bg-teal-500/8 rounded-full blur-[160px]" />
+        <div className="absolute inset-0" style={{ background: '#1a0a1a' }} />
+        <div className="absolute top-[-300px] left-1/4 w-[800px] h-[800px] bg-orange-600/15 rounded-full blur-[250px]" />
+        <div className="absolute bottom-[-200px] right-1/4 w-[600px] h-[600px] bg-pink-600/12 rounded-full blur-[200px]" />
+        <div className="absolute top-1/2 right-[-100px] w-[500px] h-[500px] bg-rose-500/10 rounded-full blur-[180px]" />
+        <div className="absolute bottom-1/3 left-[-50px] w-[400px] h-[400px] bg-amber-500/8 rounded-full blur-[160px]" />
       </div>
 
-      {/* Organic leaf pattern */}
-      <div className="fixed inset-0 z-0 opacity-[0.025]" style={{
-        backgroundImage: `radial-gradient(circle at 20% 50%, rgba(16,185,129,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(34,197,94,0.2) 0%, transparent 40%), radial-gradient(circle at 60% 80%, rgba(20,184,166,0.2) 0%, transparent 45%)`
+      {/* Sunset gradient mesh */}
+      <div className="fixed inset-0 z-0 opacity-[0.04]" style={{
+        background: 'radial-gradient(ellipse at 20% 0%, rgba(249,115,22,0.3) 0%, transparent 50%), radial-gradient(ellipse at 80% 100%, rgba(236,72,153,0.2) 0%, transparent 50%), radial-gradient(ellipse at 50% 50%, rgba(168,85,247,0.1) 0%, transparent 60%)'
       }} />
 
       {/* ===== SECTION 1: HERO ===== */}
@@ -85,34 +86,34 @@ export default async function LandingPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               {/* Left: Text */}
               <div className="space-y-8">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10">
-                  <Leaf className="w-3 h-3 text-emerald-400" />
-                  <span className="text-[10px] font-semibold text-emerald-300 uppercase tracking-widest">Organic AI</span>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-orange-500/30 bg-orange-500/10">
+                  <Sun className="w-3 h-3 text-orange-400" />
+                  <span className="text-[10px] font-semibold text-orange-300 uppercase tracking-widest">Dawn of AI</span>
                 </div>
                 
                 <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[80px] font-black leading-[0.9] tracking-[-0.04em] text-white">
-                  GROW YOUR
+                  A NEW
                   <br />
-                  MIND WITH
+                  HORIZON IN
                   <br />
-                  <span className="bg-gradient-to-r from-emerald-400 to-green-300 bg-clip-text text-transparent">FREE AI.</span>
+                  <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">FREE AI.</span>
                 </h1>
 
                 <p className="text-gray-400 text-lg max-w-md leading-relaxed">
-                  Nurture your ideas with 7+ AI models. Zero cost, organic growth, limitless creativity. Your AI garden awaits.
+                  Watch your ideas rise like the sun. 7+ AI models, zero cost, warm possibilities. Your golden hour starts now.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     href="/chat"
-                    className="group flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-600 to-green-600 text-white font-bold text-sm uppercase tracking-wider rounded-2xl hover:from-emerald-500 hover:to-green-500 hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300"
+                    className="group flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-500 via-pink-500 to-rose-500 text-white font-bold text-sm uppercase tracking-wider rounded-2xl hover:from-orange-400 hover:via-pink-400 hover:to-rose-400 hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300"
                   >
                     Start Free Chat
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                   <Link
                     href="/about"
-                    className="group flex items-center justify-center gap-3 px-8 py-4 border border-emerald-500/30 text-gray-300 font-bold text-sm uppercase tracking-wider rounded-2xl hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all duration-300"
+                    className="group flex items-center justify-center gap-3 px-8 py-4 border border-orange-500/30 text-gray-300 font-bold text-sm uppercase tracking-wider rounded-2xl hover:bg-orange-500/10 hover:border-orange-500/50 transition-all duration-300"
                   >
                     Explore Platform
                     <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -138,10 +139,10 @@ export default async function LandingPage() {
 
               {/* Right: Visual */}
               <div className="hidden lg:block relative">
-                <div className="relative rounded-3xl p-10 space-y-6" style={{ background: 'rgba(16,185,129,0.05)', border: '1px solid rgba(16,185,129,0.12)', backdropFilter: 'blur(20px)' }}>
-                  <div className="flex items-center gap-4 p-5 rounded-2xl" style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.1)' }}>
-                    <div className="w-11 h-11 rounded-xl bg-emerald-500/20 flex items-center justify-center shrink-0">
-                      <MessageSquare className="w-5 h-5 text-emerald-400" />
+                <div className="relative rounded-3xl p-10 space-y-6" style={{ background: 'rgba(249,115,22,0.05)', border: '1px solid rgba(249,115,22,0.12)', backdropFilter: 'blur(20px)' }}>
+                  <div className="flex items-center gap-4 p-5 rounded-2xl" style={{ background: 'rgba(249,115,22,0.06)', border: '1px solid rgba(249,115,22,0.1)' }}>
+                    <div className="w-11 h-11 rounded-xl bg-orange-500/20 flex items-center justify-center shrink-0">
+                      <MessageSquare className="w-5 h-5 text-orange-400" />
                     </div>
                     <div>
                       <p className="text-sm font-bold text-white">Unified AI Chat</p>
@@ -149,9 +150,9 @@ export default async function LandingPage() {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 p-5 rounded-2xl ml-8" style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.1)' }}>
-                    <div className="w-11 h-11 rounded-xl bg-green-500/20 flex items-center justify-center shrink-0">
-                      <Code2 className="w-5 h-5 text-green-400" />
+                  <div className="flex items-center gap-4 p-5 rounded-2xl ml-8" style={{ background: 'rgba(236,72,153,0.06)', border: '1px solid rgba(236,72,153,0.1)' }}>
+                    <div className="w-11 h-11 rounded-xl bg-pink-500/20 flex items-center justify-center shrink-0">
+                      <Code2 className="w-5 h-5 text-pink-400" />
                     </div>
                     <div>
                       <p className="text-sm font-bold text-white">Code Assistant</p>
@@ -159,9 +160,9 @@ export default async function LandingPage() {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 p-5 rounded-2xl ml-4" style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.1)' }}>
-                    <div className="w-11 h-11 rounded-xl bg-teal-500/20 flex items-center justify-center shrink-0">
-                      <FileText className="w-5 h-5 text-teal-400" />
+                  <div className="flex items-center gap-4 p-5 rounded-2xl ml-4" style={{ background: 'rgba(244,63,94,0.06)', border: '1px solid rgba(244,63,94,0.1)' }}>
+                    <div className="w-11 h-11 rounded-xl bg-rose-500/20 flex items-center justify-center shrink-0">
+                      <FileText className="w-5 h-5 text-rose-400" />
                     </div>
                     <div>
                       <p className="text-sm font-bold text-white">Content Factory</p>
@@ -170,10 +171,10 @@ export default async function LandingPage() {
                   </div>
 
                   {/* Tagline */}
-                  <div className="space-y-2 pl-4 border-l-2 border-emerald-500/40 pt-4">
+                  <div className="space-y-2 pl-4 border-l-2 border-orange-500/40 pt-4">
                     <h2 className="text-2xl font-black tracking-tight text-white">Free AI Chat.</h2>
-                    <h2 className="text-2xl font-black bg-gradient-to-r from-emerald-400 to-green-300 bg-clip-text text-transparent tracking-tight">Cultivate Ideas.</h2>
-                    <p className="text-gray-500 text-sm">Zero cost. Organic growth.</p>
+                    <h2 className="text-2xl font-black bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent tracking-tight">Rise With Intelligence.</h2>
+                    <p className="text-gray-500 text-sm">Zero cost. Golden possibilities.</p>
                   </div>
                 </div>
               </div>
@@ -193,10 +194,10 @@ export default async function LandingPage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-12">
             <div>
-              <p className="text-[10px] font-bold text-emerald-400 uppercase tracking-[0.4em] mb-4">Fresh Picks</p>
-              <h2 className="text-4xl md:text-5xl font-black tracking-[-0.03em] text-white">From the Garden</h2>
+              <p className="text-[10px] font-bold text-orange-400 uppercase tracking-[0.4em] mb-4">Latest</p>
+              <h2 className="text-4xl md:text-5xl font-black tracking-[-0.03em] text-white">Sunrise Stories</h2>
             </div>
-            <Link href="/blog" className="hidden md:flex items-center gap-2 text-xs font-bold text-gray-500 hover:text-emerald-400 transition-colors uppercase tracking-widest">
+            <Link href="/blog" className="hidden md:flex items-center gap-2 text-xs font-bold text-gray-500 hover:text-orange-400 transition-colors uppercase tracking-widest">
               View All <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
@@ -208,24 +209,24 @@ export default async function LandingPage() {
                 href={`/blog/${blog.slug || blog.id}`}
                 className="group"
               >
-                <div className="relative aspect-[16/10] overflow-hidden mb-4 rounded-2xl" style={{ background: 'rgba(16,185,129,0.04)', border: '1px solid rgba(16,185,129,0.08)' }}>
+                <div className="relative aspect-[16/10] overflow-hidden mb-4 rounded-2xl" style={{ background: 'rgba(249,115,22,0.04)', border: '1px solid rgba(249,115,22,0.08)' }}>
                   <img
                     src={blog.feature_image_url || "https://images.pexels.com/photos/1031201/pexels-photo-1031201.jpeg?auto=compress&cs=tinysrgb&w=800"}
                     alt={blog.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 opacity-80 group-hover:opacity-100"
                   />
                   <div className="absolute top-3 left-3">
-                    <span className="px-3 py-1 bg-emerald-600/80 text-white text-[9px] font-bold uppercase tracking-wider rounded-full backdrop-blur-sm">{blog.category}</span>
+                    <span className="px-3 py-1 bg-gradient-to-r from-orange-500 to-pink-500 text-white text-[9px] font-bold uppercase tracking-wider rounded-full backdrop-blur-sm">{blog.category}</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors leading-tight mb-2 line-clamp-2">
+                <h3 className="text-lg font-bold text-white group-hover:text-orange-400 transition-colors leading-tight mb-2 line-clamp-2">
                   {blog.title}
                 </h3>
                 <p className="text-sm text-gray-500 line-clamp-2">{blog.excerpt}</p>
                 <div className="mt-3 flex items-center gap-2 text-[10px] text-gray-600 uppercase tracking-widest">
                   <span>{blog.profiles?.full_name || 'Xylos Team'}</span>
                   <span>·</span>
-                  <span className="text-emerald-400">Read More →</span>
+                  <span className="text-orange-400">Read More →</span>
                 </div>
               </Link>
             ))}
@@ -237,25 +238,25 @@ export default async function LandingPage() {
       <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-[10px] font-bold text-emerald-400 uppercase tracking-[0.4em] mb-4">Capabilities</p>
-            <h2 className="text-4xl md:text-5xl font-black tracking-[-0.03em] text-white">Naturally Powerful AI</h2>
+            <p className="text-[10px] font-bold text-orange-400 uppercase tracking-[0.4em] mb-4">Capabilities</p>
+            <h2 className="text-4xl md:text-5xl font-black tracking-[-0.03em] text-white">Radiant Intelligence</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: MessageSquare, title: 'Multi-Model Chat', desc: '7+ frontier AI models unified in one seamless conversational interface.', color: 'emerald' },
-              { icon: Brain, title: 'Smart Routing', desc: 'Intelligent engine auto-selects the best model for your specific task.', color: 'green' },
-              { icon: Code2, title: 'Code Generation', desc: 'Write, debug, and refactor across 50+ programming languages instantly.', color: 'teal' },
-              { icon: FileText, title: 'Content Creation', desc: 'SEO-optimized articles, social posts, and marketing copy on demand.', color: 'emerald' },
-              { icon: Shield, title: 'Zero Retention', desc: 'Enterprise-grade encryption. Your data never leaves the secure pipeline.', color: 'green' },
-              { icon: Zap, title: 'Lightning Fast', desc: 'Sub-2-second responses via our global edge network infrastructure.', color: 'teal' },
+              { icon: MessageSquare, title: 'Multi-Model Chat', desc: '7+ frontier AI models unified in one seamless conversational interface.', color: 'orange' },
+              { icon: Brain, title: 'Smart Routing', desc: 'Intelligent engine auto-selects the best model for your specific task.', color: 'pink' },
+              { icon: Code2, title: 'Code Generation', desc: 'Write, debug, and refactor across 50+ programming languages instantly.', color: 'rose' },
+              { icon: FileText, title: 'Content Creation', desc: 'SEO-optimized articles, social posts, and marketing copy on demand.', color: 'orange' },
+              { icon: Shield, title: 'Zero Retention', desc: 'Enterprise-grade encryption. Your data never leaves the secure pipeline.', color: 'pink' },
+              { icon: Zap, title: 'Lightning Fast', desc: 'Sub-2-second responses via our global edge network infrastructure.', color: 'rose' },
             ].map((item, i) => (
-              <div key={i} className="group p-6 rounded-2xl hover:bg-white/[0.02] transition-all duration-300" style={{ border: '1px solid rgba(16,185,129,0.08)' }}>
+              <div key={i} className="group p-6 rounded-2xl hover:bg-white/[0.02] transition-all duration-300" style={{ border: '1px solid rgba(249,115,22,0.08)' }}>
                 <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${
-                  item.color === 'emerald' ? 'bg-emerald-500/20' : item.color === 'green' ? 'bg-green-500/20' : 'bg-teal-500/20'
+                  item.color === 'orange' ? 'bg-orange-500/20' : item.color === 'pink' ? 'bg-pink-500/20' : 'bg-rose-500/20'
                 }`}>
                   <item.icon className={`w-5 h-5 ${
-                    item.color === 'emerald' ? 'text-emerald-400' : item.color === 'green' ? 'text-green-400' : 'text-teal-400'
+                    item.color === 'orange' ? 'text-orange-400' : item.color === 'pink' ? 'text-pink-400' : 'text-rose-400'
                   }`} />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
@@ -269,13 +270,14 @@ export default async function LandingPage() {
       {/* ===== SECTION 4: PLATFORM ===== */}
       <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center p-12 rounded-3xl" style={{ background: 'rgba(16,185,129,0.04)', border: '1px solid rgba(16,185,129,0.1)' }}>
+          <div className="text-center p-12 rounded-3xl" style={{ background: 'linear-gradient(135deg, rgba(249,115,22,0.06), rgba(236,72,153,0.06))', border: '1px solid rgba(249,115,22,0.1)' }}>
             <h2 className="text-3xl md:text-4xl font-black tracking-[-0.03em] text-white mb-4">
-              The Most Natural Free AI Platform
+              The Warmest Free AI Platform
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-              Xylos AI grows with you. Our organic routing system nurtures your queries through 
-              models like Llama 3.3, Gemini 2.5, and Mistral Large — always free, always flourishing.
+              Xylos AI brings the warmth of human-like interaction to artificial intelligence. 
+              Our golden routing system illuminates your path through models like Llama 3.3, Gemini 2.5, 
+              and Mistral Large — always free, always radiant.
             </p>
           </div>
         </div>
@@ -285,7 +287,7 @@ export default async function LandingPage() {
       <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-[10px] font-bold text-emerald-400 uppercase tracking-[0.4em] mb-4">FAQ</p>
+            <p className="text-[10px] font-bold text-orange-400 uppercase tracking-[0.4em] mb-4">FAQ</p>
             <h2 className="text-4xl font-black tracking-[-0.03em] text-white">Frequently Asked Questions</h2>
           </div>
           
@@ -294,7 +296,7 @@ export default async function LandingPage() {
               { q: 'Is Xylos AI completely free?', a: 'Yes, we aggregate open-source models like Llama 3, Gemini, and Mistral to provide premium AI at zero cost. No subscriptions, no hidden fees.' },
               { q: 'What models are available?', a: 'We support 7+ models including Llama 3.3, Gemini 2.5 Flash, Mistral Large, Command R+, and DeepSeek V3. Our smart router picks the best one for your task.' },
             ].map((item, i) => (
-              <div key={i} className="group p-6 rounded-2xl hover:bg-white/[0.02] transition-all duration-300" style={{ border: '1px solid rgba(16,185,129,0.08)' }}>
+              <div key={i} className="group p-6 rounded-2xl hover:bg-white/[0.02] transition-all duration-300" style={{ border: '1px solid rgba(249,115,22,0.08)' }}>
                 <h3 className="text-lg font-bold text-white mb-3">{item.q}</h3>
                 <p className="text-gray-400 leading-relaxed">{item.a}</p>
               </div>
@@ -306,26 +308,26 @@ export default async function LandingPage() {
       {/* ===== SECTION 6: CTA ===== */}
       <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20">
         <div className="max-w-5xl mx-auto">
-          <div className="relative rounded-3xl overflow-hidden p-12 md:p-16 text-center" style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.12), rgba(34,197,94,0.12))', border: '1px solid rgba(16,185,129,0.2)' }}>
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/10 to-green-600/10" />
+          <div className="relative rounded-3xl overflow-hidden p-12 md:p-16 text-center" style={{ background: 'linear-gradient(135deg, rgba(249,115,22,0.12), rgba(236,72,153,0.12), rgba(244,63,94,0.08))', border: '1px solid rgba(249,115,22,0.2)' }}>
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-600/10 via-pink-600/10 to-rose-600/5" />
             <div className="relative z-10 space-y-6">
               <h2 className="text-4xl md:text-5xl font-black tracking-[-0.03em] text-white">
-                Plant Your Seed
+                Welcome the Dawn
               </h2>
               <p className="text-gray-400 text-lg max-w-xl mx-auto">
-                Watch your ideas flourish with Xylos AI. Start growing today.
+                Let your ideas shine bright with Xylos AI. Start your golden hour today.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/chat"
-                  className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-600 to-green-600 text-white font-bold uppercase tracking-wider rounded-2xl hover:from-emerald-500 hover:to-green-500 hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300"
+                  className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-500 via-pink-500 to-rose-500 text-white font-bold uppercase tracking-wider rounded-2xl hover:from-orange-400 hover:via-pink-400 hover:to-rose-400 hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300"
                 >
                   Get Started
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link
                   href="/about"
-                  className="group inline-flex items-center gap-3 px-8 py-4 border border-emerald-500/30 text-gray-300 font-bold uppercase tracking-wider rounded-2xl hover:bg-emerald-500/10 transition-all duration-300"
+                  className="group inline-flex items-center gap-3 px-8 py-4 border border-orange-500/30 text-gray-300 font-bold uppercase tracking-wider rounded-2xl hover:bg-orange-500/10 transition-all duration-300"
                 >
                   Learn More
                 </Link>
@@ -350,16 +352,16 @@ export default async function LandingPage() {
             <div className="space-y-4">
               <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em]">Platform</h4>
               <div className="flex flex-col gap-2 text-sm text-gray-500">
-                <Link href="/blog" className="hover:text-emerald-400 transition-colors">Blog</Link>
-                <Link href="/about" className="hover:text-emerald-400 transition-colors">About</Link>
-                <Link href="/privacy" className="hover:text-emerald-400 transition-colors">Privacy</Link>
+                <Link href="/blog" className="hover:text-orange-400 transition-colors">Blog</Link>
+                <Link href="/about" className="hover:text-orange-400 transition-colors">About</Link>
+                <Link href="/privacy" className="hover:text-orange-400 transition-colors">Privacy</Link>
               </div>
             </div>
             <div className="space-y-4">
               <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em]">Connect</h4>
               <div className="flex flex-col gap-2 text-sm text-gray-500">
-                <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">GitHub</a>
-                <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">LinkedIn</a>
+                <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">GitHub</a>
+                <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">LinkedIn</a>
               </div>
             </div>
           </div>
