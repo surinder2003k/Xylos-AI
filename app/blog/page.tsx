@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { createClient } from "@/utils/supabase/server";
-import { Search, Filter, BookOpen, ArrowRight, Terminal } from "lucide-react";
+import { Search, Filter, BookOpen, ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { BlogGrid } from "@/components/landing/blog-grid";
 import { BlogFilters } from "@/components/landing/blog-filters";
@@ -70,28 +70,28 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
   const totalPages = count ? Math.ceil(count / limit) : 1;
 
   return (
-    <div className="min-h-screen bg-[#0a0e14] text-[#00ff41] selection:bg-[#00ff41]/20 font-mono">
+    <div className="min-h-screen bg-white text-gray-900 selection:bg-blue-100">
 
       <main className="pt-32 md:pt-40 pb-24 px-6 relative">
         <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
           {/* Hero */}
           <div className="text-center space-y-6 max-w-4xl mx-auto">
              <div className="flex justify-center">
-                <div className="px-5 py-2 bg-[#00ff41]/10 border border-[#00ff41]/20 text-[#00ff41] text-[10px] font-bold uppercase tracking-[0.4em] flex items-center gap-2">
-                   <BookOpen className="w-3 h-3" /> the_perspective
+                <div className="px-5 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-500 text-[10px] font-bold uppercase tracking-[0.4em] flex items-center gap-2">
+                   <BookOpen className="w-3 h-3" /> The Perspective
                 </div>
              </div>
-             <h1 className="text-5xl md:text-8xl font-black tracking-tight leading-[0.85] text-[#00ff41]">
+             <h1 className="text-5xl md:text-8xl font-black tracking-tight leading-[0.85] text-gray-900">
                Editorial <br />
-               <span className="text-[#00d4ff]">Archives</span>
+               <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">Archives</span>
              </h1>
-             <p className="text-[#00ff41]/25 text-lg font-medium pt-4 max-w-2xl mx-auto leading-relaxed">
+             <p className="text-gray-400 text-lg font-medium pt-4 max-w-2xl mx-auto leading-relaxed">
                Deep dives into the intersection of artificial intelligence, high-stakes reporting, and the human narrative.
              </p>
           </div>
 
           {/* Filters */}
-          <div className="border-y border-[#00ff41]/[0.06] py-8">
+          <div className="border-y border-gray-100 py-8">
             <Suspense fallback={<div className="h-20" />}>
               <BlogFilters />
             </Suspense>
@@ -102,27 +102,27 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
 
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="flex justify-center items-center gap-8 pt-12 border-t border-[#00ff41]/[0.06] mt-20">
+            <div className="flex justify-center items-center gap-8 pt-12 border-t border-gray-100 mt-20">
               {page > 1 ? (
-                 <Link href={`/blog?page=${page - 1}${category !== 'all' ? `&category=${category}` : ''}${query ? `&q=${query}` : ''}`} className="px-8 py-4 bg-[#00ff41]/[0.03] border border-[#00ff41]/[0.06] text-[#00ff41] font-bold text-[10px] uppercase tracking-[0.3em] hover:bg-[#00ff41] hover:text-black hover:border-[#00ff41] transition-all duration-300">
+                 <Link href={`/blog?page=${page - 1}${category !== 'all' ? `&category=${category}` : ''}${query ? `&q=${query}` : ''}`} className="px-8 py-4 rounded-xl bg-white border border-gray-200 text-gray-600 font-bold text-[10px] uppercase tracking-[0.3em] hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all duration-300 shadow-sm">
                    Previous
                  </Link>
               ) : (
-                 <div className="px-8 py-4 bg-[#00ff41]/[0.02] border border-[#00ff41]/[0.04] text-[#00ff41]/15 font-bold text-[10px] uppercase tracking-[0.3em] cursor-not-allowed">
+                 <div className="px-8 py-4 rounded-xl bg-gray-50 border border-gray-100 text-gray-300 font-bold text-[10px] uppercase tracking-[0.3em] cursor-not-allowed">
                    Previous
                  </div>
               )}
               
-              <div className="text-[10px] font-bold text-[#00ff41]/25 uppercase tracking-[0.5em]">
+              <div className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.5em]">
                 {page} / {totalPages}
               </div>
 
               {page < totalPages ? (
-                  <Link href={`/blog?page=${page + 1}${category !== 'all' ? `&category=${category}` : ''}${query ? `&q=${query}` : ''}`} className="px-8 py-4 bg-[#00ff41]/[0.03] border border-[#00ff41]/[0.06] text-[#00ff41] font-bold text-[10px] uppercase tracking-[0.3em] hover:bg-[#00ff41] hover:text-black hover:border-[#00ff41] transition-all duration-300">
+                  <Link href={`/blog?page=${page + 1}${category !== 'all' ? `&category=${category}` : ''}${query ? `&q=${query}` : ''}`} className="px-8 py-4 rounded-xl bg-white border border-gray-200 text-gray-600 font-bold text-[10px] uppercase tracking-[0.3em] hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all duration-300 shadow-sm">
                    Next
                   </Link>
               ) : (
-                 <div className="px-8 py-4 bg-[#00ff41]/[0.02] border border-[#00ff41]/[0.04] text-[#00ff41]/15 font-bold text-[10px] uppercase tracking-[0.3em] cursor-not-allowed">
+                 <div className="px-8 py-4 rounded-xl bg-gray-50 border border-gray-100 text-gray-300 font-bold text-[10px] uppercase tracking-[0.3em] cursor-not-allowed">
                    Next
                  </div>
               )}
@@ -132,14 +132,14 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-[#00ff41]/[0.06] py-24 px-8 text-center">
+      <footer className="border-t border-gray-100 py-24 px-8 text-center bg-gray-50/30">
          <div className="max-w-2xl mx-auto space-y-8">
             <XylosLogo className="w-12 h-12 mx-auto opacity-15" />
-            <p className="text-[10px] font-bold text-[#00ff41]/20 uppercase tracking-[0.6em]">// xylos editorial core</p>
+            <p className="text-[10px] font-bold text-gray-300 uppercase tracking-[0.6em]">Xylos Editorial Core // Human-Guided AI</p>
             <div className="flex justify-center gap-10 text-[9px] font-bold uppercase tracking-widest">
-               <Link href="/privacy" className="text-[#00ff41]/15 hover:text-[#00ff41] transition-colors">privacy</Link>
-               <Link href="/about" className="text-[#00ff41]/15 hover:text-[#00ff41] transition-colors">about</Link>
-               <Link href="/blog" className="text-[#00ff41]/15 hover:text-[#00ff41] transition-colors">archive</Link>
+               <Link href="/privacy" className="text-gray-300 hover:text-blue-500 transition-colors">Privacy Policy</Link>
+               <Link href="/about" className="text-gray-300 hover:text-blue-500 transition-colors">About Xylos</Link>
+               <Link href="/blog" className="text-gray-300 hover:text-blue-500 transition-colors">Archive</Link>
             </div>
          </div>
       </footer>

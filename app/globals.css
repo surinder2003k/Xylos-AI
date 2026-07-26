@@ -8,44 +8,44 @@ html {
 
 @layer base {
   :root {
-    --background: 220 20% 5%;               /* Near-black #0a0e14 */
-    --sidebar: 220 20% 5%;
-    --foreground: 120 20% 75%;              /* Soft green text */
-    --primary: 130 100% 50%;               /* Matrix green #00ff41 */
-    --primary-foreground: 220 20% 5%;       /* Dark text on primary */
-    --card: 220 18% 8%;                     /* Card surface */
-    --card-foreground: 120 20% 75%;
-    --popover: 220 18% 8%;
-    --popover-foreground: 120 20% 75%;
-    --secondary: 192 100% 50%;             /* Cyan #00d4ff */
-    --secondary-foreground: 220 20% 5%;
-    --muted: 220 18% 10%;                  /* Muted surface */
-    --muted-foreground: 220 15% 45%;        /* Muted text */
-    --accent: 130 100% 50%;
-    --accent-foreground: 220 20% 5%;
-    --destructive: 0 72% 61%;              /* Terminal red */
+    --background: 0 0% 100%;                /* Pure white */
+    --sidebar: 0 0% 100%;
+    --foreground: 222 47% 11%;              /* Dark navy text */
+    --primary: 221 83% 53%;                /* Clean blue #3b82f6 */
+    --primary-foreground: 0 0% 100%;        /* White on primary */
+    --card: 0 0% 100%;                      /* White card */
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --secondary: 220 14% 96%;              /* Light gray */
+    --secondary-foreground: 222 47% 11%;
+    --muted: 220 14% 96%;                  /* Muted surface */
+    --muted-foreground: 220 9% 46%;         /* Muted text */
+    --accent: 221 83% 53%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 15% 14%;                 /* Terminal border */
-    --input: 220 18% 10%;
-    --ring: 130 100% 50%;
-    --radius: 6px;                         /* Sharp terminal corners */
+    --border: 220 13% 91%;                 /* Light border */
+    --input: 220 13% 91%;
+    --ring: 221 83% 53%;
+    --radius: 12px;                        /* Rounded corners */
     
-    /* Terminal palette */
-    --primary-container: 130 100% 40%;
-    --secondary-container: 192 100% 40%;
-    --tertiary: 130 80% 40%;
-    --tertiary-container: 130 80% 30%;
-    --surface-dim: 220 20% 5%;
-    --surface-bright: 220 18% 12%;
-    --surface-container-lowest: 220 20% 3%;
-    --surface-container-low: 220 20% 6%;
-    --surface-container: 220 18% 8%;
-    --surface-container-high: 220 15% 11%;
-    --surface-container-highest: 220 15% 14%;
+    /* Extended palette */
+    --primary-container: 221 83% 95%;
+    --secondary-container: 220 14% 93%;
+    --tertiary: 160 84% 39%;
+    --tertiary-container: 160 84% 93%;
+    --surface-dim: 220 14% 96%;
+    --surface-bright: 0 0% 100%;
+    --surface-container-lowest: 0 0% 100%;
+    --surface-container-low: 220 14% 98%;
+    --surface-container: 220 14% 96%;
+    --surface-container-high: 220 13% 93%;
+    --surface-container-highest: 220 13% 91%;
 
     /* Font Variables */
-    --font-fustat: 'JetBrains Mono', 'Fira Code', monospace;
-    --font-inter: 'JetBrains Mono', monospace;
+    --font-fustat: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
   * {
@@ -66,13 +66,13 @@ html {
 
 @layer components {
   .glass-navbar {
-    @apply backdrop-blur-xl bg-surface/80 border border-white/[0.06] rounded-none;
-    box-shadow: 0 1px 0 0 rgba(0,255,65,0.08), 0 4px 24px rgba(0,0,0,0.6);
+    @apply backdrop-blur-xl bg-white/80 border border-gray-200/60 rounded-2xl;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 24px rgba(0,0,0,0.03);
   }
 
   .glass-card {
-    @apply backdrop-blur-xl bg-white/[0.02] border border-[#00ff41]/10 rounded-none;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+    @apply backdrop-blur-xl bg-white border border-gray-200/60 rounded-2xl;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
 
   .glass-card-hover {
@@ -80,35 +80,36 @@ html {
   }
 
   .glass-card-hover:hover {
-    @apply border-[#00ff41]/30 bg-white/[0.04];
-    box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 20px rgba(0,255,65,0.05);
+    @apply border-gray-300 bg-white;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    transform: translateY(-1px);
   }
 
   .bento-card {
-    @apply relative overflow-hidden bg-white/[0.02] border border-[#00ff41]/10 rounded-none p-8 transition-all duration-300;
+    @apply relative overflow-hidden bg-white border border-gray-200/60 rounded-2xl p-8 transition-all duration-300;
   }
 
   .bento-card:hover {
-    @apply border-[#00ff41]/30 bg-white/[0.04];
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(0,255,65,0.04);
+    @apply border-gray-300 bg-white;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.06);
   }
 
   .glass-cta {
-    @apply bg-[#00ff41] text-black font-bold rounded-none transition-all duration-300;
-    box-shadow: 0 0 20px rgba(0,255,65,0.3);
+    @apply bg-blue-500 rounded-2xl text-white font-semibold transition-all duration-300;
+    box-shadow: 0 1px 3px rgba(59,130,246,0.3), 0 4px 16px rgba(59,130,246,0.2);
   }
 
   .glass-cta:hover {
-    @apply scale-[1.02] opacity-90;
-    box-shadow: 0 0 40px rgba(0,255,65,0.5);
+    @apply bg-blue-600 scale-[1.02];
+    box-shadow: 0 4px 20px rgba(59,130,246,0.4);
   }
 
   .glass-outline {
-    @apply bg-transparent border border-[#00ff41]/30 rounded-none text-[#00ff41]/70 font-medium transition-all duration-300;
+    @apply bg-transparent border border-gray-200 rounded-2xl text-gray-600 font-medium transition-all duration-300;
   }
 
   .glass-outline:hover {
-    @apply border-[#00ff41]/50 bg-[#00ff41]/5;
+    @apply border-gray-300 bg-gray-50;
   }
 
   .orb-video-filter {
@@ -118,59 +119,8 @@ html {
   
   .hero-glow {
     @apply absolute pointer-events-none;
-    background: radial-gradient(circle, rgba(0,255,65,0.08) 0%, rgba(0,255,65,0) 70%);
+    background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, rgba(59,130,246,0) 70%);
   }
-}
-
-/* Terminal scanline overlay */
-.terminal-scanline::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0,255,65,0.015) 2px,
-    rgba(0,255,65,0.015) 4px
-  );
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Blinking cursor */
-@keyframes blink-cursor {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
-}
-
-.cursor-blink {
-  animation: blink-cursor 1s step-end infinite;
-}
-
-/* Terminal typing effect */
-@keyframes terminal-type {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-.animate-terminal-type {
-  animation: terminal-type 2s steps(40) forwards;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-/* Terminal window chrome */
-.terminal-chrome {
-  @apply bg-[#111620] border border-[#00ff41]/10 rounded-none;
-}
-
-.terminal-title-bar {
-  @apply flex items-center gap-2 px-4 py-2 bg-[#0a0e14] border-b border-[#00ff41]/10;
-}
-
-.terminal-dot {
-  @apply w-2.5 h-2.5 rounded-full;
 }
 
 /* Claude-style centered chat container */
@@ -182,20 +132,20 @@ html {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-[#00ff41]/20 rounded-none;
+  @apply bg-gray-300 rounded-full;
 }
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-[#00ff41]/40;
+  @apply bg-gray-400;
 }
 
 ::selection {
-  background: rgba(0,255,65,0.2);
+  background: rgba(59,130,246,0.15);
   color: inherit;
 }
 
@@ -232,9 +182,8 @@ html {
 
 .cyber-grid-pattern {
   background-image: 
-    linear-gradient(rgba(0,255,65,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,255,65,0.03) 1px, transparent 1px);
-  background-size: 20px 20px;
+    radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 .cyber-scanline {
@@ -247,23 +196,23 @@ html {
 }
 
 .cyber-header-glow {
-  background: linear-gradient(135deg, #00ff41 0%, #00d4ff 100%);
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: none;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #00ff41 0%, #00d4ff 50%, #00ff41 100%);
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .aurora-bg {
   background: 
-    radial-gradient(ellipse at 20% 50%, rgba(0, 255, 65, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(0, 212, 255, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(0, 255, 65, 0.03) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 50%, rgba(59, 130, 246, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(236, 72, 153, 0.02) 0%, transparent 50%);
 }
 
 /* Bento Grid Animations */
@@ -282,7 +231,7 @@ html {
 }
 
 .animate-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(0,255,65,0.03), transparent);
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.02), transparent);
   background-size: 200% 100%;
   animation: shimmer 3s ease-in-out infinite;
 }

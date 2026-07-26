@@ -109,7 +109,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0e14] text-[#00ff41] selection:bg-[#00ff41]/20 font-mono">
+    <div className="min-h-screen bg-white text-gray-900 selection:bg-blue-100">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -161,47 +161,47 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <main className="pt-40 pb-24 px-6 relative">
         <article className="max-w-4xl mx-auto">
           {/* Breadcrumb */}
-          <div className="flex items-center justify-between mb-12 pb-6 border-b border-[#00ff41]/[0.06]">
-            <div className="flex items-center gap-2 md:gap-4 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-[#00ff41]/25">
-              <Link href="/" className="hover:text-[#00ff41] transition-colors">home</Link>
+          <div className="flex items-center justify-between mb-12 pb-6 border-b border-gray-100">
+            <div className="flex items-center gap-2 md:gap-4 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-gray-400">
+              <Link href="/" className="hover:text-blue-500 transition-colors">Home</Link>
               <ChevronRight aria-hidden="true" className="w-3 h-3 opacity-30" />
-              <Link href="/blog" className="hover:text-[#00ff41] transition-colors">archive</Link>
+              <Link href="/blog" className="hover:text-blue-500 transition-colors">Archive</Link>
               <ChevronRight aria-hidden="true" className="w-3 h-3 opacity-30" />
-              <span className="text-[#00d4ff]">{post.category?.toLowerCase()}</span>
+              <span className="text-blue-500">{post.category}</span>
             </div>
             <ShareButtons title={post.title} excerpt={post.excerpt} slug={post.slug} />
           </div>
 
           {/* Editorial Header */}
           <div className="space-y-8 mb-16">
-            <div className="inline-flex items-center gap-3 px-5 py-2 bg-[#00ff41]/10 border border-[#00ff41]/20 text-[#00ff41] text-[10px] font-bold uppercase tracking-[0.2em]">
-               {post.category?.toLowerCase()}_report
+            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-500 text-[10px] font-bold uppercase tracking-[0.2em]">
+               {post.category} Report
             </div>
             
             <h1 className="text-3xl md:text-7xl font-black tracking-tighter leading-[1.1] md:leading-none break-words">
                <AnimeText text={post.title} />
             </h1>
 
-            <div className="flex flex-col md:flex-row md:items-center gap-6 text-[11px] font-bold text-[#00ff41]/25 uppercase tracking-widest border-y border-[#00ff41]/[0.06] py-6">
+            <div className="flex flex-col md:flex-row md:items-center gap-6 text-[11px] font-bold text-gray-400 uppercase tracking-widest border-y border-gray-100 py-6">
                <div className="flex items-center gap-3">
-                 <div className="w-8 h-8 bg-[#00ff41]/[0.03] flex items-center justify-center overflow-hidden border border-[#00ff41]/[0.06]">
+                 <div className="w-8 h-8 rounded-xl bg-gray-100 flex items-center justify-center overflow-hidden">
                     {post.author?.avatar_url ? (
                       <img src={post.author.avatar_url} alt={post.author.full_name} title={post.author.full_name} className="w-full h-full object-cover" />
                     ) : (
-                      <User className="w-4 h-4 text-[#00ff41]/15" />
+                      <User className="w-4 h-4 text-gray-300" />
                     )}
                  </div>
-                 <span>by {post.author?.full_name || 'xylos_editorial_team'}</span>
+                 <span>By {post.author?.full_name || 'Xylos Editorial Team'}</span>
                </div>
-               <div className="hidden md:block w-1 h-1 bg-[#00ff41]/10" />
-               <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-[#00d4ff]" /> published {formatIST(post.published_at || post.created_at)}</div>
-               <div className="hidden md:block w-1 h-1 bg-[#00ff41]/10" />
-               <div className="flex items-center gap-2"><MessageSquare className="w-4 h-4 text-[#00ff41]/15" /> editorial_review_verified</div>
+               <div className="hidden md:block w-1 h-1 rounded-full bg-gray-200" />
+               <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-blue-500" /> Published {formatIST(post.published_at || post.created_at)}</div>
+               <div className="hidden md:block w-1 h-1 rounded-full bg-gray-200" />
+               <div className="flex items-center gap-2"><MessageSquare className="w-4 h-4 text-gray-300" /> Editorial Review Verified</div>
             </div>
           </div>
 
           {/* Feature Image */}
-          <div className="w-full aspect-[4/3] md:aspect-[21/9] overflow-hidden border border-[#00ff41]/[0.06] mb-12 md:mb-16 relative group bg-[#00ff41]/[0.03]">
+          <div className="w-full aspect-[4/3] md:aspect-[21/9] rounded-2xl overflow-hidden border border-gray-200 mb-12 md:mb-16 relative group bg-gray-100 shadow-sm">
              <Image 
                src={post.feature_image_url} 
                alt={post.alt_text || post.title} 
@@ -215,15 +215,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           {/* Content */}
           <div className="relative">
-            <div className="prose dark:prose-invert max-w-none 
-              [&_*]:text-[#00ff41]/75 
-              prose-headings:text-[#00ff41] prose-headings:font-black prose-headings:tracking-tight
-              prose-a:text-[#00d4ff] prose-strong:text-[#00ff41]
-              prose-blockquote:border-l-[#00ff41]/40 prose-img:border prose-img:border-[#00ff41]/[0.06]
-              prose-code:text-[#00d4ff] px-0 selection:bg-[#00ff41]/20 break-words overflow-hidden">
+            <div className="prose prose-lg dark:prose-invert max-w-none 
+              [&_*]:text-gray-600 
+              prose-headings:text-gray-900 prose-headings:font-black prose-headings:tracking-tight
+              prose-a:text-blue-500 prose-strong:text-gray-900
+              prose-blockquote:border-l-blue-200 prose-img:rounded-2xl prose-img:border prose-img:border-gray-100
+              prose-code:text-purple-500 px-0 selection:bg-blue-100 break-words overflow-hidden">
                 {post.content && post.content.startsWith('<') ? (
                   <div 
-                    className="space-y-6 text-[#00ff41]/75" 
+                    className="space-y-6 text-gray-600" 
                     dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content) }} 
                   />
                 ) : (
@@ -234,13 +234,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           {/* Professional Callouts */}
           <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-8 bg-[#00ff41]/[0.02] border border-[#00ff41]/[0.06] hover:border-[#00ff41]/20 transition-colors">
-              <h4 className="text-xs font-bold uppercase tracking-widest text-[#00d4ff] mb-3">// key_insight</h4>
-              <p className="text-xs text-[#00ff41]/40 leading-relaxed">&quot;The intersection of algorithmic accuracy and journalistic integrity defines the next era of news.&quot;</p>
+            <div className="p-8 rounded-2xl bg-gray-50 border border-gray-200 hover:border-blue-200 transition-colors">
+              <h4 className="text-xs font-bold uppercase tracking-widest text-blue-500 mb-3">Key Insight</h4>
+              <p className="text-sm text-gray-500 leading-relaxed">&quot;The intersection of algorithmic accuracy and journalistic integrity defines the next era of news.&quot;</p>
             </div>
-            <div className="p-8 bg-[#00ff41]/[0.02] border border-[#00ff41]/[0.06] hover:border-[#00ff41]/20 transition-colors">
-              <h4 className="text-xs font-bold uppercase tracking-widest text-[#00d4ff] mb-3">// verification</h4>
-              <p className="text-xs text-[#00ff41]/40 leading-relaxed">This report has been cross-referenced with multiple neural nodes to ensure factual reliability.</p>
+            <div className="p-8 rounded-2xl bg-gray-50 border border-gray-200 hover:border-blue-200 transition-colors">
+              <h4 className="text-xs font-bold uppercase tracking-widest text-blue-500 mb-3">Verification</h4>
+              <p className="text-sm text-gray-500 leading-relaxed">This report has been cross-referenced with multiple neural nodes to ensure factual reliability.</p>
             </div>
           </div>
 
@@ -255,13 +255,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-[#00ff41]/[0.06] py-20 px-8 text-center">
+      <footer className="border-t border-gray-100 py-20 px-8 text-center bg-gray-50/30">
          <div className="max-w-md mx-auto space-y-6">
-            <p className="text-[10px] font-bold text-[#00ff41]/15 uppercase tracking-[0.5em]">// xylos ai protocol</p>
+            <p className="text-[10px] font-bold text-gray-300 uppercase tracking-[0.5em]">The Xylos AI Protocol // Human Intelligence Amplified</p>
             <div className="flex justify-center gap-8">
-               <Link href="/about" className="text-[9px] font-bold uppercase tracking-widest hover:text-[#00ff41] transition-colors text-[#00ff41]/20">standards</Link>
-               <Link href="/about" className="text-[9px] font-bold uppercase tracking-widest hover:text-[#00ff41] transition-colors text-[#00ff41]/20">ethics</Link>
-               <Link href="/blog" className="text-[9px] font-bold uppercase tracking-widest hover:text-[#00ff41] transition-colors text-[#00ff41]/20">archive</Link>
+               <Link href="/about" className="text-[9px] font-bold uppercase tracking-widest hover:text-blue-500 transition-colors text-gray-400">Standards</Link>
+               <Link href="/about" className="text-[9px] font-bold uppercase tracking-widest hover:text-blue-500 transition-colors text-gray-400">Ethics</Link>
+               <Link href="/blog" className="text-[9px] font-bold uppercase tracking-widest hover:text-blue-500 transition-colors text-gray-400">Archive</Link>
             </div>
          </div>
       </footer>

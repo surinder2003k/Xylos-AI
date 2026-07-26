@@ -13,24 +13,19 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
 
   return (
-    <div className="min-h-screen bg-[#0a0e14] text-[#00ff41] selection:bg-[#00ff41]/20 relative overflow-hidden font-mono">
-
-      {/* Background decoration */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#00ff41]/[0.02] rounded-full blur-[150px]" />
-      </div>
+    <div className="min-h-screen bg-white text-gray-900 selection:bg-blue-100 relative overflow-hidden">
 
       <main className="relative z-10 pt-32 px-6 pb-20 max-w-4xl mx-auto space-y-16">
         {/* Hero */}
         <header className="space-y-6 text-center">
-          <div className="inline-flex items-center gap-2 px-5 py-2 bg-[#00ff41]/10 border border-[#00ff41]/20 text-[#00ff41] text-[10px] font-bold uppercase tracking-[0.3em]">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-500 text-[10px] font-bold uppercase tracking-[0.3em]">
             <Shield className="w-3 h-3" />
-            data_governance v2.0
+            Data Governance v2.0
           </div>
-          <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-[#00ff41]">
-            Privacy & <span className="text-[#00d4ff]">Ethics</span>
+          <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-gray-900">
+            Privacy & <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">Ethics</span>
           </h1>
-          <p className="text-[#00ff41]/25 text-lg font-medium max-w-2xl mx-auto">
+          <p className="text-gray-400 text-lg font-medium max-w-2xl mx-auto">
             &quot;Trust is the currency of intelligence. Xylos AI is built on a foundation of zero-compromise data integrity.&quot;
           </p>
         </header>
@@ -41,49 +36,49 @@ export default function PrivacyPage() {
             icon={Lock} 
             title="Zero Retention" 
             content="We do not store your chat logs or generated content on our servers for training. Every session is ephemeral and remains your intellectual property."
-            color="green"
+            color="blue"
           />
           <InfoCard 
             icon={Eye} 
             title="Encryption" 
             content="End-to-end encryption for all data transmissions. Your interactions with elite models pass through secure, audited tunnels."
-            color="cyan"
+            color="purple"
           />
           <InfoCard 
             icon={Scale} 
             title="Ethical Models" 
             content="We only aggregate models that adhere to safety alignment and ethical AI development standards defined by the open-source community."
-            color="green"
+            color="blue"
           />
           <InfoCard 
             icon={FileCheck} 
             title="User Sovereignty" 
             content="You have full control over your data. Delete your profile or history with a single click — no hidden archives, no recovery lags."
-            color="cyan"
+            color="purple"
           />
         </section>
 
         {/* Privacy Details */}
-        <article className="space-y-12 text-[#00ff41]/25 leading-relaxed">
+        <article className="space-y-12 text-gray-400 leading-relaxed">
           <div className="space-y-4">
-            <h2 className="text-2xl font-black text-[#00ff41] uppercase tracking-tight flex items-center gap-3">
-              <Database className="w-5 h-5 text-[#00ff41]" />
+            <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tight flex items-center gap-3">
+              <Database className="w-5 h-5 text-blue-500" />
               1. Data Collection
             </h2>
             <p className="text-lg">Xylos AI collects minimal metadata required to provide the service. This includes account identifiers and usage logs necessary for system stability. We do NOT monetize user data or sell it to third-party advertisers.</p>
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-2xl font-black text-[#00ff41] uppercase tracking-tight flex items-center gap-3">
-              <Code className="w-5 h-5 text-[#00d4ff]" />
+            <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tight flex items-center gap-3">
+              <Code className="w-5 h-5 text-purple-500" />
               2. AI Training
             </h2>
             <p className="text-lg">Content synthesized using Xylos AI is NOT used to train the underlying models (Llama, Gemini, Mistral) by default. We leverage API-level privacy flags to ensure your corporate and personal secrets remain private.</p>
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-2xl font-black text-[#00ff41] uppercase tracking-tight flex items-center gap-3">
-              <Users className="w-5 h-5 text-[#00ff41]" />
+            <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tight flex items-center gap-3">
+              <Users className="w-5 h-5 text-blue-500" />
               3. Ethics Commitment
             </h2>
             <p className="text-lg">Our editorial engine is tuned to recognize and mitigate bias. While AI can still generate unexpected responses, our &apos;Aether Intelligence Layer&apos; acts as a secondary filter to maintain professional standards of communication.</p>
@@ -91,8 +86,8 @@ export default function PrivacyPage() {
         </article>
 
         {/* Footer */}
-        <footer className="text-center pt-10 border-t border-[#00ff41]/[0.06]">
-          <p className="text-[10px] font-bold text-[#00ff41]/15 uppercase tracking-[0.4em]">
+        <footer className="text-center pt-10 border-t border-gray-100">
+          <p className="text-[10px] font-bold text-gray-300 uppercase tracking-[0.4em]">
             Last Updated: April 17, 2026 // Xylos Legal Division
           </p>
         </footer>
@@ -103,21 +98,21 @@ export default function PrivacyPage() {
 
 function InfoCard({ icon: Icon, title, content, color }: any) {
   const colorMap: Record<string, string> = {
-    green: "bg-[#00ff41]/10 text-[#00ff41] group-hover:bg-[#00ff41]/20",
-    cyan: "bg-[#00d4ff]/10 text-[#00d4ff] group-hover:bg-[#00d4ff]/20",
+    blue: "bg-blue-50 text-blue-500 group-hover:bg-blue-100",
+    purple: "bg-purple-50 text-purple-500 group-hover:bg-purple-100",
   };
   const borderMap: Record<string, string> = {
-    green: "hover:border-[#00ff41]/20",
-    cyan: "hover:border-[#00d4ff]/20",
+    blue: "hover:border-blue-200",
+    purple: "hover:border-purple-200",
   };
 
   return (
-    <div className={`p-8 bg-[#00ff41]/[0.02] border border-[#00ff41]/[0.06] space-y-4 ${borderMap[color]} transition-all group`}>
-      <div className={`w-12 h-12 flex items-center justify-center transition-all ${colorMap[color]}`}>
+    <div className={`p-8 rounded-2xl bg-white border border-gray-200 space-y-4 ${borderMap[color]} transition-all group shadow-sm`}>
+      <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all ${colorMap[color]}`}>
         <Icon className="w-6 h-6" />
       </div>
-      <h3 className="text-xl font-black uppercase tracking-tight text-[#00ff41]">{title}</h3>
-      <p className="text-xs text-[#00ff41]/25 font-medium leading-relaxed">{content}</p>
+      <h3 className="text-xl font-black uppercase tracking-tight text-gray-900">{title}</h3>
+      <p className="text-sm text-gray-400 font-medium leading-relaxed">{content}</p>
     </div>
   );
 }

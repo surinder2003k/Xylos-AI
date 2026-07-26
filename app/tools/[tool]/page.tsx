@@ -14,8 +14,7 @@ import {
   PenTool,
   Briefcase,
   Layout,
-  BrainCircuit,
-  Terminal
+  BrainCircuit
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -140,53 +139,52 @@ export default async function ToolProxyPage({ params }: { params: Promise<{ tool
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0e14] pt-32 pb-24 px-6 overflow-hidden selection:bg-[#00ff41]/20 font-mono">
+    <div className="min-h-screen bg-white pt-32 pb-24 px-6 overflow-hidden selection:bg-blue-100">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center space-y-8 relative">
-        <div className="w-16 h-16 bg-[#00ff41]/10 flex items-center justify-center mb-4">
-          <tool.icon className="w-8 h-8 text-[#00ff41]" />
+        <div className="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center mb-4 border border-blue-100">
+          <tool.icon className="w-8 h-8 text-blue-500" />
         </div>
         
-        <p className="text-[10px] font-bold text-[#00ff41]/10 uppercase tracking-[0.5em]">// xylos ai protocol</p>
+        <p className="text-[10px] font-bold text-gray-300 uppercase tracking-[0.5em]">Xylos AI Protocol // Intelligence Engine</p>
         <AnimeText 
           text={tool.h1} 
-          className="text-4xl md:text-6xl font-black tracking-tighter uppercase leading-none max-w-4xl text-[#00ff41]"
+          className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-none max-w-4xl text-gray-900"
         />
         
-        <p className="text-lg text-[#00ff41]/25 max-w-2xl font-medium leading-relaxed">
+        <p className="text-xl text-gray-400 max-w-2xl font-medium leading-relaxed">
           {tool.description}
         </p>
 
         <Link 
           href="/chat"
-          className="mt-8 flex items-center gap-3 px-8 py-4 bg-[#00ff41] text-black font-bold hover:bg-[#00d4ff] hover:shadow-[0_0_30px_rgba(0,255,65,0.3)] transition-all group text-xs uppercase tracking-wider"
+          className="mt-8 flex items-center gap-3 px-8 py-4 rounded-2xl bg-blue-500 text-white font-bold hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/20 transition-all group"
         >
-          <Terminal className="w-4 h-4" />
           Get Started with {tool.title.split(' ')[0]}
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
 
       <div className="max-w-6xl mx-auto mt-32">
-        <h2 className="text-2xl font-black mb-12 text-center text-[#00ff41]">// engineered_for_dominance</h2>
+        <h2 className="text-3xl font-black mb-12 text-center text-gray-900">Engineered for Dominance</h2>
         <BentoGrid>
           {tool.benefits.map((benefit, idx) => (
              <BentoCard key={idx} delay={idx * 0.1} className="col-span-1 md:col-span-1 flex flex-col items-center text-center">
-                <div className="w-12 h-12 bg-[#00d4ff]/10 flex items-center justify-center mb-6 text-[#00d4ff]">
+                <div className="w-12 h-12 rounded-2xl bg-purple-50 flex items-center justify-center mb-6 text-purple-500 border border-purple-100">
                    <Zap className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-[#00ff41]">{benefit}</h3>
+                <h3 className="text-lg font-bold text-gray-900">{benefit}</h3>
              </BentoCard>
           ))}
-          <BentoCard delay={0.3} className="col-span-1 md:col-span-3 lg:col-span-1 bg-gradient-to-br from-[#00ff41]/[0.06] to-transparent">
+          <BentoCard delay={0.3} className="col-span-1 md:col-span-3 lg:col-span-1 bg-gradient-to-br from-blue-50 to-purple-50 border-blue-100">
              <div className="flex flex-col h-full justify-between">
-                <Shield className="w-10 h-10 text-[#00ff41] mb-4" />
-                <h3 className="text-2xl font-bold mb-2 text-[#00ff41]">Enterprise Grade Security</h3>
-                <p className="text-xs text-[#00ff41]/25 font-medium">This tool is powered by Xylos AI&apos;s Neural Intelligence Layer — enterprise-grade, privacy-first.</p>
+                <Shield className="w-10 h-10 text-blue-500 mb-4" />
+                <h3 className="text-2xl font-bold mb-2 text-gray-900">Enterprise Grade Security</h3>
+                <p className="text-sm text-gray-400 font-medium">This tool is powered by Xylos AI&apos;s Neural Intelligence Layer — enterprise-grade, privacy-first.</p>
              </div>
           </BentoCard>
         </BentoGrid>

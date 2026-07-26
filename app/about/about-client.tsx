@@ -13,8 +13,7 @@ import {
   ArrowRight,
   MessageSquare,
   Code2,
-  FileText,
-  Terminal
+  FileText
 } from "lucide-react";
 import { NewsletterForm } from "@/components/landing/newsletter-form";
 
@@ -23,7 +22,7 @@ import { NewsletterForm } from "@/components/landing/newsletter-form";
 export default function AboutPageClient() {
 
   return (
-    <div className="min-h-screen bg-[#0a0e14] text-[#00ff41] selection:bg-[#00ff41]/20 relative overflow-hidden font-mono">
+    <div className="min-h-screen bg-white text-gray-900 selection:bg-blue-100 relative overflow-hidden">
 
       <main className="relative z-10 pt-32 px-6 pb-20 max-w-7xl mx-auto">
         {/* Hero Section */}
@@ -31,18 +30,18 @@ export default function AboutPageClient() {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-5 py-2 bg-[#00ff41]/10 border border-[#00ff41]/20 text-[#00ff41] text-[10px] font-bold uppercase tracking-[0.3em]"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-500 text-[10px] font-bold uppercase tracking-[0.3em]"
           >
             <Sparkles className="w-3 h-3" />
             Neural Genesis
           </motion.div>
           
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-7xl font-black tracking-tighter leading-tight text-[#00ff41]">
+            <h1 className="text-5xl md:text-8xl font-black tracking-tighter leading-tight text-gray-900">
               XYLOS AI: NEURAL SYNTHESIS<br />
-              <span className="text-[#00d4ff]">AND HUMAN INTELLIGENCE</span>
+              <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">AND HUMAN INTELLIGENCE</span>
             </h1>
-            <p className="text-[#00ff41]/25 text-lg md:text-xl font-medium max-w-3xl mx-auto leading-relaxed">
+            <p className="text-gray-400 text-lg md:text-xl font-medium max-w-3xl mx-auto leading-relaxed">
               Xylos AI is more than just a platform — it&apos;s a decentralized editorial engine designed to augment human creativity with industrial-grade artificial intelligence.
             </p>
           </div>
@@ -57,12 +56,12 @@ export default function AboutPageClient() {
             className="space-y-8"
           >
             <div className="space-y-4">
-              <h2 className="text-2xl font-black uppercase tracking-tight flex items-center gap-4 text-[#00ff41]">
-                <Cpu aria-hidden="true" className="w-6 h-6 text-[#00ff41]" />
+              <h2 className="text-3xl font-black uppercase tracking-tight flex items-center gap-4 text-gray-900">
+                <Cpu aria-hidden="true" className="w-8 h-8 text-blue-500" />
                 The Protocol
               </h2>
-              <p className="text-[#00ff41]/25 leading-loose text-lg">
-                At the core of Xylos AI lies the <span className="text-[#00ff41] font-bold">Aether Intelligence Layer</span>. This proprietary stack aggregates multi-model responses from Gemini, Llama, and Mistral, refining them through a specialized editorial filter to produce content that feels organic, authoritative, and precise.
+              <p className="text-gray-400 leading-loose text-lg">
+                At the core of Xylos AI lies the <span className="text-gray-900 font-bold">Aether Intelligence Layer</span>. This proprietary stack aggregates multi-model responses from Gemini, Llama, and Mistral, refining them through a specialized editorial filter to produce content that feels organic, authoritative, and precise.
               </p>
             </div>
             
@@ -86,16 +85,16 @@ export default function AboutPageClient() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-video bg-[#00ff41]/[0.02] border border-[#00ff41]/[0.06] p-1 overflow-hidden shadow-md group">
-               <div className="w-full h-full overflow-hidden relative">
+            <div className="aspect-video rounded-3xl bg-gray-100 border border-gray-200 p-1 overflow-hidden shadow-sm group">
+               <div className="w-full h-full rounded-2xl overflow-hidden relative">
                   <img 
                     src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80" 
                     alt="Neural Network Visualization showing AI interconnected nodes" 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e14] via-[#0a0e14]/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                   <div className="absolute inset-0 flex items-center justify-center p-12 text-center">
-                    <p className="text-xl font-black uppercase tracking-widest text-[#00ff41] leading-relaxed">
+                    <p className="text-2xl font-black uppercase tracking-widest text-white leading-relaxed">
                       &quot;Bridging the gap between binary logic and human emotion.&quot;
                     </p>
                   </div>
@@ -103,14 +102,14 @@ export default function AboutPageClient() {
             </div>
             
             {/* Float Badge */}
-            <div className="absolute -bottom-6 -left-6 bg-[#0a0e14] backdrop-blur-xl border border-[#00ff41]/[0.06] p-6 shadow-lg">
+            <div className="absolute -bottom-6 -left-6 bg-white border border-gray-200 p-6 rounded-2xl shadow-lg">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-[#00ff41]/10 flex items-center justify-center text-[#00ff41]">
+                <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-500">
                   <Brain className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#00ff41]/25">active_nodes</p>
-                  <p className="text-2xl font-black text-[#00ff41]">4,821</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Active nodes</p>
+                  <p className="text-2xl font-black text-gray-900">4,821</p>
                 </div>
               </div>
             </div>
@@ -123,20 +122,19 @@ export default function AboutPageClient() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="md:col-span-2 bg-[#00ff41]/[0.02] border border-[#00ff41]/[0.06] p-10 relative overflow-hidden"
+            className="md:col-span-2 bg-white border border-gray-200 p-10 rounded-2xl relative overflow-hidden shadow-sm"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#00ff41]/[0.03] via-transparent to-transparent" />
             <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-6">
-              <div className="w-16 h-16 bg-[#00ff41]/10 flex items-center justify-center shrink-0">
-                <MessageSquare className="w-8 h-8 text-[#00ff41]" />
+              <div className="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0">
+                <MessageSquare className="w-8 h-8 text-blue-500" />
               </div>
               <div className="flex-1">
-                <h3 className="text-2xl font-black text-[#00ff41] mb-2">Unified AI Chat</h3>
-                <p className="text-[#00ff41]/25 text-lg leading-relaxed">Access 7+ models including Gemini, Claude, Llama, and Mistral in a single interface.</p>
+                <h3 className="text-2xl font-black text-gray-900 mb-2">Unified AI Chat</h3>
+                <p className="text-gray-400 text-lg leading-relaxed">Access 7+ models including Gemini, Claude, Llama, and Mistral in a single interface.</p>
               </div>
               <div className="text-right hidden md:block">
-                <p className="text-5xl font-black text-[#00ff41]">7+</p>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-[#00ff41]/25">models</p>
+                <p className="text-5xl font-black text-gray-900">7+</p>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Models</p>
               </div>
             </div>
           </motion.div>
@@ -145,15 +143,14 @@ export default function AboutPageClient() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-[#00ff41]/[0.02] border border-[#00ff41]/[0.06] p-10 relative overflow-hidden"
+            className="bg-white border border-gray-200 p-10 rounded-2xl relative overflow-hidden shadow-sm"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/[0.03] via-transparent to-transparent" />
             <div className="relative z-10 space-y-4">
-              <div className="w-16 h-16 bg-[#00d4ff]/10 flex items-center justify-center">
-                <Code2 className="w-8 h-8 text-[#00d4ff]" />
+              <div className="w-16 h-16 rounded-2xl bg-purple-50 flex items-center justify-center">
+                <Code2 className="w-8 h-8 text-purple-500" />
               </div>
-              <h3 className="text-xl font-black text-[#00ff41]">Code Assistant</h3>
-              <p className="text-[#00ff41]/25 leading-relaxed">Full-stack development tools powered by AI.</p>
+              <h3 className="text-xl font-black text-gray-900">Code Assistant</h3>
+              <p className="text-gray-400 leading-relaxed">Full-stack development tools powered by AI.</p>
             </div>
           </motion.div>
 
@@ -161,15 +158,14 @@ export default function AboutPageClient() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-[#00ff41]/[0.02] border border-[#00ff41]/[0.06] p-10 relative overflow-hidden"
+            className="bg-white border border-gray-200 p-10 rounded-2xl relative overflow-hidden shadow-sm"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#00ff41]/[0.03] via-transparent to-transparent" />
             <div className="relative z-10 space-y-4">
-              <div className="w-16 h-16 bg-[#00ff41]/10 flex items-center justify-center">
-                <FileText className="w-8 h-8 text-[#00ff41]" />
+              <div className="w-16 h-16 rounded-2xl bg-pink-50 flex items-center justify-center">
+                <FileText className="w-8 h-8 text-pink-500" />
               </div>
-              <h3 className="text-xl font-black text-[#00ff41]">Content Factory</h3>
-              <p className="text-[#00ff41]/25 leading-relaxed">Blog & social media content generation.</p>
+              <h3 className="text-xl font-black text-gray-900">Content Factory</h3>
+              <p className="text-gray-400 leading-relaxed">Blog & social media content generation.</p>
             </div>
           </motion.div>
 
@@ -177,31 +173,29 @@ export default function AboutPageClient() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-[#00ff41]/[0.02] border border-[#00ff41]/[0.06] p-10 relative overflow-hidden"
+            className="bg-white border border-gray-200 p-10 rounded-2xl relative overflow-hidden shadow-sm"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#00ff41]/[0.03] via-transparent to-transparent" />
             <div className="relative z-10 space-y-4">
-              <div className="w-16 h-16 bg-[#00ff41]/10 flex items-center justify-center">
-                <Zap className="w-8 h-8 text-[#00ff41]" />
+              <div className="w-16 h-16 rounded-2xl bg-green-50 flex items-center justify-center">
+                <Zap className="w-8 h-8 text-green-500" />
               </div>
-              <h3 className="text-xl font-black text-[#00ff41]">Smart Tools</h3>
-              <p className="text-[#00ff41]/25 leading-relaxed">12+ specialized AI tools for productivity.</p>
+              <h3 className="text-xl font-black text-gray-900">Smart Tools</h3>
+              <p className="text-gray-400 leading-relaxed">12+ specialized AI tools for productivity.</p>
             </div>
           </motion.div>
         </div>
 
         {/* Vision Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-24">
-          <StatBox label="execution_time" value="< 2.4s" />
-          <StatBox label="neural_accuracy" value="99.9%" />
-          <StatBox label="global_reach" value="syncing" />
+          <StatBox label="Execution Time" value="< 2.4s" />
+          <StatBox label="Neural Accuracy" value="99.9%" />
+          <StatBox label="Global Reach" value="Syncing" />
         </div>
 
         {/* Mission Statement */}
-        <section className="bg-[#00ff41]/[0.02] border border-[#00ff41]/[0.06] p-12 md:p-24 text-center space-y-8 relative overflow-hidden">
-           <div className="absolute inset-0 bg-gradient-to-br from-[#00ff41]/[0.02] via-transparent to-[#00d4ff]/[0.02]" />
-           <h2 className="text-3xl md:text-5xl font-black uppercase text-[#00ff41] relative z-10">// our_mission</h2>
-           <p className="text-xl md:text-3xl font-bold text-[#00ff41]/40 max-w-4xl mx-auto leading-tight relative z-10">
+        <section className="bg-gray-50 border border-gray-200 p-12 md:p-24 text-center space-y-8 relative overflow-hidden rounded-3xl">
+           <h2 className="text-3xl md:text-5xl font-black uppercase text-gray-900 relative z-10">Our Mission</h2>
+           <p className="text-xl md:text-3xl font-bold text-gray-400 max-w-4xl mx-auto leading-tight relative z-10">
              Xylos was founded on a singular premise: that technology should empower human expression, not replace it. We are building the infrastructure for the next century of digital storytelling.
            </p>
         </section>
@@ -210,8 +204,8 @@ export default function AboutPageClient() {
         <NewsletterForm />
       </main>
 
-      <footer className="py-12 px-6 border-t border-[#00ff41]/[0.06] text-center">
-        <p className="text-[10px] font-bold text-[#00ff41]/15 uppercase tracking-[0.4em]">
+      <footer className="py-12 px-6 border-t border-gray-100 text-center">
+        <p className="text-[10px] font-bold text-gray-300 uppercase tracking-[0.4em]">
           &copy; 2026 Xylos AI Research Systems // All Rights Reserved
         </p>
       </footer>
@@ -221,21 +215,21 @@ export default function AboutPageClient() {
 
 function FeatureCard({ icon: Icon, title, desc }: any) {
   return (
-    <div className="bg-[#00ff41]/[0.02] border border-[#00ff41]/[0.06] p-6 hover:border-[#00ff41]/20 transition-all duration-300 group">
-      <div className="w-10 h-10 bg-[#00ff41]/10 flex items-center justify-center text-[#00ff41] group-hover:bg-[#00ff41]/20 transition-all duration-300 mb-4">
+    <div className="bg-white border border-gray-200 p-6 rounded-2xl hover:border-blue-200 hover:shadow-sm transition-all duration-300 group">
+      <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-500 group-hover:bg-blue-100 transition-all duration-300 mb-4">
         <Icon className="w-5 h-5" />
       </div>
-      <h3 className="font-black text-sm uppercase tracking-widest mb-2 text-[#00ff41]">{title}</h3>
-      <p className="text-xs text-[#00ff41]/25 leading-relaxed">{desc}</p>
+      <h3 className="font-black text-sm uppercase tracking-widest mb-2 text-gray-900">{title}</h3>
+      <p className="text-xs text-gray-400 leading-relaxed">{desc}</p>
     </div>
   );
 }
 
 function StatBox({ label, value }: any) {
   return (
-    <div className="bg-[#00ff41]/[0.02] border border-[#00ff41]/[0.06] p-8 text-center space-y-2 transition-all duration-300 hover:border-[#00ff41]/20 cursor-default group">
-      <p className="text-[10px] font-bold text-[#00ff41]/25 uppercase tracking-[0.3em]">{label}</p>
-      <p className="text-4xl font-black text-[#00ff41] group-hover:text-[#00d4ff] transition-colors">{value}</p>
+    <div className="bg-white border border-gray-200 p-8 rounded-2xl text-center space-y-2 transition-all duration-300 hover:border-blue-200 hover:shadow-sm cursor-default group shadow-sm">
+      <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em]">{label}</p>
+      <p className="text-4xl font-black text-gray-900 group-hover:text-blue-500 transition-colors">{value}</p>
     </div>
   );
 }
