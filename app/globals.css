@@ -8,44 +8,44 @@ html {
 
 @layer base {
   :root {
-    --background: 213 35% 7%;              /* Deep navy #0d1117 */
-    --sidebar: 213 35% 7%;
-    --foreground: 210 20% 90%;             /* Soft white text */
-    --primary: 160 84% 39%;               /* Emerald #10b981 */
-    --primary-foreground: 213 35% 7%;      /* Dark text on primary */
-    --card: 213 30% 10%;                   /* Card surface */
-    --card-foreground: 210 20% 90%;
-    --popover: 213 30% 10%;
-    --popover-foreground: 210 20% 90%;
-    --secondary: 38 92% 50%;              /* Amber #f59e0b */
-    --secondary-foreground: 213 35% 7%;
-    --muted: 213 30% 12%;                 /* Muted surface */
-    --muted-foreground: 210 15% 50%;       /* Muted text */
-    --accent: 160 84% 39%;
-    --accent-foreground: 213 35% 7%;
-    --destructive: 0 84% 60%;
+    --background: 220 20% 5%;               /* Near-black #0a0e14 */
+    --sidebar: 220 20% 5%;
+    --foreground: 120 20% 75%;              /* Soft green text */
+    --primary: 130 100% 50%;               /* Matrix green #00ff41 */
+    --primary-foreground: 220 20% 5%;       /* Dark text on primary */
+    --card: 220 18% 8%;                     /* Card surface */
+    --card-foreground: 120 20% 75%;
+    --popover: 220 18% 8%;
+    --popover-foreground: 120 20% 75%;
+    --secondary: 192 100% 50%;             /* Cyan #00d4ff */
+    --secondary-foreground: 220 20% 5%;
+    --muted: 220 18% 10%;                  /* Muted surface */
+    --muted-foreground: 220 15% 45%;        /* Muted text */
+    --accent: 130 100% 50%;
+    --accent-foreground: 220 20% 5%;
+    --destructive: 0 72% 61%;              /* Terminal red */
     --destructive-foreground: 0 0% 98%;
-    --border: 213 25% 16%;                /* Subtle border */
-    --input: 213 30% 12%;
-    --ring: 160 84% 39%;
-    --radius: 12px;                       /* Rounded corners */
+    --border: 220 15% 14%;                 /* Terminal border */
+    --input: 220 18% 10%;
+    --ring: 130 100% 50%;
+    --radius: 6px;                         /* Sharp terminal corners */
     
-    /* Extended palette */
-    --primary-container: 160 84% 35%;     /* Vivid emerald */
-    --secondary-container: 38 92% 40%;    /* Vivid amber */
-    --tertiary: 160 60% 45%;              /* Teal */
-    --tertiary-container: 160 60% 35%;    /* Vivid teal */
-    --surface-dim: 213 35% 7%;
-    --surface-bright: 213 30% 15%;
-    --surface-container-lowest: 213 35% 5%;
-    --surface-container-low: 213 35% 8%;
-    --surface-container: 213 30% 10%;
-    --surface-container-high: 213 25% 13%;
-    --surface-container-highest: 213 25% 16%;
+    /* Terminal palette */
+    --primary-container: 130 100% 40%;
+    --secondary-container: 192 100% 40%;
+    --tertiary: 130 80% 40%;
+    --tertiary-container: 130 80% 30%;
+    --surface-dim: 220 20% 5%;
+    --surface-bright: 220 18% 12%;
+    --surface-container-lowest: 220 20% 3%;
+    --surface-container-low: 220 20% 6%;
+    --surface-container: 220 18% 8%;
+    --surface-container-high: 220 15% 11%;
+    --surface-container-highest: 220 15% 14%;
 
     /* Font Variables */
-    --font-fustat: 'Geist', 'Fustat', sans-serif;
-    --font-inter: 'Inter', sans-serif;
+    --font-fustat: 'JetBrains Mono', 'Fira Code', monospace;
+    --font-inter: 'JetBrains Mono', monospace;
   }
 
   * {
@@ -66,50 +66,49 @@ html {
 
 @layer components {
   .glass-navbar {
-    @apply backdrop-blur-xl bg-surface/80 border border-white/[0.06] rounded-2xl;
-    box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.04), 0 4px 24px rgba(0,0,0,0.4);
+    @apply backdrop-blur-xl bg-surface/80 border border-white/[0.06] rounded-none;
+    box-shadow: 0 1px 0 0 rgba(0,255,65,0.08), 0 4px 24px rgba(0,0,0,0.6);
   }
 
   .glass-card {
-    @apply backdrop-blur-xl bg-white/[0.03] border border-white/[0.06] rounded-2xl;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    @apply backdrop-blur-xl bg-white/[0.02] border border-[#00ff41]/10 rounded-none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
   }
 
   .glass-card-hover {
-    @apply glass-card transition-all duration-500;
+    @apply glass-card transition-all duration-300;
   }
 
   .glass-card-hover:hover {
-    @apply border-white/[0.12] bg-white/[0.05];
-    box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 30px rgba(139, 92, 246, 0.08);
-    transform: translateY(-2px);
+    @apply border-[#00ff41]/30 bg-white/[0.04];
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 20px rgba(0,255,65,0.05);
   }
 
   .bento-card {
-    @apply relative overflow-hidden bg-white/[0.02] border border-white/[0.05] rounded-3xl p-8 transition-all duration-500;
+    @apply relative overflow-hidden bg-white/[0.02] border border-[#00ff41]/10 rounded-none p-8 transition-all duration-300;
   }
 
   .bento-card:hover {
-    @apply border-white/[0.1] bg-white/[0.04];
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 40px rgba(139, 92, 246, 0.05);
+    @apply border-[#00ff41]/30 bg-white/[0.04];
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(0,255,65,0.04);
   }
 
   .glass-cta {
-    @apply bg-gradient-to-r from-violet-500 to-cyan-500 rounded-2xl text-white font-semibold transition-all duration-300;
-    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+    @apply bg-[#00ff41] text-black font-bold rounded-none transition-all duration-300;
+    box-shadow: 0 0 20px rgba(0,255,65,0.3);
   }
 
   .glass-cta:hover {
     @apply scale-[1.02] opacity-90;
-    box-shadow: 0 8px 40px rgba(139, 92, 246, 0.4);
+    box-shadow: 0 0 40px rgba(0,255,65,0.5);
   }
 
   .glass-outline {
-    @apply bg-transparent border border-white/[0.1] rounded-2xl text-white/70 font-medium transition-all duration-300;
+    @apply bg-transparent border border-[#00ff41]/30 rounded-none text-[#00ff41]/70 font-medium transition-all duration-300;
   }
 
   .glass-outline:hover {
-    @apply border-white/[0.2] bg-white/[0.04];
+    @apply border-[#00ff41]/50 bg-[#00ff41]/5;
   }
 
   .orb-video-filter {
@@ -119,8 +118,59 @@ html {
   
   .hero-glow {
     @apply absolute pointer-events-none;
-    background: radial-gradient(circle, rgba(139,92,246,0.12) 0%, rgba(139,92,246,0) 70%);
+    background: radial-gradient(circle, rgba(0,255,65,0.08) 0%, rgba(0,255,65,0) 70%);
   }
+}
+
+/* Terminal scanline overlay */
+.terminal-scanline::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,255,65,0.015) 2px,
+    rgba(0,255,65,0.015) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Blinking cursor */
+@keyframes blink-cursor {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink-cursor 1s step-end infinite;
+}
+
+/* Terminal typing effect */
+@keyframes terminal-type {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.animate-terminal-type {
+  animation: terminal-type 2s steps(40) forwards;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Terminal window chrome */
+.terminal-chrome {
+  @apply bg-[#111620] border border-[#00ff41]/10 rounded-none;
+}
+
+.terminal-title-bar {
+  @apply flex items-center gap-2 px-4 py-2 bg-[#0a0e14] border-b border-[#00ff41]/10;
+}
+
+.terminal-dot {
+  @apply w-2.5 h-2.5 rounded-full;
 }
 
 /* Claude-style centered chat container */
@@ -132,20 +182,20 @@ html {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 4px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary/20 rounded-full;
+  @apply bg-[#00ff41]/20 rounded-none;
 }
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary/40;
+  @apply bg-[#00ff41]/40;
 }
 
 ::selection {
-  background: hsl(var(--primary) / 0.2);
+  background: rgba(0,255,65,0.2);
   color: inherit;
 }
 
@@ -182,8 +232,9 @@ html {
 
 .cyber-grid-pattern {
   background-image: 
-    radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 24px 24px;
+    linear-gradient(rgba(0,255,65,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,65,0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 .cyber-scanline {
@@ -196,23 +247,23 @@ html {
 }
 
 .cyber-header-glow {
-  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 50%, hsl(var(--tertiary)) 100%);
+  background: linear-gradient(135deg, #00ff41 0%, #00d4ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: none;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 50%, #f472b6 100%);
+  background: linear-gradient(135deg, #00ff41 0%, #00d4ff 50%, #00ff41 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .aurora-bg {
   background: 
-    radial-gradient(ellipse at 20% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(6, 182, 212, 0.07) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(244, 114, 182, 0.05) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 50%, rgba(0, 255, 65, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(0, 212, 255, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(0, 255, 65, 0.03) 0%, transparent 50%);
 }
 
 /* Bento Grid Animations */
@@ -231,7 +282,7 @@ html {
 }
 
 .animate-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+  background: linear-gradient(90deg, transparent, rgba(0,255,65,0.03), transparent);
   background-size: 200% 100%;
   animation: shimmer 3s ease-in-out infinite;
 }
