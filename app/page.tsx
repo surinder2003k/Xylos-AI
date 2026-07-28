@@ -238,6 +238,47 @@ export default async function LandingPage() {
         </div>
       </section>
 
+      {/* ===== BLOG: LATEST NEURAL BROADCASTS ===== */}
+      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-end justify-between mb-12">
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.4em] mb-4" style={{ color: '#ff3131', fontFamily: 'JetBrains Mono, monospace' }}>LATEST_BROADCASTS</p>
+              <h2 className="text-4xl md:text-5xl font-black tracking-[-0.03em]" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>From the Neural Core</h2>
+            </div>
+            <Link href="/blog" className="hidden md:flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:text-[#00f0ff] transition-colors" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>
+              View All <ArrowRight className="w-3 h-3" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {blogs?.map((blog) => (
+              <Link key={blog.id} href={`/blog/${blog.slug || blog.id}`} className="group">
+                <div className="relative aspect-[16/10] overflow-hidden mb-4 rounded-xl cyber-border-tr" style={{ background: 'rgba(0,240,255,0.02)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
+                  <img
+                    src={blog.feature_image_url || "https://images.pexels.com/photos/1031201/pexels-photo-1031201.jpeg?auto=compress&cs=tinysrgb&w=800"}
+                    alt={blog.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 opacity-80 group-hover:opacity-100"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider backdrop-blur-sm" style={{ background: 'rgba(255, 49, 49, 0.8)', color: '#fff', fontFamily: 'JetBrains Mono, monospace' }}>{blog.category}</span>
+                  </div>
+                </div>
+                <h3 className="text-lg font-bold leading-tight mb-2 line-clamp-2 group-hover:text-[#00f0ff] transition-colors" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>
+                  {blog.title}
+                </h3>
+                <p className="text-sm line-clamp-2" style={{ color: '#849495' }}>{blog.excerpt}</p>
+                <div className="mt-3 flex items-center gap-2 text-[10px] uppercase tracking-widest" style={{ color: '#5a6c6d', fontFamily: 'JetBrains Mono, monospace' }}>
+                  <span>{blog.profiles?.full_name || 'Xylos Team'}</span>
+                  <span>·</span>
+                  <span style={{ color: '#00f0ff' }}>Decode →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <NewsletterForm />
 
       {/* ===== FOOTER ===== */}
