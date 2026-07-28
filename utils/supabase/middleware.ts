@@ -75,17 +75,12 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url)
   }
 
-  // If user is NOT logged in and tries to access protected routes, redirect to landing
-  if (
-    !user &&
-    !request.nextUrl.pathname.startsWith('/login') &&
-    !request.nextUrl.pathname.startsWith('/auth') &&
-    !request.nextUrl.pathname.startsWith('/api') &&
-    !request.nextUrl.pathname.startsWith('/blog') &&
-    request.nextUrl.pathname !== '/about' &&
-    request.nextUrl.pathname !== '/privacy' &&
-    request.nextUrl.pathname !== '/'
-  ) {
+  // If user is NOT logged in and tries to access known protected routes, redirect to landing
+  const protectedPaths = ['/chat', '/dashboard', '/tools'];
+  const isProtectedPath = protectedPaths.some(p =>
+    request.nextUrl.pathname === p || request.nextUrl.pathname.startsWith(p + '/')
+  );
+  if (!user && isProtectedPath) {
     const url = request.nextUrl.clone()
     url.pathname = '/'
     return NextResponse.redirect(url)
