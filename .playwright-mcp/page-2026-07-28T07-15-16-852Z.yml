@@ -1,0 +1,193 @@
+- main [ref=f46e5]:
+  - iframe [active] [ref=f46e7]:
+    - main [ref=f47e5]:
+      - generic [ref=f47e451]:
+        - generic:
+          - generic [ref=f47e453]:
+            - button [ref=f47e455] [cursor=pointer]
+            - generic [ref=f47e460]:
+              - button "Xylos AI Design Showcase" [ref=f47e461]
+              - button [ref=f47e463] [cursor=pointer]
+          - generic [ref=f47e468]:
+            - button [ref=f47e469] [cursor=pointer]:
+              - paragraph [ref=f47e473]: Export
+            - button [ref=f47e475] [cursor=pointer]:
+              - paragraph [ref=f47e479]: Share
+            - button "Account menu" [ref=f47e481] [cursor=pointer]:
+              - img "Profile image for Surinder Kumar" [ref=f47e483]
+        - generic [ref=f47e485]:
+          - generic [ref=f47e486]:
+            - button [ref=f47e488] [cursor=pointer]
+            - button [ref=f47e493] [cursor=pointer]
+            - button [ref=f47e498] [cursor=pointer]
+          - button [ref=f47e503] [cursor=pointer]
+          - generic [ref=f47e508]:
+            - button "Choose File" [ref=f47e509]
+            - button [ref=f47e510] [cursor=pointer]
+          - button [ref=f47e515] [cursor=pointer]
+          - button [ref=f47e523] [cursor=pointer]
+        - generic [ref=f47e527]:
+          - generic [ref=f47e528]:
+            - generic [ref=f47e529]:
+              - button "Undo" [disabled]:
+                - generic: undo
+            - generic [ref=f47e531]:
+              - button "Redo" [disabled]:
+                - generic: redo
+          - button "75%" [ref=f47e532] [cursor=pointer]
+          - button "Helpful links" [ref=f47e535] [cursor=pointer]
+        - button "Choose File" [ref=f47e539]
+        - application [ref=f47e541]:
+          - generic [ref=f47e545]:
+            - generic [ref=f47e550]:
+              - generic [ref=f47e551]: palette
+              - generic [ref=f47e553]: Xylos AI Multi-Theme Core
+            - generic [ref=f47e556]:
+              - generic [ref=f47e557]:
+                - generic [ref=f47e558]:
+                  - generic [ref=f47e559]:
+                    - generic [ref=f47e560]: Primary
+                    - generic "Click to copy" [ref=f47e561] [cursor=pointer]: "#00F0FF"
+                  - generic [ref=f47e562]:
+                    - 'generic "T0 #000000 — Click to copy" [ref=f47e563] [cursor=pointer]'
+                    - 'generic "T10 #002022 — Click to copy" [ref=f47e564] [cursor=pointer]'
+                    - 'generic "T20 #00363a — Click to copy" [ref=f47e565] [cursor=pointer]'
+                    - 'generic "T30 #004f54 — Click to copy" [ref=f47e566] [cursor=pointer]'
+                    - 'generic "T40 #006970 — Click to copy" [ref=f47e567] [cursor=pointer]'
+                    - 'generic "T50 #00848d — Click to copy" [ref=f47e568] [cursor=pointer]'
+                    - 'generic "T60 #00a0aa — Click to copy" [ref=f47e569] [cursor=pointer]'
+                    - 'generic "T70 #00bdc9 — Click to copy" [ref=f47e570] [cursor=pointer]'
+                    - 'generic "T80 #00dbe9 — Click to copy" [ref=f47e571] [cursor=pointer]'
+                    - 'generic "T90 #7df4ff — Click to copy" [ref=f47e572] [cursor=pointer]'
+                    - 'generic "T95 #c7faff — Click to copy" [ref=f47e573] [cursor=pointer]'
+                    - 'generic "T100 #ffffff — Click to copy" [ref=f47e574] [cursor=pointer]'
+                - generic [ref=f47e575]:
+                  - generic [ref=f47e576]:
+                    - generic [ref=f47e577]: Secondary
+                    - generic "Click to copy" [ref=f47e578] [cursor=pointer]: "#7000FF"
+                  - generic [ref=f47e579]:
+                    - 'generic "T0 #000000 — Click to copy" [ref=f47e580] [cursor=pointer]'
+                    - 'generic "T10 #23005b — Click to copy" [ref=f47e581] [cursor=pointer]'
+                    - 'generic "T20 #3c0090 — Click to copy" [ref=f47e582] [cursor=pointer]'
+                    - 'generic "T30 #5700c9 — Click to copy" [ref=f47e583] [cursor=pointer]'
+                    - 'generic "T40 #7212ff — Click to copy" [ref=f47e584] [cursor=pointer]'
+                    - 'generic "T50 #8951ff — Click to copy" [ref=f47e585] [cursor=pointer]'
+                    - 'generic "T60 #a178ff — Click to copy" [ref=f47e586] [cursor=pointer]'
+                    - 'generic "T70 #b89bff — Click to copy" [ref=f47e587] [cursor=pointer]'
+                    - 'generic "T80 #d1bcff — Click to copy" [ref=f47e588] [cursor=pointer]'
+                    - 'generic "T90 #e9ddff — Click to copy" [ref=f47e589] [cursor=pointer]'
+                    - 'generic "T95 #f6edff — Click to copy" [ref=f47e590] [cursor=pointer]'
+                    - 'generic "T100 #ffffff — Click to copy" [ref=f47e591] [cursor=pointer]'
+                - generic [ref=f47e592]:
+                  - generic [ref=f47e593]:
+                    - generic [ref=f47e594]: Tertiary
+                    - generic "Click to copy" [ref=f47e595] [cursor=pointer]: "#FF007A"
+                  - generic [ref=f47e596]:
+                    - 'generic "T0 #000000 — Click to copy" [ref=f47e597] [cursor=pointer]'
+                    - 'generic "T10 #3f0019 — Click to copy" [ref=f47e598] [cursor=pointer]'
+                    - 'generic "T20 #66002c — Click to copy" [ref=f47e599] [cursor=pointer]'
+                    - 'generic "T30 #8f0041 — Click to copy" [ref=f47e600] [cursor=pointer]'
+                    - 'generic "T40 #bb0058 — Click to copy" [ref=f47e601] [cursor=pointer]'
+                    - 'generic "T50 #e9006f — Click to copy" [ref=f47e602] [cursor=pointer]'
+                    - 'generic "T60 #ff4b89 — Click to copy" [ref=f47e603] [cursor=pointer]'
+                    - 'generic "T70 #ff85a6 — Click to copy" [ref=f47e604] [cursor=pointer]'
+                    - 'generic "T80 #ffb1c3 — Click to copy" [ref=f47e605] [cursor=pointer]'
+                    - 'generic "T90 #ffd9e0 — Click to copy" [ref=f47e606] [cursor=pointer]'
+                    - 'generic "T95 #ffecef — Click to copy" [ref=f47e607] [cursor=pointer]'
+                    - 'generic "T100 #ffffff — Click to copy" [ref=f47e608] [cursor=pointer]'
+                - generic [ref=f47e609]:
+                  - generic [ref=f47e610]:
+                    - generic [ref=f47e611]: Neutral
+                    - generic "Click to copy" [ref=f47e612] [cursor=pointer]: "#0F1115"
+                  - generic [ref=f47e613]:
+                    - 'generic "T0 #000000 — Click to copy" [ref=f47e614] [cursor=pointer]'
+                    - 'generic "T10 #1a1c20 — Click to copy" [ref=f47e615] [cursor=pointer]'
+                    - 'generic "T20 #2f3035 — Click to copy" [ref=f47e616] [cursor=pointer]'
+                    - 'generic "T30 #45474b — Click to copy" [ref=f47e617] [cursor=pointer]'
+                    - 'generic "T40 #5d5e63 — Click to copy" [ref=f47e618] [cursor=pointer]'
+                    - 'generic "T50 #76777c — Click to copy" [ref=f47e619] [cursor=pointer]'
+                    - 'generic "T60 #8f9096 — Click to copy" [ref=f47e620] [cursor=pointer]'
+                    - 'generic "T70 #aaabb0 — Click to copy" [ref=f47e621] [cursor=pointer]'
+                    - 'generic "T80 #c6c6cc — Click to copy" [ref=f47e622] [cursor=pointer]'
+                    - 'generic "T90 #e2e2e8 — Click to copy" [ref=f47e623] [cursor=pointer]'
+                    - 'generic "T95 #f0f0f6 — Click to copy" [ref=f47e624] [cursor=pointer]'
+                    - 'generic "T100 #ffffff — Click to copy" [ref=f47e625] [cursor=pointer]'
+              - generic [ref=f47e626]:
+                - generic [ref=f47e627]:
+                  - generic [ref=f47e628]:
+                    - generic [ref=f47e629]: Headline
+                    - generic [ref=f47e630]: Sora
+                  - generic [ref=f47e631]: Aa
+                - generic [ref=f47e632]:
+                  - generic [ref=f47e633]:
+                    - button "Primary" [ref=f47e634]
+                    - button "Secondary" [ref=f47e635]
+                  - generic [ref=f47e636]:
+                    - button "Inverted" [ref=f47e637]
+                    - button "Outlined" [ref=f47e638]
+                - generic [ref=f47e640]:
+                  - generic [ref=f47e641]: search
+                  - generic [ref=f47e642]: Search
+                - generic [ref=f47e643]:
+                  - generic [ref=f47e644]:
+                    - generic [ref=f47e645]: Body
+                    - generic [ref=f47e646]: Geist
+                  - generic [ref=f47e647]: Aa
+                - generic [ref=f47e656]:
+                  - generic [ref=f47e657]: home
+                  - generic [ref=f47e659]: search
+                  - generic [ref=f47e661]: person
+                - generic [ref=f47e663]:
+                  - generic [ref=f47e664]:
+                    - generic [ref=f47e665]: Label
+                    - generic [ref=f47e666]: Jetbrains Mono
+                  - generic [ref=f47e667]: Aa
+                - generic [ref=f47e668]:
+                  - generic [ref=f47e669]: edit
+                  - generic [ref=f47e673]:
+                    - generic [ref=f47e674]: edit
+                    - text: Label
+                - generic [ref=f47e676]:
+                  - generic [ref=f47e677]: auto_fix_high
+                  - generic [ref=f47e679]: category
+                  - generic [ref=f47e681]: sell
+                  - generic [ref=f47e683]: delete
+          - generic [ref=f47e685]:
+            - generic: "Tip: Ctrl+Enter to send in chat, or Shift+Enter for a new line"
+            - generic [ref=f47e690]:
+              - textbox [ref=f47e694]:
+                - paragraph [ref=f47e695]: What would you like to change or create?
+              - generic [ref=f47e696]:
+                - button "Choose File" [ref=f47e697]
+                - button [ref=f47e699] [cursor=pointer]
+                - button [ref=f47e704] [cursor=pointer]:
+                  - img [ref=f47e705]:
+                    - generic [ref=f47e706]: /
+                - generic [ref=f47e707]:
+                  - button [ref=f47e709] [cursor=pointer]
+                  - button [ref=f47e715] [cursor=pointer]
+                  - button "3 Flash" [ref=f47e719] [cursor=pointer]
+                  - button [ref=f47e726] [cursor=pointer]
+                  - button [disabled] [ref=f47e730]
+          - generic [ref=f47e735]:
+            - button [expanded] [ref=f47e736] [cursor=pointer]:
+              - status [ref=f47e737]:
+                - generic [ref=f47e738]: Agent log
+            - menu "Agent log" [active] [ref=f47e751]:
+              - menuitem [ref=f47e754] [cursor=pointer]:
+                - generic [ref=f47e758]:
+                  - generic [ref=f47e759]: "Design 10 unique, trending, modern landing pages for a premium AI platform called \"Xylos AI\" - free access to 7+ frontier AI models. Each page must be visually distinct and cutting-edge: 1. Y2K Futurism - Chrome metallic gradients, holographic effects, retro-futuristic typography, pixel art icons, CRT scanline overlay, cyber blue and magenta accents on black 2. Japanese Wabi-Sabi - Minimal imperfection, organic textures, rice paper backgrounds, ink brush strokes, earthy muted tones, asymmetric layout, negative space mastery 3. Neo-Memphis - Bold geometric shapes, playful color blocks, squiggly lines, dotted patterns, 80s/90s revival, vibrant pink/yellow/teal on cream 4. Bioluminescent Deep Sea - Dark ocean depth, glowing jellyfish-inspired UI elements, neon pulse animations, fluid organic shapes, deep navy to black gradient 5. Scandinavian Hygge - Ultra clean, warm whites, soft shadows, natural wood textures, cozy rounded corners, minimal icons, gentle sage green and warm beige 6. Art Deco Revival - Gold geometric patterns, fan motifs, elegant serif typography, black and gold luxury, symmetrical layouts, ornamental dividers 7. Vaporwave Aesthetic - Purple/pink/cyan gradients, Roman bust imagery style, grid floors, sunset gradients, retro tech elements, glitch effects 8. Eco-Nature Tech - Living green walls texture, leaf vein patterns, organic curves, moss green and sky blue, sustainability icons, breathing animations 9. Cyberpunk Noir - Dark rainy atmosphere, neon signs, holographic HUD elements, scan lines, red and orange accents on pitch black, gritty textures 10. Cosmic Zen - Deep space nebula backgrounds, floating constellation UI, ethereal glass panels, cosmic purple and starlight white, meditative spacing Each landing page must include: Hero, Features, Pricing, FAQ, CTA, Footer sections."
+                  - generic [ref=f47e760]: "Design 10 unique, trending, modern landing pages for a premium AI platform called \"Xylos AI\" - free access to 7+ frontier AI models. Each page must be visually distinct and cutting-edge: 1. Y2K Futurism - Chrome metallic gradients, holographic effects, retro-futuristic typography, pixel art icons, CRT scanline overlay, cyber blue and magenta accents on black 2. Japanese Wabi-Sabi - Minimal imperfection, organic textures, rice paper backgrounds, ink brush strokes, earthy muted tones, asymmetric layout, negative space mastery 3. Neo-Memphis - Bold geometric shapes, playful color blocks, squiggly lines, dotted patterns, 80s/90s revival, vibrant pink/yellow/teal on cream 4. Bioluminescent Deep Sea - Dark ocean depth, glowing jellyfish-inspired UI elements, neon pulse animations, fluid organic shapes, deep navy to black gradient 5. Scandinavian Hygge - Ultra clean, warm whites, soft shadows, natural wood textures, cozy rounded corners, minimal icons, gentle sage green and warm beige 6. Art Deco Revival - Gold geometric patterns, fan motifs, elegant serif typography, black and gold luxury, symmetrical layouts, ornamental dividers 7. Vaporwave Aesthetic - Purple/pink/cyan gradients, Roman bust imagery style, grid floors, sunset gradients, retro tech elements, glitch effects 8. Eco-Nature Tech - Living green walls texture, leaf vein patterns, organic curves, moss green and sky blue, sustainability icons, breathing animations 9. Cyberpunk Noir - Dark rainy atmosphere, neon signs, holographic HUD elements, scan lines, red and orange accents on pitch black, gritty textures 10. Cosmic Zen - Deep space nebula backgrounds, floating constellation UI, ethereal glass panels, cosmic purple and starlight white, meditative spacing Each landing page must include: Hero, Features, Pricing, FAQ, CTA, Footer sections."
+          - generic [ref=f47e766]:
+            - button "Collapse panel" [ref=f47e767] [cursor=pointer]
+            - generic [ref=f47e776]:
+              - generic [ref=f47e780]:
+                - generic [ref=f47e782] [cursor=pointer]:
+                  - img "Surinder Kumar" [ref=f47e783]
+                  - paragraph [ref=f47e784]: "Design 10 unique, trending, modern landing pages for a premium AI platform called \"Xylos AI\" - free access to 7+ frontier AI models. Each page must be visually distinct and cutting-edge: 1. Y2K Futurism - Chrome metallic gradients, holographic effects, retro-futuristic typography, pixel art icons, CRT scanline overlay, cyber blue and magenta accents on black 2. Japanese Wabi-Sabi - Minimal imperfection, organic textures, rice paper backgrounds, ink brush strokes, earthy muted tones, asymmetric layout, negative space mastery 3. Neo-Memphis - Bold geometric shapes, playful color blocks, squiggly lines, dotted patterns, 80s/90s revival, vibrant pink/yellow/teal on cream 4. Bioluminescent Deep Sea - Dark ocean depth, glowing jellyfish-inspired UI elements, neon pulse animations, fluid organic shapes, deep navy to black gradient 5. Scandinavian Hygge - Ultra clean, warm whites, soft shadows, natural wood textures, cozy rounded corners, minimal icons, gentle sage green and warm beige 6. Art Deco Revival - Gold geometric patterns, fan motifs, elegant serif typography, black and gold luxury, symmetrical layouts, ornamental dividers 7. Vaporwave Aesthetic - Purple/pink/cyan gradients, Roman bust imagery style, grid floors, sunset gradients, retro tech elements, glitch effects 8. Eco-Nature Tech - Living green walls texture, leaf vein patterns, organic curves, moss green and sky blue, sustainability icons, breathing animations 9. Cyberpunk Noir - Dark rainy atmosphere, neon signs, holographic HUD elements, scan lines, red and orange accents on pitch black, gritty textures 10. Cosmic Zen - Deep space nebula backgrounds, floating constellation UI, ethereal glass panels, cosmic purple and starlight white, meditative spacing Each landing page must include: Hero, Features, Pricing, FAQ, CTA, Footer sections."
+                - generic [ref=f47e785]:
+                  - button "Copy prompt" [ref=f47e786] [cursor=pointer]
+                  - button "Show more" [ref=f47e790] [cursor=pointer]
+              - generic [ref=f47e796]:
+                - paragraph [ref=f47e799]: With the design system in place, I'm now predicting the shared UI components that will ensure consistency across all 10 distinct landing pages, from the navigation headers to the final CTA sections.
+                - generic [ref=f47e800]: Mapping out the components

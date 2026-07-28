@@ -1,0 +1,193 @@
+- main [ref=e5]:
+  - iframe [active] [ref=e7]:
+    - main [ref=f1e5]:
+      - generic [ref=f1e426]:
+        - generic:
+          - generic [ref=f1e428]:
+            - button [ref=f1e430] [cursor=pointer]
+            - generic [ref=f1e435]:
+              - button "Xylos AI Landing Suite" [ref=f1e436]
+              - button [ref=f1e438] [cursor=pointer]
+          - generic [ref=f1e443]:
+            - button [ref=f1e444] [cursor=pointer]:
+              - paragraph [ref=f1e448]: Export
+            - button [ref=f1e450] [cursor=pointer]:
+              - paragraph [ref=f1e454]: Share
+            - button "Account menu" [ref=f1e456] [cursor=pointer]:
+              - img "Profile image for Surinder Kumar" [ref=f1e458]
+        - generic [ref=f1e460]:
+          - generic [ref=f1e461]:
+            - button [ref=f1e463] [cursor=pointer]
+            - button [ref=f1e468] [cursor=pointer]
+            - button [ref=f1e473] [cursor=pointer]
+          - button [ref=f1e478] [cursor=pointer]
+          - generic [ref=f1e483]:
+            - button "Choose File" [ref=f1e484]
+            - button [ref=f1e485] [cursor=pointer]
+          - button [ref=f1e490] [cursor=pointer]
+          - button [ref=f1e498] [cursor=pointer]
+        - generic [ref=f1e502]:
+          - generic [ref=f1e503]:
+            - generic [ref=f1e504]:
+              - button "Undo" [disabled]:
+                - generic: undo
+            - generic [ref=f1e506]:
+              - button "Redo" [disabled]:
+                - generic: redo
+          - button "75%" [ref=f1e507] [cursor=pointer]
+          - button "Helpful links" [ref=f1e510] [cursor=pointer]
+        - button "Choose File" [ref=f1e514]
+        - application [ref=f1e516]:
+          - generic [ref=f1e520]:
+            - generic [ref=f1e525]:
+              - generic [ref=f1e526]: palette
+              - generic [ref=f1e528]: Luminous Obsidian
+            - generic [ref=f1e531]:
+              - generic [ref=f1e532]:
+                - generic [ref=f1e533]:
+                  - generic [ref=f1e534]:
+                    - generic [ref=f1e535]: Primary
+                    - generic "Click to copy" [ref=f1e536] [cursor=pointer]: "#00F2FF"
+                  - generic [ref=f1e537]:
+                    - 'generic "T0 #000000 — Click to copy" [ref=f1e538] [cursor=pointer]'
+                    - 'generic "T10 #002022 — Click to copy" [ref=f1e539] [cursor=pointer]'
+                    - 'generic "T20 #00363a — Click to copy" [ref=f1e540] [cursor=pointer]'
+                    - 'generic "T30 #004f54 — Click to copy" [ref=f1e541] [cursor=pointer]'
+                    - 'generic "T40 #00696f — Click to copy" [ref=f1e542] [cursor=pointer]'
+                    - 'generic "T50 #00848c — Click to copy" [ref=f1e543] [cursor=pointer]'
+                    - 'generic "T60 #00a0a9 — Click to copy" [ref=f1e544] [cursor=pointer]'
+                    - 'generic "T70 #00bdc8 — Click to copy" [ref=f1e545] [cursor=pointer]'
+                    - 'generic "T80 #00dbe7 — Click to copy" [ref=f1e546] [cursor=pointer]'
+                    - 'generic "T90 #74f5ff — Click to copy" [ref=f1e547] [cursor=pointer]'
+                    - 'generic "T95 #c4faff — Click to copy" [ref=f1e548] [cursor=pointer]'
+                    - 'generic "T100 #ffffff — Click to copy" [ref=f1e549] [cursor=pointer]'
+                - generic [ref=f1e550]:
+                  - generic [ref=f1e551]:
+                    - generic [ref=f1e552]: Secondary
+                    - generic "Click to copy" [ref=f1e553] [cursor=pointer]: "#8B5CF6"
+                  - generic [ref=f1e554]:
+                    - 'generic "T0 #000000 — Click to copy" [ref=f1e555] [cursor=pointer]'
+                    - 'generic "T10 #23005c — Click to copy" [ref=f1e556] [cursor=pointer]'
+                    - 'generic "T20 #3c0091 — Click to copy" [ref=f1e557] [cursor=pointer]'
+                    - 'generic "T30 #5516be — Click to copy" [ref=f1e558] [cursor=pointer]'
+                    - 'generic "T40 #6d3bd7 — Click to copy" [ref=f1e559] [cursor=pointer]'
+                    - 'generic "T50 #8758f2 — Click to copy" [ref=f1e560] [cursor=pointer]'
+                    - 'generic "T60 #a078ff — Click to copy" [ref=f1e561] [cursor=pointer]'
+                    - 'generic "T70 #b89bff — Click to copy" [ref=f1e562] [cursor=pointer]'
+                    - 'generic "T80 #d0bcff — Click to copy" [ref=f1e563] [cursor=pointer]'
+                    - 'generic "T90 #e9ddff — Click to copy" [ref=f1e564] [cursor=pointer]'
+                    - 'generic "T95 #f6edff — Click to copy" [ref=f1e565] [cursor=pointer]'
+                    - 'generic "T100 #ffffff — Click to copy" [ref=f1e566] [cursor=pointer]'
+                - generic [ref=f1e567]:
+                  - generic [ref=f1e568]:
+                    - generic [ref=f1e569]: Tertiary
+                    - generic "Click to copy" [ref=f1e570] [cursor=pointer]: "#D4AF37"
+                  - generic [ref=f1e571]:
+                    - 'generic "T0 #000000 — Click to copy" [ref=f1e572] [cursor=pointer]'
+                    - 'generic "T10 #241a00 — Click to copy" [ref=f1e573] [cursor=pointer]'
+                    - 'generic "T20 #3c2f00 — Click to copy" [ref=f1e574] [cursor=pointer]'
+                    - 'generic "T30 #574500 — Click to copy" [ref=f1e575] [cursor=pointer]'
+                    - 'generic "T40 #735c00 — Click to copy" [ref=f1e576] [cursor=pointer]'
+                    - 'generic "T50 #917400 — Click to copy" [ref=f1e577] [cursor=pointer]'
+                    - 'generic "T60 #af8d11 — Click to copy" [ref=f1e578] [cursor=pointer]'
+                    - 'generic "T70 #cca730 — Click to copy" [ref=f1e579] [cursor=pointer]'
+                    - 'generic "T80 #e9c349 — Click to copy" [ref=f1e580] [cursor=pointer]'
+                    - 'generic "T90 #ffe088 — Click to copy" [ref=f1e581] [cursor=pointer]'
+                    - 'generic "T95 #ffefcc — Click to copy" [ref=f1e582] [cursor=pointer]'
+                    - 'generic "T100 #ffffff — Click to copy" [ref=f1e583] [cursor=pointer]'
+                - generic [ref=f1e584]:
+                  - generic [ref=f1e585]:
+                    - generic [ref=f1e586]: Neutral
+                    - generic "Click to copy" [ref=f1e587] [cursor=pointer]: "#020617"
+                  - generic [ref=f1e588]:
+                    - 'generic "T0 #000000 — Click to copy" [ref=f1e589] [cursor=pointer]'
+                    - 'generic "T10 #151b2d — Click to copy" [ref=f1e590] [cursor=pointer]'
+                    - 'generic "T20 #2a3043 — Click to copy" [ref=f1e591] [cursor=pointer]'
+                    - 'generic "T30 #40465a — Click to copy" [ref=f1e592] [cursor=pointer]'
+                    - 'generic "T40 #585e73 — Click to copy" [ref=f1e593] [cursor=pointer]'
+                    - 'generic "T50 #71768c — Click to copy" [ref=f1e594] [cursor=pointer]'
+                    - 'generic "T60 #8a90a7 — Click to copy" [ref=f1e595] [cursor=pointer]'
+                    - 'generic "T70 #a5aac2 — Click to copy" [ref=f1e596] [cursor=pointer]'
+                    - 'generic "T80 #c0c6de — Click to copy" [ref=f1e597] [cursor=pointer]'
+                    - 'generic "T90 #dce1fb — Click to copy" [ref=f1e598] [cursor=pointer]'
+                    - 'generic "T95 #eef0ff — Click to copy" [ref=f1e599] [cursor=pointer]'
+                    - 'generic "T100 #ffffff — Click to copy" [ref=f1e600] [cursor=pointer]'
+              - generic [ref=f1e601]:
+                - generic [ref=f1e602]:
+                  - generic [ref=f1e603]:
+                    - generic [ref=f1e604]: Headline
+                    - generic [ref=f1e605]: Montserrat
+                  - generic [ref=f1e606]: Aa
+                - generic [ref=f1e607]:
+                  - generic [ref=f1e608]:
+                    - button "Primary" [ref=f1e609]
+                    - button "Secondary" [ref=f1e610]
+                  - generic [ref=f1e611]:
+                    - button "Inverted" [ref=f1e612]
+                    - button "Outlined" [ref=f1e613]
+                - generic [ref=f1e615]:
+                  - generic [ref=f1e616]: search
+                  - generic [ref=f1e617]: Search
+                - generic [ref=f1e618]:
+                  - generic [ref=f1e619]:
+                    - generic [ref=f1e620]: Body
+                    - generic [ref=f1e621]: Inter
+                  - generic [ref=f1e622]: Aa
+                - generic [ref=f1e631]:
+                  - generic [ref=f1e632]: home
+                  - generic [ref=f1e634]: search
+                  - generic [ref=f1e636]: person
+                - generic [ref=f1e638]:
+                  - generic [ref=f1e639]:
+                    - generic [ref=f1e640]: Label
+                    - generic [ref=f1e641]: Inter
+                  - generic [ref=f1e642]: Aa
+                - generic [ref=f1e643]:
+                  - generic [ref=f1e644]: edit
+                  - generic [ref=f1e648]:
+                    - generic [ref=f1e649]: edit
+                    - text: Label
+                - generic [ref=f1e651]:
+                  - generic [ref=f1e652]: auto_fix_high
+                  - generic [ref=f1e654]: category
+                  - generic [ref=f1e656]: sell
+                  - generic [ref=f1e658]: delete
+          - generic [ref=f1e660]:
+            - generic: "Tip: Use the Format menu to quickly arrange your screens on the canvas"
+            - generic [ref=f1e665]:
+              - textbox [ref=f1e669]:
+                - paragraph [ref=f1e670]: What would you like to change or create?
+              - generic [ref=f1e671]:
+                - button "Choose File" [ref=f1e672]
+                - button [ref=f1e674] [cursor=pointer]
+                - button [ref=f1e679] [cursor=pointer]:
+                  - img [ref=f1e680]:
+                    - generic [ref=f1e681]: /
+                - generic [ref=f1e682]:
+                  - button [ref=f1e684] [cursor=pointer]
+                  - button [ref=f1e690] [cursor=pointer]
+                  - button "3 Flash" [ref=f1e694] [cursor=pointer]
+                  - button [ref=f1e701] [cursor=pointer]
+                  - button [disabled] [ref=f1e705]
+          - generic [ref=f1e710]:
+            - button [expanded] [ref=f1e711] [cursor=pointer]:
+              - status [ref=f1e712]:
+                - generic [ref=f1e713]: Agent log
+            - menu "Agent log" [active] [ref=f1e726]:
+              - menuitem [ref=f1e729] [cursor=pointer]:
+                - generic [ref=f1e733]:
+                  - generic [ref=f1e734]: "Create 5 different premium luxury landing page designs for \"Xylos AI\" - a free AI platform with 7+ models. Design 1: Immersive 3D hero with Three.js-style floating glassmorphism cards, GSAP scroll animations, particle systems, dark mode with neon cyan/purple accents, parallax depth effects. Design 2: Fluid morphing gradient mesh with Magic UI-style animated borders, glassmorphism navigation, floating 3D orbs, smooth scroll-triggered reveals, luxury dark theme with gold accents. Design 3: Brutalist luxury with bold typography, React Bits-style animated code snippets, terminal aesthetic with green/cyan on black, GSAP text splitting animations, holographic card effects. Design 4: Ethereal aurora with Three.js-style shader backgrounds, floating glass panels, GSAP stagger animations, bioluminescent glow effects, dark theme with iridescent gradients. Design 5: Kinetic typography hero with GSAP SplitText-style animations, 3D rotating feature cards, Magic UI-style bento grid layout, smooth parallax, premium dark theme with electric blue accents. All designs must have: Hero section, Features grid, Pricing section, FAQ accordion, CTA section, Footer. Premium luxury UI with smooth animations and modern aesthetics."
+                  - generic [ref=f1e735]: "Create 5 different premium luxury landing page designs for \"Xylos AI\" - a free AI platform with 7+ models. Design 1: Immersive 3D hero with Three.js-style floating glassmorphism cards, GSAP scroll animations, particle systems, dark mode with neon cyan/purple accents, parallax depth effects. Design 2: Fluid morphing gradient mesh with Magic UI-style animated borders, glassmorphism navigation, floating 3D orbs, smooth scroll-triggered reveals, luxury dark theme with gold accents. Design 3: Brutalist luxury with bold typography, React Bits-style animated code snippets, terminal aesthetic with green/cyan on black, GSAP text splitting animations, holographic card effects. Design 4: Ethereal aurora with Three.js-style shader backgrounds, floating glass panels, GSAP stagger animations, bioluminescent glow effects, dark theme with iridescent gradients. Design 5: Kinetic typography hero with GSAP SplitText-style animations, 3D rotating feature cards, Magic UI-style bento grid layout, smooth parallax, premium dark theme with electric blue accents. All designs must have: Hero section, Features grid, Pricing section, FAQ accordion, CTA section, Footer. Premium luxury UI with smooth animations and modern aesthetics."
+          - generic [ref=f1e741]:
+            - button "Collapse panel" [ref=f1e742] [cursor=pointer]
+            - generic [ref=f1e751]:
+              - generic [ref=f1e755]:
+                - generic [ref=f1e757] [cursor=pointer]:
+                  - img "Surinder Kumar" [ref=f1e758]
+                  - paragraph [ref=f1e759]: "Create 5 different premium luxury landing page designs for \"Xylos AI\" - a free AI platform with 7+ models. Design 1: Immersive 3D hero with Three.js-style floating glassmorphism cards, GSAP scroll animations, particle systems, dark mode with neon cyan/purple accents, parallax depth effects. Design 2: Fluid morphing gradient mesh with Magic UI-style animated borders, glassmorphism navigation, floating 3D orbs, smooth scroll-triggered reveals, luxury dark theme with gold accents. Design 3: Brutalist luxury with bold typography, React Bits-style animated code snippets, terminal aesthetic with green/cyan on black, GSAP text splitting animations, holographic card effects. Design 4: Ethereal aurora with Three.js-style shader backgrounds, floating glass panels, GSAP stagger animations, bioluminescent glow effects, dark theme with iridescent gradients. Design 5: Kinetic typography hero with GSAP SplitText-style animations, 3D rotating feature cards, Magic UI-style bento grid layout, smooth parallax, premium dark theme with electric blue accents. All designs must have: Hero section, Features grid, Pricing section, FAQ accordion, CTA section, Footer. Premium luxury UI with smooth animations and modern aesthetics."
+                - generic [ref=f1e760]:
+                  - button "Copy prompt" [ref=f1e761] [cursor=pointer]
+                  - button "Show more" [ref=f1e765] [cursor=pointer]
+              - generic [ref=f1e771]:
+                - paragraph [ref=f1e774]: I'm designing 5 distinct premium luxury landing pages for Xylos AI, each featuring high-end animations and immersive visual effects. I'll start by establishing a shared design system for the brand, then I'll create the specialized 3D and shader-based backgrounds for each unique design direction before generating the full interactive screens.
+                - generic [ref=f1e775]: Generating the design system

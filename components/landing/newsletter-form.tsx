@@ -68,7 +68,7 @@ export function NewsletterForm() {
               onChange={(e) => setEmail(e.target.value)}
               disabled={status === 'loading' || status === 'success'}
               placeholder="Enter your email" 
-              className="w-full rounded-xl py-4 px-6 text-sm focus:outline-none focus:ring-2 transition-all disabled:opacity-50 placeholder:text-gray-500 text-white"
+              className="w-full rounded-xl py-4 px-6 text-sm focus:outline-none focus:ring-2 transition-all disabled:opacity-50 placeholder:text-gray-400 text-white"
               style={{ background: 'rgba(59, 73, 75, 0.15)', border: '1px solid rgba(59, 73, 75, 0.2)', focusRingColor: 'rgba(255, 49, 49, 0.2)' }}
             />
           </div>

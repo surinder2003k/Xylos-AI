@@ -162,7 +162,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <article className="max-w-4xl mx-auto">
           {/* Breadcrumb */}
           <div className="flex items-center justify-between mb-12 pb-6" style={{ borderBottom: '1px solid rgba(59, 73, 75, 0.2)' }}>
-            <div className="flex items-center gap-2 md:gap-4 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-gray-500">
+            <div className="flex items-center gap-2 md:gap-4 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-gray-400">
               <Link href="/" className="hover:text-[#00f0ff] transition-colors">Home</Link>
               <ChevronRight aria-hidden="true" className="w-3 h-3 opacity-30" />
               <Link href="/blog" className="hover:text-[#00f0ff] transition-colors">Archive</Link>
@@ -189,7 +189,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     {post.author?.avatar_url ? (
                       <img src={post.author.avatar_url} alt={post.author.full_name} title={post.author.full_name} className="w-full h-full object-cover" />
                     ) : (
-                      <User className="w-4 h-4 text-gray-500" />
+                      <User className="w-4 h-4 text-gray-400" />
                     )}
                  </div>
                  <span>By {post.author?.full_name || 'Xylos Editorial Team'}</span>
@@ -197,7 +197,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                <div className="hidden md:block w-1 h-1 rounded-full bg-gray-600" />
                <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-[#00f0ff]" /> Published {formatIST(post.published_at || post.created_at)}</div>
                <div className="hidden md:block w-1 h-1 rounded-full bg-gray-600" />
-               <div className="flex items-center gap-2"><MessageSquare className="w-4 h-4 text-gray-500" /> Editorial Review Verified</div>
+               <div className="flex items-center gap-2"><MessageSquare className="w-4 h-4 text-gray-400" /> Editorial Review Verified</div>
             </div>
           </div>
 
@@ -260,9 +260,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
          <div className="max-w-md mx-auto space-y-6">
             <p className="text-[10px] font-bold text-gray-600 uppercase tracking-[0.5em]">The Xylos AI Protocol // Human Intelligence Amplified</p>
             <div className="flex justify-center gap-8">
-               <Link href="/about" className="text-[9px] font-bold uppercase tracking-widest hover:text-[#00f0ff] transition-colors text-gray-500">Standards</Link>
-               <Link href="/about" className="text-[9px] font-bold uppercase tracking-widest hover:text-[#00f0ff] transition-colors text-gray-500">Ethics</Link>
-               <Link href="/blog" className="text-[9px] font-bold uppercase tracking-widest hover:text-[#00f0ff] transition-colors text-gray-500">Archive</Link>
+               <Link href="/about" className="text-[9px] font-bold uppercase tracking-widest hover:text-[#00f0ff] transition-colors text-gray-400">Standards</Link>
+               <Link href="/about" className="text-[9px] font-bold uppercase tracking-widest hover:text-[#00f0ff] transition-colors text-gray-400">Ethics</Link>
+               <Link href="/blog" className="text-[9px] font-bold uppercase tracking-widest hover:text-[#00f0ff] transition-colors text-gray-400">Archive</Link>
             </div>
          </div>
       </footer>

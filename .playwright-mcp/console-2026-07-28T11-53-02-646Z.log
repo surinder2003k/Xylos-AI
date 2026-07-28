@@ -1,0 +1,3 @@
+[  210752ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ https://xylosai.vercel.app/login:0
+[  286810ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://xylosai.vercel.app/favicon.ico:0
+[  351462ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ https://xylosai.vercel.app/login:0

@@ -1,0 +1,1000 @@
+- main [ref=f273e5]:
+  - iframe [active] [ref=f273e7]:
+    - main [ref=f274e5]:
+      - generic [ref=f274e9210]:
+        - generic [ref=f274e9211]:
+          - button "Xylos AI - 10 Trending UI Redesigns" [ref=f274e9214] [cursor=pointer]
+          - radiogroup [ref=f274e9220]:
+            - radio "Preview" [checked] [ref=f274e9221] [cursor=pointer]
+            - radio "Edit" [ref=f274e9229] [cursor=pointer]
+          - generic [ref=f274e9236]:
+            - button [ref=f274e9238] [cursor=pointer]:
+              - paragraph [ref=f274e9242]: Share
+            - button "Account menu" [ref=f274e9244] [cursor=pointer]:
+              - img "Profile image for Surinder Kumar" [ref=f274e9246]
+        - generic [ref=f274e9248]:
+          - generic [ref=f274e9249]:
+            - generic [ref=f274e9250]:
+              - generic [ref=f274e9251]:
+                - heading "Screens in prototype" [level=2] [ref=f274e9252]
+                - button [ref=f274e9253] [cursor=pointer]
+              - generic [ref=f274e9259]:
+                - generic [ref=f274e9260]:
+                  - button [ref=f274e9262] [cursor=pointer]
+                  - button [ref=f274e9267] [cursor=pointer]
+                  - button [ref=f274e9272] [cursor=pointer]
+                - button "Xylos AI - Gradient Mesh Edition" [ref=f274e9276] [cursor=pointer]:
+                  - iframe [ref=f274e9280]:
+                    - generic [ref=f280e1]:
+                      - navigation [ref=f280e5]:
+                        - generic [ref=f280e6]:
+                          - generic [ref=f280e7]: Xylos AI
+                          - button "Get Started" [ref=f280e8] [cursor=pointer]
+                      - main [ref=f280e9]:
+                        - generic [ref=f280e10]:
+                          - generic [ref=f280e11]: Alpha Access Live
+                          - heading "DIVE INTO THE FUTURE OF AI." [level=1] [ref=f280e15]
+                          - paragraph [ref=f280e16]: Navigate the depths of artificial intelligence. 7+ frontier models, unified neural interface, zero cost. Your premium AI companion.
+                          - generic [ref=f280e17]:
+                            - button "Start Free Chat" [ref=f280e18] [cursor=pointer]
+                            - button "Explore Platform" [ref=f280e19] [cursor=pointer]
+                        - generic [ref=f280e20]: play_arrow
+                      - generic [ref=f280e28]:
+                        - generic [ref=f280e29]:
+                          - heading "Neural Capabilities" [level=2] [ref=f280e30]
+                          - paragraph [ref=f280e31]: Seamlessly integrated features designed for a fluid intelligence experience.
+                        - generic [ref=f280e32]:
+                          - generic [ref=f280e33] [cursor=pointer]:
+                            - generic [ref=f280e34]: hub
+                            - heading "Unified Neural Interface" [level=3] [ref=f280e36]
+                            - paragraph [ref=f280e37]: Switch between models effortlessly with our proprietary flow-state canvas. One prompt, infinite possibilities.
+                          - generic [ref=f280e38] [cursor=pointer]:
+                            - generic [ref=f280e39]: model_training
+                            - generic [ref=f280e41]:
+                              - heading "7+ Frontier Models" [level=3] [ref=f280e42]
+                              - paragraph [ref=f280e43]: GPT-4o, Claude 3.5, Gemini Pro & more.
+                          - generic [ref=f280e44]:
+                            - generic [ref=f280e45]: verified_user
+                            - heading "Zero-Knowledge" [level=3] [ref=f280e46]
+                            - paragraph [ref=f280e47]: Privacy-first architecture. Your data never leaves our encrypted flow.
+                          - generic [ref=f280e48]:
+                            - generic [ref=f280e49]: speed
+                            - heading "Ultra Low Latency" [level=3] [ref=f280e50]
+                            - paragraph [ref=f280e51]: Sub-millisecond response times for real-time collaboration.
+                          - generic [ref=f280e52]:
+                            - generic [ref=f280e53]: auto_fix_high
+                            - heading "Smart Refinement" [level=3] [ref=f280e54]
+                            - paragraph [ref=f280e55]: Auto-tuning agents that learn your specific workflow aesthetic.
+                      - generic [ref=f280e57]:
+                        - generic [ref=f280e58]:
+                          - generic [ref=f280e59]:
+                            - heading "From the Deep" [level=2] [ref=f280e60]
+                            - paragraph [ref=f280e61]: The latest evolutionary leaps in Xylos AI technology.
+                          - button "View Archive arrow_forward" [ref=f280e62] [cursor=pointer]:
+                            - text: View Archive
+                            - generic [ref=f280e63]: arrow_forward
+                        - generic [ref=f280e64]:
+                          - generic [ref=f280e68]:
+                            - generic [ref=f280e69]: ENGINEERING • 12 MIN READ
+                            - 'heading "The Liquid Logic Engine: Rethinking Neural Architecture" [level=3] [ref=f280e70]'
+                            - paragraph [ref=f280e71]: How we achieved 40% more efficiency by mimicking biological flow patterns in our model weights.
+                          - generic [ref=f280e75]:
+                            - generic [ref=f280e76]: PRODUCT • 8 MIN READ
+                            - 'heading "Multi-Modal Synergy: Vision & Text Unified" [level=3] [ref=f280e77]'
+                            - paragraph [ref=f280e78]: Exploring the new capabilities of the 3.0 update where vision and text share a single neural space.
+                          - generic [ref=f280e82]:
+                            - generic [ref=f280e83]: ETHICS • 15 MIN READ
+                            - 'heading "The Transparency Protocol: Opening the Black Box" [level=3] [ref=f280e84]'
+                            - paragraph [ref=f280e85]: Our commitment to explainable AI and how we are giving users tools to see why models think the way they do.
+                      - generic [ref=f280e86]:
+                        - heading "Inquisitive Minds" [level=2] [ref=f280e87]
+                        - generic [ref=f280e88]:
+                          - generic [ref=f280e90] [cursor=pointer]:
+                            - generic [ref=f280e91]: How is Xylos free to use?
+                            - generic [ref=f280e92]: add
+                          - generic [ref=f280e94] [cursor=pointer]:
+                            - generic [ref=f280e95]: Is my data shared with model providers?
+                            - generic [ref=f280e96]: add
+                          - generic [ref=f280e98] [cursor=pointer]:
+                            - generic [ref=f280e99]: Can I run Xylos locally?
+                            - generic [ref=f280e100]: add
+                          - generic [ref=f280e102] [cursor=pointer]:
+                            - generic [ref=f280e103]: Do you support API access?
+                            - generic [ref=f280e104]: add
+                      - generic [ref=f280e106]:
+                        - heading "Ready to Dive In?" [level=2] [ref=f280e108]
+                        - paragraph [ref=f280e109]: Join the 200,000+ pioneers already evolving their intelligence. The future is deep.
+                        - generic [ref=f280e110]:
+                          - button "Start Free Chat" [ref=f280e111] [cursor=pointer]
+                          - button "Contact Sales" [ref=f280e112] [cursor=pointer]
+                      - contentinfo [ref=f280e113]:
+                        - generic [ref=f280e115]:
+                          - generic [ref=f280e116]:
+                            - generic [ref=f280e117]: Xylos AI
+                            - paragraph [ref=f280e118]: © 2024 Xylos AI. Evolving Intelligence.
+                          - generic [ref=f280e119]:
+                            - link "Privacy" [ref=f280e120] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Terms" [ref=f280e121] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Github" [ref=f280e122] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Contact" [ref=f280e123] [cursor=pointer]:
+                              - /url: "#"
+                          - generic [ref=f280e124]:
+                            - generic [ref=f280e125] [cursor=pointer]: alternate_email
+                            - generic [ref=f280e127] [cursor=pointer]: public
+              - generic [ref=f274e9284]:
+                - button "Add screen" [active] [ref=f274e9285] [cursor=pointer]
+                - button [ref=f274e9290] [cursor=pointer]
+            - generic [ref=f274e9378]:
+              - generic [ref=f274e9379]:
+                - heading "Add Screen" [level=2] [ref=f274e9380]
+                - button [ref=f274e9381] [cursor=pointer]
+              - generic [ref=f274e9386]:
+                - button "Xylos AI - Deep Intelligence Platform" [ref=f274e9388] [cursor=pointer]:
+                  - iframe [ref=f274e9392]
+                - button "Xylos AI - Southwestern Desert Edition" [ref=f274e9397] [cursor=pointer]:
+                  - iframe [ref=f274e9401]
+                - button "Xylos AI - Neo-Classical Edition" [ref=f274e9406] [cursor=pointer]:
+                  - iframe [ref=f274e9410]
+                - button "Xylos AI - Deep Intelligence Platform" [ref=f274e9415] [cursor=pointer]:
+                  - iframe [ref=f274e9419]
+                - button "Xylos AI - Iridescent Edition" [ref=f274e9424] [cursor=pointer]:
+                  - iframe [ref=f274e9428]
+                - button "Xylos AI - Aurora Intelligence Edition" [ref=f274e9433] [cursor=pointer]:
+                  - iframe [ref=f274e9437]
+                - button "Shader" [ref=f274e9442] [cursor=pointer]:
+                  - iframe [ref=f274e9446]:
+                    
+                - button "Xylos AI - Memphis Edition" [ref=f274e9451] [cursor=pointer]:
+                  - iframe [ref=f274e9455]
+                - button "Xylos AI - Scandinavian Minimal Edition" [ref=f274e9460] [cursor=pointer]:
+                  - iframe [ref=f274e9464]:
+                    - generic [ref=f317e1]:
+                      - banner [ref=f317e2]:
+                        - navigation [ref=f317e3]:
+                          - generic [ref=f317e4]: Xylos AI
+                          - button "Start Free Chat" [ref=f317e5] [cursor=pointer]
+                      - main [ref=f317e6]:
+                        - generic [ref=f317e9]:
+                          - heading "DIVE INTO THE FUTURE OF AI." [level=1] [ref=f317e10]
+                          - paragraph [ref=f317e11]: Navigate the depths of artificial intelligence. 7+ frontier models, unified neural interface, zero cost. Your premium AI companion.
+                          - generic [ref=f317e12]:
+                            - button "Start Free Chat" [ref=f317e13] [cursor=pointer]
+                            - button "Explore Models" [ref=f317e14] [cursor=pointer]
+                        - generic [ref=f317e22]:
+                          - generic [ref=f317e23]:
+                            - generic [ref=f317e25]: neurology
+                            - heading "7+ AI Models" [level=3] [ref=f317e27]
+                            - paragraph [ref=f317e28]: State-of-the-art frontier access
+                          - generic [ref=f317e29]:
+                            - generic [ref=f317e31]: savings
+                            - heading "$0 Monthly Cost" [level=3] [ref=f317e33]
+                            - paragraph [ref=f317e34]: Premium intelligence for everyone
+                          - generic [ref=f317e35]:
+                            - generic [ref=f317e37]: schedule
+                            - heading "24/7 Availability" [level=3] [ref=f317e39]
+                            - paragraph [ref=f317e40]: Always-on neural infrastructure
+                        - generic [ref=f317e42]:
+                          - generic [ref=f317e43]:
+                            - heading "Built for Your Workflow" [level=2] [ref=f317e44]
+                            - paragraph [ref=f317e45]: Precision tools designed with Scandinavian simplicity, focusing on what matters most.
+                          - generic [ref=f317e46]:
+                            - generic [ref=f317e47]:
+                              - generic [ref=f317e48]: chat_bubble
+                              - heading "Multi-Model Chat" [level=4] [ref=f317e49]
+                              - paragraph [ref=f317e50]: Switch between GPT-4, Claude 3, and Gemini Pro seamlessly within a single thread.
+                            - generic [ref=f317e51]:
+                              - generic [ref=f317e52]: alt_route
+                              - heading "Smart Routing" [level=4] [ref=f317e53]
+                              - paragraph [ref=f317e54]: Our algorithm automatically selects the most efficient model for your specific query.
+                            - generic [ref=f317e55]:
+                              - generic [ref=f317e56]: code
+                              - heading "Code Generation" [level=4] [ref=f317e57]
+                              - paragraph [ref=f317e58]: Write, debug, and optimize code across 50+ languages with specialized LLM guidance.
+                            - generic [ref=f317e59]:
+                              - generic [ref=f317e60]: draw
+                              - heading "Content Creation" [level=4] [ref=f317e61]
+                              - paragraph [ref=f317e62]: Draft essays, marketing copy, and creative stories with natural, human-like cadence.
+                            - generic [ref=f317e63]:
+                              - generic [ref=f317e64]: security
+                              - heading "Zero Retention" [level=4] [ref=f317e65]
+                              - paragraph [ref=f317e66]: Your data is never stored or used for training. Privacy is our fundamental architecture.
+                            - generic [ref=f317e67]:
+                              - generic [ref=f317e68]: bolt
+                              - heading "Lightning Fast" [level=4] [ref=f317e69]
+                              - paragraph [ref=f317e70]: Optimized response times with sub-second latency for real-time human-AI interaction.
+                        - generic [ref=f317e72]:
+                          - heading "Common Inquiries" [level=2] [ref=f317e73]
+                          - generic [ref=f317e74]:
+                            - generic [ref=f317e75] [cursor=pointer]:
+                              - generic [ref=f317e76]:
+                                - heading "Is it really free to use?" [level=4] [ref=f317e77]
+                                - generic [ref=f317e78]: expand_more
+                              - paragraph [ref=f317e79]: Yes. Xylos AI provides a unified gateway to the world's most powerful AI models at zero cost to the end user. We believe access to high-tier intelligence should be universal.
+                            - generic [ref=f317e80] [cursor=pointer]:
+                              - generic [ref=f317e81]:
+                                - heading "How do you handle privacy?" [level=4] [ref=f317e82]
+                                - generic [ref=f317e83]: expand_more
+                              - paragraph [ref=f317e84]: We utilize zero-retention API calls. This means your data is processed and immediate discarded. We do not keep logs of your conversations or use them for training.
+                            - generic [ref=f317e85] [cursor=pointer]:
+                              - generic [ref=f317e86]:
+                                - heading "Which models are included?" [level=4] [ref=f317e87]
+                                - generic [ref=f317e88]: expand_more
+                              - paragraph [ref=f317e89]: Our roster currently includes GPT-4o, Claude 3.5 Sonnet, Gemini Pro, Llama 3, Mixtral, and several specialized coding and creative models.
+                        - generic [ref=f317e92]:
+                          - heading "Ready to Dive In?" [level=2] [ref=f317e95]
+                          - paragraph [ref=f317e96]: Join thousands of users who have upgraded their daily workflow with the quiet power of Xylos AI.
+                          - button "Start Free Chat" [ref=f317e97] [cursor=pointer]
+                      - contentinfo [ref=f317e98]:
+                        - generic [ref=f317e99]:
+                          - generic [ref=f317e100]:
+                            - generic [ref=f317e101]: Xylos AI
+                            - paragraph [ref=f317e102]: © 2024 Xylos AI. Crafted for comfort and intelligence.
+                          - generic [ref=f317e103]:
+                            - generic [ref=f317e104]:
+                              - link "Privacy Policy" [ref=f317e105] [cursor=pointer]:
+                                - /url: "#"
+                              - link "Terms of Service" [ref=f317e106] [cursor=pointer]:
+                                - /url: "#"
+                            - generic [ref=f317e107]:
+                              - link "Contact Us" [ref=f317e108] [cursor=pointer]:
+                                - /url: "#"
+                              - link "Careers" [ref=f317e109] [cursor=pointer]:
+                                - /url: "#"
+                - button "Xylos AI - Mortal Kombat Edition" [ref=f274e9469] [cursor=pointer]:
+                  - iframe [ref=f274e9473]
+                - button "Xylos AI - Abyssal Glassmorphism Landing Page" [ref=f274e9478] [cursor=pointer]:
+                  - iframe [ref=f274e9482]
+                - button "Xylos AI - Glassmorphism Edition" [ref=f274e9487] [cursor=pointer]:
+                  - iframe [ref=f274e9491]
+                - button "Xylos AI - Iron Man Edition" [ref=f274e9496] [cursor=pointer]:
+                  - iframe [ref=f274e9500]
+                - button "Xylos AI - Cyberpunk Edition" [ref=f274e9505] [cursor=pointer]:
+                  - iframe [ref=f274e9509]
+                - button "Xylos AI - Kinetic Overdrive Edition" [ref=f274e9514] [cursor=pointer]:
+                  - iframe [ref=f274e9518]:
+                    - generic [ref=f286e1]:
+                      - navigation [ref=f286e2]:
+                        - generic [ref=f286e3]:
+                          - generic [ref=f286e4]: XYLOS AI
+                          - button "INITIALIZE" [ref=f286e5] [cursor=pointer]
+                      - main [ref=f286e6]:
+                        - generic [ref=f286e9]:
+                          - generic [ref=f286e10]: "System Status: Maximum Output"
+                          - heading "DIVE INTO THE FUTURE OF AI." [level=1] [ref=f286e13]:
+                            - text: DIVE INTO THE
+                            - generic [ref=f286e14]: FUTURE OF AI.
+                          - paragraph [ref=f286e15]: High-performance intelligence, precision-tuned for your most complex missions. Engineered to break cognitive barriers.
+                          - generic [ref=f286e16]:
+                            - button "ENGAGE DRIVE" [ref=f286e17] [cursor=pointer]
+                            - button "VIEW BLUEPRINTS" [ref=f286e18] [cursor=pointer]
+                        - generic [ref=f286e20]:
+                          - generic [ref=f286e21]:
+                            - heading "Engineered for Performance" [level=2] [ref=f286e23]
+                            - generic [ref=f286e25]: "Module: Performance_Stack_v4"
+                          - generic [ref=f286e26]:
+                            - generic [ref=f286e27]:
+                              - generic [ref=f286e28]: bolt
+                              - heading "Turbo-Charged Logic" [level=3] [ref=f286e30]
+                              - paragraph [ref=f286e31]: Fast multi-model routing ensuring sub-millisecond response times for mission-critical operations.
+                              - generic [ref=f286e32]:
+                                - generic [ref=f286e33]: "SPEED: MAX"
+                                - generic [ref=f286e34]: "LATENCY: 0.04ms"
+                              - generic [ref=f286e35]: settings_suggest
+                            - generic [ref=f286e37]:
+                              - generic [ref=f286e38]: shield_locked
+                              - heading "Titanium Security" [level=3] [ref=f286e40]
+                              - paragraph [ref=f286e41]: Encrypted, void-safe protocols built on zero-trust architecture for absolute data integrity.
+                              - generic [ref=f286e42]:
+                                - generic [ref=f286e43]: "LEVEL: ALPHA"
+                                - generic [ref=f286e44]: "ENCRYPTION: 1024-V"
+                              - generic [ref=f286e45]: verified_user
+                            - generic [ref=f286e47]:
+                              - generic [ref=f286e48]: terminal
+                              - heading "Mechanical Synthesis" [level=3] [ref=f286e50]
+                              - paragraph [ref=f286e51]: Advanced code generation tuned for raw computational efficiency and structural elegance.
+                              - generic [ref=f286e52]:
+                                - generic [ref=f286e53]: "CORES: QUANTUM"
+                                - generic [ref=f286e54]: "OUTPUT: OPTIMIZED"
+                              - generic [ref=f286e55]: dynamic_form
+                        - generic [ref=f286e59]:
+                          - generic [ref=f286e62]:
+                            - generic [ref=f286e64]: "SYNC_STATUS: 100%CORE_TEMP: OPTIMAL"
+                            - generic [ref=f286e65]: ACTIVE SCHEMATIC
+                          - generic [ref=f286e66]:
+                            - 'heading "Under the Hood: The XYLOS Architecture" [level=2] [ref=f286e67]'
+                            - generic [ref=f286e68]:
+                              - generic [ref=f286e69]:
+                                - generic [ref=f286e70]: "01"
+                                - generic [ref=f286e71]:
+                                  - heading "Precision Fluidic Routing" [level=4] [ref=f286e72]
+                                  - paragraph [ref=f286e73]: Our intelligence stream dynamically scales based on workload density, mimicking car ECU logic.
+                              - generic [ref=f286e74]:
+                                - generic [ref=f286e75]: "02"
+                                - generic [ref=f286e76]:
+                                  - heading "Reinforced Carbon Logic" [level=4] [ref=f286e77]
+                                  - paragraph [ref=f286e78]: The reasoning layer is hardened against hallucinatory drift using iterative validation cycles.
+                              - generic [ref=f286e79]:
+                                - generic [ref=f286e80]: "03"
+                                - generic [ref=f286e81]:
+                                  - heading "High-Torque Generation" [level=4] [ref=f286e82]
+                                  - paragraph [ref=f286e83]: Capable of processing massive datasets without a drop in output precision or speed.
+                        - generic [ref=f286e85]:
+                          - generic [ref=f286e86]:
+                            - heading "Diagnostic Inquiries" [level=2] [ref=f286e87]
+                            - paragraph [ref=f286e88]: Internal FAQ & Troubleshooting
+                          - generic [ref=f286e89]:
+                            - button "How does Xylos handle peak compute loads? expand_more" [ref=f286e91] [cursor=pointer]:
+                              - generic [ref=f286e92]: How does Xylos handle peak compute loads?
+                              - generic [ref=f286e93]: expand_more
+                            - button "Is the training data verified for safety? expand_more" [ref=f286e95] [cursor=pointer]:
+                              - generic [ref=f286e96]: Is the training data verified for safety?
+                              - generic [ref=f286e97]: expand_more
+                            - button "Can it integrate with existing hardware? expand_more" [ref=f286e99] [cursor=pointer]:
+                              - generic [ref=f286e100]: Can it integrate with existing hardware?
+                              - generic [ref=f286e101]: expand_more
+                        - generic [ref=f286e109]:
+                          - heading "Ready to Transform?" [level=2] [ref=f286e110]
+                          - paragraph [ref=f286e111]: Push your operational limits. The era of high-performance intelligence has arrived.
+                          - button "Initialize your neural engine today" [ref=f286e112] [cursor=pointer]
+                      - contentinfo [ref=f286e113]:
+                        - generic [ref=f286e114]:
+                          - generic [ref=f286e115]:
+                            - generic [ref=f286e116]: XYLOS ARTIFICIAL INTELLIGENCE
+                            - paragraph [ref=f286e117]: All systems at maximum output. Optimized for precision and power in the digital frontier.
+                          - generic [ref=f286e118]:
+                            - link "Engineering" [ref=f286e119] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Safety Protocol" [ref=f286e120] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Manual" [ref=f286e121] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Status" [ref=f286e122] [cursor=pointer]:
+                              - /url: "#"
+                          - generic [ref=f286e123]: © 2024 XYLOS ARTIFICIAL INTELLIGENCE. ALL SYSTEMS AT MAXIMUM OUTPUT.
+                - button "Xylos AI - Wabi-Sabi Edition" [ref=f274e9523] [cursor=pointer]:
+                  - iframe [ref=f274e9527]
+                - button "Xylos AI - Deep Intelligence Platform" [ref=f274e9532] [cursor=pointer]:
+                  - iframe [ref=f274e9536]
+                - button "Xylos AI - Imperial Edition" [ref=f274e9541] [cursor=pointer]:
+                  - iframe [ref=f274e9545]
+                - button "Xylos AI - Web Slinger Edition" [ref=f274e9550] [cursor=pointer]:
+                  - iframe [ref=f274e9554]
+                - button "Xylos AI - Mobile Landing Page" [ref=f274e9559] [cursor=pointer]:
+                  - iframe [ref=f274e9563]
+                - button "Xylos AI - Wakanda Edition" [ref=f274e9568] [cursor=pointer]:
+                  - iframe [ref=f274e9572]:
+                    - generic [ref=f319e1]:
+                      - navigation [ref=f319e2]:
+                        - generic [ref=f319e3]:
+                          - generic [ref=f319e4]: XYLOS AI
+                          - button "DIVE IN" [ref=f319e6] [cursor=pointer]
+                      - main [ref=f319e7]:
+                        - generic [ref=f319e8]:
+                          - img "Vibranium Neural Network" [ref=f319e10]
+                          - generic [ref=f319e13]:
+                            - generic [ref=f319e14]:
+                              - generic [ref=f319e15]: security
+                              - generic [ref=f319e16]: "Encryption Active: Vibranium Phase 4"
+                            - heading "DIVE INTO THE FUTURE OF AI." [level=1] [ref=f319e17]
+                            - paragraph [ref=f319e18]: Access Wakandan-grade intelligence through a unified neural interface. Xylos AI integrates multi-modal synthesis directly into your tactical workflow with vibranium-clad security.
+                            - generic [ref=f319e19]:
+                              - button "INITIALIZE INTERFACE" [ref=f319e20] [cursor=pointer]
+                              - button "VIEW ARSENAL" [ref=f319e21] [cursor=pointer]
+                          - generic [ref=f319e22]: keyboard_double_arrow_down
+                        - generic [ref=f319e24]:
+                          - heading "Core Capabilities" [level=2] [ref=f319e26]
+                          - generic [ref=f319e28]:
+                            - generic [ref=f319e31]:
+                              - generic [ref=f319e32]: hub
+                              - heading "SMART ROUTING" [level=3] [ref=f319e33]
+                              - paragraph [ref=f319e34]: Dynamic task delegation across global hyper-nodes.
+                            - generic [ref=f319e37]:
+                              - generic [ref=f319e38]: forum
+                              - heading "MULTI-MODEL CHAT" [level=3] [ref=f319e39]
+                              - paragraph [ref=f319e40]: Converse with top-tier intelligence streams.
+                            - generic [ref=f319e43]:
+                              - generic [ref=f319e44]: terminal
+                              - heading "CODE FORGE" [level=3] [ref=f319e45]
+                              - paragraph [ref=f319e46]: Architect complex systems from a single prompt.
+                            - generic [ref=f319e49]:
+                              - generic [ref=f319e50]: shield_lock
+                              - heading "SECURE SHELL" [level=3] [ref=f319e51]
+                              - paragraph [ref=f319e52]: Vibranium-grade encryption for total data sovereignty.
+                        - generic [ref=f319e53]:
+                          - generic [ref=f319e56]:
+                            - heading "From the Deep" [level=2] [ref=f319e57]
+                            - paragraph [ref=f319e58]: Intelligence Briefings
+                          - generic [ref=f319e59]:
+                            - generic [ref=f319e60]:
+                              - heading "Kinetic Neural HUDs" [level=4] [ref=f319e63]
+                              - paragraph [ref=f319e64]: Exploring the visual language of thought-to-system interfaces.
+                            - generic [ref=f319e65]:
+                              - heading "Vibranium Synthesis Protocol" [level=4] [ref=f319e68]
+                              - paragraph [ref=f319e69]: The next evolution in material-led cryptographic computing.
+                            - generic [ref=f319e70]:
+                              - heading "The Future of Afrofuturism in AI" [level=4] [ref=f319e73]
+                              - paragraph [ref=f319e74]: Redefining the global technological landscape through ancestral wisdom.
+                        - generic [ref=f319e75]:
+                          - heading "System Protocols (FAQ)" [level=2] [ref=f319e76]
+                          - generic [ref=f319e77]:
+                            - generic [ref=f319e79] [cursor=pointer]:
+                              - heading "How secure is the Vibranium Shield?" [level=4] [ref=f319e80]
+                              - generic [ref=f319e81]: expand_more
+                            - generic [ref=f319e82] [cursor=pointer]:
+                              - generic [ref=f319e83]:
+                                - heading "Can I integrate custom intelligence models?" [level=4] [ref=f319e84]
+                                - generic [ref=f319e85]: expand_more
+                              - paragraph [ref=f319e87]: Yes. Xylos AI is designed with modular synthesis in mind. You can plug in any private or public LLM via our Neural Bridge API, allowing for Wakandan-level processing across all your existing assets.
+                            - generic [ref=f319e89] [cursor=pointer]:
+                              - heading "What is the Code Forge?" [level=4] [ref=f319e90]
+                              - generic [ref=f319e91]: expand_more
+                        - generic [ref=f319e96]:
+                          - heading "READY TO DIVE IN?" [level=2] [ref=f319e97]
+                          - paragraph [ref=f319e98]: JOIN THE ELITE OF WAKANDA.
+                          - generic [ref=f319e99] [cursor=pointer]:
+                            - button "power_settings_new" [ref=f319e101]
+                            - paragraph [ref=f319e103]: Ignite Neural Link
+                      - contentinfo [ref=f319e104]:
+                        - generic [ref=f319e106]:
+                          - generic [ref=f319e107]:
+                            - generic [ref=f319e108]: XYLOS AI
+                            - paragraph [ref=f319e109]: Forging the intersection of ancestral wisdom and future-tech intelligence.
+                          - generic [ref=f319e110]:
+                            - heading "CORE CAPABILITIES" [level=5] [ref=f319e111]
+                            - list [ref=f319e112]:
+                              - listitem [ref=f319e113]:
+                                - link "Neural Sync" [ref=f319e114] [cursor=pointer]:
+                                  - /url: "#"
+                              - listitem [ref=f319e115]:
+                                - link "Kinetic Flow" [ref=f319e116] [cursor=pointer]:
+                                  - /url: "#"
+                              - listitem [ref=f319e117]:
+                                - link "Secure Vault" [ref=f319e118] [cursor=pointer]:
+                                  - /url: "#"
+                          - generic [ref=f319e119]:
+                            - heading "SYSTEM" [level=5] [ref=f319e120]
+                            - list [ref=f319e121]:
+                              - listitem [ref=f319e122]:
+                                - link "SYSTEM STATUS" [ref=f319e123] [cursor=pointer]:
+                                  - /url: "#"
+                              - listitem [ref=f319e124]:
+                                - link "FAQ" [ref=f319e125] [cursor=pointer]:
+                                  - /url: "#"
+                              - listitem [ref=f319e126]:
+                                - link "PROTOCOLS" [ref=f319e127] [cursor=pointer]:
+                                  - /url: "#"
+                          - generic [ref=f319e128]:
+                            - heading "LEGAL" [level=5] [ref=f319e129]
+                            - list [ref=f319e130]:
+                              - listitem [ref=f319e131]:
+                                - link "Privacy Policy" [ref=f319e132] [cursor=pointer]:
+                                  - /url: "#"
+                              - listitem [ref=f319e133]:
+                                - link "Terms of Service" [ref=f319e134] [cursor=pointer]:
+                                  - /url: "#"
+                            - generic [ref=f319e135]:
+                              - link "share" [ref=f319e136] [cursor=pointer]:
+                                - /url: "#"
+                              - link "alternate_email" [ref=f319e138] [cursor=pointer]:
+                                - /url: "#"
+                        - generic [ref=f319e140]: © 2024 XYLOS AI. BUILT WITH VIBRANIUM TECH.
+                - button "Xylos AI - Deep Intelligence Platform" [ref=f274e9577] [cursor=pointer]:
+                  - iframe [ref=f274e9581]
+                - button "Xylos AI - Data-Viz Edition" [ref=f274e9586] [cursor=pointer]:
+                  - iframe [ref=f274e9590]
+                - button "Xylos AI - Bauhaus Edition" [ref=f274e9595] [cursor=pointer]:
+                  - iframe [ref=f274e9599]
+                - button "Xylos AI - Vigilante Edition" [ref=f274e9604] [cursor=pointer]:
+                  - iframe [ref=f274e9608]
+                - button "Xylos AI - Constructivist Edition" [ref=f274e9613] [cursor=pointer]:
+                  - iframe [ref=f274e9617]
+                - button "Xylos AI - Abyssal Glassmorphism Landing Page" [ref=f274e9622] [cursor=pointer]:
+                  - iframe [ref=f274e9626]
+                - button "Xylos AI - Terminal CLI Edition" [ref=f274e9631] [cursor=pointer]:
+                  - iframe [ref=f274e9635]:
+                    - generic [ref=f282e1]:
+                      - banner [ref=f282e2]:
+                        - generic [ref=f282e3]: XYLOS_AI:/$
+                        - generic [ref=f282e4]:
+                          - button "[GET_KEY]" [ref=f282e5] [cursor=pointer]
+                          - button "[LOGIN]" [ref=f282e6] [cursor=pointer]
+                      - main [ref=f282e7]:
+                        - generic [ref=f282e8]:
+                          - generic [ref=f282e9]: __ __ __ __ __ ____ \ \ / / \ \ / / \ \ / / / __ \ \ V / \ \/ / \ \ / / | | | | > < \ / \ \ / / | | | | / ^ \ | | \ \/ / | |__| | /_/ \_\ |_| \__/ \____/
+                          - generic [ref=f282e10]:
+                            - generic [ref=f282e11]:
+                              - generic [ref=f282e12]: admin@xylos:~$
+                              - generic [ref=f282e13]: RUN
+                            - heading "DIVE INTO THE FUTURE OF AI." [level=1] [ref=f282e15]
+                            - paragraph [ref=f282e16]: Navigate the depths of artificial intelligence. 7+ frontier models, unified neural interface, zero cost. Your premium AI companion.
+                          - generic [ref=f282e17]:
+                            - button "[EXECUTE_CHAT]" [ref=f282e18] [cursor=pointer]
+                            - button "( MANUAL_VIEW )" [ref=f282e20] [cursor=pointer]
+                        - generic [ref=f282e21]:
+                          - generic [ref=f282e22]:
+                            - generic [ref=f282e23]: "[--- SYSTEM_RESOURCE_A ---]"
+                            - generic [ref=f282e24]:
+                              - generic [ref=f282e25]: MODELS_LOADED
+                              - generic [ref=f282e26]: 7+
+                          - generic [ref=f282e29]:
+                            - generic [ref=f282e30]: "[--- SYSTEM_RESOURCE_B ---]"
+                            - generic [ref=f282e31]:
+                              - generic [ref=f282e32]: COST_PER_MONTH
+                              - generic [ref=f282e33]: $0.00
+                          - generic [ref=f282e36]:
+                            - generic [ref=f282e37]: "[--- SYSTEM_RESOURCE_C ---]"
+                            - generic [ref=f282e38]:
+                              - generic [ref=f282e39]: UPTIME
+                              - generic [ref=f282e40]: 99.99%
+                        - generic [ref=f282e43]:
+                          - generic [ref=f282e44]: /usr/bin/capabilities_manifest.json
+                          - generic [ref=f282e45]:
+                            - generic [ref=f282e46] [cursor=pointer]:
+                              - generic [ref=f282e47]: "MOD_01: SMART_ROUTING"
+                              - generic [ref=f282e49]:
+                                - heading "AUTONOMOUS_MODEL_SELECTION" [level=3] [ref=f282e50]
+                                - paragraph [ref=f282e51]: Dynamic neural pathway optimization. Xylos automatically selects the most efficient frontier model for your specific query, balancing speed, logic, and creative depth.
+                                - code [ref=f282e52]: "{ \"routing\": \"active\", \"latency\": \"12ms\", \"target\": [\"GPT-4\", \"Claude-3\", \"Llama-3\"] }"
+                            - generic [ref=f282e54] [cursor=pointer]:
+                              - generic [ref=f282e55]: "MOD_02: CODE_GEN"
+                              - generic [ref=f282e56]:
+                                - generic [ref=f282e57]: terminal
+                                - heading "SYNTAX_GEN" [level=3] [ref=f282e58]
+                                - paragraph [ref=f282e59]: Deep integration with major repositories. Multi-language support with zero-latency auto-completion.
+                            - generic [ref=f282e60] [cursor=pointer]:
+                              - generic [ref=f282e61]: "MOD_03: PRIVACY"
+                              - generic [ref=f282e62]:
+                                - generic [ref=f282e63]: encrypted
+                                - heading "ZERO_RETENTION" [level=3] [ref=f282e64]
+                                - paragraph [ref=f282e65]: Ephemeral sessions. No data persists beyond the active socket connection. Local-first encryption protocols.
+                            - generic [ref=f282e66] [cursor=pointer]:
+                              - generic [ref=f282e67]: "MOD_04: CONTENT_CORE"
+                              - generic [ref=f282e68]:
+                                - generic [ref=f282e69]:
+                                  - heading "MULTIMODAL_CREATIVE" [level=3] [ref=f282e70]
+                                  - paragraph [ref=f282e71]: From semantic analysis to image synthesis. A unified pipeline for all digital assets.
+                                - generic [ref=f282e72]:
+                                  - generic [ref=f282e73]: A
+                                  - generic [ref=f282e74]: "0"
+                                  - generic [ref=f282e75]: "1"
+                                  - generic [ref=f282e76]: B
+                        - generic [ref=f282e77]:
+                          - generic [ref=f282e78]:
+                            - generic [ref=f282e79]: SYSTEM_LOGS.EXE
+                            - generic [ref=f282e80]:
+                              - generic [ref=f282e81]: "[2024-05-22 14:20:01] BOOT_SEQUENCE: OK"
+                              - generic [ref=f282e82]: "[2024-05-22 14:21:05] UPDATE: Model \"Nexus-8\" added to core routing."
+                              - generic [ref=f282e83]: "[2024-05-22 14:25:33] TRAFFIC: Surge detected in creative cluster. Scaling..."
+                              - generic [ref=f282e84]: "[2024-05-22 14:30:12] WARNING: Manual override requested in sector 7."
+                              - generic [ref=f282e85]: "[2024-05-22 14:35:00] LOG: The Deepest Free AI Platform. We believe intelligence is a public utility."
+                              - generic [ref=f282e86]: "[2024-05-22 14:38:22] LOG: Latency reduced by 14% in EU-WEST regions."
+                              - generic [ref=f282e87]: "[2024-05-22 14:40:01] LOG: Session encryption verified for user admin_01."
+                              - generic [ref=f282e88]: "[2024-05-22 14:45:00] LOG: System integrity check completed. 0 vulnerabilities found."
+                          - generic [ref=f282e89]:
+                            - heading "INTELLIGENCE_AS_UTILITY" [level=2] [ref=f282e90]
+                            - paragraph [ref=f282e91]: We've decoupled the cost from the computation. Xylos AI represents a paradigm shift where premium frontier models are accessible to every terminal on the planet. No subscription, no surveillance, no friction.
+                            - generic [ref=f282e92]:
+                              - generic [ref=f282e93]: "| THREADS: 1,024 |"
+                              - generic [ref=f282e94]: "| NODES: ACTIVE |"
+                              - generic [ref=f282e95]: "| ENCRYPTION: AES-256 |"
+                        - generic [ref=f282e96]:
+                          - generic [ref=f282e97]: admin@xylos:~$ HELP COMMON_INQUIRIES
+                          - generic [ref=f282e98]:
+                            - group [ref=f282e99]:
+                              - generic "> IS_IT_REALLY_FREE? arrow_right" [ref=f282e100] [cursor=pointer]:
+                                - generic [ref=f282e101]: "> IS_IT_REALLY_FREE?"
+                                - generic [ref=f282e102]: arrow_right
+                            - group [ref=f282e103]:
+                              - generic "> HOW_MANY_MODELS_ARE_SUPPORTED? arrow_right" [ref=f282e104] [cursor=pointer]:
+                                - generic [ref=f282e105]: "> HOW_MANY_MODELS_ARE_SUPPORTED?"
+                                - generic [ref=f282e106]: arrow_right
+                            - group [ref=f282e107]:
+                              - generic "> DATA_COLLECTION_POLICY? arrow_right" [ref=f282e108] [cursor=pointer]:
+                                - generic [ref=f282e109]: "> DATA_COLLECTION_POLICY?"
+                                - generic [ref=f282e110]: arrow_right
+                        - generic [ref=f282e112]:
+                          - heading "READY_TO_INITIALIZE?" [level=2] [ref=f282e113]
+                          - paragraph [ref=f282e114]: Connection ready. All subsystems nominal. Awaiting command.
+                          - button "[INITIALIZE_SESSION]" [ref=f282e115] [cursor=pointer]
+                          - generic [ref=f282e116]: "S/N: 8842-XYLOS-A9 // BUILD: 2024.05"
+                      - contentinfo [ref=f282e117]:
+                        - generic [ref=f282e118]: (C) 1984-2024 XYLOS_CORP
+                        - generic [ref=f282e119]:
+                          - generic [ref=f282e120] [cursor=pointer]: "STATUS: OPERATIONAL"
+                          - generic [ref=f282e121] [cursor=pointer]: "UPTIME: 99.99%"
+                          - generic [ref=f282e122] [cursor=pointer]: "TZ: UTC-0"
+                          - generic [ref=f282e123] [cursor=pointer]: "T: 2024-05-22_14:20:01"
+                - button "Xylos AI - Cybertronic Edition" [ref=f274e9640] [cursor=pointer]:
+                  - iframe [ref=f274e9644]
+                - button "Xylos AI - Zen Rock Garden Edition" [ref=f274e9649] [cursor=pointer]:
+                  - iframe [ref=f274e9653]
+                - button "Xylos AI - Deep Intelligence Platform" [ref=f274e9658] [cursor=pointer]:
+                  - iframe [ref=f274e9662]
+                - button "Xylos AI - Abyssal Glassmorphism Landing Page" [ref=f274e9667] [cursor=pointer]:
+                  - iframe [ref=f274e9671]
+                - button "Xylos AI - Deep Intelligence Platform" [ref=f274e9676] [cursor=pointer]:
+                  - iframe [ref=f274e9680]
+                - button "Xylos AI - TRON Edition" [ref=f274e9685] [cursor=pointer]:
+                  - iframe [ref=f274e9689]
+                - button "Xylos AI - Cosmos Edition" [ref=f274e9694] [cursor=pointer]:
+                  - iframe [ref=f274e9698]
+                - button "Xylos AI - Floating / Hover UI Edition" [ref=f274e9703] [cursor=pointer]:
+                  - iframe [ref=f274e9707]
+                - button "Shader" [ref=f274e9712] [cursor=pointer]:
+                  - iframe [ref=f274e9716]:
+                    
+                - button "Xylos AI - Dark Academia Edition" [ref=f274e9721] [cursor=pointer]:
+                  - iframe [ref=f274e9725]
+                - button "Xylos AI - Dark Luxury Edition" [ref=f274e9730] [cursor=pointer]:
+                  - iframe [ref=f274e9734]
+                - button "Xylos AI - Abyssal Glassmorphism Landing Page" [ref=f274e9739] [cursor=pointer]:
+                  - iframe [ref=f274e9743]
+                - button "Xylos AI - Monochrome Architectural Edition" [ref=f274e9748] [cursor=pointer]:
+                  - iframe [ref=f274e9752]
+                - button "Xylos AI - Neubrutalism Edition" [ref=f274e9757] [cursor=pointer]:
+                  - iframe [ref=f274e9761]
+                - button "Xylos AI - Nintendo Edition" [ref=f274e9766] [cursor=pointer]:
+                  - iframe [ref=f274e9770]
+                - button "Xylos AI - Deep Intelligence Platform" [ref=f274e9775] [cursor=pointer]:
+                  - iframe [ref=f274e9779]
+                - button "Xylos AI - Bento Magazine Edition" [ref=f274e9784] [cursor=pointer]:
+                  - iframe [ref=f274e9788]:
+                    - generic [ref=f284e1]:
+                      - banner [ref=f284e2]:
+                        - navigation [ref=f284e3]:
+                          - generic [ref=f284e4]: XYLOS AI
+                          - button "Subscribe" [ref=f284e5] [cursor=pointer]
+                      - main [ref=f284e6]:
+                        - generic [ref=f284e8]:
+                          - generic [ref=f284e9]:
+                            - generic [ref=f284e10]: Foundational Intelligence
+                            - heading "DIVE INTO THE FUTURE OF AI." [level=1] [ref=f284e11]
+                            - paragraph [ref=f284e12]: Architecting the next generation of neural synthesis. Xylos AI provides a high-density environment for researchers, engineers, and creators to push the boundaries of large language models.
+                            - generic [ref=f284e13]:
+                              - button "Get Started" [ref=f284e14] [cursor=pointer]
+                              - button "Documentation" [ref=f284e15] [cursor=pointer]
+                          - generic [ref=f284e16]:
+                            - img "AI Neural Core" [ref=f284e17]
+                            - generic [ref=f284e19]:
+                              - generic [ref=f284e20]: Core Online
+                              - heading "X-1 NEURAL KERNEL" [level=3] [ref=f284e23]
+                        - generic [ref=f284e25]:
+                          - generic [ref=f284e26]:
+                            - generic [ref=f284e27]: Architecture
+                            - generic [ref=f284e28]:
+                              - generic [ref=f284e29]: 7+
+                              - generic [ref=f284e30]: SOTA Models Integrated
+                          - generic [ref=f284e31]:
+                            - generic [ref=f284e32]: Access
+                            - generic [ref=f284e33]:
+                              - generic [ref=f284e34]: $0
+                              - generic [ref=f284e35]: Base Usage Cost
+                          - generic [ref=f284e36]:
+                            - generic [ref=f284e37]: schedule
+                            - generic [ref=f284e39]: Reliability
+                            - generic [ref=f284e40]:
+                              - generic [ref=f284e41]: 24/7
+                              - generic [ref=f284e42]: Distributed High-Availability Network
+                        - generic [ref=f284e43]:
+                          - generic [ref=f284e45]:
+                            - generic [ref=f284e46]:
+                              - generic [ref=f284e47]: Capabilities
+                              - heading "ENGINEERED FOR PEAK PERFORMANCE." [level=2] [ref=f284e48]
+                            - paragraph [ref=f284e49]: A suite of tools designed to reduce latency while maximizing creative output.
+                          - generic [ref=f284e50]:
+                            - generic [ref=f284e51]:
+                              - generic [ref=f284e52]:
+                                - generic [ref=f284e53]: hub
+                                - heading "Multi-Model Orchestration" [level=3] [ref=f284e55]
+                                - paragraph [ref=f284e56]: Seamlessly swap between GPT-4, Claude 3, and specialized open-source models using a single unified interface. Our Smart Routing technology automatically selects the best model for your specific task to optimize cost and quality.
+                              - generic [ref=f284e57]:
+                                - generic [ref=f284e58]:
+                                  - generic [ref=f284e59]: GPT
+                                  - generic [ref=f284e60]: CLD
+                                  - generic [ref=f284e61]: LMA
+                                - generic [ref=f284e62]: Unified Routing Engine Active
+                            - generic [ref=f284e63]:
+                              - generic [ref=f284e64]:
+                                - generic [ref=f284e65]: terminal
+                                - generic [ref=f284e66]: FE-01
+                              - heading "Code Generation" [level=4] [ref=f284e67]
+                              - paragraph [ref=f284e68]: Production-ready snippets with zero hallucination bias.
+                            - generic [ref=f284e69]:
+                              - generic [ref=f284e70]:
+                                - generic [ref=f284e71]: auto_awesome
+                                - generic [ref=f284e72]: FE-02
+                              - heading "Smart Routing" [level=4] [ref=f284e73]
+                              - paragraph [ref=f284e74]: Dynamic task allocation to minimize token wastage.
+                        - generic [ref=f284e76]:
+                          - generic [ref=f284e77]:
+                            - heading "FROM THE DEEP" [level=2] [ref=f284e78]
+                            - generic [ref=f284e79]: ISSUE NO. 04 — Q4 2024
+                          - generic [ref=f284e80]:
+                            - article [ref=f284e81]:
+                              - generic [ref=f284e84]:
+                                - generic [ref=f284e85]: NEURAL ARCHITECTURE
+                                - 'heading "The Collapse of Latency: How Edge AI is Changing the Game" [level=3] [ref=f284e86] [cursor=pointer]'
+                                - paragraph [ref=f284e87]: Exploring the radical shift from centralized cloud compute to hyper-local intelligence clusters.
+                            - article [ref=f284e88]:
+                              - generic [ref=f284e91]:
+                                - generic [ref=f284e92]: EDITORIAL
+                                - 'heading "Ghost in the Machine: The Ethics of Generative Memory" [level=3] [ref=f284e93] [cursor=pointer]'
+                                - paragraph [ref=f284e94]: Understanding the long-term implications of AI-persistent personas in digital workspaces.
+                            - article [ref=f284e95]:
+                              - generic [ref=f284e98]:
+                                - generic [ref=f284e99]: LAB NOTES
+                                - 'heading "Synthetic Data: The Infinite Training Loop" [level=3] [ref=f284e100] [cursor=pointer]'
+                                - paragraph [ref=f284e101]: New research on how high-fidelity synthetic datasets are breaking through the data scarcity wall.
+                        - generic [ref=f284e103]:
+                          - generic [ref=f284e104]:
+                            - heading "COMMON INQUIRIES" [level=2] [ref=f284e105]
+                            - paragraph [ref=f284e106]: Frequently asked questions about the Xylos ecosystem and integration protocols.
+                          - generic [ref=f284e107]:
+                            - generic [ref=f284e109] [cursor=pointer]:
+                              - heading "How does Smart Routing reduce costs?" [level=4] [ref=f284e110]
+                              - generic [ref=f284e111]: add
+                            - generic [ref=f284e113] [cursor=pointer]:
+                              - heading "Is my data used for model training?" [level=4] [ref=f284e114]
+                              - generic [ref=f284e115]: add
+                            - generic [ref=f284e117] [cursor=pointer]:
+                              - heading "Can I integrate custom local models?" [level=4] [ref=f284e118]
+                              - generic [ref=f284e119]: add
+                            - generic [ref=f284e121] [cursor=pointer]:
+                              - heading "What is the latency on the Global Edge Network?" [level=4] [ref=f284e122]
+                              - generic [ref=f284e123]: add
+                        - generic [ref=f284e126]:
+                          - heading "READY TO DIVE IN?" [level=2] [ref=f284e127]
+                          - paragraph [ref=f284e128]: Join 20,000+ engineers architecting the future on Xylos AI. Start your free trial today.
+                          - generic [ref=f284e129]:
+                            - button "Create Account" [ref=f284e130] [cursor=pointer]
+                            - button "Schedule Demo" [ref=f284e131] [cursor=pointer]
+                      - contentinfo [ref=f284e132]:
+                        - generic [ref=f284e133]:
+                          - generic [ref=f284e134]:
+                            - generic [ref=f284e135]:
+                              - generic [ref=f284e136]: XYLOS AI
+                              - paragraph [ref=f284e137]: Leading the transition to decentralized, multi-modal intelligence for the modern web.
+                            - generic [ref=f284e138]: © 2024 XYLOS AI. ARCHITECTING INTELLIGENCE.
+                          - generic [ref=f284e139]:
+                            - generic [ref=f284e140]:
+                              - generic [ref=f284e141]: Protocol
+                              - link "Intelligence" [ref=f284e142] [cursor=pointer]:
+                                - /url: "#"
+                              - link "Architecture" [ref=f284e143] [cursor=pointer]:
+                                - /url: "#"
+                              - link "Ethical Framework" [ref=f284e144] [cursor=pointer]:
+                                - /url: "#"
+                            - generic [ref=f284e145]:
+                              - generic [ref=f284e146]: Legal
+                              - link "Privacy Policy" [ref=f284e147] [cursor=pointer]:
+                                - /url: "#"
+                              - link "Terms of Service" [ref=f284e148] [cursor=pointer]:
+                                - /url: "#"
+                              - link "Contact" [ref=f284e149] [cursor=pointer]:
+                                - /url: "#"
+                - button "Xylos AI - Isometric 3D Edition" [ref=f274e9793] [cursor=pointer]:
+                  - iframe [ref=f274e9797]
+                - button "Xylos AI - Retro Terminal Edition" [ref=f274e9802] [cursor=pointer]:
+                  - iframe [ref=f274e9806]
+                - button "Xylos AI - Atlantis Edition" [ref=f274e9811] [cursor=pointer]:
+                  - iframe [ref=f274e9815]
+                - button "Xylos AI - Abyssal Glassmorphism Landing Page" [ref=f274e9820] [cursor=pointer]:
+                  - iframe [ref=f274e9824]
+                - button "Xylos AI - Fashion Editorial Edition" [ref=f274e9829] [cursor=pointer]:
+                  - iframe [ref=f274e9833]
+                - button "Xylos AI - Glassmorphism Edition" [ref=f274e9838] [cursor=pointer]:
+                  - iframe [ref=f274e9842]
+                - button "Xylos AI - Abyssal Glassmorphism Landing Page" [ref=f274e9847] [cursor=pointer]:
+                  - iframe [ref=f274e9851]
+                - button "Xylos AI - Claymorphism Edition" [ref=f274e9856] [cursor=pointer]:
+                  - iframe [ref=f274e9860]:
+                    - generic [ref=f285e1]:
+                      - banner [ref=f285e2]:
+                        - generic [ref=f285e3]:
+                          - generic [ref=f285e4]: Xylos AI
+                          - button "Get Started" [ref=f285e5] [cursor=pointer]
+                      - main [ref=f285e6]:
+                        - generic [ref=f285e8]:
+                          - heading "DIVE INTO THE FUTURE OF AI." [level=1] [ref=f285e9]
+                          - paragraph [ref=f285e10]: Navigate the depths of artificial intelligence. 7+ frontier models, unified neural interface, zero cost. Your premium AI companion.
+                          - generic [ref=f285e11]:
+                            - button "Get Started" [ref=f285e12] [cursor=pointer]
+                            - button "Explore Platform" [ref=f285e13] [cursor=pointer]
+                        - generic [ref=f285e20]:
+                          - generic [ref=f285e21]:
+                            - generic [ref=f285e22]: layers
+                            - heading "7+ AI Models" [level=3] [ref=f285e24]
+                            - paragraph [ref=f285e25]: Industry-leading models unified in a single thread for peak performance.
+                          - generic [ref=f285e26]:
+                            - generic [ref=f285e27]: payments
+                            - heading "$0 Cost" [level=3] [ref=f285e29]
+                            - paragraph [ref=f285e30]: Democratizing frontier AI access with base usage at zero cost to you.
+                          - generic [ref=f285e31]:
+                            - generic [ref=f285e32]: bolt
+                            - heading "24/7 Availability" [level=3] [ref=f285e34]
+                            - paragraph [ref=f285e35]: Distributed high-availability network ensures we are always online.
+                        - generic [ref=f285e36]:
+                          - heading "Capabilities" [level=2] [ref=f285e38]
+                          - generic [ref=f285e39]:
+                            - generic [ref=f285e40]:
+                              - generic [ref=f285e41]: forum
+                              - generic [ref=f285e42]: Multi-Model Chat
+                            - generic [ref=f285e43]:
+                              - generic [ref=f285e44]: route
+                              - generic [ref=f285e45]: Smart Routing
+                            - generic [ref=f285e46]:
+                              - generic [ref=f285e47]: code
+                              - generic [ref=f285e48]: Code Generation
+                            - generic [ref=f285e49]:
+                              - generic [ref=f285e50]: edit_note
+                              - generic [ref=f285e51]: Content Creation
+                            - generic [ref=f285e52]:
+                              - generic [ref=f285e53]: no_accounts
+                              - generic [ref=f285e54]: Zero Retention
+                            - generic [ref=f285e55]:
+                              - generic [ref=f285e56]: speed
+                              - generic [ref=f285e57]: Lightning Fast
+                        - generic [ref=f285e58]:
+                          - heading "Common Questions" [level=2] [ref=f285e59]
+                          - generic [ref=f285e60]:
+                            - group [ref=f285e61]:
+                              - generic "How do I access different models? expand_more" [ref=f285e62] [cursor=pointer]:
+                                - generic [ref=f285e63]: How do I access different models?
+                                - generic [ref=f285e64]: expand_more
+                            - group [ref=f285e65]:
+                              - generic "Is it really $0 cost? expand_more" [ref=f285e66] [cursor=pointer]:
+                                - generic [ref=f285e67]: Is it really $0 cost?
+                                - generic [ref=f285e68]: expand_more
+                            - group [ref=f285e69]:
+                              - generic "What about my data privacy? expand_more" [ref=f285e70] [cursor=pointer]:
+                                - generic [ref=f285e71]: What about my data privacy?
+                                - generic [ref=f285e72]: expand_more
+                        - generic [ref=f285e74]:
+                          - heading "Ready to Dive In?" [level=2] [ref=f285e75]
+                          - paragraph [ref=f285e76]: Join thousands of researchers and creators using the world's most accessible neural interface.
+                          - button "Get Started Now" [ref=f285e77] [cursor=pointer]
+                      - contentinfo [ref=f285e78]:
+                        - generic [ref=f285e79]:
+                          - generic [ref=f285e80]:
+                            - generic [ref=f285e81]: Xylos AI
+                            - paragraph [ref=f285e82]: © 2024 Xylos AI. All rights reserved.
+                          - generic [ref=f285e83]:
+                            - link "Privacy" [ref=f285e84] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Terms" [ref=f285e85] [cursor=pointer]:
+                              - /url: "#"
+                            - link "System Status" [ref=f285e86] [cursor=pointer]:
+                              - /url: "#"
+                - button "Xylos AI - Bioluminescent Edition" [ref=f274e9865] [cursor=pointer]:
+                  - iframe [ref=f274e9869]
+                - button "Xylos AI - Abyssal Glassmorphism Landing Page" [ref=f274e9874] [cursor=pointer]:
+                  - iframe [ref=f274e9878]
+                - button "Xylos AI - Deep Intelligence Platform" [ref=f274e9883] [cursor=pointer]:
+                  - iframe [ref=f274e9887]
+                - button "Xylos AI - Deep Intelligence Platform" [ref=f274e9892] [cursor=pointer]:
+                  - iframe [ref=f274e9896]
+                - button "Xylos AI - Atomic Age Edition" [ref=f274e9901] [cursor=pointer]:
+                  - iframe [ref=f274e9905]
+          - generic [ref=f274e9294]:
+            - generic:
+              - iframe [ref=f274e9304]:
+                - generic [ref=f281e1]:
+                  - navigation [ref=f281e5]:
+                    - generic [ref=f281e6]:
+                      - generic [ref=f281e7]: Xylos AI
+                      - generic [ref=f281e8]:
+                        - link "Evolution" [ref=f281e9] [cursor=pointer]:
+                          - /url: "#"
+                        - link "Ecosystem" [ref=f281e10] [cursor=pointer]:
+                          - /url: "#"
+                        - link "Intelligence" [ref=f281e11] [cursor=pointer]:
+                          - /url: "#"
+                        - link "Pricing" [ref=f281e12] [cursor=pointer]:
+                          - /url: "#"
+                      - button "Get Started" [ref=f281e13] [cursor=pointer]
+                  - main [ref=f281e14]:
+                    - generic [ref=f281e15]:
+                      - generic [ref=f281e16]: Alpha Access Live
+                      - heading "DIVE INTO THE FUTURE OF AI." [level=1] [ref=f281e20]
+                      - paragraph [ref=f281e21]: Navigate the depths of artificial intelligence. 7+ frontier models, unified neural interface, zero cost. Your premium AI companion.
+                      - generic [ref=f281e22]:
+                        - button "Start Free Chat" [ref=f281e23] [cursor=pointer]
+                        - button "Explore Platform" [ref=f281e24] [cursor=pointer]
+                    - generic [ref=f281e25]: play_arrow
+                  - generic [ref=f281e33]:
+                    - generic [ref=f281e34]:
+                      - heading "Neural Capabilities" [level=2] [ref=f281e35]
+                      - paragraph [ref=f281e36]: Seamlessly integrated features designed for a fluid intelligence experience.
+                    - generic [ref=f281e37]:
+                      - generic [ref=f281e38] [cursor=pointer]:
+                        - generic [ref=f281e39]: hub
+                        - heading "Unified Neural Interface" [level=3] [ref=f281e41]
+                        - paragraph [ref=f281e42]: Switch between models effortlessly with our proprietary flow-state canvas. One prompt, infinite possibilities.
+                      - generic [ref=f281e43] [cursor=pointer]:
+                        - generic [ref=f281e44]: model_training
+                        - generic [ref=f281e46]:
+                          - heading "7+ Frontier Models" [level=3] [ref=f281e47]
+                          - paragraph [ref=f281e48]: GPT-4o, Claude 3.5, Gemini Pro & more.
+                      - generic [ref=f281e49]:
+                        - generic [ref=f281e50]: verified_user
+                        - heading "Zero-Knowledge" [level=3] [ref=f281e51]
+                        - paragraph [ref=f281e52]: Privacy-first architecture. Your data never leaves our encrypted flow.
+                      - generic [ref=f281e53]:
+                        - generic [ref=f281e54]: speed
+                        - heading "Ultra Low Latency" [level=3] [ref=f281e55]
+                        - paragraph [ref=f281e56]: Sub-millisecond response times for real-time collaboration.
+                      - generic [ref=f281e57]:
+                        - generic [ref=f281e58]: auto_fix_high
+                        - heading "Smart Refinement" [level=3] [ref=f281e59]
+                        - paragraph [ref=f281e60]: Auto-tuning agents that learn your specific workflow aesthetic.
+                  - generic [ref=f281e62]:
+                    - generic [ref=f281e63]:
+                      - generic [ref=f281e64]:
+                        - heading "From the Deep" [level=2] [ref=f281e65]
+                        - paragraph [ref=f281e66]: The latest evolutionary leaps in Xylos AI technology.
+                      - button "View Archive arrow_forward" [ref=f281e67] [cursor=pointer]:
+                        - text: View Archive
+                        - generic [ref=f281e68]: arrow_forward
+                    - generic [ref=f281e69]:
+                      - generic [ref=f281e73]:
+                        - generic [ref=f281e74]: ENGINEERING • 12 MIN READ
+                        - 'heading "The Liquid Logic Engine: Rethinking Neural Architecture" [level=3] [ref=f281e75]'
+                        - paragraph [ref=f281e76]: How we achieved 40% more efficiency by mimicking biological flow patterns in our model weights.
+                      - generic [ref=f281e80]:
+                        - generic [ref=f281e81]: PRODUCT • 8 MIN READ
+                        - 'heading "Multi-Modal Synergy: Vision & Text Unified" [level=3] [ref=f281e82]'
+                        - paragraph [ref=f281e83]: Exploring the new capabilities of the 3.0 update where vision and text share a single neural space.
+                      - generic [ref=f281e87]:
+                        - generic [ref=f281e88]: ETHICS • 15 MIN READ
+                        - 'heading "The Transparency Protocol: Opening the Black Box" [level=3] [ref=f281e89]'
+                        - paragraph [ref=f281e90]: Our commitment to explainable AI and how we are giving users tools to see why models think the way they do.
+                  - generic [ref=f281e91]:
+                    - heading "Inquisitive Minds" [level=2] [ref=f281e92]
+                    - generic [ref=f281e93]:
+                      - generic [ref=f281e95] [cursor=pointer]:
+                        - generic [ref=f281e96]: How is Xylos free to use?
+                        - generic [ref=f281e97]: add
+                      - generic [ref=f281e99] [cursor=pointer]:
+                        - generic [ref=f281e100]: Is my data shared with model providers?
+                        - generic [ref=f281e101]: add
+                      - generic [ref=f281e103] [cursor=pointer]:
+                        - generic [ref=f281e104]: Can I run Xylos locally?
+                        - generic [ref=f281e105]: add
+                      - generic [ref=f281e107] [cursor=pointer]:
+                        - generic [ref=f281e108]: Do you support API access?
+                        - generic [ref=f281e109]: add
+                  - generic [ref=f281e111]:
+                    - heading "Ready to Dive In?" [level=2] [ref=f281e113]
+                    - paragraph [ref=f281e114]: Join the 200,000+ pioneers already evolving their intelligence. The future is deep.
+                    - generic [ref=f281e115]:
+                      - button "Start Free Chat" [ref=f281e116] [cursor=pointer]
+                      - button "Contact Sales" [ref=f281e117] [cursor=pointer]
+                  - contentinfo [ref=f281e118]:
+                    - generic [ref=f281e120]:
+                      - generic [ref=f281e121]:
+                        - generic [ref=f281e122]: Xylos AI
+                        - paragraph [ref=f281e123]: © 2024 Xylos AI. Evolving Intelligence.
+                      - generic [ref=f281e124]:
+                        - link "Privacy" [ref=f281e125] [cursor=pointer]:
+                          - /url: "#"
+                        - link "Terms" [ref=f281e126] [cursor=pointer]:
+                          - /url: "#"
+                        - link "Github" [ref=f281e127] [cursor=pointer]:
+                          - /url: "#"
+                        - link "Contact" [ref=f281e128] [cursor=pointer]:
+                          - /url: "#"
+                      - generic [ref=f281e129]:
+                        - generic [ref=f281e130] [cursor=pointer]: alternate_email
+                        - generic [ref=f281e132] [cursor=pointer]: public
+              - generic [ref=f274e9305]:
+                - button [ref=f274e9308] [cursor=pointer]
+                - generic [ref=f274e9327]:
+                  - button [ref=f274e9329] [cursor=pointer]
+                  - button [ref=f274e9334] [cursor=pointer]
+                  - button [ref=f274e9340] [cursor=pointer]
+                  - button [ref=f274e9346] [cursor=pointer]
+                  - button [ref=f274e9351] [cursor=pointer]
+        - button "Helpful links" [ref=f274e9357] [cursor=pointer]

@@ -1,0 +1,275 @@
+- generic [ref=f35e2]:
+  - banner [ref=f35e4]:
+    - generic [ref=f35e5]:
+      - generic [ref=f35e6]:
+        - button "Main menu" [ref=f35e7] [cursor=pointer]
+        - link "Google Search Console" [ref=f35e12] [cursor=pointer]:
+          - /url: ./search-console?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+      - generic [ref=f35e14]:
+        - search [ref=f35e16]:
+          - generic [ref=f35e22]:
+            - textbox [disabled] [ref=f35e23]: Inspect any URL in 'https://xylosai.vercel.app/'
+            - combobox "Inspect any URL in https://xylosai.vercel.app/" [ref=f35e24]
+          - button "Search" [ref=f35e25] [cursor=pointer]
+        - generic [ref=f35e29]:
+          - generic [ref=f35e31]:
+            - button "Help" [ref=f35e33] [cursor=pointer]:
+              - generic [ref=f35e34]: 
+            - button "User settings" [ref=f35e38] [cursor=pointer]
+          - 'button "Unread messages: 14" [ref=f35e45] [cursor=pointer]':
+            - generic [ref=f35e47]:
+              - generic [ref=f35e48]: 
+              - generic [ref=f35e49]: "14"
+      - generic [ref=f35e52]:
+        - button "Google apps" [ref=f35e56] [cursor=pointer]
+        - 'button "Google Account: Surinder Kumar (sunny2003m2003@gmail.com)" [ref=f35e62] [cursor=pointer]'
+  - dialog "navigational drawer" [ref=f35e68]:
+    - navigation "Primary" [ref=f35e71]:
+      - button "Search property" [ref=f35e75] [cursor=pointer]:
+        - img "favicon" [ref=f35e77]
+        - combobox "https://xylosai.vercel.app/" [ref=f35e85]
+        - generic [ref=f35e86]: 
+      - generic [ref=f35e87]:
+        - generic [ref=f35e88]:
+          - generic [ref=f35e89]:
+            - link [ref=f35e91] [cursor=pointer]:
+              - /url: ./search-console?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f35e92]: home
+            - link [ref=f35e98] [cursor=pointer]:
+              - /url: ./search-console/performance/insights?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f35e99]: lightbulb_2
+            - link [ref=f35e105] [cursor=pointer]:
+              - /url: ./search-console/performance/search-analytics?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f35e106]: trending_up
+            - button [ref=f35e112] [cursor=pointer]:
+              - generic [ref=f35e113]: search
+          - generic [ref=f35e120]:
+            - generic [ref=f35e122]:
+              - generic [ref=f35e123]: Indexing
+              - button "Indexing report section" [expanded] [ref=f35e127] [cursor=pointer]:
+                - generic [ref=f35e128]: keyboard_arrow_up
+            - generic [ref=f35e133]:
+              - link [ref=f35e135] [cursor=pointer]:
+                - /url: ./search-console/index?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+                - generic [ref=f35e136]: file_copy
+              - link [ref=f35e142] [cursor=pointer]:
+                - /url: ./search-console/sitemaps?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+                - generic [ref=f35e143]: account_tree
+              - link [ref=f35e149] [cursor=pointer]:
+                - /url: ./search-console/removals?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+                - generic [ref=f35e150]: visibility_off
+          - generic [ref=f35e157]:
+            - generic [ref=f35e159]:
+              - generic [ref=f35e160]: Experience
+              - button "Experience report section" [expanded] [ref=f35e164] [cursor=pointer]:
+                - generic [ref=f35e165]: keyboard_arrow_up
+            - generic [ref=f35e170]:
+              - link [ref=f35e172] [cursor=pointer]:
+                - /url: ./search-console/core-web-vitals?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+                - generic [ref=f35e173]: speed
+              - link [ref=f35e179] [cursor=pointer]:
+                - /url: ./search-console/https?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+                - generic [ref=f35e180]: lock
+          - generic [ref=f35e187]:
+            - generic [ref=f35e189]:
+              - generic [ref=f35e190]: Enhancements
+              - button "Enhancements report section" [expanded] [ref=f35e194] [cursor=pointer]:
+                - generic [ref=f35e195]: keyboard_arrow_up
+            - link [ref=f35e202] [cursor=pointer]:
+              - /url: ./search-console/r/review-snippet?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f35e203]: layers
+          - generic [ref=f35e212]:
+            - generic [ref=f35e213]: Security & Manual Actions
+            - button "Security & Manual Actions report section" [ref=f35e217] [cursor=pointer]:
+              - generic [ref=f35e218]: keyboard_arrow_down
+          - generic [ref=f35e220]:
+            - link "Links report" [ref=f35e222] [cursor=pointer]:
+              - /url: ./search-console/links?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f35e223]: link_2
+              - generic [ref=f35e225]: Links
+            - link [ref=f35e229] [cursor=pointer]:
+              - /url: ./search-console/achievements?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f35e230]: trophy
+            - link [ref=f35e236] [cursor=pointer]:
+              - /url: ./search-console/settings?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f35e237]: settings
+        - generic [ref=f35e242]:
+          - generic [ref=f35e244]:
+            - button [ref=f35e246] [cursor=pointer]:
+              - generic [ref=f35e247]: feedback
+            - button [ref=f35e253] [cursor=pointer]:
+              - generic [ref=f35e254]: info
+          - generic [ref=f35e261]:
+            - link "Privacy" [ref=f35e262] [cursor=pointer]:
+              - /url: https://myaccount.google.com/privacypolicy?hl=en-GB
+            - link "Terms" [ref=f35e263] [cursor=pointer]:
+              - /url: https://myaccount.google.com/termsofservice?hl=en-GB
+  - generic [ref=f35e265]:
+    - navigation "Breadcrumbs" [ref=f35e270]:
+      - heading "Overview" [level=1] [ref=f35e273]
+    - main [ref=f35e277]:
+      - generic [ref=f35e278]:
+        - generic [ref=f35e283]:
+          - generic [ref=f35e284]:
+            - generic [ref=f35e285]: lightbulb_outline
+            - generic [ref=f35e286]: Get insights into your site's Search performance
+          - generic [ref=f35e289]:
+            - generic [ref=f35e291]: chevron_right
+            - generic [ref=f35e292]: Explore your insights
+            - link "Explore your insights" [ref=f35e293] [cursor=pointer]:
+              - /url: ./search-console/performance/insights?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+        - generic [ref=f35e295]:
+          - generic [ref=f35e296]:
+            - generic [ref=f35e297]: Performance
+            - generic [ref=f35e300]:
+              - generic [ref=f35e302]: chevron_right
+              - generic [ref=f35e303]: Full report
+              - link "Full report" [ref=f35e304] [cursor=pointer]:
+                - /url: ./search-console/performance/search-analytics?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+          - generic [ref=f35e307]:
+            - generic [ref=f35e308]: 30 total web search clicks
+            - img [ref=f35e316]:
+              - generic [ref=f35e317]:
+                - generic [ref=f35e318]:
+                  - generic [ref=f35e319]: 27/04/2026
+                  - generic [ref=f35e321]: 08/05/2026
+                  - generic [ref=f35e323]: 20/05/2026
+                  - generic [ref=f35e325]: 01/06/2026
+                  - generic [ref=f35e327]: 12/06/2026
+                  - generic [ref=f35e329]: 23/06/2026
+                  - generic [ref=f35e331]: 04/07/2026
+                  - generic [ref=f35e333]: 16/07/2026
+                - generic [ref=f35e335]:
+                  - generic [ref=f35e336]: "6"
+                  - generic [ref=f35e338]: "4"
+                  - generic [ref=f35e340]: "2"
+                  - generic [ref=f35e342]: "0"
+        - generic [ref=f35e353]:
+          - generic [ref=f35e354]:
+            - generic [ref=f35e355]:
+              - generic [ref=f35e356]: Recommendations
+              - button "null" [ref=f35e359] [cursor=pointer]:
+                - generic [ref=f35e360]: 
+            - button "Send feedback" [ref=f35e362] [cursor=pointer]:
+              - generic [ref=f35e364]: feedback
+          - generic [ref=f35e368]:
+            - generic [ref=f35e369]:
+              - generic [ref=f35e370]:
+                - generic [ref=f35e371]: lightbulb
+                - generic [ref=f35e372]: A page recently got fewer impressions than usual
+              - generic [ref=f35e373]:
+                - text: Check this page's performance to investigate further
+                - generic [ref=f35e374]:
+                  - generic [ref=f35e375]: https://xylosai.vercel.app/
+                  - generic [ref=f35e376]:
+                    - generic [ref=f35e377]: arrow_downward
+                    - generic [ref=f35e378]: 91%
+            - generic [ref=f35e379]:
+              - generic [ref=f35e381] [cursor=pointer]:
+                - generic [ref=f35e382]: Check page performance
+                - link "Check page performance" [ref=f35e383]:
+                  - /url: ./search-console/performance/search-analytics?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F&page=%21https%3A%2F%2Fxylosai.vercel.app%2F&start_date=20260717&end_date=20260723&compare_start_date=20260710&compare_end_date=20260716&metrics=IMPRESSIONS
+              - generic [ref=f35e384]:
+                - button "Leave positive feedback" [ref=f35e385] [cursor=pointer]:
+                  - generic [ref=f35e386]: thumb_up_filled
+                  - generic [ref=f35e388]: thumb_up
+                - button "Leave negative feedback" [ref=f35e391] [cursor=pointer]:
+                  - generic [ref=f35e392]: thumb_down_filled
+                  - generic [ref=f35e394]: thumb_down
+        - generic [ref=f35e398]:
+          - generic [ref=f35e399]:
+            - generic [ref=f35e400]: Indexing
+            - generic [ref=f35e403]:
+              - generic [ref=f35e405]: chevron_right
+              - generic [ref=f35e406]: Full report
+              - link "Full report" [ref=f35e407] [cursor=pointer]:
+                - /url: ./search-console/index?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+          - generic [ref=f35e410]:
+            - generic [ref=f35e412]:
+              - generic [ref=f35e413]: 3 not indexed pages
+              - generic [ref=f35e416]: 59 indexed pages
+            - img [ref=f35e422]:
+              - generic [ref=f35e423]:
+                - generic [ref=f35e424]:
+                  - generic [ref=f35e425]: 29/04/2026
+                  - generic [ref=f35e427]: 10/05/2026
+                  - generic [ref=f35e429]: 21/05/2026
+                  - generic [ref=f35e431]: 01/06/2026
+                  - generic [ref=f35e433]: 12/06/2026
+                  - generic [ref=f35e435]: 23/06/2026
+                  - generic [ref=f35e437]: 04/07/2026
+                  - generic [ref=f35e439]: 15/07/2026
+                - generic [ref=f35e441]:
+                  - generic [ref=f35e442]: "60"
+                  - generic [ref=f35e444]: "40"
+                  - generic [ref=f35e446]: "20"
+                  - generic [ref=f35e448]: "0"
+        - generic [ref=f35e470]:
+          - generic [ref=f35e471]: Experience
+          - table [ref=f35e476]:
+            - rowgroup [ref=f35e477]:
+              - row [ref=f35e478]:
+                - columnheader "Type" [ref=f35e479]
+                - columnheader [ref=f35e480]
+                - columnheader "Good" [ref=f35e481]
+                - columnheader "Needs improvement" [ref=f35e482]
+                - columnheader "Poor" [ref=f35e483]
+                - columnheader "Trend" [ref=f35e484]
+                - columnheader [ref=f35e485]
+            - rowgroup [ref=f35e486]:
+              - row [ref=f35e487]:
+                - cell "Core web vitals" [ref=f35e488]
+                - cell "Mobile Desktop" [ref=f35e491]:
+                  - generic [ref=f35e493]:
+                    - generic [ref=f35e494]: Mobile
+                    - generic [ref=f35e495]: Desktop
+                - cell "No data No data" [ref=f35e496]:
+                  - generic [ref=f35e497]:
+                    - generic [ref=f35e498]: No data
+                    - generic [ref=f35e499]: No data
+                - cell "No data No data" [ref=f35e500]:
+                  - generic [ref=f35e501]:
+                    - generic [ref=f35e502]: No data
+                    - generic [ref=f35e503]: No data
+                - cell "No data No data" [ref=f35e504]:
+                  - generic [ref=f35e505]:
+                    - generic [ref=f35e506]: No data
+                    - generic [ref=f35e507]: No data
+                - cell [ref=f35e508]
+              - row [ref=f35e509]:
+                - columnheader [ref=f35e510]
+                - columnheader [ref=f35e511]
+                - columnheader "HTTPS" [ref=f35e512]
+                - columnheader [ref=f35e513]
+                - columnheader "Non-HTTPS" [ref=f35e514]
+                - columnheader [ref=f35e515]
+                - columnheader [ref=f35e516]
+              - row [ref=f35e517]:
+                - cell "HTTPS" [ref=f35e518]
+                - cell [ref=f35e521]
+                - cell "1" [ref=f35e522]
+                - cell [ref=f35e525]
+                - cell "0" [ref=f35e526]
+                - cell [ref=f35e529]
+                - cell [ref=f35e534]:
+                  - button "Open report" [ref=f35e537] [cursor=pointer]:
+                    - generic [ref=f35e538]: chevron_right
+        - generic [ref=f35e540]:
+          - generic [ref=f35e541]: Enhancements
+          - table [ref=f35e546]:
+            - rowgroup [ref=f35e547]:
+              - row [ref=f35e548]:
+                - columnheader "Type" [ref=f35e549]
+                - columnheader "Valid" [ref=f35e550]
+                - columnheader "Invalid" [ref=f35e551]
+                - columnheader "Trend" [ref=f35e552]
+                - columnheader [ref=f35e553]
+            - rowgroup [ref=f35e554]:
+              - row [ref=f35e555]:
+                - cell "Review snippets" [ref=f35e556]
+                - cell "0" [ref=f35e559]
+                - cell "0" [ref=f35e562]
+                - cell [ref=f35e565]
+                - cell [ref=f35e570]:
+                  - button "Open report" [ref=f35e573] [cursor=pointer]:
+                    - generic [ref=f35e574]: chevron_right

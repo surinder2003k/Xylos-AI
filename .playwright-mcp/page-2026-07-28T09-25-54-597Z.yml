@@ -1,0 +1,90 @@
+- generic [active] [ref=f7e1]:
+  - button "Scroll to top"
+  - navigation [ref=f7e2]:
+    - generic [ref=f7e3]:
+      - link "Xylos AI" [ref=f7e4] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f7e6]:
+        - link "Models" [ref=f7e7] [cursor=pointer]:
+          - /url: /chat
+        - link "About" [ref=f7e8] [cursor=pointer]:
+          - /url: /blog
+        - link "Docs" [ref=f7e9] [cursor=pointer]:
+          - /url: /about
+      - link "Login" [ref=f7e11] [cursor=pointer]:
+        - /url: /login
+  - main [ref=f7e12]:
+    - generic [ref=f7e13]:
+      - generic [ref=f7e19]:
+        - generic [ref=f7e21]:
+          - generic [ref=f7e22]: Neural Link Established
+          - heading "UNLEASH THE GHOST IN THE MACHINE." [level=1] [ref=f7e30]: UNLEASH THE GHOSTIN THE MACHINE.
+          - paragraph [ref=f7e31]: Premium access to 7+ frontier models. Xylos AI delivers high-compute intelligence through a high-precision noir interface.
+          - generic [ref=f7e32]:
+            - link "Initialize Protocol" [ref=f7e33] [cursor=pointer]:
+              - /url: /chat
+            - link "View Specs" [ref=f7e36] [cursor=pointer]:
+              - /url: /about
+          - generic [ref=f7e39]:
+            - generic [ref=f7e40]: SYSTEM_STATUS
+            - generic [ref=f7e41]: "LATENCY: 12ms"
+            - generic [ref=f7e44]: "UPTIME: 99.99%"
+            - generic [ref=f7e47]: "CORE: XYLOS-v7.1"
+          - generic [ref=f7e50]:
+            - generic [ref=f7e51]:
+              - paragraph [ref=f7e52]: 1.2B
+              - paragraph [ref=f7e53]: PARAMETERS_SYNSAPSED
+            - generic [ref=f7e54]:
+              - paragraph [ref=f7e55]: 0.02ms
+              - paragraph [ref=f7e56]: CORE_LATENCY
+            - generic [ref=f7e57]:
+              - paragraph [ref=f7e58]: 99.9%
+              - paragraph [ref=f7e59]: UPTIME_RELIABILITY
+            - generic [ref=f7e60]:
+              - paragraph [ref=f7e61]: 7+
+              - paragraph [ref=f7e62]: FRONTIER_MODELS
+        - generic [ref=f7e63]: Scroll
+      - generic [ref=f7e68]:
+        - paragraph [ref=f7e70]: HARDWARE_FEATURES
+        - generic [ref=f7e71]:
+          - generic [ref=f7e72]:
+            - heading "Frontier Processing" [level=3] [ref=f7e76]
+            - paragraph [ref=f7e77]: Access the world's most powerful LLMs including Xylos-7, Prometheus, and Titan-X. Optimized for low-latency command execution.
+            - generic [ref=f7e78]:
+              - generic [ref=f7e79]: 7+ MODELS
+              - generic [ref=f7e80]: REAL-TIME
+          - generic [ref=f7e81]:
+            - heading "Encrypted Core" [level=3] [ref=f7e86]
+            - paragraph [ref=f7e87]: End-to-end neural encryption. Your prompts never leave the clean zone.
+          - generic [ref=f7e88]:
+            - heading "Neural Orb" [level=3] [ref=f7e93]
+            - paragraph [ref=f7e94]: Visual feedback of active compute cycles.
+          - generic [ref=f7e95]:
+            - heading "Visual Synthesis" [level=3] [ref=f7e101]
+            - paragraph [ref=f7e102]: Integrated multimodal vision capabilities. Input imagery, receive neural analysis in milliseconds.
+      - generic [ref=f7e105]:
+        - heading "System ready for deployment." [level=2] [ref=f7e106]
+        - paragraph [ref=f7e107]: Join the digital vanguard. Elevate your cognitive output with Xylos AI today.
+        - link "Establish Connection" [ref=f7e108] [cursor=pointer]:
+          - /url: /chat
+      - generic [ref=f7e111]:
+        - generic [ref=f7e112]:
+          - generic [ref=f7e113]:
+            - heading "Stay ahead with Xylos AI." [level=3] [ref=f7e114]
+            - paragraph [ref=f7e115]: Join thousands of professionals who trust Xylos AI for innovative editorial and design intelligence solutions.
+          - generic [ref=f7e116]:
+            - textbox "Email address for newsletter" [ref=f7e118]:
+              - /placeholder: Enter your email
+            - button [ref=f7e119] [cursor=pointer]
+        - img "Xylos AI Newsletter — High-tech nature visualization" [ref=f7e125]
+      - generic [ref=f7e129]:
+        - generic [ref=f7e130]: Xylos AI
+        - generic [ref=f7e132]:
+          - link "About" [ref=f7e133] [cursor=pointer]:
+            - /url: /about
+          - link "Blog" [ref=f7e134] [cursor=pointer]:
+            - /url: /blog
+          - link "Privacy" [ref=f7e135] [cursor=pointer]:
+            - /url: /privacy
+        - paragraph [ref=f7e136]: © 2026 Xylos Foundation
+  - alert [ref=f7e137]

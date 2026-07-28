@@ -1,0 +1,237 @@
+- generic [ref=f10e2]:
+  - banner [ref=f10e4]:
+    - generic [ref=f10e5]:
+      - generic [ref=f10e6]:
+        - button "Main menu" [ref=f10e7] [cursor=pointer]
+        - link "Google Search Console" [ref=f10e12] [cursor=pointer]:
+          - /url: ./search-console?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+      - generic [ref=f10e14]:
+        - search [ref=f10e16]:
+          - generic [ref=f10e22]:
+            - textbox [disabled] [ref=f10e23]: Inspect any URL in 'https://xylosai.vercel.app/'
+            - combobox "Inspect any URL in https://xylosai.vercel.app/" [ref=f10e24]
+          - button "Search" [ref=f10e25] [cursor=pointer]
+        - generic [ref=f10e29]:
+          - generic [ref=f10e31]:
+            - button "Help" [ref=f10e33] [cursor=pointer]:
+              - generic [ref=f10e34]: 
+            - button "User settings" [ref=f10e38] [cursor=pointer]
+          - button "Messages" [ref=f10e45] [cursor=pointer]:
+            - generic [ref=f10e46]: 
+      - generic [ref=f10e50]:
+        - button "Google apps" [ref=f10e54] [cursor=pointer]
+        - 'button "Google Account: Surinder Kumar (sunny2003m2003@gmail.com)" [ref=f10e60] [cursor=pointer]'
+  - dialog "navigational drawer" [ref=f10e66]:
+    - navigation "Primary" [ref=f10e69]:
+      - button "Search property" [ref=f10e73] [cursor=pointer]:
+        - img "favicon" [ref=f10e75]
+        - combobox "https://xylosai.vercel.app/" [ref=f10e83]
+        - generic [ref=f10e84]: 
+      - generic [ref=f10e85]:
+        - generic [ref=f10e86]:
+          - generic [ref=f10e87]:
+            - link [ref=f10e89] [cursor=pointer]:
+              - /url: ./search-console?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f10e90]: home
+            - link [ref=f10e96] [cursor=pointer]:
+              - /url: ./search-console/performance/insights?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f10e97]: lightbulb_2
+            - link [ref=f10e103] [cursor=pointer]:
+              - /url: ./search-console/performance/search-analytics?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f10e104]: trending_up
+            - button [ref=f10e110] [cursor=pointer]:
+              - generic [ref=f10e111]: search
+          - generic [ref=f10e118]:
+            - generic [ref=f10e120]:
+              - generic [ref=f10e121]: Indexing
+              - button "Indexing report section" [expanded] [ref=f10e125] [cursor=pointer]:
+                - generic [ref=f10e126]: keyboard_arrow_up
+            - generic [ref=f10e131]:
+              - link [ref=f10e133] [cursor=pointer]:
+                - /url: ./search-console/index?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+                - generic [ref=f10e134]: file_copy
+              - link [ref=f10e140] [cursor=pointer]:
+                - /url: ./search-console/sitemaps?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+                - generic [ref=f10e141]: account_tree
+              - link [ref=f10e147] [cursor=pointer]:
+                - /url: ./search-console/removals?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+                - generic [ref=f10e148]: visibility_off
+          - generic [ref=f10e155]:
+            - generic [ref=f10e157]:
+              - generic [ref=f10e158]: Experience
+              - button "Experience report section" [expanded] [ref=f10e162] [cursor=pointer]:
+                - generic [ref=f10e163]: keyboard_arrow_up
+            - generic [ref=f10e168]:
+              - link [ref=f10e170] [cursor=pointer]:
+                - /url: ./search-console/core-web-vitals?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+                - generic [ref=f10e171]: speed
+              - link [ref=f10e177] [cursor=pointer]:
+                - /url: ./search-console/https?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+                - generic [ref=f10e178]: lock
+          - generic [ref=f10e185]:
+            - generic [ref=f10e187]:
+              - generic [ref=f10e188]: Enhancements
+              - button "Enhancements report section" [expanded] [ref=f10e192] [cursor=pointer]:
+                - generic [ref=f10e193]: keyboard_arrow_up
+            - link [ref=f10e200] [cursor=pointer]:
+              - /url: ./search-console/r/review-snippet?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f10e201]: layers
+          - generic [ref=f10e210]:
+            - generic [ref=f10e211]: Security & Manual Actions
+            - button "Security & Manual Actions report section" [ref=f10e215] [cursor=pointer]:
+              - generic [ref=f10e216]: keyboard_arrow_down
+          - generic [ref=f10e218]:
+            - link "Links report" [ref=f10e220] [cursor=pointer]:
+              - /url: ./search-console/links?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f10e221]: link_2
+              - generic [ref=f10e223]: Links
+            - link [ref=f10e227] [cursor=pointer]:
+              - /url: ./search-console/achievements?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f10e228]: trophy
+            - link [ref=f10e234] [cursor=pointer]:
+              - /url: ./search-console/settings?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f10e235]: settings
+        - generic [ref=f10e240]:
+          - generic [ref=f10e242]:
+            - button [ref=f10e244] [cursor=pointer]:
+              - generic [ref=f10e245]: feedback
+            - button [ref=f10e251] [cursor=pointer]:
+              - generic [ref=f10e252]: info
+          - generic [ref=f10e259]:
+            - link "Privacy" [ref=f10e260] [cursor=pointer]:
+              - /url: https://myaccount.google.com/privacypolicy?hl=en-GB
+            - link "Terms" [ref=f10e261] [cursor=pointer]:
+              - /url: https://myaccount.google.com/termsofservice?hl=en-GB
+  - generic [ref=f10e266]:
+    - generic [ref=f10e269]:
+      - navigation "Breadcrumbs" [ref=f10e271]:
+        - heading "Page indexing" [level=1] [ref=f10e274]
+      - button "EXPORT" [ref=f10e277] [cursor=pointer]:
+        - generic [ref=f10e280]:
+          - generic [ref=f10e281]: 
+          - generic [ref=f10e282]: EXPORT
+    - generic [ref=f10e283]:
+      - generic [ref=f10e285]:
+        - listbox [disabled] [ref=f10e288]:
+          - option "All known pages" [disabled] [selected] [ref=f10e289]
+        - generic [ref=f10e290]: "Last update: 24/07/2026"
+      - main [ref=f10e294]:
+        - generic [ref=f10e295]:
+          - generic [ref=f10e297]:
+            - generic [ref=f10e298]:
+              - generic [ref=f10e300]:
+                - generic [ref=f10e301] [cursor=pointer]:
+                  - button "Not indexed 3 1 reason" [ref=f10e302]:
+                    - generic [ref=f10e306]:
+                      - generic "Not indexed" [ref=f10e307]: 
+                      - generic "3" [ref=f10e310]
+                      - generic [ref=f10e311]: 1 reason
+                  - button "null" [ref=f10e314]:
+                    - generic [ref=f10e315]: 
+                - generic [ref=f10e316] [cursor=pointer]:
+                  - button "Indexed 59" [ref=f10e317]:
+                    - generic [ref=f10e321]:
+                      - generic "Indexed" [ref=f10e322]: 
+                      - generic "59" [ref=f10e325]
+                  - button "null" [ref=f10e328]:
+                    - generic [ref=f10e329]: 
+              - generic [ref=f10e330]:
+                - checkbox "Impressions" [ref=f10e331] [cursor=pointer]
+                - generic [ref=f10e334]: Impressions
+              - generic [ref=f10e335]:
+                - generic [ref=f10e336]: Pages
+                - img [ref=f10e340]:
+                  - generic [ref=f10e341]:
+                    - generic [ref=f10e342]:
+                      - generic [ref=f10e343]: 29/04/2026
+                      - generic [ref=f10e345]: 10/05/2026
+                      - generic [ref=f10e347]: 21/05/2026
+                      - generic [ref=f10e349]: 01/06/2026
+                      - generic [ref=f10e351]: 12/06/2026
+                      - generic [ref=f10e353]: 23/06/2026
+                      - generic [ref=f10e355]: 04/07/2026
+                      - generic [ref=f10e357]: 15/07/2026
+                    - generic [ref=f10e359]:
+                      - generic [ref=f10e360]: "75"
+                      - generic [ref=f10e362]: "50"
+                      - generic [ref=f10e364]: "25"
+                      - generic [ref=f10e366]: "0"
+                    - generic [ref=f10e714]:
+                      - button [ref=f10e716] [cursor=pointer]:
+                        - generic [ref=f10e717]: "1"
+                      - button [ref=f10e721] [cursor=pointer]:
+                        - generic [ref=f10e722]: "1"
+            - link "View data about indexed pages" [ref=f10e725] [cursor=pointer]:
+              - /url: ./search-console/index/drilldown?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F&pages=ALL_URLS
+              - generic [ref=f10e728]:
+                - generic [ref=f10e729]: check_circle
+                - generic [ref=f10e731]: View data about indexed pages
+                - generic [ref=f10e732]: 
+          - generic [ref=f10e736]:
+            - generic [ref=f10e738]:
+              - generic [ref=f10e741]:
+                - generic [ref=f10e742]: info_filled
+                - generic [ref=f10e743]:
+                  - generic [ref=f10e744]: Why pages aren’t indexed
+                  - generic [ref=f10e745]: Pages that aren’t indexed can’t be served on Google
+              - button "Filter table rows" [ref=f10e750] [cursor=pointer]:
+                - generic [ref=f10e751]: 
+            - table [ref=f10e756]:
+              - rowgroup [ref=f10e757]:
+                - row [ref=f10e758]:
+                  - columnheader "Reason" [ref=f10e759]
+                  - columnheader [ref=f10e765]:
+                    - generic [ref=f10e767]:
+                      - text: Source
+                      - button "null" [ref=f10e770] [cursor=pointer]:
+                        - generic [ref=f10e771]: 
+                  - columnheader "Validation" [ref=f10e775]
+                  - columnheader "Trend" [ref=f10e781]
+                  - columnheader "Pages" [ref=f10e784]
+              - rowgroup [ref=f10e790]:
+                - row [ref=f10e791]:
+                  - cell "Crawled - currently not indexed" [ref=f10e792]:
+                    - generic "Crawled - currently not indexed" [ref=f10e794]
+                  - cell "Google systems" [ref=f10e795]
+                  - cell [ref=f10e798]:
+                    - generic [ref=f10e801]:
+                      - generic [ref=f10e802]: 
+                      - text: Failed
+                  - cell [ref=f10e803]
+                  - cell "3" [ref=f10e808]
+                - row [ref=f10e811]:
+                  - cell "Duplicate without user-selected canonical" [ref=f10e812]:
+                    - generic "Duplicate without user-selected canonical" [ref=f10e814]
+                  - cell "Website" [ref=f10e815]
+                  - cell [ref=f10e818]:
+                    - generic [ref=f10e821]:
+                      - generic [ref=f10e822]: 
+                      - text: Passed
+                  - cell [ref=f10e823]
+                  - cell "0" [ref=f10e828]
+                - row [ref=f10e831]:
+                  - cell "Discovered – currently not indexed" [ref=f10e832]:
+                    - generic "Discovered – currently not indexed" [ref=f10e834]
+                  - cell "Google systems" [ref=f10e835]
+                  - cell [ref=f10e838]:
+                    - generic [ref=f10e841]:
+                      - generic [ref=f10e842]: 
+                      - text: Passed
+                  - cell [ref=f10e843]
+                  - cell "0" [ref=f10e848]
+            - generic [ref=f10e853]:
+              - generic [ref=f10e855]:
+                - generic [ref=f10e856]: "Rows per page:"
+                - listbox "Number of rows per page" [ref=f10e857] [cursor=pointer]:
+                  - option "5"
+                  - option "10" [selected] [ref=f10e858]
+                  - option "25"
+                  - option "50"
+                  - option "100"
+                  - option "250"
+                  - option "500"
+              - generic [ref=f10e859]:
+                - generic [ref=f10e860]: 1-3 of 3
+                - generic [ref=f10e861]:
+                  - generic [ref=f10e862]: 
+                  - generic [ref=f10e864]: 

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Fustat, Sora, JetBrains_Mono } from "next/font/google";
-import localFont from "next/font/local";
+import { Sora, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 import { PrimaryColorProvider } from "@/components/primary-color-provider";
@@ -10,35 +9,19 @@ import { AuthListener } from "@/components/auth-listener";
 import { GlobalEffects } from "@/components/ui/global-effects";
 import { ToastProvider } from "@/components/ui/toast";
 
-const geistSans = localFont({
-  src: "../node_modules/geist/dist/fonts/geist-sans/Geist-Variable.woff2",
-  variable: "--font-geist",
-  display: "swap",
-});
-
-const inter = Inter({ 
-  subsets: ["latin"], 
-  variable: "--font-inter",
-  display: 'swap',
-  preload: true,
-});
-const fustat = Fustat({ 
-  subsets: ["latin"], 
-  variable: "--font-fustat",
-  display: 'swap',
-  preload: true,
-});
-const sora = Sora({ 
-  subsets: ["latin"], 
+const sora = Sora({
+  subsets: ["latin"],
   variable: "--font-sora",
   display: 'swap',
   preload: true,
+  weight: ['400', '700', '800'],
 });
-const jetbrainsMono = JetBrains_Mono({ 
-  subsets: ["latin"], 
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
   variable: "--font-jetbrains",
   display: 'swap',
-  preload: true,
+  preload: false,
+  weight: ['400', '500', '600', '700'],
 });
 
 const GlobalNavbar = dynamic(() => import("@/components/global-navbar").then(m => m.GlobalNavbar));
@@ -153,7 +136,7 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} ${fustat.variable} ${geistSans.variable} ${sora.variable} ${jetbrainsMono.variable} antialiased selection:bg-cyan-500/30 selection:text-white`}>
+      <body className={`${sora.variable} ${jetbrainsMono.variable} antialiased selection:bg-cyan-500/30 selection:text-white`}>
         <Script id="gtm-script" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

@@ -57,7 +57,7 @@ function LoginContent() {
               </div>
               <div>
                 <p className="text-sm font-bold text-white">Unified AI Chat</p>
-                <p className="text-[11px] text-gray-500">7+ models in one interface</p>
+                <p className="text-[11px] text-gray-400">7+ models in one interface</p>
               </div>
             </motion.div>
 
@@ -73,7 +73,7 @@ function LoginContent() {
               </div>
               <div>
                 <p className="text-sm font-bold text-white">Code Assistant</p>
-                <p className="text-[11px] text-gray-500">Full-stack dev tools</p>
+                <p className="text-[11px] text-gray-400">Full-stack dev tools</p>
               </div>
             </motion.div>
 
@@ -89,7 +89,7 @@ function LoginContent() {
               </div>
               <div>
                 <p className="text-sm font-bold text-white">Content Factory</p>
-                <p className="text-[11px] text-gray-500">Blog & social generation</p>
+                <p className="text-[11px] text-gray-400">Blog & social generation</p>
               </div>
             </motion.div>
           </div>
@@ -103,7 +103,7 @@ function LoginContent() {
           >
             <h2 className="text-3xl font-black tracking-tight text-white">Free AI Chat.</h2>
             <h2 className="text-3xl font-black bg-gradient-to-r from-red-500 via-orange-500 to-red-400 bg-clip-text text-transparent tracking-tight">Refine Your Narrative.</h2>
-            <p className="text-gray-500 text-sm">Zero cost. Infinite possibilities.</p>
+            <p className="text-gray-400 text-sm">Zero cost. Infinite possibilities.</p>
           </motion.div>
         </div>
       </div>
@@ -112,7 +112,7 @@ function LoginContent() {
       <div className="flex-1 flex items-center justify-center p-6 md:p-12 relative">
         {/* Back to home */}
         <div className="absolute top-6 left-6 z-10">
-          <Link href="/" className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500 hover:text-[#00f0ff] transition-colors">
+          <Link href="/" className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 hover:text-[#00f0ff] transition-colors">
             ← Back to Home
           </Link>
         </div>
@@ -128,7 +128,7 @@ function LoginContent() {
             <h1 className="text-2xl font-bold tracking-tight text-white text-center">
               {isLogin ? "Welcome back, Pilot" : "Create your Neural ID"}
             </h1>
-            <p className="text-gray-500 text-sm mt-2 text-center">
+            <p className="text-gray-400 text-sm mt-2 text-center">
               {isLogin ? "Access your unified AI workspace." : "Join the ultimate free AI arsenal."}
             </p>
           </div>
@@ -149,7 +149,7 @@ function LoginContent() {
             <form action={isLogin ? signInWithEmail : signUpWithEmail} onSubmit={handleSubmit} className="space-y-4 relative z-10">
               {!isLogin && (
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1">Full Name</label>
+                  <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Full Name</label>
                   <div className="relative">
                     <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-600" />
                     <input 
@@ -165,7 +165,7 @@ function LoginContent() {
               )}
 
               <div className="space-y-1.5">
-                <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1">Email Address</label>
+                <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Email Address</label>
                 <div className="relative">
                   <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-600" />
                   <input 
@@ -180,7 +180,7 @@ function LoginContent() {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1">Secure Password</label>
+                <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Secure Password</label>
                 <div className="relative">
                   <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-600" />
                   <input 
@@ -224,7 +224,7 @@ function LoginContent() {
             </button>
           </div>
 
-          <p className="mt-8 text-center text-gray-500 text-sm">
+          <p className="mt-8 text-center text-gray-400 text-sm">
             {isLogin ? "New to Xylos AI?" : "Already have an ID?"}
             <button 
               onClick={() => setIsLogin(!isLogin)}

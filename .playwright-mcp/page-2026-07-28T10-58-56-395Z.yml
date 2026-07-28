@@ -1,0 +1,84 @@
+- generic [active] [ref=f13e1]:
+  - button "Scroll to top"
+  - navigation [ref=f13e2]:
+    - generic [ref=f13e3]:
+      - link "Xylos AI" [ref=f13e4] [cursor=pointer]:
+        - /url: /
+      - button "Open menu" [ref=f13e7] [cursor=pointer]
+    - generic:
+      - generic:
+        - generic:
+          - link "Models":
+            - /url: /chat
+          - link "About":
+            - /url: /blog
+          - link "Docs— Active":
+            - /url: /about
+        - generic:
+          - link "Get Started":
+            - /url: /login
+  - main [ref=f13e9]:
+    - generic [ref=f13e10]:
+      - main [ref=f13e12]:
+        - generic [ref=f13e13]:
+          - generic [ref=f13e14]: Neural Genesis
+          - generic [ref=f13e17]:
+            - 'heading "XYLOS AI: NEURAL SYNTHESIS AND HUMAN INTELLIGENCE" [level=1] [ref=f13e18]': "XYLOS AI: NEURAL SYNTHESISAND HUMAN INTELLIGENCE"
+            - paragraph [ref=f13e19]: Xylos AI is more than just a platform — it's a decentralized editorial engine designed to augment human creativity with industrial-grade artificial intelligence.
+        - generic [ref=f13e20]:
+          - generic [ref=f13e21]:
+            - generic [ref=f13e22]:
+              - heading "The Protocol" [level=2] [ref=f13e23]
+              - paragraph [ref=f13e27]: At the core of Xylos AI lies the Aether Intelligence Layer. This proprietary stack aggregates multi-model responses from Gemini, Llama, and Mistral, refining them through a specialized editorial filter to produce content that feels organic, authoritative, and precise.
+            - generic [ref=f13e28]:
+              - generic [ref=f13e29]:
+                - heading "Unique Identity" [level=3] [ref=f13e40]
+                - paragraph [ref=f13e41]: Every interaction is unique, ensuring no two narratives are identical.
+              - generic [ref=f13e42]:
+                - heading "Secure Core" [level=3] [ref=f13e47]
+                - paragraph [ref=f13e48]: Enterprise-grade encryption protecting your intellectual property.
+          - generic [ref=f13e49]:
+            - generic [ref=f13e51]:
+              - img "Neural Network Visualization showing AI interconnected nodes" [ref=f13e52]
+              - paragraph [ref=f13e55]: "\"Bridging the gap between binary logic and human emotion.\""
+            - generic [ref=f13e69]:
+              - paragraph [ref=f13e70]: Active nodes
+              - paragraph [ref=f13e71]: 4,821
+        - generic [ref=f13e72]:
+          - generic [ref=f13e78]:
+            - heading "Unified AI Chat" [level=3] [ref=f13e79]
+            - paragraph [ref=f13e80]: Access 7+ models including Gemini, Claude, Llama, and Mistral in a single interface.
+          - generic [ref=f13e82]:
+            - heading "Code Assistant" [level=3] [ref=f13e88]
+            - paragraph [ref=f13e89]: Full-stack development tools powered by AI.
+          - generic [ref=f13e91]:
+            - heading "Content Factory" [level=3] [ref=f13e96]
+            - paragraph [ref=f13e97]: Blog & social media content generation.
+          - generic [ref=f13e99]:
+            - heading "Smart Tools" [level=3] [ref=f13e103]
+            - paragraph [ref=f13e104]: 12+ specialized AI tools for productivity.
+        - generic [ref=f13e105]:
+          - generic [ref=f13e106]:
+            - paragraph [ref=f13e107]: Execution Time
+            - paragraph [ref=f13e108]: < 2.4s
+          - generic [ref=f13e109]:
+            - paragraph [ref=f13e110]: Neural Accuracy
+            - paragraph [ref=f13e111]: 99.9%
+          - generic [ref=f13e112]:
+            - paragraph [ref=f13e113]: Global Reach
+            - paragraph [ref=f13e114]: Syncing
+        - generic [ref=f13e115]:
+          - heading "Our Mission" [level=2] [ref=f13e116]
+          - paragraph [ref=f13e117]: "Xylos was founded on a singular premise: that technology should empower human expression, not replace it. We are building the infrastructure for the next century of digital storytelling."
+        - generic [ref=f13e118]:
+          - generic [ref=f13e119]:
+            - generic [ref=f13e120]:
+              - heading "Stay ahead with Xylos AI." [level=3] [ref=f13e121]
+              - paragraph [ref=f13e122]: Join thousands of professionals who trust Xylos AI for innovative editorial and design intelligence solutions.
+            - generic [ref=f13e123]:
+              - textbox "Email address for newsletter" [ref=f13e125]:
+                - /placeholder: Enter your email
+              - button [ref=f13e126] [cursor=pointer]
+          - img "Xylos AI Newsletter — High-tech nature visualization" [ref=f13e132]
+      - paragraph [ref=f13e135]: © 2026 Xylos AI Research Systems // All Rights Reserved
+  - alert [ref=f13e136]

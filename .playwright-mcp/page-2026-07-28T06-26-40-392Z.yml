@@ -1,0 +1,202 @@
+- main [ref=f193e5]:
+  - iframe [active] [ref=f193e7]:
+    - main [ref=f194e5]:
+      - generic [ref=f194e8]:
+        - generic:
+          - generic [ref=f194e10]:
+            - button [ref=f194e12] [cursor=pointer]
+            - generic [ref=f194e17]:
+              - button "Xylos AI Fluid Mesh" [ref=f194e18]
+              - button [ref=f194e20] [cursor=pointer]
+          - generic [ref=f194e25]:
+            - button [ref=f194e26] [cursor=pointer]:
+              - paragraph [ref=f194e30]: Export
+            - button [ref=f194e32] [cursor=pointer]:
+              - paragraph [ref=f194e36]: Share
+            - button "Account menu" [ref=f194e38] [cursor=pointer]:
+              - img "Profile image for Surinder Kumar" [ref=f194e40]
+        - generic [ref=f194e42]:
+          - generic [ref=f194e43]:
+            - button [ref=f194e45] [cursor=pointer]
+            - button [ref=f194e50] [cursor=pointer]
+            - button [ref=f194e55] [cursor=pointer]
+          - button [ref=f194e60] [cursor=pointer]
+          - generic [ref=f194e65]:
+            - button "Choose File" [ref=f194e66]
+            - button [ref=f194e67] [cursor=pointer]
+          - button [ref=f194e72] [cursor=pointer]
+          - button [ref=f194e80] [cursor=pointer]
+        - generic [ref=f194e84]:
+          - generic [ref=f194e85]:
+            - generic [ref=f194e86]:
+              - button "Undo" [disabled]:
+                - generic: undo
+            - generic [ref=f194e88]:
+              - button "Redo" [disabled]:
+                - generic: redo
+          - button "44%" [ref=f194e225] [cursor=pointer]
+          - button "Helpful links" [ref=f194e92] [cursor=pointer]
+        - button "Choose File" [ref=f194e96]
+        - application [ref=f194e98]:
+          - generic [ref=f194e100]:
+            - generic:
+              - generic:
+                - generic [ref=f194e227]:
+                  - generic [ref=f194e231]:
+                    - generic [ref=f194e232]: palette
+                    - generic [ref=f194e234]: Luminous Fluidity
+                  - generic [ref=f194e237]:
+                    - generic [ref=f194e238]:
+                      - generic [ref=f194e239]:
+                        - generic [ref=f194e240]:
+                          - generic [ref=f194e241]: Primary
+                          - generic "Click to copy" [ref=f194e242] [cursor=pointer]: "#F43F5E"
+                        - generic [ref=f194e243]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f194e244] [cursor=pointer]'
+                          - 'generic "T10 #40000d — Click to copy" [ref=f194e245] [cursor=pointer]'
+                          - 'generic "T20 #67001b — Click to copy" [ref=f194e246] [cursor=pointer]'
+                          - 'generic "T30 #92002a — Click to copy" [ref=f194e247] [cursor=pointer]'
+                          - 'generic "T40 #bc0b3b — Click to copy" [ref=f194e248] [cursor=pointer]'
+                          - 'generic "T50 #e02f51 — Click to copy" [ref=f194e249] [cursor=pointer]'
+                          - 'generic "T60 #ff516a — Click to copy" [ref=f194e250] [cursor=pointer]'
+                          - 'generic "T70 #ff8792 — Click to copy" [ref=f194e251] [cursor=pointer]'
+                          - 'generic "T80 #ffb2b7 — Click to copy" [ref=f194e252] [cursor=pointer]'
+                          - 'generic "T90 #ffdadb — Click to copy" [ref=f194e253] [cursor=pointer]'
+                          - 'generic "T95 #ffecec — Click to copy" [ref=f194e254] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f194e255] [cursor=pointer]'
+                      - generic [ref=f194e256]:
+                        - generic [ref=f194e257]:
+                          - generic [ref=f194e258]: Secondary
+                          - generic "Click to copy" [ref=f194e259] [cursor=pointer]: "#8B5CF6"
+                        - generic [ref=f194e260]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f194e261] [cursor=pointer]'
+                          - 'generic "T10 #23005c — Click to copy" [ref=f194e262] [cursor=pointer]'
+                          - 'generic "T20 #3c0091 — Click to copy" [ref=f194e263] [cursor=pointer]'
+                          - 'generic "T30 #5516be — Click to copy" [ref=f194e264] [cursor=pointer]'
+                          - 'generic "T40 #6d3bd7 — Click to copy" [ref=f194e265] [cursor=pointer]'
+                          - 'generic "T50 #8758f2 — Click to copy" [ref=f194e266] [cursor=pointer]'
+                          - 'generic "T60 #a078ff — Click to copy" [ref=f194e267] [cursor=pointer]'
+                          - 'generic "T70 #b89bff — Click to copy" [ref=f194e268] [cursor=pointer]'
+                          - 'generic "T80 #d0bcff — Click to copy" [ref=f194e269] [cursor=pointer]'
+                          - 'generic "T90 #e9ddff — Click to copy" [ref=f194e270] [cursor=pointer]'
+                          - 'generic "T95 #f6edff — Click to copy" [ref=f194e271] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f194e272] [cursor=pointer]'
+                      - generic [ref=f194e273]:
+                        - generic [ref=f194e274]:
+                          - generic [ref=f194e275]: Tertiary
+                          - generic "Click to copy" [ref=f194e276] [cursor=pointer]: "#F59E0B"
+                        - generic [ref=f194e277]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f194e278] [cursor=pointer]'
+                          - 'generic "T10 #2a1700 — Click to copy" [ref=f194e279] [cursor=pointer]'
+                          - 'generic "T20 #472a00 — Click to copy" [ref=f194e280] [cursor=pointer]'
+                          - 'generic "T30 #653e00 — Click to copy" [ref=f194e281] [cursor=pointer]'
+                          - 'generic "T40 #855300 — Click to copy" [ref=f194e282] [cursor=pointer]'
+                          - 'generic "T50 #a76a00 — Click to copy" [ref=f194e283] [cursor=pointer]'
+                          - 'generic "T60 #ca8100 — Click to copy" [ref=f194e284] [cursor=pointer]'
+                          - 'generic "T70 #ee9800 — Click to copy" [ref=f194e285] [cursor=pointer]'
+                          - 'generic "T80 #ffb95f — Click to copy" [ref=f194e286] [cursor=pointer]'
+                          - 'generic "T90 #ffddb8 — Click to copy" [ref=f194e287] [cursor=pointer]'
+                          - 'generic "T95 #ffeede — Click to copy" [ref=f194e288] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f194e289] [cursor=pointer]'
+                      - generic [ref=f194e290]:
+                        - generic [ref=f194e291]:
+                          - generic [ref=f194e292]: Neutral
+                          - generic "Click to copy" [ref=f194e293] [cursor=pointer]: "#0A0A0A"
+                        - generic [ref=f194e294]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f194e295] [cursor=pointer]'
+                          - 'generic "T10 #1c1b1b — Click to copy" [ref=f194e296] [cursor=pointer]'
+                          - 'generic "T20 #313030 — Click to copy" [ref=f194e297] [cursor=pointer]'
+                          - 'generic "T30 #474646 — Click to copy" [ref=f194e298] [cursor=pointer]'
+                          - 'generic "T40 #5f5e5e — Click to copy" [ref=f194e299] [cursor=pointer]'
+                          - 'generic "T50 #787776 — Click to copy" [ref=f194e300] [cursor=pointer]'
+                          - 'generic "T60 #929090 — Click to copy" [ref=f194e301] [cursor=pointer]'
+                          - 'generic "T70 #adabaa — Click to copy" [ref=f194e302] [cursor=pointer]'
+                          - 'generic "T80 #c9c6c5 — Click to copy" [ref=f194e303] [cursor=pointer]'
+                          - 'generic "T90 #e5e2e1 — Click to copy" [ref=f194e304] [cursor=pointer]'
+                          - 'generic "T95 #f3f0ef — Click to copy" [ref=f194e305] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f194e306] [cursor=pointer]'
+                    - generic [ref=f194e307]:
+                      - generic [ref=f194e308]:
+                        - generic [ref=f194e309]:
+                          - generic [ref=f194e310]: Headline
+                          - generic [ref=f194e311]: Hanken Grotesk
+                        - generic [ref=f194e312]: Aa
+                      - generic [ref=f194e313]:
+                        - generic [ref=f194e314]:
+                          - button "Primary" [ref=f194e315]
+                          - button "Secondary" [ref=f194e316]
+                        - generic [ref=f194e317]:
+                          - button "Inverted" [ref=f194e318]
+                          - button "Outlined" [ref=f194e319]
+                      - generic [ref=f194e321]:
+                        - generic [ref=f194e322]: search
+                        - generic [ref=f194e323]: Search
+                      - generic [ref=f194e324]:
+                        - generic [ref=f194e325]:
+                          - generic [ref=f194e326]: Body
+                          - generic [ref=f194e327]: Inter
+                        - generic [ref=f194e328]: Aa
+                      - generic [ref=f194e337]:
+                        - generic [ref=f194e338]: home
+                        - generic [ref=f194e340]: search
+                        - generic [ref=f194e342]: person
+                      - generic [ref=f194e344]:
+                        - generic [ref=f194e345]:
+                          - generic [ref=f194e346]: Label
+                          - generic [ref=f194e347]: Jetbrains Mono
+                        - generic [ref=f194e348]: Aa
+                      - generic [ref=f194e349]:
+                        - generic [ref=f194e350]: edit
+                        - generic [ref=f194e354]:
+                          - generic [ref=f194e355]: edit
+                          - text: Label
+                      - generic [ref=f194e357]:
+                        - generic [ref=f194e358]: auto_fix_high
+                        - generic [ref=f194e360]: category
+                        - generic [ref=f194e362]: sell
+                        - generic [ref=f194e364]: delete
+                - generic [ref=f194e367]:
+                  - generic [ref=f194e368]: Generating screen..
+                  - iframe [ref=f194e377]:
+                    
+          - generic [ref=f194e101]:
+            - generic: "Tip: Open the Export Panel with Ctrl+Shift+E for all export options"
+            - generic [ref=f194e106]:
+              - textbox [ref=f194e110]:
+                - paragraph [ref=f194e111]: What would you like to change or create?
+              - generic [ref=f194e112]:
+                - button "Choose File" [ref=f194e113]
+                - button [ref=f194e115] [cursor=pointer]
+                - button [ref=f194e120] [cursor=pointer]:
+                  - img [ref=f194e121]:
+                    - generic [ref=f194e122]: /
+                - generic [ref=f194e123]:
+                  - button [ref=f194e125] [cursor=pointer]
+                  - button [ref=f194e131] [cursor=pointer]
+                  - button "3 Flash" [ref=f194e135] [cursor=pointer]
+                  - button [ref=f194e142] [cursor=pointer]
+                  - button [disabled] [ref=f194e146]
+          - generic [ref=f194e151]:
+            - button [expanded] [ref=f194e152] [cursor=pointer]:
+              - status [ref=f194e153]:
+                - generic [ref=f194e154]: Agent log
+            - menu "Agent log" [active] [ref=f194e167]:
+              - menuitem [ref=f194e381] [cursor=pointer]:
+                - generic [ref=f194e174]:
+                  - generic [ref=f194e175]: "Create GRADIENT MESH style AI landing page for Xylos AI. Smooth liquid gradient meshes flowing across the page. Colors: coral (#f43f5e), amber (#f59e0b), violet (#8b5cf6). Fluid organic shapes, soft transitions, no sharp edges. Artistic painterly feel. Dark background #0a0a0a with vibrant flowing gradients. EXACT TEXT: Badge: \"Deep Intelligence\" Headline: \"DIVE INTO THE FUTURE OF AI.\" Subtext: \"Navigate the depths of artificial intelligence. 7+ frontier models, unified neural interface, zero cost. Your premium AI companion.\" Buttons: \"Start Free Chat\" \"Explore Platform\" Stats: \"7+\" AI Models, \"$0\" Monthly Cost, \"24/7\" Available Cards: \"Unified AI Chat\" \"7+ models in one interface\", \"Code Assistant\" \"Full-stack dev tools\", \"Content Factory\" \"Blog & social generation\" Tagline: \"Navigate the Depths.\" / \"Surface with Insights.\" / \"Zero cost. Infinite discovery.\" Blog: \"Latest\" / \"From the Deep\" Features: \"Built for the Depths\" with 6 items Platform: \"The Deepest Free AI Platform\" FAQ: \"Frequently Asked Questions\" CTA: \"Ready to Dive In?\" / \"Get Started\" / \"Learn More\" Footer: \"© 2026 Xylos Foundation\" \"Deep Intelligence Platform\""
+                  - generic [ref=f194e176]: "Create GRADIENT MESH style AI landing page for Xylos AI. Smooth liquid gradient meshes flowing across the page. Colors: coral (#f43f5e), amber (#f59e0b), violet (#8b5cf6). Fluid organic shapes, soft transitions, no sharp edges. Artistic painterly feel. Dark background #0a0a0a with vibrant flowing gradients. EXACT TEXT: Badge: \"Deep Intelligence\" Headline: \"DIVE INTO THE FUTURE OF AI.\" Subtext: \"Navigate the depths of artificial intelligence. 7+ frontier models, unified neural interface, zero cost. Your premium AI companion.\" Buttons: \"Start Free Chat\" \"Explore Platform\" Stats: \"7+\" AI Models, \"$0\" Monthly Cost, \"24/7\" Available Cards: \"Unified AI Chat\" \"7+ models in one interface\", \"Code Assistant\" \"Full-stack dev tools\", \"Content Factory\" \"Blog & social generation\" Tagline: \"Navigate the Depths.\" / \"Surface with Insights.\" / \"Zero cost. Infinite discovery.\" Blog: \"Latest\" / \"From the Deep\" Features: \"Built for the Depths\" with 6 items Platform: \"The Deepest Free AI Platform\" FAQ: \"Frequently Asked Questions\" CTA: \"Ready to Dive In?\" / \"Get Started\" / \"Learn More\" Footer: \"© 2026 Xylos Foundation\" \"Deep Intelligence Platform\""
+          - generic [ref=f194e182]:
+            - button "Collapse panel" [ref=f194e183] [cursor=pointer]
+            - generic [ref=f194e192]:
+              - generic [ref=f194e196]:
+                - generic [ref=f194e198] [cursor=pointer]:
+                  - img "Surinder Kumar" [ref=f194e199]
+                  - paragraph [ref=f194e200]: "Create GRADIENT MESH style AI landing page for Xylos AI. Smooth liquid gradient meshes flowing across the page. Colors: coral (#f43f5e), amber (#f59e0b), violet (#8b5cf6). Fluid organic shapes, soft transitions, no sharp edges. Artistic painterly feel. Dark background #0a0a0a with vibrant flowing gradients. EXACT TEXT: Badge: \"Deep Intelligence\" Headline: \"DIVE INTO THE FUTURE OF AI.\" Subtext: \"Navigate the depths of artificial intelligence. 7+ frontier models, unified neural interface, zero cost. Your premium AI companion.\" Buttons: \"Start Free Chat\" \"Explore Platform\" Stats: \"7+\" AI Models, \"$0\" Monthly Cost, \"24/7\" Available Cards: \"Unified AI Chat\" \"7+ models in one interface\", \"Code Assistant\" \"Full-stack dev tools\", \"Content Factory\" \"Blog & social generation\" Tagline: \"Navigate the Depths.\" / \"Surface with Insights.\" / \"Zero cost. Infinite discovery.\" Blog: \"Latest\" / \"From the Deep\" Features: \"Built for the Depths\" with 6 items Platform: \"The Deepest Free AI Platform\" FAQ: \"Frequently Asked Questions\" CTA: \"Ready to Dive In?\" / \"Get Started\" / \"Learn More\" Footer: \"© 2026 Xylos Foundation\" \"Deep Intelligence Platform\""
+                - generic [ref=f194e201]:
+                  - button "Copy prompt" [ref=f194e202] [cursor=pointer]
+                  - button "Show more" [ref=f194e206] [cursor=pointer]
+              - generic [ref=f194e212]:
+                - generic [ref=f194e214]:
+                  - paragraph [ref=f194e382]: "I'm designing a premium landing page for Xylos AI featuring an immersive \"Gradient Mesh\" aesthetic. I'll start by establishing a design system with your custom palette—Coral, Amber, and Violet—set against a deep #0a0a0a background."
+                  - paragraph [ref=f194e383]: For the flowing liquid effects, I'll create a custom WebGL shader to ensure the transitions are organic and painterly, perfectly complementing the "Deep Intelligence" theme.
+                - generic [ref=f194e217]: Creating the UX flows

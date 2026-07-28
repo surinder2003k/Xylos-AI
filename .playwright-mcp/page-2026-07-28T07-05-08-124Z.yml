@@ -1,0 +1,1006 @@
+- main [ref=e5]:
+  - iframe [active] [ref=e7]:
+    - main [ref=f1e5]:
+      - generic [ref=f1e426]:
+        - generic:
+          - generic [ref=f1e428]:
+            - button [ref=f1e430] [cursor=pointer]
+            - generic [ref=f1e435]:
+              - button "Xylos AI Landing Suite" [ref=f1e436]
+              - button [ref=f1e438] [cursor=pointer]
+          - generic [ref=f1e443]:
+            - button [ref=f1e847] [cursor=pointer]
+            - button [ref=f1e444] [cursor=pointer]:
+              - paragraph [ref=f1e448]: Export
+            - button [ref=f1e450] [cursor=pointer]:
+              - paragraph [ref=f1e454]: Share
+            - button "Account menu" [ref=f1e456] [cursor=pointer]:
+              - img "Profile image for Surinder Kumar" [ref=f1e458]
+        - generic [ref=f1e460]:
+          - generic [ref=f1e461]:
+            - button [ref=f1e463] [cursor=pointer]
+            - button [ref=f1e468] [cursor=pointer]
+            - button [ref=f1e473] [cursor=pointer]
+          - button [ref=f1e478] [cursor=pointer]
+          - generic [ref=f1e483]:
+            - button "Choose File" [ref=f1e484]
+            - button [ref=f1e485] [cursor=pointer]
+          - button [ref=f1e490] [cursor=pointer]
+          - button [ref=f1e498] [cursor=pointer]
+        - generic [ref=f1e502]:
+          - generic [ref=f1e503]:
+            - generic [ref=f1e504]:
+              - button "Undo" [disabled]:
+                - generic: undo
+            - generic [ref=f1e506]:
+              - button "Redo" [disabled]:
+                - generic: redo
+          - button "10%" [ref=f1e851] [cursor=pointer]
+          - button "Helpful links" [ref=f1e510] [cursor=pointer]
+        - button "Choose File" [ref=f1e514]
+        - application [ref=f1e516]:
+          - generic [ref=f1e518]:
+            - generic:
+              - generic:
+                - generic [ref=f1e520]:
+                  - generic [ref=f1e525]:
+                    - generic [ref=f1e526]: palette
+                    - generic [ref=f1e528]: Luminous Obsidian
+                  - generic [ref=f1e531]:
+                    - generic [ref=f1e532]:
+                      - generic [ref=f1e533]:
+                        - generic [ref=f1e534]:
+                          - generic [ref=f1e535]: Primary
+                          - generic "Click to copy" [ref=f1e536] [cursor=pointer]: "#00F2FF"
+                        - generic [ref=f1e537]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f1e538] [cursor=pointer]'
+                          - 'generic "T10 #002022 — Click to copy" [ref=f1e539] [cursor=pointer]'
+                          - 'generic "T20 #00363a — Click to copy" [ref=f1e540] [cursor=pointer]'
+                          - 'generic "T30 #004f54 — Click to copy" [ref=f1e541] [cursor=pointer]'
+                          - 'generic "T40 #00696f — Click to copy" [ref=f1e542] [cursor=pointer]'
+                          - 'generic "T50 #00848c — Click to copy" [ref=f1e543] [cursor=pointer]'
+                          - 'generic "T60 #00a0a9 — Click to copy" [ref=f1e544] [cursor=pointer]'
+                          - 'generic "T70 #00bdc8 — Click to copy" [ref=f1e545] [cursor=pointer]'
+                          - 'generic "T80 #00dbe7 — Click to copy" [ref=f1e546] [cursor=pointer]'
+                          - 'generic "T90 #74f5ff — Click to copy" [ref=f1e547] [cursor=pointer]'
+                          - 'generic "T95 #c4faff — Click to copy" [ref=f1e548] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f1e549] [cursor=pointer]'
+                      - generic [ref=f1e550]:
+                        - generic [ref=f1e551]:
+                          - generic [ref=f1e552]: Secondary
+                          - generic "Click to copy" [ref=f1e553] [cursor=pointer]: "#8B5CF6"
+                        - generic [ref=f1e554]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f1e555] [cursor=pointer]'
+                          - 'generic "T10 #23005c — Click to copy" [ref=f1e556] [cursor=pointer]'
+                          - 'generic "T20 #3c0091 — Click to copy" [ref=f1e557] [cursor=pointer]'
+                          - 'generic "T30 #5516be — Click to copy" [ref=f1e558] [cursor=pointer]'
+                          - 'generic "T40 #6d3bd7 — Click to copy" [ref=f1e559] [cursor=pointer]'
+                          - 'generic "T50 #8758f2 — Click to copy" [ref=f1e560] [cursor=pointer]'
+                          - 'generic "T60 #a078ff — Click to copy" [ref=f1e561] [cursor=pointer]'
+                          - 'generic "T70 #b89bff — Click to copy" [ref=f1e562] [cursor=pointer]'
+                          - 'generic "T80 #d0bcff — Click to copy" [ref=f1e563] [cursor=pointer]'
+                          - 'generic "T90 #e9ddff — Click to copy" [ref=f1e564] [cursor=pointer]'
+                          - 'generic "T95 #f6edff — Click to copy" [ref=f1e565] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f1e566] [cursor=pointer]'
+                      - generic [ref=f1e567]:
+                        - generic [ref=f1e568]:
+                          - generic [ref=f1e569]: Tertiary
+                          - generic "Click to copy" [ref=f1e570] [cursor=pointer]: "#D4AF37"
+                        - generic [ref=f1e571]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f1e572] [cursor=pointer]'
+                          - 'generic "T10 #241a00 — Click to copy" [ref=f1e573] [cursor=pointer]'
+                          - 'generic "T20 #3c2f00 — Click to copy" [ref=f1e574] [cursor=pointer]'
+                          - 'generic "T30 #574500 — Click to copy" [ref=f1e575] [cursor=pointer]'
+                          - 'generic "T40 #735c00 — Click to copy" [ref=f1e576] [cursor=pointer]'
+                          - 'generic "T50 #917400 — Click to copy" [ref=f1e577] [cursor=pointer]'
+                          - 'generic "T60 #af8d11 — Click to copy" [ref=f1e578] [cursor=pointer]'
+                          - 'generic "T70 #cca730 — Click to copy" [ref=f1e579] [cursor=pointer]'
+                          - 'generic "T80 #e9c349 — Click to copy" [ref=f1e580] [cursor=pointer]'
+                          - 'generic "T90 #ffe088 — Click to copy" [ref=f1e581] [cursor=pointer]'
+                          - 'generic "T95 #ffefcc — Click to copy" [ref=f1e582] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f1e583] [cursor=pointer]'
+                      - generic [ref=f1e584]:
+                        - generic [ref=f1e585]:
+                          - generic [ref=f1e586]: Neutral
+                          - generic "Click to copy" [ref=f1e587] [cursor=pointer]: "#020617"
+                        - generic [ref=f1e588]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f1e589] [cursor=pointer]'
+                          - 'generic "T10 #151b2d — Click to copy" [ref=f1e590] [cursor=pointer]'
+                          - 'generic "T20 #2a3043 — Click to copy" [ref=f1e591] [cursor=pointer]'
+                          - 'generic "T30 #40465a — Click to copy" [ref=f1e592] [cursor=pointer]'
+                          - 'generic "T40 #585e73 — Click to copy" [ref=f1e593] [cursor=pointer]'
+                          - 'generic "T50 #71768c — Click to copy" [ref=f1e594] [cursor=pointer]'
+                          - 'generic "T60 #8a90a7 — Click to copy" [ref=f1e595] [cursor=pointer]'
+                          - 'generic "T70 #a5aac2 — Click to copy" [ref=f1e596] [cursor=pointer]'
+                          - 'generic "T80 #c0c6de — Click to copy" [ref=f1e597] [cursor=pointer]'
+                          - 'generic "T90 #dce1fb — Click to copy" [ref=f1e598] [cursor=pointer]'
+                          - 'generic "T95 #eef0ff — Click to copy" [ref=f1e599] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f1e600] [cursor=pointer]'
+                    - generic [ref=f1e601]:
+                      - generic [ref=f1e602]:
+                        - generic [ref=f1e603]:
+                          - generic [ref=f1e604]: Headline
+                          - generic [ref=f1e605]: Montserrat
+                        - generic [ref=f1e606]: Aa
+                      - generic [ref=f1e607]:
+                        - generic [ref=f1e608]:
+                          - button "Primary" [ref=f1e609]
+                          - button "Secondary" [ref=f1e610]
+                        - generic [ref=f1e611]:
+                          - button "Inverted" [ref=f1e612]
+                          - button "Outlined" [ref=f1e613]
+                      - generic [ref=f1e615]:
+                        - generic [ref=f1e616]: search
+                        - generic [ref=f1e617]: Search
+                      - generic [ref=f1e618]:
+                        - generic [ref=f1e619]:
+                          - generic [ref=f1e620]: Body
+                          - generic [ref=f1e621]: Inter
+                        - generic [ref=f1e622]: Aa
+                      - generic [ref=f1e631]:
+                        - generic [ref=f1e632]: home
+                        - generic [ref=f1e634]: search
+                        - generic [ref=f1e636]: person
+                      - generic [ref=f1e638]:
+                        - generic [ref=f1e639]:
+                          - generic [ref=f1e640]: Label
+                          - generic [ref=f1e641]: Inter
+                        - generic [ref=f1e642]: Aa
+                      - generic [ref=f1e643]:
+                        - generic [ref=f1e644]: edit
+                        - generic [ref=f1e648]:
+                          - generic [ref=f1e649]: edit
+                          - text: Label
+                      - generic [ref=f1e651]:
+                        - generic [ref=f1e652]: auto_fix_high
+                        - generic [ref=f1e654]: category
+                        - generic [ref=f1e656]: sell
+                        - generic [ref=f1e658]: delete
+                - generic [ref=f1e787]:
+                  - generic [ref=f1e791]:
+                    - generic [ref=f1e852]: devices
+                    - generic [ref=f1e792]: Three.js
+                  - iframe [ref=f1e797]:
+                    
+                - generic [ref=f1e802]:
+                  - generic [ref=f1e806]:
+                    - generic [ref=f1e854]: devices
+                    - generic [ref=f1e807]: Shader
+                  - iframe [ref=f1e812]:
+                    
+                - generic [ref=f1e817]:
+                  - generic [ref=f1e821]:
+                    - generic [ref=f1e856]: devices
+                    - generic [ref=f1e822]: Shader
+                  - iframe [ref=f1e827]:
+                    
+                - generic [ref=f1e859]:
+                  - generic [ref=f1e863]:
+                    - generic [ref=f1e864]: devices
+                    - generic [ref=f1e866]: Xylos AI - Brutalist Luxury Terminal
+                  - iframe [ref=f1e871]:
+                    - generic [ref=f9e1]:
+                      - navigation [ref=f9e2]:
+                        - generic [ref=f9e3]: Xylos AI
+                        - generic [ref=f9e5]:
+                          - link "Models" [ref=f9e6] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Features" [ref=f9e7] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Pricing" [ref=f9e8] [cursor=pointer]:
+                            - /url: "#"
+                          - link "FAQ" [ref=f9e9] [cursor=pointer]:
+                            - /url: "#"
+                        - button "Get Started" [ref=f9e10] [cursor=pointer]
+                      - generic [ref=f9e12]:
+                        - generic [ref=f9e13]: "System Status: Elite Deployment Active"
+                        - heading "D I G I T A L A L C H E M Y" [level=1] [ref=f9e14]:
+                          - generic [ref=f9e15]: D
+                          - generic [ref=f9e16]: I
+                          - generic [ref=f9e17]: G
+                          - generic [ref=f9e18]: I
+                          - generic [ref=f9e19]: T
+                          - generic [ref=f9e20]: A
+                          - generic [ref=f9e21]: L
+                          - generic [ref=f9e23]: A
+                          - generic [ref=f9e24]: L
+                          - generic [ref=f9e25]: C
+                          - generic [ref=f9e26]: H
+                          - generic [ref=f9e27]: E
+                          - generic [ref=f9e28]: M
+                          - generic [ref=f9e29]: "Y"
+                        - paragraph [ref=f9e30]: Experience the intersection of high-end luxury and cutting-edge artificial intelligence. Engineered for excellence, built for the elite.
+                        - generic [ref=f9e31]:
+                          - button "TERMINAL ACCESS" [ref=f9e32] [cursor=pointer]
+                          - button "VIEW MODELS" [ref=f9e33] [cursor=pointer]
+                      - generic [ref=f9e35]:
+                        - heading "C o r e M o d u l e s" [level=2] [ref=f9e37]:
+                          - generic [ref=f9e38]: C
+                          - generic [ref=f9e39]: o
+                          - generic [ref=f9e40]: r
+                          - generic [ref=f9e41]: e
+                          - generic [ref=f9e43]: M
+                          - generic [ref=f9e44]: o
+                          - generic [ref=f9e45]: d
+                          - generic [ref=f9e46]: u
+                          - generic [ref=f9e47]: l
+                          - generic [ref=f9e48]: e
+                          - generic [ref=f9e49]: s
+                        - generic [ref=f9e51]:
+                          - generic [ref=f9e52]:
+                            - generic [ref=f9e53]:
+                              - generic [ref=f9e54]: terminal
+                              - generic [ref=f9e55]: "MODULE_ID: X-01"
+                            - generic [ref=f9e56]:
+                              - heading "Neural Synthesis Engine" [level=3] [ref=f9e57]
+                              - paragraph [ref=f9e58]: Real-time code generation powered by multi-layered cognitive architectures. Optimized for low-latency executive decision-making.
+                              - code [ref=f9e64]: "const xylos = new AI({ model: 'Elite-V4', logic: 'Brutalist' });await xylos.synthesize();|"
+                          - generic [ref=f9e65]:
+                            - heading "Vision Pro" [level=3] [ref=f9e70]
+                            - paragraph [ref=f9e71]: Hyperspectral data analysis with 99.9% precision.
+                          - generic [ref=f9e72]:
+                            - generic [ref=f9e73]: bolt
+                            - generic [ref=f9e74]:
+                              - heading "Quantum Latency" [level=3] [ref=f9e75]
+                              - paragraph [ref=f9e76]: Execution speeds that defy standard silicon limitations.
+                          - generic [ref=f9e79]:
+                            - heading "Global Sovereignty" [level=3] [ref=f9e80]
+                            - paragraph [ref=f9e81]: Decentralized infrastructure ensuring absolute privacy and executive autonomy across 142 data zones.
+                            - button "Access Infrastructure ->" [ref=f9e82] [cursor=pointer]
+                      - generic [ref=f9e86]:
+                        - generic [ref=f9e87]:
+                          - heading "T i e r S e l e c t i o n" [level=2] [ref=f9e88]:
+                            - generic [ref=f9e89]: T
+                            - generic [ref=f9e90]: i
+                            - generic [ref=f9e91]: e
+                            - generic [ref=f9e92]: r
+                            - generic [ref=f9e94]: S
+                            - generic [ref=f9e95]: e
+                            - generic [ref=f9e96]: l
+                            - generic [ref=f9e97]: e
+                            - generic [ref=f9e98]: c
+                            - generic [ref=f9e99]: t
+                            - generic [ref=f9e100]: i
+                            - generic [ref=f9e101]: o
+                            - generic [ref=f9e102]: "n"
+                          - paragraph [ref=f9e103]: CHOOSE YOUR PERFORMANCE PROFILE
+                        - generic [ref=f9e104]:
+                          - generic [ref=f9e105]:
+                            - generic [ref=f9e106]: LVL_01
+                            - heading "Architect" [level=3] [ref=f9e107]
+                            - generic [ref=f9e108]: $499/mo
+                            - list [ref=f9e109]:
+                              - listitem [ref=f9e110]:
+                                - generic [ref=f9e111]: check_circle
+                                - text: 10M Neural Tokens
+                              - listitem [ref=f9e112]:
+                                - generic [ref=f9e113]: check_circle
+                                - text: Standard Executive Support
+                              - listitem [ref=f9e114]:
+                                - generic [ref=f9e115]: check_circle
+                                - text: Private Model Access
+                            - button "Initialize" [ref=f9e116] [cursor=pointer]
+                          - generic [ref=f9e117]:
+                            - generic [ref=f9e118]: Recommended
+                            - generic [ref=f9e119]: LVL_02
+                            - heading "Sovereign" [level=3] [ref=f9e120]
+                            - generic [ref=f9e121]: $1,999/mo
+                            - list [ref=f9e122]:
+                              - listitem [ref=f9e123]:
+                                - generic [ref=f9e124]: check_circle
+                                - text: Unlimited Synthesis
+                              - listitem [ref=f9e125]:
+                                - generic [ref=f9e126]: check_circle
+                                - text: Dedicated AI Strategist
+                              - listitem [ref=f9e127]:
+                                - generic [ref=f9e128]: check_circle
+                                - text: Custom Weights & Biases
+                              - listitem [ref=f9e129]:
+                                - generic [ref=f9e130]: check_circle
+                                - text: Zero-Latency Cluster
+                            - button "Command Tier" [ref=f9e131] [cursor=pointer]
+                          - generic [ref=f9e132]:
+                            - generic [ref=f9e133]: LVL_03
+                            - heading "Overlord" [level=3] [ref=f9e134]
+                            - generic [ref=f9e135]: Custom
+                            - list [ref=f9e136]:
+                              - listitem [ref=f9e137]:
+                                - generic [ref=f9e138]: check_circle
+                                - text: Bare-Metal Deployment
+                              - listitem [ref=f9e139]:
+                                - generic [ref=f9e140]: check_circle
+                                - text: 24/7 Red Team Monitoring
+                              - listitem [ref=f9e141]:
+                                - generic [ref=f9e142]: check_circle
+                                - text: Institutional Scale
+                            - button "Contact Sales" [ref=f9e143] [cursor=pointer]
+                      - contentinfo [ref=f9e144]:
+                        - generic [ref=f9e145]:
+                          - generic [ref=f9e146]:
+                            - generic [ref=f9e147]: Xylos AI
+                            - paragraph [ref=f9e148]: © 2024 Xylos AI. Engineered for Excellence.
+                          - generic [ref=f9e149]:
+                            - link "Privacy Policy" [ref=f9e150] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Terms of Service" [ref=f9e151] [cursor=pointer]:
+                              - /url: "#"
+                            - link "API Documentation" [ref=f9e152] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Contact Support" [ref=f9e153] [cursor=pointer]:
+                              - /url: "#"
+                          - generic [ref=f9e154]:
+                            - link "alternate_email" [ref=f9e155] [cursor=pointer]:
+                              - /url: "#"
+                            - link "hub" [ref=f9e157] [cursor=pointer]:
+                              - /url: "#"
+                - generic [ref=f1e874]:
+                  - generic [ref=f1e878]:
+                    - generic [ref=f1e879]: devices
+                    - generic [ref=f1e881]: Xylos AI - Immersive 3D Glassmorphism
+                  - iframe [ref=f1e886]:
+                    - generic [ref=f8e1]:
+                      - navigation [ref=f8e2]:
+                        - generic [ref=f8e3]: Xylos AI
+                        - generic [ref=f8e4]:
+                          - link "Models" [ref=f8e5] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Features" [ref=f8e6] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Pricing" [ref=f8e7] [cursor=pointer]:
+                            - /url: "#"
+                          - link "FAQ" [ref=f8e8] [cursor=pointer]:
+                            - /url: "#"
+                        - button "Get Started" [ref=f8e9] [cursor=pointer]
+                      - generic [ref=f8e10]:
+                        - generic [ref=f8e14]:
+                          - generic [ref=f8e15]: The New Standard of Intelligence
+                          - heading "Architecting Ethereal Artificial Minds" [level=1] [ref=f8e16]
+                          - paragraph [ref=f8e17]: Experience the fusion of high-end luxury and neural excellence. Xylos AI delivers computational power wrapped in a sophisticated glassmorphic interface.
+                          - generic [ref=f8e18]:
+                            - button "Initialize Core" [ref=f8e19] [cursor=pointer]
+                            - button "Explore Models" [ref=f8e20] [cursor=pointer]
+                        - generic [ref=f8e21]:
+                          - generic [ref=f8e22]: neurology
+                          - heading "Neural Synthesis" [level=3] [ref=f8e23]
+                          - paragraph [ref=f8e24]: Deep learning architectures optimized for elite executive workflows.
+                        - generic [ref=f8e25]:
+                          - generic [ref=f8e26]: terminal
+                          - heading "Quantized Logic" [level=3] [ref=f8e27]
+                          - paragraph [ref=f8e28]: Mathematically precise reasoning models with zero-latency response.
+                      - generic [ref=f8e30]:
+                        - generic [ref=f8e31]:
+                          - heading "Precision Engineering" [level=2] [ref=f8e32]
+                          - paragraph [ref=f8e33]: The anatomy of our digital alchemy.
+                        - generic [ref=f8e34]:
+                          - generic [ref=f8e36]:
+                            - generic [ref=f8e37]: diamond
+                            - heading "Diamond-Grade Security" [level=3] [ref=f8e38]
+                            - paragraph [ref=f8e39]: Quantum-resistant encryption layers protecting your most sensitive proprietary data and strategic insights.
+                          - generic [ref=f8e42]:
+                            - generic [ref=f8e43]: bolt
+                            - heading "Hyper-Flux" [level=3] [ref=f8e44]
+                            - paragraph [ref=f8e45]: Sub-millisecond inference speeds for real-time decision making.
+                          - generic [ref=f8e46]:
+                            - generic [ref=f8e47]: auto_awesome
+                            - heading "Creative Synthesis" [level=3] [ref=f8e48]
+                            - paragraph [ref=f8e49]: Generate high-fidelity aesthetic assets and narratives with AI that understands luxury.
+                          - generic [ref=f8e51]:
+                            - generic [ref=f8e52]:
+                              - heading "Global Context Aware" [level=3] [ref=f8e53]
+                              - paragraph [ref=f8e54]: Xylos models maintain massive context windows, allowing for the analysis of entire enterprise ecosystems in a single pass.
+                            - generic [ref=f8e55]: language
+                      - generic [ref=f8e60]:
+                        - generic [ref=f8e61]:
+                          - heading "Tiers of Excellence" [level=2] [ref=f8e62]
+                          - paragraph [ref=f8e63]: Choose the magnitude of your intelligence.
+                        - generic [ref=f8e64]:
+                          - generic [ref=f8e65]:
+                            - generic [ref=f8e66]: Adept
+                            - generic [ref=f8e67]: $499/mo
+                            - list [ref=f8e68]:
+                              - listitem [ref=f8e69]: Standard Context Window
+                              - listitem [ref=f8e70]: Priority Inference
+                              - listitem [ref=f8e71]: API Access
+                              - listitem [ref=f8e72]: Dedicated Support
+                            - button "Select Tier" [ref=f8e73] [cursor=pointer]
+                          - generic [ref=f8e74]:
+                            - generic [ref=f8e75]: Most Exclusive
+                            - generic [ref=f8e76]: Sovereign
+                            - generic [ref=f8e77]: $1,999/mo
+                            - list [ref=f8e78]:
+                              - listitem [ref=f8e79]: Unlimited Context Buffer
+                              - listitem [ref=f8e80]: Instantaneous Compute
+                              - listitem [ref=f8e81]: Custom Model Training
+                              - listitem [ref=f8e82]: Concierge Engineering
+                            - button "Secure Access" [ref=f8e83] [cursor=pointer]
+                          - generic [ref=f8e84]:
+                            - generic [ref=f8e85]: Zenith
+                            - generic [ref=f8e86]: Custom
+                            - paragraph [ref=f8e87]: For global conglomerates requiring private cloud deployment.
+                            - list [ref=f8e88]:
+                              - listitem [ref=f8e89]: On-Premise Deployment
+                              - listitem [ref=f8e90]: Infinite Scalability
+                              - listitem [ref=f8e91]: Quantum Logic Core
+                            - button "Contact Sales" [ref=f8e92] [cursor=pointer]
+                      - generic [ref=f8e94]:
+                        - heading "Clarifications" [level=2] [ref=f8e95]
+                        - generic [ref=f8e96]:
+                          - generic [ref=f8e97]:
+                            - button "How secure is Xylos AI? expand_more" [ref=f8e98] [cursor=pointer]:
+                              - generic [ref=f8e99]: How secure is Xylos AI?
+                              - generic [ref=f8e100]: expand_more
+                            - paragraph [ref=f8e101]: Xylos AI utilizes end-to-end homomorphic encryption, ensuring that your data remains encrypted even during active processing. We never store raw training data on public clusters.
+                          - generic [ref=f8e102]:
+                            - button "Can I integrate my own datasets? expand_more" [ref=f8e103] [cursor=pointer]:
+                              - generic [ref=f8e104]: Can I integrate my own datasets?
+                              - generic [ref=f8e105]: expand_more
+                            - paragraph [ref=f8e106]: Absolutely. Our Sovereing and Zenith tiers provide specialized pipelines for secure, private RAG (Retrieval-Augmented Generation) with your proprietary document stores.
+                          - generic [ref=f8e107]:
+                            - button "What makes Xylos \"Luxury\"? expand_more" [ref=f8e108] [cursor=pointer]:
+                              - generic [ref=f8e109]: What makes Xylos "Luxury"?
+                              - generic [ref=f8e110]: expand_more
+                            - paragraph [ref=f8e111]: Beyond the interface, it's about the precision of the output. Xylos is tuned for executive-level nuance, avoiding generic AI tropes in favor of sophisticated, analytically sound reasoning.
+                      - contentinfo [ref=f8e112]:
+                        - generic [ref=f8e113]:
+                          - generic [ref=f8e114]:
+                            - generic [ref=f8e115]: Xylos AI
+                            - paragraph [ref=f8e116]: © 2024 Xylos AI. Engineered for Excellence.
+                          - generic [ref=f8e117]:
+                            - link "Privacy Policy" [ref=f8e118] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Terms of Service" [ref=f8e119] [cursor=pointer]:
+                              - /url: "#"
+                            - link "API Documentation" [ref=f8e120] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Contact Support" [ref=f8e121] [cursor=pointer]:
+                              - /url: "#"
+                          - generic [ref=f8e122]:
+                            - link "brand_awareness" [ref=f8e123] [cursor=pointer]:
+                              - /url: "#"
+                            - link "hub" [ref=f8e125] [cursor=pointer]:
+                              - /url: "#"
+                            - link "alternate_email" [ref=f8e127] [cursor=pointer]:
+                              - /url: "#"
+                - generic [ref=f1e889]:
+                  - generic [ref=f1e893]:
+                    - generic [ref=f1e894]: devices
+                    - generic [ref=f1e896]: Xylos AI - Fluid Gold Mesh
+                  - iframe [ref=f1e901]:
+                    - generic [ref=f6e1]:
+                      - navigation [ref=f6e2]:
+                        - generic [ref=f6e3]: Xylos AI
+                        - generic [ref=f6e4]:
+                          - link "Models" [ref=f6e5] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Features" [ref=f6e6] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Pricing" [ref=f6e7] [cursor=pointer]:
+                            - /url: "#"
+                          - link "FAQ" [ref=f6e8] [cursor=pointer]:
+                            - /url: "#"
+                        - button "Get Started" [ref=f6e9] [cursor=pointer]
+                      - generic [ref=f6e15]:
+                        - generic [ref=f6e16]: THE FUTURE OF INTELLIGENCE
+                        - heading "Refining Raw Data into Digital Gold" [level=1] [ref=f6e17]
+                        - paragraph [ref=f6e18]: Xylos AI delivers a high-precision computational ecosystem designed for the world's most demanding enterprises. Experience speed without compromise.
+                        - generic [ref=f6e19]:
+                          - button "Start Exploration north_east" [ref=f6e20] [cursor=pointer]:
+                            - text: Start Exploration
+                            - generic [ref=f6e21]: north_east
+                          - button "View Technical Whitepaper" [ref=f6e22] [cursor=pointer]
+                      - generic [ref=f6e24]:
+                        - generic [ref=f6e25]:
+                          - generic [ref=f6e26]:
+                            - heading "Elite Capabilities" [level=2] [ref=f6e27]
+                            - paragraph [ref=f6e28]: A curated suite of AI modules engineered for mathematical precision and architectural elegance.
+                          - generic [ref=f6e29]:
+                            - text: SCALABLE ARCHITECTURE
+                            - generic [ref=f6e30]: bolt
+                        - generic [ref=f6e31]:
+                          - generic [ref=f6e34]:
+                            - generic [ref=f6e35]: neurology
+                            - heading "Neural Refinement Engine" [level=3] [ref=f6e37]
+                            - paragraph [ref=f6e38]: Our proprietary core algorithm processes complex datasets with sub-millisecond latency, delivering insights with 99.9% semantic accuracy.
+                          - generic [ref=f6e42]:
+                            - generic [ref=f6e43]: security
+                            - heading "Quantum Encryption" [level=3] [ref=f6e45]
+                            - paragraph [ref=f6e46]: Military-grade data protection that evolves alongside emerging threats, ensuring your private models remain exclusive to your organization.
+                            - generic [ref=f6e47]: lock
+                          - generic [ref=f6e49]:
+                            - generic [ref=f6e50]: dataset
+                            - heading "Omni-Data Intake" [level=4] [ref=f6e51]
+                            - paragraph [ref=f6e52]: Seamlessly ingest structured and unstructured data from over 500+ enterprise sources.
+                          - generic [ref=f6e53]:
+                            - generic [ref=f6e54]: terminal
+                            - heading "Dev-First API" [level=4] [ref=f6e55]
+                            - paragraph [ref=f6e56]: Comprehensive documentation and SDKs for Python, Rust, and TypeScript deployment.
+                          - generic [ref=f6e57]:
+                            - generic [ref=f6e58]: auto_awesome
+                            - heading "Autonomous Scaling" [level=4] [ref=f6e59]
+                            - paragraph [ref=f6e60]: Compute resources that dynamically adjust based on real-time request volume.
+                      - generic [ref=f6e62]:
+                        - generic [ref=f6e63]:
+                          - heading "Investment Tiers" [level=2] [ref=f6e64]
+                          - paragraph [ref=f6e65]: Choose the level of processing power that aligns with your operational ambitions.
+                        - generic [ref=f6e66]:
+                          - generic [ref=f6e67]:
+                            - heading "Founder" [level=3] [ref=f6e68]
+                            - generic [ref=f6e69]: $499/mo
+                            - list [ref=f6e70]:
+                              - listitem [ref=f6e71]:
+                                - generic [ref=f6e72]: check_circle
+                                - text: 10M Token Limit
+                              - listitem [ref=f6e73]:
+                                - generic [ref=f6e74]: check_circle
+                                - text: Standard Latency
+                              - listitem [ref=f6e75]:
+                                - generic [ref=f6e76]: check_circle
+                                - text: Shared Infrastructure
+                            - button "Inquire" [ref=f6e77] [cursor=pointer]
+                          - generic [ref=f6e78]:
+                            - generic [ref=f6e79]: MOST REQUESTED
+                            - heading "Elite" [level=3] [ref=f6e80]
+                            - generic [ref=f6e81]: $2,499/mo
+                            - list [ref=f6e82]:
+                              - listitem [ref=f6e83]:
+                                - generic [ref=f6e84]: check_circle
+                                - text: Unlimited Token Volume
+                              - listitem [ref=f6e85]:
+                                - generic [ref=f6e86]: check_circle
+                                - text: Priority Access (LLM-G)
+                              - listitem [ref=f6e87]:
+                                - generic [ref=f6e88]: check_circle
+                                - text: Dedicated VRAM Clusters
+                              - listitem [ref=f6e89]:
+                                - generic [ref=f6e90]: check_circle
+                                - text: 24/7 Concierge Support
+                            - button "Secure Access" [ref=f6e91] [cursor=pointer]
+                          - generic [ref=f6e92]:
+                            - heading "Sovereign" [level=3] [ref=f6e93]
+                            - generic [ref=f6e94]: Custom
+                            - list [ref=f6e95]:
+                              - listitem [ref=f6e96]:
+                                - generic [ref=f6e97]: check_circle
+                                - text: On-Premise Deployment
+                              - listitem [ref=f6e98]:
+                                - generic [ref=f6e99]: check_circle
+                                - text: Custom Model Distillation
+                              - listitem [ref=f6e100]:
+                                - generic [ref=f6e101]: check_circle
+                                - text: Infinite Scalability
+                            - button "Contact Sales" [ref=f6e102] [cursor=pointer]
+                      - generic [ref=f6e104]:
+                        - heading "Frequent Queries" [level=2] [ref=f6e105]
+                        - generic [ref=f6e106]:
+                          - group [ref=f6e107] [cursor=pointer]:
+                            - generic "How does Xylos handle proprietary data privacy? expand_more" [ref=f6e108]:
+                              - text: How does Xylos handle proprietary data privacy?
+                              - generic [ref=f6e109]: expand_more
+                            - paragraph [ref=f6e110]: Every instance of Xylos AI is containerized within its own isolated environment. We utilize zero-knowledge proofs and end-to-end encryption to ensure that neither Xylos staff nor third parties can ever access your training sets or inference requests.
+                          - group [ref=f6e111] [cursor=pointer]:
+                            - generic "Can I migrate my existing LLM workflows? expand_more" [ref=f6e112]:
+                              - text: Can I migrate my existing LLM workflows?
+                              - generic [ref=f6e113]: expand_more
+                          - group [ref=f6e114] [cursor=pointer]:
+                            - generic "What is the average latency for inference? expand_more" [ref=f6e115]:
+                              - text: What is the average latency for inference?
+                              - generic [ref=f6e116]: expand_more
+                      - contentinfo [ref=f6e117]:
+                        - generic [ref=f6e118]:
+                          - generic [ref=f6e119]:
+                            - generic [ref=f6e120]: Xylos AI
+                            - paragraph [ref=f6e121]: © 2024 Xylos AI. Engineered for Excellence.
+                          - generic [ref=f6e122]:
+                            - link "Privacy Policy" [ref=f6e123] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Terms of Service" [ref=f6e124] [cursor=pointer]:
+                              - /url: "#"
+                            - link "API Documentation" [ref=f6e125] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Contact Support" [ref=f6e126] [cursor=pointer]:
+                              - /url: "#"
+                          - generic [ref=f6e127]:
+                            - link [ref=f6e128] [cursor=pointer]:
+                              - /url: "#"
+                            - link [ref=f6e131] [cursor=pointer]:
+                              - /url: "#"
+                - generic [ref=f1e904]:
+                  - generic [ref=f1e908]:
+                    - generic [ref=f1e909]: devices
+                    - generic [ref=f1e911]: Xylos AI - Ethereal Aurora Shader
+                  - iframe [ref=f1e916]:
+                    - generic [ref=f7e1]:
+                      - navigation [ref=f7e2]:
+                        - generic [ref=f7e3]: Xylos AI
+                        - generic [ref=f7e5]:
+                          - link "Models" [ref=f7e6] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Features" [ref=f7e7] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Pricing" [ref=f7e8] [cursor=pointer]:
+                            - /url: "#"
+                          - link "FAQ" [ref=f7e9] [cursor=pointer]:
+                            - /url: "#"
+                        - button "Get Started" [ref=f7e10] [cursor=pointer]
+                      - banner [ref=f7e11]:
+                        - generic [ref=f7e14]:
+                          - generic [ref=f7e15]:
+                            - generic [ref=f7e16]: AURORA ENGINE V4.0 NOW LIVE
+                            - heading "Transcend Intelligence with Ethereal AI." [level=1] [ref=f7e18]
+                            - paragraph [ref=f7e19]: Engineered for elite developers and executive precision. Experience the intersection of bioluminescent design and quantum-speed computation.
+                            - generic [ref=f7e20]:
+                              - button "Launch Console" [ref=f7e21] [cursor=pointer]
+                              - button "View Documentation" [ref=f7e22] [cursor=pointer]
+                          - generic [ref=f7e23]:
+                            - generic [ref=f7e24]:
+                              - generic [ref=f7e25]: auto_awesome
+                              - heading "Neural Synthesis" [level=3] [ref=f7e26]
+                            - generic [ref=f7e29]:
+                              - generic [ref=f7e30]: hub
+                              - heading "Quantum Nodes" [level=3] [ref=f7e31]
+                              - paragraph [ref=f7e32]: Real-time distributed processing at 0.4ms latency.
+                      - generic [ref=f7e41]:
+                        - generic [ref=f7e42]:
+                          - heading "Elite Capabilities" [level=2] [ref=f7e43]
+                          - paragraph [ref=f7e44]: Precision tools for the modern digital alchemist.
+                        - generic [ref=f7e45]:
+                          - generic [ref=f7e46]:
+                            - generic [ref=f7e47]:
+                              - generic [ref=f7e48]: dynamic_form
+                              - heading "Self-Evolving Models" [level=3] [ref=f7e49]
+                              - paragraph [ref=f7e50]: Our models don't just process; they adapt. Using advanced recursive learning, Xylos AI refines its internal weights in real-time based on your unique operational parameters.
+                            - generic [ref=f7e52]:
+                              - generic [ref=f7e53]: Recursive AI
+                              - generic [ref=f7e54]: Real-time Weighting
+                          - generic [ref=f7e55]:
+                            - generic [ref=f7e56]: lock_open
+                            - heading "Immutable Privacy" [level=3] [ref=f7e57]
+                            - paragraph [ref=f7e58]: Zero-knowledge proof infrastructure ensures your proprietary data remains invisible to all—including us.
+                          - generic [ref=f7e59]:
+                            - generic [ref=f7e60]: speed
+                            - generic [ref=f7e62]:
+                              - heading "Quantum Infusion" [level=4] [ref=f7e63]
+                              - paragraph [ref=f7e64]: Sub-millisecond inference speeds.
+                          - generic [ref=f7e65]:
+                            - generic [ref=f7e66]:
+                              - heading "Global Synergy" [level=4] [ref=f7e67]
+                              - paragraph [ref=f7e68]: Sync your nodes across 12 hyper-scale data centers worldwide with zero-lag replication.
+                            - generic [ref=f7e70]: public
+                      - generic [ref=f7e72]:
+                        - heading "Investment Levels" [level=2] [ref=f7e74]
+                        - generic [ref=f7e75]:
+                          - generic [ref=f7e76]:
+                            - generic [ref=f7e77]: FOUNDATION
+                            - generic [ref=f7e78]: $499/mo
+                            - list [ref=f7e79]:
+                              - listitem [ref=f7e80]:
+                                - generic [ref=f7e81]: check
+                                - text: 5M Token Monthly Limit
+                              - listitem [ref=f7e82]:
+                                - generic [ref=f7e83]: check
+                                - text: Standard Priority Queue
+                              - listitem [ref=f7e84]:
+                                - generic [ref=f7e85]: check
+                                - text: Email Support
+                            - button "Start Building" [ref=f7e86] [cursor=pointer]
+                          - generic [ref=f7e87]:
+                            - generic [ref=f7e89]: EXECUTIVE
+                            - generic [ref=f7e90]: $1,999/mo
+                            - list [ref=f7e91]:
+                              - listitem [ref=f7e92]:
+                                - generic [ref=f7e93]: star
+                                - text: Unlimited Core Tokens
+                              - listitem [ref=f7e94]:
+                                - generic [ref=f7e95]: check
+                                - text: Dedicated Node Hosting
+                              - listitem [ref=f7e96]:
+                                - generic [ref=f7e97]: check
+                                - text: 24/7 Concierge Engineer
+                              - listitem [ref=f7e98]:
+                                - generic [ref=f7e99]: check
+                                - text: "Beta Access: Aurora Vision"
+                            - button "Elevate Operations" [ref=f7e100] [cursor=pointer]
+                          - generic [ref=f7e101]:
+                            - generic [ref=f7e102]: SOVEREIGN
+                            - generic [ref=f7e103]: Custom
+                            - list [ref=f7e104]:
+                              - listitem [ref=f7e105]:
+                                - generic [ref=f7e106]: check
+                                - text: Private On-Prem Deployment
+                              - listitem [ref=f7e107]:
+                                - generic [ref=f7e108]: check
+                                - text: Custom Model Training
+                              - listitem [ref=f7e109]:
+                                - generic [ref=f7e110]: check
+                                - text: White-Glove Integration
+                            - button "Contact Relations" [ref=f7e111] [cursor=pointer]
+                      - generic [ref=f7e113]:
+                        - generic [ref=f7e114]:
+                          - heading "The Architecture of Certainty" [level=2] [ref=f7e115]
+                          - paragraph [ref=f7e116]: Exploring the mechanics behind Xylos AI's transcendent performance.
+                        - generic [ref=f7e118]:
+                          - generic [ref=f7e119] [cursor=pointer]:
+                            - generic [ref=f7e120]:
+                              - heading "How does the Aurora Engine achieve its speed?" [level=4] [ref=f7e121]
+                              - generic [ref=f7e122]: expand_more
+                            - paragraph [ref=f7e123]: By utilizing a proprietary photonic-emulated matrix multiplication system, we bypass standard bottlenecked hardware pipelines, delivering results up to 40x faster than traditional cloud instances.
+                          - generic [ref=f7e124] [cursor=pointer]:
+                            - generic [ref=f7e125]:
+                              - heading "Is my data used for model retraining?" [level=4] [ref=f7e126]
+                              - generic [ref=f7e127]: expand_more
+                            - paragraph [ref=f7e128]: Absolutely not. We employ an 'Isolated Vault' architecture. Your data is encrypted at rest and in transit, used only for your specific inference calls and discarded immediately unless persistent storage is explicitly requested.
+                          - generic [ref=f7e129] [cursor=pointer]:
+                            - generic [ref=f7e130]:
+                              - heading "Can Xylos AI integrate with legacy systems?" [level=4] [ref=f7e131]
+                              - generic [ref=f7e132]: expand_more
+                            - paragraph [ref=f7e133]: Yes. Our robust API layer supports a wide range of protocols, from modern GraphQL to legacy REST and SOAP endpoints, ensuring a seamless bridge between generations of tech stack.
+                      - generic [ref=f7e138]:
+                        - heading "Begin Your Ascension." [level=2] [ref=f7e139]
+                        - paragraph [ref=f7e140]: Deploy the world's most sophisticated AI environment in under five minutes. Your digital transformation starts here.
+                        - generic [ref=f7e141]:
+                          - button "Start Free Trial" [ref=f7e142] [cursor=pointer]
+                          - button "Request a Demo" [ref=f7e143] [cursor=pointer]
+                      - contentinfo [ref=f7e144]:
+                        - generic [ref=f7e145]:
+                          - generic [ref=f7e146]:
+                            - generic [ref=f7e147]: Xylos AI
+                            - paragraph [ref=f7e148]: © 2024 Xylos AI. Engineered for Excellence.
+                          - generic [ref=f7e149]:
+                            - link "Privacy Policy" [ref=f7e150] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Terms of Service" [ref=f7e151] [cursor=pointer]:
+                              - /url: "#"
+                            - link "API Documentation" [ref=f7e152] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Contact Support" [ref=f7e153] [cursor=pointer]:
+                              - /url: "#"
+                          - generic [ref=f7e154]:
+                            - generic [ref=f7e155] [cursor=pointer]: share
+                            - generic [ref=f7e157] [cursor=pointer]: language
+                - generic [ref=f1e919]:
+                  - generic [ref=f1e923]:
+                    - generic [ref=f1e924]: devices
+                    - generic [ref=f1e926]: Xylos AI - Kinetic Bento Grid
+                  - iframe [ref=f1e931]:
+                    - generic [ref=f5e1]:
+                      - banner [ref=f5e2]:
+                        - generic [ref=f5e3]: Xylos AI
+                        - navigation [ref=f5e4]:
+                          - link "Models" [ref=f5e5] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Features" [ref=f5e6] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Pricing" [ref=f5e7] [cursor=pointer]:
+                            - /url: "#"
+                          - link "FAQ" [ref=f5e8] [cursor=pointer]:
+                            - /url: "#"
+                        - button "Get Started" [ref=f5e9] [cursor=pointer]
+                      - generic [ref=f5e10]:
+                        - generic [ref=f5e11]:
+                          - heading "I n t e l l i g e n c e M o v i n g a t L i g h t S p e e d" [level=1] [ref=f5e12]:
+                            - generic [ref=f5e13]:
+                              - generic [ref=f5e14]: I
+                              - generic [ref=f5e15]: "n"
+                              - generic [ref=f5e16]: t
+                              - generic [ref=f5e17]: e
+                              - generic [ref=f5e18]: l
+                              - generic [ref=f5e19]: l
+                              - generic [ref=f5e20]: i
+                              - generic [ref=f5e21]: g
+                              - generic [ref=f5e22]: e
+                              - generic [ref=f5e23]: "n"
+                              - generic [ref=f5e24]: c
+                              - generic [ref=f5e25]: e
+                            - generic [ref=f5e26]:
+                              - generic [ref=f5e27]: M
+                              - generic [ref=f5e28]: o
+                              - generic [ref=f5e29]: v
+                              - generic [ref=f5e30]: i
+                              - generic [ref=f5e31]: "n"
+                              - generic [ref=f5e32]: g
+                            - generic [ref=f5e33]:
+                              - generic [ref=f5e34]: a
+                              - generic [ref=f5e35]: t
+                            - generic [ref=f5e36]:
+                              - generic [ref=f5e37]: L
+                              - generic [ref=f5e38]: i
+                              - generic [ref=f5e39]: g
+                              - generic [ref=f5e40]: h
+                              - generic [ref=f5e41]: t
+                            - generic [ref=f5e42]:
+                              - generic [ref=f5e43]: S
+                              - generic [ref=f5e44]: p
+                              - generic [ref=f5e45]: e
+                              - generic [ref=f5e46]: e
+                              - generic [ref=f5e47]: d
+                          - paragraph [ref=f5e48]: Empower your workflow with elite AI models designed for high-performance computing and enterprise-grade scalability.
+                          - generic [ref=f5e49]:
+                            - button "Launch Studio" [ref=f5e50] [cursor=pointer]
+                            - button "View Documentation" [ref=f5e51] [cursor=pointer]
+                        - generic [ref=f5e52]:
+                          - generic [ref=f5e53]:
+                            - generic [ref=f5e54]: bolt
+                            - heading "Ultra-Low Latency" [level=3] [ref=f5e55]
+                            - paragraph [ref=f5e56]: Response times under 50ms for mission-critical applications.
+                          - generic [ref=f5e57]:
+                            - generic [ref=f5e58]: security
+                            - heading "Fortified Privacy" [level=3] [ref=f5e59]
+                            - paragraph [ref=f5e60]: Zero-retention data policies with end-to-end encryption.
+                          - generic [ref=f5e61]:
+                            - generic [ref=f5e62]: neurology
+                            - heading "Neural Optimization" [level=3] [ref=f5e63]
+                            - paragraph [ref=f5e64]: Adaptive learning algorithms that evolve with your data patterns.
+                      - generic [ref=f5e65]:
+                        - generic [ref=f5e66]:
+                          - heading "Architected for Excellence" [level=2] [ref=f5e67]
+                          - paragraph [ref=f5e68]: The world's most sophisticated AI ecosystem.
+                        - generic [ref=f5e69]:
+                          - generic [ref=f5e73]:
+                            - generic [ref=f5e74]: Enterprise
+                            - heading "Global Infrastructure" [level=3] [ref=f5e75]
+                            - paragraph [ref=f5e76]: Scale effortlessly with our distributed GPU network spanning 40+ regions worldwide. Maximum uptime, zero bottlenecks.
+                          - generic [ref=f5e77]:
+                            - generic [ref=f5e78]:
+                              - generic [ref=f5e79]: token
+                              - heading "Token Efficiency" [level=3] [ref=f5e80]
+                              - paragraph [ref=f5e81]: 90% reduction in context-window overhead using Xylos Compression.
+                            - generic [ref=f5e83]:
+                              - generic [ref=f5e84]: Efficiency Gain
+                              - generic [ref=f5e85]: +84%
+                          - generic [ref=f5e88]:
+                            - generic [ref=f5e89]: hub
+                            - heading "Universal API" [level=3] [ref=f5e90]
+                            - paragraph [ref=f5e91]: One endpoint, hundreds of specialized AI models. Infinite possibilities.
+                          - generic [ref=f5e93]:
+                            - heading "Real-time Visualization" [level=3] [ref=f5e94]
+                            - paragraph [ref=f5e95]: Monitor inference patterns as they happen with our proprietary vector space visualizer.
+                      - generic [ref=f5e99]:
+                        - heading "Selected Capabilities" [level=2] [ref=f5e100]
+                        - generic [ref=f5e101]:
+                          - generic [ref=f5e102]:
+                            - heading "Developer" [level=4] [ref=f5e103]
+                            - generic [ref=f5e104]: $0 /mo
+                            - list [ref=f5e105]:
+                              - listitem [ref=f5e106]:
+                                - generic [ref=f5e107]: check_circle
+                                - text: 100k Monthly Tokens
+                              - listitem [ref=f5e108]:
+                                - generic [ref=f5e109]: check_circle
+                                - text: Community Access
+                              - listitem [ref=f5e110]:
+                                - generic [ref=f5e111]: check_circle
+                                - text: Standard Support
+                            - button "Start Building" [ref=f5e112] [cursor=pointer]
+                          - generic [ref=f5e114]:
+                            - generic [ref=f5e115]: Most Advanced
+                            - heading "Architect" [level=4] [ref=f5e116]
+                            - generic [ref=f5e117]: $199 /mo
+                            - list [ref=f5e118]:
+                              - listitem [ref=f5e119]:
+                                - generic [ref=f5e120]: check_circle
+                                - text: Unlimited Models
+                              - listitem [ref=f5e121]:
+                                - generic [ref=f5e122]: check_circle
+                                - text: Priority GPU Access
+                              - listitem [ref=f5e123]:
+                                - generic [ref=f5e124]: check_circle
+                                - text: 24/7 Dedicated Support
+                              - listitem [ref=f5e125]:
+                                - generic [ref=f5e126]: check_circle
+                                - text: Advanced Analytics
+                            - button "Scale Now" [ref=f5e127] [cursor=pointer]
+                          - generic [ref=f5e128]:
+                            - heading "Foundry" [level=4] [ref=f5e129]
+                            - generic [ref=f5e130]: Custom
+                            - list [ref=f5e131]:
+                              - listitem [ref=f5e132]:
+                                - generic [ref=f5e133]: check_circle
+                                - text: Custom Model Training
+                              - listitem [ref=f5e134]:
+                                - generic [ref=f5e135]: check_circle
+                                - text: On-Premise Deployment
+                              - listitem [ref=f5e136]:
+                                - generic [ref=f5e137]: check_circle
+                                - text: White-label API
+                            - button "Contact Sales" [ref=f5e138] [cursor=pointer]
+                      - generic [ref=f5e139]:
+                        - heading "Frequently Asked Questions" [level=2] [ref=f5e140]
+                        - generic [ref=f5e141]:
+                          - group [ref=f5e142]:
+                            - generic "How does Xylos AI handle data residency? expand_more" [ref=f5e143] [cursor=pointer]:
+                              - text: How does Xylos AI handle data residency?
+                              - generic [ref=f5e144]: expand_more
+                          - group [ref=f5e145]:
+                            - generic "Can I integrate Xylos with my existing stack? expand_more" [ref=f5e146] [cursor=pointer]:
+                              - text: Can I integrate Xylos with my existing stack?
+                              - generic [ref=f5e147]: expand_more
+                          - group [ref=f5e148]:
+                            - generic "What makes your kinetic engine different? expand_more" [ref=f5e149] [cursor=pointer]:
+                              - text: What makes your kinetic engine different?
+                              - generic [ref=f5e150]: expand_more
+                      - contentinfo [ref=f5e151]:
+                        - generic [ref=f5e152]:
+                          - generic [ref=f5e153]: Xylos AI
+                          - generic [ref=f5e154]:
+                            - link "Privacy Policy" [ref=f5e155] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Terms of Service" [ref=f5e156] [cursor=pointer]:
+                              - /url: "#"
+                            - link "API Documentation" [ref=f5e157] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Contact Support" [ref=f5e158] [cursor=pointer]:
+                              - /url: "#"
+                          - generic [ref=f5e159]: © 2024 Xylos AI. Engineered for Excellence.
+          - generic [ref=f1e660]:
+            - generic [ref=f1e934]:
+              - button "Refine the 3D Glassmorphism design 1" [ref=f1e936] [cursor=pointer]:
+                - generic [ref=f1e937]: Refine the 3D Glassmorphism design
+                - generic [ref=f1e938]: "1"
+              - button "Combine the Aurora shader with the Bento grid 2" [ref=f1e940] [cursor=pointer]:
+                - generic [ref=f1e941]: Combine the Aurora shader with the Bento grid
+                - generic [ref=f1e942]: "2"
+              - button "Make the Brutalist design even more aggressive 3" [ref=f1e944] [cursor=pointer]:
+                - generic [ref=f1e945]: Make the Brutalist design even more aggressive
+                - generic [ref=f1e946]: "3"
+            - generic [ref=f1e665]:
+              - textbox [ref=f1e669]:
+                - paragraph [ref=f1e670]: What would you like to change or create?
+              - generic [ref=f1e671]:
+                - button "Choose File" [ref=f1e672]
+                - button [ref=f1e674] [cursor=pointer]
+                - button [ref=f1e679] [cursor=pointer]:
+                  - img [ref=f1e680]:
+                    - generic [ref=f1e681]: /
+                - generic [ref=f1e682]:
+                  - button [ref=f1e684] [cursor=pointer]
+                  - button [ref=f1e690] [cursor=pointer]
+                  - button "3 Flash" [ref=f1e694] [cursor=pointer]
+                  - button [ref=f1e701] [cursor=pointer]
+                  - button [disabled] [ref=f1e705]
+          - generic [ref=f1e710]:
+            - button [expanded] [ref=f1e711] [cursor=pointer]:
+              - status [ref=f1e712]:
+                - generic [ref=f1e713]: Agent log
+            - menu "Agent log" [active] [ref=f1e726]:
+              - menuitem "Create 5 different premium luxury landing page des..." [ref=f1e947] [cursor=pointer]
+          - generic [ref=f1e741]:
+            - button "Collapse panel" [ref=f1e742] [cursor=pointer]
+            - generic [ref=f1e751]:
+              - generic [ref=f1e755]:
+                - generic [ref=f1e757] [cursor=pointer]:
+                  - img "Surinder Kumar" [ref=f1e758]
+                  - paragraph [ref=f1e759]: "Create 5 different premium luxury landing page designs for \"Xylos AI\" - a free AI platform with 7+ models. Design 1: Immersive 3D hero with Three.js-style floating glassmorphism cards, GSAP scroll animations, particle systems, dark mode with neon cyan/purple accents, parallax depth effects. Design 2: Fluid morphing gradient mesh with Magic UI-style animated borders, glassmorphism navigation, floating 3D orbs, smooth scroll-triggered reveals, luxury dark theme with gold accents. Design 3: Brutalist luxury with bold typography, React Bits-style animated code snippets, terminal aesthetic with green/cyan on black, GSAP text splitting animations, holographic card effects. Design 4: Ethereal aurora with Three.js-style shader backgrounds, floating glass panels, GSAP stagger animations, bioluminescent glow effects, dark theme with iridescent gradients. Design 5: Kinetic typography hero with GSAP SplitText-style animations, 3D rotating feature cards, Magic UI-style bento grid layout, smooth parallax, premium dark theme with electric blue accents. All designs must have: Hero section, Features grid, Pricing section, FAQ accordion, CTA section, Footer. Premium luxury UI with smooth animations and modern aesthetics."
+                - generic [ref=f1e760]:
+                  - button "Copy prompt" [ref=f1e761] [cursor=pointer]
+                  - button "Show more" [ref=f1e765] [cursor=pointer]
+              - generic [ref=f1e773]:
+                - paragraph [ref=f1e952]: I've designed 5 premium luxury landing pages for Xylos AI, each exploring a distinct visual and interactive direction while maintaining a high-end brand identity.
+                - heading "The Collection:" [level=3] [ref=f1e953]
+                - list [ref=f1e954]:
+                  - listitem [ref=f1e955]:
+                    - strong [ref=f1e956]: Immersive 3D Glassmorphism
+                    - text: ": Features a Three.js scene with floating glass cards and interactive particles, accented by neon cyan and purple."
+                  - listitem [ref=f1e957]:
+                    - strong [ref=f1e958]: Fluid Gold Mesh
+                    - text: ": Uses a procedural fragment shader for a morphing gold mesh background, combined with smooth glassmorphism and bento-style grids."
+                  - listitem [ref=f1e959]:
+                    - strong [ref=f1e960]: Brutalist Luxury Terminal
+                    - text: ": A high-contrast terminal aesthetic using bold brutalist typography, holographic card effects, and animated code snippets."
+                  - listitem [ref=f1e961]:
+                    - strong [ref=f1e962]: Ethereal Aurora Shader
+                    - text: ": Implements an iridescent aurora shader background with bioluminescent glow effects and staggered glass panel entrance animations."
+                  - listitem [ref=f1e963]:
+                    - strong [ref=f1e964]: Kinetic Bento Grid
+                    - text: ": Focuses on dynamic energy with kinetic typography (GSAP SplitText style) and a highly organized 3D rotating bento grid layout."
+                - heading "Design Rationale:" [level=3] [ref=f1e965]
+                - list [ref=f1e966]:
+                  - listitem [ref=f1e967]:
+                    - strong [ref=f1e968]: Consistency
+                    - text: ": All designs share a cohesive \"Luminous Obsidian\" design system, ensuring that despite the stylistic shifts, they feel like part of the same premium brand family."
+                  - listitem [ref=f1e969]:
+                    - strong [ref=f1e970]: Interactivity
+                    - text: ": I utilized high-tier animation techniques, including WebGL shaders and Three.js, to create \"luxury\" through depth and fluidity rather than just static graphics."
+                  - listitem [ref=f1e971]:
+                    - strong [ref=f1e972]: Performance
+                    - text: ": The animations are built using efficient GSAP and vanilla JS/CSS patterns to ensure a smooth, premium experience across all devices."
+                - paragraph [ref=f1e973]: Which direction best captures the vision for Xylos AI? I can refine any of these further or combine elements from multiple designs.

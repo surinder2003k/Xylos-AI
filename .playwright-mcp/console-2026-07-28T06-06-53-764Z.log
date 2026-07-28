@@ -1,0 +1,9 @@
+[    5872ms] [ERROR] Error in updateScreensWithSessions: Error: Failed to load image from data URI (…).
+    at YG (https://app-companion-430619.appspot.com/assets/util-BcnQOj-A.js:451:38614)
+    at async bK (https://app-companion-430619.appspot.com/assets/util-BcnQOj-A.js:451:42901)
+    at async PK.collectSessionOutputNodes (https://app-companion-430619.appspot.com/assets/util-BcnQOj-A.js:451:63298)
+    at async PK.layoutSession (https://app-companion-430619.appspot.com/assets/util-BcnQOj-A.js:451:64415)
+    at async PK.layoutSessionsV2 (https://app-companion-430619.appspot.com/assets/util-BcnQOj-A.js:451:65372)
+    at async Object.updateScreensWithSessionsInternal (https://app-companion-430619.appspot.com/assets/util-BcnQOj-A.js:451:94524)
+    at async pendingLayoutCall (https://app-companion-430619.appspot.com/assets/util-BcnQOj-A.js:451:95822)
+    at async https://app-companion-430619.appspot.com/assets/util-BcnQOj-A.js:451:96045 @ https://app-companion-430619.appspot.com/assets/util-BcnQOj-A.js:177

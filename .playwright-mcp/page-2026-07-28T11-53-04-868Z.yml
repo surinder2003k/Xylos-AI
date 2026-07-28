@@ -1,0 +1,131 @@
+- generic [active] [ref=f44e1]:
+  - button "Scroll to top"
+  - navigation [ref=f44e2]:
+    - generic [ref=f44e3]:
+      - link "Xylos AI" [ref=f44e4] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f44e6]:
+        - link "Chat" [ref=f44e7] [cursor=pointer]:
+          - /url: /chat
+        - link "Blog" [ref=f44e8] [cursor=pointer]:
+          - /url: /blog
+        - link "About" [ref=f44e9] [cursor=pointer]:
+          - /url: /about
+      - link "Login" [ref=f44e11] [cursor=pointer]:
+        - /url: /login
+  - main [ref=f44e12]:
+    - generic [ref=f44e13]:
+      - generic [ref=f44e19]:
+        - generic [ref=f44e21]:
+          - generic [ref=f44e22]: Neural Link Established
+          - heading "UNLEASH THE GHOST IN THE MACHINE." [level=1] [ref=f44e30]: UNLEASH THE GHOSTIN THE MACHINE.
+          - paragraph [ref=f44e31]: Premium access to 7+ frontier models. Xylos AI delivers high-compute intelligence through a high-precision noir interface.
+          - generic [ref=f44e32]:
+            - link "Initialize Protocol" [ref=f44e33] [cursor=pointer]:
+              - /url: /chat
+            - link "View Specs" [ref=f44e36] [cursor=pointer]:
+              - /url: /about
+          - generic [ref=f44e39]:
+            - generic [ref=f44e40]: SYSTEM_STATUS
+            - generic [ref=f44e41]: "LATENCY: 12ms"
+            - generic [ref=f44e44]: "UPTIME: 99.99%"
+            - generic [ref=f44e47]: "CORE: XYLOS-v7.1"
+          - generic [ref=f44e50]:
+            - generic [ref=f44e51]:
+              - paragraph [ref=f44e52]: 1.2B
+              - paragraph [ref=f44e53]: PARAMETERS_SYNSAPSED
+            - generic [ref=f44e54]:
+              - paragraph [ref=f44e55]: 0.02ms
+              - paragraph [ref=f44e56]: CORE_LATENCY
+            - generic [ref=f44e57]:
+              - paragraph [ref=f44e58]: 99.9%
+              - paragraph [ref=f44e59]: UPTIME_RELIABILITY
+            - generic [ref=f44e60]:
+              - paragraph [ref=f44e61]: 7+
+              - paragraph [ref=f44e62]: FRONTIER_MODELS
+        - generic [ref=f44e63]: Scroll
+      - generic [ref=f44e68]:
+        - paragraph [ref=f44e70]: HARDWARE_FEATURES
+        - generic [ref=f44e71]:
+          - generic [ref=f44e72]:
+            - heading "Frontier Processing" [level=3] [ref=f44e76]
+            - paragraph [ref=f44e77]: Access the world's most powerful LLMs including Xylos-7, Prometheus, and Titan-X. Optimized for low-latency command execution.
+            - generic [ref=f44e78]:
+              - generic [ref=f44e79]: 7+ MODELS
+              - generic [ref=f44e80]: REAL-TIME
+          - generic [ref=f44e81]:
+            - heading "Encrypted Core" [level=3] [ref=f44e86]
+            - paragraph [ref=f44e87]: End-to-end neural encryption. Your prompts never leave the clean zone.
+          - generic [ref=f44e88]:
+            - heading "Neural Orb" [level=3] [ref=f44e93]
+            - paragraph [ref=f44e94]: Visual feedback of active compute cycles.
+          - generic [ref=f44e95]:
+            - heading "Visual Synthesis" [level=3] [ref=f44e101]
+            - paragraph [ref=f44e102]: Integrated multimodal vision capabilities. Input imagery, receive neural analysis in milliseconds.
+      - generic [ref=f44e105]:
+        - heading "System ready for deployment." [level=2] [ref=f44e106]
+        - paragraph [ref=f44e107]: Join the digital vanguard. Elevate your cognitive output with Xylos AI today.
+        - link "Establish Connection" [ref=f44e108] [cursor=pointer]:
+          - /url: /chat
+      - generic [ref=f44e112]:
+        - generic [ref=f44e113]:
+          - generic [ref=f44e114]:
+            - paragraph [ref=f44e115]: LATEST_BROADCASTS
+            - heading "From the Neural Core" [level=2] [ref=f44e116]
+          - link "View All" [ref=f44e117] [cursor=pointer]:
+            - /url: /blog
+        - generic [ref=f44e120]:
+          - link "How Does Uniformity Coefficient Predict Volleyball Sand Performance? Technology How Does Uniformity Coefficient Predict Volleyball Sand Performance? The uniformity coefficient is an important factor in choosing high-quality volleyball sand because it measures how consistent the sand particles are in size. More uniform sand improves footing, drainage, comfort, and overall court performance, creating a safer and more enjoyable playing experience for athletes. Anthony Rill · Decode →" [ref=f44e121] [cursor=pointer]:
+            - /url: /blog/how-does-uniformity-coefficient-predict-volleyball-sand-performance
+            - generic [ref=f44e122]:
+              - img "How Does Uniformity Coefficient Predict Volleyball Sand Performance?" [ref=f44e123]
+              - generic [ref=f44e124]: Technology
+            - heading "How Does Uniformity Coefficient Predict Volleyball Sand Performance?" [level=3] [ref=f44e125]
+            - paragraph [ref=f44e126]: The uniformity coefficient is an important factor in choosing high-quality volleyball sand because it measures how consistent the sand particles are in size. More uniform sand improves footing, drainage, comfort, and overall court performance, creating a safer and more enjoyable playing experience for athletes.
+            - generic [ref=f44e127]:
+              - generic [ref=f44e128]: Anthony Rill
+              - generic [ref=f44e129]: ·
+              - generic [ref=f44e130]: Decode →
+          - 'link "Market Analysis: Mapping the Currents of Business in a Shifting Global Landscape Business Market Analysis: Mapping the Currents of Business in a Shifting Global Landscape Explore the intricate landscape of market analysis, uncovering its profound implications in the modern business ecosystem and future projections. Xylos Team · Decode →" [ref=f44e131] [cursor=pointer]':
+            - /url: /blog/market-analysis-mapping-the-currents-of-business-in-a-shifting-global-landscape
+            - generic [ref=f44e132]:
+              - 'img "Market Analysis: Mapping the Currents of Business in a Shifting Global Landscape" [ref=f44e133]'
+              - generic [ref=f44e134]: Business
+            - 'heading "Market Analysis: Mapping the Currents of Business in a Shifting Global Landscape" [level=3] [ref=f44e135]'
+            - paragraph [ref=f44e136]: Explore the intricate landscape of market analysis, uncovering its profound implications in the modern business ecosystem and future projections.
+            - generic [ref=f44e137]:
+              - generic [ref=f44e138]: Xylos Team
+              - generic [ref=f44e139]: ·
+              - generic [ref=f44e140]: Decode →
+          - 'link "Unveiling the Emerging Tech Trends: A Futuristic Odyssey Technology Unveiling the Emerging Tech Trends: A Futuristic Odyssey A comprehensive analysis of the latest technological advancements and their impact on society, business, and the global economy Xylos Team · Decode →" [ref=f44e141] [cursor=pointer]':
+            - /url: /blog/unveiling-the-emerging-tech-trends-a-futuristic-odyssey
+            - generic [ref=f44e142]:
+              - 'img "Unveiling the Emerging Tech Trends: A Futuristic Odyssey" [ref=f44e143]'
+              - generic [ref=f44e144]: Technology
+            - 'heading "Unveiling the Emerging Tech Trends: A Futuristic Odyssey" [level=3] [ref=f44e145]'
+            - paragraph [ref=f44e146]: A comprehensive analysis of the latest technological advancements and their impact on society, business, and the global economy
+            - generic [ref=f44e147]:
+              - generic [ref=f44e148]: Xylos Team
+              - generic [ref=f44e149]: ·
+              - generic [ref=f44e150]: Decode →
+      - generic [ref=f44e151]:
+        - generic [ref=f44e152]:
+          - generic [ref=f44e153]:
+            - heading "Stay ahead with Xylos AI." [level=3] [ref=f44e154]
+            - paragraph [ref=f44e155]: Join thousands of professionals who trust Xylos AI for innovative editorial and design intelligence solutions.
+          - generic [ref=f44e156]:
+            - textbox "Email address for newsletter" [ref=f44e158]:
+              - /placeholder: Enter your email
+            - button [ref=f44e159] [cursor=pointer]
+        - img "Xylos AI Newsletter — High-tech nature visualization" [ref=f44e165]
+      - generic [ref=f44e169]:
+        - generic [ref=f44e170]: Xylos AI
+        - generic [ref=f44e172]:
+          - link "About" [ref=f44e173] [cursor=pointer]:
+            - /url: /about
+          - link "Blog" [ref=f44e174] [cursor=pointer]:
+            - /url: /blog
+          - link "Privacy" [ref=f44e175] [cursor=pointer]:
+            - /url: /privacy
+        - paragraph [ref=f44e176]: © 2026 Xylos Foundation
+  - alert [ref=f44e177]

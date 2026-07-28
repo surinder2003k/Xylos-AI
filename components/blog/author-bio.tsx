@@ -42,13 +42,13 @@ export function AuthorBio({
           </p>
 
           <div className="flex items-center justify-center md:justify-start gap-4 pt-2">
-            <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="p-2 rounded-xl hover:text-[#00f0ff] transition-all inline-flex text-gray-500" style={{ background: 'rgba(59, 73, 75, 0.15)', border: '1px solid rgba(59, 73, 75, 0.2)' }} aria-label="Twitter">
+            <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="p-2 rounded-xl hover:text-[#00f0ff] transition-all inline-flex text-gray-400" style={{ background: 'rgba(59, 73, 75, 0.15)', border: '1px solid rgba(59, 73, 75, 0.2)' }} aria-label="Twitter">
               <Twitter className="w-4 h-4" />
             </a>
-            <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="p-2 rounded-xl hover:text-[#00f0ff] transition-all inline-flex text-gray-500" style={{ background: 'rgba(59, 73, 75, 0.15)', border: '1px solid rgba(59, 73, 75, 0.2)' }} aria-label="LinkedIn">
+            <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="p-2 rounded-xl hover:text-[#00f0ff] transition-all inline-flex text-gray-400" style={{ background: 'rgba(59, 73, 75, 0.15)', border: '1px solid rgba(59, 73, 75, 0.2)' }} aria-label="LinkedIn">
               <Linkedin className="w-4 h-4" />
             </a>
-            <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="p-2 rounded-xl hover:text-[#00f0ff] transition-all inline-flex text-gray-500" style={{ background: 'rgba(59, 73, 75, 0.15)', border: '1px solid rgba(59, 73, 75, 0.2)' }} aria-label="GitHub">
+            <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="p-2 rounded-xl hover:text-[#00f0ff] transition-all inline-flex text-gray-400" style={{ background: 'rgba(59, 73, 75, 0.15)', border: '1px solid rgba(59, 73, 75, 0.2)' }} aria-label="GitHub">
               <Github className="w-4 h-4" />
             </a>
           </div>

@@ -1,0 +1,294 @@
+- generic [ref=f22e2]:
+  - banner [ref=f22e4]:
+    - generic [ref=f22e5]:
+      - generic [ref=f22e6]:
+        - button "Main menu" [ref=f22e7] [cursor=pointer]
+        - link "Google Search Console" [ref=f22e12] [cursor=pointer]:
+          - /url: ./search-console?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+      - generic [ref=f22e14]:
+        - search [ref=f22e16]:
+          - generic [ref=f22e22]:
+            - textbox [disabled] [ref=f22e23]: Inspect any URL in 'https://xylosai.vercel.app/'
+            - combobox "Inspect any URL in https://xylosai.vercel.app/" [ref=f22e24]
+          - button "Search" [ref=f22e25] [cursor=pointer]
+        - generic [ref=f22e29]:
+          - generic [ref=f22e31]:
+            - button "Help" [ref=f22e33] [cursor=pointer]:
+              - generic [ref=f22e34]: 
+            - button "User settings" [ref=f22e38] [cursor=pointer]
+          - 'button "Unread messages: 14" [ref=f22e45] [cursor=pointer]':
+            - generic [ref=f22e47]:
+              - generic [ref=f22e48]: 
+              - generic [ref=f22e49]: "14"
+      - generic [ref=f22e52]:
+        - button "Google apps" [ref=f22e56] [cursor=pointer]
+        - 'button "Google Account: Surinder Kumar (sunny2003m2003@gmail.com)" [ref=f22e62] [cursor=pointer]'
+  - dialog "navigational drawer" [ref=f22e68]:
+    - navigation "Primary" [ref=f22e71]:
+      - button "Search property" [ref=f22e75] [cursor=pointer]:
+        - img "favicon" [ref=f22e77]
+        - combobox "https://xylosai.vercel.app/" [ref=f22e85]
+        - generic [ref=f22e86]: 
+      - generic [ref=f22e87]:
+        - generic [ref=f22e88]:
+          - generic [ref=f22e89]:
+            - link [ref=f22e91] [cursor=pointer]:
+              - /url: ./search-console?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f22e92]: home
+            - link [ref=f22e98] [cursor=pointer]:
+              - /url: ./search-console/performance/insights?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f22e99]: lightbulb_2
+            - link [ref=f22e105] [cursor=pointer]:
+              - /url: ./search-console/performance/search-analytics?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f22e106]: trending_up
+            - button [ref=f22e112] [cursor=pointer]:
+              - generic [ref=f22e113]: search
+          - generic [ref=f22e120]:
+            - generic [ref=f22e122]:
+              - generic [ref=f22e123]: Indexing
+              - button "Indexing report section" [expanded] [ref=f22e127] [cursor=pointer]:
+                - generic [ref=f22e128]: keyboard_arrow_up
+            - generic [ref=f22e133]:
+              - link [ref=f22e135] [cursor=pointer]:
+                - /url: ./search-console/index?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+                - generic [ref=f22e136]: file_copy
+              - link [ref=f22e142] [cursor=pointer]:
+                - /url: ./search-console/sitemaps?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+                - generic [ref=f22e143]: account_tree
+              - link [ref=f22e149] [cursor=pointer]:
+                - /url: ./search-console/removals?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+                - generic [ref=f22e150]: visibility_off
+          - generic [ref=f22e157]:
+            - generic [ref=f22e159]:
+              - generic [ref=f22e160]: Experience
+              - button "Experience report section" [expanded] [ref=f22e164] [cursor=pointer]:
+                - generic [ref=f22e165]: keyboard_arrow_up
+            - generic [ref=f22e170]:
+              - link [ref=f22e172] [cursor=pointer]:
+                - /url: ./search-console/core-web-vitals?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+                - generic [ref=f22e173]: speed
+              - link [ref=f22e179] [cursor=pointer]:
+                - /url: ./search-console/https?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+                - generic [ref=f22e180]: lock
+          - generic [ref=f22e187]:
+            - generic [ref=f22e189]:
+              - generic [ref=f22e190]: Enhancements
+              - button "Enhancements report section" [expanded] [ref=f22e194] [cursor=pointer]:
+                - generic [ref=f22e195]: keyboard_arrow_up
+            - link [ref=f22e202] [cursor=pointer]:
+              - /url: ./search-console/r/review-snippet?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f22e203]: layers
+          - generic [ref=f22e212]:
+            - generic [ref=f22e213]: Security & Manual Actions
+            - button "Security & Manual Actions report section" [ref=f22e217] [cursor=pointer]:
+              - generic [ref=f22e218]: keyboard_arrow_down
+          - generic [ref=f22e220]:
+            - link "Links report" [ref=f22e222] [cursor=pointer]:
+              - /url: ./search-console/links?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f22e223]: link_2
+              - generic [ref=f22e225]: Links
+            - link [ref=f22e229] [cursor=pointer]:
+              - /url: ./search-console/achievements?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f22e230]: trophy
+            - link [ref=f22e236] [cursor=pointer]:
+              - /url: ./search-console/settings?resource_id=https%3A%2F%2Fxylosai.vercel.app%2F
+              - generic [ref=f22e237]: settings
+        - generic [ref=f22e242]:
+          - generic [ref=f22e244]:
+            - button [ref=f22e246] [cursor=pointer]:
+              - generic [ref=f22e247]: feedback
+            - button [ref=f22e253] [cursor=pointer]:
+              - generic [ref=f22e254]: info
+          - generic [ref=f22e261]:
+            - link "Privacy" [ref=f22e262] [cursor=pointer]:
+              - /url: https://myaccount.google.com/privacypolicy?hl=en-GB
+            - link "Terms" [ref=f22e263] [cursor=pointer]:
+              - /url: https://myaccount.google.com/termsofservice?hl=en-GB
+  - generic [ref=f22e266]:
+    - generic [ref=f22e267]:
+      - generic [ref=f22e269]:
+        - navigation "Breadcrumbs" [ref=f22e271]:
+          - heading "Performance" [level=1] [ref=f22e274]
+        - button "EXPORT" [ref=f22e278] [cursor=pointer]:
+          - generic [ref=f22e281]:
+            - generic [ref=f22e282]: 
+            - generic [ref=f22e283]: EXPORT
+      - generic [ref=f22e286]:
+        - generic [ref=f22e287]:
+          - generic [ref=f22e288]:
+            - radiogroup "Select time range" [ref=f22e289]:
+              - generic [ref=f22e291]:
+                - radio "24 hours" [ref=f22e292] [cursor=pointer]
+                - radio "7 days" [ref=f22e300] [cursor=pointer]
+                - radio "28 days" [ref=f22e308] [cursor=pointer]
+                - radio "3 months" [checked] [ref=f22e316] [cursor=pointer]
+            - button "More time ranges" [ref=f22e326] [cursor=pointer]:
+              - generic [ref=f22e328]: More
+              - generic [ref=f22e329]: arrow_drop_down
+          - list [ref=f22e331]:
+            - generic [ref=f22e332]:
+              - generic [ref=f22e336]:
+                - 'button "Search type: Web" [ref=f22e338] [cursor=pointer]':
+                  - generic [ref=f22e341]: arrow_drop_down
+                - tooltip [ref=f22e343]: "Search type: Web"
+              - generic [ref=f22e348]:
+                - button "Add filter" [ref=f22e350] [cursor=pointer]:
+                  - generic [ref=f22e352]: add
+                - tooltip [ref=f22e355]: Add filter
+              - generic [ref=f22e358]:
+                - button "Customise your performance report using AI" [ref=f22e359] [cursor=pointer]:
+                  - generic [ref=f22e360]: filter_list_spark
+                - tooltip [ref=f22e363]: Customise your performance report using AI
+        - generic [ref=f22e364]: "Last update: 4 hours ago"
+    - main [ref=f22e372]:
+      - generic [ref=f22e375]:
+        - generic [ref=f22e376]:
+          - generic [ref=f22e377]:
+            - generic [ref=f22e378] [cursor=pointer]:
+              - button "Total clicks 30" [ref=f22e379]:
+                - generic [ref=f22e383]:
+                  - generic "Total clicks" [ref=f22e384]: 
+                  - generic "30" [ref=f22e387]
+              - button "null" [ref=f22e390]:
+                - generic [ref=f22e391]: 
+            - generic [ref=f22e392] [cursor=pointer]:
+              - button "Total impressions 1.37k" [ref=f22e393]:
+                - generic [ref=f22e397]:
+                  - generic "Total impressions" [ref=f22e398]: 
+                  - generic "1,372" [ref=f22e401]: 1.37k
+              - button "null" [ref=f22e404]:
+                - generic [ref=f22e405]: 
+            - generic [ref=f22e406] [cursor=pointer]:
+              - button "Average CTR 2.2%" [ref=f22e407]:
+                - generic [ref=f22e411]:
+                  - generic "Average CTR" [ref=f22e412]
+                  - generic "2.2%" [ref=f22e415]
+              - button "null" [ref=f22e418]:
+                - generic [ref=f22e419]: 
+            - generic [ref=f22e420] [cursor=pointer]:
+              - button "Average position 13.2" [ref=f22e421]:
+                - generic [ref=f22e425]:
+                  - generic "Average position" [ref=f22e426]
+                  - generic "13.2" [ref=f22e429]
+              - button "null" [ref=f22e432]:
+                - generic [ref=f22e433]: 
+          - 'button "Selected time granularity: Daily" [ref=f22e438] [cursor=pointer]':
+            - generic [ref=f22e440]: Daily
+        - generic [ref=f22e445]:
+          - generic [ref=f22e446]:
+            - generic [ref=f22e447]: Clicks
+            - generic [ref=f22e449]: Impressions
+          - application "chart" [ref=f22e452]:
+            - img [ref=f22e453]:
+              - generic [ref=f22e454]:
+                - generic [ref=f22e455]:
+                  - generic [ref=f22e456]: 27/04/2026
+                  - generic [ref=f22e458]: 06/05/2026
+                  - generic [ref=f22e460]: 15/05/2026
+                  - generic [ref=f22e462]: 24/05/2026
+                  - generic [ref=f22e464]: 02/06/2026
+                  - generic [ref=f22e466]: 11/06/2026
+                  - generic [ref=f22e468]: 20/06/2026
+                  - generic [ref=f22e470]: 29/06/2026
+                  - generic [ref=f22e472]: 08/07/2026
+                  - generic [ref=f22e474]: 17/07/2026
+                  - generic [ref=f22e476]: 26/07/2026
+                - generic [ref=f22e478]:
+                  - generic [ref=f22e479]: "6"
+                  - generic [ref=f22e481]: "4"
+                  - generic [ref=f22e483]: "2"
+                  - generic [ref=f22e485]: "0"
+                - generic [ref=f22e487]:
+                  - generic [ref=f22e488]: "45"
+                  - generic [ref=f22e490]: "30"
+                  - generic [ref=f22e492]: "15"
+                  - generic [ref=f22e494]: "0"
+            - generic [ref=f22e507]: Chart, containing counts of Total clicks, Total impressions, Average CTR and Average position from 27 April 2026 to 26 July 2026
+      - generic [ref=f22e510]:
+        - tablist [ref=f22e512]:
+          - tab "Queries" [selected] [ref=f22e513] [cursor=pointer]
+          - tab "Pages" [ref=f22e517] [cursor=pointer]
+          - tab "Countries" [ref=f22e520] [cursor=pointer]
+          - tab "Devices" [ref=f22e523] [cursor=pointer]
+          - tab "Search appearance" [ref=f22e526] [cursor=pointer]
+          - tab "Days" [ref=f22e529] [cursor=pointer]
+        - tabpanel [ref=f22e534]:
+          - generic [ref=f22e538]:
+            - button "Filter table rows" [ref=f22e545] [cursor=pointer]:
+              - generic [ref=f22e546]: 
+            - table [ref=f22e552]:
+              - rowgroup [ref=f22e553]:
+                - row [ref=f22e554]:
+                  - columnheader "Top queries Sort Top queries" [ref=f22e555]:
+                    - generic [ref=f22e556]:
+                      - generic [ref=f22e557]: Top queries
+                      - button "Sort Top queries" [ref=f22e559] [cursor=pointer]
+                  - columnheader "Sort Clicks Clicks" [ref=f22e563]:
+                    - generic [ref=f22e564]:
+                      - button "Sort Clicks" [ref=f22e565] [cursor=pointer]
+                      - generic [ref=f22e569]: Clicks
+                  - columnheader "Sort Impressions Impressions" [ref=f22e571]:
+                    - generic [ref=f22e572]:
+                      - button "Sort Impressions" [ref=f22e573] [cursor=pointer]
+                      - generic [ref=f22e577]: Impressions
+              - rowgroup [ref=f22e579]:
+                - row [ref=f22e580]:
+                  - cell "xylos" [ref=f22e581]
+                  - cell "2" [ref=f22e584]
+                  - cell "559" [ref=f22e587]
+                - row [ref=f22e590]:
+                  - cell "precision fasteners for automated equipment" [ref=f22e591]
+                  - cell "0" [ref=f22e594]
+                  - cell "26" [ref=f22e597]
+                - row [ref=f22e600]:
+                  - cell "top 10 ai tools for students" [ref=f22e601]
+                  - cell "0" [ref=f22e604]
+                  - cell "17" [ref=f22e607]
+                - row [ref=f22e610]:
+                  - cell "site:vercel.app (intitle:gemini or inurl:gemini)" [ref=f22e611]
+                  - cell "0" [ref=f22e614]
+                  - cell "16" [ref=f22e617]
+                - row [ref=f22e620]:
+                  - cell "xilos" [ref=f22e621]
+                  - cell "0" [ref=f22e624]
+                  - cell "13" [ref=f22e627]
+                - row [ref=f22e630]:
+                  - cell "famous ai for students" [ref=f22e631]
+                  - cell "0" [ref=f22e634]
+                  - cell "10" [ref=f22e637]
+                - row [ref=f22e640]:
+                  - cell "supremacyseo" [ref=f22e641]
+                  - cell "0" [ref=f22e644]
+                  - cell "7" [ref=f22e647]
+                - row [ref=f22e650]:
+                  - cell "xylos ai" [ref=f22e651]
+                  - cell "0" [ref=f22e654]
+                  - cell "6" [ref=f22e657]
+                - row [ref=f22e660]:
+                  - cell "ai tools list for students" [ref=f22e661]
+                  - cell "0" [ref=f22e664]
+                  - cell "6" [ref=f22e667]
+                - row [ref=f22e670]:
+                  - cell "xylo ai" [ref=f22e671]
+                  - cell "0" [ref=f22e674]
+                  - cell "5" [ref=f22e677]
+            - generic [ref=f22e682]:
+              - generic [ref=f22e684]:
+                - generic [ref=f22e685]: "Rows per page:"
+                - listbox "Number of rows per page" [ref=f22e686] [cursor=pointer]:
+                  - option "5"
+                  - option "10" [selected] [ref=f22e687]
+                  - option "25"
+                  - option "50"
+                  - option "100"
+                  - option "250"
+                  - option "500"
+              - generic [ref=f22e688]:
+                - generic [ref=f22e689]: 1-10 of 37
+                - generic [ref=f22e690]:
+                  - generic [ref=f22e692]:
+                    - button "Previous page" [disabled] [ref=f22e693]
+                    - tooltip [ref=f22e698]: Previous page
+                  - generic [ref=f22e700]:
+                    - button "Next page" [ref=f22e701] [cursor=pointer]
+                    - tooltip [ref=f22e705]: Next page

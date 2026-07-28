@@ -34,8 +34,6 @@ html {
     --neon-orange: #ff5e00;
     --neon-cyan: #00f0ff;
 
-    --font-fustat: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-sora: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-jetbrains: 'JetBrains Mono', monospace;
   }
@@ -48,11 +46,11 @@ html {
 
   body {
     @apply bg-background text-foreground transition-colors duration-300;
-    font-family: var(--font-inter);
+    font-family: var(--font-sora), -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6, .font-fustat {
-    font-family: var(--font-sora), var(--font-geist), var(--font-fustat);
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sora), -apple-system, BlinkMacSystemFont, sans-serif;
   }
 }
 

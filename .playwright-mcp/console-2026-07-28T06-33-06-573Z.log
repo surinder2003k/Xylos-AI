@@ -1,0 +1,9 @@
+[    7340ms] [INFO] [O11Y] [DatadogRUM] Initialized {service: claude-ai, env: production, version: 20d9aa4742} @ https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/shared-0-B6nQ_22V.js:0
+[    9006ms] [LOG] recaptchacompat disabled @ https://js.hcaptcha.com/1/api.js?render=explicit&recaptchacompat=off&onload=__antClientAttestationHcaptchaInvisibleReady:3
+[   16297ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://claude.ai/api/auth/send_magic_link:0
+[   16298ms] [ERROR] [REACT_QUERY_CLIENT] QueryClient error: ye: signups_disabled
+    at we (https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/shared-0-B6nQ_22V.js:1:3925)
+    at https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/shared-0-B6nQ_22V.js:1:124260
+    at async Object.mutationFn (https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/shared-0-B6nQ_22V.js:1:125921) @ https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/shared-0-B6nQ_22V.js:0
+[   26263ms] [ERROR] Prompt dismissed. API exponential cool down not triggered. @ https://claude.ai/login:0
+[   26264ms] [ERROR] [GSI_LOGGER]: FedCM get() rejects with NetworkError: Error retrieving a token. @ https://accounts.google.com/gsi/client:87

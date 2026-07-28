@@ -5,6 +5,7 @@ export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
   title: "AI Chat — Talk to Llama 3, Gemini & Mistral Free | Xylos AI",
   description: "Chat with 7+ elite AI models including Llama 3, Gemini Pro, and Mistral for free. No subscription needed. Professional-grade AI conversation at zero cost.",
+  robots: { index: false, follow: false },
   alternates: {
     canonical: 'https://xylosai.vercel.app/chat',
   },

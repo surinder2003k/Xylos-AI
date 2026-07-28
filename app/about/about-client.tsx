@@ -116,7 +116,7 @@ export default function AboutPageClient() {
                   <Brain className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Active nodes</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Active nodes</p>
                   <p className="text-2xl font-black text-white">4,821</p>
                 </div>
               </div>
@@ -143,7 +143,7 @@ export default function AboutPageClient() {
               </div>
               <div className="text-right hidden sm:block">
                 <p className="text-5xl font-black text-white">7+</p>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Models</p>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Models</p>
               </div>
             </div>
           </motion.div>
@@ -240,7 +240,7 @@ function FeatureCard({ icon: Icon, title, desc }: any) {
 function StatBox({ label, value }: any) {
   return (
     <div className="p-6 sm:p-8 rounded-2xl text-center space-y-2 transition-all duration-300 cursor-default group" style={{ background: 'rgba(12, 14, 18, 0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
-      <p className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.3em]">{label}</p>
+      <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em]">{label}</p>
       <p className="text-3xl sm:text-4xl font-black text-white group-hover:text-[#00f0ff] transition-colors">{value}</p>
     </div>
   );

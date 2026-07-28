@@ -33,7 +33,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
             Human <span className="text-white/20 italic">&</span> Tech
           </h2>
         </div>
-        <Link href="/blog" className="group text-xs font-bold text-gray-500 hover:text-[#00f0ff] uppercase tracking-[0.3em] transition-all flex items-center gap-2">
+        <Link href="/blog" className="group text-xs font-bold text-gray-400 hover:text-[#00f0ff] uppercase tracking-[0.3em] transition-all flex items-center gap-2">
            View Full Archive 
            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
         </Link>
@@ -72,7 +72,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
 
                   {/* Content */}
                   <div className="p-6 md:p-8 flex-1 flex flex-col">
-                    <div className="flex items-center gap-4 text-[9px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-4">
+                    <div className="flex items-center gap-4 text-[9px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-4">
                        <div className="flex items-center gap-2 px-3 py-1 rounded-full" style={{ background: 'rgba(59, 73, 75, 0.15)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
                           <Clock className="w-3 h-3 text-[#00f0ff]/50" /> 
                           {formatIST(blog.published_at)}
@@ -83,7 +83,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                        {blog.title}
                     </h3>
 
-                    <p className="text-sm text-gray-500 leading-relaxed line-clamp-3 mb-8 group-hover:text-gray-400 transition-colors">
+                    <p className="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-8 group-hover:text-gray-400 transition-colors">
                       {blog.excerpt}
                     </p>
 

@@ -1,0 +1,1813 @@
+- main [ref=f46e5]:
+  - iframe [active] [ref=f46e7]:
+    - main [ref=f47e5]:
+      - generic [ref=f47e451]:
+        - generic:
+          - generic [ref=f47e453]:
+            - button [ref=f47e455] [cursor=pointer]
+            - generic [ref=f47e460]:
+              - button "Xylos AI Design Showcase" [ref=f47e461]
+              - button [ref=f47e463] [cursor=pointer]
+          - generic [ref=f47e468]:
+            - button [disabled] [ref=f47e983]
+            - button [ref=f47e469] [cursor=pointer]:
+              - paragraph [ref=f47e473]: Export
+            - button [ref=f47e475] [cursor=pointer]:
+              - paragraph [ref=f47e479]: Share
+            - button "Account menu" [ref=f47e481] [cursor=pointer]:
+              - img "Profile image for Surinder Kumar" [ref=f47e483]
+        - generic [ref=f47e485]:
+          - generic [ref=f47e486]:
+            - button [ref=f47e488] [cursor=pointer]
+            - button [ref=f47e493] [cursor=pointer]
+            - button [ref=f47e498] [cursor=pointer]
+          - button [ref=f47e503] [cursor=pointer]
+          - generic [ref=f47e508]:
+            - button "Choose File" [ref=f47e509]
+            - button [ref=f47e510] [cursor=pointer]
+          - button [ref=f47e515] [cursor=pointer]
+          - button [ref=f47e523] [cursor=pointer]
+        - generic [ref=f47e527]:
+          - generic [ref=f47e528]:
+            - generic [ref=f47e529]:
+              - button "Undo" [disabled]:
+                - generic: undo
+            - generic [ref=f47e531]:
+              - button "Redo" [disabled]:
+                - generic: redo
+          - button "15%" [ref=f47e1458] [cursor=pointer]
+          - button "Helpful links" [ref=f47e535] [cursor=pointer]
+        - button "Choose File" [ref=f47e539]
+        - application [ref=f47e541]:
+          - generic [ref=f47e543]:
+            - generic:
+              - generic:
+                - generic [ref=f47e545]:
+                  - generic [ref=f47e550]:
+                    - generic [ref=f47e551]: palette
+                    - generic [ref=f47e553]: Xylos AI Multi-Theme Core
+                  - generic [ref=f47e556]:
+                    - generic [ref=f47e557]:
+                      - generic [ref=f47e558]:
+                        - generic [ref=f47e559]:
+                          - generic [ref=f47e560]: Primary
+                          - generic "Click to copy" [ref=f47e561] [cursor=pointer]: "#00F0FF"
+                        - generic [ref=f47e562]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f47e563] [cursor=pointer]'
+                          - 'generic "T10 #002022 — Click to copy" [ref=f47e564] [cursor=pointer]'
+                          - 'generic "T20 #00363a — Click to copy" [ref=f47e565] [cursor=pointer]'
+                          - 'generic "T30 #004f54 — Click to copy" [ref=f47e566] [cursor=pointer]'
+                          - 'generic "T40 #006970 — Click to copy" [ref=f47e567] [cursor=pointer]'
+                          - 'generic "T50 #00848d — Click to copy" [ref=f47e568] [cursor=pointer]'
+                          - 'generic "T60 #00a0aa — Click to copy" [ref=f47e569] [cursor=pointer]'
+                          - 'generic "T70 #00bdc9 — Click to copy" [ref=f47e570] [cursor=pointer]'
+                          - 'generic "T80 #00dbe9 — Click to copy" [ref=f47e571] [cursor=pointer]'
+                          - 'generic "T90 #7df4ff — Click to copy" [ref=f47e572] [cursor=pointer]'
+                          - 'generic "T95 #c7faff — Click to copy" [ref=f47e573] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f47e574] [cursor=pointer]'
+                      - generic [ref=f47e575]:
+                        - generic [ref=f47e576]:
+                          - generic [ref=f47e577]: Secondary
+                          - generic "Click to copy" [ref=f47e578] [cursor=pointer]: "#7000FF"
+                        - generic [ref=f47e579]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f47e580] [cursor=pointer]'
+                          - 'generic "T10 #23005b — Click to copy" [ref=f47e581] [cursor=pointer]'
+                          - 'generic "T20 #3c0090 — Click to copy" [ref=f47e582] [cursor=pointer]'
+                          - 'generic "T30 #5700c9 — Click to copy" [ref=f47e583] [cursor=pointer]'
+                          - 'generic "T40 #7212ff — Click to copy" [ref=f47e584] [cursor=pointer]'
+                          - 'generic "T50 #8951ff — Click to copy" [ref=f47e585] [cursor=pointer]'
+                          - 'generic "T60 #a178ff — Click to copy" [ref=f47e586] [cursor=pointer]'
+                          - 'generic "T70 #b89bff — Click to copy" [ref=f47e587] [cursor=pointer]'
+                          - 'generic "T80 #d1bcff — Click to copy" [ref=f47e588] [cursor=pointer]'
+                          - 'generic "T90 #e9ddff — Click to copy" [ref=f47e589] [cursor=pointer]'
+                          - 'generic "T95 #f6edff — Click to copy" [ref=f47e590] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f47e591] [cursor=pointer]'
+                      - generic [ref=f47e592]:
+                        - generic [ref=f47e593]:
+                          - generic [ref=f47e594]: Tertiary
+                          - generic "Click to copy" [ref=f47e595] [cursor=pointer]: "#FF007A"
+                        - generic [ref=f47e596]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f47e597] [cursor=pointer]'
+                          - 'generic "T10 #3f0019 — Click to copy" [ref=f47e598] [cursor=pointer]'
+                          - 'generic "T20 #66002c — Click to copy" [ref=f47e599] [cursor=pointer]'
+                          - 'generic "T30 #8f0041 — Click to copy" [ref=f47e600] [cursor=pointer]'
+                          - 'generic "T40 #bb0058 — Click to copy" [ref=f47e601] [cursor=pointer]'
+                          - 'generic "T50 #e9006f — Click to copy" [ref=f47e602] [cursor=pointer]'
+                          - 'generic "T60 #ff4b89 — Click to copy" [ref=f47e603] [cursor=pointer]'
+                          - 'generic "T70 #ff85a6 — Click to copy" [ref=f47e604] [cursor=pointer]'
+                          - 'generic "T80 #ffb1c3 — Click to copy" [ref=f47e605] [cursor=pointer]'
+                          - 'generic "T90 #ffd9e0 — Click to copy" [ref=f47e606] [cursor=pointer]'
+                          - 'generic "T95 #ffecef — Click to copy" [ref=f47e607] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f47e608] [cursor=pointer]'
+                      - generic [ref=f47e609]:
+                        - generic [ref=f47e610]:
+                          - generic [ref=f47e611]: Neutral
+                          - generic "Click to copy" [ref=f47e612] [cursor=pointer]: "#0F1115"
+                        - generic [ref=f47e613]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f47e614] [cursor=pointer]'
+                          - 'generic "T10 #1a1c20 — Click to copy" [ref=f47e615] [cursor=pointer]'
+                          - 'generic "T20 #2f3035 — Click to copy" [ref=f47e616] [cursor=pointer]'
+                          - 'generic "T30 #45474b — Click to copy" [ref=f47e617] [cursor=pointer]'
+                          - 'generic "T40 #5d5e63 — Click to copy" [ref=f47e618] [cursor=pointer]'
+                          - 'generic "T50 #76777c — Click to copy" [ref=f47e619] [cursor=pointer]'
+                          - 'generic "T60 #8f9096 — Click to copy" [ref=f47e620] [cursor=pointer]'
+                          - 'generic "T70 #aaabb0 — Click to copy" [ref=f47e621] [cursor=pointer]'
+                          - 'generic "T80 #c6c6cc — Click to copy" [ref=f47e622] [cursor=pointer]'
+                          - 'generic "T90 #e2e2e8 — Click to copy" [ref=f47e623] [cursor=pointer]'
+                          - 'generic "T95 #f0f0f6 — Click to copy" [ref=f47e624] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f47e625] [cursor=pointer]'
+                    - generic [ref=f47e626]:
+                      - generic [ref=f47e627]:
+                        - generic [ref=f47e628]:
+                          - generic [ref=f47e629]: Headline
+                          - generic [ref=f47e630]: Sora
+                        - generic [ref=f47e631]: Aa
+                      - generic [ref=f47e632]:
+                        - generic [ref=f47e633]:
+                          - button "Primary" [ref=f47e634]
+                          - button "Secondary" [ref=f47e635]
+                        - generic [ref=f47e636]:
+                          - button "Inverted" [ref=f47e637]
+                          - button "Outlined" [ref=f47e638]
+                      - generic [ref=f47e640]:
+                        - generic [ref=f47e641]: search
+                        - generic [ref=f47e642]: Search
+                      - generic [ref=f47e643]:
+                        - generic [ref=f47e644]:
+                          - generic [ref=f47e645]: Body
+                          - generic [ref=f47e646]: Geist
+                        - generic [ref=f47e647]: Aa
+                      - generic [ref=f47e656]:
+                        - generic [ref=f47e657]: home
+                        - generic [ref=f47e659]: search
+                        - generic [ref=f47e661]: person
+                      - generic [ref=f47e663]:
+                        - generic [ref=f47e664]:
+                          - generic [ref=f47e665]: Label
+                          - generic [ref=f47e666]: Jetbrains Mono
+                        - generic [ref=f47e667]: Aa
+                      - generic [ref=f47e668]:
+                        - generic [ref=f47e669]: edit
+                        - generic [ref=f47e673]:
+                          - generic [ref=f47e674]: edit
+                          - text: Label
+                      - generic [ref=f47e676]:
+                        - generic [ref=f47e677]: auto_fix_high
+                        - generic [ref=f47e679]: category
+                        - generic [ref=f47e681]: sell
+                        - generic [ref=f47e683]: delete
+                - generic [ref=f47e818]:
+                  - generic [ref=f47e988]: devices
+                  - generic [ref=f47e819]: Xylos AI - Y2K Futurism
+                - generic [ref=f47e832]:
+                  - generic [ref=f47e990]: devices
+                  - generic [ref=f47e833]: Xylos AI - Neo-Memphis
+                - generic [ref=f47e846]:
+                  - generic [ref=f47e992]: devices
+                  - generic [ref=f47e847]: Xylos AI - Japanese Wabi-Sabi
+                - generic [ref=f47e860]:
+                  - generic [ref=f47e994]: devices
+                  - generic [ref=f47e861]: Xylos AI - Scandinavian Hygge
+                - generic [ref=f47e874]:
+                  - generic [ref=f47e996]: devices
+                  - generic [ref=f47e875]: Xylos AI - Bioluminescent Deep Sea
+                - generic [ref=f47e888]:
+                  - generic [ref=f47e998]: devices
+                  - generic [ref=f47e889]: Xylos AI - Art Deco Revival
+                - generic [ref=f47e903]:
+                  - generic [ref=f47e1000]: devices
+                  - generic [ref=f47e904]: Xylos AI - Vaporwave Aesthetic
+                - generic [ref=f47e917]:
+                  - generic [ref=f47e1002]: devices
+                  - generic [ref=f47e918]: Xylos AI - Eco-Nature Tech
+                - generic [ref=f47e931]:
+                  - generic [ref=f47e1004]: devices
+                  - generic [ref=f47e932]: Xylos AI - Cyberpunk Noir
+                - generic [ref=f47e945]:
+                  - generic [ref=f47e1006]: devices
+                  - generic [ref=f47e946]: Xylos AI - Cosmic Zen
+                - generic [ref=f47e1094]:
+                  - generic [ref=f47e1098]:
+                    - generic [ref=f47e1099]: palette
+                    - generic [ref=f47e1101]: Chromatic Spectrum
+                  - generic [ref=f47e1104]:
+                    - generic [ref=f47e1105]:
+                      - generic [ref=f47e1106]:
+                        - generic [ref=f47e1107]:
+                          - generic [ref=f47e1108]: Primary
+                          - generic "Click to copy" [ref=f47e1109] [cursor=pointer]: "#8069BF"
+                        - generic [ref=f47e1110]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f47e1111] [cursor=pointer]'
+                          - 'generic "T10 #22005d — Click to copy" [ref=f47e1112] [cursor=pointer]'
+                          - 'generic "T20 #381e72 — Click to copy" [ref=f47e1113] [cursor=pointer]'
+                          - 'generic "T30 #4f378a — Click to copy" [ref=f47e1114] [cursor=pointer]'
+                          - 'generic "T40 #6750a4 — Click to copy" [ref=f47e1115] [cursor=pointer]'
+                          - 'generic "T50 #8069bf — Click to copy" [ref=f47e1116] [cursor=pointer]'
+                          - 'generic "T60 #9a83db — Click to copy" [ref=f47e1117] [cursor=pointer]'
+                          - 'generic "T70 #b69df7 — Click to copy" [ref=f47e1118] [cursor=pointer]'
+                          - 'generic "T80 #cfbcff — Click to copy" [ref=f47e1119] [cursor=pointer]'
+                          - 'generic "T90 #e9ddff — Click to copy" [ref=f47e1120] [cursor=pointer]'
+                          - 'generic "T95 #f6eeff — Click to copy" [ref=f47e1121] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f47e1122] [cursor=pointer]'
+                      - generic [ref=f47e1123]:
+                        - generic [ref=f47e1124]:
+                          - generic [ref=f47e1125]: Secondary
+                          - generic "Click to copy" [ref=f47e1126] [cursor=pointer]: "#7C7296"
+                        - generic [ref=f47e1127]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f47e1128] [cursor=pointer]'
+                          - 'generic "T10 #1f1635 — Click to copy" [ref=f47e1129] [cursor=pointer]'
+                          - 'generic "T20 #342b4b — Click to copy" [ref=f47e1130] [cursor=pointer]'
+                          - 'generic "T30 #4b4263 — Click to copy" [ref=f47e1131] [cursor=pointer]'
+                          - 'generic "T40 #63597c — Click to copy" [ref=f47e1132] [cursor=pointer]'
+                          - 'generic "T50 #7c7296 — Click to copy" [ref=f47e1133] [cursor=pointer]'
+                          - 'generic "T60 #968bb1 — Click to copy" [ref=f47e1134] [cursor=pointer]'
+                          - 'generic "T70 #b1a5cc — Click to copy" [ref=f47e1135] [cursor=pointer]'
+                          - 'generic "T80 #cdc0e9 — Click to copy" [ref=f47e1136] [cursor=pointer]'
+                          - 'generic "T90 #e9ddff — Click to copy" [ref=f47e1137] [cursor=pointer]'
+                          - 'generic "T95 #f6eeff — Click to copy" [ref=f47e1138] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f47e1139] [cursor=pointer]'
+                      - generic [ref=f47e1140]:
+                        - generic [ref=f47e1141]:
+                          - generic [ref=f47e1142]: Tertiary
+                          - generic "Click to copy" [ref=f47e1143] [cursor=pointer]: "#C9A74D"
+                        - generic [ref=f47e1144]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f47e1145] [cursor=pointer]'
+                          - 'generic "T10 #241a00 — Click to copy" [ref=f47e1146] [cursor=pointer]'
+                          - 'generic "T20 #3e2e00 — Click to copy" [ref=f47e1147] [cursor=pointer]'
+                          - 'generic "T30 #594400 — Click to copy" [ref=f47e1148] [cursor=pointer]'
+                          - 'generic "T40 #765b00 — Click to copy" [ref=f47e1149] [cursor=pointer]'
+                          - 'generic "T50 #91731d — Click to copy" [ref=f47e1150] [cursor=pointer]'
+                          - 'generic "T60 #ad8d36 — Click to copy" [ref=f47e1151] [cursor=pointer]'
+                          - 'generic "T70 #c9a74d — Click to copy" [ref=f47e1152] [cursor=pointer]'
+                          - 'generic "T80 #e7c365 — Click to copy" [ref=f47e1153] [cursor=pointer]'
+                          - 'generic "T90 #ffdf93 — Click to copy" [ref=f47e1154] [cursor=pointer]'
+                          - 'generic "T95 #ffefd0 — Click to copy" [ref=f47e1155] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f47e1156] [cursor=pointer]'
+                      - generic [ref=f47e1157]:
+                        - generic [ref=f47e1158]:
+                          - generic [ref=f47e1159]: Neutral
+                          - generic "Click to copy" [ref=f47e1160] [cursor=pointer]: "#79767D"
+                        - generic [ref=f47e1161]:
+                          - 'generic "T0 #000000 — Click to copy" [ref=f47e1162] [cursor=pointer]'
+                          - 'generic "T10 #1d1b20 — Click to copy" [ref=f47e1163] [cursor=pointer]'
+                          - 'generic "T20 #322f35 — Click to copy" [ref=f47e1164] [cursor=pointer]'
+                          - 'generic "T30 #48464c — Click to copy" [ref=f47e1165] [cursor=pointer]'
+                          - 'generic "T40 #605d64 — Click to copy" [ref=f47e1166] [cursor=pointer]'
+                          - 'generic "T50 #79767d — Click to copy" [ref=f47e1167] [cursor=pointer]'
+                          - 'generic "T60 #938f96 — Click to copy" [ref=f47e1168] [cursor=pointer]'
+                          - 'generic "T70 #aea9b1 — Click to copy" [ref=f47e1169] [cursor=pointer]'
+                          - 'generic "T80 #cac5cc — Click to copy" [ref=f47e1170] [cursor=pointer]'
+                          - 'generic "T90 #e6e0e9 — Click to copy" [ref=f47e1171] [cursor=pointer]'
+                          - 'generic "T95 #f5eff7 — Click to copy" [ref=f47e1172] [cursor=pointer]'
+                          - 'generic "T100 #ffffff — Click to copy" [ref=f47e1173] [cursor=pointer]'
+                    - generic [ref=f47e1174]:
+                      - generic [ref=f47e1175]:
+                        - generic [ref=f47e1176]:
+                          - generic [ref=f47e1177]: Headline
+                          - generic [ref=f47e1178]: Sora
+                        - generic [ref=f47e1179]: Aa
+                      - generic [ref=f47e1180]:
+                        - generic [ref=f47e1181]:
+                          - button "Primary" [ref=f47e1182]
+                          - button "Secondary" [ref=f47e1183]
+                        - generic [ref=f47e1184]:
+                          - button "Inverted" [ref=f47e1185]
+                          - button "Outlined" [ref=f47e1186]
+                      - generic [ref=f47e1188]:
+                        - generic [ref=f47e1189]: search
+                        - generic [ref=f47e1190]: Search
+                      - generic [ref=f47e1191]:
+                        - generic [ref=f47e1192]:
+                          - generic [ref=f47e1193]: Body
+                          - generic [ref=f47e1194]: Inter
+                        - generic [ref=f47e1195]: Aa
+                      - generic [ref=f47e1204]:
+                        - generic [ref=f47e1205]: home
+                        - generic [ref=f47e1207]: search
+                        - generic [ref=f47e1209]: person
+                      - generic [ref=f47e1211]:
+                        - generic [ref=f47e1212]:
+                          - generic [ref=f47e1213]: Label
+                          - generic [ref=f47e1214]: Sora
+                        - generic [ref=f47e1215]: Aa
+                      - generic [ref=f47e1216]:
+                        - generic [ref=f47e1217]: edit
+                        - generic [ref=f47e1221]:
+                          - generic [ref=f47e1222]: edit
+                          - text: Label
+                      - generic [ref=f47e1224]:
+                        - generic [ref=f47e1225]: auto_fix_high
+                        - generic [ref=f47e1227]: category
+                        - generic [ref=f47e1229]: sell
+                        - generic [ref=f47e1231]: delete
+                - generic [ref=f47e1251]:
+                  - generic [ref=f47e1411]: devices
+                  - generic [ref=f47e1252]: Xylos AI - Pure White Minimal
+                - generic [ref=f47e1261]:
+                  - generic [ref=f47e1265]:
+                    - generic [ref=f47e1413]: devices
+                    - generic [ref=f47e1266]: Xylos AI - Mint Fresh Light
+                  - iframe [ref=f47e1460]:
+                    - generic [ref=f96e1]:
+                      - navigation [ref=f96e2]:
+                        - generic [ref=f96e3]: Xylos AI
+                        - generic [ref=f96e5]:
+                          - link "Models" [ref=f96e6] [cursor=pointer]:
+                            - /url: "#models"
+                          - link "Pricing" [ref=f96e7] [cursor=pointer]:
+                            - /url: "#pricing"
+                          - link "About" [ref=f96e8] [cursor=pointer]:
+                            - /url: "#about"
+                          - link "Docs" [ref=f96e9] [cursor=pointer]:
+                            - /url: "#docs"
+                        - button "Get Started" [ref=f96e10] [cursor=pointer]
+                      - main [ref=f96e11]:
+                        - generic [ref=f96e13]:
+                          - generic [ref=f96e14]: INTELLECTUAL CLARITY MEETS SOFT AESTHETICS
+                          - heading "A Fresh Perspective on AI." [level=1] [ref=f96e15]
+                          - paragraph [ref=f96e16]: Experience the next generation of creative intelligence. Xylos AI blends sophisticated large language models with a serene, modern interface designed for focus and flow.
+                          - generic [ref=f96e17]:
+                            - button "Launch Workspace" [ref=f96e18] [cursor=pointer]
+                            - button "View Demo" [ref=f96e19] [cursor=pointer]
+                        - generic [ref=f96e21]:
+                          - generic [ref=f96e22]:
+                            - generic [ref=f96e23]: auto_awesome
+                            - generic [ref=f96e25]:
+                              - heading "Generative Harmony" [level=3] [ref=f96e26]
+                              - paragraph [ref=f96e27]: Our proprietary algorithms balance creative unpredictability with technical precision, delivering results that feel human and inspired.
+                            - generic [ref=f96e28]:
+                              - generic [ref=f96e29]: LLM-V4
+                              - generic [ref=f96e30]: REAL-TIME
+                          - generic [ref=f96e31]:
+                            - generic [ref=f96e32]: cloud_done
+                            - heading "Edge Optimized" [level=3] [ref=f96e34]
+                            - paragraph [ref=f96e35]: Zero latency processing directly in your local environment.
+                          - generic [ref=f96e36]:
+                            - generic [ref=f96e37]: security
+                            - heading "Privacy First" [level=4] [ref=f96e38]
+                            - paragraph [ref=f96e39]: Data encryption that never compromises on speed.
+                          - generic [ref=f96e40]:
+                            - generic [ref=f96e41]: integration_instructions
+                            - heading "API Native" [level=4] [ref=f96e42]
+                            - paragraph [ref=f96e43]: Integrate Xylos into your existing stack in minutes.
+                          - generic [ref=f96e44]:
+                            - generic [ref=f96e45]: palette
+                            - heading "Pure UI" [level=4] [ref=f96e46]
+                            - paragraph [ref=f96e47]: Clean, minty interfaces that reduce cognitive load.
+                        - generic [ref=f96e49]:
+                          - generic [ref=f96e50]:
+                            - heading "Transparent Pricing" [level=2] [ref=f96e51]
+                            - paragraph [ref=f96e52]: Simple plans for every stage of your creative journey.
+                          - generic [ref=f96e53]:
+                            - generic [ref=f96e54]:
+                              - generic [ref=f96e55]:
+                                - text: Personal
+                                - generic [ref=f96e56]:
+                                  - generic [ref=f96e57]: $0
+                                  - generic [ref=f96e58]: /mo
+                              - list [ref=f96e59]:
+                                - listitem [ref=f96e60]:
+                                  - generic [ref=f96e61]: check_circle
+                                  - text: 1,000 requests / month
+                                - listitem [ref=f96e62]:
+                                  - generic [ref=f96e63]: check_circle
+                                  - text: Standard support
+                              - button "Start Free" [ref=f96e64] [cursor=pointer]
+                            - generic [ref=f96e65]:
+                              - generic [ref=f96e66]: MOST POPULAR
+                              - generic [ref=f96e67]:
+                                - text: Pro Flow
+                                - generic [ref=f96e68]:
+                                  - generic [ref=f96e69]: $29
+                                  - generic [ref=f96e70]: /mo
+                              - list [ref=f96e71]:
+                                - listitem [ref=f96e72]:
+                                  - generic [ref=f96e73]: check_circle
+                                  - text: Unlimited requests
+                                - listitem [ref=f96e74]:
+                                  - generic [ref=f96e75]: check_circle
+                                  - text: Custom model tuning
+                                - listitem [ref=f96e76]:
+                                  - generic [ref=f96e77]: check_circle
+                                  - text: Priority GPU access
+                              - button "Get Pro" [ref=f96e78] [cursor=pointer]
+                            - generic [ref=f96e79]:
+                              - generic [ref=f96e80]:
+                                - text: Enterprise
+                                - generic [ref=f96e81]: Custom
+                              - list [ref=f96e83]:
+                                - listitem [ref=f96e84]:
+                                  - generic [ref=f96e85]: check_circle
+                                  - text: Dedicated infrastructure
+                                - listitem [ref=f96e86]:
+                                  - generic [ref=f96e87]: check_circle
+                                  - text: SSO & Admin controls
+                              - button "Contact Sales" [ref=f96e88] [cursor=pointer]
+                        - generic [ref=f96e92]:
+                          - heading "A Canvas for Your Ambition." [level=2] [ref=f96e93]
+                          - paragraph [ref=f96e94]: Our interface isn't just about looks; it's about performance. With 60fps animations and instant model responses, Xylos AI keeps you in the state of flow.
+                          - generic [ref=f96e95]:
+                            - generic [ref=f96e96]:
+                              - generic [ref=f96e97]: 99.9%
+                              - generic [ref=f96e98]: Uptime
+                            - generic [ref=f96e99]:
+                              - generic [ref=f96e100]: 40ms
+                              - generic [ref=f96e101]: Latency
+                        - generic [ref=f96e104]:
+                          - heading "Common Questions" [level=2] [ref=f96e106]
+                          - generic [ref=f96e107]:
+                            - group [ref=f96e108] [cursor=pointer]:
+                              - generic "How does Xylos handle my private data? expand_more" [ref=f96e109]:
+                                - text: How does Xylos handle my private data?
+                                - generic [ref=f96e110]: expand_more
+                            - group [ref=f96e111] [cursor=pointer]:
+                              - generic "Can I integrate custom LLMs? expand_more" [ref=f96e112]:
+                                - text: Can I integrate custom LLMs?
+                                - generic [ref=f96e113]: expand_more
+                            - group [ref=f96e114] [cursor=pointer]:
+                              - generic "Is there a student discount? expand_more" [ref=f96e115]:
+                                - text: Is there a student discount?
+                                - generic [ref=f96e116]: expand_more
+                        - generic [ref=f96e119]:
+                          - heading "Join the Intelligence Revolution." [level=2] [ref=f96e120]
+                          - paragraph [ref=f96e121]: Stay updated with our latest model releases and creative prompts. No spam, just pure intellectual value.
+                          - generic [ref=f96e122]:
+                            - textbox "Enter your email" [ref=f96e123]
+                            - button "Subscribe" [ref=f96e124] [cursor=pointer]
+                      - contentinfo [ref=f96e125]:
+                        - generic [ref=f96e126]:
+                          - generic [ref=f96e127]: Xylos AI
+                          - paragraph [ref=f96e128]: Adaptive optimism in every line of code.
+                          - paragraph [ref=f96e129]: © 2024 Xylos AI. All rights reserved.
+                        - generic [ref=f96e130]:
+                          - heading "Product" [level=4] [ref=f96e131]
+                          - list [ref=f96e132]:
+                            - listitem [ref=f96e133]:
+                              - link "Models" [ref=f96e134] [cursor=pointer]:
+                                - /url: "#"
+                            - listitem [ref=f96e135]:
+                              - link "Pricing" [ref=f96e136] [cursor=pointer]:
+                                - /url: "#"
+                            - listitem [ref=f96e137]:
+                              - link "Roadmap" [ref=f96e138] [cursor=pointer]:
+                                - /url: "#"
+                        - generic [ref=f96e139]:
+                          - heading "Company" [level=4] [ref=f96e140]
+                          - list [ref=f96e141]:
+                            - listitem [ref=f96e142]:
+                              - link "About" [ref=f96e143] [cursor=pointer]:
+                                - /url: "#"
+                            - listitem [ref=f96e144]:
+                              - link "Privacy" [ref=f96e145] [cursor=pointer]:
+                                - /url: "#"
+                            - listitem [ref=f96e146]:
+                              - link "Terms" [ref=f96e147] [cursor=pointer]:
+                                - /url: "#"
+                        - generic [ref=f96e148]:
+                          - heading "Social" [level=4] [ref=f96e149]
+                          - generic [ref=f96e150]:
+                            - link "share" [ref=f96e151] [cursor=pointer]:
+                              - /url: "#"
+                            - link "terminal" [ref=f96e153] [cursor=pointer]:
+                              - /url: "#"
+                - generic [ref=f47e1275]:
+                  - generic [ref=f47e1279]:
+                    - generic [ref=f47e1415]: devices
+                    - generic [ref=f47e1280]: Xylos AI - Royal Purple Luxury
+                  - iframe [ref=f47e1462]:
+                    - generic [ref=f97e1]:
+                      - navigation [ref=f97e2]:
+                        - generic [ref=f97e3]:
+                          - generic [ref=f97e4]: shield_person
+                          - generic [ref=f97e5]: Xylos AI
+                        - generic [ref=f97e6]:
+                          - link "Models" [ref=f97e7] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Pricing" [ref=f97e8] [cursor=pointer]:
+                            - /url: "#"
+                          - link "About" [ref=f97e9] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Docs" [ref=f97e10] [cursor=pointer]:
+                            - /url: "#"
+                        - button "Get Started" [ref=f97e11] [cursor=pointer]
+                      - generic [ref=f97e13]:
+                        - generic [ref=f97e14]:
+                          - generic [ref=f97e15]: workspace_premium
+                          - generic [ref=f97e16]: The Private Reserve of Intelligence
+                        - heading "Elite Intelligence for the Extraordinary." [level=1] [ref=f97e17]
+                        - paragraph [ref=f97e18]: Xylos AI represents the pinnacle of bespoke computational reasoning. Tailored for leaders who demand precision, privacy, and unparalleled creative depth in their digital workflows.
+                        - generic [ref=f97e19]:
+                          - button "Request Invitation" [ref=f97e20] [cursor=pointer]
+                          - button "Explore the Tier" [ref=f97e21] [cursor=pointer]
+                      - generic [ref=f97e24]:
+                        - heading "Prestige Features" [level=2] [ref=f97e26]
+                        - generic [ref=f97e28]:
+                          - generic [ref=f97e31]:
+                            - generic [ref=f97e32]: precision_manufacturing
+                            - heading "Architectural Precision" [level=3] [ref=f97e33]
+                            - paragraph [ref=f97e34]: Our models are fine-tuned on the world's most sophisticated data sources, ensuring results that meet enterprise and creative standards.
+                          - generic [ref=f97e35]:
+                            - generic [ref=f97e36]: verified_user
+                            - generic [ref=f97e37]:
+                              - heading "Sovereign Privacy" [level=3] [ref=f97e38]
+                              - paragraph [ref=f97e39]: End-to-end encrypted inference with zero-retention policies for the world's most sensitive projects.
+                          - generic [ref=f97e40]:
+                            - generic [ref=f97e41]: diamond
+                            - generic [ref=f97e42]:
+                              - heading "Linguistic Artistry" [level=3] [ref=f97e43]
+                              - paragraph [ref=f97e44]: Beyond facts, we deliver tone. Xylos understands nuances in high-end copy, branding, and luxury narrative.
+                          - generic [ref=f97e48]:
+                            - heading "Concierge Integration" [level=3] [ref=f97e49]
+                            - paragraph [ref=f97e50]: White-glove API implementation tailored by our engineering team to fit seamlessly into your existing ecosystem.
+                            - link "Connect with an Expert arrow_forward" [ref=f97e51] [cursor=pointer]:
+                              - /url: "#"
+                              - text: Connect with an Expert
+                              - generic [ref=f97e52]: arrow_forward
+                      - generic [ref=f97e54]:
+                        - generic [ref=f97e55]:
+                          - heading "Membership" [level=2] [ref=f97e56]
+                          - paragraph [ref=f97e57]: Transparent tiers for singular excellence.
+                        - generic [ref=f97e58]:
+                          - generic [ref=f97e59]:
+                            - generic [ref=f97e60]:
+                              - heading "Artisan" [level=4] [ref=f97e61]
+                              - generic [ref=f97e62]:
+                                - generic [ref=f97e63]: $499
+                                - generic [ref=f97e64]: /mo
+                            - list [ref=f97e65]:
+                              - listitem [ref=f97e66]:
+                                - generic [ref=f97e67]: check_circle
+                                - text: 1M Credits per month
+                              - listitem [ref=f97e68]:
+                                - generic [ref=f97e69]: check_circle
+                                - text: Standard Concierge Access
+                              - listitem [ref=f97e70]:
+                                - generic [ref=f97e71]: check_circle
+                                - text: 2 Custom Brand Personas
+                            - button "Begin Journey" [ref=f97e72] [cursor=pointer]
+                          - generic [ref=f97e73]:
+                            - generic [ref=f97e74]: Most Requested
+                            - generic [ref=f97e75]:
+                              - heading "Grandmaster" [level=4] [ref=f97e76]
+                              - generic [ref=f97e77]:
+                                - generic [ref=f97e78]: $1,999
+                                - generic [ref=f97e79]: /mo
+                            - list [ref=f97e80]:
+                              - listitem [ref=f97e81]:
+                                - generic [ref=f97e82]: check_circle
+                                - text: Unlimited Reasoning Tokens
+                              - listitem [ref=f97e83]:
+                                - generic [ref=f97e84]: check_circle
+                                - text: Dedicated AI Consultant
+                              - listitem [ref=f97e85]:
+                                - generic [ref=f97e86]: check_circle
+                                - text: Private Dedicated Hardware
+                              - listitem [ref=f97e87]:
+                                - generic [ref=f97e88]: check_circle
+                                - text: Early Beta Feature Drops
+                            - button "Secure Access" [ref=f97e89] [cursor=pointer]
+                          - generic [ref=f97e90]:
+                            - generic [ref=f97e91]:
+                              - heading "Estate" [level=4] [ref=f97e92]
+                              - generic [ref=f97e93]: Custom
+                            - paragraph [ref=f97e95]: Full enterprise deployment with custom model training on internal datasets.
+                            - list [ref=f97e96]:
+                              - listitem [ref=f97e97]:
+                                - generic [ref=f97e98]: check_circle
+                                - text: On-premise deployment
+                              - listitem [ref=f97e99]:
+                                - generic [ref=f97e100]: check_circle
+                                - text: Legal & Ethics council
+                            - button "Consult Sales" [ref=f97e101] [cursor=pointer]
+                      - generic [ref=f97e102]:
+                        - heading "Questions & Clarifications" [level=2] [ref=f97e103]
+                        - generic [ref=f97e104]:
+                          - button "How is Xylos different from public AI models? expand_more" [ref=f97e106] [cursor=pointer]:
+                            - generic [ref=f97e107]: How is Xylos different from public AI models?
+                            - generic [ref=f97e108]: expand_more
+                          - button "Is my data secure? expand_more" [ref=f97e110] [cursor=pointer]:
+                            - generic [ref=f97e111]: Is my data secure?
+                            - generic [ref=f97e112]: expand_more
+                          - button "Can I cancel my membership? expand_more" [ref=f97e114] [cursor=pointer]:
+                            - generic [ref=f97e115]: Can I cancel my membership?
+                            - generic [ref=f97e116]: expand_more
+                      - contentinfo [ref=f97e117]:
+                        - generic [ref=f97e118]:
+                          - generic [ref=f97e119]:
+                            - generic [ref=f97e120]:
+                              - generic [ref=f97e121]: shield_person
+                              - generic [ref=f97e122]: Xylos AI
+                            - paragraph [ref=f97e123]: The world's first AI ecosystem designed specifically for the needs of the extraordinary. Intelligence, reimagined with prestige.
+                            - generic [ref=f97e124]:
+                              - link "brand_family" [ref=f97e125] [cursor=pointer]:
+                                - /url: "#"
+                              - link "language" [ref=f97e127] [cursor=pointer]:
+                                - /url: "#"
+                              - link "alternate_email" [ref=f97e129] [cursor=pointer]:
+                                - /url: "#"
+                          - generic [ref=f97e131]:
+                            - heading "Resources" [level=5] [ref=f97e132]
+                            - list [ref=f97e133]:
+                              - listitem [ref=f97e134]:
+                                - link "Model Documentation" [ref=f97e135] [cursor=pointer]:
+                                  - /url: "#"
+                              - listitem [ref=f97e136]:
+                                - link "Integration Guide" [ref=f97e137] [cursor=pointer]:
+                                  - /url: "#"
+                              - listitem [ref=f97e138]:
+                                - link "Safety Report" [ref=f97e139] [cursor=pointer]:
+                                  - /url: "#"
+                          - generic [ref=f97e140]:
+                            - heading "Company" [level=5] [ref=f97e141]
+                            - list [ref=f97e142]:
+                              - listitem [ref=f97e143]:
+                                - link "The Manifesto" [ref=f97e144] [cursor=pointer]:
+                                  - /url: "#"
+                              - listitem [ref=f97e145]:
+                                - link "Privacy Charter" [ref=f97e146] [cursor=pointer]:
+                                  - /url: "#"
+                              - listitem [ref=f97e147]:
+                                - link "Press & Media" [ref=f97e148] [cursor=pointer]:
+                                  - /url: "#"
+                        - generic [ref=f97e149]:
+                          - paragraph [ref=f97e150]: © 2024 Xylos AI. All rights reserved.
+                          - generic [ref=f97e151]:
+                            - link "Terms of Service" [ref=f97e152] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Privacy Policy" [ref=f97e153] [cursor=pointer]:
+                              - /url: "#"
+                - generic [ref=f47e1289]:
+                  - generic [ref=f47e1293]:
+                    - generic [ref=f47e1417]: devices
+                    - generic [ref=f47e1294]: Xylos AI - Sunset Warm Gradient
+                  - iframe [ref=f47e1464]:
+                    - generic [ref=f94e1]:
+                      - navigation [ref=f94e2]:
+                        - generic [ref=f94e3]: Xylos AI
+                        - generic [ref=f94e5]:
+                          - link "Models" [ref=f94e6] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Pricing" [ref=f94e7] [cursor=pointer]:
+                            - /url: "#"
+                          - link "About" [ref=f94e8] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Docs" [ref=f94e9] [cursor=pointer]:
+                            - /url: "#"
+                        - button "Get Started" [ref=f94e11] [cursor=pointer]
+                      - main [ref=f94e12]:
+                        - generic [ref=f94e14]:
+                          - generic [ref=f94e15]:
+                            - generic [ref=f94e16]: wb_sunny
+                            - generic [ref=f94e17]: Summer Release v2.4
+                          - heading "Your Intelligence, Reimagined." [level=1] [ref=f94e18]
+                          - paragraph [ref=f94e19]: Harness the warmth of human creativity and the precision of generative AI in a workspace designed for high-energy productivity.
+                          - generic [ref=f94e20]:
+                            - button "Start Building Free arrow_forward" [ref=f94e21] [cursor=pointer]:
+                              - text: Start Building Free
+                              - generic [ref=f94e22]: arrow_forward
+                            - button "Watch Demo" [ref=f94e23] [cursor=pointer]
+                          - generic [ref=f94e24]:
+                            - generic [ref=f94e25]:
+                              - generic [ref=f94e26]: 500M+
+                              - generic [ref=f94e27]: Tokens Daily
+                            - generic [ref=f94e28]:
+                              - generic [ref=f94e29]: 12k+
+                              - generic [ref=f94e30]: Global Teams
+                            - generic [ref=f94e31]:
+                              - generic [ref=f94e32]: 99.9%
+                              - generic [ref=f94e33]: Uptime Rate
+                            - generic [ref=f94e34]:
+                              - generic [ref=f94e35]: 2.5s
+                              - generic [ref=f94e36]: Response Time
+                        - generic [ref=f94e37]:
+                          - generic [ref=f94e38]:
+                            - text: Capabilities
+                            - heading "Intelligence that feels natural" [level=2] [ref=f94e39]
+                          - generic [ref=f94e40]:
+                            - generic [ref=f94e41]:
+                              - generic [ref=f94e42]:
+                                - generic [ref=f94e43]: psychology
+                                - heading "Neural Synthesis Engine" [level=3] [ref=f94e45]
+                                - paragraph [ref=f94e46]: Connect your entire knowledge base and let Xylos synthesize insights across silos. Our engine doesn't just search; it understands context and relationship mapping.
+                              - generic [ref=f94e47]:
+                                - generic [ref=f94e48]: CONTEXTUAL REASONING
+                                - generic [ref=f94e49]: LIVE INDEXING
+                            - generic [ref=f94e50]:
+                              - generic [ref=f94e51]: speed
+                              - heading "Instant Response" [level=3] [ref=f94e53]
+                              - paragraph [ref=f94e54]: Proprietary low-latency models for real-time collaboration.
+                            - generic [ref=f94e55]:
+                              - generic [ref=f94e56]: security
+                              - heading "Enterprise Privacy" [level=3] [ref=f94e58]
+                              - paragraph [ref=f94e59]: Your data remains yours. SOC2 Type II compliant pipelines.
+                            - generic [ref=f94e60]:
+                              - generic [ref=f94e61]:
+                                - heading "Visual Workflow Designer" [level=3] [ref=f94e62]
+                                - paragraph [ref=f94e63]: Drag, drop, and connect AI nodes to build custom automation sequences. No code required, just logic and imagination.
+                              - generic [ref=f94e69]:
+                                - generic [ref=f94e70]: "CONDITION: IF CONTENT_TYPE == 'VIDEO'"
+                                - generic [ref=f94e71]: "ACTION: GENERATE_SUMMARY_V3"
+                        - generic [ref=f94e73]:
+                          - generic [ref=f94e74]:
+                            - heading "Choose Your Pace" [level=2] [ref=f94e75]
+                            - paragraph [ref=f94e76]: Flexible plans for creators and teams alike.
+                          - generic [ref=f94e77]:
+                            - generic [ref=f94e78]:
+                              - generic [ref=f94e79]: FREE
+                              - heading "Starter" [level=3] [ref=f94e80]
+                              - generic [ref=f94e81]: $0 /mo
+                              - list [ref=f94e82]:
+                                - listitem [ref=f94e83]:
+                                  - generic [ref=f94e84]: check_circle
+                                  - text: 100 Daily Credits
+                                - listitem [ref=f94e85]:
+                                  - generic [ref=f94e86]: check_circle
+                                  - text: Access to Xylos Light
+                                - listitem [ref=f94e87]:
+                                  - generic [ref=f94e88]: check_circle
+                                  - text: Community Support
+                              - button "Get Started" [ref=f94e89] [cursor=pointer]
+                            - generic [ref=f94e91]:
+                              - generic [ref=f94e92]: Most Popular
+                              - generic [ref=f94e93]: INDIVIDUALS
+                              - heading "Professional" [level=3] [ref=f94e94]
+                              - generic [ref=f94e95]: $29 /mo
+                              - list [ref=f94e96]:
+                                - listitem [ref=f94e97]:
+                                  - generic [ref=f94e98]: check_circle
+                                  - text: Unlimited Credits
+                                - listitem [ref=f94e99]:
+                                  - generic [ref=f94e100]: check_circle
+                                  - text: Xylos Ultra Models
+                                - listitem [ref=f94e101]:
+                                  - generic [ref=f94e102]: check_circle
+                                  - text: Priority Reasoning
+                                - listitem [ref=f94e103]:
+                                  - generic [ref=f94e104]: check_circle
+                                  - text: Advanced Integrations
+                              - button "Go Pro" [ref=f94e105] [cursor=pointer]
+                            - generic [ref=f94e106]:
+                              - generic [ref=f94e107]: ORGANIZATIONS
+                              - heading "Enterprise" [level=3] [ref=f94e108]
+                              - generic [ref=f94e109]: Custom
+                              - list [ref=f94e110]:
+                                - listitem [ref=f94e111]:
+                                  - generic [ref=f94e112]: check_circle
+                                  - text: Dedicated Clusters
+                                - listitem [ref=f94e113]:
+                                  - generic [ref=f94e114]: check_circle
+                                  - text: SSO & Admin Panel
+                                - listitem [ref=f94e115]:
+                                  - generic [ref=f94e116]: check_circle
+                                  - text: 24/7 Concierge Support
+                              - button "Contact Sales" [ref=f94e117] [cursor=pointer]
+                        - generic [ref=f94e118]:
+                          - heading "Common Questions" [level=2] [ref=f94e119]
+                          - generic [ref=f94e120]:
+                            - group [ref=f94e121]:
+                              - generic "What makes Xylos different from other AI platforms? expand_more" [ref=f94e122] [cursor=pointer]:
+                                - text: What makes Xylos different from other AI platforms?
+                                - generic [ref=f94e123]: expand_more
+                              - generic [ref=f94e124]: Unlike generic chat interfaces, Xylos focuses on "Neural Synthesis"—the ability to map and connect disparate pieces of your personal or company data into a coherent, actionable workspace. Our UX is designed for sustained focus, not just ephemeral queries.
+                            - group [ref=f94e125]:
+                              - generic "Can I cancel my subscription at any time? expand_more" [ref=f94e126] [cursor=pointer]:
+                                - text: Can I cancel my subscription at any time?
+                                - generic [ref=f94e127]: expand_more
+                            - group [ref=f94e128]:
+                              - generic "Is my data safe with Xylos? expand_more" [ref=f94e129] [cursor=pointer]:
+                                - text: Is my data safe with Xylos?
+                                - generic [ref=f94e130]: expand_more
+                        - generic [ref=f94e133]:
+                          - heading "Ready to illuminate your work?" [level=2] [ref=f94e134]
+                          - paragraph [ref=f94e135]: Join 12,000+ teams redefining the boundaries of intelligence.
+                          - button "Claim Your Summer Pass" [ref=f94e136] [cursor=pointer]
+                          - paragraph [ref=f94e137]: No credit card required to start.
+                      - contentinfo [ref=f94e138]:
+                        - generic [ref=f94e139]:
+                          - generic [ref=f94e140]: Xylos AI
+                          - paragraph [ref=f94e141]: Empowering the next generation of creative thinkers.
+                          - generic [ref=f94e142]:
+                            - link "public" [ref=f94e143] [cursor=pointer]:
+                              - /url: "#"
+                            - link "alternate_email" [ref=f94e145] [cursor=pointer]:
+                              - /url: "#"
+                        - generic [ref=f94e147]:
+                          - heading "Product" [level=4] [ref=f94e148]
+                          - link "Models" [ref=f94e149] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Integrations" [ref=f94e150] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Pricing" [ref=f94e151] [cursor=pointer]:
+                            - /url: "#"
+                        - generic [ref=f94e152]:
+                          - heading "Company" [level=4] [ref=f94e153]
+                          - link "About" [ref=f94e154] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Privacy" [ref=f94e155] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Terms" [ref=f94e156] [cursor=pointer]:
+                            - /url: "#"
+                        - generic [ref=f94e157]:
+                          - heading "Resources" [level=4] [ref=f94e158]
+                          - link "Documentation" [ref=f94e159] [cursor=pointer]:
+                            - /url: "#"
+                          - link "GitHub" [ref=f94e160] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Support" [ref=f94e161] [cursor=pointer]:
+                            - /url: "#"
+                        - generic [ref=f94e162]:
+                          - paragraph [ref=f94e163]: © 2024 Xylos AI. All rights reserved.
+                          - generic [ref=f94e164]: Made with Light & Energy
+                - generic [ref=f47e1302]:
+                  - generic [ref=f47e1306]:
+                    - generic [ref=f47e1419]: devices
+                    - generic [ref=f47e1307]: Xylos AI - Ocean Blue Gradient
+                  - iframe [ref=f47e1466]:
+                    - generic [ref=f93e1]:
+                      - navigation [ref=f93e2]:
+                        - generic [ref=f93e3]: Xylos AI
+                        - generic [ref=f93e5]:
+                          - link "Models" [ref=f93e6] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Pricing" [ref=f93e7] [cursor=pointer]:
+                            - /url: "#"
+                          - link "About" [ref=f93e8] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Docs" [ref=f93e9] [cursor=pointer]:
+                            - /url: "#"
+                        - button "Get Started" [ref=f93e10] [cursor=pointer]
+                      - main [ref=f93e11]:
+                        - generic [ref=f93e12]:
+                          - generic [ref=f93e13]: bubble_chart
+                          - generic [ref=f93e15]: water_drop
+                          - generic [ref=f93e17]:
+                            - generic [ref=f93e18]: Next-Gen Neural Intelligence
+                            - heading "Dive into the Future of AI." [level=1] [ref=f93e19]
+                            - paragraph [ref=f93e20]: Experience a fluid, deep-learning ecosystem designed for high-performance creativity and enterprise scalability. Fresh as the ocean, powerful as the tide.
+                            - generic [ref=f93e21]:
+                              - button "Launch Dashboard" [ref=f93e22] [cursor=pointer]
+                              - button "View Models" [ref=f93e23] [cursor=pointer]
+                        - generic [ref=f93e28]:
+                          - generic [ref=f93e29]:
+                            - heading "The Ocean Ecosystem" [level=2] [ref=f93e30]
+                            - paragraph [ref=f93e31]: Scalable, fluid, and brilliantly intuitive tools for every tide.
+                          - generic [ref=f93e32]:
+                            - generic [ref=f93e34]:
+                              - generic [ref=f93e35]: waves
+                              - heading "Fluid Model Training" [level=3] [ref=f93e36]
+                              - paragraph [ref=f93e37]: Our adaptive algorithms shift with your data, ensuring peak performance without the friction of traditional ML stacks.
+                            - generic [ref=f93e39]:
+                              - generic [ref=f93e40]:
+                                - heading "Real-time Echo" [level=3] [ref=f93e41]
+                                - paragraph [ref=f93e42]: Low-latency inference that ripples through your apps instantly.
+                              - generic [ref=f93e43]: record_voice_over
+                            - generic [ref=f93e45]:
+                              - generic [ref=f93e46]: security
+                              - generic [ref=f93e47]:
+                                - heading "Secure Depth" [level=4] [ref=f93e48]
+                                - paragraph [ref=f93e49]: End-to-end encryption for your most sensitive data pools.
+                            - generic [ref=f93e50]:
+                              - generic [ref=f93e51]: hub
+                              - generic [ref=f93e52]:
+                                - heading "Connected Reef" [level=4] [ref=f93e53]
+                                - paragraph [ref=f93e54]: Seamlessly integrate with over 200+ third-party ocean-connected APIs.
+                        - generic [ref=f93e59]:
+                          - heading "Choose Your Current" [level=2] [ref=f93e60]
+                          - generic [ref=f93e61]:
+                            - generic [ref=f93e62]:
+                              - generic [ref=f93e63]: Surface
+                              - heading "Free" [level=3] [ref=f93e64]
+                              - paragraph [ref=f93e65]: For curious minds and small ripples.
+                              - list [ref=f93e66]:
+                                - listitem [ref=f93e67]:
+                                  - generic [ref=f93e68]: check_circle
+                                  - text: 1k Tokens / Month
+                                - listitem [ref=f93e69]:
+                                  - generic [ref=f93e70]: check_circle
+                                  - text: Community Models
+                                - listitem [ref=f93e71]:
+                                  - generic [ref=f93e72]: cancel
+                                  - text: API Access
+                              - button "Start Free" [ref=f93e73] [cursor=pointer]
+                            - generic [ref=f93e74]:
+                              - generic [ref=f93e75]: Most Popular
+                              - generic [ref=f93e76]: Tide Hunter
+                              - heading "$49/mo" [level=3] [ref=f93e77]
+                              - paragraph [ref=f93e78]: For professionals making waves.
+                              - list [ref=f93e79]:
+                                - listitem [ref=f93e80]:
+                                  - generic [ref=f93e81]: check_circle
+                                  - text: Unlimited Tokens
+                                - listitem [ref=f93e82]:
+                                  - generic [ref=f93e83]: check_circle
+                                  - text: Private Ocean Models
+                                - listitem [ref=f93e84]:
+                                  - generic [ref=f93e85]: check_circle
+                                  - text: Priority API Access
+                              - button "Go Pro" [ref=f93e86] [cursor=pointer]
+                            - generic [ref=f93e87]:
+                              - generic [ref=f93e88]: Abyss
+                              - heading "Custom" [level=3] [ref=f93e89]
+                              - paragraph [ref=f93e90]: For giants navigating the deep.
+                              - list [ref=f93e91]:
+                                - listitem [ref=f93e92]:
+                                  - generic [ref=f93e93]: check_circle
+                                  - text: Dedicated Clusters
+                                - listitem [ref=f93e94]:
+                                  - generic [ref=f93e95]: check_circle
+                                  - text: White-glove Support
+                                - listitem [ref=f93e96]:
+                                  - generic [ref=f93e97]: check_circle
+                                  - text: Custom Training
+                              - button "Contact Sales" [ref=f93e98] [cursor=pointer]
+                        - generic [ref=f93e100]:
+                          - heading "Clear Water Clarity" [level=2] [ref=f93e101]
+                          - generic [ref=f93e102]:
+                            - group [ref=f93e103] [cursor=pointer]:
+                              - generic "What makes Xylos \"Fluid\"? expand_more" [ref=f93e104]:
+                                - text: What makes Xylos "Fluid"?
+                                - generic [ref=f93e105]: expand_more
+                              - paragraph [ref=f93e106]: Our architecture uses dynamic quantization that adjusts in real-time to your task complexity, much like water adapts to its container. This minimizes waste and maximizes speed.
+                            - group [ref=f93e107] [cursor=pointer]:
+                              - generic "Can I migrate my existing data pools? expand_more" [ref=f93e108]:
+                                - text: Can I migrate my existing data pools?
+                                - generic [ref=f93e109]: expand_more
+                            - group [ref=f93e110] [cursor=pointer]:
+                              - generic "Is Xylos environmentally conscious? expand_more" [ref=f93e111]:
+                                - text: Is Xylos environmentally conscious?
+                                - generic [ref=f93e112]: expand_more
+                        - generic [ref=f93e116]:
+                          - heading "Ready to take the plunge?" [level=2] [ref=f93e117]
+                          - paragraph [ref=f93e118]: Join over 10,000+ developers and creators who are building the future on Xylos AI.
+                          - generic [ref=f93e119]:
+                            - textbox "ocean@example.com" [ref=f93e120]
+                            - button "Dive In Now" [ref=f93e121] [cursor=pointer]
+                      - contentinfo [ref=f93e122]:
+                        - generic [ref=f93e123]:
+                          - generic [ref=f93e124]:
+                            - generic [ref=f93e125]: Xylos AI
+                            - paragraph [ref=f93e126]: Deep Intelligence for the Fluid Modern Era.
+                          - generic [ref=f93e127]:
+                            - generic [ref=f93e128]: Product
+                            - link "Models" [ref=f93e129] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Pricing" [ref=f93e130] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Twitter" [ref=f93e131] [cursor=pointer]:
+                              - /url: "#"
+                          - generic [ref=f93e132]:
+                            - generic [ref=f93e133]: Company
+                            - link "About" [ref=f93e134] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Legal" [ref=f93e135] [cursor=pointer]:
+                              - /url: "#"
+                            - link "GitHub" [ref=f93e136] [cursor=pointer]:
+                              - /url: "#"
+                          - generic [ref=f93e137]:
+                            - generic [ref=f93e138]: Legal
+                            - link "Privacy" [ref=f93e139] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Terms" [ref=f93e140] [cursor=pointer]:
+                              - /url: "#"
+                        - generic [ref=f93e141]:
+                          - paragraph [ref=f93e142]: © 2024 Xylos AI. All rights reserved.
+                          - generic [ref=f93e143]:
+                            - generic [ref=f93e144] [cursor=pointer]: public
+                            - generic [ref=f93e145] [cursor=pointer]: waves
+                - generic [ref=f47e1316]:
+                  - generic [ref=f47e1320]:
+                    - generic [ref=f47e1421]: devices
+                    - generic [ref=f47e1321]: Xylos AI - Cherry Blossom Pink
+                  - iframe [ref=f47e1468]:
+                    - generic [ref=f90e1]:
+                      - banner [ref=f90e2]:
+                        - generic [ref=f90e3]: Xylos AI
+                        - navigation [ref=f90e5]:
+                          - link "Models" [ref=f90e6] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Pricing" [ref=f90e7] [cursor=pointer]:
+                            - /url: "#"
+                          - link "About" [ref=f90e8] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Docs" [ref=f90e9] [cursor=pointer]:
+                            - /url: "#"
+                        - button "Get Started" [ref=f90e10] [cursor=pointer]
+                      - main [ref=f90e11]:
+                        - generic [ref=f90e13]:
+                          - generic [ref=f90e14]:
+                            - generic [ref=f90e15]:
+                              - generic [ref=f90e16]: spa
+                              - generic [ref=f90e17]: Whisper of Intelligence
+                            - heading "Graceful Power. Intelligent Beauty." [level=1] [ref=f90e18]
+                            - paragraph [ref=f90e19]: Elegance meets efficiency. Xylos AI weaves sophisticated neural networks with a minimalist interface to transform your workflow into a masterpiece of productivity.
+                            - generic [ref=f90e20]:
+                              - button "Begin Your Journey" [ref=f90e21] [cursor=pointer]
+                              - button "Explore Models" [ref=f90e22] [cursor=pointer]
+                          - generic [ref=f90e27]:
+                            - paragraph [ref=f90e28]: LATEST GEN
+                            - paragraph [ref=f90e31]: 99.8% Precision
+                        - generic [ref=f90e33]:
+                          - generic [ref=f90e34]:
+                            - heading "Harmonious Innovation" [level=2] [ref=f90e35]
+                            - paragraph [ref=f90e36]: Four pillars of intelligence designed to elevate the human experience with effortless grace.
+                          - generic [ref=f90e37]:
+                            - generic [ref=f90e39]:
+                              - generic [ref=f90e40]:
+                                - generic [ref=f90e41]: auto_awesome
+                                - heading "Neural Poetry" [level=3] [ref=f90e42]
+                                - paragraph [ref=f90e43]: Our models don't just process data; they interpret nuance. Create content that resonates with human depth and artistic sensitivity.
+                              - button "Learn More arrow_forward" [ref=f90e45] [cursor=pointer]:
+                                - text: Learn More
+                                - generic [ref=f90e46]: arrow_forward
+                            - generic [ref=f90e49]:
+                              - generic [ref=f90e50]: verified_user
+                              - heading "Quiet Trust" [level=3] [ref=f90e52]
+                              - paragraph [ref=f90e53]: Enterprise-grade security that works silently in the background, protecting your intellectual property with absolute discretion.
+                            - generic [ref=f90e54]:
+                              - generic [ref=f90e55]: chevron_forward
+                              - heading "Fluent API" [level=3] [ref=f90e56]
+                              - paragraph [ref=f90e57]: Integrate with the grace of water. Our API documentation is written for humans, by humans.
+                            - generic [ref=f90e60]:
+                              - heading "Visual Synthesis" [level=3] [ref=f90e61]
+                              - paragraph [ref=f90e62]: Generate stunning visuals with a simple prompt. Xylos AI understands the aesthetic principles of balance and light.
+                        - generic [ref=f90e65]:
+                          - generic [ref=f90e66]:
+                            - heading "Investment in Excellence" [level=2] [ref=f90e67]
+                            - paragraph [ref=f90e68]: Simple, transparent tiers for every stage of your growth.
+                          - generic [ref=f90e69]:
+                            - generic [ref=f90e70]:
+                              - generic [ref=f90e71]:
+                                - paragraph [ref=f90e72]: Seed
+                                - heading "$0 /mo" [level=3] [ref=f90e73]
+                              - list [ref=f90e74]:
+                                - listitem [ref=f90e75]:
+                                  - generic [ref=f90e76]: check_circle
+                                  - text: 100 Monthly Requests
+                                - listitem [ref=f90e77]:
+                                  - generic [ref=f90e78]: check_circle
+                                  - text: Standard Support
+                                - listitem [ref=f90e79]:
+                                  - generic [ref=f90e80]: check_circle
+                                  - text: Community Models
+                              - button "Start Free" [ref=f90e81] [cursor=pointer]
+                            - generic [ref=f90e82]:
+                              - generic [ref=f90e83]: Recommended
+                              - generic [ref=f90e84]:
+                                - paragraph [ref=f90e85]: Bloom
+                                - heading "$49 /mo" [level=3] [ref=f90e86]
+                              - list [ref=f90e87]:
+                                - listitem [ref=f90e88]:
+                                  - generic [ref=f90e89]: check_circle
+                                  - text: Unlimited Requests
+                                - listitem [ref=f90e90]:
+                                  - generic [ref=f90e91]: check_circle
+                                  - text: Priority GPU Access
+                                - listitem [ref=f90e92]:
+                                  - generic [ref=f90e93]: check_circle
+                                  - text: 24/7 Concierge Support
+                                - listitem [ref=f90e94]:
+                                  - generic [ref=f90e95]: check_circle
+                                  - text: Custom Finetuning
+                              - button "Bloom Now" [ref=f90e96] [cursor=pointer]
+                            - generic [ref=f90e97]:
+                              - generic [ref=f90e98]:
+                                - paragraph [ref=f90e99]: Grove
+                                - heading "Custom" [level=3] [ref=f90e100]
+                              - list [ref=f90e101]:
+                                - listitem [ref=f90e102]:
+                                  - generic [ref=f90e103]: check_circle
+                                  - text: Dedicated Infrastructure
+                                - listitem [ref=f90e104]:
+                                  - generic [ref=f90e105]: check_circle
+                                  - text: SSO & Advanced Governance
+                                - listitem [ref=f90e106]:
+                                  - generic [ref=f90e107]: check_circle
+                                  - text: On-premise Options
+                              - button "Contact Sales" [ref=f90e108] [cursor=pointer]
+                        - generic [ref=f90e109]:
+                          - heading "Frequent Queries" [level=2] [ref=f90e110]
+                          - generic [ref=f90e111]:
+                            - group [ref=f90e112]:
+                              - generic "How is Xylos AI different from other models? expand_more" [ref=f90e113] [cursor=pointer]:
+                                - text: How is Xylos AI different from other models?
+                                - generic [ref=f90e114]: expand_more
+                              - generic [ref=f90e115]: Xylos AI is uniquely engineered with a focus on aesthetic intuition and semantic nuance. Unlike broad-purpose models, Xylos is trained on high-curation datasets that prioritize clarity, elegance, and emotional intelligence.
+                            - group [ref=f90e116]:
+                              - generic "Is my data used for training? expand_more" [ref=f90e117] [cursor=pointer]:
+                                - text: Is my data used for training?
+                                - generic [ref=f90e118]: expand_more
+                            - group [ref=f90e119]:
+                              - generic "Can I integrate Xylos into my existing tools? expand_more" [ref=f90e120] [cursor=pointer]:
+                                - text: Can I integrate Xylos into my existing tools?
+                                - generic [ref=f90e121]: expand_more
+                        - generic [ref=f90e126]:
+                          - heading "Embrace the Future with Grace" [level=2] [ref=f90e127]
+                          - paragraph [ref=f90e128]: Join 50,000+ creators and leaders who have discovered the power of elegant intelligence.
+                          - button "Get Started for Free" [ref=f90e130] [cursor=pointer]
+                      - contentinfo [ref=f90e131]:
+                        - generic [ref=f90e132]:
+                          - text: Xylos AI
+                          - paragraph [ref=f90e133]: Cultivating the future of human-machine collaboration through the lens of aesthetic perfection.
+                        - generic [ref=f90e134]:
+                          - heading "Product" [level=4] [ref=f90e135]
+                          - list [ref=f90e136]:
+                            - listitem [ref=f90e137]:
+                              - link "Models" [ref=f90e138] [cursor=pointer]:
+                                - /url: "#"
+                            - listitem [ref=f90e139]:
+                              - link "API" [ref=f90e140] [cursor=pointer]:
+                                - /url: "#"
+                            - listitem [ref=f90e141]:
+                              - link "Pricing" [ref=f90e142] [cursor=pointer]:
+                                - /url: "#"
+                        - generic [ref=f90e143]:
+                          - heading "Company" [level=4] [ref=f90e144]
+                          - list [ref=f90e145]:
+                            - listitem [ref=f90e146]:
+                              - link "About" [ref=f90e147] [cursor=pointer]:
+                                - /url: "#"
+                            - listitem [ref=f90e148]:
+                              - link "Philosophy" [ref=f90e149] [cursor=pointer]:
+                                - /url: "#"
+                            - listitem [ref=f90e150]:
+                              - link "Careers" [ref=f90e151] [cursor=pointer]:
+                                - /url: "#"
+                        - generic [ref=f90e152]:
+                          - heading "Legal" [level=4] [ref=f90e153]
+                          - list [ref=f90e154]:
+                            - listitem [ref=f90e155]:
+                              - link "Privacy" [ref=f90e156] [cursor=pointer]:
+                                - /url: "#"
+                            - listitem [ref=f90e157]:
+                              - link "Terms" [ref=f90e158] [cursor=pointer]:
+                                - /url: "#"
+                            - listitem [ref=f90e159]:
+                              - link "Security" [ref=f90e160] [cursor=pointer]:
+                                - /url: "#"
+                        - generic [ref=f90e161]:
+                          - paragraph [ref=f90e162]: © 2024 Xylos AI. All rights reserved.
+                          - generic [ref=f90e163]:
+                            - link "brand_family" [ref=f90e164] [cursor=pointer]:
+                              - /url: "#"
+                            - link "hub" [ref=f90e166] [cursor=pointer]:
+                              - /url: "#"
+                - generic [ref=f47e1330]:
+                  - generic [ref=f47e1334]:
+                    - generic [ref=f47e1423]: devices
+                    - generic [ref=f47e1335]: Xylos AI - Forest Green Nature
+                  - iframe [ref=f47e1470]:
+                    - generic [ref=f87e1]:
+                      - navigation [ref=f87e2]:
+                        - generic [ref=f87e3]: Xylos AI
+                        - generic [ref=f87e4]:
+                          - link "Models" [ref=f87e5] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Pricing" [ref=f87e6] [cursor=pointer]:
+                            - /url: "#"
+                          - link "About" [ref=f87e7] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Docs" [ref=f87e8] [cursor=pointer]:
+                            - /url: "#"
+                        - button "Get Started" [ref=f87e9] [cursor=pointer]
+                      - main [ref=f87e10]:
+                        - generic [ref=f87e11]:
+                          - generic [ref=f87e13]:
+                            - generic [ref=f87e14]: SUSTAINABLE COMPUTING FOR THE NEXT ERA
+                            - heading "Intelligence in Harmony with Nature" [level=1] [ref=f87e15]
+                            - paragraph [ref=f87e16]: Xylos AI bridges the gap between high-performance neural networks and ecological preservation. Powering the future with biological efficiency.
+                            - generic [ref=f87e17]:
+                              - button "Explore Models" [ref=f87e18] [cursor=pointer]
+                              - button "play_circle Watch Origin" [ref=f87e19] [cursor=pointer]:
+                                - generic [ref=f87e20]: play_circle
+                                - text: Watch Origin
+                          - generic [ref=f87e26]:
+                            - generic [ref=f87e27]: Metric
+                            - generic [ref=f87e28]: 98%
+                            - generic [ref=f87e29]: Reduced Carbon Footprint compared to legacy silicon clusters.
+                        - generic [ref=f87e30]:
+                          - generic [ref=f87e31]:
+                            - heading "Our Organic Ecosystem" [level=2] [ref=f87e32]
+                            - paragraph [ref=f87e33]: Intelligent tools designed to grow with your enterprise, built on the foundations of biological resilience.
+                          - generic [ref=f87e34]:
+                            - generic [ref=f87e35]:
+                              - generic [ref=f87e36]: eco
+                              - generic [ref=f87e38]:
+                                - heading "GreenOps Integration" [level=3] [ref=f87e39]
+                                - paragraph [ref=f87e40]: Seamlessly monitor and optimize your AI carbon usage in real-time with native dashboarding.
+                            - generic [ref=f87e42]:
+                              - heading "The Mycelium Network" [level=3] [ref=f87e43]
+                              - paragraph [ref=f87e44]: A decentralized training architecture that adapts to fluctuating renewable energy grids globally.
+                              - button "Learn more arrow_forward" [ref=f87e45] [cursor=pointer]:
+                                - text: Learn more
+                                - generic [ref=f87e46]: arrow_forward
+                            - generic [ref=f87e51]:
+                              - heading "Creative Flourishing" [level=3] [ref=f87e52]
+                              - paragraph [ref=f87e53]: Xylos empowers creators to build without ethical compromise.
+                            - generic [ref=f87e54]:
+                              - generic [ref=f87e55]: psychology_alt
+                              - generic [ref=f87e57]:
+                                - heading "Neural Pruning" [level=3] [ref=f87e58]
+                                - paragraph [ref=f87e59]: Advanced algorithms that shed unnecessary data pathways, mimicking biological neural development.
+                        - generic [ref=f87e62]:
+                          - generic [ref=f87e63]:
+                            - heading "Choose Your Path" [level=2] [ref=f87e64]
+                            - paragraph [ref=f87e65]: Scalable plans for independent gardeners to global forests.
+                          - generic [ref=f87e66]:
+                            - generic [ref=f87e67]:
+                              - generic [ref=f87e68]:
+                                - text: Sprout
+                                - generic [ref=f87e69]:
+                                  - generic [ref=f87e70]: $0
+                                  - generic [ref=f87e71]: /month
+                              - list [ref=f87e72]:
+                                - listitem [ref=f87e73]:
+                                  - generic [ref=f87e74]: check
+                                  - text: 1k generations / month
+                                - listitem [ref=f87e75]:
+                                  - generic [ref=f87e76]: check
+                                  - text: Standard response time
+                                - listitem [ref=f87e77]:
+                                  - generic [ref=f87e78]: check
+                                  - text: Public forum support
+                              - button "Start Free" [ref=f87e79] [cursor=pointer]
+                            - generic [ref=f87e80]:
+                              - generic [ref=f87e81]: MOST FERTILE
+                              - generic [ref=f87e82]:
+                                - text: Arbor
+                                - generic [ref=f87e83]:
+                                  - generic [ref=f87e84]: $49
+                                  - generic [ref=f87e85]: /month
+                              - list [ref=f87e86]:
+                                - listitem [ref=f87e87]:
+                                  - generic [ref=f87e88]: check
+                                  - text: Unlimited generations
+                                - listitem [ref=f87e89]:
+                                  - generic [ref=f87e90]: check
+                                  - text: Priority neural access
+                                - listitem [ref=f87e91]:
+                                  - generic [ref=f87e92]: check
+                                  - text: Carbon offset certification
+                                - listitem [ref=f87e93]:
+                                  - generic [ref=f87e94]: check
+                                  - text: API access
+                              - button "Go Pro" [ref=f87e95] [cursor=pointer]
+                            - generic [ref=f87e96]:
+                              - generic [ref=f87e97]:
+                                - text: Forest
+                                - generic [ref=f87e98]: Custom
+                              - list [ref=f87e100]:
+                                - listitem [ref=f87e101]:
+                                  - generic [ref=f87e102]: check
+                                  - text: Dedicated compute clusters
+                                - listitem [ref=f87e103]:
+                                  - generic [ref=f87e104]: check
+                                  - text: SSO & Advanced Security
+                                - listitem [ref=f87e105]:
+                                  - generic [ref=f87e106]: check
+                                  - text: 24/7 Concierge Support
+                              - button "Contact Sales" [ref=f87e107] [cursor=pointer]
+                        - generic [ref=f87e108]:
+                          - heading "Rooted Knowledge" [level=2] [ref=f87e109]
+                          - generic [ref=f87e110]:
+                            - group [ref=f87e111]:
+                              - generic "How is Xylos AI sustainable? expand_more" [ref=f87e112] [cursor=pointer]:
+                                - generic [ref=f87e113]: How is Xylos AI sustainable?
+                                - generic [ref=f87e114]: expand_more
+                              - paragraph [ref=f87e115]: We utilize biological mimicry in our code to reduce energy consumption by up to 60%. Additionally, our servers are cooled by natural water systems and powered 100% by local wind and solar farms.
+                            - group [ref=f87e116]:
+                              - generic "Can I integrate with existing tools? expand_more" [ref=f87e117] [cursor=pointer]:
+                                - generic [ref=f87e118]: Can I integrate with existing tools?
+                                - generic [ref=f87e119]: expand_more
+                            - group [ref=f87e120]:
+                              - generic "What happens to my data? expand_more" [ref=f87e121] [cursor=pointer]:
+                                - generic [ref=f87e122]: What happens to my data?
+                                - generic [ref=f87e123]: expand_more
+                        - generic [ref=f87e125]:
+                          - heading "Ready to plant your first seed?" [level=2] [ref=f87e128]
+                          - paragraph [ref=f87e129]: Join 10,000+ companies building a faster, smarter, and greener future.
+                          - button "Get Started for Free" [ref=f87e131] [cursor=pointer]
+                      - contentinfo [ref=f87e132]:
+                        - generic [ref=f87e133]:
+                          - generic [ref=f87e134]:
+                            - generic [ref=f87e135]: Xylos AI
+                            - paragraph [ref=f87e136]: Building the intelligent infrastructure that nature would be proud of.
+                          - generic [ref=f87e137]:
+                            - heading "Product" [level=4] [ref=f87e138]
+                            - list [ref=f87e139]:
+                              - listitem [ref=f87e140]:
+                                - link "Models" [ref=f87e141] [cursor=pointer]:
+                                  - /url: "#"
+                              - listitem [ref=f87e142]:
+                                - link "Pricing" [ref=f87e143] [cursor=pointer]:
+                                  - /url: "#"
+                              - listitem [ref=f87e144]:
+                                - link "Documentation" [ref=f87e145] [cursor=pointer]:
+                                  - /url: "#"
+                          - generic [ref=f87e146]:
+                            - heading "Company" [level=4] [ref=f87e147]
+                            - list [ref=f87e148]:
+                              - listitem [ref=f87e149]:
+                                - link "Our Mission" [ref=f87e150] [cursor=pointer]:
+                                  - /url: "#"
+                              - listitem [ref=f87e151]:
+                                - link "Careers" [ref=f87e152] [cursor=pointer]:
+                                  - /url: "#"
+                              - listitem [ref=f87e153]:
+                                - link "Press" [ref=f87e154] [cursor=pointer]:
+                                  - /url: "#"
+                          - generic [ref=f87e155]:
+                            - heading "Social" [level=4] [ref=f87e156]
+                            - generic [ref=f87e157]:
+                              - link "public" [ref=f87e158] [cursor=pointer]:
+                                - /url: "#"
+                              - link "terminal" [ref=f87e160] [cursor=pointer]:
+                                - /url: "#"
+                        - generic [ref=f87e162]:
+                          - generic [ref=f87e163]: © 2024 Xylos AI. All rights reserved. Built with ethical intelligence.
+                          - generic [ref=f87e164]:
+                            - link "Privacy Policy" [ref=f87e165] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Terms of Service" [ref=f87e166] [cursor=pointer]:
+                              - /url: "#"
+                - generic [ref=f47e1344]:
+                  - generic [ref=f47e1348]:
+                    - generic [ref=f47e1425]: devices
+                    - generic [ref=f47e1349]: Xylos AI - Candy Pop Colorful
+                  - iframe [ref=f47e1472]:
+                    - generic [ref=f86e1]:
+                      - banner [ref=f86e2]:
+                        - generic [ref=f86e3]: Xylos AI
+                        - navigation [ref=f86e4]:
+                          - link "Models" [ref=f86e5] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Pricing" [ref=f86e6] [cursor=pointer]:
+                            - /url: "#"
+                          - link "About" [ref=f86e7] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Docs" [ref=f86e8] [cursor=pointer]:
+                            - /url: "#"
+                        - button "Get Started" [ref=f86e10] [cursor=pointer]
+                      - main [ref=f86e11]:
+                        - generic [ref=f86e13]:
+                          - generic [ref=f86e14]:
+                            - generic [ref=f86e15]: New V4 Release ✨
+                            - heading "AI That Pops!" [level=1] [ref=f86e16]
+                            - paragraph [ref=f86e17]: Unleash high-energy creativity with Xylos. The first AI designed for the next generation of builders, dreamers, and doers.
+                            - generic [ref=f86e18]:
+                              - button "Start Building Now" [ref=f86e19] [cursor=pointer]
+                              - button "View Showcase" [ref=f86e20] [cursor=pointer]
+                          - generic [ref=f86e21]:
+                            - generic [ref=f86e24]:
+                              - generic [ref=f86e25]: auto_awesome
+                              - generic [ref=f86e26]: Super Charged
+                            - generic [ref=f86e27]: 10x Faster ⚡️
+                        - generic [ref=f86e28]:
+                          - generic [ref=f86e29]:
+                            - heading "Everything you need to crush it." [level=2] [ref=f86e30]
+                            - paragraph [ref=f86e31]: Stop using boring enterprise software. Switch to Xylos and feel the energy.
+                          - generic [ref=f86e32]:
+                            - generic [ref=f86e34]:
+                              - generic [ref=f86e35]: bolt
+                              - heading "Instant Generation" [level=3] [ref=f86e36]
+                              - paragraph [ref=f86e37]: Our neural engine responds faster than you can blink. No more waiting icons, just pure results.
+                            - generic [ref=f86e40]:
+                              - generic [ref=f86e41]: palette
+                              - heading "Candy Themes" [level=3] [ref=f86e42]
+                              - paragraph [ref=f86e43]: Personalize your workspace with a palette that matches your vibe. From neon nights to pastel mornings.
+                            - generic [ref=f86e49]:
+                              - generic [ref=f86e50]: rocket_launch
+                              - heading "One-Tap Deploy" [level=3] [ref=f86e51]
+                              - paragraph [ref=f86e52]: Ship your models to production with a single click. No complex dev-ops required.
+                            - generic [ref=f86e54]:
+                              - generic [ref=f86e55]: group
+                              - heading "Squad Mode" [level=3] [ref=f86e56]
+                              - paragraph [ref=f86e57]: Collaborate in real-time with your team. Tag, comment, and build together like a pro gaming squad.
+                        - generic [ref=f86e62]:
+                          - generic [ref=f86e63]:
+                            - heading "Pick Your Power." [level=2] [ref=f86e64]
+                            - paragraph [ref=f86e65]: Fair pricing for creators of all sizes.
+                          - generic [ref=f86e66]:
+                            - generic [ref=f86e67]:
+                              - generic [ref=f86e68]:
+                                - generic [ref=f86e69]: Free Forever
+                                - generic [ref=f86e70]: $0/mo
+                              - list [ref=f86e71]:
+                                - listitem [ref=f86e72]:
+                                  - generic [ref=f86e73]: check_circle
+                                  - text: 3 Projects
+                                - listitem [ref=f86e74]:
+                                  - generic [ref=f86e75]: check_circle
+                                  - text: Standard Engine
+                                - listitem [ref=f86e76]:
+                                  - generic [ref=f86e77]: check_circle
+                                  - text: Community Support
+                              - button "Stay Free" [ref=f86e78] [cursor=pointer]
+                            - generic [ref=f86e79]:
+                              - generic [ref=f86e80]: Popular
+                              - generic [ref=f86e81]:
+                                - generic [ref=f86e82]: Pro Creator
+                                - generic [ref=f86e83]: $19/mo
+                              - list [ref=f86e84]:
+                                - listitem [ref=f86e85]:
+                                  - generic [ref=f86e86]: check_circle
+                                  - text: Unlimited Projects
+                                - listitem [ref=f86e87]:
+                                  - generic [ref=f86e88]: check_circle
+                                  - text: Priority Burst Engine
+                                - listitem [ref=f86e89]:
+                                  - generic [ref=f86e90]: check_circle
+                                  - text: Custom Themes
+                                - listitem [ref=f86e91]:
+                                  - generic [ref=f86e92]: check_circle
+                                  - text: 24/7 VIP Chat
+                              - button "Go Pro Now" [ref=f86e93] [cursor=pointer]
+                        - generic [ref=f86e94]:
+                          - heading "Questions? We got answers." [level=2] [ref=f86e95]
+                          - generic [ref=f86e96]:
+                            - group [ref=f86e97] [cursor=pointer]:
+                              - generic "How fast is \"Xylos fast\"? expand_more" [ref=f86e98]:
+                                - text: How fast is "Xylos fast"?
+                                - generic [ref=f86e99]: expand_more
+                            - group [ref=f86e100] [cursor=pointer]:
+                              - generic "Can I export my designs? expand_more" [ref=f86e101]:
+                                - text: Can I export my designs?
+                                - generic [ref=f86e102]: expand_more
+                            - group [ref=f86e103] [cursor=pointer]:
+                              - generic "Is there a dark mode? expand_more" [ref=f86e104]:
+                                - text: Is there a dark mode?
+                                - generic [ref=f86e105]: expand_more
+                        - generic [ref=f86e108]:
+                          - heading "Ready to make it pop?" [level=2] [ref=f86e109]
+                          - paragraph [ref=f86e110]: Join 50,000+ creators who have ditched the boring and embraced the bright.
+                          - button "Claim Your Access" [ref=f86e111] [cursor=pointer]
+                      - contentinfo [ref=f86e112]:
+                        - generic [ref=f86e113]:
+                          - generic [ref=f86e114]: Xylos AI
+                          - paragraph [ref=f86e115]: Redefining the creative process with high-energy AI tools for everyone.
+                        - generic [ref=f86e116]:
+                          - generic [ref=f86e117]: Product
+                          - list [ref=f86e118]:
+                            - listitem [ref=f86e119]:
+                              - link "Models" [ref=f86e120] [cursor=pointer]:
+                                - /url: "#"
+                            - listitem [ref=f86e121]:
+                              - link "Pricing" [ref=f86e122] [cursor=pointer]:
+                                - /url: "#"
+                            - listitem [ref=f86e123]:
+                              - link "Showcase" [ref=f86e124] [cursor=pointer]:
+                                - /url: "#"
+                        - generic [ref=f86e125]:
+                          - generic [ref=f86e126]: Company
+                          - list [ref=f86e127]:
+                            - listitem [ref=f86e128]:
+                              - link "About" [ref=f86e129] [cursor=pointer]:
+                                - /url: "#"
+                            - listitem [ref=f86e130]:
+                              - link "Legal" [ref=f86e131] [cursor=pointer]:
+                                - /url: "#"
+                            - listitem [ref=f86e132]:
+                              - link "Privacy" [ref=f86e133] [cursor=pointer]:
+                                - /url: "#"
+                        - generic [ref=f86e134]:
+                          - generic [ref=f86e135]: Connect
+                          - list [ref=f86e136]:
+                            - listitem [ref=f86e137]:
+                              - link "Twitter" [ref=f86e138] [cursor=pointer]:
+                                - /url: "#"
+                            - listitem [ref=f86e139]:
+                              - link "GitHub" [ref=f86e140] [cursor=pointer]:
+                                - /url: "#"
+                            - listitem [ref=f86e141]:
+                              - link "Discord" [ref=f86e142] [cursor=pointer]:
+                                - /url: "#"
+                        - generic [ref=f86e143]:
+                          - generic [ref=f86e144]: © 2024 Xylos AI. All rights reserved.
+                          - generic [ref=f86e145]:
+                            - link "Terms" [ref=f86e146] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Privacy" [ref=f86e147] [cursor=pointer]:
+                              - /url: "#"
+                      - button "chat_bubble" [ref=f86e148] [cursor=pointer]
+                - generic [ref=f47e1358]:
+                  - generic [ref=f47e1362]:
+                    - generic [ref=f47e1427]: devices
+                    - generic [ref=f47e1363]: Xylos AI - Lavender Dream
+                  - iframe [ref=f47e1474]:
+                    - generic [ref=f88e1]:
+                      - navigation [ref=f88e2]:
+                        - generic [ref=f88e3]: Xylos AI
+                        - generic [ref=f88e4]:
+                          - link "Models" [ref=f88e5] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Pricing" [ref=f88e6] [cursor=pointer]:
+                            - /url: "#"
+                          - link "About" [ref=f88e7] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Docs" [ref=f88e8] [cursor=pointer]:
+                            - /url: "#"
+                        - button "Get Started" [ref=f88e9] [cursor=pointer]
+                      - main [ref=f88e10]:
+                        - generic [ref=f88e11]:
+                          - generic [ref=f88e12]:
+                            - generic [ref=f88e13]: auto_awesome
+                            - text: The Future of Cognitive Computing
+                          - heading "Your Mind, Expanded." [level=1] [ref=f88e14]
+                          - paragraph [ref=f88e15]: Experience a serene interface designed for deep focus. Xylos AI harmonizes advanced neural processing with a calm, lavender-inspired workspace for effortless productivity.
+                          - generic [ref=f88e16]:
+                            - button "Start Your Dream Journey" [ref=f88e17] [cursor=pointer]
+                            - button "Watch Demo" [ref=f88e18] [cursor=pointer]
+                        - generic [ref=f88e23]:
+                          - generic [ref=f88e24]:
+                            - heading "Ethereal Capabilities" [level=2] [ref=f88e25]
+                            - paragraph [ref=f88e26]: Built for precision, polished for tranquility.
+                          - generic [ref=f88e27]:
+                            - generic [ref=f88e29]:
+                              - generic [ref=f88e30]: neurology
+                              - heading "Neural Synapse V3" [level=3] [ref=f88e31]
+                              - paragraph [ref=f88e32]: Our latest model processes information with the fluidity of a dream, providing hyper-contextual responses with zero friction.
+                            - generic [ref=f88e35]:
+                              - generic [ref=f88e36]: waves
+                              - heading "Cloud Harmony" [level=3] [ref=f88e37]
+                              - paragraph [ref=f88e38]: Seamlessly sync your cognitive workspace across all devices with encrypted, cloud-native architecture.
+                            - generic [ref=f88e39]:
+                              - generic [ref=f88e40]: auto_mode
+                              - heading "Flow State Active" [level=3] [ref=f88e41]
+                              - paragraph [ref=f88e42]: Smart notifications and dynamic UI adjustments to keep you in the zone during intensive creative sessions.
+                        - generic [ref=f88e43]:
+                          - generic [ref=f88e44]:
+                            - heading "Select Your Path" [level=2] [ref=f88e45]
+                            - paragraph [ref=f88e46]: Simple, transparent pricing for every stage of expansion.
+                          - generic [ref=f88e47]:
+                            - generic [ref=f88e48]:
+                              - generic [ref=f88e49]: Free
+                              - generic [ref=f88e50]: $0
+                              - list [ref=f88e51]:
+                                - listitem [ref=f88e52]: 50 Prompts per month
+                                - listitem [ref=f88e53]: Standard Models
+                                - listitem [ref=f88e54]: Public Workspace
+                              - button "Get Started" [ref=f88e55] [cursor=pointer]
+                            - generic [ref=f88e56]:
+                              - generic [ref=f88e57]: Most Popular
+                              - generic [ref=f88e58]: Pro
+                              - generic [ref=f88e59]: $24
+                              - list [ref=f88e60]:
+                                - listitem [ref=f88e61]: Unlimited Deep Prompts
+                                - listitem [ref=f88e62]: Priority Access to Models
+                                - listitem [ref=f88e63]: Private Lilac Workspace
+                                - listitem [ref=f88e64]: Custom AI Personas
+                              - button "Upgrade Now" [ref=f88e65] [cursor=pointer]
+                            - generic [ref=f88e66]:
+                              - generic [ref=f88e67]: Studio
+                              - generic [ref=f88e68]: $89
+                              - list [ref=f88e69]:
+                                - listitem [ref=f88e70]: Team Collaboration
+                                - listitem [ref=f88e71]: API Access (V3)
+                                - listitem [ref=f88e72]: Enterprise Security
+                                - listitem [ref=f88e73]: 24/7 Dedicated Support
+                              - button "Contact Sales" [ref=f88e74] [cursor=pointer]
+                        - generic [ref=f88e75]:
+                          - heading "Curious Minds" [level=2] [ref=f88e76]
+                          - generic [ref=f88e77]:
+                            - group [ref=f88e78] [cursor=pointer]:
+                              - generic "How does Xylos maintain privacy? expand_more" [ref=f88e79]:
+                                - text: How does Xylos maintain privacy?
+                                - generic [ref=f88e80]: expand_more
+                              - paragraph [ref=f88e81]: Your thoughts are yours alone. Xylos utilizes end-to-end local encryption and decentralized processing to ensure no one—not even us—can see your workspace.
+                            - group [ref=f88e82] [cursor=pointer]:
+                              - generic "Can I integrate it with my current tools? expand_more" [ref=f88e83]:
+                                - text: Can I integrate it with my current tools?
+                                - generic [ref=f88e84]: expand_more
+                            - group [ref=f88e85] [cursor=pointer]:
+                              - generic "What makes the \"Lavender Dream\" aesthetic special? expand_more" [ref=f88e86]:
+                                - text: What makes the "Lavender Dream" aesthetic special?
+                                - generic [ref=f88e87]: expand_more
+                        - generic [ref=f88e88]:
+                          - generic [ref=f88e89]:
+                            - generic [ref=f88e90]: Xylos AI
+                            - paragraph [ref=f88e91]: Empowering the next generation of creative intelligence.
+                          - generic [ref=f88e92]:
+                            - heading "Product" [level=4] [ref=f88e93]
+                            - list [ref=f88e94]:
+                              - listitem [ref=f88e95]:
+                                - link "Models" [ref=f88e96] [cursor=pointer]:
+                                  - /url: "#"
+                              - listitem [ref=f88e97]:
+                                - link "Workspace" [ref=f88e98] [cursor=pointer]:
+                                  - /url: "#"
+                              - listitem [ref=f88e99]:
+                                - link "Security" [ref=f88e100] [cursor=pointer]:
+                                  - /url: "#"
+                          - generic [ref=f88e101]:
+                            - heading "Company" [level=4] [ref=f88e102]
+                            - list [ref=f88e103]:
+                              - listitem [ref=f88e104]:
+                                - link "About Us" [ref=f88e105] [cursor=pointer]:
+                                  - /url: "#"
+                              - listitem [ref=f88e106]:
+                                - link "Careers" [ref=f88e107] [cursor=pointer]:
+                                  - /url: "#"
+                              - listitem [ref=f88e108]:
+                                - link "Philosophy" [ref=f88e109] [cursor=pointer]:
+                                  - /url: "#"
+                          - generic [ref=f88e110]:
+                            - heading "Connect" [level=4] [ref=f88e111]
+                            - list [ref=f88e112]:
+                              - listitem [ref=f88e113]:
+                                - link "Twitter" [ref=f88e114] [cursor=pointer]:
+                                  - /url: "#"
+                              - listitem [ref=f88e115]:
+                                - link "GitHub" [ref=f88e116] [cursor=pointer]:
+                                  - /url: "#"
+                              - listitem [ref=f88e117]:
+                                - link "Discord" [ref=f88e118] [cursor=pointer]:
+                                  - /url: "#"
+                          - generic [ref=f88e119]:
+                            - generic [ref=f88e120]: © 2024 Xylos AI. All rights reserved.
+                            - generic [ref=f88e121]:
+                              - link "Privacy" [ref=f88e122] [cursor=pointer]:
+                                - /url: "#"
+                              - link "Terms" [ref=f88e123] [cursor=pointer]:
+                                - /url: "#"
+                - generic [ref=f47e1372]:
+                  - generic [ref=f47e1376]:
+                    - generic [ref=f47e1429]: devices
+                    - generic [ref=f47e1377]: Xylos AI - Coral Reef Warm
+                  - iframe [ref=f47e1476]:
+                    - generic [ref=f89e1]:
+                      - navigation [ref=f89e2]:
+                        - generic [ref=f89e3]: Xylos AI
+                        - generic [ref=f89e4]:
+                          - link "Models" [ref=f89e5] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Pricing" [ref=f89e6] [cursor=pointer]:
+                            - /url: "#"
+                          - link "About" [ref=f89e7] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Docs" [ref=f89e8] [cursor=pointer]:
+                            - /url: "#"
+                        - button "Get Started" [ref=f89e9] [cursor=pointer]
+                      - main [ref=f89e10]:
+                        - generic [ref=f89e12]:
+                          - generic [ref=f89e13]:
+                            - generic [ref=f89e14]: waves
+                            - text: EXPLORE THE ECOSYSTEM
+                          - heading "Vibrant Intelligence. Endless Depth." [level=1] [ref=f89e15]
+                          - paragraph [ref=f89e16]: Navigate the vast ocean of data with Xylos AI. Our organic neural networks process complex variables with the fluidity of a coral reef ecosystem, delivering insights that are alive, adaptive, and deep.
+                          - generic [ref=f89e17]:
+                            - button "Dive In Free" [ref=f89e18] [cursor=pointer]
+                            - button "View Ecosystem" [ref=f89e19] [cursor=pointer]
+                        - generic [ref=f89e20]:
+                          - heading "Tropical Precision Tools" [level=2] [ref=f89e21]
+                          - generic [ref=f89e22]:
+                            - generic [ref=f89e23]:
+                              - generic [ref=f89e24]: chevron_forward
+                              - generic [ref=f89e26]:
+                                - heading "Bioluminescent Insights" [level=3] [ref=f89e27]
+                                - paragraph [ref=f89e28]: Our AI illuminates dark data silos, bringing clarity to complex enterprise structures through advanced visualization and pattern recognition.
+                            - generic [ref=f89e29]:
+                              - generic [ref=f89e30]: speed
+                              - heading "Current-Speed Processing" [level=3] [ref=f89e32]
+                              - paragraph [ref=f89e33]: Real-time inference that moves as fast as a barracuda. No latency, just instant results.
+                            - generic [ref=f89e34]:
+                              - generic [ref=f89e35]: security
+                              - heading "Reef Shield Security" [level=3] [ref=f89e37]
+                              - paragraph [ref=f89e38]: Military-grade encryption protecting your data like a protective reef ecosystem.
+                            - generic [ref=f89e40]:
+                              - heading "Symbiotic Integration" [level=3] [ref=f89e41]
+                              - paragraph [ref=f89e42]: Plugs directly into your existing stack—Slack, GitHub, and Jira—creating a harmonious workflow environment.
+                        - generic [ref=f89e45]:
+                          - generic [ref=f89e46]:
+                            - heading "Scalable Ecosystems" [level=2] [ref=f89e47]
+                            - paragraph [ref=f89e48]: From single divers to massive naval fleets.
+                          - generic [ref=f89e49]:
+                            - generic [ref=f89e50]:
+                              - generic [ref=f89e51]: SHALLOW WATER
+                              - generic [ref=f89e52]: $0/mo
+                              - list [ref=f89e53]:
+                                - listitem [ref=f89e54]:
+                                  - generic [ref=f89e55]: check_circle
+                                  - text: 100 API Calls
+                                - listitem [ref=f89e56]:
+                                  - generic [ref=f89e57]: check_circle
+                                  - text: Basic Model Access
+                                - listitem [ref=f89e58]:
+                                  - generic [ref=f89e59]: check_circle
+                                  - text: Community Support
+                              - button "Start Diving" [ref=f89e60] [cursor=pointer]
+                            - generic [ref=f89e61]:
+                              - generic [ref=f89e62]: MOST POPULAR
+                              - generic [ref=f89e63]: Deep Sea Explorers
+                              - generic [ref=f89e64]: $49/mo
+                              - list [ref=f89e65]:
+                                - listitem [ref=f89e66]:
+                                  - generic [ref=f89e67]: check_circle
+                                  - text: Unlimited API Calls
+                                - listitem [ref=f89e68]:
+                                  - generic [ref=f89e69]: check_circle
+                                  - text: GPT-4o Coral Optimization
+                                - listitem [ref=f89e70]:
+                                  - generic [ref=f89e71]: check_circle
+                                  - text: Priority Infrastructure
+                              - button "Go Professional" [ref=f89e72] [cursor=pointer]
+                            - generic [ref=f89e73]:
+                              - generic [ref=f89e74]: ABYSSAL TIER
+                              - generic [ref=f89e75]: Custom
+                              - list [ref=f89e76]:
+                                - listitem [ref=f89e77]:
+                                  - generic [ref=f89e78]: check_circle
+                                  - text: Dedicated Clusters
+                                - listitem [ref=f89e79]:
+                                  - generic [ref=f89e80]: check_circle
+                                  - text: On-prem Deployment
+                                - listitem [ref=f89e81]:
+                                  - generic [ref=f89e82]: check_circle
+                                  - text: 24/7 Marine Biology Support
+                              - button "Contact Admiralty" [ref=f89e83] [cursor=pointer]
+                        - generic [ref=f89e84]:
+                          - heading "Tidal Knowledge" [level=2] [ref=f89e85]
+                          - generic [ref=f89e86]:
+                            - group [ref=f89e87] [cursor=pointer]:
+                              - generic "How does \"Organic Neural Routing\" work? expand_more" [ref=f89e88]:
+                                - text: How does "Organic Neural Routing" work?
+                                - generic [ref=f89e89]: expand_more
+                              - generic [ref=f89e90]: Our routing mimics the calcium-building process of real coral reefs, creating semi-permanent pathways for recurring data queries while remaining flexible enough to adapt to new environmental shifts in real-time.
+                            - group [ref=f89e91] [cursor=pointer]:
+                              - generic "Is my data stored underwater? expand_more" [ref=f89e92]:
+                                - text: Is my data stored underwater?
+                                - generic [ref=f89e93]: expand_more
+                            - group [ref=f89e94] [cursor=pointer]:
+                              - generic "Can I cancel my subscription? expand_more" [ref=f89e95]:
+                                - text: Can I cancel my subscription?
+                                - generic [ref=f89e96]: expand_more
+                        - generic [ref=f89e98]:
+                          - heading "Ready to make a splash?" [level=2] [ref=f89e101]
+                          - paragraph [ref=f89e102]: Join 50,000+ developers and companies building the future of intelligence with Xylos AI.
+                          - button "Get Access Now" [ref=f89e103] [cursor=pointer]
+                      - contentinfo [ref=f89e104]:
+                        - generic [ref=f89e105]:
+                          - generic [ref=f89e106]: Xylos AI
+                          - paragraph [ref=f89e107]: Building a more vibrant, intelligent world through organic computational models.
+                        - generic [ref=f89e108]:
+                          - heading "Product" [level=4] [ref=f89e109]
+                          - navigation [ref=f89e110]:
+                            - link "Models" [ref=f89e111] [cursor=pointer]:
+                              - /url: "#"
+                            - link "API Docs" [ref=f89e112] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Showcase" [ref=f89e113] [cursor=pointer]:
+                              - /url: "#"
+                        - generic [ref=f89e114]:
+                          - heading "Company" [level=4] [ref=f89e115]
+                          - navigation [ref=f89e116]:
+                            - link "About" [ref=f89e117] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Careers" [ref=f89e118] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Blog" [ref=f89e119] [cursor=pointer]:
+                              - /url: "#"
+                        - generic [ref=f89e120]:
+                          - heading "Legal" [level=4] [ref=f89e121]
+                          - navigation [ref=f89e122]:
+                            - link "Privacy" [ref=f89e123] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Terms" [ref=f89e124] [cursor=pointer]:
+                              - /url: "#"
+                            - link "Security" [ref=f89e125] [cursor=pointer]:
+                              - /url: "#"
+                        - generic [ref=f89e126]:
+                          - generic [ref=f89e127]: © 2024 Xylos AI. All rights reserved.
+                          - generic [ref=f89e128]:
+                            - link "alternate_email" [ref=f89e129] [cursor=pointer]:
+                              - /url: "#"
+                            - link "forum" [ref=f89e131] [cursor=pointer]:
+                              - /url: "#"
+                            - link "terminal" [ref=f89e133] [cursor=pointer]:
+                              - /url: "#"
+                      - generic: sailing
+                      - generic: bubble_chart
+          - generic [ref=f47e690]:
+            - textbox [active] [ref=f47e694]:
+              - paragraph [ref=f47e1042]: What would you like to change or create?
+            - generic [ref=f47e696]:
+              - button "Choose File" [ref=f47e697]
+              - button [ref=f47e699] [cursor=pointer]
+              - button [ref=f47e704] [cursor=pointer]:
+                - img [ref=f47e705]:
+                  - generic [ref=f47e706]: /
+              - generic [ref=f47e707]:
+                - button [ref=f47e709] [cursor=pointer]
+                - button [ref=f47e715] [cursor=pointer]
+                - button "3 Flash" [ref=f47e719] [cursor=pointer]
+                - button [ref=f47e726] [cursor=pointer]
+                - button [disabled] [ref=f47e730]
+          - generic [ref=f47e735]:
+            - button [expanded] [ref=f47e736] [cursor=pointer]:
+              - status [ref=f47e737]:
+                - generic [ref=f47e738]: Agent log
+            - menu "Agent log" [ref=f47e751]:
+              - generic [ref=f47e753]:
+                - menuitem "Generate 10 MORE landing pages for \"Xylos AI\" but ..." [ref=f47e1431] [cursor=pointer]
+                - menuitem "Design 10 unique, trending, modern landing pages f..." [ref=f47e1022] [cursor=pointer]
+          - generic [ref=f47e766]:
+            - button "Expand panel" [ref=f47e1477] [cursor=pointer]
+            - generic "Exit Zen Mode" [ref=f47e1478]

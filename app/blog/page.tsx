@@ -71,6 +71,19 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
 
   return (
     <div className="min-h-screen selection:bg-red-500/30" style={{ background: '#0c0e12', color: '#e2e2e8' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xylosai.vercel.app" },
+              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://xylosai.vercel.app/blog" }
+            ]
+          })
+        }}
+      />
 
       <main className="pt-32 md:pt-40 pb-24 px-6 relative">
         <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
@@ -113,7 +126,7 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
                  </div>
               )}
               
-              <div className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.5em]">
+              <div className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.5em]">
                 {page} / {totalPages}
               </div>
 

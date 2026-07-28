@@ -14,6 +14,19 @@ export default function PrivacyPage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden selection:bg-red-500/30" style={{ background: '#0c0e12', color: '#e2e2e8' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xylosai.vercel.app" },
+              { "@type": "ListItem", "position": 2, "name": "Privacy", "item": "https://xylosai.vercel.app/privacy" }
+            ]
+          })
+        }}
+      />
 
       <main className="relative z-10 pt-32 px-6 pb-20 max-w-4xl mx-auto space-y-16">
         {/* Hero */}

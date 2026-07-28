@@ -1,0 +1,177 @@
+- generic [active] [ref=f3e1]:
+  - button "Scroll to top"
+  - navigation [ref=f3e2]:
+    - generic [ref=f3e3]:
+      - link "Xylos AI Home" [ref=f3e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f3e16]: XylosAI
+      - generic [ref=f3e18]:
+        - link "Neural Chat" [ref=f3e19] [cursor=pointer]:
+          - /url: /chat
+        - link "Blog" [ref=f3e20] [cursor=pointer]:
+          - /url: /blog
+        - link "About Us" [ref=f3e21] [cursor=pointer]:
+          - /url: /about
+      - link "Sign In" [ref=f3e23] [cursor=pointer]:
+        - /url: /login
+  - main [ref=f3e24]:
+    - generic [ref=f3e25]:
+      - generic [ref=f3e32]:
+        - generic [ref=f3e35]:
+          - generic [ref=f3e36]:
+            - generic [ref=f3e37]: AI That Feels Human
+            - heading "AI THAT FEELS HUMAN." [level=1] [ref=f3e41]: AI THATFEELSHUMAN.
+            - paragraph [ref=f3e42]: Experience warmth in every conversation. 7+ AI models, zero cost, genuine connection. Your premium AI companion.
+            - generic [ref=f3e43]:
+              - link "Start Free Chat" [ref=f3e44] [cursor=pointer]:
+                - /url: /chat
+              - link "Explore the Craft" [ref=f3e47] [cursor=pointer]:
+                - /url: /about
+            - generic [ref=f3e50]:
+              - generic [ref=f3e51]:
+                - paragraph [ref=f3e52]: 7+
+                - paragraph [ref=f3e53]: AI Models
+              - generic [ref=f3e54]:
+                - paragraph [ref=f3e55]: $0
+                - paragraph [ref=f3e56]: Monthly Cost
+              - generic [ref=f3e57]:
+                - paragraph [ref=f3e58]: 24/7
+                - paragraph [ref=f3e59]: Available
+          - generic [ref=f3e61]:
+            - generic [ref=f3e66]:
+              - paragraph [ref=f3e67]: Unified AI Chat
+              - paragraph [ref=f3e68]: 7+ models in one interface
+            - generic [ref=f3e75]:
+              - paragraph [ref=f3e76]: Code Assistant
+              - paragraph [ref=f3e77]: Full-stack dev tools
+            - generic [ref=f3e83]:
+              - paragraph [ref=f3e84]: Content Factory
+              - paragraph [ref=f3e85]: Blog & social generation
+            - generic [ref=f3e86]:
+              - heading "Free AI Chat." [level=2] [ref=f3e87]
+              - heading "Refine Your Narrative." [level=2] [ref=f3e88]
+              - paragraph [ref=f3e89]: Zero cost. Infinite possibilities.
+        - generic [ref=f3e90]: Scroll
+      - generic [ref=f3e95]:
+        - generic [ref=f3e96]:
+          - generic [ref=f3e97]:
+            - paragraph [ref=f3e98]: Latest
+            - heading "From the Hearth" [level=2] [ref=f3e99]
+          - link "View All" [ref=f3e100] [cursor=pointer]:
+            - /url: /blog
+        - generic [ref=f3e103]:
+          - 'link "Unlocking the Nexus of Startup and VC Ecosystem: A Futuristic Odyssey Business Unlocking the Nexus of Startup and VC Ecosystem: A Futuristic Odyssey Dive into the transformative world of startup and VC ecosystem, where innovation meets capital and visionary ideas become tomorrow''s giants. Xylos Team · Read More →" [ref=f3e104] [cursor=pointer]':
+            - /url: /blog/unlocking-the-nexus-of-startup-and-vc-ecosystem-a-futuristic-odyssey
+            - generic [ref=f3e105]:
+              - 'img "Unlocking the Nexus of Startup and VC Ecosystem: A Futuristic Odyssey" [ref=f3e106]'
+              - generic [ref=f3e107]: Business
+            - 'heading "Unlocking the Nexus of Startup and VC Ecosystem: A Futuristic Odyssey" [level=3] [ref=f3e108]'
+            - paragraph [ref=f3e109]: Dive into the transformative world of startup and VC ecosystem, where innovation meets capital and visionary ideas become tomorrow's giants.
+            - generic [ref=f3e110]:
+              - generic [ref=f3e111]: Xylos Team
+              - generic [ref=f3e112]: ·
+              - generic [ref=f3e113]: Read More →
+          - link "How Can Energy Healing Techniques Help You Finally Find Lasting Calm? Technology How Can Energy Healing Techniques Help You Finally Find Lasting Calm? Sticking with these practices over months changes how you move through the world. Energy healing techniques combined with awareness create real resilience. Chakra healing and meditation helps tie it all together for that deep foundation of inner peace Amelia · Read More →" [ref=f3e114] [cursor=pointer]:
+            - /url: /blog/how-can-energy-healing-techniques-help-you-finally-find-lasting-calm
+            - generic [ref=f3e115]:
+              - img "How Can Energy Healing Techniques Help You Finally Find Lasting Calm?" [ref=f3e116]
+              - generic [ref=f3e117]: Technology
+            - heading "How Can Energy Healing Techniques Help You Finally Find Lasting Calm?" [level=3] [ref=f3e118]
+            - paragraph [ref=f3e119]: Sticking with these practices over months changes how you move through the world. Energy healing techniques combined with awareness create real resilience. Chakra healing and meditation helps tie it all together for that deep foundation of inner peace
+            - generic [ref=f3e120]:
+              - generic [ref=f3e121]: Amelia
+              - generic [ref=f3e122]: ·
+              - generic [ref=f3e123]: Read More →
+          - link "Why a Leg Knee Massager Is Essential for Everyday Comfort Technology Why a Leg Knee Massager Is Essential for Everyday Comfort Meta Minds · Read More →" [ref=f3e124] [cursor=pointer]:
+            - /url: /blog/why-a-leg-knee-massager-is-essential-for-everyday-comfort
+            - generic [ref=f3e125]:
+              - img "Why a Leg Knee Massager Is Essential for Everyday Comfort" [ref=f3e126]
+              - generic [ref=f3e127]: Technology
+            - heading "Why a Leg Knee Massager Is Essential for Everyday Comfort" [level=3] [ref=f3e128]
+            - paragraph
+            - generic [ref=f3e129]:
+              - generic [ref=f3e130]: Meta Minds
+              - generic [ref=f3e131]: ·
+              - generic [ref=f3e132]: Read More →
+      - generic [ref=f3e134]:
+        - generic [ref=f3e135]:
+          - paragraph [ref=f3e136]: Crafted
+          - heading "Warmth Meets Power" [level=2] [ref=f3e137]
+        - generic [ref=f3e138]:
+          - generic [ref=f3e139]:
+            - heading "Multi-Model Chat" [level=3] [ref=f3e143]
+            - paragraph [ref=f3e144]: 7+ frontier AI models unified in one seamless conversational interface.
+          - generic [ref=f3e145]:
+            - heading "Smart Routing" [level=3] [ref=f3e157]
+            - paragraph [ref=f3e158]: Intelligent engine auto-selects the best model for your specific task.
+          - generic [ref=f3e159]:
+            - heading "Code Generation" [level=3] [ref=f3e165]
+            - paragraph [ref=f3e166]: Write, debug, and refactor across 50+ programming languages instantly.
+          - generic [ref=f3e167]:
+            - heading "Content Creation" [level=3] [ref=f3e172]
+            - paragraph [ref=f3e173]: SEO-optimized articles, social posts, and marketing copy on demand.
+          - generic [ref=f3e174]:
+            - heading "Zero Retention" [level=3] [ref=f3e178]
+            - paragraph [ref=f3e179]: Enterprise-grade encryption. Your data never leaves the secure pipeline.
+          - generic [ref=f3e180]:
+            - heading "Lightning Fast" [level=3] [ref=f3e184]
+            - paragraph [ref=f3e185]: Sub-2-second responses via our global edge network infrastructure.
+      - generic [ref=f3e188]:
+        - heading "The Warmest Free AI Platform" [level=2] [ref=f3e189]
+        - paragraph [ref=f3e190]: Xylos AI brings genuine warmth to artificial intelligence. Our crafted routing system guides your queries through models like Llama 3.3, Gemini 2.5, and Mistral Large — always free, always human.
+      - generic [ref=f3e192]:
+        - generic [ref=f3e193]:
+          - paragraph [ref=f3e194]: FAQ
+          - heading "Frequently Asked Questions" [level=2] [ref=f3e195]
+        - generic [ref=f3e196]:
+          - generic [ref=f3e197]:
+            - heading "Is Xylos AI completely free?" [level=3] [ref=f3e198]
+            - paragraph [ref=f3e199]: Yes, we aggregate open-source models like Llama 3, Gemini, and Mistral to provide premium AI at zero cost. No subscriptions, no hidden fees.
+          - generic [ref=f3e200]:
+            - heading "What models are available?" [level=3] [ref=f3e201]
+            - paragraph [ref=f3e202]: We support 7+ models including Llama 3.3, Gemini 2.5 Flash, Mistral Large, Command R+, and DeepSeek V3. Our smart router picks the best one for your task.
+      - generic [ref=f3e207]:
+        - heading "Join the Golden Circle" [level=2] [ref=f3e208]
+        - paragraph [ref=f3e209]: Experience the warmth of human-AI interaction. Start your journey with Xylos AI today.
+        - generic [ref=f3e210]:
+          - link "Get Started" [ref=f3e211] [cursor=pointer]:
+            - /url: /chat
+          - link "Learn More" [ref=f3e214] [cursor=pointer]:
+            - /url: /about
+      - generic [ref=f3e215]:
+        - generic [ref=f3e216]:
+          - generic [ref=f3e217]:
+            - heading "Stay ahead with Xylos AI." [level=3] [ref=f3e218]
+            - paragraph [ref=f3e219]: Join thousands of professionals who trust Xylos AI for innovative editorial and design intelligence solutions.
+          - generic [ref=f3e220]:
+            - textbox "Email address for newsletter" [ref=f3e222]:
+              - /placeholder: Enter your email
+            - button [ref=f3e223] [cursor=pointer]
+        - img "Xylos AI Newsletter — High-tech nature visualization" [ref=f3e229]
+      - generic [ref=f3e232]:
+        - generic [ref=f3e233]:
+          - generic [ref=f3e234]:
+            - link "Xylos AI Home" [ref=f3e235] [cursor=pointer]:
+              - /url: /
+              - generic [ref=f3e247]: XylosAI
+            - paragraph [ref=f3e249]: Empowering professionals with top-tier AI models. Zero cost, infinite possibilities.
+          - generic [ref=f3e250]:
+            - heading "Platform" [level=4] [ref=f3e251]
+            - generic [ref=f3e252]:
+              - link "Blog" [ref=f3e253] [cursor=pointer]:
+                - /url: /blog
+              - link "About" [ref=f3e254] [cursor=pointer]:
+                - /url: /about
+              - link "Privacy" [ref=f3e255] [cursor=pointer]:
+                - /url: /privacy
+          - generic [ref=f3e256]:
+            - heading "Connect" [level=4] [ref=f3e257]
+            - generic [ref=f3e258]:
+              - link "GitHub" [ref=f3e259] [cursor=pointer]:
+                - /url: https://github.com/surinder2003k
+              - link "LinkedIn" [ref=f3e260] [cursor=pointer]:
+                - /url: https://github.com/surinder2003k
+        - generic [ref=f3e261]:
+          - paragraph [ref=f3e262]: © 2026 Xylos Foundation
+          - paragraph [ref=f3e263]: Research by 21dev.in
+  - alert [ref=f3e264]
