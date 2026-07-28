@@ -279,6 +279,45 @@ export default async function LandingPage() {
         </div>
       </section>
 
+      {/* ===== FAQ ===== */}
+      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
+        <div className="max-w-4xl mx-auto">
+          <p className="text-[10px] font-bold uppercase tracking-[0.4em] mb-4 text-center" style={{ color: '#ff3131', fontFamily: 'JetBrains Mono, monospace' }}>NEURAL_FAQ</p>
+          <h2 className="text-4xl md:text-5xl font-black tracking-[-0.03em] text-center mb-16" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Frequently Asked Protocols</h2>
+
+          <div className="space-y-4">
+            {[
+              {
+                q: 'Is Xylos AI completely free?',
+                a: 'Yes, Xylos AI aggregates top free AI models like Llama 3, Gemini, and Mistral, allowing you to use them without subscription costs. Premium access, zero fees.'
+              },
+              {
+                q: 'What is the best free alternative to ChatGPT?',
+                a: 'Xylos AI acts as a superior free ChatGPT alternative by giving you access to 7 different top-tier AI models in one premium workspace — all without paying a cent.'
+              },
+              {
+                q: 'Which AI models does Xylos AI support?',
+                a: 'Xylos AI routes your queries across 7+ frontier models including Llama 3.3, Gemini 2.5, Mistral Large, and specialized fine-tuned variants. The system auto-selects the optimal model for your task.'
+              },
+              {
+                q: 'How does Xylos AI ensure data privacy?',
+                a: 'Enterprise-grade encryption protects your prompts end-to-end. Our zero-retention policy means your data never leaves the secure pipeline — no storage, no training on your conversations.'
+              },
+            ].map((faq, i) => (
+              <details key={i} className="group rounded-xl overflow-hidden transition-all duration-300" style={{ border: '1px solid rgba(59, 73, 75, 0.2)', background: 'rgba(255, 255, 255, 0.02)' }}>
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-[rgba(0,240,255,0.02)] transition-colors">
+                  <span className="text-base font-bold pr-4" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>{faq.q}</span>
+                  <ChevronDown className="w-5 h-5 shrink-0 group-open:rotate-180 transition-transform" style={{ color: '#00f0ff' }} />
+                </summary>
+                <div className="px-6 pb-6">
+                  <p style={{ color: '#849495' }}>{faq.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <NewsletterForm />
 
       {/* ===== FOOTER ===== */}

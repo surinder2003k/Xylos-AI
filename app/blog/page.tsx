@@ -10,7 +10,7 @@ import { XylosLogo } from "@/components/premium/xylos-logo";
 
 
 export const metadata: Metadata = {
-  title: "AI Blog — Insights on Technology, AI & Innovation | Xylos AI",
+  title: "AI Blog — Insights on Technology, AI & Innovation",
   description: "Explore expert articles on artificial intelligence, technology trends, and digital innovation. Written and curated by the Xylos AI editorial engine.",
   alternates: {
     canonical: 'https://xylosai.vercel.app/blog',
