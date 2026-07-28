@@ -139,15 +139,15 @@ export default async function ToolProxyPage({ params }: { params: Promise<{ tool
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-24 px-6 overflow-hidden selection:bg-amber-500/30" style={{ background: '#141008', color: 'white' }}>
+    <div className="min-h-screen pt-32 pb-24 px-6 overflow-hidden selection:bg-red-500/30" style={{ background: '#0c0e12', color: '#e2e2e8' }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center space-y-8 relative">
-        <div className="w-16 h-16 rounded-2xl bg-amber-500/20 flex items-center justify-center mb-4" style={{ border: '1px solid rgba(245,158,11,0.2)' }}>
-          <tool.icon className="w-8 h-8 text-amber-400" />
+        <div className="w-16 h-16 rounded-2xl bg-red-500/20 flex items-center justify-center mb-4" style={{ border: '1px solid rgba(59, 73, 75, 0.2)' }}>
+          <tool.icon className="w-8 h-8 text-[#ff3131]" />
         </div>
         
         <p className="text-[10px] font-bold text-gray-600 uppercase tracking-[0.5em]">Xylos AI Protocol // Intelligence Engine</p>
@@ -162,7 +162,7 @@ export default async function ToolProxyPage({ params }: { params: Promise<{ tool
 
         <Link 
           href="/chat"
-          className="mt-8 flex items-center gap-3 px-8 py-4 rounded-2xl bg-amber-500 text-white font-bold hover:bg-amber-400 hover:shadow-lg hover:shadow-amber-500/20 transition-all group"
+          className="mt-8 flex items-center gap-3 px-8 py-4 rounded-2xl bg-[#ff3131] text-white font-bold hover:bg-[#ff5e00] hover:shadow-lg hover:shadow-red-500/20 transition-all group"
         >
           Get Started with {tool.title.split(' ')[0]}
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -180,9 +180,9 @@ export default async function ToolProxyPage({ params }: { params: Promise<{ tool
                 <h3 className="text-lg font-bold text-white">{benefit}</h3>
              </BentoCard>
           ))}
-          <BentoCard delay={0.3} className="col-span-1 md:col-span-3 lg:col-span-1" style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.05), rgba(249,115,22,0.05))', borderColor: 'rgba(245,158,11,0.15)' }}>
+          <BentoCard delay={0.3} className="col-span-1 md:col-span-3 lg:col-span-1" style={{ background: 'linear-gradient(135deg, rgba(59, 73, 75, 0.15), rgba(255, 94, 0, 0.05))', borderColor: 'rgba(59, 73, 75, 0.2)' }}>
              <div className="flex flex-col h-full justify-between">
-                <Shield className="w-10 h-10 text-amber-400 mb-4" />
+                <Shield className="w-10 h-10 text-[#ff3131] mb-4" />
                 <h3 className="text-2xl font-bold mb-2 text-white">Enterprise Grade Security</h3>
                 <p className="text-sm text-gray-400 font-medium">This tool is powered by Xylos AI&apos;s Neural Intelligence Layer — enterprise-grade, privacy-first.</p>
              </div>

@@ -4,28 +4,28 @@ import { ArrowLeft, Cpu, MessageSquare } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden selection:bg-amber-500/30" style={{ background: '#141008', color: 'white' }}>
+    <div className="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden selection:bg-red-500/30" style={{ background: '#0c0e12', color: '#e2e2e8' }}>
       {/* Background glows */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[150px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-orange-500/8 rounded-full blur-[120px]" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500/8 rounded-full blur-[150px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-orange-500/6 rounded-full blur-[120px]" />
       </div>
 
       {/* Dot grid */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(rgba(245,158,11,0.3) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(rgba(0, 240, 255, 0.3) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
       <div className="relative z-10 flex flex-col items-center text-center space-y-10 max-w-xl">
         <AnimatedLogo className="scale-125" />
 
         <div className="space-y-4">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.3em]" style={{ background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.2)', color: '#f59e0b' }}>
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.3em]" style={{ background: 'rgba(0, 240, 255, 0.1)', border: '1px solid rgba(0, 240, 255, 0.2)', color: '#00f0ff' }}>
             <Cpu className="w-3 h-3" />
             Signal Lost — Error 404
           </div>
 
           <h1 className="text-[8rem] font-black leading-none tracking-tighter">
             <span className="text-white">4</span>
-            <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent italic">0</span>
+            <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent italic">0</span>
             <span className="text-white">4</span>
           </h1>
 
@@ -37,15 +37,15 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full">
           <Link
             href="/"
-            className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-amber-500 text-white font-bold text-xs uppercase tracking-[0.2em] hover:bg-amber-400 transition-all w-full sm:w-auto"
+            className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-[#ff3131] text-white font-bold text-xs uppercase tracking-[0.2em] hover:bg-[#ff5e00] transition-all w-full sm:w-auto"
           >
             <ArrowLeft className="w-4 h-4" />
             Return to Base
           </Link>
           <Link
             href="/chat"
-            className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl border font-bold text-xs uppercase tracking-[0.2em] hover:bg-amber-500/10 transition-all w-full sm:w-auto text-gray-400"
-            style={{ borderColor: 'rgba(245,158,11,0.15)' }}
+            className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl border font-bold text-xs uppercase tracking-[0.2em] hover:bg-red-500/10 transition-all w-full sm:w-auto text-gray-400"
+            style={{ borderColor: 'rgba(59, 73, 75, 0.3)' }}
           >
             <MessageSquare className="w-4 h-4" />
             Open Neural Chat

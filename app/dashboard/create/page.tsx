@@ -250,7 +250,7 @@ function CreatePostContent() {
           <button 
             onClick={handlePublish}
             disabled={isPublishing || isGenerating}
-            className="px-8 py-4 rounded-none bg-primary text-black font-black hover:shadow-[0_0_30px_rgba(210,187,255,0.3)] transition-all flex items-center gap-2 disabled:opacity-50 disabled:grayscale"
+            className="px-8 py-4 rounded-none bg-primary text-black font-black hover:shadow-[0_0_30px_rgba(255,49,49,0.3)] transition-all flex items-center gap-2 disabled:opacity-50 disabled:grayscale"
           >
             {isPublishing ? (
               <>
@@ -382,7 +382,7 @@ function CreatePostContent() {
               <button 
                 onClick={handleGenerateDraft}
                 disabled={isGenerating || isPublishing}
-                className="w-full bg-primary text-black font-black py-4 rounded-none hover:shadow-[0_0_30px_rgba(210,187,255,0.3)] transition-all flex items-center justify-center gap-2 group disabled:opacity-50"
+                className="w-full bg-primary text-black font-black py-4 rounded-none hover:shadow-[0_0_30px_rgba(255,49,49,0.3)] transition-all flex items-center justify-center gap-2 group disabled:opacity-50"
               >
                 {isGenerating ? (
                   <>

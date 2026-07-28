@@ -85,6 +85,8 @@ const config: Config = {
       fontFamily: {
         geist: ["Inter", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
         inter: ["Inter", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        sora: ["Sora", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        jetbrains: ["JetBrains Mono", "monospace"],
       },
       borderRadius: {
         "sm": "0.375rem",

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Fustat } from "next/font/google";
+import { Inter, Fustat, Sora, JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -25,6 +25,18 @@ const inter = Inter({
 const fustat = Fustat({ 
   subsets: ["latin"], 
   variable: "--font-fustat",
+  display: 'swap',
+  preload: true,
+});
+const sora = Sora({ 
+  subsets: ["latin"], 
+  variable: "--font-sora",
+  display: 'swap',
+  preload: true,
+});
+const jetbrainsMono = JetBrains_Mono({ 
+  subsets: ["latin"], 
+  variable: "--font-jetbrains",
   display: 'swap',
   preload: true,
 });
@@ -141,7 +153,7 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} ${fustat.variable} ${geistSans.variable} antialiased selection:bg-amber-500/30 selection:text-white`}>
+      <body className={`${inter.variable} ${fustat.variable} ${geistSans.variable} ${sora.variable} ${jetbrainsMono.variable} antialiased selection:bg-cyan-500/30 selection:text-white`}>
         <Script id="gtm-script" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

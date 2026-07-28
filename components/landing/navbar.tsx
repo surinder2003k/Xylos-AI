@@ -18,20 +18,22 @@ export function Navbar({ user }: NavbarProps) {
   const router = useRouter();
 
   const navLinks = [
-    { href: "/chat", label: "Neural Chat" },
-    { href: "/blog", label: "Blog" },
-    { href: "/about", label: "About Us" },
+    { href: "/chat", label: "Models" },
+    { href: "/blog", label: "About" },
+    { href: "/about", label: "Docs" },
   ];
 
   const isActive = (href: string) =>
     pathname === href || pathname?.startsWith(href + "/");
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b transition-all duration-300" style={{ background: 'rgba(20,16,8,0.85)', borderColor: 'rgba(245,158,11,0.08)' }}>
+    <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b transition-all duration-300" style={{ background: 'rgba(12, 14, 18, 0.85)', borderColor: 'rgba(59, 73, 75, 0.2)' }}>
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         
         {/* Logo */}
-        <AnimatedLogo />
+        <Link href="/" className="flex items-center gap-2">
+          <span className="text-sm font-bold tracking-wider" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Xylos AI</span>
+        </Link>
         
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8 text-[10px] font-bold uppercase tracking-[0.3em]">
@@ -39,11 +41,12 @@ export function Navbar({ user }: NavbarProps) {
             <Link
               key={link.href}
               href={link.href}
-              className={`transition-colors hover:text-amber-400 ${
+              className={`transition-colors hover:text-[#00f0ff] ${
                 isActive(link.href)
                   ? "text-white"
-                  : "text-gray-500"
+                  : "text-[#849495]"
               }`}
+              style={{ fontFamily: 'JetBrains Mono, monospace' }}
             >
               {link.label}
             </Link>
@@ -54,10 +57,15 @@ export function Navbar({ user }: NavbarProps) {
         <div className="hidden md:flex items-center gap-4">
           <Link 
             href={user ? "/dashboard" : "/login"}
-            className="px-6 py-2.5 rounded-xl border bg-white/5 text-gray-300 hover:bg-amber-500 hover:text-white hover:border-amber-500 transition-all text-[10px] font-bold uppercase tracking-widest shadow-sm"
-            style={{ borderColor: 'rgba(245,158,11,0.15)' }}
+            className="px-6 py-2.5 rounded-xl transition-all text-[10px] font-bold uppercase tracking-widest"
+            style={{ 
+              background: 'rgba(255, 94, 0, 0.1)', 
+              border: '1px solid rgba(255, 94, 0, 0.2)', 
+              color: '#ff5e00',
+              fontFamily: 'JetBrains Mono, monospace'
+            }}
           >
-            {user ? "Systems" : "Sign In"}
+            {user ? "Systems" : "Login"}
           </Link>
         </div>
 
@@ -66,8 +74,8 @@ export function Navbar({ user }: NavbarProps) {
           <button 
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
-            className="p-2 rounded-xl border"
-            style={{ background: 'rgba(245,158,11,0.05)', borderColor: 'rgba(245,158,11,0.1)', color: 'rgba(255,255,255,0.6)' }}
+            className="p-2 rounded-xl"
+            style={{ background: 'rgba(255, 94, 0, 0.05)', border: '1px solid rgba(59, 73, 75, 0.3)', color: 'rgba(226, 226, 232, 0.6)' }}
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -82,7 +90,7 @@ export function Navbar({ user }: NavbarProps) {
             : "opacity-0 -translate-y-4 pointer-events-none"
         }`}
       >
-        <div className="p-8 rounded-2xl shadow-lg space-y-6" style={{ background: 'rgba(20,16,8,0.95)', border: '1px solid rgba(245,158,11,0.1)' }}>
+        <div className="p-8 rounded-2xl shadow-lg space-y-6" style={{ background: 'rgba(12, 14, 18, 0.95)', border: '1px solid rgba(59, 73, 75, 0.3)' }}>
           <div className="flex flex-col gap-6">
             {navLinks.map((link) => (
               <Link 
@@ -90,22 +98,24 @@ export function Navbar({ user }: NavbarProps) {
                 href={link.href} 
                 onClick={() => setIsOpen(false)}
                 className={`text-2xl font-black uppercase tracking-tight transition-colors ${
-                  isActive(link.href) ? "text-white" : "text-gray-500 hover:text-white"
+                  isActive(link.href) ? "text-white" : "text-[#849495] hover:text-white"
                 }`}
+                style={{ fontFamily: 'Sora, sans-serif' }}
               >
                 {link.label}
                 {isActive(link.href) && (
-                  <span className="ml-3 text-[9px] font-bold text-amber-400 uppercase tracking-widest align-middle">— Active</span>
+                  <span className="ml-3 text-[9px] font-bold uppercase tracking-widest align-middle" style={{ color: '#00f0ff', fontFamily: 'JetBrains Mono, monospace' }}>— Active</span>
                 )}
               </Link>
             ))}
           </div>
           
-          <div className="pt-6 space-y-4" style={{ borderTop: '1px solid rgba(245,158,11,0.1)' }}>
+          <div className="pt-6 space-y-4" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.3)' }}>
             <Link 
               href={user ? "/dashboard" : "/login"}
               onClick={() => setIsOpen(false)}
-              className="block w-full text-center px-6 py-4 rounded-xl bg-amber-500 text-white font-bold text-xs uppercase tracking-[0.2em]"
+              className="block w-full text-center px-6 py-4 rounded-xl text-white font-bold text-xs uppercase tracking-[0.2em]"
+              style={{ background: 'linear-gradient(135deg, #ff5e00, #ff3131)' }}
             >
               {user ? "Enter Systems" : "Get Started"}
             </Link>
@@ -117,8 +127,8 @@ export function Navbar({ user }: NavbarProps) {
                   await signOut();
                   router.push('/');
                 }}
-                className="flex items-center justify-center gap-3 w-full px-6 py-4 rounded-xl border bg-white/5 text-gray-400 hover:text-red-500 transition-all text-xs font-bold uppercase tracking-widest"
-                style={{ borderColor: 'rgba(245,158,11,0.1)' }}
+                className="flex items-center justify-center gap-3 w-full px-6 py-4 rounded-xl transition-all text-xs font-bold uppercase tracking-widest"
+                style={{ border: '1px solid rgba(59, 73, 75, 0.3)', background: 'rgba(255, 49, 49, 0.05)', color: '#849495' }}
               >
                 <LogOut className="w-4 h-4" />
                 Sign Out

@@ -23,17 +23,17 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
 
   return (
     <div id="stories" className="w-full max-w-7xl mx-auto py-8 md:py-12 space-y-8 md:space-y-12">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10" style={{ borderBottom: '1px solid rgba(245,158,11,0.08)' }}>
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10" style={{ borderBottom: '1px solid rgba(59, 73, 75, 0.2)' }}>
         <div className="space-y-4">
-          <div className="flex items-center gap-3 text-amber-400 font-bold text-[10px] uppercase tracking-[0.4em]">
-            <Bookmark className="w-4 h-4 fill-amber-500/20 text-amber-400" />
+          <div className="flex items-center gap-3 text-[#00f0ff] font-bold text-[10px] uppercase tracking-[0.4em]">
+            <Bookmark className="w-4 h-4 fill-red-500/20 text-[#00f0ff]" />
             Curated Insights
           </div>
           <h2 className="text-4xl md:text-7xl font-black tracking-tighter leading-none text-white">
             Human <span className="text-white/20 italic">&</span> Tech
           </h2>
         </div>
-        <Link href="/blog" className="group text-xs font-bold text-gray-500 hover:text-amber-400 uppercase tracking-[0.3em] transition-all flex items-center gap-2">
+        <Link href="/blog" className="group text-xs font-bold text-gray-500 hover:text-[#00f0ff] uppercase tracking-[0.3em] transition-all flex items-center gap-2">
            View Full Archive 
            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
         </Link>
@@ -52,7 +52,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
           >
             <div>
               <Link href={`/blog/${blog.slug || blog.id}`} aria-label={`Read full article: ${blog.title}`} className="group block h-full">
-                <div className="rounded-2xl overflow-hidden hover:shadow-md transition-all duration-300 h-full flex flex-col" style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(245,158,11,0.08)' }}>
+                <div className="rounded-2xl overflow-hidden hover:shadow-md transition-all duration-300 h-full flex flex-col" style={{ background: 'rgba(12, 14, 18, 0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
                   
                   {/* Image Header */}
                   <div className="relative aspect-[16/11] overflow-hidden">
@@ -64,7 +64,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     <div className="absolute top-4 left-4 z-20">
-                      <div className="px-4 py-1.5 bg-amber-500/90 text-white text-[9px] font-bold uppercase tracking-[0.2em] rounded-full backdrop-blur-sm">
+                      <div className="px-4 py-1.5 bg-[#ff3131]/90 text-white text-[9px] font-bold uppercase tracking-[0.2em] rounded-full backdrop-blur-sm">
                         {blog.category}
                       </div>
                     </div>
@@ -73,13 +73,13 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                   {/* Content */}
                   <div className="p-6 md:p-8 flex-1 flex flex-col">
                     <div className="flex items-center gap-4 text-[9px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-4">
-                       <div className="flex items-center gap-2 px-3 py-1 rounded-full" style={{ background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.08)' }}>
-                          <Clock className="w-3 h-3 text-amber-400/50" /> 
+                       <div className="flex items-center gap-2 px-3 py-1 rounded-full" style={{ background: 'rgba(59, 73, 75, 0.15)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
+                          <Clock className="w-3 h-3 text-[#00f0ff]/50" /> 
                           {formatIST(blog.published_at)}
                        </div>
                     </div>
 
-                    <h3 className="text-xl font-black leading-[1.1] group-hover:text-amber-400 transition-colors line-clamp-2 uppercase tracking-tight mb-3 text-white">
+                    <h3 className="text-xl font-black leading-[1.1] group-hover:text-[#00f0ff] transition-colors line-clamp-2 uppercase tracking-tight mb-3 text-white">
                        {blog.title}
                     </h3>
 
@@ -87,17 +87,17 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                       {blog.excerpt}
                     </p>
 
-                    <div className="mt-auto pt-6 flex items-center justify-between" style={{ borderTop: '1px solid rgba(245,158,11,0.06)' }}>
+                    <div className="mt-auto pt-6 flex items-center justify-between" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
                       <div className="flex items-center gap-3">
-                         <div className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden" style={{ background: 'rgba(245,158,11,0.08)' }}>
-                            <User className="w-5 h-5 text-amber-400/30" />
+                         <div className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden" style={{ background: 'rgba(59, 73, 75, 0.2)' }}>
+                            <User className="w-5 h-5 text-[#00f0ff]/30" />
                          </div>
                          <div className="flex flex-col">
                            <span className="text-[11px] font-bold text-gray-300 uppercase tracking-widest">{blog.profiles?.full_name || 'Xylos Team'}</span>
                            <span className="text-[9px] font-bold text-gray-600 uppercase tracking-widest">Author</span>
                          </div>
                       </div>
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center group-hover:bg-amber-500 group-hover:text-white transition-all duration-300" style={{ background: 'rgba(245,158,11,0.08)' }}>
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center group-hover:bg-[#ff3131] group-hover:text-white transition-all duration-300" style={{ background: 'rgba(59, 73, 75, 0.2)' }}>
                          <ArrowUpRight className="w-4 h-4 transition-transform duration-500 group-hover:rotate-45" />
                       </div>
                     </div>

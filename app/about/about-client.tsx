@@ -22,16 +22,16 @@ import { NewsletterForm } from "@/components/landing/newsletter-form";
 export default function AboutPageClient() {
 
   return (
-    <div className="min-h-screen selection:bg-amber-500/30 relative overflow-hidden" style={{ background: '#141008', color: 'white' }}>
+    <div className="min-h-screen selection:bg-red-500/30 relative overflow-hidden" style={{ background: '#0c0e12', color: '#e2e2e8' }}>
 
       {/* Background glows */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[150px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-orange-500/8 rounded-full blur-[120px]" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500/8 rounded-full blur-[150px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-orange-500/6 rounded-full blur-[120px]" />
       </div>
 
       {/* Dot grid */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(rgba(245,158,11,0.3) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(rgba(0,240,255,0.3) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
       <main className="relative z-10 pt-32 px-6 pb-20 max-w-7xl mx-auto">
         {/* Hero Section */}
@@ -40,16 +40,16 @@ export default function AboutPageClient() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.3em]"
-            style={{ background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.2)', color: '#f59e0b' }}
+            style={{ background: 'rgba(0,240,255,0.1)', border: '1px solid rgba(0,240,255,0.2)', color: '#00f0ff' }}
           >
             <Sparkles className="w-3 h-3" />
             Neural Genesis
           </motion.div>
           
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-8xl font-black tracking-tighter leading-tight text-white">
+              <h1 className="text-5xl md:text-8xl font-black tracking-tighter leading-tight text-white">
               XYLOS AI: NEURAL SYNTHESIS<br />
-              <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent">AND HUMAN INTELLIGENCE</span>
+              <span className="bg-gradient-to-r from-red-500 via-orange-500 to-red-400 bg-clip-text text-transparent">AND HUMAN INTELLIGENCE</span>
             </h1>
             <p className="text-gray-400 text-lg md:text-xl font-medium max-w-3xl mx-auto leading-relaxed">
               Xylos AI is more than just a platform — it&apos;s a decentralized editorial engine designed to augment human creativity with industrial-grade artificial intelligence.
@@ -67,7 +67,7 @@ export default function AboutPageClient() {
           >
             <div className="space-y-4">
               <h2 className="text-3xl font-black uppercase tracking-tight flex items-center gap-4 text-white">
-                <Cpu aria-hidden="true" className="w-8 h-8 text-amber-400" />
+                <Cpu aria-hidden="true" className="w-8 h-8 text-red-500" />
                 The Protocol
               </h2>
               <p className="text-gray-400 leading-loose text-lg">
@@ -95,7 +95,7 @@ export default function AboutPageClient() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-video rounded-3xl p-1 overflow-hidden group" style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(245,158,11,0.08)' }}>
+            <div className="aspect-video rounded-3xl p-1 overflow-hidden group" style={{ background: 'rgba(12, 14, 18, 0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
                <div className="w-full h-full rounded-2xl overflow-hidden relative">
                   <img 
                     src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80" 
@@ -112,9 +112,9 @@ export default function AboutPageClient() {
             </div>
             
             {/* Float Badge */}
-            <div className="absolute -bottom-6 -left-6 p-6 rounded-2xl" style={{ background: 'rgba(20,16,8,0.8)', border: '1px solid rgba(245,158,11,0.1)' }}>
+            <div className="absolute -bottom-6 -left-6 p-6 rounded-2xl" style={{ background: 'rgba(12, 14, 18, 0.8)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-400">
+                <div className="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center text-red-500">
                   <Brain className="w-6 h-6" />
                 </div>
                 <div>
@@ -133,11 +133,11 @@ export default function AboutPageClient() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="md:col-span-2 p-10 rounded-2xl relative overflow-hidden"
-            style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(245,158,11,0.08)' }}
+            style={{ background: 'rgba(12, 14, 18, 0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
           >
             <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-6">
-              <div className="w-16 h-16 rounded-2xl bg-amber-500/20 flex items-center justify-center shrink-0">
-                <MessageSquare className="w-8 h-8 text-amber-400" />
+              <div className="w-16 h-16 rounded-2xl bg-red-500/20 flex items-center justify-center shrink-0">
+                <MessageSquare className="w-8 h-8 text-red-500" />
               </div>
               <div className="flex-1">
                 <h3 className="text-2xl font-black text-white mb-2">Unified AI Chat</h3>
@@ -155,11 +155,11 @@ export default function AboutPageClient() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="p-10 rounded-2xl relative overflow-hidden"
-            style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(245,158,11,0.08)' }}
+            style={{ background: 'rgba(12, 14, 18, 0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
           >
             <div className="relative z-10 space-y-4">
               <div className="w-16 h-16 rounded-2xl bg-orange-500/20 flex items-center justify-center">
-                <Code2 className="w-8 h-8 text-orange-400" />
+                <Code2 className="w-8 h-8 text-orange-500" />
               </div>
               <h3 className="text-xl font-black text-white">Code Assistant</h3>
               <p className="text-gray-400 leading-relaxed">Full-stack development tools powered by AI.</p>
@@ -171,11 +171,11 @@ export default function AboutPageClient() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="p-10 rounded-2xl relative overflow-hidden"
-            style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(245,158,11,0.08)' }}
+            style={{ background: 'rgba(12, 14, 18,0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
           >
             <div className="relative z-10 space-y-4">
-              <div className="w-16 h-16 rounded-2xl bg-yellow-500/20 flex items-center justify-center">
-                <FileText className="w-8 h-8 text-yellow-400" />
+              <div className="w-16 h-16 rounded-2xl bg-orange-500/20 flex items-center justify-center">
+                <FileText className="w-8 h-8 text-orange-500" />
               </div>
               <h3 className="text-xl font-black text-white">Content Factory</h3>
               <p className="text-gray-400 leading-relaxed">Blog & social media content generation.</p>
@@ -187,11 +187,11 @@ export default function AboutPageClient() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="p-10 rounded-2xl relative overflow-hidden"
-            style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(245,158,11,0.08)' }}
+            style={{ background: 'rgba(12, 14, 18,0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
           >
             <div className="relative z-10 space-y-4">
-              <div className="w-16 h-16 rounded-2xl bg-amber-500/20 flex items-center justify-center">
-                <Zap className="w-8 h-8 text-amber-400" />
+              <div className="w-16 h-16 rounded-2xl bg-red-500/20 flex items-center justify-center">
+                <Zap className="w-8 h-8 text-[#00f0ff]" />
               </div>
               <h3 className="text-xl font-black text-white">Smart Tools</h3>
               <p className="text-gray-400 leading-relaxed">12+ specialized AI tools for productivity.</p>
@@ -207,7 +207,7 @@ export default function AboutPageClient() {
         </div>
 
         {/* Mission Statement */}
-        <section className="p-12 md:p-24 text-center space-y-8 relative overflow-hidden rounded-3xl" style={{ background: 'rgba(245,158,11,0.03)', border: '1px solid rgba(245,158,11,0.08)' }}>
+        <section className="p-12 md:p-24 text-center space-y-8 relative overflow-hidden rounded-3xl" style={{ background: 'rgba(255, 49, 49, 0.03)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
            <h2 className="text-3xl md:text-5xl font-black uppercase text-white relative z-10">Our Mission</h2>
            <p className="text-xl md:text-3xl font-bold text-gray-400 max-w-4xl mx-auto leading-tight relative z-10">
              Xylos was founded on a singular premise: that technology should empower human expression, not replace it. We are building the infrastructure for the next century of digital storytelling.
@@ -218,7 +218,7 @@ export default function AboutPageClient() {
         <NewsletterForm />
       </main>
 
-      <footer className="py-12 px-6 text-center" style={{ borderTop: '1px solid rgba(245,158,11,0.08)' }}>
+      <footer className="py-12 px-6 text-center" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
         <p className="text-[10px] font-bold text-gray-600 uppercase tracking-[0.4em]">
           &copy; 2026 Xylos AI Research Systems // All Rights Reserved
         </p>
@@ -229,8 +229,8 @@ export default function AboutPageClient() {
 
 function FeatureCard({ icon: Icon, title, desc }: any) {
   return (
-    <div className="p-6 rounded-2xl transition-all duration-300 group" style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(245,158,11,0.08)' }}>
-      <div className="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-400 group-hover:bg-amber-500/30 transition-all duration-300 mb-4">
+    <div className="p-6 rounded-2xl transition-all duration-300 group" style={{ background: 'rgba(12, 14, 18,0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
+      <div className="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center text-[#00f0ff] group-hover:bg-red-500/30 transition-all duration-300 mb-4">
         <Icon className="w-5 h-5" />
       </div>
       <h3 className="font-black text-sm uppercase tracking-widest mb-2 text-white">{title}</h3>
@@ -241,9 +241,9 @@ function FeatureCard({ icon: Icon, title, desc }: any) {
 
 function StatBox({ label, value }: any) {
   return (
-    <div className="p-8 rounded-2xl text-center space-y-2 transition-all duration-300 cursor-default group" style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(245,158,11,0.08)' }}>
+    <div className="p-8 rounded-2xl text-center space-y-2 transition-all duration-300 cursor-default group" style={{ background: 'rgba(12, 14, 18,0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
       <p className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.3em]">{label}</p>
-      <p className="text-4xl font-black text-white group-hover:text-amber-400 transition-colors">{value}</p>
+      <p className="text-4xl font-black text-white group-hover:text-[#00f0ff] transition-colors">{value}</p>
     </div>
   );
 }

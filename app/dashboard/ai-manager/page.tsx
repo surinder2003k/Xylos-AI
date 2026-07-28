@@ -266,7 +266,7 @@ export default function AIManagerPage() {
             <button 
               onClick={runAutomation}
               disabled={isRunning}
-              className="px-8 py-3.5 rounded-none bg-primary text-black font-bold hover:shadow-[0_0_30px_rgba(210,187,255,0.3)] transition-all flex items-center gap-3 disabled:opacity-50"
+              className="px-8 py-3.5 rounded-none bg-primary text-black font-bold hover:shadow-[0_0_30px_rgba(255,49,49,0.3)] transition-all flex items-center gap-3 disabled:opacity-50"
             >
               {isRunning ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Play className="w-4 h-4" />}
               {isRunning ? "PROCESSING..." : "CREATE 2 POST"}

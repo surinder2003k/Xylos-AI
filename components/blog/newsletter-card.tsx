@@ -26,14 +26,14 @@ export function NewsletterCard() {
   };
 
   return (
-    <div className="mt-8 p-8 rounded-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.06), rgba(20,16,8,0.6))', border: '1px solid rgba(245,158,11,0.1)' }}>
+    <div className="mt-8 p-8 rounded-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, rgba(59, 73, 75, 0.15), rgba(12, 14, 18, 0.6))', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
       <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
-        <Sparkles className="w-32 h-32 text-amber-500" />
+        <Sparkles className="w-32 h-32 text-[#ff3131]" />
       </div>
       
       <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
         <div className="space-y-3 flex-1">
-          <div className="flex items-center gap-3 text-amber-400">
+          <div className="flex items-center gap-3 text-[#ff3131]">
             <BellRing className="w-5 h-5 animate-bounce" />
             <span className="text-[10px] font-bold uppercase tracking-[0.4em]">Editorial Intelligence</span>
           </div>
@@ -52,12 +52,12 @@ export function NewsletterCard() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email..." 
             className="px-6 py-4 rounded-xl focus:outline-none focus:ring-2 font-medium text-sm w-full sm:min-w-[300px] text-white placeholder:text-gray-500"
-            style={{ background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.12)' }}
+            style={{ background: 'rgba(59, 73, 75, 0.15)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
             required
           />
           <button 
             type="submit"
-            className="px-8 py-4 rounded-xl bg-amber-500 text-white font-bold uppercase text-xs tracking-widest hover:bg-amber-400 transition-all flex items-center justify-center gap-2"
+            className="px-8 py-4 rounded-xl bg-[#ff3131] text-white font-bold uppercase text-xs tracking-widest hover:bg-[#ff5e00] transition-all flex items-center justify-center gap-2"
           >
             Join Elite <Send className="w-3 h-3" />
           </button>

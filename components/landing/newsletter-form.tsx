@@ -47,7 +47,7 @@ export function NewsletterForm() {
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto my-24 p-6 md:p-12 rounded-3xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-12" style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(245,158,11,0.08)' }}>
+    <div className="w-full max-w-5xl mx-auto my-24 p-6 md:p-12 rounded-3xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-12" style={{ background: 'rgba(12, 14, 18, 0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
       
       {/* Left Content Area */}
       <div className="relative z-10 w-full lg:w-1/2 space-y-6 text-center lg:text-left">
@@ -69,13 +69,13 @@ export function NewsletterForm() {
               disabled={status === 'loading' || status === 'success'}
               placeholder="Enter your email" 
               className="w-full rounded-xl py-4 px-6 text-sm focus:outline-none focus:ring-2 transition-all disabled:opacity-50 placeholder:text-gray-500 text-white"
-              style={{ background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.12)', focusRingColor: 'rgba(245,158,11,0.2)' }}
+              style={{ background: 'rgba(59, 73, 75, 0.15)', border: '1px solid rgba(59, 73, 75, 0.2)', focusRingColor: 'rgba(255, 49, 49, 0.2)' }}
             />
           </div>
           <button 
             type="submit"
             disabled={status === 'loading' || status === 'success'}
-            className="flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-xl bg-amber-500 text-white font-bold text-[10px] uppercase tracking-widest hover:bg-amber-400 transition-all disabled:opacity-80 disabled:pointer-events-none"
+            className="flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-xl bg-[#ff3131] text-white font-bold text-[10px] uppercase tracking-widest hover:bg-[#ff5e00] transition-all disabled:opacity-80 disabled:pointer-events-none"
           >
             {status === 'loading' ? (
               <span className="flex items-center gap-2">
@@ -105,7 +105,7 @@ export function NewsletterForm() {
  
       {/* Right Image Area */}
       <div className="relative z-10 w-full lg:w-1/2 flex justify-center lg:justify-end items-center h-48 sm:h-64 lg:h-auto">
-         <div className="relative w-[90%] lg:w-full max-w-[400px] aspect-video rounded-2xl overflow-hidden group" style={{ border: '1px solid rgba(245,158,11,0.1)' }}>
+         <div className="relative w-[90%] lg:w-full max-w-[400px] aspect-video rounded-2xl overflow-hidden group" style={{ border: '1px solid rgba(59, 73, 75, 0.2)' }}>
            <Image 
              src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" 
              alt="Xylos AI Newsletter — High-tech nature visualization"

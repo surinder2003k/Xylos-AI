@@ -177,7 +177,7 @@ export default function AllStoriesPage() {
         
         <Link 
           href="/dashboard/create"
-          className="group flex items-center gap-4 bg-primary text-black px-10 py-5 rounded-none font-black text-xs uppercase tracking-widest hover:shadow-[0_0_30px_rgba(210,187,255,0.3)] transition-all"
+          className="group flex items-center gap-4 bg-primary text-black px-10 py-5 rounded-none font-black text-xs uppercase tracking-widest hover:shadow-[0_0_30px_rgba(255,49,49,0.3)] transition-all"
         >
           <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
           Draft New Story

@@ -23,12 +23,12 @@ export function ShareButtons({ title, excerpt, slug }: ShareButtonsProps) {
   };
 
   return (
-    <div className="hidden md:flex items-center gap-4 pr-6 mr-2" style={{ borderRight: '1px solid rgba(245,158,11,0.1)' }}>
+    <div className="hidden md:flex items-center gap-4 pr-6 mr-2" style={{ borderRight: '1px solid rgba(59, 73, 75, 0.2)' }}>
       <a 
         href={`https://twitter.com/intent/tweet?url=${url}&text=${encodeURIComponent(title)}`} 
         target="_blank" 
         rel="noopener noreferrer" 
-        className="text-gray-500 hover:text-amber-400 transition-colors"
+        className="text-gray-500 hover:text-[#00f0ff] transition-colors"
       >
         <Twitter className="w-4 h-4" />
       </a>
@@ -36,13 +36,13 @@ export function ShareButtons({ title, excerpt, slug }: ShareButtonsProps) {
         href={`https://www.facebook.com/sharer/sharer.php?u=${url}`} 
         target="_blank" 
         rel="noopener noreferrer" 
-        className="text-gray-500 hover:text-amber-400 transition-colors"
+        className="text-gray-500 hover:text-[#00f0ff] transition-colors"
       >
         <Facebook className="w-4 h-4" />
       </a>
       <button 
         onClick={handleShare} 
-        className="text-gray-500 hover:text-amber-400 transition-colors"
+        className="text-gray-500 hover:text-[#00f0ff] transition-colors"
       >
         <Share2 className="w-4 h-4" />
       </button>

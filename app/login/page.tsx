@@ -30,17 +30,17 @@ function LoginContent() {
   };
 
   return (
-    <div className="min-h-screen flex relative overflow-hidden selection:bg-amber-500/30" style={{ background: '#141008', color: 'white' }}>
+    <div className="min-h-screen flex relative overflow-hidden selection:bg-red-500/30" style={{ background: '#0c0e12', color: '#e2e2e8' }}>
       {/* Left Panel - Visual (hidden on mobile) */}
-      <div className="hidden lg:flex lg:w-1/2 relative items-center justify-center p-12" style={{ background: 'rgba(245,158,11,0.02)' }}>
+      <div className="hidden lg:flex lg:w-1/2 relative items-center justify-center p-12" style={{ background: 'rgba(255, 49, 49, 0.02)' }}>
         {/* Background gradients */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[150px]" />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500/10 rounded-full blur-[150px]" />
           <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-orange-500/8 rounded-full blur-[120px]" />
         </div>
 
         {/* Dot grid */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(rgba(245,158,11,0.3) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(rgba(0, 240, 255, 0.3) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
         <div className="relative z-10 space-y-10 max-w-md">
           {/* Floating feature cards */}
@@ -50,10 +50,10 @@ function LoginContent() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
               className="flex items-center gap-4 p-5 rounded-2xl"
-              style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(245,158,11,0.08)' }}
+              style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
             >
-              <div className="w-11 h-11 rounded-xl bg-amber-500/20 flex items-center justify-center shrink-0">
-                <MessageSquare className="w-5 h-5 text-amber-400" />
+              <div className="w-11 h-11 rounded-xl bg-red-500/20 flex items-center justify-center shrink-0">
+                <MessageSquare className="w-5 h-5 text-[#ff3131]" />
               </div>
               <div>
                 <p className="text-sm font-bold text-white">Unified AI Chat</p>
@@ -66,7 +66,7 @@ function LoginContent() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4 }}
               className="flex items-center gap-4 p-5 rounded-2xl ml-8"
-              style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(245,158,11,0.08)' }}
+              style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
             >
               <div className="w-11 h-11 rounded-xl bg-orange-500/20 flex items-center justify-center shrink-0">
                 <Code2 className="w-5 h-5 text-orange-400" />
@@ -82,7 +82,7 @@ function LoginContent() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6 }}
               className="flex items-center gap-4 p-5 rounded-2xl ml-4"
-              style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(245,158,11,0.08)' }}
+              style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
             >
               <div className="w-11 h-11 rounded-xl bg-yellow-500/20 flex items-center justify-center shrink-0">
                 <FileText className="w-5 h-5 text-yellow-400" />
@@ -102,7 +102,7 @@ function LoginContent() {
             className="space-y-2"
           >
             <h2 className="text-3xl font-black tracking-tight text-white">Free AI Chat.</h2>
-            <h2 className="text-3xl font-black bg-gradient-to-r from-amber-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent tracking-tight">Refine Your Narrative.</h2>
+            <h2 className="text-3xl font-black bg-gradient-to-r from-red-500 via-orange-500 to-red-400 bg-clip-text text-transparent tracking-tight">Refine Your Narrative.</h2>
             <p className="text-gray-500 text-sm">Zero cost. Infinite possibilities.</p>
           </motion.div>
         </div>
@@ -112,7 +112,7 @@ function LoginContent() {
       <div className="flex-1 flex items-center justify-center p-6 md:p-12 relative">
         {/* Back to home */}
         <div className="absolute top-6 left-6 z-10">
-          <Link href="/" className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500 hover:text-amber-400 transition-colors">
+          <Link href="/" className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500 hover:text-[#00f0ff] transition-colors">
             ← Back to Home
           </Link>
         </div>
@@ -145,7 +145,7 @@ function LoginContent() {
           )}
 
           {/* Auth Card */}
-          <div className="p-8 rounded-2xl relative overflow-hidden" style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(245,158,11,0.08)' }}>
+          <div className="p-8 rounded-2xl relative overflow-hidden" style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
             <form action={isLogin ? signInWithEmail : signUpWithEmail} onSubmit={handleSubmit} className="space-y-4 relative z-10">
               {!isLogin && (
                 <div className="space-y-1.5">
@@ -158,7 +158,7 @@ function LoginContent() {
                       placeholder="Enter your name" 
                       required
                       className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 transition-all text-white placeholder:text-gray-600 text-sm"
-                      style={{ background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.1)' }}
+                      style={{ background: 'rgba(255, 94, 0, 0.05)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
                     />
                   </div>
                 </div>
@@ -174,7 +174,7 @@ function LoginContent() {
                     placeholder="name@example.com" 
                     required
                     className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 transition-all text-white placeholder:text-gray-600 text-sm"
-                    style={{ background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.1)' }}
+                    style={{ background: 'rgba(255, 94, 0, 0.05)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
                   />
                 </div>
               </div>
@@ -189,7 +189,7 @@ function LoginContent() {
                     placeholder="••••••••" 
                     required
                     className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 transition-all text-white placeholder:text-gray-600 text-sm"
-                    style={{ background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.1)' }}
+                    style={{ background: 'rgba(255, 94, 0, 0.05)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
                   />
                 </div>
               </div>
@@ -197,7 +197,7 @@ function LoginContent() {
               <button 
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-amber-500 text-white font-bold py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 flex items-center justify-center gap-2 group mt-6 disabled:opacity-50 disabled:pointer-events-none text-sm uppercase tracking-wider"
+                className="w-full bg-[#ff3131] text-white font-bold py-4 rounded-xl hover:bg-[#ff5e00] transition-all duration-300 flex items-center justify-center gap-2 group mt-6 disabled:opacity-50 disabled:pointer-events-none text-sm uppercase tracking-wider"
               >
                 {isLoading ? "Synchronizing..." : isLogin ? "Launch Workspace" : "Generate Neural ID"}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -206,7 +206,7 @@ function LoginContent() {
 
             <div className="relative my-8 z-10">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full" style={{ borderTop: '1px solid rgba(245,158,11,0.08)' }}></div>
+                <div className="w-full" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}></div>
               </div>
               <div className="relative flex justify-center text-xs uppercase tracking-widest font-bold">
                 <span className="px-4 text-gray-600" style={{ background: 'rgba(20,16,8,0.6)' }}>or deploy via</span>
@@ -216,10 +216,10 @@ function LoginContent() {
             <button 
               type="button"
               onClick={() => signInWithGoogle()}
-              className="w-full border font-semibold py-4 rounded-xl flex items-center justify-center gap-3 hover:bg-amber-500/10 transition-all group relative z-10 text-sm text-gray-300"
-              style={{ background: 'rgba(245,158,11,0.03)', borderColor: 'rgba(245,158,11,0.1)' }}
+              className="w-full border font-semibold py-4 rounded-xl flex items-center justify-center gap-3 hover:bg-red-500/10 transition-all group relative z-10 text-sm text-gray-300"
+              style={{ background: 'rgba(59, 73, 75, 0.15)', borderColor: 'rgba(59, 73, 75, 0.2)' }}
             >
-              <Chrome className="w-5 h-5 text-amber-400 group-hover:scale-110 transition-transform" />
+              <Chrome className="w-5 h-5 text-[#ff3131] group-hover:scale-110 transition-transform" />
               Continue with Google
             </button>
           </div>
@@ -228,7 +228,7 @@ function LoginContent() {
             {isLogin ? "New to Xylos AI?" : "Already have an ID?"}
             <button 
               onClick={() => setIsLogin(!isLogin)}
-              className="ml-2 text-amber-400 font-bold hover:underline"
+              className="ml-2 text-[#ff3131] font-bold hover:underline"
             >
               {isLogin ? "Create an account" : "Sign in to workspace"}
             </button>
@@ -241,7 +241,7 @@ function LoginContent() {
 
 export default function LoginPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center" style={{ background: '#141008' }}><div className="w-8 h-8 rounded-full border-2 border-amber-500 border-t-transparent animate-spin" /></div>}>
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center" style={{ background: '#0c0e12' }}><div className="w-8 h-8 rounded-full border-2 border-red-500 border-t-transparent animate-spin" /></div>}>
        <LoginContent />
     </Suspense>
   );

@@ -36,7 +36,7 @@ export default function Dashboard() {
         
         <Link 
           href="/chat"
-          className="flex items-center gap-2 px-6 py-3 rounded-none bg-primary text-black font-bold hover:shadow-[0_0_30px_rgba(210,187,255,0.3)] transition-all group"
+          className="flex items-center gap-2 px-6 py-3 rounded-none bg-primary text-black font-bold hover:shadow-[0_0_30px_rgba(255,49,49,0.3)] transition-all group"
         >
           <Plus className="w-4 h-4" />
           General Workspace
@@ -53,7 +53,7 @@ export default function Dashboard() {
           >
             <Link 
               href={`/tools/${tool.id}`}
-              className="group flex flex-col h-full p-8 rounded-none glass-card hover:border-white/20 hover:shadow-[0_0_40px_rgba(210,187,255,0.08)] transition-all cursor-pointer relative overflow-hidden"
+              className="group flex flex-col h-full p-8 rounded-none glass-card hover:border-white/20 hover:shadow-[0_0_40px_rgba(255,49,49,0.08)] transition-all cursor-pointer relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">

@@ -37,7 +37,7 @@ export function CustomModal({
   const icons = {
     info: <Info className="w-6 h-6 text-blue-400" />,
     success: <CheckCircle2 className="w-6 h-6 text-emerald-400" />,
-    warning: <AlertTriangle className="w-6 h-6 text-amber-400" />,
+    warning: <AlertTriangle className="w-6 h-6 text-[#ff5e00]" />,
     error: <X className="w-6 h-6 text-red-500" />,
   };
 

@@ -39,7 +39,7 @@ export function BlogFilters() {
   const categories = ["all", "Technology", "Politics", "Science"];
 
   return (
-    <div className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-4 py-6 md:py-8 px-4 md:px-8 rounded-2xl" style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(245,158,11,0.08)' }}>
+    <div className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-4 py-6 md:py-8 px-4 md:px-8 rounded-2xl" style={{ background: 'rgba(12, 14, 18, 0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
       <div className="flex flex-wrap justify-center gap-2 md:gap-4 order-2 md:order-1">
         {categories.map((cat) => {
           const isActive = currentCategory === cat;
@@ -49,10 +49,10 @@ export function BlogFilters() {
               onClick={() => handleCategoryChange(cat)}
               className={`px-4 md:px-6 py-2 rounded-xl font-bold text-[9px] md:text-[10px] uppercase tracking-widest transition-all ${
                 isActive 
-                  ? "bg-amber-500 text-white" 
+                  ? "bg-[#ff3131] text-white" 
                   : "text-gray-400 hover:text-white"
               }`}
-              style={!isActive ? { background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.1)' } : {}}
+              style={!isActive ? { background: 'rgba(59, 73, 75, 0.15)', border: '1px solid rgba(59, 73, 75, 0.2)' } : {}}
             >
               {cat === "all" ? "All Categories" : cat}
             </button>
@@ -60,8 +60,8 @@ export function BlogFilters() {
         })}
       </div>
       
-      <form onSubmit={handleSearch} className="flex w-full md:w-auto md:ml-auto items-center gap-3 px-6 py-3 md:py-2 rounded-xl group transition-all order-1 md:order-2" style={{ background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.1)' }}>
-        <Search className="w-4 h-4 text-amber-400/40 group-focus-within:text-amber-400" />
+      <form onSubmit={handleSearch} className="flex w-full md:w-auto md:ml-auto items-center gap-3 px-6 py-3 md:py-2 rounded-xl group transition-all order-1 md:order-2" style={{ background: 'rgba(59, 73, 75, 0.15)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
+        <Search className="w-4 h-4 text-[#00f0ff]/40 group-focus-within:text-[#00f0ff]" />
         <input 
           value={query}
           onChange={(e) => setQuery(e.target.value)}
