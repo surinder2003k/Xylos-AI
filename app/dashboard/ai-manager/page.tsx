@@ -28,13 +28,7 @@ import {
   Image as ImageIcon
 } from "lucide-react";
 import { createClient } from "@/utils/supabase/client";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/interfaces-select";
+
 import { useToast } from "@/components/ui/toast";
 import { ConfirmationModal } from "@/components/ui/modal";
 import { updateAppSetting, getAppSetting, getProfiles, updateProfileRole } from "@/app/actions/settings";
@@ -56,6 +50,7 @@ export default function AIManagerPage() {
   const [isCustomCategory, setIsCustomCategory] = useState(false);
   const [currentUserId, setCurrentUserId] = useState<string | null>(null);
   const [autoCategoriesList, setAutoCategoriesList] = useState(["Technology", "Finance", "Health"]);
+  const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
   
   const [autoTopics, setAutoTopics] = useState<string[]>([
     "Global Technology Advancements", 
@@ -125,6 +120,18 @@ export default function AIManagerPage() {
     fetchCurrentUser();
   }, []);
 
+  // Close category dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest('[data-category-dropdown]')) {
+        setIsCategoryDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   const updateGlobalCategory = async (cat: string) => {
     const trimmedCat = cat.trim();
     if (!trimmedCat) return;
@@ -147,6 +154,21 @@ export default function AIManagerPage() {
     } catch (err: any) {
       showToast("Sync Error: " + (err.message || "Failed to update global category."), "error");
     }
+  };
+
+  const deleteCategory = async (catToDelete: string) => {
+    const newList = autoCategoriesList.filter(c => c !== catToDelete);
+    setAutoCategoriesList(newList);
+    
+    // If the deleted category was the active one, switch to the first available
+    if (autoCategory === catToDelete && newList.length > 0) {
+      const newActive = newList[0];
+      setAutoCategory(newActive);
+      await updateAppSetting("auto_category", newActive);
+    }
+    
+    await updateAppSetting("available_categories", newList);
+    showToast(`Protocol: Category "${catToDelete}" removed from list.`, "success");
   };
 
   const toggleAutoPublish = async () => {
@@ -338,32 +360,63 @@ export default function AIManagerPage() {
 
               <div className="space-y-3">
                  <p className="text-[10px] font-black text-white/30 uppercase tracking-widest">Auto-Post Category</p>
-                 <Select
-                   value={isCustomCategory ? "Add Category..." : autoCategory}
-                   onValueChange={(val) => {
-                     if (val === "Add Category...") {
-                       setIsCustomCategory(true);
-                       setAutoCategory("");
-                     } else {
-                       setIsCustomCategory(false);
-                       updateGlobalCategory(val);
-                     }
-                   }}
-                 >
-                   <SelectTrigger className="w-full bg-white/5 border border-white/10 rounded-none py-5 px-4 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-primary/50 text-white cursor-pointer h-auto leading-none">
-                     <SelectValue placeholder="Select Category" />
-                   </SelectTrigger>
-                   <SelectContent className="glass-card border border-white/10 text-white backdrop-blur-xl">
-                     {autoCategoriesList.map(cat => (
-                       <SelectItem key={cat} value={cat} className="text-white hover:bg-white/5 cursor-pointer">
-                         {cat}
-                       </SelectItem>
-                     ))}
-                     <SelectItem value="Add Category..." className="text-primary font-bold hover:bg-primary/10 cursor-pointer">
-                       Add Category...
-                     </SelectItem>
-                   </SelectContent>
-                 </Select>
+                 
+                 {/* Custom Dropdown with Delete Buttons */}
+                 <div className="relative" data-category-dropdown>
+                   <button
+                     onClick={() => setIsCategoryDropdownOpen(!isCategoryDropdownOpen)}
+                     className="w-full bg-white/5 border border-white/10 rounded-none py-3 px-4 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-primary/50 text-white cursor-pointer flex items-center justify-between"
+                   >
+                     <span>{autoCategory || "Select Category"}</span>
+                     <svg className={`w-4 h-4 transition-transform ${isCategoryDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                     </svg>
+                   </button>
+                   
+                   {isCategoryDropdownOpen && (
+                     <div className="absolute z-50 w-full mt-1 bg-[#0c0e12] border border-white/10 backdrop-blur-xl shadow-2xl max-h-64 overflow-y-auto">
+                       {autoCategoriesList.map(cat => (
+                         <div key={cat} className="flex items-center justify-between px-4 py-2.5 hover:bg-white/5 cursor-pointer group">
+                           <span 
+                             className="text-xs font-bold text-white flex-1"
+                             onClick={() => {
+                               setIsCustomCategory(false);
+                               updateGlobalCategory(cat);
+                               setIsCategoryDropdownOpen(false);
+                             }}
+                           >
+                             {cat}
+                             {autoCategory === cat && (
+                               <span className="ml-2 text-primary">✓</span>
+                             )}
+                           </span>
+                           <button
+                             onClick={(e) => {
+                               e.stopPropagation();
+                               deleteCategory(cat);
+                             }}
+                             className="p-1 rounded hover:bg-red-500/20 text-white/20 hover:text-red-500 transition-all opacity-0 group-hover:opacity-100"
+                             title={`Delete ${cat}`}
+                           >
+                             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                             </svg>
+                           </button>
+                         </div>
+                       ))}
+                       <div 
+                         className="px-4 py-2.5 hover:bg-primary/10 cursor-pointer border-t border-white/10"
+                         onClick={() => {
+                           setIsCustomCategory(true);
+                           setAutoCategory("");
+                           setIsCategoryDropdownOpen(false);
+                         }}
+                       >
+                         <span className="text-xs font-bold text-primary">+ Add Category...</span>
+                       </div>
+                     </div>
+                   )}
+                 </div>
                  
                  {isCustomCategory && (
                     <div className="flex items-center gap-2 mt-2">
