@@ -17,8 +17,6 @@ import {
 } from "lucide-react";
 import { NewsletterForm } from "@/components/landing/newsletter-form";
 
-
-
 export default function AboutPageClient() {
 
   return (
@@ -47,7 +45,7 @@ export default function AboutPageClient() {
           </motion.div>
           
           <div className="space-y-4">
-              <h1 className="text-5xl md:text-8xl font-black tracking-tighter leading-tight text-white">
+            <h1 className="text-4xl sm:text-5xl md:text-8xl font-black tracking-tighter leading-tight text-white">
               XYLOS AI: NEURAL SYNTHESIS<br />
               <span className="bg-gradient-to-r from-red-500 via-orange-500 to-red-400 bg-clip-text text-transparent">AND HUMAN INTELLIGENCE</span>
             </h1>
@@ -60,13 +58,13 @@ export default function AboutPageClient() {
         {/* Content Matrix */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-24">
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
             className="space-y-8"
           >
             <div className="space-y-4">
-              <h2 className="text-3xl font-black uppercase tracking-tight flex items-center gap-4 text-white">
+              <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight flex items-center gap-4 text-white">
                 <Cpu aria-hidden="true" className="w-8 h-8 text-red-500" />
                 The Protocol
               </h2>
@@ -90,9 +88,9 @@ export default function AboutPageClient() {
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
             className="relative"
           >
             <div className="aspect-video rounded-3xl p-1 overflow-hidden group" style={{ background: 'rgba(12, 14, 18, 0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
@@ -103,8 +101,8 @@ export default function AboutPageClient() {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                  <div className="absolute inset-0 flex items-center justify-center p-12 text-center">
-                    <p className="text-2xl font-black uppercase tracking-widest text-white leading-relaxed">
+                  <div className="absolute inset-0 flex items-center justify-center p-6 sm:p-12 text-center">
+                    <p className="text-lg sm:text-2xl font-black uppercase tracking-widest text-white leading-relaxed">
                       &quot;Bridging the gap between binary logic and human emotion.&quot;
                     </p>
                   </div>
@@ -112,7 +110,7 @@ export default function AboutPageClient() {
             </div>
             
             {/* Float Badge */}
-            <div className="absolute -bottom-6 -left-6 p-6 rounded-2xl" style={{ background: 'rgba(12, 14, 18, 0.8)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
+            <div className="absolute -bottom-6 -left-6 p-4 sm:p-6 rounded-2xl" style={{ background: 'rgba(12, 14, 18, 0.8)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center text-red-500">
                   <Brain className="w-6 h-6" />
@@ -127,15 +125,15 @@ export default function AboutPageClient() {
         </div>
 
         {/* Feature Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-24">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="md:col-span-2 p-10 rounded-2xl relative overflow-hidden"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="sm:col-span-2 md:col-span-2 p-8 sm:p-10 rounded-2xl relative overflow-hidden"
             style={{ background: 'rgba(12, 14, 18, 0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
           >
-            <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-6">
+            <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <div className="w-16 h-16 rounded-2xl bg-red-500/20 flex items-center justify-center shrink-0">
                 <MessageSquare className="w-8 h-8 text-red-500" />
               </div>
@@ -143,7 +141,7 @@ export default function AboutPageClient() {
                 <h3 className="text-2xl font-black text-white mb-2">Unified AI Chat</h3>
                 <p className="text-gray-400 text-lg leading-relaxed">Access 7+ models including Gemini, Claude, Llama, and Mistral in a single interface.</p>
               </div>
-              <div className="text-right hidden md:block">
+              <div className="text-right hidden sm:block">
                 <p className="text-5xl font-black text-white">7+</p>
                 <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Models</p>
               </div>
@@ -151,10 +149,10 @@ export default function AboutPageClient() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="p-10 rounded-2xl relative overflow-hidden"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            className="p-8 sm:p-10 rounded-2xl relative overflow-hidden"
             style={{ background: 'rgba(12, 14, 18, 0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
           >
             <div className="relative z-10 space-y-4">
@@ -167,11 +165,11 @@ export default function AboutPageClient() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="p-10 rounded-2xl relative overflow-hidden"
-            style={{ background: 'rgba(12, 14, 18,0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="p-8 sm:p-10 rounded-2xl relative overflow-hidden"
+            style={{ background: 'rgba(12, 14, 18, 0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
           >
             <div className="relative z-10 space-y-4">
               <div className="w-16 h-16 rounded-2xl bg-orange-500/20 flex items-center justify-center">
@@ -183,11 +181,11 @@ export default function AboutPageClient() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="p-10 rounded-2xl relative overflow-hidden"
-            style={{ background: 'rgba(12, 14, 18,0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+            className="p-8 sm:p-10 rounded-2xl relative overflow-hidden"
+            style={{ background: 'rgba(12, 14, 18, 0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
           >
             <div className="relative z-10 space-y-4">
               <div className="w-16 h-16 rounded-2xl bg-red-500/20 flex items-center justify-center">
@@ -200,16 +198,16 @@ export default function AboutPageClient() {
         </div>
 
         {/* Vision Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-24">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-24">
           <StatBox label="Execution Time" value="< 2.4s" />
           <StatBox label="Neural Accuracy" value="99.9%" />
           <StatBox label="Global Reach" value="Syncing" />
         </div>
 
         {/* Mission Statement */}
-        <section className="p-12 md:p-24 text-center space-y-8 relative overflow-hidden rounded-3xl" style={{ background: 'rgba(255, 49, 49, 0.03)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
+        <section className="p-8 sm:p-12 md:p-24 text-center space-y-8 relative overflow-hidden rounded-3xl" style={{ background: 'rgba(255, 49, 49, 0.03)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
            <h2 className="text-3xl md:text-5xl font-black uppercase text-white relative z-10">Our Mission</h2>
-           <p className="text-xl md:text-3xl font-bold text-gray-400 max-w-4xl mx-auto leading-tight relative z-10">
+           <p className="text-lg sm:text-xl md:text-3xl font-bold text-gray-400 max-w-4xl mx-auto leading-tight relative z-10">
              Xylos was founded on a singular premise: that technology should empower human expression, not replace it. We are building the infrastructure for the next century of digital storytelling.
            </p>
         </section>
@@ -229,7 +227,7 @@ export default function AboutPageClient() {
 
 function FeatureCard({ icon: Icon, title, desc }: any) {
   return (
-    <div className="p-6 rounded-2xl transition-all duration-300 group" style={{ background: 'rgba(12, 14, 18,0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
+    <div className="p-5 sm:p-6 rounded-2xl transition-all duration-300 group" style={{ background: 'rgba(12, 14, 18, 0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
       <div className="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center text-[#00f0ff] group-hover:bg-red-500/30 transition-all duration-300 mb-4">
         <Icon className="w-5 h-5" />
       </div>
@@ -241,9 +239,9 @@ function FeatureCard({ icon: Icon, title, desc }: any) {
 
 function StatBox({ label, value }: any) {
   return (
-    <div className="p-8 rounded-2xl text-center space-y-2 transition-all duration-300 cursor-default group" style={{ background: 'rgba(12, 14, 18,0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
+    <div className="p-6 sm:p-8 rounded-2xl text-center space-y-2 transition-all duration-300 cursor-default group" style={{ background: 'rgba(12, 14, 18, 0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
       <p className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.3em]">{label}</p>
-      <p className="text-4xl font-black text-white group-hover:text-[#00f0ff] transition-colors">{value}</p>
+      <p className="text-3xl sm:text-4xl font-black text-white group-hover:text-[#00f0ff] transition-colors">{value}</p>
     </div>
   );
 }

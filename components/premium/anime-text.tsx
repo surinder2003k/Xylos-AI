@@ -40,8 +40,7 @@ export const AnimeText = memo(function AnimeText({ text, className = "", delay =
       className={className}
       variants={containerVariants}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
+      animate="visible"
       aria-label={text}
     >
       {words.map((word, index) => (
