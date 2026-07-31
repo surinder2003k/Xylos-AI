@@ -30,7 +30,7 @@ import { useToast } from "@/components/ui/toast";
 
 const baseNavItems = [
   { icon: Home, label: "Main Portal", href: "/" },
-  { icon: MessageSquare, label: "Smart Chat", href: "/chat" },
+  { icon: MessageSquare, label: "Smart Chat", href: "/dashboard/chat" },
   { icon: BookOpen, label: "All Stories", href: "/dashboard/posts" },
   { icon: PenSquare, label: "Create New", href: "/dashboard/create" },
 ];

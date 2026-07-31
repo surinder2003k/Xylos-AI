@@ -35,7 +35,7 @@ export default function Dashboard() {
         </div>
         
         <Link 
-          href="/chat"
+          href="/dashboard/chat"
           className="flex items-center gap-2 px-6 py-3 rounded-none bg-primary text-black font-bold hover:shadow-[0_0_30px_rgba(255,49,49,0.3)] transition-all group"
         >
           <Plus className="w-4 h-4" />

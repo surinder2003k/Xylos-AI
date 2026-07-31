@@ -161,7 +161,7 @@ export default async function ToolProxyPage({ params }: { params: Promise<{ tool
         </p>
 
         <Link 
-          href="/chat"
+          href="/dashboard/chat"
           className="mt-8 flex items-center gap-3 px-8 py-4 rounded-2xl bg-[#ff3131] text-white font-bold hover:bg-[#ff5e00] hover:shadow-lg hover:shadow-red-500/20 transition-all group"
         >
           Get Started with {tool.title.split(' ')[0]}

@@ -102,7 +102,7 @@ export default async function LandingPage() {
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-16">
               <Link
-                href="/chat"
+                href="/dashboard/chat"
                 className="group glass-cta flex items-center justify-center gap-3 px-8 py-4 text-sm font-bold uppercase tracking-wider"
               >
                 Initialize Protocol

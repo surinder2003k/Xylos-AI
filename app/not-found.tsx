@@ -43,7 +43,7 @@ export default function NotFound() {
             Return to Base
           </Link>
           <Link
-            href="/chat"
+            href="/dashboard/chat"
             className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl border font-bold text-xs uppercase tracking-[0.2em] hover:bg-red-500/10 transition-all w-full sm:w-auto text-gray-400"
             style={{ borderColor: 'rgba(59, 73, 75, 0.3)' }}
           >
