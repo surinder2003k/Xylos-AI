@@ -1,13 +1,11 @@
 import { createClient } from "@/utils/supabase/server";
-import { Clock, User, Share2, MessageSquare, ChevronRight } from "lucide-react";
+import { createClient as createPublicClient } from "@supabase/supabase-js";
+import { Clock, Share2, Copy, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { notFound } from "next/navigation";
-import { AnimeText } from "@/components/premium/anime-text";
 import { formatIST } from "@/lib/utils/date-format";
-import { AuthorBio } from "@/components/blog/author-bio";
-import { NewsletterCard } from "@/components/blog/newsletter-card";
 import { ShareButtons } from "@/components/blog/share-buttons";
 import { Metadata } from "next";
 import remarkGfm from "remark-gfm";
@@ -26,7 +24,6 @@ function sanitizeHtml(html: string): string {
     .replace(/background-color:\s*[^;"]+;?/gi, "")
     .replace(/background:\s*[^;"]+;?/gi, "");
 }
-
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const supabase = await createClient();
@@ -66,6 +63,30 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+function extractHeadings(content: string): { id: string; text: string }[] {
+  const headings: { id: string; text: string }[] = [];
+  const regex = /^#{2,3}\s+(.+)$/gm;
+  let match;
+  while ((match = regex.exec(content)) !== null) {
+    const text = match[1].trim();
+    const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    headings.push({ id, text });
+  }
+  return headings;
+}
+
+function estimateReadTime(content: string): string {
+  const words = content?.split(/\s+/).length || 0;
+  const minutes = Math.max(1, Math.ceil(words / 200));
+  return `${minutes} MIN READ`;
+}
+
+function formatDate(dateStr: string): string {
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+}
+
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const supabase = await createClient();
   const { slug } = await params;
@@ -82,23 +103,39 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       .select("full_name, avatar_url")
       .eq("user_id", post.author_id)
       .maybeSingle();
-      
     post.author = profile;
   }
 
   if (!post) {
-    const { data: idPost, error: idError } = await supabase
+    const { data: idPost } = await supabase
       .from("blogs")
       .select("*")
       .eq("id", slug)
       .maybeSingle();
-    
     if (idPost) {
       post = idPost;
     } else {
       return notFound();
     }
   }
+
+  const publicSupabase = createPublicClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+
+  const { data: relatedPosts } = await publicSupabase
+    .from("blogs")
+    .select("slug, title, published_at, feature_image_url")
+    .eq("status", "published")
+    .neq("id", post.id)
+    .order("published_at", { ascending: false })
+    .limit(3);
+
+  const headings = extractHeadings(post.content || '');
+  const readTime = estimateReadTime(post.content || '');
+  const pubDate = formatDate(post.published_at || post.created_at);
+  const category = post.category || 'CYBER-INTELLIGENCE';
 
   const formatMarkdown = (content: string) => {
     if (!content) return "";
@@ -109,7 +146,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   };
 
   return (
-    <div className="min-h-screen selection:bg-red-500/30" style={{ background: '#0c0e12', color: '#e2e2e8' }}>
+    <div className="min-h-screen" style={{ background: '#0c0e12', color: '#e2e2e8' }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -135,137 +172,247 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://xylosai.vercel.app"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Blog",
-                "item": "https://xylosai.vercel.app/blog"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": post.title,
-                "item": `https://xylosai.vercel.app/blog/${post.slug}`
-              }
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xylosai.vercel.app" },
+              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://xylosai.vercel.app/blog" },
+              { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://xylosai.vercel.app/blog/${post.slug}` }
             ]
           })
         }}
       />
 
-      <main className="pt-40 pb-24 px-6 relative">
-        <article className="max-w-4xl mx-auto">
-          {/* Breadcrumb */}
-          <div className="flex items-center justify-between mb-12 pb-6" style={{ borderBottom: '1px solid rgba(59, 73, 75, 0.2)' }}>
-            <div className="flex items-center gap-2 md:gap-4 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-gray-400">
-              <Link href="/" className="hover:text-[#00f0ff] transition-colors">Home</Link>
-              <ChevronRight aria-hidden="true" className="w-3 h-3 opacity-30" />
-              <Link href="/blog" className="hover:text-[#00f0ff] transition-colors">Archive</Link>
-              <ChevronRight aria-hidden="true" className="w-3 h-3 opacity-30" />
-              <span className="text-[#00f0ff]">{post.category}</span>
-            </div>
-            <ShareButtons title={post.title} excerpt={post.excerpt} slug={post.slug} />
-          </div>
+      {/* Sticky Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4" style={{ background: 'rgba(12, 14, 18, 0.9)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(59, 73, 75, 0.15)' }}>
+        <Link href="/blog" className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-[#00f0ff] transition-colors" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
+          <ChevronRight className="w-3 h-3 rotate-180" />
+          BLOG
+        </Link>
+        <div className="flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.15em] text-white" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+          <div className="w-5 h-5 rounded bg-[#ff5e00] flex items-center justify-center text-[8px] text-white font-black">X</div>
+          XYLOS AI
+        </div>
+        <ShareButtons title={post.title} excerpt={post.excerpt} slug={post.slug} />
+      </header>
 
-          {/* Editorial Header */}
-          <div className="space-y-8 mb-16">
-            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.2em]"
-              style={{ background: 'rgba(0, 240, 255, 0.1)', border: '1px solid rgba(0, 240, 255, 0.2)', color: '#00f0ff' }}>
-               {post.category} Report
-            </div>
-            
-            <h1 className="text-3xl md:text-7xl font-black tracking-tighter leading-[1.1] md:leading-none break-words">
-               <AnimeText text={post.title} />
-            </h1>
+      <main className="pt-20">
+        {/* Hero Image */}
+        <div className="relative w-full" style={{ height: '70vh', minHeight: '500px' }}>
+          <Image
+            src={post.feature_image_url || '/og-image.png'}
+            alt={post.alt_text || post.title}
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(12,14,18,0.3) 0%, rgba(12,14,18,0.6) 50%, rgba(12,14,18,1) 100%)' }} />
+        </div>
 
-            <div className="flex flex-col md:flex-row md:items-center gap-6 text-[11px] font-bold text-gray-400 uppercase tracking-widest py-6" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)', borderBottom: '1px solid rgba(59, 73, 75, 0.2)' }}>
-               <div className="flex items-center gap-3">
-                 <div className="w-8 h-8 rounded-xl bg-red-500/10 flex items-center justify-center overflow-hidden">
-                    {post.author?.avatar_url ? (
-                      <img src={post.author.avatar_url} alt={post.author.full_name} title={post.author.full_name} className="w-full h-full object-cover" />
-                    ) : (
-                      <User className="w-4 h-4 text-gray-400" />
-                    )}
-                 </div>
-                 <span>By {post.author?.full_name || 'Xylos Editorial Team'}</span>
-               </div>
-               <div className="hidden md:block w-1 h-1 rounded-full bg-gray-600" />
-               <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-[#00f0ff]" /> Published {formatIST(post.published_at || post.created_at)}</div>
-               <div className="hidden md:block w-1 h-1 rounded-full bg-gray-600" />
-               <div className="flex items-center gap-2"><MessageSquare className="w-4 h-4 text-gray-400" /> Editorial Review Verified</div>
-            </div>
-          </div>
+        {/* Article Container */}
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 -mt-32 relative z-10">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
 
-          {/* Feature Image */}
-          <div className="w-full aspect-[4/3] md:aspect-[21/9] rounded-2xl overflow-hidden mb-12 md:mb-16 relative group" style={{ background: 'rgba(12, 14, 18, 0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
-             <Image 
-               src={post.feature_image_url} 
-               alt={post.alt_text || post.title} 
-               title={post.alt_text || post.title}
-               fill
-               priority
-               className="object-cover opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105" 
-               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-             />
-          </div>
+            {/* Main Article */}
+            <article className="flex-1 max-w-4xl">
+              {/* Category & Meta */}
+              <div className="flex flex-wrap items-center gap-4 mb-6 text-[10px] font-bold uppercase tracking-[0.15em]" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
+                <span className="px-3 py-1 rounded-full" style={{ background: 'rgba(0, 240, 255, 0.1)', border: '1px solid rgba(0, 240, 255, 0.3)', color: '#00f0ff' }}>
+                  {category}
+                </span>
+                <span className="text-gray-500">{pubDate}</span>
+                <span className="text-gray-600">·</span>
+                <span className="text-gray-500">{readTime}</span>
+              </div>
 
-          {/* Content */}
-          <div className="relative">
-            <div className="prose prose-lg dark:prose-invert max-w-none 
-              [&_*]:text-gray-400 
-              prose-headings:text-white prose-headings:font-black prose-headings:tracking-tight
-              prose-a:text-[#ff3131] prose-strong:text-white
-              prose-blockquote:border-l-amber-500/30 prose-img:rounded-2xl prose-img:border prose-img:border-amber-500/10
-              prose-code:text-[#ff5e00] px-0 selection:bg-red-500/30 break-words overflow-hidden">
+              {/* Title */}
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05] tracking-tight mb-8" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+                {post.title.split(' ').map((word: string, i: number) => {
+                  const highlightWords = ['AI', 'Neural', 'Intelligence', 'Network', 'Consciousness', 'Future', 'Revolution', 'Machine', 'Deep', 'Learning', 'Quantum', 'Autonomous', 'System', 'Algorithm'];
+                  if (highlightWords.some(hw => word.toLowerCase().includes(hw.toLowerCase()))) {
+                    return <span key={i} className="text-[#ff5e00]">{word} </span>;
+                  }
+                  return <span key={i}>{word} </span>;
+                })}
+              </h1>
+
+              {/* Author Card */}
+              <div className="flex items-center gap-4 mb-12 pb-8" style={{ borderBottom: '1px solid rgba(59, 73, 75, 0.15)' }}>
+                <div className="w-11 h-11 rounded-full overflow-hidden" style={{ background: 'rgba(255, 94, 0, 0.1)', border: '2px solid rgba(255, 94, 0, 0.3)' }}>
+                  {post.author?.avatar_url ? (
+                    <img src={post.author.avatar_url} alt={post.author.full_name} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-[#ff5e00] text-sm font-bold">
+                      {(post.author?.full_name || 'X')[0]}
+                    </div>
+                  )}
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-white" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+                    {post.author?.full_name || 'Xylos Editorial Team'}
+                  </h3>
+                  <p className="text-[10px] text-gray-500 uppercase tracking-wider" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
+                    Lead AI Researcher
+                  </p>
+                </div>
+                <button className="ml-auto px-4 py-1.5 rounded text-[9px] font-bold uppercase tracking-[0.2em] text-white transition-all hover:scale-105" style={{ background: '#ff5e00', fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
+                  FOLLOW
+                </button>
+              </div>
+
+              {/* Article Body */}
+              <div className="prose prose-lg dark:prose-invert max-w-none
+                [&_*]:text-[#a0a0b0]
+                prose-headings:text-white prose-headings:font-black prose-headings:tracking-tight
+                prose-a:text-[#ff5e00] prose-strong:text-white
+                prose-blockquote:border-l-[#ff5e00] prose-blockquote:text-[#c0c0c0] prose-blockquote:italic
+                prose-code:text-[#00f0ff] prose-code:bg-[rgba(0,240,255,0.05)] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+                prose-pre:bg-[#0a0c10] prose-pre:border prose-pre:border-[rgba(59,73,75,0.2)]
+                prose-img:rounded-xl prose-img:border prose-img:border-[rgba(59,73,75,0.2)]
+                selection:bg-[rgba(255,94,0,0.3)]
+                break-words overflow-hidden"
+                style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
                 {post.content && post.content.startsWith('<') ? (
-                  <div 
-                    className="space-y-6 text-gray-400" 
-                    dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content) }} 
+                  <div
+                    className="space-y-6"
+                    dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content) }}
                   />
                 ) : (
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{formatMarkdown(post.content)}</ReactMarkdown>
+                  <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                    components={{
+                      h2: ({ children }) => {
+                        const text = typeof children === 'string' ? children : '';
+                        const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                        return <h2 id={id}>{children}</h2>;
+                      },
+                      blockquote: ({ children }) => (
+                        <blockquote className="!border-l-[#ff5e00] !border-l-2 !pl-6 !py-2 my-8" style={{ background: 'rgba(255, 94, 0, 0.03)', borderLeft: '3px solid #ff5e00', borderRadius: '0 8px 8px 0' }}>
+                          {children}
+                        </blockquote>
+                      ),
+                      pre: ({ children }) => (
+                        <div className="my-8 rounded-xl overflow-hidden" style={{ background: '#0a0c10', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
+                          <div className="flex items-center justify-between px-4 py-2" style={{ background: 'rgba(59, 73, 75, 0.1)', borderBottom: '1px solid rgba(59, 73, 75, 0.15)' }}>
+                            <span className="text-[9px] font-bold text-gray-500 uppercase tracking-wider" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>code_block</span>
+                            <button className="text-[9px] font-bold text-[#00f0ff] uppercase tracking-wider hover:text-white transition-colors" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>COPY</button>
+                          </div>
+                          <pre className="!bg-transparent !p-4 overflow-x-auto">{children}</pre>
+                        </div>
+                      ),
+                      code: ({ children, className }) => {
+                        if (className) return <code className={className}>{children}</code>;
+                        return <code>{children}</code>;
+                      },
+                    }}
+                  >
+                    {formatMarkdown(post.content)}
+                  </ReactMarkdown>
                 )}
-            </div>
+              </div>
+
+              {/* Comments Section - Terminal Style */}
+              <div className="mt-16 pt-8" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.15)' }}>
+                <h3 className="text-sm font-bold text-white mb-6 flex items-center gap-2" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
+                  <span className="text-[#00f0ff]">&gt;</span> Terminal Output (Comments)
+                </h3>
+                <div className="rounded-xl overflow-hidden" style={{ background: '#0a0c10', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
+                  <div className="flex items-center gap-2 px-4 py-2" style={{ background: 'rgba(59, 73, 75, 0.1)', borderBottom: '1px solid rgba(59, 73, 75, 0.15)' }}>
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+                    <span className="text-[9px] text-gray-600 ml-2 uppercase tracking-wider" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>terminal_v1.0</span>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex items-center gap-3">
+                      <span className="text-[#00f0ff] text-sm" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>$</span>
+                      <input
+                        type="text"
+                        placeholder="Initialize input sequence..."
+                        className="flex-1 bg-transparent text-sm text-white placeholder-gray-600 outline-none"
+                        style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+                      />
+                      <button className="px-4 py-1.5 rounded text-[9px] font-bold uppercase tracking-[0.2em] text-black transition-all hover:scale-105" style={{ background: '#00f0ff', fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
+                        SUBMIT
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Footer */}
+              <footer className="mt-20 pt-8 pb-12 text-center" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.15)' }}>
+                <p className="text-[10px] text-gray-600 uppercase tracking-[0.3em]" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
+                  © {new Date().getFullYear()} XYLOS AI. TRANSMISSION COMPLETE.
+                </p>
+                <div className="flex justify-center gap-8 mt-4">
+                  <Link href="/privacy" className="text-[9px] text-gray-600 hover:text-[#00f0ff] uppercase tracking-wider transition-colors" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>Privacy</Link>
+                  <Link href="/about" className="text-[9px] text-gray-600 hover:text-[#00f0ff] uppercase tracking-wider transition-colors" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>Terms</Link>
+                  <span className="text-[9px] text-gray-700 uppercase tracking-wider" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>API Status</span>
+                </div>
+              </footer>
+            </article>
+
+            {/* Right Sidebar */}
+            <aside className="w-full lg:w-72 xl:w-80 shrink-0">
+              <div className="lg:sticky lg:top-24 space-y-8">
+                {/* Table of Contents */}
+                {headings.length > 0 && (
+                  <div className="rounded-xl p-5" style={{ background: 'rgba(26, 29, 35, 0.6)', border: '1px solid rgba(59, 73, 75, 0.15)' }}>
+                    <h4 className="text-[10px] font-bold text-white uppercase tracking-[0.2em] mb-1" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
+                      Table of Contents
+                    </h4>
+                    <p className="text-[9px] text-gray-600 mb-4" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>Quick Navigation</p>
+                    <nav>
+                      <ul className="space-y-1">
+                        {headings.map((h, i) => (
+                          <li key={i}>
+                            <a
+                              href={`#${h.id}`}
+                              className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-[11px] text-gray-400 hover:text-white hover:bg-[rgba(0,240,255,0.05)] transition-all group"
+                              style={{ fontFamily: 'var(--font-sora), sans-serif' }}
+                            >
+                              <span className="material-symbols-outlined text-[14px] text-gray-600 group-hover:text-[#00f0ff] transition-colors">
+                                {i === 0 ? 'segment' : i === 1 ? 'architecture' : i === 2 ? 'query_stats' : 'auto_awesome'}
+                              </span>
+                              {h.text}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </nav>
+                  </div>
+                )}
+
+                {/* Related Logs */}
+                {relatedPosts && relatedPosts.length > 0 && (
+                  <div className="rounded-xl p-5" style={{ background: 'rgba(26, 29, 35, 0.6)', border: '1px solid rgba(59, 73, 75, 0.15)' }}>
+                    <h4 className="text-[10px] font-bold text-white uppercase tracking-[0.2em] mb-4" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
+                      Related Logs
+                    </h4>
+                    <div className="space-y-3">
+                      {relatedPosts.map((rp, i) => (
+                        <Link
+                          key={i}
+                          href={`/blog/${rp.slug}`}
+                          className="block p-3 rounded-lg transition-all hover:bg-[rgba(0,240,255,0.05)] group"
+                          style={{ border: '1px solid rgba(59, 73, 75, 0.1)' }}
+                        >
+                          <span className="text-[9px] text-gray-600 block mb-1" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
+                            {formatDate(rp.published_at)}
+                          </span>
+                          <h5 className="text-[12px] font-bold text-gray-300 group-hover:text-white transition-colors leading-snug" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+                            {rp.title}
+                          </h5>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </aside>
+
           </div>
-
-          {/* Professional Callouts */}
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-8 rounded-2xl transition-colors" style={{ background: 'rgba(255, 49, 49, 0.03)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
-              <h4 className="text-xs font-bold uppercase tracking-widest text-[#00f0ff] mb-3">Key Insight</h4>
-              <p className="text-sm text-gray-400 leading-relaxed">&quot;The intersection of algorithmic accuracy and journalistic integrity defines the next era of news.&quot;</p>
-            </div>
-            <div className="p-8 rounded-2xl transition-colors" style={{ background: 'rgba(255, 49, 49, 0.03)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
-              <h4 className="text-xs font-bold uppercase tracking-widest text-[#00f0ff] mb-3">Verification</h4>
-              <p className="text-sm text-gray-400 leading-relaxed">This report has been cross-referenced with multiple neural nodes to ensure factual reliability.</p>
-            </div>
-          </div>
-
-          <AuthorBio 
-            name={post.author?.full_name || 'Xylos Editorial Team'} 
-            avatarUrl={post.author?.avatar_url}
-          />
-          
-          <NewsletterCard />
-
-        </article>
+        </div>
       </main>
-
-      {/* Footer */}
-      <footer className="py-20 px-8 text-center" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
-         <div className="max-w-md mx-auto space-y-6">
-            <p className="text-[10px] font-bold text-gray-600 uppercase tracking-[0.5em]">The Xylos AI Protocol // Human Intelligence Amplified</p>
-            <div className="flex justify-center gap-8">
-               <Link href="/about" className="text-[9px] font-bold uppercase tracking-widest hover:text-[#00f0ff] transition-colors text-gray-400">Standards</Link>
-               <Link href="/about" className="text-[9px] font-bold uppercase tracking-widest hover:text-[#00f0ff] transition-colors text-gray-400">Ethics</Link>
-               <Link href="/blog" className="text-[9px] font-bold uppercase tracking-widest hover:text-[#00f0ff] transition-colors text-gray-400">Archive</Link>
-            </div>
-         </div>
-      </footer>
     </div>
   );
 }
