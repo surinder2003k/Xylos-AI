@@ -139,52 +139,52 @@ export default async function ToolProxyPage({ params }: { params: Promise<{ tool
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-24 px-6 overflow-hidden selection:bg-red-500/30" style={{ background: '#0c0e12', color: '#e2e2e8' }}>
+    <div className="min-h-screen pt-32 pb-24 px-6 overflow-hidden" style={{ background: '#0a0b0e', color: '#e2e2e8' }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center space-y-8 relative">
-        <div className="w-16 h-16 rounded-2xl bg-red-500/20 flex items-center justify-center mb-4" style={{ border: '1px solid rgba(59, 73, 75, 0.2)' }}>
-          <tool.icon className="w-8 h-8 text-[#ff3131]" />
+        <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 glass-card">
+          <tool.icon className="w-8 h-8 text-[#00f0ff]" />
         </div>
         
-        <p className="text-[10px] font-bold text-gray-600 uppercase tracking-[0.5em]">Xylos AI Protocol // Intelligence Engine</p>
+        <p className="text-[12px] font-semibold uppercase tracking-[0.25em]" style={{ color: '#00f0ff' }}>Xylos AI</p>
         <AnimeText 
           text={tool.h1} 
-          className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-none max-w-4xl text-white"
+          className="text-5xl md:text-7xl font-bold tracking-[-0.03em] leading-[1.05] max-w-4xl text-white"
         />
         
-        <p className="text-xl text-gray-400 max-w-2xl font-medium leading-relaxed">
+        <p className="max-w-2xl font-medium leading-relaxed" style={{ color: '#aeb9bd', fontSize: '1.125rem' }}>
           {tool.description}
         </p>
 
         <Link 
           href="/dashboard/chat"
-          className="mt-8 flex items-center gap-3 px-8 py-4 rounded-2xl bg-[#ff3131] text-white font-bold hover:bg-[#ff5e00] hover:shadow-lg hover:shadow-red-500/20 transition-all group"
+          className="mt-8 flex items-center gap-3 px-8 py-4 rounded-2xl glass-cta font-semibold group text-sm"
         >
-          Get Started with {tool.title.split(' ')[0]}
+          Get started
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
 
       <div className="max-w-6xl mx-auto mt-32">
-        <h2 className="text-3xl font-black mb-12 text-center text-white">Engineered for Dominance</h2>
+        <h2 className="text-3xl font-bold mb-12 text-center text-white" style={{ fontFamily: 'Sora, sans-serif' }}>Built for real work</h2>
         <BentoGrid>
           {tool.benefits.map((benefit, idx) => (
              <BentoCard key={idx} delay={idx * 0.1} className="col-span-1 md:col-span-1 flex flex-col items-center text-center">
-                <div className="w-12 h-12 rounded-2xl bg-orange-500/20 flex items-center justify-center mb-6 text-orange-400" style={{ border: '1px solid rgba(249,115,22,0.2)' }}>
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 text-[#00f0ff]" style={{ background: 'rgba(0,240,255,0.12)' }}>
                    <Zap className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-white">{benefit}</h3>
+                <h3 className="text-lg font-semibold text-white" style={{ fontFamily: 'Sora, sans-serif' }}>{benefit}</h3>
              </BentoCard>
           ))}
-          <BentoCard delay={0.3} className="col-span-1 md:col-span-3 lg:col-span-1" style={{ background: 'linear-gradient(135deg, rgba(59, 73, 75, 0.15), rgba(255, 94, 0, 0.05))', borderColor: 'rgba(59, 73, 75, 0.2)' }}>
+          <BentoCard delay={0.3} className="col-span-1 md:col-span-3 lg:col-span-1 glass-card">
              <div className="flex flex-col h-full justify-between">
-                <Shield className="w-10 h-10 text-[#ff3131] mb-4" />
-                <h3 className="text-2xl font-bold mb-2 text-white">Enterprise Grade Security</h3>
-                <p className="text-sm text-gray-400 font-medium">This tool is powered by Xylos AI&apos;s Neural Intelligence Layer — enterprise-grade, privacy-first.</p>
+                <Shield className="w-10 h-10 text-[#00f0ff] mb-4" />
+                <h3 className="text-2xl font-bold mb-2 text-white" style={{ fontFamily: 'Sora, sans-serif' }}>Enterprise-grade security</h3>
+                <p className="text-sm font-medium" style={{ color: '#aeb9bd' }}>This tool is powered by Xylos AI&apos;s intelligence layer — privacy-first and encrypted.</p>
              </div>
           </BentoCard>
         </BentoGrid>

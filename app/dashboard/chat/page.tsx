@@ -514,13 +514,13 @@ function ChatContent() {
               )}
               {isLoading && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-violet-500/10 border border-violet-500/20 flex items-center justify-center">
-                    <Sparkles className="w-4 h-4 text-violet-500 animate-spin" />
+                  <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
+                    <Sparkles className="w-4 h-4 text-primary animate-spin" />
                   </div>
                   <div className="bg-white/5 border border-white/10 px-6 py-4 rounded-xl flex gap-2 items-center">
-                    <div className="w-1.5 h-1.5 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                    <div className="w-1.5 h-1.5 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                    <div className="w-1.5 h-1.5 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                   </div>
                 </motion.div>
               )}
@@ -615,7 +615,7 @@ function ChatContent() {
                       <button 
                         onClick={handleSend} 
                         disabled={(!input.trim() && !stagedFile) || isLoading} 
-                        className="p-3.5 rounded-xl bg-primary text-[#04141a] hover:shadow-[0_0_30px_rgba(210,187,255,0.3)] transition-all disabled:opacity-50"
+                        className="p-3.5 rounded-xl bg-primary text-[#04141a] hover:bg-[#33f3ff] transition-all disabled:opacity-50"
                       >
                          <Send className="w-5 h-5" />
                       </button>

@@ -51,18 +51,18 @@ export default function SettingsPage() {
   return (
     <div className="max-w-4xl mx-auto space-y-10">
       <header className="space-y-2">
-        <h1 className="text-4xl font-black font-sora tracking-tighter uppercase text-white">Settings<span className="text-primary italic">.</span></h1>
-        <p className="text-white/40 mt-1 text-[10px] font-bold uppercase tracking-widest">Global API Integrations // Studio Protocol</p>
+        <h1 className="text-4xl font-bold tracking-[-0.02em] text-white" style={{ fontFamily: 'Sora, sans-serif' }}>Settings<span className="text-primary">.</span></h1>
+        <p className="text-sm mt-1" style={{ color: '#849495' }}>Global API integrations</p>
       </header>
 
       <section className="grid grid-cols-1 gap-6">
         {providers.map((provider, idx) => (
-          <motion.div 
+          <motion.div
             key={provider.id}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: idx * 0.05 }}
-            className="group p-6 rounded-xl glass-card hover:border-white/20 transition-all"
+            className="group p-6 rounded-xl glass-card hover:border-[rgba(0,240,255,0.18)] transition-all"
           >
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="flex items-center gap-4">
@@ -70,17 +70,16 @@ export default function SettingsPage() {
                    <provider.icon className="w-6 h-6 text-white/40 group-hover:text-primary transition-colors" />
                 </div>
                 <div>
-                   <h3 className="text-lg font-bold font-sora text-white">{provider.name} Integration</h3>
-                   <div className="flex items-center gap-2 text-[10px] font-black text-white/40 uppercase tracking-widest mt-0.5">
-                      <span className="text-[10px] font-black text-white/40 uppercase tracking-widest">Xylos Core</span>
+                   <h3 className="text-lg font-semibold text-white" style={{ fontFamily: 'Sora, sans-serif' }}>{provider.name} integration</h3>
+                   <div className="flex items-center gap-2 text-[12px] mt-0.5" style={{ color: '#849495' }}>
                       <Lock className="w-3 h-3" />
-                      End-to-End Encrypted
+                      End-to-end encrypted
                    </div>
                 </div>
               </div>
 
               <div className="flex-1 max-w-md relative">
-                <input 
+                <input
                   type="password"
                   placeholder={provider.placeholder}
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-primary/50 outline-none transition-all placeholder:text-white/20 text-white"
@@ -97,17 +96,17 @@ export default function SettingsPage() {
         <div className="flex items-center gap-3">
            <ShieldCheck className="w-6 h-6 text-primary" />
            <div className="text-sm">
-              <div className="font-bold text-white">Security Shield Active</div>
+              <div className="font-semibold text-white">Security shield active</div>
               <div className="text-white/40 text-xs">Your keys never leave Xylos' secure perimeter.</div>
            </div>
         </div>
 
-        <button 
+        <button
           onClick={handleSave}
           disabled={isSaving}
           className={`
-            px-8 py-3 rounded-xl font-bold flex items-center gap-2 transition-all duration-300
-            ${saveStatus === 'success' ? 'bg-green-500 text-white' : 'bg-primary text-black hover:shadow-[0_0_30px_rgba(210,187,255,0.3)]'}
+            px-8 py-3 rounded-xl font-semibold flex items-center gap-2 transition-all duration-300
+            ${saveStatus === 'success' ? 'bg-green-500 text-white' : 'bg-primary text-[#04141a] hover:bg-[#33f3ff]'}
             disabled:opacity-50
           `}
         >

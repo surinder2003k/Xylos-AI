@@ -2,6 +2,7 @@ import { createClient as createPublicClient } from "@supabase/supabase-js";
 import { ArrowRight, ChevronRight, ChevronDown, Terminal, Lock, Eye, Layers } from "lucide-react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { Reveal } from "@/components/ui/reveal";
 
 const NewsletterForm = dynamic(() => import("@/components/landing/newsletter-form").then(m => m.NewsletterForm));
 
@@ -73,56 +74,66 @@ export default async function LandingPage() {
         <section className="relative z-10 min-h-screen flex items-center">
           <div className="w-full px-6 md:px-12 lg:px-20 py-24">
             <div className="max-w-5xl mx-auto">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8" style={{ border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.03)' }}>
-                <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#00f0ff' }} />
-                <span className="text-[11px] font-medium tracking-wide" style={{ color: '#aeb9bd' }}>Free AI, ready when you are</span>
+                {/* Badge */}
+                <Reveal delay={0}>
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8" style={{ border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.03)' }}>
+                  <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#00f0ff' }} />
+                  <span className="text-[11px] font-medium tracking-wide" style={{ color: '#aeb9bd' }}>Free AI, ready when you are</span>
+                </div>
+                </Reveal>
+
+                {/* Heading */}
+                <Reveal delay={0.08}>
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-bold leading-[1.02] tracking-[-0.03em] text-white mb-6" style={{ fontFamily: 'Sora, sans-serif' }}>
+                  Intelligence,
+                  <br />
+                  <span style={{ color: '#00f0ff' }}>beautifully simple.</span>
+                </h1>
+                </Reveal>
+
+                {/* Subheading */}
+                <Reveal delay={0.16}>
+                <p className="text-lg md:text-xl max-w-xl leading-relaxed mb-10" style={{ color: '#aeb9bd' }}>
+                  One calm workspace for 7+ frontier models — Llama, Gemini, Mistral. No clutter, no cost. Just clear, fast answers.
+                </p>
+                </Reveal>
+
+                {/* Buttons */}
+                <Reveal delay={0.24}>
+                <div className="flex flex-col sm:flex-row gap-4 mb-16">
+                  <Link
+                    href="/dashboard/chat"
+                    className="group glass-cta flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold"
+                  >
+                    Start chatting
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                  <Link
+                    href="/about"
+                    className="group glass-outline flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold"
+                  >
+                    Learn more
+                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+                </Reveal>
+
+                {/* Refined stat row */}
+                <Reveal delay={0.32}>
+                <div className="flex flex-wrap items-center gap-x-10 gap-y-4">
+                  {[
+                    { value: '7+', label: 'Frontier models' },
+                    { value: '99.9%', label: 'Uptime' },
+                    { value: '0', label: 'Cost' },
+                  ].map((stat, i) => (
+                    <div key={i} className="flex flex-col">
+                      <span className="text-2xl font-bold tracking-tight" style={{ color: '#ffffff', fontFamily: 'Sora, sans-serif' }}>{stat.value}</span>
+                      <span className="text-[12px] tracking-wide" style={{ color: '#7d8a8e' }}>{stat.label}</span>
+                    </div>
+                  ))}
+                </div>
+                </Reveal>
               </div>
-
-              {/* Heading */}
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-bold leading-[1.02] tracking-[-0.03em] text-white mb-6" style={{ fontFamily: 'Sora, sans-serif' }}>
-                Intelligence,
-                <br />
-                <span style={{ color: '#00f0ff' }}>beautifully simple.</span>
-              </h1>
-
-              {/* Subheading */}
-              <p className="text-lg md:text-xl max-w-xl leading-relaxed mb-10" style={{ color: '#aeb9bd' }}>
-                One calm workspace for 7+ frontier models — Llama, Gemini, Mistral. No clutter, no cost. Just clear, fast answers.
-              </p>
-
-              {/* Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-16">
-                <Link
-                  href="/dashboard/chat"
-                  className="group glass-cta flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold"
-                >
-                  Start chatting
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  href="/about"
-                  className="group glass-outline flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold"
-                >
-                  Learn more
-                  <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-
-              {/* Refined stat row */}
-              <div className="flex flex-wrap items-center gap-x-10 gap-y-4">
-                {[
-                  { value: '7+', label: 'Frontier models' },
-                  { value: '99.9%', label: 'Uptime' },
-                  { value: '0', label: 'Cost' },
-                ].map((stat, i) => (
-                  <div key={i} className="flex flex-col">
-                    <span className="text-2xl font-bold tracking-tight" style={{ color: '#ffffff', fontFamily: 'Sora, sans-serif' }}>{stat.value}</span>
-                    <span className="text-[12px] tracking-wide" style={{ color: '#7d8a8e' }}>{stat.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
 
         {/* Scroll indicator */}
@@ -136,10 +147,13 @@ export default async function LandingPage() {
       <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="mb-16">
+            <Reveal>
             <p className="text-[12px] font-semibold uppercase tracking-[0.25em] mb-4" style={{ color: '#00f0ff' }}>Capabilities</p>
             <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Built for focused work</h2>
+            </Reveal>
           </div>
 
+          <Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Frontier Processing */}
             <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(0,240,255,0.18)] transition-all duration-300">
@@ -189,12 +203,14 @@ export default async function LandingPage() {
               </p>
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ===== CTA: SYSTEM READY ===== */}
       <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
         <div className="max-w-5xl mx-auto">
+          <Reveal>
           <div className="glass-card rounded-3xl p-12 md:p-16 text-center">
             <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-4" style={{ color: '#ffffff', fontFamily: 'Sora, sans-serif' }}>
               Ready whenever you are.
@@ -204,18 +220,20 @@ export default async function LandingPage() {
             </p>
             <Link
               href="/chat"
-              className="group glass-cta inline-flex items-center gap-3 px-10 py-5 text-sm font-bold uppercase tracking-wider"
+              className="group glass-cta inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold"
             >
-              Establish Connection
+              Try Xylos free
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ===== BLOG: LATEST NEURAL BROADCASTS ===== */}
       <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
         <div className="max-w-7xl mx-auto">
+          <Reveal>
           <div className="flex items-end justify-between mb-12">
             <div>
               <p className="text-[12px] font-semibold uppercase tracking-[0.25em] mb-4" style={{ color: '#00f0ff' }}>From the blog</p>
@@ -225,7 +243,9 @@ export default async function LandingPage() {
               View all <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
+          </Reveal>
 
+          <Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {blogs?.map((blog) => (
               <Link key={blog.id} href={`/blog/${blog.slug || blog.id}`} className="group">
@@ -251,15 +271,19 @@ export default async function LandingPage() {
               </Link>
             ))}
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ===== FAQ ===== */}
       <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
         <div className="max-w-4xl mx-auto">
+          <Reveal>
           <p className="text-[12px] font-semibold uppercase tracking-[0.25em] mb-4 text-center" style={{ color: '#00f0ff' }}>FAQ</p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-[-0.02em] text-center mb-16" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Frequently asked</h2>
+          </Reveal>
 
+          <Reveal>
           <div className="space-y-4">
             {[
               {
@@ -290,6 +314,7 @@ export default async function LandingPage() {
               </details>
             ))}
           </div>
+          </Reveal>
         </div>
       </section>
 

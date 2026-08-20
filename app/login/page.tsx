@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 import { signInWithGoogle, signInWithEmail, signUpWithEmail } from "@/app/auth/actions";
 import { Suspense, useState } from "react";
-import { 
-  Mail, 
-  Lock, 
-  User, 
-  ArrowRight, 
+import {
+  Mail,
+  Lock,
+  User,
+  ArrowRight,
   Chrome,
   AlertCircle,
   MessageSquare,
@@ -16,8 +16,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { AnimatedLogo } from "@/components/premium/animated-logo";
-
+import { XylosLogo } from "@/components/premium/xylos-logo";
 
 function LoginContent() {
   const [isLogin, setIsLogin] = useState(true);
@@ -29,115 +28,89 @@ function LoginContent() {
     setIsLoading(true);
   };
 
+  const features = [
+    { icon: MessageSquare, title: "Unified AI Chat", sub: "7+ models in one interface" },
+    { icon: Code2, title: "Code Assistant", sub: "Full-stack dev tools" },
+    { icon: FileText, title: "Content Factory", sub: "Blog & social generation" },
+  ];
+
   return (
-    <div className="min-h-screen flex relative overflow-hidden selection:bg-red-500/30" style={{ background: '#0c0e12', color: '#e2e2e8' }}>
+    <div className="min-h-screen flex relative overflow-hidden" style={{ background: '#0a0b0e', color: '#e2e2e8' }}>
+      {/* Subtle ambient depth — single soft cyan radial (matches landing) */}
+      <div className="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute top-[-200px] left-1/4 w-[700px] h-[500px] rounded-full blur-[160px]" style={{ background: 'radial-gradient(closest-side, rgba(0,240,255,0.05), transparent)' }} />
+      </div>
+
       {/* Left Panel - Visual (hidden on mobile) */}
-      <div className="hidden lg:flex lg:w-1/2 relative items-center justify-center p-12" style={{ background: 'rgba(255, 49, 49, 0.02)' }}>
-        {/* Background gradients */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500/10 rounded-full blur-[150px]" />
-          <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-orange-500/8 rounded-full blur-[120px]" />
-        </div>
-
-        {/* Dot grid */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(rgba(0, 240, 255, 0.3) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
-
+      <div className="hidden lg:flex lg:w-1/2 relative items-center justify-center p-12 z-10">
         <div className="relative z-10 space-y-10 max-w-md">
-          {/* Floating feature cards */}
+          {/* Feature cards */}
           <div className="space-y-4">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-              className="flex items-center gap-4 p-5 rounded-2xl"
-              style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
-            >
-              <div className="w-11 h-11 rounded-xl bg-[#00f0ff]/20 flex items-center justify-center shrink-0">
-                <MessageSquare className="w-5 h-5 text-[#00f0ff]" />
-              </div>
-              <div>
-                <p className="text-sm font-bold text-white">Unified AI Chat</p>
-                <p className="text-[11px] text-gray-400">7+ models in one interface</p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4 }}
-              className="flex items-center gap-4 p-5 rounded-2xl ml-8"
-              style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
-            >
-              <div className="w-11 h-11 rounded-xl bg-[#00f0ff]/20 flex items-center justify-center shrink-0">
-                <Code2 className="w-5 h-5 text-[#00f0ff]" />
-              </div>
-              <div>
-                <p className="text-sm font-bold text-white">Code Assistant</p>
-                <p className="text-[11px] text-gray-400">Full-stack dev tools</p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.6 }}
-              className="flex items-center gap-4 p-5 rounded-2xl ml-4"
-              style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
-            >
-              <div className="w-11 h-11 rounded-xl bg-[#00f0ff]/20 flex items-center justify-center shrink-0">
-                <FileText className="w-5 h-5 text-[#00f0ff]" />
-              </div>
-              <div>
-                <p className="text-sm font-bold text-white">Content Factory</p>
-                <p className="text-[11px] text-gray-400">Blog & social generation</p>
-              </div>
-            </motion.div>
+            {features.map((f, i) => (
+              <motion.div
+                key={f.title}
+                initial={{ opacity: 0, x: -24 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.15 + i * 0.12, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="flex items-center gap-4 p-5 rounded-2xl glass-card"
+              >
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style={{ background: 'rgba(0,240,255,0.12)' }}>
+                  <f.icon className="w-5 h-5" style={{ color: '#00f0ff' }} />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-white">{f.title}</p>
+                  <p className="text-[12px]" style={{ color: '#849495' }}>{f.sub}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
 
           {/* Tagline */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
+            transition={{ delay: 0.6, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-2"
           >
-            <h2 className="text-3xl font-black tracking-tight text-white">Free AI Chat.</h2>
-            <h2 className="text-3xl font-black bg-gradient-to-r from-[#00f0ff] via-[#0099ff] to-[#00f0ff] bg-clip-text text-transparent tracking-tight">Refine Your Narrative.</h2>
-            <p className="text-gray-400 text-sm">Zero cost. Infinite possibilities.</p>
+            <h2 className="text-3xl font-bold tracking-[-0.02em] text-white" style={{ fontFamily: 'Sora, sans-serif' }}>Free AI Chat.</h2>
+            <h2 className="text-3xl font-bold tracking-[-0.02em]" style={{ color: '#00f0ff', fontFamily: 'Sora, sans-serif' }}>Refine your work.</h2>
+            <p className="text-sm" style={{ color: '#849495' }}>Zero cost. Infinite possibilities.</p>
           </motion.div>
         </div>
       </div>
 
       {/* Right Panel - Auth Form */}
-      <div className="flex-1 flex items-center justify-center p-6 md:p-12 relative">
+      <div className="flex-1 flex items-center justify-center p-6 md:p-12 relative z-10">
         {/* Back to home */}
         <div className="absolute top-6 left-6 z-10">
-          <Link href="/" className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 hover:text-[#00f0ff] transition-colors">
-            ← Back to Home
+          <Link href="/" className="flex items-center gap-2 text-sm font-medium hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>
+            ← Back to home
           </Link>
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="w-full max-w-md"
         >
           {/* Logo */}
           <div className="flex flex-col items-center mb-10">
-            <AnimatedLogo className="scale-125 mb-6" />
-            <h1 className="text-2xl font-bold tracking-tight text-white text-center">
-              {isLogin ? "Welcome back, Pilot" : "Create your Neural ID"}
+            <XylosLogo size={48} className="mb-6 text-[#00f0ff]" />
+            <h1 className="text-2xl font-bold tracking-[-0.02em] text-white text-center" style={{ fontFamily: 'Sora, sans-serif' }}>
+              {isLogin ? "Welcome back" : "Create your account"}
             </h1>
-            <p className="text-gray-400 text-sm mt-2 text-center">
+            <p className="text-sm mt-2 text-center" style={{ color: '#849495' }}>
               {isLogin ? "Access your unified AI workspace." : "Join the ultimate free AI arsenal."}
             </p>
           </div>
 
           {error && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
-              className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-2xl flex items-center gap-3 text-red-400 text-sm"
+              className="mb-6 p-4 border border-red-500/25 rounded-2xl flex items-center gap-3 text-sm"
+              style={{ background: 'rgba(255,49,49,0.08)', color: '#ff6b6b' }}
             >
               <AlertCircle className="w-4 h-4 shrink-0" />
               {error}
@@ -145,92 +118,92 @@ function LoginContent() {
           )}
 
           {/* Auth Card */}
-          <div className="p-8 rounded-2xl relative overflow-hidden" style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
-            <form action={isLogin ? signInWithEmail : signUpWithEmail} onSubmit={handleSubmit} className="space-y-4 relative z-10">
+          <div className="p-8 rounded-2xl glass-card">
+            <form action={isLogin ? signInWithEmail : signUpWithEmail} onSubmit={handleSubmit} className="space-y-4">
               {!isLogin && (
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Full Name</label>
+                  <label className="text-[12px] font-medium ml-1" style={{ color: '#849495' }}>Full name</label>
                   <div className="relative">
-                    <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-600" />
-                    <input 
+                    <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: '#5a6c6d' }} />
+                    <input
                       name="fullName"
-                      type="text" 
-                      placeholder="Enter your name" 
+                      type="text"
+                      placeholder="Enter your name"
                       required
-                      className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 transition-all text-white placeholder:text-gray-600 text-sm"
-                      style={{ background: 'rgba(255, 94, 0, 0.05)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
+                      className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-[#00f0ff]/40 transition-all text-white placeholder:text-[#5a6c6d] text-sm"
+                      style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
                     />
                   </div>
                 </div>
               )}
 
               <div className="space-y-1.5">
-                <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Email Address</label>
+                <label className="text-[12px] font-medium ml-1" style={{ color: '#849495' }}>Email address</label>
                 <div className="relative">
-                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-600" />
-                  <input 
+                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: '#5a6c6d' }} />
+                  <input
                     name="email"
-                    type="email" 
-                    placeholder="name@example.com" 
+                    type="email"
+                    placeholder="name@example.com"
                     required
-                    className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 transition-all text-white placeholder:text-gray-600 text-sm"
-                    style={{ background: 'rgba(255, 94, 0, 0.05)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
+                    className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-[#00f0ff]/40 transition-all text-white placeholder:text-[#5a6c6d] text-sm"
+                    style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
                   />
                 </div>
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Secure Password</label>
+                <label className="text-[12px] font-medium ml-1" style={{ color: '#849495' }}>Password</label>
                 <div className="relative">
-                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-600" />
-                  <input 
+                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: '#5a6c6d' }} />
+                  <input
                     name="password"
-                    type="password" 
-                    placeholder="••••••••" 
+                    type="password"
+                    placeholder="••••••••"
                     required
-                    className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 transition-all text-white placeholder:text-gray-600 text-sm"
-                    style={{ background: 'rgba(255, 94, 0, 0.05)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
+                    className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-[#00f0ff]/40 transition-all text-white placeholder:text-[#5a6c6d] text-sm"
+                    style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
                   />
                 </div>
               </div>
 
-              <button 
+              <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-[#00f0ff] text-[#04141a] font-bold py-4 rounded-xl hover:bg-[#0099ff] transition-all duration-300 flex items-center justify-center gap-2 group mt-6 disabled:opacity-50 disabled:pointer-events-none text-sm uppercase tracking-wider"
+                className="w-full glass-cta font-semibold py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group mt-6 disabled:opacity-50 disabled:pointer-events-none text-sm"
               >
-                {isLoading ? "Synchronizing..." : isLogin ? "Launch Workspace" : "Generate Neural ID"}
+                {isLoading ? "Signing in..." : isLogin ? "Sign in" : "Create account"}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </form>
 
-            <div className="relative my-8 z-10">
+            <div className="relative my-8">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}></div>
+                <div className="w-full" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}></div>
               </div>
-              <div className="relative flex justify-center text-xs uppercase tracking-widest font-bold">
-                <span className="px-4 text-gray-600" style={{ background: 'rgba(20,16,8,0.6)' }}>or deploy via</span>
+              <div className="relative flex justify-center text-xs font-medium">
+                <span className="px-4" style={{ background: '#0a0b0e', color: '#5a6c6d' }}>or</span>
               </div>
             </div>
 
-            <button 
+            <button
               type="button"
               onClick={() => signInWithGoogle()}
-              className="w-full border font-semibold py-4 rounded-xl flex items-center justify-center gap-3 hover:bg-red-500/10 transition-all group relative z-10 text-sm text-gray-300"
-              style={{ background: 'rgba(59, 73, 75, 0.15)', borderColor: 'rgba(59, 73, 75, 0.2)' }}
+              className="w-full border font-semibold py-4 rounded-xl flex items-center justify-center gap-3 hover:border-[rgba(0,240,255,0.3)] hover:bg-[rgba(0,240,255,0.04)] transition-all group text-sm text-white"
+              style={{ background: 'rgba(255,255,255,0.03)', borderColor: 'rgba(255,255,255,0.1)' }}
             >
               <Chrome className="w-5 h-5 text-[#00f0ff] group-hover:scale-110 transition-transform" />
               Continue with Google
             </button>
           </div>
 
-          <p className="mt-8 text-center text-gray-400 text-sm">
-            {isLogin ? "New to Xylos AI?" : "Already have an ID?"}
-            <button 
+          <p className="mt-8 text-center text-sm" style={{ color: '#849495' }}>
+            {isLogin ? "New to Xylos AI?" : "Already have an account?"}
+            <button
               onClick={() => setIsLogin(!isLogin)}
-              className="ml-2 text-[#00f0ff] font-bold hover:underline"
+              className="ml-2 text-[#00f0ff] font-semibold hover:underline"
             >
-              {isLogin ? "Create an account" : "Sign in to workspace"}
+              {isLogin ? "Create an account" : "Sign in"}
             </button>
           </p>
         </motion.div>
@@ -241,7 +214,7 @@ function LoginContent() {
 
 export default function LoginPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center" style={{ background: '#0c0e12' }}><div className="w-8 h-8 rounded-full border-2 border-red-500 border-t-transparent animate-spin" /></div>}>
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center" style={{ background: '#0a0b0e' }}><div className="w-8 h-8 rounded-full border-2 border-[#00f0ff] border-t-transparent animate-spin" /></div>}>
        <LoginContent />
     </Suspense>
   );

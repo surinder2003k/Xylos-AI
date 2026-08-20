@@ -244,9 +244,9 @@ export default function AllStoriesPage() {
                     <td className="px-10 py-5">
                       <div className={`
                         inline-flex items-center gap-3 px-5 py-2.5 rounded-xl font-black text-[9px] uppercase tracking-[0.2em] transition-all
-                        ${post.status === 'published' ? 'bg-primary/10 text-primary border border-primary/20' : 'bg-orange-500/10 text-orange-500 border border-orange-500/20'}
+                        ${post.status === 'published' ? 'bg-primary/10 text-primary border border-primary/20' : 'bg-white/5 text-white/40 border border-white/10'}
                       `}>
-                        <span className={`w-2 h-2 rounded-full animate-pulse ${post.status === 'published' ? 'bg-primary shadow-sm' : 'bg-orange-500 shadow-sm'}`}></span>
+                        <span className={`w-2 h-2 rounded-full animate-pulse ${post.status === 'published' ? 'bg-primary' : 'bg-white/30'}`}></span>
                         {post.status}
                       </div>
                     </td>
@@ -285,7 +285,7 @@ export default function AllStoriesPage() {
                        <div className="flex items-center justify-center gap-3">
                           <button 
                             onClick={() => toggleStatus(post)}
-                            className={`p-3.5 rounded-xl border border-white/10 transition-all group/btn ${post.status === 'published' ? 'bg-orange-500/10 hover:bg-orange-500 text-orange-500 hover:text-white' : 'bg-primary/10 hover:bg-primary text-primary hover:text-black'}`}
+                            className={`p-3.5 rounded-xl border border-white/10 transition-all group/btn ${post.status === 'published' ? 'bg-white/5 hover:bg-white/10 text-white/60' : 'bg-primary/10 hover:bg-primary text-primary hover:text-[#04141a]'}`}
                             title={post.status === 'published' ? "Unpublish Protocol" : "Deploy Protocol"}
                           >
                              {post.status === 'published' ? <EyeOff className="w-4 h-4 opacity-70 group-hover/btn:opacity-100" /> : <Eye className="w-4 h-4 opacity-70 group-hover/btn:opacity-100" />}

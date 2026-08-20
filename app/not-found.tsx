@@ -1,60 +1,51 @@
 import Link from "next/link";
-import { AnimatedLogo } from "@/components/premium/animated-logo";
+import { XylosLogo } from "@/components/premium/xylos-logo";
 import { ArrowLeft, Cpu, MessageSquare } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden selection:bg-red-500/30" style={{ background: '#0c0e12', color: '#e2e2e8' }}>
-      {/* Background glows */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500/8 rounded-full blur-[150px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-orange-500/6 rounded-full blur-[120px]" />
+    <div className="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden" style={{ background: '#0a0b0e', color: '#e2e2e8' }}>
+      {/* Subtle ambient depth */}
+      <div className="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full blur-[160px]" style={{ background: 'radial-gradient(closest-side, rgba(0,240,255,0.05), transparent)' }} />
       </div>
 
-      {/* Dot grid */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(rgba(0, 240, 255, 0.3) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
-
       <div className="relative z-10 flex flex-col items-center text-center space-y-10 max-w-xl">
-        <AnimatedLogo className="scale-125" />
+        <XylosLogo size={48} className="text-[#00f0ff]" />
 
         <div className="space-y-4">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.3em]" style={{ background: 'rgba(0, 240, 255, 0.1)', border: '1px solid rgba(0, 240, 255, 0.2)', color: '#00f0ff' }}>
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[11px] font-medium tracking-wide" style={{ background: 'rgba(0, 240, 255, 0.1)', border: '1px solid rgba(0, 240, 255, 0.2)', color: '#00f0ff' }}>
             <Cpu className="w-3 h-3" />
-            Signal Lost — Error 404
+            Error 404
           </div>
 
-          <h1 className="text-[8rem] font-black leading-none tracking-tighter">
+          <h1 className="text-[7rem] sm:text-[8rem] font-bold leading-none tracking-[-0.04em]" style={{ fontFamily: 'Sora, sans-serif' }}>
             <span className="text-white">4</span>
-            <span className="bg-gradient-to-r from-[#00f0ff] to-[#0099ff] bg-clip-text text-transparent italic">0</span>
+            <span style={{ color: '#00f0ff' }}>0</span>
             <span className="text-white">4</span>
           </h1>
 
-          <p className="text-xl text-gray-400 font-medium leading-relaxed">
-            &quot;This neural pathway doesn&apos;t exist. The signal you were chasing has dissipated into the void.&quot;
+          <p className="text-lg text-gray-400 font-medium leading-relaxed">
+            This page doesn&apos;t exist. The link you followed may be broken or the page may have moved.
           </p>
         </div>
 
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full">
           <Link
             href="/"
-            className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-[#ff3131] text-white font-bold text-xs uppercase tracking-[0.2em] hover:bg-[#ff5e00] transition-all w-full sm:w-auto"
+            className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl glass-cta font-semibold text-sm transition-all w-full sm:w-auto"
           >
             <ArrowLeft className="w-4 h-4" />
-            Return to Base
+            Back to home
           </Link>
           <Link
             href="/dashboard/chat"
-            className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl border font-bold text-xs uppercase tracking-[0.2em] hover:bg-red-500/10 transition-all w-full sm:w-auto text-gray-400"
-            style={{ borderColor: 'rgba(59, 73, 75, 0.3)' }}
+            className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl glass-outline font-semibold text-sm transition-all w-full sm:w-auto"
           >
             <MessageSquare className="w-4 h-4" />
-            Open Neural Chat
+            Open chat
           </Link>
         </div>
-
-        <p className="text-[9px] font-bold text-gray-600 uppercase tracking-[0.5em]">
-          Xylos AI // Signal Intelligence Protocol
-        </p>
       </div>
     </div>
   );

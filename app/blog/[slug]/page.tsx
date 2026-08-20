@@ -146,7 +146,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   };
 
   return (
-    <div className="min-h-screen" style={{ background: '#0c0e12', color: '#e2e2e8' }}>
+    <div className="min-h-screen" style={{ background: '#0a0b0e', color: '#e2e2e8' }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -181,15 +181,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       />
 
       {/* Sticky Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4" style={{ background: 'rgba(12, 14, 18, 0.9)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(59, 73, 75, 0.15)' }}>
-        <Link href="/blog" className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-[#00f0ff] transition-colors" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
-          <ChevronRight className="w-3 h-3 rotate-180" />
-          BLOG
-        </Link>
-        <div className="flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.15em] text-white" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-          <div className="w-5 h-5 rounded bg-[#ff5e00] flex items-center justify-center text-[8px] text-white font-black">X</div>
-          XYLOS AI
-        </div>
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4" style={{ background: 'rgba(10, 11, 14, 0.9)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+      <Link href="/blog" className="flex items-center gap-2 text-[11px] font-semibold text-gray-400 hover:text-[#00f0ff] transition-colors" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+        <ChevronRight className="w-3 h-3 rotate-180" />
+        Blog
+      </Link>
+      <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-white" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+        <div className="w-5 h-5 rounded flex items-center justify-center text-[8px] text-white font-bold" style={{ background: '#00f0ff' }}>X</div>
+        XYLOS AI
+      </div>
         <ShareButtons title={post.title} excerpt={post.excerpt} slug={post.slug} />
       </header>
 
@@ -224,11 +224,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </div>
 
               {/* Title */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05] tracking-tight mb-8" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] tracking-[-0.02em] mb-8" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
                 {post.title.split(' ').map((word: string, i: number) => {
                   const highlightWords = ['AI', 'Neural', 'Intelligence', 'Network', 'Consciousness', 'Future', 'Revolution', 'Machine', 'Deep', 'Learning', 'Quantum', 'Autonomous', 'System', 'Algorithm'];
                   if (highlightWords.some(hw => word.toLowerCase().includes(hw.toLowerCase()))) {
-                    return <span key={i} className="text-[#ff5e00]">{word} </span>;
+                    return <span key={i} style={{ color: '#00f0ff' }}>{word} </span>;
                   }
                   return <span key={i}>{word} </span>;
                 })}
@@ -236,38 +236,38 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
               {/* Author Card */}
               <div className="flex items-center gap-4 mb-12 pb-8" style={{ borderBottom: '1px solid rgba(59, 73, 75, 0.15)' }}>
-                <div className="w-11 h-11 rounded-full overflow-hidden" style={{ background: 'rgba(255, 94, 0, 0.1)', border: '2px solid rgba(255, 94, 0, 0.3)' }}>
+                <div className="w-11 h-11 rounded-full overflow-hidden" style={{ background: 'rgba(0,240,255,0.1)', border: '2px solid rgba(0,240,255,0.25)' }}>
                   {post.author?.avatar_url ? (
                     <img src={post.author.avatar_url} alt={post.author.full_name} className="w-full h-full object-cover" />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-[#ff5e00] text-sm font-bold">
+                    <div className="w-full h-full flex items-center justify-center text-[#00f0ff] text-sm font-bold">
                       {(post.author?.full_name || 'X')[0]}
                     </div>
                   )}
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-white" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+                  <h3 className="text-sm font-semibold text-white" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
                     {post.author?.full_name || 'Xylos Editorial Team'}
                   </h3>
-                  <p className="text-[10px] text-gray-500 uppercase tracking-wider" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
+                  <p className="text-[12px]" style={{ color: '#849495' }}>
                     Lead AI Researcher
                   </p>
                 </div>
-                <button className="ml-auto px-4 py-1.5 rounded text-[9px] font-bold uppercase tracking-[0.2em] text-white transition-all hover:scale-105" style={{ background: '#ff5e00', fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
-                  FOLLOW
+                <button className="ml-auto px-4 py-1.5 rounded text-[12px] font-semibold transition-all hover:bg-[rgba(0,240,255,0.12)] hover:text-[#00f0ff]" style={{ background: 'rgba(255,255,255,0.05)', color: '#849495' }}>
+                  Follow
                 </button>
               </div>
 
               {/* Article Body */}
               <div className="prose prose-lg dark:prose-invert max-w-none
                 [&_*]:text-[#a0a0b0]
-                prose-headings:text-white prose-headings:font-black prose-headings:tracking-tight
-                prose-a:text-[#ff5e00] prose-strong:text-white
-                prose-blockquote:border-l-[#ff5e00] prose-blockquote:text-[#c0c0c0] prose-blockquote:italic
+                prose-headings:text-white prose-headings:font-bold prose-headings:tracking-[-0.02em]
+                prose-a:text-[#00f0ff] prose-strong:text-white
+                prose-blockquote:border-l-[#00f0ff] prose-blockquote:text-[#c8c8cc] prose-blockquote:italic
                 prose-code:text-[#00f0ff] prose-code:bg-[rgba(0,240,255,0.05)] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
-                prose-pre:bg-[#0a0c10] prose-pre:border prose-pre:border-[rgba(59,73,75,0.2)]
-                prose-img:rounded-xl prose-img:border prose-img:border-[rgba(59,73,75,0.2)]
-                selection:bg-[rgba(255,94,0,0.3)]
+                prose-pre:bg-[#0a0c10] prose-pre:border prose-pre:border-[rgba(255,255,255,0.08)]
+                prose-img:rounded-xl prose-img:border prose-img:border-[rgba(255,255,255,0.08)]
+                selection:bg-[rgba(0,240,255,0.25)]
                 break-words overflow-hidden"
                 style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
                 {post.content && post.content.startsWith('<') ? (
@@ -285,7 +285,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         return <h2 id={id}>{children}</h2>;
                       },
                       blockquote: ({ children }) => (
-                        <blockquote className="!border-l-[#ff5e00] !border-l-2 !pl-6 !py-2 my-8" style={{ background: 'rgba(255, 94, 0, 0.03)', borderLeft: '3px solid #ff5e00', borderRadius: '0 8px 8px 0' }}>
+                        <blockquote className="!border-l-2 !pl-6 !py-2 my-8" style={{ background: 'rgba(0,240,255,0.03)', borderLeft: '3px solid #00f0ff', borderRadius: '0 8px 8px 0' }}>
                           {children}
                         </blockquote>
                       ),
@@ -330,8 +330,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         className="flex-1 bg-transparent text-sm text-white placeholder-gray-600 outline-none"
                         style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
                       />
-                      <button className="px-4 py-1.5 rounded text-[9px] font-bold uppercase tracking-[0.2em] text-black transition-all hover:scale-105" style={{ background: '#00f0ff', fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
-                        SUBMIT
+                      <button className="px-4 py-1.5 rounded text-[12px] font-semibold uppercase transition-all hover:bg-[#33f3ff]" style={{ background: '#00f0ff', color: '#04141a' }}>
+                        Submit
                       </button>
                     </div>
                   </div>

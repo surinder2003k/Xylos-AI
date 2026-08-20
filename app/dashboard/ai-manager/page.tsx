@@ -277,7 +277,7 @@ export default function AIManagerPage() {
             <Cpu className="w-32 h-32 text-primary" />
          </div>
          <div>
-            <h1 className="text-3xl md:text-4xl font-black font-sora tracking-tighter uppercase leading-none text-white">Autonomous <span className="text-red-500">Manager</span></h1>
+            <h1 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] leading-none text-white" style={{ fontFamily: 'Sora, sans-serif' }}>Autonomous <span className="text-[#00f0ff]">Manager</span></h1>
             <p className="text-white/40 mt-3 font-medium uppercase tracking-[0.2em] text-[8px] md:text-[10px]">Editorial Synthesis Core V3.1 // Status: Online</p>
          </div>
          <div className="flex items-center gap-4">
