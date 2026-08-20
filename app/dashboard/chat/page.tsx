@@ -354,8 +354,8 @@ function ChatContent() {
           
           <div className="flex-1 flex items-center justify-between">
             <div className="flex items-center gap-2">
-               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 hidden sm:inline">Active Link:</span>
-               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">{selectedProvider.name}</span>
+               <span className="text-[10px] font-semibold uppercase tracking-wide text-white/40 hidden sm:inline">Active Link:</span>
+               <span className="text-[10px] font-semibold uppercase tracking-wide text-primary">{selectedProvider.name}</span>
             </div>
           </div>
         </div>
@@ -623,7 +623,7 @@ function ChatContent() {
               </div>
             </div>
             
-            <div className="mt-4 flex items-center justify-center gap-6 text-[8px] font-black uppercase tracking-[0.3em] text-white/15 italic select-none">
+            <div className="mt-4 flex items-center justify-center gap-6 text-[8px] font-semibold uppercase tracking-wide text-white/20 italic select-none">
                <span>AES-256 SECURED</span>
                <div className="w-1 h-1 bg-primary/30 rounded-full" />
                <span>NEURAL MATRIX V3.5</span>

@@ -359,7 +359,7 @@ export default function AIManagerPage() {
             <div className="pt-6 border-t border-white/10 space-y-6">
 
               <div className="space-y-3">
-                 <p className="text-[10px] font-black text-white/30 uppercase tracking-widest">Auto-Post Category</p>
+                 <p className="text-[10px] font-semibold text-white/40 uppercase tracking-wide">Auto-Post Category</p>
                  
                  {/* Custom Dropdown with Delete Buttons */}
                  <div className="relative" data-category-dropdown>
@@ -441,7 +441,7 @@ export default function AIManagerPage() {
               </div>
 
                <div className="p-6 rounded-xl bg-primary/5 border border-primary/20 space-y-4">
-                 <p className="text-[10px] font-black text-primary uppercase tracking-widest flex items-center justify-between">
+                 <p className="text-[10px] font-semibold text-primary uppercase tracking-wide flex items-center justify-between">
                     Model Pipeline Status
                     <RefreshCw className={`w-3 h-3 cursor-pointer ${isRunning ? 'animate-spin' : ''}`} onClick={checkAPIStatus} />
                  </p>
@@ -542,11 +542,11 @@ export default function AIManagerPage() {
                     <td className="py-6">
                       <div className="flex items-center justify-center gap-2">
                         {user.user_id === currentUserId ? (
-                          <div className="text-[10px] uppercase font-black tracking-widest text-primary opacity-50 px-4 py-2 border border-transparent">
+                          <div className="text-[10px] uppercase font-semibold tracking-wide text-primary opacity-60 px-4 py-2 border border-transparent">
                             Active Session
                           </div>
                         ) : user.role === 'super_admin' ? (
-                          <div className="text-[10px] uppercase font-black tracking-widest text-red-500 opacity-50 px-4 py-2 border border-transparent">
+                          <div className="text-[10px] uppercase font-semibold tracking-wide text-red-500 opacity-60 px-4 py-2 border border-transparent">
                             System Core
                           </div>
                         ) : user.role === 'admin' ? (

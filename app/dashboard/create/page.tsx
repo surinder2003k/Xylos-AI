@@ -231,7 +231,7 @@ function CreatePostContent() {
             <div className="p-2 rounded-xl bg-primary/10">
               <Globe className="w-5 h-5 animate-pulse" />
             </div>
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] font-mono">Professional Editorial Editor v3.2</span>
+            <span className="text-[10px] font-semibold uppercase tracking-wide font-mono">Professional Editorial Editor v3.2</span>
           </div>
           <h1 className="text-4xl lg:text-5xl font-black font-sora tracking-tighter uppercase leading-tight text-white">
             Create Editorial <span className="text-primary italic">Masterpiece</span>

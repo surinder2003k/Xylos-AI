@@ -221,7 +221,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             <div className="p-3 rounded-xl bg-primary/5 border border-primary/10 flex items-center gap-3 shadow-inner">
               <ShieldCheck className="w-4 h-4 text-primary flex-shrink-0" />
               <div className="min-w-0">
-                <p className="text-[10px] font-black text-primary uppercase tracking-widest">Super Admin</p>
+                <p className="text-[10px] font-semibold text-primary uppercase tracking-wide">Super Admin</p>
                 <p className="text-[9px] text-white/40 truncate">{userEmail}</p>
               </div>
             </div>
@@ -277,7 +277,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             {isAdmin && (
               <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20">
                 <ShieldCheck className="w-3.5 h-3.5 text-primary" />
-                <span className="text-[10px] font-black text-primary uppercase tracking-widest">Admin</span>
+                <span className="text-[10px] font-semibold text-primary uppercase tracking-wide">Admin</span>
               </div>
             )}
             <div className="relative" data-profile-menu>

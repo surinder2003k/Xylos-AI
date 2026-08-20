@@ -177,7 +177,7 @@ export default function AllStoriesPage() {
         
         <Link 
           href="/dashboard/create"
-          className="group flex items-center gap-4 bg-primary text-[#04141a] px-10 py-5 rounded-xl font-black text-xs uppercase tracking-widest hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] transition-all"
+          className="group flex items-center gap-4 bg-primary text-[#04141a] px-10 py-5 rounded-xl font-semibold text-xs uppercase tracking-wide hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] transition-all"
         >
           <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
           Draft New Story
@@ -211,10 +211,10 @@ export default function AllStoriesPage() {
           <table className="w-full text-left border-collapse min-w-[1000px]">
             <thead>
               <tr className="border-b border-white/10 bg-white/[0.02]">
-                <th className="px-10 py-8 text-[10px] font-black text-white/40 uppercase tracking-[0.4em]">Status</th>
-                <th className="px-8 py-8 text-[10px] font-black text-white/40 uppercase tracking-[0.4em]">Asset Details</th>
-                <th className="px-8 py-8 text-[10px] font-black text-white/40 uppercase tracking-[0.4em]">Taxonomy</th>
-                <th className="px-10 py-8 text-[10px] font-black text-white/40 uppercase tracking-[0.4em] text-center">Actions</th>
+                <th className="px-10 py-8 text-[10px] font-semibold text-white/40 uppercase tracking-wide">Status</th>
+                <th className="px-8 py-8 text-[10px] font-semibold text-white/40 uppercase tracking-wide">Asset Details</th>
+                <th className="px-8 py-8 text-[10px] font-semibold text-white/40 uppercase tracking-wide">Taxonomy</th>
+                <th className="px-10 py-8 text-[10px] font-semibold text-white/40 uppercase tracking-wide text-center">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/5">
@@ -233,7 +233,7 @@ export default function AllStoriesPage() {
                       <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center">
                         <BookOpen className="w-8 h-8 text-white" />
                       </div>
-                      <p className="text-xs font-black uppercase tracking-[0.3em] text-white">Story Archive Empty</p>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-white">Story Archive Empty</p>
                       <Link href="/dashboard/create" className="text-xs text-primary font-bold hover:underline">Draft your first story →</Link>
                     </div>
                   </td>

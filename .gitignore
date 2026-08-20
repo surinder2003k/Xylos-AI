@@ -58,3 +58,5 @@ task-progress.mdc
 DESIGN-THEMES.md
 DESIGN.md
 resolve-db-error.md
+.vercel
+.env*

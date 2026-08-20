@@ -253,9 +253,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     Lead AI Researcher
                   </p>
                 </div>
-                <button className="ml-auto px-4 py-1.5 rounded text-[12px] font-semibold transition-all hover:bg-[rgba(0,240,255,0.12)] hover:text-[#00f0ff]" style={{ background: 'rgba(255,255,255,0.05)', color: '#849495' }}>
-                  Follow
-                </button>
               </div>
 
               {/* Article Body */}
