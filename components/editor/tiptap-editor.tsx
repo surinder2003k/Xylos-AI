@@ -555,7 +555,7 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
 
               <div className="space-y-4">
                 <div className="space-y-1.5">
-                  <span className="text-[8px] font-black uppercase tracking-widest text-primary/70">Alt Text (Search & Accessibility)</span>
+                  <span className="text-[8px] font-semibold uppercase tracking-wide text-primary/70">Alt Text (Search & Accessibility)</span>
                   <input 
                     type="text" 
                     value={metadataEditor.alt}
@@ -566,7 +566,7 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
                 </div>
                 
                 <div className="space-y-1.5">
-                  <span className="text-[8px] font-black uppercase tracking-widest text-primary/70">Title Attribute (Tooltips)</span>
+                  <span className="text-[8px] font-semibold uppercase tracking-wide text-primary/70">Title Attribute (Tooltips)</span>
                   <input 
                     type="text" 
                     value={metadataEditor.title}

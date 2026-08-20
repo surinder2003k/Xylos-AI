@@ -25,7 +25,7 @@ import {
 import { signOut } from "@/app/auth/actions";
 import { createClient } from "@/utils/supabase/client";
 
-import { AnimatedLogo } from "@/components/premium/animated-logo";
+import { XylosLogo } from "@/components/premium/xylos-logo";
 import { useToast } from "@/components/ui/toast";
 
 const baseNavItems = [
@@ -166,7 +166,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 exit={{ opacity: 0, x: -20 }}
                 className="flex items-center gap-2"
               >
-                <AnimatedLogo />
+                <XylosLogo size={32} className="text-[#00f0ff]" />
+                <span className="text-lg font-bold tracking-[-0.02em] text-white" style={{ fontFamily: 'Sora, sans-serif' }}>Xylos</span>
               </motion.div>
             ) : (
               <motion.div 
@@ -175,7 +176,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <AnimatedLogo showText={false} />
+                <XylosLogo size={32} className="text-[#00f0ff]" />
               </motion.div>
             )}
           </AnimatePresence>
@@ -207,7 +208,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 <item.icon className={`w-5 h-5 flex-shrink-0 ${isActive ? 'text-primary' : 'group-hover:text-primary transition-colors duration-300'}`} />
                 {isSidebarOpen && <span className="font-medium text-sm">{item.label}</span>}
                 {isSidebarOpen && item.label === "Platform Admin" && (
-                  <span className="ml-auto text-[9px] font-black uppercase tracking-widest bg-primary/20 text-primary px-2 py-0.5 rounded-full">Admin</span>
+                  <span className="ml-auto text-[9px] font-semibold uppercase tracking-wide bg-primary/20 text-primary px-2 py-0.5 rounded-full">Admin</span>
                 )}
               </Link>
             );
@@ -301,7 +302,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                     <div className="p-3">
                       <div className="px-3 py-3 mb-2 bg-white/5 rounded-xl border border-white/10">
                         <p className="text-xs font-bold text-white truncate">{userEmail || "Editorial Lead"}</p>
-                        <p className="text-[9px] font-black text-violet-400 uppercase tracking-[0.2em] mt-1 flex items-center gap-1">
+                        <p className="text-[10px] font-semibold text-primary uppercase tracking-[0.15em] mt-1 flex items-center gap-1">
                           <Sparkles className="w-2.5 h-2.5" />
                           {userRole}
                         </p>

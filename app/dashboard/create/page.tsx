@@ -319,13 +319,13 @@ function CreatePostContent() {
             <div className="flex p-1 bg-white/5 rounded-xl">
               <button 
                 onClick={() => setAssetMode('search')}
-                className={`flex-1 py-2 text-[10px] font-black uppercase tracking-widest rounded-xl transition-all ${assetMode === 'search' ? 'bg-primary text-[#04141a]' : 'text-white/40 hover:bg-white/5'}`}
+                className={`flex-1 py-2 text-[10px] font-semibold uppercase tracking-wide rounded-xl transition-all ${assetMode === 'search' ? 'bg-primary text-[#04141a]' : 'text-white/40 hover:bg-white/5'}`}
               >
                 Search
               </button>
               <button 
                 onClick={() => setAssetMode('upload')}
-                className={`flex-1 py-2 text-[10px] font-black uppercase tracking-widest rounded-xl transition-all ${assetMode === 'upload' ? 'bg-primary text-[#04141a]' : 'text-white/40 hover:bg-white/5'}`}
+                className={`flex-1 py-2 text-[10px] font-semibold uppercase tracking-wide rounded-xl transition-all ${assetMode === 'upload' ? 'bg-primary text-[#04141a]' : 'text-white/40 hover:bg-white/5'}`}
               >
                 Upload
               </button>
@@ -497,7 +497,7 @@ export default function CreatePostPage() {
       <Suspense fallback={
         <div className="min-h-screen flex flex-col items-center justify-center bg-background gap-4">
           <Loader2 className="w-10 h-10 text-primary animate-spin" />
-          <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground animate-pulse">Initializing Editorial Engine...</span>
+          <span className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground animate-pulse">Initializing Editorial Engine...</span>
         </div>
       }>
         <CreatePostContent />

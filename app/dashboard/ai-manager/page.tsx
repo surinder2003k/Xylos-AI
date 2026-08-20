@@ -281,7 +281,7 @@ export default function AIManagerPage() {
             <p className="text-white/40 mt-3 font-medium uppercase tracking-[0.2em] text-[8px] md:text-[10px]">Editorial Synthesis Core V3.1 // Status: Online</p>
          </div>
          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-primary text-xs font-black uppercase tracking-widest">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wide">
                <Activity className="w-4 h-4 animate-pulse" />
                Xylos Active
             </div>
@@ -532,7 +532,7 @@ export default function AIManagerPage() {
                     <td className="py-6 text-xs text-white/40">{user.email || "Confidential Entry"}</td>
                     <td className="py-6">
                       <div className={`
-                        inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest
+                        inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-[9px] font-semibold uppercase tracking-wide
                         {(user.role === 'super_admin' || user.user_id === currentUserId && user.role !== 'user') ? 'bg-red-500/10 text-red-500 border border-red-500/20' : user.role === 'admin' ? 'bg-primary/10 text-primary border border-primary/20' : 'bg-white/5 text-white/30 border border-white/10'}
                       `}>
                         {user.role === 'super_admin' ? <ShieldAlert className="w-3 h-3" /> : user.role === 'admin' ? <ShieldCheck className="w-3 h-3" /> : <Users className="w-3 h-3" />}

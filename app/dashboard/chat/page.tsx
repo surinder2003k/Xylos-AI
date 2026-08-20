@@ -26,7 +26,6 @@ import {
 import { useSearchParams, useRouter } from "next/navigation";
 import { signOut } from "@/app/auth/actions";
 import { chatService, Message, ChatSession } from "@/lib/supabase/chat-service";
-import { AnimatedLogo } from "@/components/premium/animated-logo";
 import { historyManager } from "@/lib/chat/history";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -448,7 +447,7 @@ function ChatContent() {
                                 <div className="flex items-center gap-2 mt-2">
                                   <button 
                                     onClick={() => copyToClipboard(message.content)}
-                                    className="p-1 px-3 rounded-xl bg-white/10 text-white/70 hover:bg-white/20 text-[9px] font-black uppercase tracking-widest transition-all flex items-center gap-1"
+                                    className="p-1 px-3 rounded-xl bg-white/10 text-white/70 hover:bg-white/20 text-[9px] font-semibold uppercase tracking-wide transition-all flex items-center gap-1"
                                   >
                                     <Copy className="w-3 h-3" /> Copy
                                   </button>
@@ -502,7 +501,7 @@ function ChatContent() {
                         {message.role === 'assistant' && (
                           <button 
                             onClick={() => copyToClipboard(message.content)}
-                            className="p-1 px-3 rounded-xl hover:bg-white/5 text-[9px] font-black uppercase tracking-widest text-white/30 hover:text-primary transition-all border border-transparent hover:border-white/10 mt-1 flex items-center gap-1"
+                            className="p-1 px-3 rounded-xl hover:bg-white/5 text-[9px] font-semibold uppercase tracking-wide text-white/30 hover:text-primary transition-all border border-transparent hover:border-white/10 mt-1 flex items-center gap-1"
                           >
                             <Copy className="w-3 h-3" /> Copy Response
                           </button>
@@ -574,7 +573,7 @@ function ChatContent() {
                    <div className="relative">
                      <button 
                       onClick={() => setIsProviderMenuOpen(!isProviderMenuOpen)}
-                      className="flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-white/5 transition-all text-[10px] font-black uppercase tracking-widest text-white/40"
+                      className="flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-white/5 transition-all text-[10px] font-semibold uppercase tracking-wide text-white/40"
                      >
                         <selectedProvider.icon className="w-3.5 h-3.5 text-primary" />
                         <span className="hidden sm:inline">{selectedProvider.name}</span>
@@ -609,7 +608,7 @@ function ChatContent() {
                         className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 hover:bg-red-500 hover:text-white transition-all flex items-center gap-2 group/stop"
                       >
                          <Square className="w-5 h-5 fill-current group-hover:scale-90 transition-transform" />
-                         <span className="text-[10px] font-black uppercase tracking-widest hidden sm:inline">Terminate</span>
+                         <span className="text-[10px] font-semibold uppercase tracking-wide hidden sm:inline">Terminate</span>
                       </button>
                     ) : (
                       <button 

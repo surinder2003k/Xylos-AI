@@ -3,9 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, LogOut } from "lucide-react";
+import { motion } from "framer-motion";
 
 import { usePathname, useRouter } from "next/navigation";
-import { AnimatedLogo } from "@/components/premium/animated-logo";
 import { signOut } from "@/app/auth/actions";
 
 interface NavbarProps {
@@ -27,7 +27,11 @@ export function Navbar({ user }: NavbarProps) {
     pathname === href || pathname?.startsWith(href + "/");
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b transition-all duration-300" style={{ background: 'rgba(12, 14, 18, 0.85)', borderColor: 'rgba(59, 73, 75, 0.2)' }}>
+    <motion.nav
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b transition-all duration-300" style={{ background: 'rgba(12, 14, 18, 0.85)', borderColor: 'rgba(59, 73, 75, 0.2)' }}>
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         
         {/* Logo */}
@@ -137,7 +141,7 @@ export function Navbar({ user }: NavbarProps) {
           </div>
         </div>
       </div>
-    </nav>
+    </motion.nav>
 
   );
 }

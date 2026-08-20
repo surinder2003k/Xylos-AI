@@ -9,6 +9,7 @@ import { AuthListener } from "@/components/auth-listener";
 import { GlobalEffects } from "@/components/ui/global-effects";
 import { ToastProvider } from "@/components/ui/toast";
 import { OfflineNotice } from "@/components/ui/offline-notice";
+import { PageFade } from "@/components/ui/motion-primitives";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -169,7 +170,7 @@ export default async function RootLayout({
               <ScrollToTop />
               <GlobalNavbar />
               <main className="relative min-h-screen">
-                {children}
+                <PageFade>{children}</PageFade>
               </main>
             </ToastProvider>
           </PrimaryColorProvider>

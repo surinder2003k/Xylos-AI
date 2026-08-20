@@ -3,6 +3,7 @@ import { ArrowRight, ChevronRight, ChevronDown, Terminal, Lock, Eye, Layers } fr
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { Reveal } from "@/components/ui/reveal";
+import { StaggerContainer, StaggerItem } from "@/components/ui/motion-primitives";
 
 const NewsletterForm = dynamic(() => import("@/components/landing/newsletter-form").then(m => m.NewsletterForm));
 
@@ -74,32 +75,33 @@ export default async function LandingPage() {
         <section className="relative z-10 min-h-screen flex items-center">
           <div className="w-full px-6 md:px-12 lg:px-20 py-24">
             <div className="max-w-5xl mx-auto">
+                <StaggerContainer>
                 {/* Badge */}
-                <Reveal delay={0}>
+                <StaggerItem>
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8" style={{ border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.03)' }}>
                   <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#00f0ff' }} />
                   <span className="text-[11px] font-medium tracking-wide" style={{ color: '#aeb9bd' }}>Free AI, ready when you are</span>
                 </div>
-                </Reveal>
+                </StaggerItem>
 
                 {/* Heading */}
-                <Reveal delay={0.08}>
+                <StaggerItem>
                 <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-bold leading-[1.02] tracking-[-0.03em] text-white mb-6" style={{ fontFamily: 'Sora, sans-serif' }}>
                   Intelligence,
                   <br />
                   <span style={{ color: '#00f0ff' }}>beautifully simple.</span>
                 </h1>
-                </Reveal>
+                </StaggerItem>
 
                 {/* Subheading */}
-                <Reveal delay={0.16}>
+                <StaggerItem>
                 <p className="text-lg md:text-xl max-w-xl leading-relaxed mb-10" style={{ color: '#aeb9bd' }}>
                   One calm workspace for 7+ frontier models — Llama, Gemini, Mistral. No clutter, no cost. Just clear, fast answers.
                 </p>
-                </Reveal>
+                </StaggerItem>
 
                 {/* Buttons */}
-                <Reveal delay={0.24}>
+                <StaggerItem>
                 <div className="flex flex-col sm:flex-row gap-4 mb-16">
                   <Link
                     href="/dashboard/chat"
@@ -116,10 +118,10 @@ export default async function LandingPage() {
                     <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
-                </Reveal>
+                </StaggerItem>
 
                 {/* Refined stat row */}
-                <Reveal delay={0.32}>
+                <StaggerItem>
                 <div className="flex flex-wrap items-center gap-x-10 gap-y-4">
                   {[
                     { value: '7+', label: 'Frontier models' },
@@ -132,7 +134,8 @@ export default async function LandingPage() {
                     </div>
                   ))}
                 </div>
-                </Reveal>
+                </StaggerItem>
+                </StaggerContainer>
               </div>
           </div>
 
