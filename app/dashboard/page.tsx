@@ -15,14 +15,14 @@ import {
 import Link from "next/link";
 
 const tools = [
-  { id: "ai-pdf-analyzer", title: "PDF Analyzer", desc: "Extract insights from 256K context documents.", icon: FileText, color: "text-red-500" },
-  { id: "ai-code-assistant", title: "Code Assistant", desc: "Polyglot expert for refactoring and debugging.", icon: Code2, color: "text-emerald-500" },
-  { id: "ai-research-agent", title: "Research Agent", desc: "Expert deep-dives and cross-referenced synthesis.", icon: Search, color: "text-purple-500" },
-  { id: "ai-vision-lab", title: "Vision Lab", desc: "Visual storytelling and layout analysis for diagrams.", icon: ImageIcon, color: "text-orange-500" },
-  { id: "ai-content-factory", title: "Content Factory", desc: "Synthesize long-form content into social formats.", icon: PenTool, color: "text-pink-500" },
-  { id: "ai-meeting-notes", title: "Drafting Suite", desc: "Transform recordings into polished executive summaries.", icon: Briefcase, color: "text-indigo-500" },
-  { id: "ai-model-comparator", title: "Editorial Logic", desc: "Compare multiple perspective streams side-by-side.", icon: Layout, color: "text-cyan-500" },
-  { id: "ai-life-coach", title: "Creative Journal", desc: "Private workspace for reflective ideation and drafting.", icon: BrainCircuit, color: "text-rose-500" },
+  { id: "ai-pdf-analyzer", title: "PDF Analyzer", desc: "Extract insights from 256K context documents.", icon: FileText, color: "text-primary" },
+  { id: "ai-code-assistant", title: "Code Assistant", desc: "Polyglot expert for refactoring and debugging.", icon: Code2, color: "text-primary" },
+  { id: "ai-research-agent", title: "Research Agent", desc: "Expert deep-dives and cross-referenced synthesis.", icon: Search, color: "text-primary" },
+  { id: "ai-vision-lab", title: "Vision Lab", desc: "Visual storytelling and layout analysis for diagrams.", icon: ImageIcon, color: "text-primary" },
+  { id: "ai-content-factory", title: "Content Factory", desc: "Synthesize long-form content into social formats.", icon: PenTool, color: "text-primary" },
+  { id: "ai-meeting-notes", title: "Drafting Suite", desc: "Transform recordings into polished executive summaries.", icon: Briefcase, color: "text-primary" },
+  { id: "ai-model-comparator", title: "Editorial Logic", desc: "Compare multiple perspective streams side-by-side.", icon: Layout, color: "text-primary" },
+  { id: "ai-life-coach", title: "Creative Journal", desc: "Private workspace for reflective ideation and drafting.", icon: BrainCircuit, color: "text-primary" },
 ];
 
 export default function Dashboard() {
@@ -30,13 +30,13 @@ export default function Dashboard() {
     <div className="max-w-7xl mx-auto px-6 py-12 space-y-12">
       <header className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div className="space-y-2">
-          <h1 className="text-4xl font-fustat font-black tracking-tight uppercase leading-none text-white">Your <span className="text-primary italic">Suite</span></h1>
+          <h1 className="text-4xl font-sora font-black tracking-tight uppercase leading-none text-white">Your <span className="text-primary italic">Suite</span></h1>
           <p className="text-white/50 text-lg">Deploy specialized editorial tools to accelerate your mission.</p>
         </div>
         
         <Link 
           href="/dashboard/chat"
-          className="flex items-center gap-2 px-6 py-3 rounded-none bg-primary text-black font-bold hover:shadow-[0_0_30px_rgba(255,49,49,0.3)] transition-all group"
+          className="flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-[#04141a] font-bold hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] transition-all group"
         >
           <Plus className="w-4 h-4" />
           General Workspace
@@ -53,7 +53,7 @@ export default function Dashboard() {
           >
             <Link 
               href={`/tools/${tool.id}`}
-              className="group flex flex-col h-full p-8 rounded-none glass-card hover:border-white/20 hover:shadow-[0_0_40px_rgba(255,49,49,0.08)] transition-all cursor-pointer relative overflow-hidden"
+              className="group flex flex-col h-full p-8 rounded-2xl glass-card hover:border-primary/30 hover:shadow-[0_0_40px_rgba(0,240,255,0.08)] transition-all cursor-pointer relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
@@ -61,7 +61,7 @@ export default function Dashboard() {
                  </div>
               </div>
 
-              <div className={`p-4 rounded-none bg-white/5 border border-white/10 w-fit mb-6 group-hover:scale-110 transition-transform ${tool.color}`}>
+              <div className={`p-4 rounded-xl bg-white/5 border border-white/10 w-fit mb-6 group-hover:scale-110 transition-transform ${tool.color}`}>
                  <tool.icon className="w-6 h-6" />
               </div>
 

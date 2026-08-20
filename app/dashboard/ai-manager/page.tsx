@@ -277,18 +277,18 @@ export default function AIManagerPage() {
             <Cpu className="w-32 h-32 text-primary" />
          </div>
          <div>
-            <h1 className="text-3xl md:text-4xl font-black font-fustat tracking-tighter uppercase leading-none text-white">Autonomous <span className="text-red-500">Manager</span></h1>
+            <h1 className="text-3xl md:text-4xl font-black font-sora tracking-tighter uppercase leading-none text-white">Autonomous <span className="text-red-500">Manager</span></h1>
             <p className="text-white/40 mt-3 font-medium uppercase tracking-[0.2em] text-[8px] md:text-[10px]">Editorial Synthesis Core V3.1 // Status: Online</p>
          </div>
          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 px-4 py-2 rounded-none bg-primary/10 border border-primary/20 text-primary text-xs font-black uppercase tracking-widest">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-primary text-xs font-black uppercase tracking-widest">
                <Activity className="w-4 h-4 animate-pulse" />
                Xylos Active
             </div>
             <button 
               onClick={runAutomation}
               disabled={isRunning}
-              className="px-8 py-3.5 rounded-none bg-primary text-black font-bold hover:shadow-[0_0_30px_rgba(255,49,49,0.3)] transition-all flex items-center gap-3 disabled:opacity-50"
+              className="px-8 py-3.5 rounded-xl bg-primary text-[#04141a] font-bold hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] transition-all flex items-center gap-3 disabled:opacity-50"
             >
               {isRunning ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Play className="w-4 h-4" />}
               {isRunning ? "PROCESSING..." : "CREATE 2 POST"}
@@ -321,7 +321,7 @@ export default function AIManagerPage() {
                  <Terminal className="w-5 h-5 text-white/30" />
                  Editorial Strategy Logs
               </h3>
-              <div className="bg-white/5 rounded-none p-6 font-mono text-[10px] text-white/40 space-y-2 max-h-52 overflow-y-auto custom-scrollbar">
+              <div className="bg-white/5 rounded-xl p-6 font-mono text-[10px] text-white/40 space-y-2 max-h-52 overflow-y-auto custom-scrollbar">
                  <div className="flex gap-4"><span className="text-primary">[SYNC_START]</span> Initializing Gemini 2.5 Flash pipeline...</div>
                  <div className="flex gap-4"><span className="text-primary">[PROMPT_INGEST]</span> context: "Major ${autoCategory || 'Global'} Analysis" (1000+ words target)</div>
                  <div className="flex gap-4"><span className="text-secondary">[PEXELS_SYNC]</span> fetching random assets for diversified visual...</div>
@@ -365,7 +365,7 @@ export default function AIManagerPage() {
                  <div className="relative" data-category-dropdown>
                    <button
                      onClick={() => setIsCategoryDropdownOpen(!isCategoryDropdownOpen)}
-                     className="w-full bg-white/5 border border-white/10 rounded-none py-3 px-4 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-primary/50 text-white cursor-pointer flex items-center justify-between"
+                     className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-primary/50 text-white cursor-pointer flex items-center justify-between"
                    >
                      <span>{autoCategory || "Select Category"}</span>
                      <svg className={`w-4 h-4 transition-transform ${isCategoryDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -425,7 +425,7 @@ export default function AIManagerPage() {
                          value={autoCategory}
                          onChange={(e) => setAutoCategory(e.target.value)}
                          placeholder="Type new category..."
-                         className="flex-1 bg-white/5 border border-white/10 rounded-none py-2 px-3 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-primary/50 text-white"
+                         className="flex-1 bg-white/5 border border-white/10 rounded-xl py-2 px-3 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-primary/50 text-white"
                        />
                        <button 
                          onClick={() => {
@@ -440,7 +440,7 @@ export default function AIManagerPage() {
                  )}
               </div>
 
-               <div className="p-6 rounded-none bg-primary/5 border border-primary/20 space-y-4">
+               <div className="p-6 rounded-xl bg-primary/5 border border-primary/20 space-y-4">
                  <p className="text-[10px] font-black text-primary uppercase tracking-widest flex items-center justify-between">
                     Model Pipeline Status
                     <RefreshCw className={`w-3 h-3 cursor-pointer ${isRunning ? 'animate-spin' : ''}`} onClick={checkAPIStatus} />
@@ -475,7 +475,7 @@ export default function AIManagerPage() {
       <div className="glass-card p-6 md:p-8 space-y-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="flex items-center gap-4">
-             <div className="w-12 h-12 rounded-none bg-white/5 flex items-center justify-center text-primary">
+             <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-primary">
                 <Users className="w-6 h-6" />
              </div>
              <div>
@@ -489,7 +489,7 @@ export default function AIManagerPage() {
               value={userSearch}
               onChange={(e) => setUserSearch(e.target.value)}
               placeholder="Search by name or email..." 
-              className="w-full bg-white/5 border border-white/10 rounded-none py-3 pl-11 pr-4 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50 text-white"
+              className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-11 pr-4 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50 text-white"
             />
           </div>
         </div>
@@ -514,7 +514,7 @@ export default function AIManagerPage() {
                   <tr key={user.id} className="group hover:bg-white/[0.03] transition-all">
                     <td className="py-6">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-none bg-white/5 flex items-center justify-center font-bold text-xs text-white">
+                        <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center font-bold text-xs text-white">
                           {user.full_name?.[0] || <Users className="w-4 h-4 text-white/30" />}
                           {user.full_name?.[0] || <Users className="w-4 h-4" />}
                         </div>
@@ -560,7 +560,7 @@ export default function AIManagerPage() {
                         ) : (
                           <button 
                             onClick={() => handleRoleChange(user, 'admin')}
-                            className="flex items-center gap-2 px-4 py-2 rounded-none bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold hover:bg-primary hover:text-black transition-all group/btn"
+                            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold hover:bg-primary hover:text-black transition-all group/btn"
                           >
                             <UserCheck className="w-3.5 h-3.5" />
                             PROMOTE
@@ -569,7 +569,7 @@ export default function AIManagerPage() {
                         {user.user_id !== currentUserId && user.role !== 'super_admin' && (
                           <button 
                             onClick={() => handleDeleteUser(user)}
-                            className="p-2.5 rounded-none hover:bg-red-500/10 text-white/20 hover:text-red-500 transition-all border border-transparent hover:border-red-500/20"
+                            className="p-2.5 rounded-xl hover:bg-red-500/10 text-white/20 hover:text-red-500 transition-all border border-transparent hover:border-red-500/20"
                             title="Purge User Protocol"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -614,7 +614,7 @@ function ApiItem({ icon: Icon, name, status, desc }: any) {
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-3">
-        <div className="w-8 h-8 rounded-none bg-white/5 flex items-center justify-center">
+        <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center">
           <Icon className="w-4 h-4 text-white/30" />
         </div>
         <div>
@@ -635,7 +635,7 @@ function ApiItem({ icon: Icon, name, status, desc }: any) {
 function StatusCard({ icon: Icon, title, value, subtitle, color }: any) {
   return (
     <div className="glass-card p-8 space-y-4 hover:border-white/20 transition-colors group">
-       <div className={`w-12 h-12 rounded-none bg-white/5 flex items-center justify-center ${color} group-hover:scale-110 transition-transform`}>
+       <div className={`w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center ${color} group-hover:scale-110 transition-transform`}>
           <Icon className="w-6 h-6" />
        </div>
        <div>
@@ -654,7 +654,7 @@ function ToggleOption({ icon: Icon, title, description, active, onClick }: any) 
       className="flex items-center justify-between group cursor-pointer"
     >
        <div className="flex items-center gap-4">
-          <div className="w-10 h-10 rounded-none bg-white/5 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300">
+          <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300">
              <Icon className={`w-4 h-4 ${active ? 'text-primary' : 'text-white/30'}`} />
           </div>
           <div>
@@ -673,7 +673,7 @@ function GlobeOverlay() {
   return (
     <div className="flex items-center justify-between group">
        <div className="flex items-center gap-4">
-          <div className="w-10 h-10 rounded-none bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+          <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
              <Globe className="w-4 h-4 text-secondary" />
           </div>
           <div>

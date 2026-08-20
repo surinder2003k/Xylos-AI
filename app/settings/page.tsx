@@ -51,7 +51,7 @@ export default function SettingsPage() {
   return (
     <div className="max-w-4xl mx-auto space-y-10">
       <header className="space-y-2">
-        <h1 className="text-4xl font-black font-fustat tracking-tighter uppercase text-white">Settings<span className="text-primary italic">.</span></h1>
+        <h1 className="text-4xl font-black font-sora tracking-tighter uppercase text-white">Settings<span className="text-primary italic">.</span></h1>
         <p className="text-white/40 mt-1 text-[10px] font-bold uppercase tracking-widest">Global API Integrations // Studio Protocol</p>
       </header>
 
@@ -62,15 +62,15 @@ export default function SettingsPage() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: idx * 0.05 }}
-            className="group p-6 rounded-none glass-card hover:border-white/20 transition-all"
+            className="group p-6 rounded-xl glass-card hover:border-white/20 transition-all"
           >
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-none bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary/30 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary/30 transition-colors">
                    <provider.icon className="w-6 h-6 text-white/40 group-hover:text-primary transition-colors" />
                 </div>
                 <div>
-                   <h3 className="text-lg font-bold font-fustat text-white">{provider.name} Integration</h3>
+                   <h3 className="text-lg font-bold font-sora text-white">{provider.name} Integration</h3>
                    <div className="flex items-center gap-2 text-[10px] font-black text-white/40 uppercase tracking-widest mt-0.5">
                       <span className="text-[10px] font-black text-white/40 uppercase tracking-widest">Xylos Core</span>
                       <Lock className="w-3 h-3" />
@@ -83,7 +83,7 @@ export default function SettingsPage() {
                 <input 
                   type="password"
                   placeholder={provider.placeholder}
-                  className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-3 text-sm focus:border-primary/50 outline-none transition-all placeholder:text-white/20 text-white"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-primary/50 outline-none transition-all placeholder:text-white/20 text-white"
                   onChange={(e) => setKeys({ ...keys, [provider.id]: e.target.value })}
                 />
                 <Key className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/15" />
@@ -93,7 +93,7 @@ export default function SettingsPage() {
         ))}
       </section>
 
-      <footer className="sticky bottom-8 flex items-center justify-between p-6 rounded-none glass-card border-primary/20 backdrop-blur-xl">
+      <footer className="sticky bottom-8 flex items-center justify-between p-6 rounded-xl glass-card border-primary/20 backdrop-blur-xl">
         <div className="flex items-center gap-3">
            <ShieldCheck className="w-6 h-6 text-primary" />
            <div className="text-sm">
@@ -106,7 +106,7 @@ export default function SettingsPage() {
           onClick={handleSave}
           disabled={isSaving}
           className={`
-            px-8 py-3 rounded-none font-bold flex items-center gap-2 transition-all duration-300
+            px-8 py-3 rounded-xl font-bold flex items-center gap-2 transition-all duration-300
             ${saveStatus === 'success' ? 'bg-green-500 text-white' : 'bg-primary text-black hover:shadow-[0_0_30px_rgba(210,187,255,0.3)]'}
             disabled:opacity-50
           `}
@@ -128,7 +128,7 @@ export default function SettingsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            className="fixed bottom-32 left-1/2 -translate-x-1/2 px-6 py-4 rounded-none bg-red-500/20 border border-red-500/50 backdrop-blur-xl text-red-200 flex items-center gap-3 z-50"
+            className="fixed bottom-32 left-1/2 -translate-x-1/2 px-6 py-4 rounded-xl bg-red-500/20 border border-red-500/50 backdrop-blur-xl text-red-200 flex items-center gap-3 z-50"
           >
             <AlertCircle className="w-5 h-5" />
             <span className="font-medium text-sm">Failed to secure configuration. Please try again.</span>

@@ -228,12 +228,12 @@ function CreatePostContent() {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-50" />
         <div className="relative z-10">
           <div className="flex items-center gap-3 text-primary mb-2">
-            <div className="p-2 rounded-none bg-primary/10">
+            <div className="p-2 rounded-xl bg-primary/10">
               <Globe className="w-5 h-5 animate-pulse" />
             </div>
             <span className="text-[10px] font-black uppercase tracking-[0.4em] font-mono">Professional Editorial Editor v3.2</span>
           </div>
-          <h1 className="text-4xl lg:text-5xl font-black font-fustat tracking-tighter uppercase leading-tight text-white">
+          <h1 className="text-4xl lg:text-5xl font-black font-sora tracking-tighter uppercase leading-tight text-white">
             Create Editorial <span className="text-primary italic">Masterpiece</span>
           </h1>
           <p className="text-white/50 mt-2 font-medium max-w-lg">Advanced strategic journalism engine powered by tiered AI fallbacks.</p>
@@ -242,7 +242,7 @@ function CreatePostContent() {
         <div className="flex gap-3 relative z-10">
           <button 
             onClick={() => router.push("/dashboard/posts")}
-            className="px-6 py-4 rounded-none bg-white/5 border border-white/10 text-white/50 hover:bg-white/10 hover:text-white transition-all flex items-center gap-2 font-bold group"
+            className="px-6 py-4 rounded-xl bg-white/5 border border-white/10 text-white/50 hover:bg-white/10 hover:text-white transition-all flex items-center gap-2 font-bold group"
           >
             <Trash2 className="w-4 h-4 group-hover:rotate-12 transition-transform" />
             Discard
@@ -250,7 +250,7 @@ function CreatePostContent() {
           <button 
             onClick={handlePublish}
             disabled={isPublishing || isGenerating}
-            className="px-8 py-4 rounded-none bg-primary text-black font-black hover:shadow-[0_0_30px_rgba(255,49,49,0.3)] transition-all flex items-center gap-2 disabled:opacity-50 disabled:grayscale"
+            className="px-8 py-4 rounded-xl bg-primary text-[#04141a] font-black hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] transition-all flex items-center gap-2 disabled:opacity-50 disabled:grayscale"
           >
             {isPublishing ? (
               <>
@@ -280,7 +280,7 @@ function CreatePostContent() {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Enter title..." 
-                className="w-full bg-white/5 border border-white/10 rounded-none p-6 focus:outline-none focus:ring-2 focus:ring-primary/50 text-2xl lg:text-3xl font-black placeholder:text-white/15 transition-all text-white"
+                className="w-full bg-white/5 border border-white/10 rounded-xl p-6 focus:outline-none focus:ring-2 focus:ring-primary/50 text-2xl lg:text-3xl font-black placeholder:text-white/15 transition-all text-white"
               />
             </div>
 
@@ -293,7 +293,7 @@ function CreatePostContent() {
                 value={excerpt}
                 onChange={(e) => setExcerpt(e.target.value)}
                 placeholder="A concise executive summary for SEO meta tags..." 
-                className="w-full bg-white/5 border border-white/10 rounded-none p-6 focus:outline-none focus:ring-2 focus:ring-primary/50 h-32 resize-none placeholder:text-white/15 transition-all leading-relaxed text-sm font-medium text-white"
+                className="w-full bg-white/5 border border-white/10 rounded-xl p-6 focus:outline-none focus:ring-2 focus:ring-primary/50 h-32 resize-none placeholder:text-white/15 transition-all leading-relaxed text-sm font-medium text-white"
               />
             </div>
 
@@ -316,16 +316,16 @@ function CreatePostContent() {
               Visual Asset
             </h3>
             
-            <div className="flex p-1 bg-white/5 rounded-none">
+            <div className="flex p-1 bg-white/5 rounded-xl">
               <button 
                 onClick={() => setAssetMode('search')}
-                className={`flex-1 py-2 text-[10px] font-black uppercase tracking-widest rounded-none transition-all ${assetMode === 'search' ? 'bg-primary text-black' : 'text-white/40 hover:bg-white/5'}`}
+                className={`flex-1 py-2 text-[10px] font-black uppercase tracking-widest rounded-xl transition-all ${assetMode === 'search' ? 'bg-primary text-[#04141a]' : 'text-white/40 hover:bg-white/5'}`}
               >
                 Search
               </button>
               <button 
                 onClick={() => setAssetMode('upload')}
-                className={`flex-1 py-2 text-[10px] font-black uppercase tracking-widest rounded-none transition-all ${assetMode === 'upload' ? 'bg-primary text-black' : 'text-white/40 hover:bg-white/5'}`}
+                className={`flex-1 py-2 text-[10px] font-black uppercase tracking-widest rounded-xl transition-all ${assetMode === 'upload' ? 'bg-primary text-[#04141a]' : 'text-white/40 hover:bg-white/5'}`}
               >
                 Upload
               </button>
@@ -354,19 +354,19 @@ function CreatePostContent() {
                   value={altText}
                   onChange={(e) => setAltText(e.target.value)}
                   placeholder="Describe image for SEO..." 
-                  className="w-full bg-white/5 border border-white/10 rounded-none py-2 px-3 text-[10px] font-medium focus:outline-none focus:ring-1 focus:ring-primary/50 text-white"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-2 px-3 text-[10px] font-medium focus:outline-none focus:ring-1 focus:ring-primary/50 text-white"
                 />
               </div>
             )}
           </div>
           {/* AI Integration Panel */}
-          <div className="bg-gradient-to-br from-primary/10 via-background to-transparent border border-primary/20 rounded-none p-8 space-y-6 backdrop-blur-xl relative overflow-hidden group">
+          <div className="bg-gradient-to-br from-primary/10 via-background to-transparent border border-primary/20 rounded-xl p-8 space-y-6 backdrop-blur-xl relative overflow-hidden group">
             <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
               <Zap className="w-20 h-20 text-primary" />
             </div>
             
             <div className="flex items-center gap-3 relative z-10">
-              <div className="w-10 h-10 rounded-none bg-primary/20 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
                 <Sparkles className="w-5 h-5 text-primary" />
               </div>
               <h3 className="font-black text-lg text-white">AI Co-Author</h3>
@@ -377,12 +377,12 @@ function CreatePostContent() {
                 value={aiPrompt}
                 onChange={(e) => setAiPrompt(e.target.value)}
                 placeholder="Briefly describe the story topic (e.g., 'The future of clean energy in the Himalayas')..." 
-                className="w-full bg-white/5 border border-white/10 rounded-none p-4 text-xs focus:outline-none focus:ring-2 focus:ring-primary/50 h-32 resize-none placeholder:text-white/20 font-medium leading-relaxed text-white"
+                className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-xs focus:outline-none focus:ring-2 focus:ring-primary/50 h-32 resize-none placeholder:text-white/20 font-medium leading-relaxed text-white"
               />
               <button 
                 onClick={handleGenerateDraft}
                 disabled={isGenerating || isPublishing}
-                className="w-full bg-primary text-black font-black py-4 rounded-none hover:shadow-[0_0_30px_rgba(255,49,49,0.3)] transition-all flex items-center justify-center gap-2 group disabled:opacity-50"
+                className="w-full bg-primary text-[#04141a] font-black py-4 rounded-xl hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] transition-all flex items-center justify-center gap-2 group disabled:opacity-50"
               >
                 {isGenerating ? (
                   <>
@@ -429,7 +429,7 @@ function CreatePostContent() {
                       setIsAutoSlug(false);
                     }}
                     placeholder="clean-url-slug" 
-                    className="w-full bg-white/5 border border-white/10 rounded-none py-3 pl-16 pr-4 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-primary/50 text-white"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-16 pr-4 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-primary/50 text-white"
                   />
                 </div>
                 <p className="text-[9px] text-white/30 italic px-2">* Guaranteed number-free for maximum SEO authority.</p>
@@ -449,7 +449,7 @@ function CreatePostContent() {
                   value={metaTitle}
                   onChange={(e) => setMetaTitle(e.target.value)}
                   placeholder="Enter SEO title..." 
-                  className="w-full bg-white/5 border border-white/10 rounded-none py-3 px-4 text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary/50 text-white"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary/50 text-white"
                 />
               </div>
 
@@ -467,7 +467,7 @@ function CreatePostContent() {
                   value={metaDescription}
                   onChange={(e) => setMetaDescription(e.target.value)}
                   placeholder="Summarize for Google snippets..." 
-                  className="w-full bg-white/5 border border-white/10 rounded-none py-3 px-4 text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary/50 resize-none h-20 text-white"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary/50 resize-none h-20 text-white"
                 />
               </div>
 
@@ -480,7 +480,7 @@ function CreatePostContent() {
                   value={keywords}
                   onChange={(e) => setKeywords(e.target.value)}
                   placeholder="comma, separated, keywords" 
-                  className="w-full bg-white/5 border border-white/10 rounded-none py-3 px-4 text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary/50 text-white"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary/50 text-white"
                 />
               </div>
             </div>

@@ -32,7 +32,7 @@ export function RevealText({
       {words.map((word, i) => (
         <span
           key={i}
-          className={`${fontSize} ${textColor} font-black font-fustat tracking-tight leading-[0.9] select-none animate-in fade-in slide-in-from-bottom-4 fill-mode-both`}
+          className={`${fontSize} ${textColor} font-black font-sora tracking-tight leading-[0.9] select-none animate-in fade-in slide-in-from-bottom-4 fill-mode-both`}
           style={{
             animationDuration: '500ms',
             animationDelay: `${i * 50}ms`,

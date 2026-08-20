@@ -72,7 +72,7 @@ export function CustomModal({
                       {icons[type]}
                     </div>
                     <div>
-                      <h3 className="text-xl font-black font-fustat uppercase tracking-tight text-foreground/90">
+                      <h3 className="text-xl font-black font-sora uppercase tracking-tight text-foreground/90">
                         {title}
                       </h3>
                       <p className="text-[10px] font-black text-primary uppercase tracking-[0.3em] mt-1 flex items-center gap-1">

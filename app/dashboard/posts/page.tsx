@@ -171,13 +171,13 @@ export default function AllStoriesPage() {
         <div className="space-y-1">
           <div className="flex items-center gap-2 text-primary">
             <Layers className="w-4 h-4 animate-pulse" />
-            <h1 className="text-4xl lg:text-5xl font-black font-fustat tracking-tighter uppercase leading-none text-white">Content <span className="text-primary italic">Archive</span></h1>
+            <h1 className="text-4xl lg:text-5xl font-black font-sora tracking-tighter uppercase leading-none text-white">Content <span className="text-primary italic">Archive</span></h1>
           </div>
         </div>
         
         <Link 
           href="/dashboard/create"
-          className="group flex items-center gap-4 bg-primary text-black px-10 py-5 rounded-none font-black text-xs uppercase tracking-widest hover:shadow-[0_0_30px_rgba(255,49,49,0.3)] transition-all"
+          className="group flex items-center gap-4 bg-primary text-[#04141a] px-10 py-5 rounded-xl font-black text-xs uppercase tracking-widest hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] transition-all"
         >
           <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
           Draft New Story
@@ -193,13 +193,13 @@ export default function AllStoriesPage() {
             onChange={(e) => setSearch(e.target.value)}
             aria-label="Search stories by title or category"
             placeholder="Search stories by title or category..." 
-            className="w-full bg-white/5 border border-white/10 rounded-none py-4 pl-14 pr-6 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all font-medium placeholder:text-white/20 text-white"
+            className="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-14 pr-6 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all font-medium placeholder:text-white/20 text-white"
           />
         </div>
         <button 
           onClick={fetchPosts}
           disabled={loading}
-          className="p-4 rounded-none bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-white/40 hover:text-white disabled:opacity-50"
+          className="p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-white/40 hover:text-white disabled:opacity-50"
         >
           <RefreshCcw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
         </button>
@@ -243,7 +243,7 @@ export default function AllStoriesPage() {
                   <tr key={post.id} className="group hover:bg-white/[0.03] transition-colors">
                     <td className="px-10 py-5">
                       <div className={`
-                        inline-flex items-center gap-3 px-5 py-2.5 rounded-none font-black text-[9px] uppercase tracking-[0.2em] transition-all
+                        inline-flex items-center gap-3 px-5 py-2.5 rounded-xl font-black text-[9px] uppercase tracking-[0.2em] transition-all
                         ${post.status === 'published' ? 'bg-primary/10 text-primary border border-primary/20' : 'bg-orange-500/10 text-orange-500 border border-orange-500/20'}
                       `}>
                         <span className={`w-2 h-2 rounded-full animate-pulse ${post.status === 'published' ? 'bg-primary shadow-sm' : 'bg-orange-500 shadow-sm'}`}></span>
@@ -252,7 +252,7 @@ export default function AllStoriesPage() {
                     </td>
                     <td className="px-8 py-5">
                       <div className="flex items-center gap-8">
-                        <div className="relative w-28 aspect-video rounded-none bg-white/5 overflow-hidden border border-white/10 flex-shrink-0 group-hover:scale-105 transition-all duration-700">
+                        <div className="relative w-28 aspect-video rounded-xl bg-white/5 overflow-hidden border border-white/10 flex-shrink-0 group-hover:scale-105 transition-all duration-700">
                           {post.feature_image_url ? (
                             <Image 
                               src={post.feature_image_url} 
@@ -277,7 +277,7 @@ export default function AllStoriesPage() {
                       </div>
                     </td>
                     <td className="px-8 py-5">
-                      <div className="inline-flex items-center px-4 py-2 rounded-none bg-white/5 border border-white/10 text-[9px] font-black uppercase tracking-[0.2em] text-white/40 group-hover:text-white transition-all">
+                      <div className="inline-flex items-center px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-[9px] font-black uppercase tracking-[0.2em] text-white/40 group-hover:text-white transition-all">
                         {post.category}
                       </div>
                     </td>
@@ -285,7 +285,7 @@ export default function AllStoriesPage() {
                        <div className="flex items-center justify-center gap-3">
                           <button 
                             onClick={() => toggleStatus(post)}
-                            className={`p-3.5 rounded-none border border-white/10 transition-all group/btn ${post.status === 'published' ? 'bg-orange-500/10 hover:bg-orange-500 text-orange-500 hover:text-white' : 'bg-primary/10 hover:bg-primary text-primary hover:text-black'}`}
+                            className={`p-3.5 rounded-xl border border-white/10 transition-all group/btn ${post.status === 'published' ? 'bg-orange-500/10 hover:bg-orange-500 text-orange-500 hover:text-white' : 'bg-primary/10 hover:bg-primary text-primary hover:text-black'}`}
                             title={post.status === 'published' ? "Unpublish Protocol" : "Deploy Protocol"}
                           >
                              {post.status === 'published' ? <EyeOff className="w-4 h-4 opacity-70 group-hover/btn:opacity-100" /> : <Eye className="w-4 h-4 opacity-70 group-hover/btn:opacity-100" />}
@@ -293,21 +293,21 @@ export default function AllStoriesPage() {
                           <a 
                             href={`/blog/${post.slug || post.id}`} 
                             target="_blank"
-                            className="p-3.5 rounded-none border border-white/10 bg-white/5 hover:bg-primary hover:text-black transition-all group/btn"
+                            className="p-3.5 rounded-xl border border-white/10 bg-white/5 hover:bg-primary hover:text-black transition-all group/btn"
                             title="View Public"
                           >
                              <ExternalLink className="w-4 h-4 opacity-50 group-hover/btn:opacity-100 transition-opacity" />
                           </a>
                           <Link 
                             href={`/dashboard/create?id=${post.id}`} 
-                            className="p-3.5 rounded-none border border-white/10 bg-white/5 hover:bg-primary hover:text-black transition-all group/btn"
+                            className="p-3.5 rounded-xl border border-white/10 bg-white/5 hover:bg-primary hover:text-black transition-all group/btn"
                             title="Refine Story"
                           >
                              <Edit2 className="w-4 h-4 opacity-50 group-hover/btn:opacity-100 transition-opacity" />
                           </Link>
                           <button 
                             onClick={() => handleDeleteClick(post)}
-                            className="p-3.5 rounded-none border border-white/10 bg-white/5 hover:bg-red-500 hover:text-white transition-all group/btn"
+                            className="p-3.5 rounded-xl border border-white/10 bg-white/5 hover:bg-red-500 hover:text-white transition-all group/btn"
                             title="Decommission Story"
                           >
                              <Trash2 className="w-4 h-4 opacity-50 group-hover/btn:opacity-100 transition-opacity" />

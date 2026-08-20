@@ -290,7 +290,7 @@ function ChatContent() {
       `}>
         <div className="p-6 border-b border-white/10 flex items-center justify-between">
           <div className="flex flex-col">
-            <span className="font-fustat font-black text-xl uppercase tracking-wider text-white">Missions</span>
+            <span className="font-sora font-black text-xl uppercase tracking-wider text-white">Missions</span>
             <span className="text-[10px] text-white/40 uppercase font-bold tracking-widest">{sessions.length} Deployments</span>
           </div>
           <div className="flex items-center gap-2">
@@ -348,7 +348,7 @@ function ChatContent() {
         <div className="h-16 md:h-20 border-b border-white/10 flex items-center px-4 md:px-8 bg-white/[0.02] backdrop-blur-xl sticky top-0 z-40">
           <button 
             onClick={() => setIsSidebarOpen(true)}
-            className="md:hidden p-2.5 rounded-none bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-all mr-4"
+            className="md:hidden p-2.5 rounded-xl bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-all mr-4"
           >
             <Menu className="w-5 h-5" />
           </button>
@@ -377,7 +377,7 @@ function ChatContent() {
                   className="flex flex-col items-center justify-center h-[60vh] text-center space-y-10"
                 >
                   <div className="relative">
-                    <div className="w-24 h-24 rounded-none bg-primary/5 flex items-center justify-center border border-primary/10 relative overflow-hidden group">
+                    <div className="w-24 h-24 rounded-xl bg-primary/5 flex items-center justify-center border border-primary/10 relative overflow-hidden group">
                       <Sparkles className="w-12 h-12 text-primary group-hover:scale-110 transition-transform" />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent" />
                     </div>
@@ -388,8 +388,8 @@ function ChatContent() {
                     />
                   </div>
                   <div className="space-y-4">
-                    <h1 className="text-5xl md:text-8xl font-black font-fustat tracking-tighter uppercase leading-none italic opacity-10 select-none">Neural Link</h1>
-                    <h3 className="text-3xl md:text-4xl font-fustat font-black tracking-tighter uppercase mt-[-30px] md:mt-[-40px]">Initiate <span className="text-primary italic">Xylos</span> AI</h3>
+                    <h1 className="text-5xl md:text-8xl font-black font-sora tracking-tighter uppercase leading-none italic opacity-10 select-none">Neural Link</h1>
+                    <h3 className="text-3xl md:text-4xl font-sora font-black tracking-tighter uppercase mt-[-30px] md:mt-[-40px]">Initiate <span className="text-primary italic">Xylos</span> AI</h3>
                     <p className="text-white/40 max-w-sm mx-auto text-base md:text-lg leading-relaxed font-medium">
                       Senior content strategist and research engineer at your disposal. Select a core model to begin.
                     </p>
@@ -412,13 +412,13 @@ function ChatContent() {
                       
                       <div className="flex-1 space-y-2">
                         {message.attachment && message.attachment.type.startsWith('image/') && (
-                          <div className="rounded-none overflow-hidden border border-white/10 mb-2 max-w-[300px]">
+                          <div className="rounded-xl overflow-hidden border border-white/10 mb-2 max-w-[300px]">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img src={message.attachment.url} alt="Neural Asset" className="w-full h-auto object-cover" />
                           </div>
                         )}
                         
-                        <div className={`px-5 py-4 rounded-none text-sm md:text-base leading-relaxed relative group/msg ${message.role === 'user' ? 'bg-primary text-black font-medium' : ''}`}>
+                        <div className={`px-5 py-4 rounded-xl text-sm md:text-base leading-relaxed relative group/msg ${message.role === 'user' ? 'bg-primary text-[#04141a] font-medium' : ''}`}>
                           {message.role === 'user' ? (
                             editingMsgIndex === i ? (
                               <div className="flex flex-col gap-3 min-w-[250px]">
@@ -448,7 +448,7 @@ function ChatContent() {
                                 <div className="flex items-center gap-2 mt-2">
                                   <button 
                                     onClick={() => copyToClipboard(message.content)}
-                                    className="p-1 px-3 rounded-none bg-white/10 text-white/70 hover:bg-white/20 text-[9px] font-black uppercase tracking-widest transition-all flex items-center gap-1"
+                                    className="p-1 px-3 rounded-xl bg-white/10 text-white/70 hover:bg-white/20 text-[9px] font-black uppercase tracking-widest transition-all flex items-center gap-1"
                                   >
                                     <Copy className="w-3 h-3" /> Copy
                                   </button>
@@ -502,7 +502,7 @@ function ChatContent() {
                         {message.role === 'assistant' && (
                           <button 
                             onClick={() => copyToClipboard(message.content)}
-                            className="p-1 px-3 rounded-none hover:bg-white/5 text-[9px] font-black uppercase tracking-widest text-white/30 hover:text-primary transition-all border border-transparent hover:border-white/10 mt-1 flex items-center gap-1"
+                            className="p-1 px-3 rounded-xl hover:bg-white/5 text-[9px] font-black uppercase tracking-widest text-white/30 hover:text-primary transition-all border border-transparent hover:border-white/10 mt-1 flex items-center gap-1"
                           >
                             <Copy className="w-3 h-3" /> Copy Response
                           </button>
@@ -517,7 +517,7 @@ function ChatContent() {
                   <div className="w-8 h-8 rounded-full bg-violet-500/10 border border-violet-500/20 flex items-center justify-center">
                     <Sparkles className="w-4 h-4 text-violet-500 animate-spin" />
                   </div>
-                  <div className="bg-white/5 border border-white/10 px-6 py-4 rounded-none flex gap-2 items-center">
+                  <div className="bg-white/5 border border-white/10 px-6 py-4 rounded-xl flex gap-2 items-center">
                     <div className="w-1.5 h-1.5 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                     <div className="w-1.5 h-1.5 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
                     <div className="w-1.5 h-1.5 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
@@ -533,7 +533,7 @@ function ChatContent() {
         {showScrollBtn && (
           <button
             onClick={() => { isNearBottomRef.current = true; scrollToBottom(true); }}
-            className="absolute bottom-44 right-6 z-20 p-2.5 rounded-full bg-primary text-black shadow-xl hover:scale-110 transition-all animate-bounce"
+            className="absolute bottom-44 right-6 z-20 p-2.5 rounded-full bg-primary text-[#04141a] shadow-xl hover:scale-110 transition-all animate-bounce"
           >
             <ChevronDown className="w-4 h-4" />
           </button>
@@ -544,7 +544,7 @@ function ChatContent() {
           <div className="max-w-3xl mx-auto relative">
             <div className={`glass-card ${isLoading ? 'border-violet-500/50' : 'border-white/10'} transition-all focus-within:border-violet-500/50 overflow-hidden`}>
               {stagedFile && (
-                <div className="mx-6 mt-4 flex items-center gap-3 bg-white/5 border border-white/10 pl-3 pr-2 py-2 rounded-none animate-in fade-in slide-in-from-bottom-2">
+                <div className="mx-6 mt-4 flex items-center gap-3 bg-white/5 border border-white/10 pl-3 pr-2 py-2 rounded-xl animate-in fade-in slide-in-from-bottom-2">
                   <div className="w-8 h-8 rounded bg-violet-500/10 flex items-center justify-center text-violet-500">
                     {stagedFile.type.startsWith('image/') ? <ImageIcon className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
                   </div>
@@ -564,17 +564,17 @@ function ChatContent() {
               
               <div className="flex items-center justify-between px-4 md:px-6 pb-3 md:pb-4 pt-2">
                 <div className="flex items-center gap-3">
-                   <button onClick={() => fileInputRef.current?.click()} className="p-2.5 hover:bg-white/5 rounded-none transition-all text-white/30 hover:text-primary">
+                   <button onClick={() => fileInputRef.current?.click()} className="p-2.5 hover:bg-white/5 rounded-xl transition-all text-white/30 hover:text-primary">
                        <Paperclip className="w-5 h-5" />
                     </button>
-                    <button onClick={toggleMic} className={`p-2.5 rounded-none transition-all ${isMicActive ? 'bg-primary/20 text-primary animate-pulse' : 'hover:bg-white/5 text-white/30 hover:text-primary'}`}>
+                    <button onClick={toggleMic} className={`p-2.5 rounded-xl transition-all ${isMicActive ? 'bg-primary/20 text-primary animate-pulse' : 'hover:bg-white/5 text-white/30 hover:text-primary'}`}>
                       <Mic className="w-5 h-5" />
                    </button>
                    <div className="w-[1px] h-6 bg-white/10 mx-1" />
                    <div className="relative">
                      <button 
                       onClick={() => setIsProviderMenuOpen(!isProviderMenuOpen)}
-                      className="flex items-center gap-2 px-4 py-2 rounded-none hover:bg-white/5 transition-all text-[10px] font-black uppercase tracking-widest text-white/40"
+                      className="flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-white/5 transition-all text-[10px] font-black uppercase tracking-widest text-white/40"
                      >
                         <selectedProvider.icon className="w-3.5 h-3.5 text-primary" />
                         <span className="hidden sm:inline">{selectedProvider.name}</span>
@@ -587,9 +587,9 @@ function ChatContent() {
                            initial={{ opacity: 0, y: 10 }}
                            animate={{ opacity: 1, y: 0 }}
                            exit={{ opacity: 0, scale: 0.95 }}
-                            className="absolute bottom-[110%] left-0 w-64 glass-card shadow-2xl rounded-none overflow-hidden z-[100]"
+                            className="absolute bottom-[110%] left-0 w-64 glass-card shadow-2xl rounded-xl overflow-hidden z-[100]"
                           > {providers.map((p) => (
-                            <button key={p.id} onClick={() => { setSelectedProvider(p); setIsProviderMenuOpen(false); }} className={`w-full flex items-center justify-between px-4 py-3 rounded-none transition-all ${selectedProvider.id === p.id ? 'bg-primary/10 text-primary' : 'hover:bg-white/5 text-white/50 hover:text-white'}`}>
+                            <button key={p.id} onClick={() => { setSelectedProvider(p); setIsProviderMenuOpen(false); }} className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all ${selectedProvider.id === p.id ? 'bg-primary/10 text-primary' : 'hover:bg-white/5 text-white/50 hover:text-white'}`}>
                               <div className="flex items-center gap-3 text-xs font-bold"><p.icon className="w-4 h-4" />{p.name}</div>
                             </button>
                           ))}
@@ -606,7 +606,7 @@ function ChatContent() {
                           e.preventDefault();
                           stopGeneration();
                         }} 
-                        className="p-3.5 rounded-none bg-red-500/10 border border-red-500/20 text-red-500 hover:bg-red-500 hover:text-white transition-all flex items-center gap-2 group/stop"
+                        className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 hover:bg-red-500 hover:text-white transition-all flex items-center gap-2 group/stop"
                       >
                          <Square className="w-5 h-5 fill-current group-hover:scale-90 transition-transform" />
                          <span className="text-[10px] font-black uppercase tracking-widest hidden sm:inline">Terminate</span>
@@ -615,7 +615,7 @@ function ChatContent() {
                       <button 
                         onClick={handleSend} 
                         disabled={(!input.trim() && !stagedFile) || isLoading} 
-                        className="p-3.5 rounded-none bg-primary text-black hover:shadow-[0_0_30px_rgba(210,187,255,0.3)] transition-all disabled:opacity-50"
+                        className="p-3.5 rounded-xl bg-primary text-[#04141a] hover:shadow-[0_0_30px_rgba(210,187,255,0.3)] transition-all disabled:opacity-50"
                       >
                          <Send className="w-5 h-5" />
                       </button>
