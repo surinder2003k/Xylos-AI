@@ -52,8 +52,8 @@ function LoginContent() {
               className="flex items-center gap-4 p-5 rounded-2xl"
               style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
             >
-              <div className="w-11 h-11 rounded-xl bg-red-500/20 flex items-center justify-center shrink-0">
-                <MessageSquare className="w-5 h-5 text-[#ff3131]" />
+              <div className="w-11 h-11 rounded-xl bg-[#00f0ff]/20 flex items-center justify-center shrink-0">
+                <MessageSquare className="w-5 h-5 text-[#00f0ff]" />
               </div>
               <div>
                 <p className="text-sm font-bold text-white">Unified AI Chat</p>
@@ -68,8 +68,8 @@ function LoginContent() {
               className="flex items-center gap-4 p-5 rounded-2xl ml-8"
               style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
             >
-              <div className="w-11 h-11 rounded-xl bg-orange-500/20 flex items-center justify-center shrink-0">
-                <Code2 className="w-5 h-5 text-orange-400" />
+              <div className="w-11 h-11 rounded-xl bg-[#00f0ff]/20 flex items-center justify-center shrink-0">
+                <Code2 className="w-5 h-5 text-[#00f0ff]" />
               </div>
               <div>
                 <p className="text-sm font-bold text-white">Code Assistant</p>
@@ -84,8 +84,8 @@ function LoginContent() {
               className="flex items-center gap-4 p-5 rounded-2xl ml-4"
               style={{ background: 'rgba(20,16,8,0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}
             >
-              <div className="w-11 h-11 rounded-xl bg-yellow-500/20 flex items-center justify-center shrink-0">
-                <FileText className="w-5 h-5 text-yellow-400" />
+              <div className="w-11 h-11 rounded-xl bg-[#00f0ff]/20 flex items-center justify-center shrink-0">
+                <FileText className="w-5 h-5 text-[#00f0ff]" />
               </div>
               <div>
                 <p className="text-sm font-bold text-white">Content Factory</p>
@@ -102,7 +102,7 @@ function LoginContent() {
             className="space-y-2"
           >
             <h2 className="text-3xl font-black tracking-tight text-white">Free AI Chat.</h2>
-            <h2 className="text-3xl font-black bg-gradient-to-r from-red-500 via-orange-500 to-red-400 bg-clip-text text-transparent tracking-tight">Refine Your Narrative.</h2>
+            <h2 className="text-3xl font-black bg-gradient-to-r from-[#00f0ff] via-[#0099ff] to-[#00f0ff] bg-clip-text text-transparent tracking-tight">Refine Your Narrative.</h2>
             <p className="text-gray-400 text-sm">Zero cost. Infinite possibilities.</p>
           </motion.div>
         </div>
@@ -197,7 +197,7 @@ function LoginContent() {
               <button 
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-[#ff3131] text-white font-bold py-4 rounded-xl hover:bg-[#ff5e00] transition-all duration-300 flex items-center justify-center gap-2 group mt-6 disabled:opacity-50 disabled:pointer-events-none text-sm uppercase tracking-wider"
+                className="w-full bg-[#00f0ff] text-[#04141a] font-bold py-4 rounded-xl hover:bg-[#0099ff] transition-all duration-300 flex items-center justify-center gap-2 group mt-6 disabled:opacity-50 disabled:pointer-events-none text-sm uppercase tracking-wider"
               >
                 {isLoading ? "Synchronizing..." : isLogin ? "Launch Workspace" : "Generate Neural ID"}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -219,7 +219,7 @@ function LoginContent() {
               className="w-full border font-semibold py-4 rounded-xl flex items-center justify-center gap-3 hover:bg-red-500/10 transition-all group relative z-10 text-sm text-gray-300"
               style={{ background: 'rgba(59, 73, 75, 0.15)', borderColor: 'rgba(59, 73, 75, 0.2)' }}
             >
-              <Chrome className="w-5 h-5 text-[#ff3131] group-hover:scale-110 transition-transform" />
+              <Chrome className="w-5 h-5 text-[#00f0ff] group-hover:scale-110 transition-transform" />
               Continue with Google
             </button>
           </div>
@@ -228,7 +228,7 @@ function LoginContent() {
             {isLogin ? "New to Xylos AI?" : "Already have an ID?"}
             <button 
               onClick={() => setIsLogin(!isLogin)}
-              className="ml-2 text-[#ff3131] font-bold hover:underline"
+              className="ml-2 text-[#00f0ff] font-bold hover:underline"
             >
               {isLogin ? "Create an account" : "Sign in to workspace"}
             </button>

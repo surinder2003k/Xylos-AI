@@ -96,7 +96,7 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
              </div>
              <h1 className="text-5xl md:text-8xl font-black tracking-tight leading-[0.85] text-white">
                Editorial <br />
-               <span className="bg-gradient-to-r from-red-500 via-orange-500 to-red-400 bg-clip-text text-transparent">Archives</span>
+               <span className="bg-gradient-to-r from-[#00f0ff] via-[#0099ff] to-[#00f0ff] bg-clip-text text-transparent">Archives</span>
              </h1>
              <p className="text-gray-400 text-lg font-medium pt-4 max-w-2xl mx-auto leading-relaxed">
                Deep dives into the intersection of artificial intelligence, high-stakes reporting, and the human narrative.

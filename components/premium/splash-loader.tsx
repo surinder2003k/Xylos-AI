@@ -42,7 +42,7 @@ export function SplashLoader() {
     >
       <div className="relative flex flex-col items-center">
         {/* Background Glow */}
-        <div className="absolute inset-0 bg-violet-600/20 blur-[100px] -z-10 rounded-full animate-pulse" />
+        <div className="absolute inset-0 bg-[#00f0ff]/20 blur-[100px] -z-10 rounded-full animate-pulse" />
 
         {/* Logo Animation */}
         <div className="flex items-center justify-center relative my-4 animate-in fade-in zoom-in-75 duration-[700ms] ease-out">

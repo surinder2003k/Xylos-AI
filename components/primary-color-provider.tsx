@@ -11,7 +11,7 @@ interface PrimaryColorContextType {
 const PrimaryColorContext = createContext<PrimaryColorContextType | undefined>(undefined);
 
 export function PrimaryColorProvider({ children }: { children: React.ReactNode }) {
-  const [primaryColor, setPrimaryColor] = useState("#8b5cf6"); // Default violet
+  const [primaryColor, setPrimaryColor] = useState("#00f0ff"); // Default cyan
 
   useEffect(() => {
     const savedColor = localStorage.getItem("xylos-primary-color");

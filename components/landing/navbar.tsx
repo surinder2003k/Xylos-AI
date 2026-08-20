@@ -59,9 +59,9 @@ export function Navbar({ user }: NavbarProps) {
             href={user ? "/dashboard" : "/login"}
             className="px-6 py-2.5 rounded-xl transition-all text-[10px] font-bold uppercase tracking-widest"
             style={{ 
-              background: 'rgba(255, 94, 0, 0.1)', 
-              border: '1px solid rgba(255, 94, 0, 0.2)', 
-              color: '#ff5e00',
+              background: 'rgba(0, 240, 255, 0.1)', 
+              border: '1px solid rgba(0, 240, 255, 0.2)', 
+              color: '#00f0ff',
               fontFamily: 'JetBrains Mono, monospace'
             }}
           >
@@ -75,7 +75,7 @@ export function Navbar({ user }: NavbarProps) {
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             className="p-2 rounded-xl"
-            style={{ background: 'rgba(255, 94, 0, 0.05)', border: '1px solid rgba(59, 73, 75, 0.3)', color: 'rgba(226, 226, 232, 0.6)' }}
+            style={{ background: 'rgba(0, 240, 255, 0.05)', border: '1px solid rgba(59, 73, 75, 0.3)', color: 'rgba(226, 226, 232, 0.6)' }}
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -115,7 +115,7 @@ export function Navbar({ user }: NavbarProps) {
               href={user ? "/dashboard" : "/login"}
               onClick={() => setIsOpen(false)}
               className="block w-full text-center px-6 py-4 rounded-xl text-white font-bold text-xs uppercase tracking-[0.2em]"
-              style={{ background: 'linear-gradient(135deg, #ff5e00, #ff3131)' }}
+              style={{ background: 'linear-gradient(135deg, #00f0ff, #0099ff)' }}
             >
               {user ? "Enter Systems" : "Get Started"}
             </Link>
@@ -128,7 +128,7 @@ export function Navbar({ user }: NavbarProps) {
                   router.push('/');
                 }}
                 className="flex items-center justify-center gap-3 w-full px-6 py-4 rounded-xl transition-all text-xs font-bold uppercase tracking-widest"
-                style={{ border: '1px solid rgba(59, 73, 75, 0.3)', background: 'rgba(255, 49, 49, 0.05)', color: '#849495' }}
+                style={{ border: '1px solid rgba(59, 73, 75, 0.3)', background: 'rgba(0, 240, 255, 0.05)', color: '#849495' }}
               >
                 <LogOut className="w-4 h-4" />
                 Sign Out

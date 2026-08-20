@@ -72,8 +72,8 @@ export default async function LandingPage() {
       {/* Ambient neon glow */}
       <div className="fixed inset-0 z-0">
         <div className="absolute inset-0" style={{ background: '#0c0e12' }} />
-        <div className="absolute top-[-200px] left-1/4 w-[700px] h-[700px] rounded-full blur-[220px]" style={{ background: 'rgba(255, 94, 0, 0.04)' }} />
-        <div className="absolute bottom-[-200px] right-1/3 w-[600px] h-[600px] rounded-full blur-[200px]" style={{ background: 'rgba(255, 49, 49, 0.03)' }} />
+        <div className="absolute top-[-200px] left-1/4 w-[700px] h-[700px] rounded-full blur-[220px]" style={{ background: 'rgba(0, 240, 255, 0.04)' }} />
+        <div className="absolute bottom-[-200px] right-1/3 w-[600px] h-[600px] rounded-full blur-[200px]" style={{ background: 'rgba(0, 153, 255, 0.03)' }} />
         <div className="absolute top-1/2 left-[-100px] w-[500px] h-[500px] rounded-full blur-[180px]" style={{ background: 'rgba(0, 240, 255, 0.03)' }} />
       </div>
 
@@ -91,7 +91,7 @@ export default async function LandingPage() {
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[80px] font-black leading-[0.9] tracking-[-0.04em] text-white mb-8" style={{ fontFamily: 'Sora, sans-serif' }}>
               UNLEASH THE GHOST
               <br />
-              <span className="neon-glow-orange" style={{ color: '#ff5e00' }}>IN THE MACHINE.</span>
+              <span className="neon-glow-cyan" style={{ color: '#00f0ff' }}>IN THE MACHINE.</span>
             </h1>
 
             {/* Subheading */}
@@ -119,7 +119,7 @@ export default async function LandingPage() {
 
             {/* System Status Bar */}
             <div className="glass-panel rounded-xl p-4 flex flex-wrap items-center gap-6 mb-16">
-              <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: '#ff3131', fontFamily: 'JetBrains Mono, monospace' }}>SYSTEM_STATUS</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: '#00f0ff', fontFamily: 'JetBrains Mono, monospace' }}>SYSTEM_STATUS</span>
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full animate-neon-pulse" style={{ background: '#00f0ff' }} />
                 <span className="text-[11px] uppercase tracking-wider" style={{ color: '#b9cacb', fontFamily: 'JetBrains Mono, monospace' }}>LATENCY: 12ms</span>
@@ -129,7 +129,7 @@ export default async function LandingPage() {
                 <span className="text-[11px] uppercase tracking-wider" style={{ color: '#b9cacb', fontFamily: 'JetBrains Mono, monospace' }}>UPTIME: 99.99%</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full animate-neon-pulse" style={{ background: '#ff5e00' }} />
+                <div className="w-1.5 h-1.5 rounded-full animate-neon-pulse" style={{ background: '#00f0ff' }} />
                 <span className="text-[11px] uppercase tracking-wider" style={{ color: '#b9cacb', fontFamily: 'JetBrains Mono, monospace' }}>CORE: XYLOS-v7.1</span>
               </div>
             </div>
@@ -162,7 +162,7 @@ export default async function LandingPage() {
       <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="mb-16">
-            <p className="text-[10px] font-bold uppercase tracking-[0.4em] mb-4" style={{ color: '#ff3131', fontFamily: 'JetBrains Mono, monospace' }}>HARDWARE_FEATURES</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.4em] mb-4" style={{ color: '#00f0ff', fontFamily: 'JetBrains Mono, monospace' }}>HARDWARE_FEATURES</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -177,14 +177,14 @@ export default async function LandingPage() {
               </p>
               <div className="flex gap-3">
                 <span className="px-3 py-1 rounded text-[10px] font-bold uppercase tracking-wider" style={{ background: 'rgba(0, 240, 255, 0.1)', color: '#00f0ff', fontFamily: 'JetBrains Mono, monospace' }}>7+ MODELS</span>
-                <span className="px-3 py-1 rounded text-[10px] font-bold uppercase tracking-wider" style={{ background: 'rgba(255, 94, 0, 0.1)', color: '#ff5e00', fontFamily: 'JetBrains Mono, monospace' }}>REAL-TIME</span>
+                <span className="px-3 py-1 rounded text-[10px] font-bold uppercase tracking-wider" style={{ background: 'rgba(0, 240, 255, 0.1)', color: '#00f0ff', fontFamily: 'JetBrains Mono, monospace' }}>REAL-TIME</span>
               </div>
             </div>
 
             {/* Encrypted Core */}
             <div className="glass-panel rounded-xl p-8 cyber-border-tr group hover:border-[rgba(0,240,255,0.2)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <Lock className="w-5 h-5" style={{ color: '#ff3131' }} />
+                <Lock className="w-5 h-5" style={{ color: '#00f0ff' }} />
                 <h3 className="text-xl font-bold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Encrypted Core</h3>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: '#b9cacb' }}>
@@ -206,7 +206,7 @@ export default async function LandingPage() {
             {/* Visual Synthesis */}
             <div className="glass-panel rounded-xl p-8 cyber-border-tr group hover:border-[rgba(0,240,255,0.2)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <Layers className="w-5 h-5" style={{ color: '#ff5e00' }} />
+                <Layers className="w-5 h-5" style={{ color: '#00f0ff' }} />
                 <h3 className="text-xl font-bold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Visual Synthesis</h3>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: '#b9cacb' }}>
@@ -221,7 +221,7 @@ export default async function LandingPage() {
       <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
         <div className="max-w-5xl mx-auto">
           <div className="glass-panel rounded-2xl overflow-hidden p-12 md:p-16 text-center cyber-border-tr">
-            <h2 className="text-3xl md:text-4xl font-black tracking-[-0.03em] mb-4 neon-glow-orange" style={{ color: '#ff5e00', fontFamily: 'Sora, sans-serif' }}>
+            <h2 className="text-3xl md:text-4xl font-black tracking-[-0.03em] mb-4 neon-glow-cyan" style={{ color: '#00f0ff', fontFamily: 'Sora, sans-serif' }}>
               System ready for deployment.
             </h2>
             <p className="text-lg max-w-xl mx-auto mb-10" style={{ color: '#b9cacb' }}>
@@ -243,7 +243,7 @@ export default async function LandingPage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-12">
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.4em] mb-4" style={{ color: '#ff3131', fontFamily: 'JetBrains Mono, monospace' }}>LATEST_BROADCASTS</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.4em] mb-4" style={{ color: '#00f0ff', fontFamily: 'JetBrains Mono, monospace' }}>LATEST_BROADCASTS</p>
               <h2 className="text-4xl md:text-5xl font-black tracking-[-0.03em]" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>From the Neural Core</h2>
             </div>
             <Link href="/blog" className="hidden md:flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:text-[#00f0ff] transition-colors" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>
@@ -261,7 +261,7 @@ export default async function LandingPage() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 opacity-80 group-hover:opacity-100"
                   />
                   <div className="absolute top-3 left-3">
-                    <span className="px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider backdrop-blur-sm" style={{ background: 'rgba(255, 49, 49, 0.8)', color: '#fff', fontFamily: 'JetBrains Mono, monospace' }}>{blog.category}</span>
+                    <span className="px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider backdrop-blur-sm" style={{ background: 'rgba(0, 240, 255, 0.2)', color: '#00f0ff', fontFamily: 'JetBrains Mono, monospace' }}>{blog.category}</span>
                   </div>
                 </div>
                 <h3 className="text-lg font-bold leading-tight mb-2 line-clamp-2 group-hover:text-[#00f0ff] transition-colors" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>
@@ -282,7 +282,7 @@ export default async function LandingPage() {
       {/* ===== FAQ ===== */}
       <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
         <div className="max-w-4xl mx-auto">
-          <p className="text-[10px] font-bold uppercase tracking-[0.4em] mb-4 text-center" style={{ color: '#ff3131', fontFamily: 'JetBrains Mono, monospace' }}>NEURAL_FAQ</p>
+          <p className="text-[10px] font-bold uppercase tracking-[0.4em] mb-4 text-center" style={{ color: '#00f0ff', fontFamily: 'JetBrains Mono, monospace' }}>NEURAL_FAQ</p>
           <h2 className="text-4xl md:text-5xl font-black tracking-[-0.03em] text-center mb-16" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Frequently Asked Protocols</h2>
 
           <div className="space-y-4">

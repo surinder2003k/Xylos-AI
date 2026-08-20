@@ -47,7 +47,7 @@ export default function AboutPageClient() {
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-5xl md:text-8xl font-black tracking-tighter leading-tight text-white">
               XYLOS AI: NEURAL SYNTHESIS<br />
-              <span className="bg-gradient-to-r from-red-500 via-orange-500 to-red-400 bg-clip-text text-transparent">AND HUMAN INTELLIGENCE</span>
+              <span className="bg-gradient-to-r from-[#00f0ff] via-[#0099ff] to-[#00f0ff] bg-clip-text text-transparent">AND HUMAN INTELLIGENCE</span>
             </h1>
             <p className="text-gray-400 text-lg md:text-xl font-medium max-w-3xl mx-auto leading-relaxed">
               Xylos AI is more than just a platform — it&apos;s a decentralized editorial engine designed to augment human creativity with industrial-grade artificial intelligence.

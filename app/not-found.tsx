@@ -25,7 +25,7 @@ export default function NotFound() {
 
           <h1 className="text-[8rem] font-black leading-none tracking-tighter">
             <span className="text-white">4</span>
-            <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent italic">0</span>
+            <span className="bg-gradient-to-r from-[#00f0ff] to-[#0099ff] bg-clip-text text-transparent italic">0</span>
             <span className="text-white">4</span>
           </h1>
 

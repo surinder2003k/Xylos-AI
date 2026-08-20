@@ -13,12 +13,16 @@ html {
     --foreground: 210 10% 90%;
     --primary: 185 100% 50%;
     --primary-foreground: 0 0% 0%;
+    --primary-container: 185 100% 12%;
     --card: 220 15% 7%;
     --card-foreground: 210 10% 90%;
     --popover: 220 15% 7%;
     --popover-foreground: 210 10% 90%;
-    --secondary: 265 100% 50%;
-    --secondary-foreground: 265 80% 90%;
+    --secondary: 200 100% 50%;
+    --secondary-foreground: 200 80% 90%;
+    --secondary-container: 200 100% 12%;
+    --tertiary: 190 100% 50%;
+    --tertiary-container: 190 100% 12%;
     --muted: 220 12% 10%;
     --muted-foreground: 210 8% 55%;
     --accent: 185 100% 50%;
@@ -29,6 +33,13 @@ html {
     --input: 220 12% 10%;
     --ring: 185 100% 50%;
     --radius: 8px;
+
+    --surface-dim: 220 15% 6%;
+    --surface-bright: 220 15% 10%;
+    --surface-container: 220 15% 8%;
+    --surface-container-low: 220 15% 7%;
+    --surface-container-high: 220 15% 9%;
+    --surface-container-highest: 220 15% 11%;
 
     --neon-red: #ff3131;
     --neon-orange: #ff5e00;
@@ -88,13 +99,13 @@ html {
 
   .glass-cta {
     @apply rounded-xl font-semibold transition-all duration-300;
-    background: linear-gradient(135deg, var(--neon-orange), var(--neon-red));
-    color: white;
-    box-shadow: 0 1px 3px rgba(255, 94, 0, 0.3), 0 4px 16px rgba(255, 49, 49, 0.2);
+    background: linear-gradient(135deg, var(--neon-cyan), #0099ff);
+    color: #04141a;
+    box-shadow: 0 1px 3px rgba(0, 240, 255, 0.3), 0 4px 16px rgba(0, 240, 255, 0.2);
   }
 
   .glass-cta:hover {
-    box-shadow: 0 4px 20px rgba(255, 94, 0, 0.4), 0 8px 32px rgba(255, 49, 49, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 240, 255, 0.4), 0 8px 32px rgba(0, 153, 255, 0.3);
     transform: translateY(-1px);
   }
 
@@ -216,7 +227,7 @@ html {
 }
 
 .gradient-text-orange {
-  background: linear-gradient(135deg, #ff5e00 0%, #ff3131 100%);
+  background: linear-gradient(135deg, #00f0ff 0%, #0099ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

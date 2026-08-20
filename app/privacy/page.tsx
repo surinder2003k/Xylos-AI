@@ -36,7 +36,7 @@ export default function PrivacyPage() {
             Data Governance v2.0
           </div>
           <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-white">
-            Privacy & <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">Ethics</span>
+            Privacy & <span className="bg-gradient-to-r from-[#00f0ff] to-[#0099ff] bg-clip-text text-transparent">Ethics</span>
           </h1>
           <p className="text-gray-400 text-lg font-medium max-w-2xl mx-auto">
             &quot;Trust is the currency of intelligence. Xylos AI is built on a foundation of zero-compromise data integrity.&quot;

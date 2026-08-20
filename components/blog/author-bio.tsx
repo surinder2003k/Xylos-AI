@@ -19,7 +19,7 @@ export function AuthorBio({
     <div className="mt-12 p-6 md:p-10 rounded-2xl relative overflow-hidden" style={{ background: 'rgba(12, 14, 18, 0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
       <div className="relative z-10 flex flex-col md:flex-row items-center gap-10">
         <div className="relative">
-          <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 p-0.5">
+          <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-[#00f0ff] to-[#0099ff] p-0.5">
             <div className="w-full h-full rounded-[0.85rem] bg-[#0c0e12] flex items-center justify-center overflow-hidden">
               {avatarUrl ? (
                 <img src={avatarUrl} alt={name} className="w-full h-full object-cover" />
