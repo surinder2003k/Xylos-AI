@@ -171,9 +171,9 @@ export default async function LandingPage() {
             </div>
 
             {/* Encrypted Core */}
-            <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(0,240,255,0.18)] transition-all duration-300">
+            <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(157,140,255,0.18)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <Lock className="w-5 h-5" style={{ color: '#00f0ff' }} />
+                <Lock className="w-5 h-5" style={{ color: '#9d8cff' }} />
                 <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Encrypted Core</h3>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: '#aeb9bd' }}>
@@ -182,9 +182,9 @@ export default async function LandingPage() {
             </div>
 
             {/* Neural Orb */}
-            <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(0,240,255,0.18)] transition-all duration-300">
+            <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(45,212,191,0.18)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <Eye className="w-5 h-5" style={{ color: '#00f0ff' }} />
+                <Eye className="w-5 h-5" style={{ color: '#2dd4bf' }} />
                 <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Neural Orb</h3>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: '#aeb9bd' }}>
@@ -193,9 +193,9 @@ export default async function LandingPage() {
             </div>
 
             {/* Visual Synthesis */}
-            <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(0,240,255,0.18)] transition-all duration-300">
+            <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(245,196,81,0.18)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <Layers className="w-5 h-5" style={{ color: '#00f0ff' }} />
+                <Layers className="w-5 h-5" style={{ color: '#f5c451' }} />
                 <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Visual Synthesis</h3>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: '#aeb9bd' }}>
@@ -247,29 +247,33 @@ export default async function LandingPage() {
 
           <Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {blogs?.map((blog) => (
+            {blogs?.map((blog, i) => {
+              const accents = ['#00f0ff', '#9d8cff', '#2dd4bf'];
+              const acc = accents[i % accents.length];
+              return (
               <Link key={blog.id} href={`/blog/${blog.slug || blog.id}`} className="group">
-                <div className="relative aspect-[16/10] overflow-hidden mb-4 rounded-xl" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                <div className="relative aspect-[16/10] overflow-hidden mb-4 rounded-xl [transform:translateZ(0)]" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)' }}>
                   <img
                     src={blog.feature_image_url || "https://images.pexels.com/photos/1031201/pexels-photo-1031201.jpeg?auto=compress&cs=tinysrgb&w=800"}
                     alt={blog.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                    className="w-full h-full object-cover transition-transform duration-500 ease-out will-change-transform group-hover:scale-105 opacity-90 group-hover:opacity-100"
                   />
                   <div className="absolute top-3 left-3">
-                    <span className="px-3 py-1 rounded-full text-[10px] font-medium" style={{ background: 'rgba(0, 240, 255, 0.15)', color: '#00f0ff' }}>{blog.category}</span>
+                    <span className="px-3 py-1 rounded-full text-[10px] font-medium" style={{ background: 'rgba(255,255,255,0.08)', color: acc }}>{blog.category}</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-bold leading-tight mb-2 line-clamp-2 group-hover:text-[#00f0ff] transition-colors" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>
+                <h3 className="text-lg font-bold leading-tight mb-2 line-clamp-2 group-hover:text-white transition-colors" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>
                   {blog.title}
                 </h3>
                 <p className="text-sm line-clamp-2" style={{ color: '#849495' }}>{blog.excerpt}</p>
                 <div className="mt-3 flex items-center gap-2 text-[12px]" style={{ color: '#7d8a8e' }}>
                   <span>{blog.profiles?.full_name || 'Xylos Team'}</span>
                   <span>·</span>
-                  <span style={{ color: '#00f0ff' }}>Read →</span>
+                  <span style={{ color: acc }}>Read →</span>
                 </div>
               </Link>
-            ))}
+              );
+            })}
           </div>
           </Reveal>
         </div>

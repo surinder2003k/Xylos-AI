@@ -8,6 +8,7 @@ import { TopProgressBar } from "@/components/premium/progress-bar";
 import { AuthListener } from "@/components/auth-listener";
 import { GlobalEffects } from "@/components/ui/global-effects";
 import { ToastProvider } from "@/components/ui/toast";
+import { OfflineNotice } from "@/components/ui/offline-notice";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -99,7 +100,7 @@ export const metadata: Metadata = {
 };
 
 import Script from "next/script";
-import { LazyMotion, domAnimation } from "framer-motion";
+import { LazyMotion, domMax } from "framer-motion";
 
 export default async function RootLayout({
   children,
@@ -159,7 +160,7 @@ export default async function RootLayout({
         </Script>
 
         <GlobalEffects />
-        <LazyMotion features={domAnimation}>
+        <LazyMotion features={domMax}>
           <PrimaryColorProvider>
             <ToastProvider>
               <AuthListener />
@@ -182,6 +183,7 @@ export default async function RootLayout({
             className="hidden"
           />
         </noscript>
+        <OfflineNotice />
       </body>
     </html>
   );

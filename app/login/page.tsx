@@ -29,9 +29,9 @@ function LoginContent() {
   };
 
   const features = [
-    { icon: MessageSquare, title: "Unified AI Chat", sub: "7+ models in one interface" },
-    { icon: Code2, title: "Code Assistant", sub: "Full-stack dev tools" },
-    { icon: FileText, title: "Content Factory", sub: "Blog & social generation" },
+    { icon: MessageSquare, title: "Unified AI Chat", sub: "7+ models in one interface", accent: "#00f0ff" },
+    { icon: Code2, title: "Code Assistant", sub: "Full-stack dev tools", accent: "#9d8cff" },
+    { icon: FileText, title: "Content Factory", sub: "Blog & social generation", accent: "#2dd4bf" },
   ];
 
   return (
@@ -54,8 +54,8 @@ function LoginContent() {
                 transition={{ delay: 0.15 + i * 0.12, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 className="flex items-center gap-4 p-5 rounded-2xl glass-card"
               >
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style={{ background: 'rgba(0,240,255,0.12)' }}>
-                  <f.icon className="w-5 h-5" style={{ color: '#00f0ff' }} />
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style={{ background: `${f.accent}1f` }}>
+                  <f.icon className="w-5 h-5" style={{ color: f.accent }} />
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-white">{f.title}</p>

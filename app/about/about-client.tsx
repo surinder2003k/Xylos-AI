@@ -100,7 +100,7 @@ export default function AboutPageClient() {
                   <img
                     src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80"
                     alt="Neural network visualization showing AI interconnected nodes"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out will-change-transform [transform:translateZ(0)] group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                   <div className="absolute inset-0 flex items-center justify-center p-6 sm:p-12 text-center">

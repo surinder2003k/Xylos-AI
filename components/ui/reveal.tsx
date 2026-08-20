@@ -34,6 +34,7 @@ export function Reveal({ children, className = "", delay = 0, y = 16, as = "div"
 
   return (
     <MotionTag
+      data-reveal
       className={className}
       variants={variants}
       initial="hidden"
