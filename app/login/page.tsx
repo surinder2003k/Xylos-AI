@@ -37,8 +37,8 @@ function LoginContent() {
   return (
     <div className="min-h-screen flex relative overflow-hidden" style={{ background: '#0a0b0e', color: '#e2e2e8' }}>
       {/* Subtle ambient depth — single soft cyan radial (matches landing) */}
-      <div className="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-[-200px] left-1/4 w-[700px] h-[500px] rounded-full blur-[160px]" style={{ background: 'radial-gradient(closest-side, rgba(0,240,255,0.05), transparent)' }} />
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        <div className="absolute top-[-100px] left-1/4 w-[80vw] max-w-[500px] md:w-[60vw] md:max-w-[700px] h-[50vw] max-h-[350px] md:h-[40vw] md:max-h-[500px] rounded-full blur-[120px] md:blur-[160px]" style={{ background: 'radial-gradient(closest-side, rgba(0,240,255,0.05), transparent)' }} />
       </div>
 
       {/* Left Panel - Visual (hidden on mobile) */}

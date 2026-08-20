@@ -4,6 +4,9 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
 }
 
 @layer base {
@@ -58,6 +61,8 @@ html {
   body {
     @apply bg-background text-foreground transition-colors duration-300;
     font-family: var(--font-sora), -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   h1, h2, h3, h4, h5, h6 {

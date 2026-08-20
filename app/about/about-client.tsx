@@ -23,7 +23,9 @@ export default function AboutPageClient() {
     <div className="min-h-screen relative overflow-hidden" style={{ background: '#0a0b0e', color: '#e2e2e8' }}>
       {/* Subtle ambient depth — single soft cyan radial (matches landing) */}
       <div className="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full blur-[160px]" style={{ background: 'radial-gradient(closest-side, rgba(0,240,255,0.05), transparent)' }} />
+        <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[90vw] max-w-[550px] md:w-[70vw] md:max-w-[800px] h-[60vw] max-h-[350px] md:h-[50vw] md:max-h-[500px] rounded-full blur-[120px] md:blur-[160px]" style={{ background: 'radial-gradient(closest-side, rgba(0,240,255,0.05), transparent)' }} />
+      </div>
       </div>
 
       <main className="relative z-10 pt-32 px-6 pb-20 max-w-7xl mx-auto">

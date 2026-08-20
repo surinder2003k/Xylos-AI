@@ -67,8 +67,8 @@ export default async function LandingPage() {
       />
 
         {/* Subtle ambient depth — single soft radial, very low opacity (luxury, not neon) */}
-        <div className="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
-          <div className="absolute top-[-300px] left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full blur-[160px]" style={{ background: 'radial-gradient(closest-side, rgba(0,240,255,0.06), transparent)' }} />
+        <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
+          <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[90vw] max-w-[600px] md:w-[70vw] md:max-w-[900px] h-[60vw] max-h-[400px] md:h-[50vw] md:max-h-[600px] rounded-full blur-[120px] md:blur-[160px]" style={{ background: 'radial-gradient(closest-side, rgba(0,240,255,0.06), transparent)' }} />
         </div>
 
         {/* ===== HERO ===== */}
