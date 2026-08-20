@@ -69,7 +69,7 @@ export function Navbar({ user }: NavbarProps) {
               fontFamily: 'JetBrains Mono, monospace'
             }}
           >
-            {user ? "Systems" : "Login"}
+            {user ? "Dashboard" : "Login"}
           </Link>
         </div>
 
@@ -121,7 +121,7 @@ export function Navbar({ user }: NavbarProps) {
               className="block w-full text-center px-6 py-4 rounded-xl text-white font-bold text-xs uppercase tracking-[0.2em]"
               style={{ background: 'linear-gradient(135deg, #00f0ff, #0099ff)' }}
             >
-              {user ? "Enter Systems" : "Get Started"}
+              {user ? "Go to Dashboard" : "Get Started"}
             </Link>
 
             {user && (
