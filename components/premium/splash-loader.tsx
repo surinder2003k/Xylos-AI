@@ -16,15 +16,8 @@ export function SplashLoader() {
     }
     hasPlayedThisSession = true;
 
-    // Start fading out
-    const fadeTimer = setTimeout(() => {
-      setIsFading(true);
-    }, 450);
-
-    // Unmount from DOM completely
-    const unmountTimer = setTimeout(() => {
-      setIsMounted(false);
-    }, 1100);
+    const fadeTimer = setTimeout(() => setIsFading(true), 350);
+    const unmountTimer = setTimeout(() => setIsMounted(false), 750);
 
     return () => {
       clearTimeout(fadeTimer);
@@ -36,18 +29,12 @@ export function SplashLoader() {
 
   return (
     <div
-      className={`fixed inset-0 z-[1000] bg-background flex flex-col items-center justify-center pointer-events-none transition-all duration-[650ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
-        isFading ? "opacity-0 scale-110 blur-[20px]" : "opacity-100 scale-100"
+      className={`fixed inset-0 z-[1000] bg-background flex flex-col items-center justify-center transition-opacity duration-400 ease-out ${
+        isFading ? "opacity-0" : "opacity-100"
       }`}
     >
-      <div className="relative flex flex-col items-center">
-        {/* Background Glow */}
-        <div className="absolute inset-0 bg-[#00f0ff]/20 blur-[100px] -z-10 rounded-full animate-pulse" />
-
-        {/* Logo Animation */}
-        <div className="flex items-center justify-center relative my-4 animate-in fade-in zoom-in-75 duration-[700ms] ease-out">
-          <XylosLogo size={140} animated={true} />
-        </div>
+      <div className="flex items-center justify-center">
+        <XylosLogo size={64} animated={false} className="text-[#00f0ff]" />
       </div>
     </div>
   );
