@@ -118,7 +118,7 @@ function LoginContent() {
           )}
 
           {/* Auth Card */}
-          <div className="p-8 rounded-2xl glass-card">
+          <div className="p-7 md:p-9 rounded-3xl glass-card" style={{ borderColor: 'rgba(255,255,255,0.09)' }}>
             <form action={isLogin ? signInWithEmail : signUpWithEmail} onSubmit={handleSubmit} className="space-y-4">
               {!isLogin && (
                 <div className="space-y-1.5">
@@ -130,7 +130,7 @@ function LoginContent() {
                       type="text"
                       placeholder="Enter your name"
                       required
-                      className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-[#00f0ff]/40 transition-all text-white placeholder:text-[#5a6c6d] text-sm"
+                      className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-[#00f0ff]/40 focus:border-[#00f0ff]/30 transition-all text-white placeholder:text-[#5a6c6d] text-sm"
                       style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
                     />
                   </div>
@@ -146,7 +146,7 @@ function LoginContent() {
                     type="email"
                     placeholder="name@example.com"
                     required
-                    className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-[#00f0ff]/40 transition-all text-white placeholder:text-[#5a6c6d] text-sm"
+                    className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-[#00f0ff]/40 focus:border-[#00f0ff]/30 transition-all text-white placeholder:text-[#5a6c6d] text-sm"
                     style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
                   />
                 </div>
@@ -161,7 +161,7 @@ function LoginContent() {
                     type="password"
                     placeholder="••••••••"
                     required
-                    className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-[#00f0ff]/40 transition-all text-white placeholder:text-[#5a6c6d] text-sm"
+                    className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-[#00f0ff]/40 focus:border-[#00f0ff]/30 transition-all text-white placeholder:text-[#5a6c6d] text-sm"
                     style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
                   />
                 </div>
@@ -177,7 +177,7 @@ function LoginContent() {
               </button>
             </form>
 
-            <div className="relative my-8">
+            <div className="relative my-7">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}></div>
               </div>
@@ -189,10 +189,10 @@ function LoginContent() {
             <button
               type="button"
               onClick={() => signInWithGoogle()}
-              className="w-full border font-semibold py-4 rounded-xl flex items-center justify-center gap-3 hover:border-[rgba(0,240,255,0.3)] hover:bg-[rgba(0,240,255,0.04)] transition-all group text-sm text-white"
-              style={{ background: 'rgba(255,255,255,0.03)', borderColor: 'rgba(255,255,255,0.1)' }}
+              className="w-full font-semibold py-4 rounded-xl flex items-center justify-center gap-3 hover:border-[#00f0ff] hover:bg-[rgba(0,240,255,0.06)] transition-all group text-sm text-white"
+              style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}
             >
-              <Chrome className="w-5 h-5 text-[#00f0ff] group-hover:scale-110 transition-transform" />
+              <Chrome className="w-5 h-5 text-[#00f0ff] group-hover:scale-105 transition-transform" />
               Continue with Google
             </button>
           </div>

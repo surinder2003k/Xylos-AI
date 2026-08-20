@@ -72,7 +72,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
               <div>
                 <Link href={`/blog/${blog.slug || blog.id}`} aria-label={`Read full article: ${blog.title}`} className="group block h-full">
                   <div
-                    className="rounded-2xl overflow-hidden transition-all duration-300 h-full flex flex-col hover:shadow-[0_18px_50px_rgba(0,0,0,0.5)]"
+                    className="rounded-2xl overflow-hidden h-full flex flex-col"
                     style={{ background: 'rgba(18, 20, 26, 0.6)', border: '1px solid rgba(255,255,255,0.07)' }}
                   >
 
@@ -82,7 +82,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                         src={blog.feature_image_url || "https://images.pexels.com/photos/1031201/pexels-photo-1031201.jpeg?auto=compress&cs=tinysrgb&w=800"}
                         alt={blog.title}
                         fill
-                        className="w-full h-full object-cover transition-transform duration-700 ease-out will-change-transform group-hover:scale-105"
+                        className="w-full h-full object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                       {/* subtle gradient scrim for legibility */}
@@ -125,7 +125,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                            </div>
                         </div>
                         <div
-                          className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-105"
+                          className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300"
                           style={{ background: accent.soft, border: `1px solid ${accent.border}` }}
                         >
                            <ArrowUpRight className="w-4 h-4 transition-transform duration-500 group-hover:rotate-45" style={{ color: accent.text }} />
