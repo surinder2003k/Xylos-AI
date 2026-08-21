@@ -10,6 +10,7 @@ import { GlobalEffects } from "@/components/ui/global-effects";
 import { ToastProvider } from "@/components/ui/toast";
 import { OfflineNotice } from "@/components/ui/offline-notice";
 import { PageFade } from "@/components/ui/motion-primitives";
+import { ScrollFloatingOrb } from "@/components/ui/scroll-orb";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -175,6 +176,8 @@ export default async function RootLayout({
             </ToastProvider>
           </PrimaryColorProvider>
         </LazyMotion>
+
+        <ScrollFloatingOrb />
 
         <noscript>
           <iframe 
