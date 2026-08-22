@@ -102,7 +102,7 @@ export async function generateSmartBlog(
   - Ensure the "content" field is a single string containing the HTML-style markdown.
   - Minimum total word count: 1800+ words. Aim for 2000+ words. Do NOT summarize or write brief lists; expand every section with deep analyses, detailed descriptions, and historical context.`;
 
-  let lastError: any = null;
+  let lastError: Error | null = null;
 
   for (const provider of providers) {
     try {
