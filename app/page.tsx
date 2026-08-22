@@ -7,6 +7,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { StaggerContainer, StaggerItem } from "@/components/ui/motion-primitives";
 
 const AuroraWallpaper = dynamic(() => import("@/components/ui/aurora-wallpaper").then(m => m.AuroraWallpaper));
+const CursorFollower = dynamic(() => import("@/components/ui/cursor-follower").then(m => m.CursorFollower));
 const NewsletterForm = dynamic(() => import("@/components/landing/newsletter-form").then(m => m.NewsletterForm));
 
 export const revalidate = 1800;
@@ -75,6 +76,9 @@ export default async function LandingPage() {
 
         {/* Live aurora wallpaper — flowing gradient mesh behind everything */}
         <AuroraWallpaper />
+
+        {/* Subtle cursor follower — cyan orb with lag (desktop only) */}
+        <CursorFollower />
 
         {/* ===== HERO ===== */}
         <section className="relative z-10 min-h-screen flex items-center">
