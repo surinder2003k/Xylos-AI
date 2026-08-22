@@ -7,7 +7,7 @@ export default function NotFound() {
     <div className="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden" style={{ background: '#0a0b0e', color: '#e2e2e8' }}>
       {/* Subtle ambient depth */}
       <div className="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full blur-[160px]" style={{ background: 'radial-gradient(closest-side, rgba(0,240,255,0.05), transparent)' }} />
+        <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[90vw] max-w-[700px] h-[400px] md:h-[500px] rounded-full blur-[120px] md:blur-[160px]" style={{ background: 'radial-gradient(closest-side, rgba(0,240,255,0.05), transparent)' }} />
       </div>
 
       <div className="relative z-10 flex flex-col items-center text-center space-y-10 max-w-xl">

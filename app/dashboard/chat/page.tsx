@@ -542,10 +542,10 @@ function ChatContent() {
         {/* Neural Input Interface */}
         <div className="absolute bottom-0 w-full bg-gradient-to-t from-background via-background/95 to-transparent pt-8 pb-4 px-2 md:pt-12 md:pb-8 md:px-12">
           <div className="max-w-3xl mx-auto relative">
-            <div className={`glass-card ${isLoading ? 'border-violet-500/50' : 'border-white/10'} transition-all focus-within:border-violet-500/50 overflow-hidden`}>
+            <div className={`glass-card ${isLoading ? 'border-primary/50' : 'border-white/10'} transition-all focus-within:border-primary/50 overflow-hidden`}>
               {stagedFile && (
                 <div className="mx-6 mt-4 flex items-center gap-3 bg-white/5 border border-white/10 pl-3 pr-2 py-2 rounded-xl animate-in fade-in slide-in-from-bottom-2">
-                  <div className="w-8 h-8 rounded bg-violet-500/10 flex items-center justify-center text-violet-500">
+                  <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-primary">
                     {stagedFile.type.startsWith('image/') ? <ImageIcon className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
                   </div>
                   <span className="text-xs font-bold truncate flex-1">{stagedFile.name}</span>

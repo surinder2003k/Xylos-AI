@@ -10,7 +10,7 @@ interface BentoCardProps {
 
 export function BentoCard({ children, className = "", delay = 0 }: BentoCardProps) {
   return (
-    <div className={`relative overflow-hidden bg-white/[0.02] border border-white/[0.05] shadow-[0_2px_8px_rgba(0,0,0,0.015)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.15)] hover:border-violet-500/20 transition-all duration-500 rounded-3xl flex flex-col ${className}`}>
+    <div className={`relative overflow-hidden bg-white/[0.02] border border-white/[0.05] shadow-[0_2px_8px_rgba(0,0,0,0.015)] hover:shadow-[0_12px_32px_rgba(0,240,255,0.08)] hover:border-primary/25 transition-all duration-500 rounded-3xl flex flex-col ${className}`}>
       <div className="absolute top-4 right-4 text-[8px] font-mono font-bold tracking-[0.2em] text-white/10 uppercase">
         {`// ${delay ? `M_0${Math.floor(delay * 10)}` : "M_01"}`}
       </div>

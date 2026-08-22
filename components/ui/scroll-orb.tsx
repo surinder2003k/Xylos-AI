@@ -1,102 +1,94 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
-// A cute floating fantasy orb that moves with scroll direction
-// - Scrolls down → orb moves right/up
-// - Scrolls up → orb moves left/down
-// Creates a subtle parallax-like effect
+// Cute floating orbs that drift with scroll direction (like a curtain ribbon):
+// scroll down → orbs glide up; scroll up → they settle back down.
+// Hidden on mobile + respects prefers-reduced-motion. Never blocks clicks.
 
 export function ScrollFloatingOrb() {
   const pathname = usePathname();
-  const [scrollY, setScrollY] = useState(0);
   const orbRef = useRef<HTMLDivElement>(null);
+  const [enabled, setEnabled] = useState(false);
 
-  // Track scroll position
+  // Only run on desktop pointers + when motion is allowed
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [pathname]);
+    const fine = window.matchMedia("(pointer: fine)").matches;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (fine && !reduced) setEnabled(true);
+  }, []);
 
-  // Calculate orb position based on scroll direction
   useEffect(() => {
-    if (!orbRef.current) return;
+    if (!enabled) return;
 
+    let lastY = window.scrollY;
+    let currentX = 0, currentY = 0, targetX = 0, targetY = 0;
     let rafId: number;
-    const updatePosition = () => {
-      const scrollTop = window.scrollY;
-      const delta = scrollTop - scrollY;
-      
-      if (orbRef.current) {
-        // Move orb based on scroll direction
-        if (delta > 5) {
-          // Scrolling down - move orb right/up
-          orbRef.current.style.transform = `translate(calc(${scrollTop * 0.02}px), calc(-${scrollTop * 0.015}px))`;
-        } else if (delta < -5) {
-          // Scrolling up - move orb left/down
-          orbRef.current.style.transform = `translate(calc(-${Math.abs(scrollTop) * 0.02}px), calc(${Math.abs(scrollTop) * 0.015}px))`;
-        } else {
-          // Subtle float when not scrolling
-          const time = Date.now() * 0.001;
-          orbRef.current.style.transform = `translate(calc(50% + 10px * Math.sin(time * 0.5)), calc(50% + 8px * Math.cos(time * 0.7)))`;
-        }
-      }
-      
-      rafId = requestAnimationFrame(updatePosition);
+
+    const onScroll = () => {
+      const y = window.scrollY;
+      const delta = y - lastY;
+      lastY = y;
+      // Ribbon-like drift: scroll down pulls orbs up & sideways
+      targetX = Math.max(-60, Math.min(60, targetX + delta * 0.06));
+      targetY = Math.max(-80, Math.min(80, targetY - delta * 0.08));
     };
 
-    updatePosition();
-    
-    return () => {
-      cancelAnimationFrame(rafId);
-      window.removeEventListener("scroll", () => {});
+    const tick = () => {
+      // smooth lerp toward target, then slowly relax to center
+      currentX += (targetX - currentX) * 0.06;
+      currentY += (targetY - currentY) * 0.06;
+      targetX *= 0.985;
+      targetY *= 0.985;
+
+      if (orbRef.current) {
+        orbRef.current.style.transform = `translate3d(${currentX.toFixed(2)}px, ${currentY.toFixed(2)}px, 0)`;
+      }
+      rafId = requestAnimationFrame(tick);
     };
-  }, [scrollY, pathname]);
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    rafId = requestAnimationFrame(tick);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(rafId);
+    };
+  }, [enabled, pathname]);
+
+  if (!enabled) return null;
 
   return (
-    <div
-      ref={orbRef}
-      className="fixed inset-0 pointer-events-none overflow-hidden opacity-5"
-      style={{ 
-        pointerEvents: 'none',
-        zIndex: '999' 
-      }}
-    >
-      {/* Floating decorative orbs */}
-      <div 
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-primary/5 opacity-60 animate-pulse-slow"
-        style={{ 
-          border: '1px solid rgba(0, 240, 255, 0.3)',
-          animation: 'floatEase 20s ease-in-out infinite'
-        }}
-        aria-hidden="true"
-      />
-      <div 
-        className="absolute bottom-1/4 right-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-secondary/5 opacity-50 animate-pulse-slow"
-        style={{ 
-          border: '1px solid rgba(157, 140, 255, 0.3)',
-          animation: 'floatEase 25s ease-in-out infinite reverse'
-        }}
-        aria-hidden="true"
-      />
-      {/* Main orb that follows scroll */}
-      <div
-        className="absolute left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-primary/10 border border-primary/20 opacity-80 transition-all duration-700 ease-out"
-        style={{ 
-          width: '16px',
-          height: '16px',
-          animation: 'orbFloat 6s ease-in-out infinite',
-          transform: 'translate(0, 0)'
-        }}
-        aria-hidden="true"
-      />
+    <div className="fixed inset-0 pointer-events-none overflow-hidden" aria-hidden="true" style={{ zIndex: 5 }}>
+      <div ref={orbRef} className="absolute inset-0 will-change-transform">
+        {/* Primary cyan orb */}
+        <div
+          className="absolute top-[22%] left-[12%] w-24 h-24 rounded-full"
+          style={{
+            background: 'radial-gradient(circle at 35% 35%, rgba(0,240,255,0.10), rgba(0,240,255,0.02) 65%, transparent)',
+            border: '1px solid rgba(0, 240, 255, 0.12)',
+            animation: 'floatEase 14s ease-in-out infinite',
+          }}
+        />
+        {/* Secondary violet orb */}
+        <div
+          className="absolute top-[58%] right-[10%] w-16 h-16 rounded-full"
+          style={{
+            background: 'radial-gradient(circle at 40% 40%, rgba(157,140,255,0.09), transparent 70%)',
+            border: '1px solid rgba(157, 140, 255, 0.10)',
+            animation: 'floatEase 18s ease-in-out infinite reverse',
+          }}
+        />
+        {/* Tiny teal accent */}
+        <div
+          className="absolute top-[38%] right-[28%] w-8 h-8 rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(45,212,191,0.12), transparent 70%)',
+            animation: 'floatEase 11s ease-in-out infinite',
+          }}
+        />
+      </div>
     </div>
   );
 }
-
-// Keyframes are expected to be in globals.css or a style tag
-// We'll inject them via a style tag
