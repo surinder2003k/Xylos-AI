@@ -13,6 +13,7 @@ export default function ToolsPage() {
               A collection of tiny utilities built with Xylos AI.
             </p>
             <div className="mt-16 space-y-6">
+              {/* Dropzone Share */}
               <div className="p-6 bg-white/5 rounded-lg border border-white/10">
                 <h2 className="font-semibold mb-2 text-xl">Dropzone Share</h2>
                 <p className="text-white/70">
@@ -24,6 +25,7 @@ export default function ToolsPage() {
                 </Link>
               </div>
 
+              {/* PicExtractor */}
               <div className="p-6 bg-white/5 rounded-lg border border-white/10">
                 <h2 className="font-semibold mb-2 text-xl">PicExtractor</h2>
                 <p className="text-white/70">
@@ -49,6 +51,7 @@ export default function ToolsPage() {
   );
 }
 
+// Import icons locally to avoid circular dependency issues
 function ArrowRight() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
