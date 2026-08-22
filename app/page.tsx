@@ -9,6 +9,7 @@ import { StaggerContainer, StaggerItem } from "@/components/ui/motion-primitives
 const AuroraWallpaper = dynamic(() => import("@/components/ui/aurora-wallpaper").then(m => m.AuroraWallpaper));
 const CursorFollower = dynamic(() => import("@/components/ui/cursor-follower").then(m => m.CursorFollower));
 const NewsletterForm = dynamic(() => import("@/components/landing/newsletter-form").then(m => m.NewsletterForm));
+const PremiumEffectsDemo = dynamic(() => import("@/components/ui/premium-effects-demo"));
 
 export const revalidate = 1800;
 
@@ -308,7 +309,7 @@ export default async function LandingPage() {
           <Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* PicExtractor */}
-            <Link href="https://picextracter.vercel.app" className="glass-card rounded-2xl p-8 group hover:border-[rgba(0,240,255,0.18)] transition-all duration-300" target="_blank" rel="noopener noreferrer">
+            <Link href="https://picextractor.vercel.app/" className="glass-card rounded-2xl p-8 group hover:border-[rgba(0,240,255,0.18)] transition-all duration-300" target="_blank" rel="noopener noreferrer">
               <div className="flex items-center gap-3 mb-4">
                 <Terminal className="w-5 h-5" style={{ color: '#00f0ff' }} />
                 <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>PicExtractor</h3>
@@ -337,6 +338,24 @@ export default async function LandingPage() {
               </div>
             </Link>
           </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ===== PREMIUM EFFECTS DEMO ===== */}
+      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
+        <div className="max-w-7xl mx-auto">
+          <Reveal>
+          <div className="flex items-end justify-between mb-12">
+            <div>
+              <p className="text-[12px] font-semibold uppercase tracking-[0.25em] mb-4" style={{ color: '#00f0ff' }}>Premium Effects</p>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-[-0.02em]" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Advanced Animations</h2>
+            </div>
+          </div>
+          </Reveal>
+
+          <Reveal>
+          <PremiumEffectsDemo />
           </Reveal>
         </div>
       </section>
