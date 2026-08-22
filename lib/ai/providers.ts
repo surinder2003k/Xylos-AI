@@ -49,7 +49,7 @@ export async function getProviderResponse(
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: model || "stepfun/step-3.5-flash:free",
+        model: model || "nvidia/nemotron-3-super-120b-a12b:free",
         messages: safeMessages
       })
     });
@@ -74,7 +74,7 @@ export async function getProviderResponse(
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: model || "llama-3.3-70b-versatile",
+        model: model || "openai/gpt-oss-120b",
         messages: safeMessages
       })
     });
@@ -94,7 +94,7 @@ export async function getProviderResponse(
     const systemInstruction = processedMessages.find(m => m.role === 'system')?.content;
     const chatMessages = processedMessages.filter(m => m.role !== 'system');
 
-    const modelToUse = "gemini-1.5-flash";
+    const modelToUse = "gemini-3.6-flash";
 
     const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelToUse}:generateContent?key=${process.env.GOOGLE_GEMINI_API_KEY}`, {
       method: "POST",
@@ -159,7 +159,7 @@ export async function getProviderResponse(
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: model || "mistral-tiny",
+        model: model || "mistral-medium-2505",
         messages: safeMessages
       })
     });
@@ -209,7 +209,7 @@ export async function getProviderResponse(
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: model || "llama3.1-8b",
+        model: model || "gpt-oss-120b",
         messages: safeMessages
       })
     });
@@ -265,6 +265,6 @@ export async function getProviderResponse(
     };
   }
 
-  // BEST FREE ROUTE (Fallback to Groq Llama 3 as it's the fastest and free)
-  return getProviderResponse('groq', 'llama-3.3-70b-versatile', processedMessages);
+  // BEST FREE ROUTE (Groq gpt-oss-120b — fastest free, live-tested)
+  return getProviderResponse('groq', 'openai/gpt-oss-120b', processedMessages);
 }

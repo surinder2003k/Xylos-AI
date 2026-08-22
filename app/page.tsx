@@ -259,7 +259,7 @@ export default async function LandingPage() {
                   <img
                     src={blog.feature_image_url || "https://images.pexels.com/photos/1031201/pexels-photo-1031201.jpeg?auto=compress&cs=tinysrgb&w=800"}
                     alt={blog.title}
-                    className="w-full h-full object-cover transition-transform duration-500 ease-out will-change-transform group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100"
                   />
                   <div className="absolute top-3 left-3">
                     <span className="px-3 py-1 rounded-full text-[10px] font-medium" style={{ background: 'rgba(255,255,255,0.08)', color: acc }}>{blog.category}</span>

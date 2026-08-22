@@ -26,9 +26,9 @@ export async function generateSmartBlog(
   externalLinks: string[] = []
 ): Promise<BlogContent> {
   const providers = [
-    { name: 'groq', model: 'llama-3.3-70b-versatile' },
-    { name: 'openrouter', model: 'openai/gpt-4o-mini' },
-    { name: 'gemini', model: 'gemini-1.5-flash' },
+    { name: 'groq', model: 'openai/gpt-oss-120b' },
+    { name: 'gemini', model: 'gemini-3.6-flash' },
+    { name: 'openrouter', model: 'nvidia/nemotron-3-super-120b-a12b:free' },
   ];
 
   const systemPrompt = `You are the Xylos Neural Engine, a senior investigative journalist and content strategist.

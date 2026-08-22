@@ -32,9 +32,9 @@ import remarkGfm from "remark-gfm";
 
 const providers = [
   { id: "best", name: "Best Free Route", icon: Sparkles },
-  { id: "groq", name: "Groq Llama 3.3", icon: Diamond },
-  { id: "gemini", name: "Gemini 2.5 Flash", icon: Diamond },
-  { id: "openrouter", name: "OpenRouter Flash", icon: Diamond },
+  { id: "groq", name: "Groq GPT-OSS 120B", icon: Diamond },
+  { id: "gemini", name: "Gemini 3.6 Flash", icon: Diamond },
+  { id: "openrouter", name: "Nemotron Super (Free)", icon: Diamond },
 ];
 
 function ChatContent() {

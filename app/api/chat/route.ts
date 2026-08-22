@@ -46,21 +46,22 @@ export async function POST(request: NextRequest) {
     }));
     const fullMessages = [systemMessage, ...sanitizedMessages];
 
-    // Tiered fallback strategy — try multiple providers if one fails
+    // Tiered fallback strategy — try multiple providers if one fails (models live-tested 2026-08)
     const fallbackChain = [
-      { name: 'groq', model: 'llama-3.3-70b-versatile' },
-      { name: 'openrouter', model: 'stepfun/step-3.5-flash:free' },
-      { name: 'gemini', model: 'gemini-1.5-flash' },
-      { name: 'cerebras', model: 'llama3.1-8b' },
+      { name: 'groq', model: 'openai/gpt-oss-120b' },
+      { name: 'gemini', model: 'gemini-3.6-flash' },
+      { name: 'openrouter', model: 'nvidia/nemotron-3-super-120b-a12b:free' },
+      { name: 'mistral', model: 'mistral-medium-2505' },
+      { name: 'cerebras', model: 'gpt-oss-120b' },
     ];
 
     // If user picked a specific provider, try that first
     const specificMap: Record<string, { name: string; model: string }> = {
-      'groq': { name: 'groq', model: model || 'llama-3.3-70b-versatile' },
-      'gemini': { name: 'gemini', model: model || 'gemini-1.5-flash' },
-      'openrouter': { name: 'openrouter', model: model || 'stepfun/step-3.5-flash:free' },
-      'mistral': { name: 'mistral', model: model || 'mistral-tiny' },
-      'cerebras': { name: 'cerebras', model: model || 'llama3.1-8b' },
+      'groq': { name: 'groq', model: model || 'openai/gpt-oss-120b' },
+      'gemini': { name: 'gemini', model: model || 'gemini-3.6-flash' },
+      'openrouter': { name: 'openrouter', model: model || 'nvidia/nemotron-3-super-120b-a12b:free' },
+      'mistral': { name: 'mistral', model: model || 'mistral-medium-2505' },
+      'cerebras': { name: 'cerebras', model: model || 'gpt-oss-120b' },
       'cloudflare': { name: 'cloudflare', model: model || '@cf/meta/llama-3-8b-instruct' },
     };
 
