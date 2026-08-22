@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import { Reveal } from "@/components/ui/reveal";
 import { StaggerContainer, StaggerItem } from "@/components/ui/motion-primitives";
 
+const AuroraWallpaper = dynamic(() => import("@/components/ui/aurora-wallpaper").then(m => m.AuroraWallpaper));
 const NewsletterForm = dynamic(() => import("@/components/landing/newsletter-form").then(m => m.NewsletterForm));
 
 export const revalidate = 1800;
@@ -71,6 +72,9 @@ export default async function LandingPage() {
         <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
           <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[90vw] max-w-[600px] md:w-[70vw] md:max-w-[900px] h-[60vw] max-h-[400px] md:h-[50vw] md:max-h-[600px] rounded-full blur-[120px] md:blur-[160px]" style={{ background: 'radial-gradient(closest-side, rgba(0,240,255,0.06), transparent)' }} />
         </div>
+
+        {/* Live aurora wallpaper — flowing gradient mesh behind everything */}
+        <AuroraWallpaper />
 
         {/* ===== HERO ===== */}
         <section className="relative z-10 min-h-screen flex items-center">
