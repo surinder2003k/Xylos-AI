@@ -293,6 +293,54 @@ export default async function LandingPage() {
         </div>
       </section>
 
+      {/* ===== MORE TOOLS ===== */}
+      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
+        <div className="max-w-7xl mx-auto">
+          <Reveal>
+          <div className="flex items-end justify-between mb-12">
+            <div>
+              <p className="text-[12px] font-semibold uppercase tracking-[0.25em] mb-4" style={{ color: '#00f0ff' }}>More Tools</p>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-[-0.02em]" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Handy utilities</h2>
+            </div>
+          </div>
+          </Reveal>
+
+          <Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* PicExtractor */}
+            <Link href="https://picextracter.vercel.app" className="glass-card rounded-2xl p-8 group hover:border-[rgba(0,240,255,0.18)] transition-all duration-300" target="_blank" rel="noopener noreferrer">
+              <div className="flex items-center gap-3 mb-4">
+                <Terminal className="w-5 h-5" style={{ color: '#00f0ff' }} />
+                <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>PicExtractor</h3>
+              </div>
+              <p className="text-sm leading-relaxed mb-6" style={{ color: '#aeb9bd' }}>
+                Extract text, colors, and metadata from images instantly.
+              </p>
+              <div className="flex gap-3">
+                <span className="px-3 py-1 rounded-full text-[11px] font-medium" style={{ background: 'rgba(0, 240, 255, 0.1)', color: '#00f0ff' }}>AI-powered</span>
+                <span className="px-3 py-1 rounded-full text-[11px] font-medium" style={{ background: 'rgba(255,255,255,0.06)', color: '#aeb9bd' }}>Free</span>
+              </div>
+            </Link>
+
+            {/* Dropzone-Share */}
+            <Link href="https://dropzone-k48dpchv.manus.space" className="glass-card rounded-2xl p-8 group hover:border-[rgba(0,240,255,0.18)] transition-all duration-300" target="_blank" rel="noopener noreferrer">
+              <div className="flex items-center gap-3 mb-4">
+                <Terminal className="w-5 h-5" style={{ color: '#00f0ff' }} />
+                <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Dropzone Share</h3>
+              </div>
+              <p className="text-sm leading-relaxed mb-6" style={{ color: '#aeb9bd' }}>
+                Drag and drop files to share them instantly via a link.
+              </p>
+              <div className="flex gap-3">
+                <span className="px-3 py-1 rounded-full text-[11px] font-medium" style={{ background: 'rgba(0, 240, 255, 0.1)', color: '#00f0ff' }}>Instant sharing</span>
+                <span className="px-3 py-1 rounded-full text-[11px] font-medium" style={{ background: 'rgba(255,255,255,0.06)', color: '#aeb9bd' }}>No signup</span>
+              </div>
+            </Link>
+          </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ===== FAQ ===== */}
       <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
         <div className="max-w-4xl mx-auto">
