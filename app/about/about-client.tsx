@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   Sparkles,
   Brain,
@@ -99,9 +100,11 @@ export default function AboutPageClient() {
           >
             <div className="aspect-video rounded-3xl p-1 overflow-hidden glass-card">
                <div className="w-full h-full rounded-2xl overflow-hidden relative">
-                  <img
+                  <Image
                     src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80"
                     alt="Neural network visualization showing AI interconnected nodes"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out will-change-transform [transform:translateZ(0)] group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />

@@ -1,6 +1,7 @@
 import { createClient as createPublicClient } from "@supabase/supabase-js";
 import { ArrowRight, ChevronRight, ChevronDown, Terminal, Lock, Eye, Layers } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 import { Reveal } from "@/components/ui/reveal";
 import { StaggerContainer, StaggerItem } from "@/components/ui/motion-primitives";
@@ -256,9 +257,11 @@ export default async function LandingPage() {
               return (
               <Link key={blog.id} href={`/blog/${blog.slug || blog.id}`} className="group">
                 <div className="relative aspect-[16/10] overflow-hidden mb-4 rounded-xl [transform:translateZ(0)]" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                  <img
+                  <Image
                     src={blog.feature_image_url || "https://images.pexels.com/photos/1031201/pexels-photo-1031201.jpeg?auto=compress&cs=tinysrgb&w=800"}
                     alt={blog.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="w-full h-full object-cover opacity-90 group-hover:opacity-100"
                   />
                   <div className="absolute top-3 left-3">

@@ -238,7 +238,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <div className="flex items-center gap-4 mb-12 pb-8" style={{ borderBottom: '1px solid rgba(59, 73, 75, 0.15)' }}>
                 <div className="w-11 h-11 rounded-full overflow-hidden" style={{ background: 'rgba(0,240,255,0.1)', border: '2px solid rgba(0,240,255,0.25)' }}>
                   {post.author?.avatar_url ? (
-                    <img src={post.author.avatar_url} alt={post.author.full_name} className="w-full h-full object-cover" />
+                    <Image src={post.author.avatar_url} alt={post.author.full_name || 'Author'} width={44} height={44} className="w-full h-full object-cover" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-[#00f0ff] text-sm font-bold">
                       {(post.author?.full_name || 'X')[0]}
