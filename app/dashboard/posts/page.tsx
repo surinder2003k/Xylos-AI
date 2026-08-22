@@ -164,6 +164,42 @@ export default function AllStoriesPage() {
     post.category.toLowerCase().includes(search.toLowerCase())
   );
 
+  // ── Pagination ──
+  const POSTS_PER_PAGE = 10;
+  const [page, setPage] = useState(1);
+  const totalPages = Math.max(1, Math.ceil(filteredPosts.length / POSTS_PER_PAGE));
+
+  // Reset to page 1 whenever search changes
+  useEffect(() => {
+    setPage(1);
+  }, [search]);
+
+  // Clamp page if it goes out of range (e.g. after deletion)
+  const safePage = Math.min(page, totalPages);
+  const paginatedPosts = filteredPosts.slice(
+    (safePage - 1) * POSTS_PER_PAGE,
+    safePage * POSTS_PER_PAGE
+  );
+
+  const goToPage = (p: number) => {
+    setPage(Math.max(1, Math.min(totalPages, p)));
+    // Scroll table into view on page change
+    document.getElementById('stories-table')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  // Build page numbers with ellipsis: 1 … 4 5 6 … 12
+  const getPageNumbers = (): (number | '…')[] => {
+    if (totalPages <= 7) return Array.from({ length: totalPages }, (_, i) => i + 1);
+    const pages: (number | '…')[] = [1];
+    let start = Math.max(2, safePage - 1);
+    let end = Math.min(totalPages - 1, safePage + 1);
+    if (start > 2) pages.push('…');
+    for (let i = start; i <= end; i++) pages.push(i);
+    if (end < totalPages - 1) pages.push('…');
+    pages.push(totalPages);
+    return pages;
+  };
+
   return (
     <div className="max-w-7xl mx-auto space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-1000 ease-out pb-20">
       {/* Header Section */}
@@ -206,7 +242,7 @@ export default function AllStoriesPage() {
       </div>
 
       {/* Content Feed Table */}
-      <div className="glass-card overflow-hidden">
+      <div className="glass-card overflow-hidden" id="stories-table">
         <div className="overflow-x-auto custom-scrollbar">
           <table className="w-full text-left border-collapse min-w-[1000px]">
             <thead>
@@ -239,7 +275,7 @@ export default function AllStoriesPage() {
                   </td>
                 </tr>
               ) : (
-                filteredPosts.map((post) => (
+                paginatedPosts.map((post) => (
                   <tr key={post.id} className="group hover:bg-white/[0.03] transition-colors">
                     <td className="px-10 py-5">
                       <div className={`
@@ -320,6 +356,51 @@ export default function AllStoriesPage() {
             </tbody>
           </table>
         </div>
+
+        {/* Pagination Footer */}
+        {!loading && filteredPosts.length > 0 && (
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 px-8 py-6 border-t border-white/10">
+            <p className="text-[11px] text-white/30 font-medium tracking-wide">
+              Showing {(safePage - 1) * POSTS_PER_PAGE + 1}–{Math.min(safePage * POSTS_PER_PAGE, filteredPosts.length)} of {filteredPosts.length} stories
+            </p>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => goToPage(safePage - 1)}
+                disabled={safePage <= 1}
+                aria-label="Previous page"
+                className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-xs font-semibold text-white/60 hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-all disabled:opacity-30 disabled:pointer-events-none"
+              >
+                Prev
+              </button>
+              {getPageNumbers().map((p, i) =>
+                p === '…' ? (
+                  <span key={`e${i}`} className="px-2 text-white/25 text-xs select-none">…</span>
+                ) : (
+                  <button
+                    key={p}
+                    onClick={() => goToPage(p)}
+                    aria-current={safePage === p ? 'page' : undefined}
+                    className={`w-9 h-9 rounded-lg text-xs font-semibold transition-all ${
+                      safePage === p
+                        ? 'bg-primary text-[#04141a] shadow-[0_0_20px_rgba(0,240,255,0.25)]'
+                        : 'bg-white/5 border border-white/10 text-white/50 hover:bg-primary/10 hover:text-primary'
+                    }`}
+                  >
+                    {p}
+                  </button>
+                )
+              )}
+              <button
+                onClick={() => goToPage(safePage + 1)}
+                disabled={safePage >= totalPages}
+                aria-label="Next page"
+                className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-xs font-semibold text-white/60 hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-all disabled:opacity-30 disabled:pointer-events-none"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        )}
       </div>
 
       <ConfirmationModal 
