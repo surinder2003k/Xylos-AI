@@ -49,7 +49,7 @@ export function BlogFilters() {
               onClick={() => handleCategoryChange(cat)}
               className={`px-4 md:px-6 py-2 rounded-xl font-bold text-[9px] md:text-[10px] uppercase tracking-widest transition-all ${
                 isActive 
-                  ? "bg-[#ff3131] text-white" 
+                  ? "bg-[#00f0ff] text-[#04141a]" 
                   : "text-gray-400 hover:text-white"
               }`}
               style={!isActive ? { background: 'rgba(59, 73, 75, 0.15)', border: '1px solid rgba(59, 73, 75, 0.2)' } : {}}

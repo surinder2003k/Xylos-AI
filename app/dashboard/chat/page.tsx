@@ -2,6 +2,7 @@
 
 import { Suspense, useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { 
   Send, 
   Paperclip, 
@@ -293,9 +294,9 @@ function ChatContent() {
             <span className="text-[10px] text-white/40 uppercase font-bold tracking-widest">{sessions.length} Deployments</span>
           </div>
           <div className="flex items-center gap-2">
-            <a href="/" className="w-8 h-8 rounded-full bg-white/5 hover:bg-primary/10 hover:text-primary text-white/40 flex items-center justify-center transition-colors" title="Back to Home">
+            <Link href="/" className="w-8 h-8 rounded-full bg-white/5 hover:bg-primary/10 hover:text-primary text-white/40 flex items-center justify-center transition-colors" title="Back to Home">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            </a>
+            </Link>
             <button onClick={() => router.push('/dashboard/chat')} className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20 transition-colors">
               <Plus className="w-4 h-4" />
             </button>
