@@ -213,10 +213,10 @@ export default function AllStoriesPage() {
         
         <Link 
           href="/dashboard/create"
-          className="group flex items-center gap-4 bg-primary text-[#04141a] px-10 py-5 rounded-xl font-semibold text-xs uppercase tracking-wide hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] transition-all"
+          className="group flex items-center justify-center gap-2 md:gap-4 bg-primary text-[#04141a] px-5 md:px-10 py-4 md:py-5 rounded-xl font-semibold text-xs uppercase tracking-wide hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] transition-all"
         >
           <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
-          Draft New Story
+          <span className="whitespace-nowrap">Draft New Story</span>
         </Link>
       </div>
 
@@ -241,10 +241,11 @@ export default function AllStoriesPage() {
         </button>
       </div>
 
-      {/* Content Feed Table */}
+      {/* Content Feed */}
       <div className="glass-card overflow-hidden" id="stories-table">
-        <div className="overflow-x-auto custom-scrollbar">
-          <table className="w-full text-left border-collapse min-w-[1000px]">
+        {/* ── Desktop: Table (md and up) ── */}
+        <div className="hidden md:block overflow-x-auto custom-scrollbar">
+          <table className="w-full text-left border-collapse min-w-[900px]">
             <thead>
               <tr className="border-b border-white/10 bg-white/[0.02]">
                 <th className="px-10 py-8 text-[10px] font-semibold text-white/40 uppercase tracking-wide">Status</th>
@@ -257,14 +258,14 @@ export default function AllStoriesPage() {
               {loading ? (
                 Array(3).fill(0).map((_, i) => (
                   <tr key={i} className="animate-pulse">
-                    <td colSpan={5} className="px-10 py-12 text-center text-white/15 font-mono text-[10px] uppercase tracking-[0.4em] italic">
+                    <td colSpan={4} className="px-10 py-12 text-center text-white/15 font-mono text-[10px] uppercase tracking-[0.4em] italic">
                       Scanning Archive Buffer Protocol...
                     </td>
                   </tr>
                 ))
               ) : filteredPosts.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="px-10 py-24 text-center">
+                  <td colSpan={4} className="px-10 py-24 text-center">
                     <div className="flex flex-col items-center gap-6 opacity-30">
                       <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center">
                         <BookOpen className="w-8 h-8 text-white" />
@@ -355,6 +356,98 @@ export default function AllStoriesPage() {
               )}
             </tbody>
           </table>
+        </div>
+
+        {/* ── Mobile: Stacked Cards (below md) ── */}
+        <div className="md:hidden divide-y divide-white/5">
+          {loading ? (
+            Array(3).fill(0).map((_, i) => (
+              <div key={i} className="p-4 animate-pulse space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-24 aspect-video rounded-xl bg-white/5" />
+                  <div className="flex-1 space-y-2">
+                    <div className="h-3 w-3/4 bg-white/10 rounded" />
+                    <div className="h-2 w-1/2 bg-white/5 rounded" />
+                  </div>
+                </div>
+                <div className="h-8 w-full bg-white/5 rounded-xl" />
+              </div>
+            ))
+          ) : filteredPosts.length === 0 ? (
+            <div className="px-6 py-24 text-center flex flex-col items-center gap-6 opacity-30">
+              <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center">
+                <BookOpen className="w-8 h-8 text-white" />
+              </div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-white">Story Archive Empty</p>
+              <Link href="/dashboard/create" className="text-xs text-primary font-bold hover:underline">Draft your first story →</Link>
+            </div>
+          ) : (
+            paginatedPosts.map((post) => (
+              <div key={post.id} className="p-4 space-y-4">
+                <div className="flex items-start gap-4">
+                  <div className="relative w-24 aspect-video rounded-xl bg-white/5 overflow-hidden border border-white/10 flex-shrink-0">
+                    {post.feature_image_url ? (
+                      <Image src={post.feature_image_url} alt={post.title} fill className="w-full h-full object-cover grayscale opacity-60" />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center">
+                        <div className="bg-gradient-to-br from-primary/10 to-primary/30 w-full h-full opacity-20" />
+                        <ImageIcon className="absolute w-5 h-5 text-white/30" />
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-black text-sm text-white uppercase tracking-tight line-clamp-2 leading-tight">{post.title}</div>
+                    <div className="text-[9px] font-black text-white/30 uppercase tracking-widest flex items-center gap-2 mt-1">
+                      <span className="w-1.5 h-px bg-white/10" />
+                      SERIAL_{post.id.substring(0, 8).toUpperCase()}
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <span className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg font-black text-[9px] uppercase tracking-[0.2em] flex-shrink-0 ${post.status === 'published' ? 'bg-primary/10 text-primary border border-primary/20' : 'bg-white/5 text-white/40 border border-white/10'}`}>
+                      <span className={`w-1.5 h-1.5 rounded-full ${post.status === 'published' ? 'bg-primary' : 'bg-white/30'}`} />
+                      {post.status}
+                    </span>
+                    <span className="inline-flex items-center px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-[9px] font-black uppercase tracking-[0.2em] text-white/40 truncate max-w-[120px]">
+                      {post.category}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 flex-shrink-0">
+                    <button
+                      onClick={() => toggleStatus(post)}
+                      className={`p-2.5 rounded-lg border border-white/10 transition-all ${post.status === 'published' ? 'bg-white/5 text-white/60' : 'bg-primary/10 text-primary'}`}
+                      title={post.status === 'published' ? "Unpublish Protocol" : "Deploy Protocol"}
+                    >
+                      {post.status === 'published' ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                    </button>
+                    <a
+                      href={`/blog/${post.slug || post.id}`}
+                      target="_blank"
+                      className="p-2.5 rounded-lg border border-white/10 bg-white/5 hover:bg-primary hover:text-black transition-all"
+                      title="View Public"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                    <Link
+                      href={`/dashboard/create?id=${post.id}`}
+                      className="p-2.5 rounded-lg border border-white/10 bg-white/5 hover:bg-primary hover:text-black transition-all"
+                      title="Refine Story"
+                    >
+                      <Edit2 className="w-4 h-4" />
+                    </Link>
+                    <button
+                      onClick={() => handleDeleteClick(post)}
+                      className="p-2.5 rounded-lg border border-white/10 bg-white/5 hover:bg-red-500 hover:text-white transition-all"
+                      title="Decommission Story"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))
+          )}
         </div>
 
         {/* Pagination Footer */}
