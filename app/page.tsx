@@ -9,7 +9,6 @@ import { StaggerContainer, StaggerItem } from "@/components/ui/motion-primitives
 const AuroraWallpaper = dynamic(() => import("@/components/ui/aurora-wallpaper").then(m => m.AuroraWallpaper));
 const CursorFollower = dynamic(() => import("@/components/ui/cursor-follower").then(m => m.CursorFollower));
 const NewsletterForm = dynamic(() => import("@/components/landing/newsletter-form").then(m => m.NewsletterForm));
-const PremiumEffectsDemo = dynamic(() => import("@/components/ui/premium-effects-demo"));
 
 export const revalidate = 1800;
 
@@ -342,23 +341,7 @@ export default async function LandingPage() {
         </div>
       </section>
 
-      {/* ===== PREMIUM EFFECTS DEMO ===== */}
-      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
-        <div className="max-w-7xl mx-auto">
-          <Reveal>
-          <div className="flex items-end justify-between mb-12">
-            <div>
-              <p className="text-[12px] font-semibold uppercase tracking-[0.25em] mb-4" style={{ color: '#00f0ff' }}>Premium Effects</p>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-[-0.02em]" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Advanced Animations</h2>
-            </div>
-          </div>
-          </Reveal>
-
-          <Reveal>
-          <PremiumEffectsDemo />
-          </Reveal>
-        </div>
-      </section>
+      
 
       {/* ===== FAQ ===== */}
       <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
