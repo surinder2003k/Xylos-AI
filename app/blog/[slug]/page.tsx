@@ -306,35 +306,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 )}
               </div>
 
-              {/* Comments Section - Terminal Style */}
-              <div className="mt-16 pt-8" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.15)' }}>
-                <h3 className="text-sm font-bold text-white mb-6 flex items-center gap-2" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
-                  <span className="text-[#00f0ff]">&gt;</span> Terminal Output (Comments)
-                </h3>
-                <div className="rounded-xl overflow-hidden" style={{ background: '#0a0c10', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
-                  <div className="flex items-center gap-2 px-4 py-2" style={{ background: 'rgba(59, 73, 75, 0.1)', borderBottom: '1px solid rgba(59, 73, 75, 0.15)' }}>
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
-                    <span className="text-[9px] text-gray-600 ml-2 uppercase tracking-wider" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>terminal_v1.0</span>
-                  </div>
-                  <div className="p-4">
-                    <div className="flex items-center gap-3">
-                      <span className="text-[#00f0ff] text-sm" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>$</span>
-                      <input
-                        type="text"
-                        placeholder="Initialize input sequence..."
-                        className="flex-1 bg-transparent text-sm text-white placeholder-gray-600 outline-none"
-                        style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
-                      />
-                      <button className="px-4 py-1.5 rounded text-[12px] font-semibold uppercase transition-all hover:bg-[#33f3ff]" style={{ background: '#00f0ff', color: '#04141a' }}>
-                        Submit
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
               {/* Footer */}
               <footer className="mt-20 pt-8 pb-12 text-center" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.15)' }}>
                 <p className="text-[10px] text-gray-600 uppercase tracking-[0.3em]" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
