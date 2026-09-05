@@ -307,15 +307,18 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </div>
 
               {/* Footer */}
-              <footer className="mt-20 pt-8 pb-12 text-center" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.15)' }}>
-                <p className="text-[10px] text-gray-600 uppercase tracking-[0.3em]" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
-                  © {new Date().getFullYear()} XYLOS AI. TRANSMISSION COMPLETE.
-                </p>
-                <div className="flex justify-center gap-8 mt-4">
-                  <Link href="/privacy" className="text-[9px] text-gray-600 hover:text-[#00f0ff] uppercase tracking-wider transition-colors" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>Privacy</Link>
-                  <Link href="/about" className="text-[9px] text-gray-600 hover:text-[#00f0ff] uppercase tracking-wider transition-colors" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>Terms</Link>
-                  <span className="text-[9px] text-gray-700 uppercase tracking-wider" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>API Status</span>
+              <footer className="mt-16 pt-8 pb-8 text-center" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.15)' }}>
+                <div className="flex justify-center gap-6 text-[10px] uppercase tracking-widest mb-2" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
+                  <Link href="/about" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>About</Link>
+                  <Link href="/blog" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Blog</Link>
+                  <Link href="/contact" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Contact</Link>
+                  <Link href="/terms" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Terms</Link>
+                  <Link href="/cookies" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Cookies</Link>
+                  <Link href="/privacy" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Privacy</Link>
                 </div>
+                <p className="text-[12px] font-medium" style={{ color: '#5a6c6d' }}>
+                  &copy; {new Date().getFullYear()} Xylos AI
+                </p>
               </footer>
             </article>
 

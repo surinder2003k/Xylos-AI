@@ -398,6 +398,9 @@ export default async function LandingPage() {
             <div className="flex items-center gap-6">
               <Link href="/about" className="text-[10px] uppercase tracking-widest hover:text-[#00f0ff] transition-colors" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>About</Link>
               <Link href="/blog" className="text-[10px] uppercase tracking-widest hover:text-[#00f0ff] transition-colors" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>Blog</Link>
+              <Link href="/contact" className="text-[10px] uppercase tracking-widest hover:text-[#00f0ff] transition-colors" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>Contact</Link>
+              <Link href="/terms" className="text-[10px] uppercase tracking-widest hover:text-[#00f0ff] transition-colors" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>Terms</Link>
+              <Link href="/cookies" className="text-[10px] uppercase tracking-widest hover:text-[#00f0ff] transition-colors" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>Cookies</Link>
               <Link href="/privacy" className="text-[10px] uppercase tracking-widest hover:text-[#00f0ff] transition-colors" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>Privacy</Link>
             </div>
             <p className="text-[10px] uppercase tracking-widest" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>© 2026 Xylos Foundation</p>

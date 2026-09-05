@@ -21,6 +21,7 @@ export function Navbar({ user }: NavbarProps) {
     { href: "/chat", label: "Chat" },
     { href: "/blog", label: "Blog" },
     { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
   ];
 
   const isActive = (href: string) =>

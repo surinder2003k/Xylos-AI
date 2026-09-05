@@ -145,16 +145,20 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
       </main>
 
       {/* Footer */}
-      <footer className="py-24 px-8 text-center" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
-         <div className="max-w-2xl mx-auto space-y-8">
-            <XylosLogo className="w-12 h-12 mx-auto opacity-15" />
-            <p className="text-[12px] font-medium" style={{ color: '#5a6c6d' }}>Xylos Editorial</p>
-            <div className="flex justify-center gap-10 text-[13px] font-medium">
-               <Link href="/privacy" className="text-gray-600 hover:text-[#00f0ff] transition-colors">Privacy Policy</Link>
-               <Link href="/about" className="text-gray-600 hover:text-[#00f0ff] transition-colors">About Xylos</Link>
-               <Link href="/blog" className="text-gray-600 hover:text-[#00f0ff] transition-colors">Archive</Link>
-            </div>
-         </div>
+      <footer className="py-16 px-6 text-center" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+        <div className="max-w-2xl mx-auto space-y-6">
+          <div className="flex justify-center gap-6 text-[10px] uppercase tracking-widest mb-2" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
+            <Link href="/about" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>About</Link>
+            <Link href="/blog" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Blog</Link>
+            <Link href="/contact" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Contact</Link>
+            <Link href="/terms" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Terms</Link>
+            <Link href="/cookies" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Cookies</Link>
+            <Link href="/privacy" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Privacy</Link>
+          </div>
+          <p className="text-[12px] font-medium" style={{ color: '#5a6c6d' }}>
+            &copy; {new Date().getFullYear()} Xylos AI
+          </p>
+        </div>
       </footer>
     </div>
   );
