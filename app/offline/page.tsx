@@ -16,7 +16,11 @@ export default function OfflinePage() {
         <div className="flex justify-center gap-6 text-[10px] uppercase tracking-widest" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
           <a href="/" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Home</a>
           <a href="/about" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>About</a>
+          <a href="/blog" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Blog</a>
           <a href="/contact" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Contact</a>
+          <a href="/terms" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Terms</a>
+          <a href="/cookies" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Cookies</a>
+          <a href="/privacy" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Privacy</a>
         </div>
       </main>
     </div>
