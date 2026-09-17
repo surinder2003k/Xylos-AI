@@ -1,6 +1,19 @@
 import { MetadataRoute } from 'next'
 import { createClient } from '@supabase/supabase-js'
 
+// Static SEO tool pages (app/tools/[tool])
+const TOOL_PAGES = [
+  'ai-pdf-analyzer',
+  'ai-code-assistant',
+  'ai-chat-free',
+  'ai-research-agent',
+  'ai-vision-lab',
+  'ai-content-factory',
+  'ai-meeting-notes',
+  'ai-model-comparator',
+  'ai-life-coach',
+]
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://xylosai.vercel.app').replace(/\/$/, '')
 
@@ -75,11 +88,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5,
     },
     {
-      url: `${siteUrl}/offline`,
+      url: `${siteUrl}/tools`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
-      priority: 0.3,
+      priority: 0.6,
     },
+    ...TOOL_PAGES.map((slug) => ({
+      url: `${siteUrl}/tools/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    })),
     ...blogEntries,
   ]
 }

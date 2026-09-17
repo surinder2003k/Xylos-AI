@@ -4,7 +4,7 @@ import { Clock, Share2, Copy, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { formatIST } from "@/lib/utils/date-format";
 import { ShareButtons } from "@/components/blog/share-buttons";
 import { Metadata } from "next";
@@ -30,7 +30,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const { data: post } = await supabase.from("blogs").select("*, profiles(full_name)").eq("slug", slug).single();
 
-  if (!post) return {};
+  if (!post) {
+    // UUID fallback: page accessed by post id instead of slug.
+    // Permanently redirect to the canonical slug URL so Google indexes exactly ONE URL per post.
+    const { data: idPost } = await supabase.from("blogs").select("slug").eq("id", slug).maybeSingle();
+    if (idPost?.slug) permanentRedirect(`/blog/${idPost.slug}`);
+    notFound();
+  }
 
   const canonicalUrl = `https://xylosai.vercel.app/blog/${post.slug}`;
   const imageUrl = post.feature_image_url || 'https://xylosai.vercel.app/og-image.png';
@@ -107,16 +113,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   }
 
   if (!post) {
+    // UUID fallback: permanently redirect id-style URLs to the canonical slug URL
     const { data: idPost } = await supabase
       .from("blogs")
-      .select("*")
+      .select("slug")
       .eq("id", slug)
       .maybeSingle();
-    if (idPost) {
-      post = idPost;
-    } else {
-      return notFound();
+    if (idPost?.slug) {
+      permanentRedirect(`/blog/${idPost.slug}`);
     }
+    return notFound();
   }
 
   const publicSupabase = createPublicClient(

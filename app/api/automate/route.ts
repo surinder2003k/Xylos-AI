@@ -329,6 +329,23 @@ export async function GET(req: Request) {
 
       // Check for duplicate title
       const titleLower = blogData.title.toLowerCase();
+
+      // Guard against off-topic / consumer-spam subjects that trigger
+      // "low value content" flags in Google Search Console & AdSense review.
+      const OFF_TOPIC_TERMS = [
+        "insurance", "denture", "attorney", "lawyer", "legal advice",
+        "burger", "restaurant", "recipe", "food near",
+        "roofing", "gutter", "plumb", "hvac", "pest control",
+        "casino", "betting", "slot ",
+        "half-cow", "cow price", "beef cost",
+        "real estate agent", "mortgage rate",
+      ];
+      if (OFF_TOPIC_TERMS.some((t) => titleLower.includes(t))) {
+        console.warn(`[AutoPost] OFF-TOPIC REJECTED: "${blogData.title}". Retrying with different topic.`);
+        allExistingTitles.push(`_offtopic_${attempts}_`);
+        continue;
+      }
+
       const isDuplicate = allExistingTitles.some(existingTitle => {
         const existingLower = existingTitle.toLowerCase();
         if (existingLower === titleLower) return true;

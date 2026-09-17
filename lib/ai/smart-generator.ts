@@ -43,6 +43,11 @@ export async function generateSmartBlog(
   PRIMARY DIRECTIVE: 
   Write a high-authority, definitive article about: "${prompt.toUpperCase()}" in the context of ${category || 'General Technology'}.
   DO NOT repeat any of the recent titles mentioned above. Provide a fresh, insightful perspective.
+
+  TOPICAL FOCUS (STRICT — VIOLATION = REJECTED):
+  Xylos AI is a technology publication. The article MUST be strictly about technology, software, artificial intelligence, cybersecurity, blockchain, space technology, or a clearly technology-driven angle on the assigned category.
+  FORBIDDEN SUBJECTS (never write these, even if the topic implies them): insurance, legal advice, medical/dental/health treatment advice, food & restaurants, travel deals, home services (roofing, gutters, plumbing), real estate listings, gambling, adult content, or generic consumer-service listicles.
+  If the requested topic drifts off-domain, pivot to the closest technology angle (e.g., "How AI is transforming logistics") instead of writing generic consumer advice. Prioritize original analysis, data points, and expert-level framing over SEO-filler prose.
   
   SEO & LINKING ARCHITECTURE (CRITICAL):
   You MUST naturally weave internal citations, external partner citations, and general high-authority reference citations into the narrative using <a> tags with target="_blank" and rel="noopener noreferrer".

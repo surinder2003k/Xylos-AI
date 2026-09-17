@@ -17,7 +17,8 @@ export async function updateSession(request: NextRequest) {
   // Fast-path: Public routes don't need auth, skip Supabase call to allow ISR caching.
   // The Supabase middleware must NOT run on these paths, otherwise it adds latency
   // and bypasses Vercel's CDN edge cache for ISR pages.
-  const publicPaths = ['/', '/blog', '/about', '/privacy'];
+  // NOTE: /tools is intentionally public — the tool SEO landing pages must be crawlable.
+  const publicPaths = ['/', '/blog', '/about', '/privacy', '/terms', '/cookies', '/contact', '/tools'];
   const isPublicPath = publicPaths.some(p =>
     request.nextUrl.pathname === p || request.nextUrl.pathname.startsWith('/blog/')
   );
@@ -75,8 +76,9 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url)
   }
 
-  // If user is NOT logged in and tries to access known protected routes, redirect to landing
-  const protectedPaths = ['/chat', '/dashboard', '/tools'];
+  // If user is NOT logged in and tries to access known protected routes, redirect to landing.
+  // NOTE: /tools is NOT protected anymore — its SEO landing pages need to be public/crawlable.
+  const protectedPaths = ['/chat', '/dashboard'];
   const isProtectedPath = protectedPaths.some(p =>
     request.nextUrl.pathname === p || request.nextUrl.pathname.startsWith(p + '/')
   );

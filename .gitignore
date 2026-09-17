@@ -60,3 +60,6 @@ DESIGN.md
 resolve-db-error.md
 .vercel
 .env*
+
+# build log
+build-output.log

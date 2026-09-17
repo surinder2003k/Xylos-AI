@@ -104,9 +104,15 @@ export async function generateMetadata({ params }: { params: Promise<{ tool: str
   return {
     title: `${tool.title} | Xylos AI`,
     description: `${tool.description} - Powered by Xylos AI.`,
+    keywords: tool.keywords,
+    alternates: {
+      canonical: `https://xylosai.vercel.app/tools/${resolvedParams.tool}`,
+    },
+    robots: { index: true, follow: true },
     openGraph: {
       title: `${tool.title} | Xylos AI`,
       description: tool.description,
+      url: `https://xylosai.vercel.app/tools/${resolvedParams.tool}`,
       type: 'article',
     }
   };

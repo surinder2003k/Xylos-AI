@@ -1,4 +1,21 @@
+import type { Metadata } from "next";
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: "Free AI Tools — PDF Analyzer, Code Assistant & Chat | Xylos AI",
+  description:
+    "Explore free AI tools by Xylos AI: AI PDF analyzer & summarizer, AI code assistant, free AI chat with Llama 3, Gemini & Mistral, and more. No cost, no paywall.",
+  alternates: {
+    canonical: "https://xylosai.vercel.app/tools",
+  },
+  openGraph: {
+    title: "Free AI Tools | Xylos AI",
+    description:
+      "A collection of tiny, free AI utilities built with Xylos AI — PDF analysis, code assistance, file sharing and more.",
+    url: "https://xylosai.vercel.app/tools",
+    type: "website",
+  },
+};
 
 export default function ToolsPage() {
   return (

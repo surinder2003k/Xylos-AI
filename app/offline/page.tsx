@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Offline — Xylos AI",
   description: "You are currently offline. Some features of Xylos AI require an internet connection.",
+  robots: { index: false, follow: true },
 };
 
 export default function OfflinePage() {
