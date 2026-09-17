@@ -4,8 +4,9 @@ import { createClient } from '@supabase/supabase-js';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Admin email to notify on new subscriber (works without a custom domain)
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'xyzg135@gmail.com';
+// Admin email to notify on new subscriber — configured via env var only.
+// NOTE: Never hardcode personal emails in source; this repo is public.
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
 
 // Server-side Supabase client using service role key
 const supabase = createClient(
@@ -31,28 +32,30 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Subscription failed. Please try again.' }, { status: 500 });
     }
 
-    // ── STEP 2: Notify admin ──
-    resend.emails.send({
-      from: 'onboarding@resend.dev',
-      to: ADMIN_EMAIL,
-      subject: `🎉 New Xylos Subscriber: ${email}`,
-      html: `
-        <div style="font-family: 'Segoe UI', sans-serif; max-width: 560px; margin: 0 auto; background: #0a0a0a; color: #fff; border-radius: 12px; overflow: hidden;">
-          <div style="background: linear-gradient(135deg, #6c63ff 0%, #a78bfa 100%); padding: 32px 40px;">
-            <h1 style="margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -0.5px;">Xylos AI</h1>
-            <p style="margin: 6px 0 0; opacity: 0.8; font-size: 13px;">Editorial Intelligence Platform</p>
-          </div>
-          <div style="padding: 32px 40px;">
-            <h2 style="margin: 0 0 8px; font-size: 18px; font-weight: 700;">New Subscriber</h2>
-            <p style="color: #aaa; font-size: 14px; margin: 0 0 24px;">Someone just joined the Xylos intelligence network.</p>
-            <div style="background: #1a1a1a; border: 1px solid #333; border-radius: 8px; padding: 16px 20px;">
-              <p style="margin: 0; font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 1px;">Email</p>
-              <p style="margin: 4px 0 0; font-size: 16px; font-weight: 600; color: #a78bfa;">${email}</p>
+    // ── STEP 2: Notify admin (skipped silently if ADMIN_EMAIL not configured) ──
+    if (ADMIN_EMAIL) {
+      resend.emails.send({
+        from: 'Xylos AI <onboarding@resend.dev>',
+        to: ADMIN_EMAIL,
+        subject: `🎉 New Xylos Subscriber: ${email}`,
+        html: `
+          <div style="font-family: 'Segoe UI', sans-serif; max-width: 560px; margin: 0 auto; background: #0a0a0a; color: #fff; border-radius: 12px; overflow: hidden;">
+            <div style="background: linear-gradient(135deg, #6c63ff 0%, #a78bfa 100%); padding: 32px 40px;">
+              <h1 style="margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -0.5px;">Xylos AI</h1>
+              <p style="margin: 6px 0 0; opacity: 0.8; font-size: 13px;">Editorial Intelligence Platform</p>
+            </div>
+            <div style="padding: 32px 40px;">
+              <h2 style="margin: 0 0 8px; font-size: 18px; font-weight: 700;">New Subscriber</h2>
+              <p style="color: #aaa; font-size: 14px; margin: 0 0 24px;">Someone just joined the Xylos intelligence network.</p>
+              <div style="background: #1a1a1a; border: 1px solid #333; border-radius: 8px; padding: 16px 20px;">
+                <p style="margin: 0; font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 1px;">Email</p>
+                <p style="margin: 4px 0 0; font-size: 16px; font-weight: 600; color: #a78bfa;">${email}</p>
+              </div>
             </div>
           </div>
-        </div>
-      `
-    }).catch(err => console.warn('[Subscribe] Admin notification failed:', err?.message));
+        `
+      }).catch(err => console.warn('[Subscribe] Admin notification failed:', err?.message));
+    }
 
     // ── STEP 3: Send confirmation to subscriber ──
     const { SUBSCRIBE_TEMPLATE } = await import('@/lib/mail/templates');

@@ -4,6 +4,7 @@ import {
   discoverLatestPosts,
   discoverInternalPosts,
 } from "@/lib/utils/link-discovery";
+import { pingIndexNow } from "@/lib/utils/indexnow";
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { createClient as createAuthClient } from "@/utils/supabase/server";
@@ -415,6 +416,10 @@ export async function GET(req: Request) {
       console.log(`[AutoPost] Post created: "${newPost.title}" (${newPost.id}) | Category: ${currentCategory}`);
       results.push({ status: "success", id: newPost.id, title: newPost.title, category: currentCategory });
       allExistingTitles.push(newPost.title);
+
+      // Instant-indexing ping to Bing/Yandex/Seznam via IndexNow (non-blocking failure)
+      const postUrl = `https://xylosai.vercel.app/blog/${newPost.slug}`;
+      pingIndexNow([postUrl, "https://xylosai.vercel.app/blog"]);
     }
 
     const duration = ((Date.now() - startTime) / 1000).toFixed(2);

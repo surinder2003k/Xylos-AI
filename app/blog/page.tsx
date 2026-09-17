@@ -9,19 +9,34 @@ import { createClient as createPublicClient } from "@supabase/supabase-js";
 import { XylosLogo } from "@/components/premium/xylos-logo";
 
 
-export const metadata: Metadata = {
-  title: "AI Blog — Insights on Technology, AI & Innovation",
-  description: "Explore expert articles on artificial intelligence, technology trends, and digital innovation. Written and curated by the Xylos AI editorial engine.",
-  alternates: {
-    canonical: 'https://xylosai.vercel.app/blog',
-  },
-  openGraph: {
-    title: "AI Blog — Technology & Innovation Insights | Xylos AI",
-    description: "Deep-dive articles on AI, machine learning, and emerging tech — curated by automated intelligence.",
-    url: 'https://xylosai.vercel.app/blog',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Xylos AI Blog' }],
-  },
-};
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ [key: string]: string | undefined }> }): Promise<Metadata> {
+  const sp = await searchParams;
+  const page = parseInt(sp.page || "1");
+  const category = sp.category || "all";
+
+  // Pagination-aware canonical: page 1 = /blog, page N = /blog?page=N (self-canonical)
+  // so Google treats paginated pages as distinct, indexable archive pages.
+  const pageSuffix = page > 1 ? `?page=${page}` : "";
+  const canonical = `https://xylosai.vercel.app/blog${pageSuffix}`;
+  const catSuffix = category !== "all" ? ` — ${category}` : "";
+  const pageTitle = page > 1
+    ? `AI Blog — Page ${page}${catSuffix} | Xylos AI`
+    : `AI Blog — Insights on Technology, AI & Innovation${catSuffix} | Xylos AI`;
+
+  return {
+    title: pageTitle,
+    description: "Explore expert articles on artificial intelligence, technology trends, and digital innovation. Written and curated by the Xylos AI editorial engine.",
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title: pageTitle,
+      description: "Deep-dive articles on AI, machine learning, and emerging tech — curated by automated intelligence.",
+      url: canonical,
+      images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Xylos AI Blog' }],
+    },
+  };
+}
 
 export const revalidate = 600;
 

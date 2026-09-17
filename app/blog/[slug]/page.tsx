@@ -164,9 +164,22 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             "image": post.feature_image_url || "https://xylosai.vercel.app/og-image.png",
             "datePublished": post.created_at,
             "dateModified": post.updated_at || post.created_at,
+            "articleSection": post.category || "Technology",
+            "inLanguage": "en",
+            "wordCount": (post.content || "").replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length,
+            "timeRequired": `PT${Math.max(1, Math.ceil(((post.content || "").split(/\s+/).length) / 200))}M`,
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `https://xylosai.vercel.app/blog/${post.slug}`
+            },
             "author": {
               "@type": "Person",
               "name": post.author?.full_name || 'Xylos Editorial Team'
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Xylos AI",
+              "logo": { "@type": "ImageObject", "url": "https://xylosai.vercel.app/icon.svg" }
             }
           })
         }}

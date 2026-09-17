@@ -4,6 +4,10 @@ import { useState } from "react";
 import { Send, Check } from "lucide-react";
 import Link from "next/link";
 
+// Contact email is configurable via env (NEXT_PUBLIC_CONTACT_EMAIL).
+// NOTE: Do not hardcode personal emails here — this page is public and repo is open-source.
+const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "xyzg135@gmail.com";
+
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -28,7 +32,7 @@ export function ContactForm() {
       other: "Other",
     };
     const subjectLabel = subjectMap[subject] || "Contact from Xylos AI site";
-    window.location.href = `mailto:hello@xylosai.com?subject=${encodeURIComponent(subjectLabel)}&body=${body}`;
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subjectLabel)}&body=${body}`;
     setSubmitting(false);
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 4000);

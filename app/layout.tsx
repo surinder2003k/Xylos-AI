@@ -98,6 +98,16 @@ export const metadata: Metadata = {
   verification: {
     google: '7DDDhNUg6jYfqTlpcjhcRviMdzzUvxJd2Y-rKmNEqdk',
   },
+  other: {
+    // Geo-targeting metadata (India primary audience)
+    'geo.region': 'IN',
+    'geo.placename': 'India',
+    'geo.position': '20.5937;78.9629',
+    ICBM: '20.5937, 78.9629',
+    ...(process.env.NEXT_PUBLIC_BING_VERIFICATION
+      ? { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_VERIFICATION }
+      : {}),
+  },
   category: 'technology',
 };
 
@@ -117,6 +127,8 @@ export default async function RootLayout({
       "alternateName": ["xylosai", "xylos-ai", "XylosAI"],
       "url": "https://xylosai.vercel.app",
       "description": "Free AI chat and content platform with Llama 3, Gemini, and Mistral.",
+      "inLanguage": "en",
+      "publisher": { "@type": "Organization", "name": "Xylos AI" }
     },
     {
       "@context": "https://schema.org",
@@ -125,8 +137,23 @@ export default async function RootLayout({
       "alternateName": "xylosai",
       "url": "https://xylosai.vercel.app",
       "logo": "https://xylosai.vercel.app/icon.svg",
+      "email": "xyzg135@gmail.com",
+      "foundingDate": "2026",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "xyzg135@gmail.com",
+          "availableLanguage": ["English", "Hindi"]
+        }
+      ],
       "sameAs": [
-        "https://github.com/surinder2003k"
+        "https://github.com/surinder2003k",
+        "https://x.com/xylos_ai"
       ]
     }
   ];
