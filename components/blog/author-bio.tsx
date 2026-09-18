@@ -1,6 +1,6 @@
 "use client";
 
-import { User, Twitter, Linkedin, Github } from "lucide-react";
+import { User } from "lucide-react";
 
 interface AuthorBioProps {
   name: string;
@@ -11,8 +11,8 @@ interface AuthorBioProps {
 
 export function AuthorBio({ 
   name, 
-  role = "Senior Investigative Analyst", 
-  bio = "A specialist in high-fidelity news synthesis and strategic intelligence. Focused on the intersection of human creativity and technical journalism.", 
+  role = "Editorial Team",
+  bio = "The Xylos AI editorial team covers practical developments in artificial intelligence, software and emerging technology — tested, verified and written for real users.",
   avatarUrl 
 }: AuthorBioProps) {
   return (
@@ -28,7 +28,9 @@ export function AuthorBio({
               )}
             </div>
           </div>
-          <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-green-500 border-4" style={{ borderColor: '#0c0e12' }} title="Verified Author" />
+          <div className="absolute -bottom-1.5 -right-1.5 w-6 h-6 rounded-full flex items-center justify-center" style={{ background: '#14171c', border: '1px solid rgba(0,240,255,0.35)' }} title="Verified Author">
+            <span className="w-2 h-2 rounded-full" style={{ background: '#00f0ff' }} />
+          </div>
         </div>
 
         <div className="flex-1 space-y-4 text-center md:text-left">
@@ -40,18 +42,6 @@ export function AuthorBio({
           <p className="text-gray-400 text-sm leading-relaxed font-medium max-w-2xl">
             {bio}
           </p>
-
-          <div className="flex items-center justify-center md:justify-start gap-4 pt-2">
-            <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="p-2 rounded-xl hover:text-[#00f0ff] transition-all inline-flex text-gray-400" style={{ background: 'rgba(59, 73, 75, 0.15)', border: '1px solid rgba(59, 73, 75, 0.2)' }} aria-label="Twitter">
-              <Twitter className="w-4 h-4" />
-            </a>
-            <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="p-2 rounded-xl hover:text-[#00f0ff] transition-all inline-flex text-gray-400" style={{ background: 'rgba(59, 73, 75, 0.15)', border: '1px solid rgba(59, 73, 75, 0.2)' }} aria-label="LinkedIn">
-              <Linkedin className="w-4 h-4" />
-            </a>
-            <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="p-2 rounded-xl hover:text-[#00f0ff] transition-all inline-flex text-gray-400" style={{ background: 'rgba(59, 73, 75, 0.15)', border: '1px solid rgba(59, 73, 75, 0.2)' }} aria-label="GitHub">
-              <Github className="w-4 h-4" />
-            </a>
-          </div>
         </div>
       </div>
     </div>

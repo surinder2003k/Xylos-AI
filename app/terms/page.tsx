@@ -189,7 +189,7 @@ export default function TermsPage() {
               13. Contact
             </h2>
             <p className="text-lg">
-              Questions about these Terms? Contact us at <a href="mailto:legal@xylosai.com" className="text-[#00f0ff] hover:underline">legal@xylosai.com</a> or visit our <a href="/contact" className="text-[#00f0ff] hover:underline">Contact page</a>.
+              Questions about these Terms? Contact us at <a href="mailto:xyzg135@gmail.com" className="text-[#00f0ff] hover:underline">xyzg135@gmail.com</a> or visit our <a href="/contact" className="text-[#00f0ff] hover:underline">Contact page</a>.
             </p>
           </section>
         </article>

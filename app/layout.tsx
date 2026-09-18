@@ -10,7 +10,6 @@ import { GlobalEffects } from "@/components/ui/global-effects";
 import { ToastProvider } from "@/components/ui/toast";
 import { OfflineNotice } from "@/components/ui/offline-notice";
 import { PageFade } from "@/components/ui/motion-primitives";
-import { ScrollFloatingOrb } from "@/components/ui/scroll-orb";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -28,7 +27,6 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const GlobalNavbar = dynamic(() => import("@/components/global-navbar").then(m => m.GlobalNavbar));
-const SplashLoader = dynamic(() => import("@/components/premium/splash-loader").then(m => m.SplashLoader));
 const ScrollToTop = dynamic(() => import("@/components/premium/scroll-to-top").then(m => m.ScrollToTop));
 
 export const metadata: Metadata = {
@@ -40,9 +38,9 @@ export const metadata: Metadata = {
   description: "Xylos AI (xylosai) is the ultimate free AI platform. Access Llama 3, Gemini & Mistral in one free AI chat, content generator, and editorial suite at zero cost.",
   applicationName: "Xylos AI",
   referrer: "origin-when-cross-origin",
-  authors: [{ name: "Xylos AI Research", url: "https://xylosai.vercel.app" }],
-  creator: "21dev.in",
-  publisher: "Xylos AI Research",
+  authors: [{ name: "Teamx", url: "https://xylosai.vercel.app" }],
+  creator: "Teamx",
+  publisher: "Xylos AI",
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },
@@ -152,8 +150,7 @@ export default async function RootLayout({
         }
       ],
       "sameAs": [
-        "https://github.com/surinder2003k",
-        "https://x.com/xylos_ai"
+        "https://github.com/surinder2003k/Xylos-AI"
       ]
     }
   ];
@@ -194,7 +191,6 @@ export default async function RootLayout({
             <ToastProvider>
               <AuthListener />
               <TopProgressBar />
-              <SplashLoader />
               <ScrollToTop />
               <GlobalNavbar />
               <main className="relative min-h-screen">
@@ -203,8 +199,6 @@ export default async function RootLayout({
             </ToastProvider>
           </PrimaryColorProvider>
         </LazyMotion>
-
-        <ScrollFloatingOrb />
 
         <noscript>
           <iframe 

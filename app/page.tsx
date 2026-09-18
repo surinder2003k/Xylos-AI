@@ -6,8 +6,6 @@ import dynamic from "next/dynamic";
 import { Reveal } from "@/components/ui/reveal";
 import { StaggerContainer, StaggerItem } from "@/components/ui/motion-primitives";
 
-const AuroraWallpaper = dynamic(() => import("@/components/ui/aurora-wallpaper").then(m => m.AuroraWallpaper));
-const CursorFollower = dynamic(() => import("@/components/ui/cursor-follower").then(m => m.CursorFollower));
 const NewsletterForm = dynamic(() => import("@/components/landing/newsletter-form").then(m => m.NewsletterForm));
 
 export const revalidate = 1800;
@@ -74,12 +72,6 @@ export default async function LandingPage() {
           <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[90vw] max-w-[600px] md:w-[70vw] md:max-w-[900px] h-[60vw] max-h-[400px] md:h-[50vw] md:max-h-[600px] rounded-full blur-[120px] md:blur-[160px]" style={{ background: 'radial-gradient(closest-side, rgba(0,240,255,0.06), transparent)' }} />
         </div>
 
-        {/* Live aurora wallpaper — flowing gradient mesh behind everything */}
-        <AuroraWallpaper />
-
-        {/* Subtle cursor follower — cyan orb with lag (desktop only) */}
-        <CursorFollower />
-
         {/* ===== HERO ===== */}
         <section className="relative z-10 min-h-screen flex items-center">
           <div className="w-full px-6 md:px-12 lg:px-20 py-24">
@@ -113,7 +105,7 @@ export default async function LandingPage() {
                 <StaggerItem>
                 <div className="flex flex-col sm:flex-row gap-4 mb-16">
                   <Link
-                    href="/dashboard/chat"
+                    href="/chat"
                     className="group glass-cta flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold"
                   >
                     Start chatting
@@ -134,7 +126,7 @@ export default async function LandingPage() {
                 <div className="flex flex-wrap items-center gap-x-10 gap-y-4">
                   {[
                     { value: '7+', label: 'Frontier models' },
-                    { value: '99.9%', label: 'Uptime' },
+                    { value: '8', label: 'AI providers' },
                     { value: '0', label: 'Cost' },
                   ].map((stat, i) => (
                     <div key={i} className="flex flex-col">
@@ -174,7 +166,7 @@ export default async function LandingPage() {
                 <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Frontier Processing</h3>
               </div>
               <p className="text-sm leading-relaxed mb-6" style={{ color: '#aeb9bd' }}>
-                Access the world&apos;s most powerful LLMs including Xylos-7, Prometheus, and Titan-X. Optimized for low-latency command execution.
+                Access open frontier models including Llama 3.3, Gemini, Mistral and Qwen through a single OpenAI-compatible interface — with automatic failover when a provider is busy.
               </p>
               <div className="flex gap-3">
                 <span className="px-3 py-1 rounded-full text-[11px] font-medium" style={{ background: 'rgba(0, 240, 255, 0.1)', color: '#00f0ff' }}>7+ models</span>
@@ -189,7 +181,7 @@ export default async function LandingPage() {
                 <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Encrypted Core</h3>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: '#aeb9bd' }}>
-                End-to-end neural encryption. Your prompts never leave the clean zone.
+                Your provider API keys are encrypted at rest with AES-256-GCM and are only decrypted server-side when you send a message.
               </p>
             </div>
 
@@ -197,10 +189,10 @@ export default async function LandingPage() {
             <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(45,212,191,0.18)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <Eye className="w-5 h-5" style={{ color: '#2dd4bf' }} />
-                <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Neural Orb</h3>
+                <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Automatic Failover</h3>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: '#aeb9bd' }}>
-                Visual feedback of active compute cycles.
+                If one provider rate-limits you, the request is retried on the next model in the chain — no manual switching.
               </p>
             </div>
 
@@ -208,10 +200,10 @@ export default async function LandingPage() {
             <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(245,196,81,0.18)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <Layers className="w-5 h-5" style={{ color: '#f5c451' }} />
-                <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Visual Synthesis</h3>
+                <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Streaming Answers</h3>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: '#aeb9bd' }}>
-                Integrated multimodal vision capabilities. Input imagery, receive neural analysis in milliseconds.
+                Responses stream token by token so you can start reading immediately instead of waiting for the full reply.
               </p>
             </div>
           </div>
@@ -228,7 +220,7 @@ export default async function LandingPage() {
               Ready whenever you are.
             </h2>
             <p className="text-lg max-w-xl mx-auto mb-10" style={{ color: '#b9cacb' }}>
-              Join the digital vanguard. Elevate your cognitive output with Xylos AI today.
+              Open a chat with 7+ AI models. No credit card, no trial timer — just sign in and start typing.
             </p>
             <Link
               href="/chat"
@@ -281,7 +273,7 @@ export default async function LandingPage() {
                 </h3>
                 <p className="text-sm line-clamp-2" style={{ color: '#849495' }}>{blog.excerpt}</p>
                 <div className="mt-3 flex items-center gap-2 text-[12px]" style={{ color: '#7d8a8e' }}>
-                  <span>{blog.profiles?.full_name || 'Xylos Team'}</span>
+                  <span>{blog.profiles?.full_name || 'Teamx'}</span>
                   <span>·</span>
                   <span style={{ color: acc }}>Read →</span>
                 </div>
@@ -356,11 +348,11 @@ export default async function LandingPage() {
             {[
               {
                 q: 'Is Xylos AI completely free?',
-                a: 'Yes, Xylos AI aggregates top free AI models like Llama 3, Gemini, and Mistral, allowing you to use them without subscription costs. Premium access, zero fees.'
+                a: 'Yes, Xylos AI routes your prompts to free-tier models such as Llama 3, Gemini and Mistral, so you can use it without a paid subscription.'
               },
               {
                 q: 'What is the best free alternative to ChatGPT?',
-                a: 'Xylos AI acts as a superior free ChatGPT alternative by giving you access to 7 different top-tier AI models in one premium workspace — all without paying a cent.'
+                a: 'Xylos AI gives you one interface for 7+ free-tier frontier models instead of switching between five different chat apps.'
               },
               {
                 q: 'Which AI models does Xylos AI support?',
@@ -368,7 +360,7 @@ export default async function LandingPage() {
               },
               {
                 q: 'How does Xylos AI ensure data privacy?',
-                a: 'Enterprise-grade encryption protects your prompts end-to-end. Our zero-retention policy means your data never leaves the secure pipeline — no storage, no training on your conversations.'
+                a: 'Chats you start while signed in are stored in your own account so you can return to them later. You can delete any conversation from your dashboard at any time. Provider API keys you add yourself are encrypted at rest.'
               },
             ].map((faq, i) => (
               <details key={i} className="group rounded-xl overflow-hidden transition-all duration-300" style={{ border: '1px solid rgba(59, 73, 75, 0.2)', background: 'rgba(255, 255, 255, 0.02)' }}>
@@ -403,7 +395,7 @@ export default async function LandingPage() {
               <Link href="/cookies" className="text-[10px] uppercase tracking-widest hover:text-[#00f0ff] transition-colors" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>Cookies</Link>
               <Link href="/privacy" className="text-[10px] uppercase tracking-widest hover:text-[#00f0ff] transition-colors" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>Privacy</Link>
             </div>
-            <p className="text-[10px] uppercase tracking-widest" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>© 2026 Xylos Foundation</p>
+            <p className="text-[10px] uppercase tracking-widest" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>© 2026 Xylos AI</p>
           </div>
         </div>
       </footer>

@@ -15,24 +15,24 @@ export const dynamic = "force-dynamic";
 
 const CATEGORIES = [
   "Technology",
-  "Business",
-  "Science",
-  "Health",
   "AI & Machine Learning",
   "Cybersecurity",
+  "Software Development",
+  "Cloud & DevOps",
+  "Consumer Tech",
   "Blockchain",
   "Space & Astronomy"
 ];
 
 const CATEGORY_TOPICS: Record<string, string[]> = {
-  "Technology": ["Global Technology Advancements", "Future of Computing", "Digital Transformation", "Emerging Tech Trends"],
-  "Business": ["Startup & VC Ecosystem", "Market Analysis", "Business Strategy", "Economic Trends"],
-  "Science": ["Scientific Breakthroughs", "Research & Development", "Innovation in Science", "Discovery & Exploration"],
-  "Health": ["Healthcare Innovation", "Medical Breakthroughs", "Wellness & Technology", "Public Health Trends"],
-  "AI & Machine Learning": ["Artificial Intelligence & Ethics", "Neural Networks & Deep Learning", "AI in Enterprise", "Machine Learning Applications"],
-  "Cybersecurity": ["Cybersecurity Protocols", "Data Privacy", "Network Security", "Threat Intelligence"],
-  "Blockchain": ["Blockchain Technology", "DeFi & Web3", "Cryptocurrency Trends", "Smart Contracts"],
-  "Space & Astronomy": ["Space Exploration", "Astronomy Discoveries", "Space Technology", "Cosmic Phenomena"]
+  "Technology": ["Open-source AI tools developers actually use", "How on-device AI is changing smartphones", "The real cost of running AI inference at scale", "Why small language models are winning on the edge"],
+  "AI & Machine Learning": ["Prompt engineering techniques that actually improve output", "Retrieval-augmented generation explained for builders", "Fine-tuning vs RAG: choosing the right approach", "How free-tier AI models compare in real benchmarks"],
+  "Cybersecurity": ["Passkey adoption and the death of passwords", "Practical API security mistakes developers still make", "How ransomware groups exploit unpatched servers", "Zero-trust architecture for small teams"],
+  "Software Development": ["TypeScript patterns that scale in large codebases", "Server-side rendering trade-offs in modern frameworks", "Testing strategies for AI-powered applications", "Why edge computing is reshaping web deployment"],
+  "Cloud & DevOps": ["Serverless vs containers for startup workloads", "Cutting cloud costs without cutting reliability", "CI/CD pipelines that deploy in under a minute", "Postgres vs specialized databases for app builders"],
+  "Consumer Tech": ["Battery tech breakthroughs coming to laptops", "The best privacy settings on modern browsers", "How foldable hardware finally got practical", "Smart home standards that actually interoperate"],
+  "Blockchain": ["Smart contract security audits explained", "Layer-2 scaling and what it means for fees", "Real-world uses of decentralized identity", "Energy use of proof-of-stake vs proof-of-work"],
+  "Space & Astronomy": ["Reusable rockets and falling launch costs", "Satellite internet constellations in practice", "AI's role in processing telescope data", "CubeSats and the new space startup wave"]
 };
 
 // Keyword-to-URL mapping for auto external linking
@@ -153,13 +153,28 @@ export async function GET(req: Request) {
 
     const { searchParams } = new URL(req.url);
     const count = Math.min(parseInt(searchParams.get("count") || "2"), 3);
+    const isDiagnostics = searchParams.get("diagnostics") === "1";
 
     const authHeader = req.headers.get("authorization");
-    const vercelCronHeader = req.headers.get("x-vercel-cron");
+    const vercelCronSchedule = req.headers.get("x-vercel-cron-schedule");
+    const vercelCronAuthToken = req.headers.get("x-vercel-cron-auth-token");
+    const userAgent = req.headers.get("user-agent") || "";
+    const legacyCronHeader = req.headers.get("x-vercel-cron");
 
-    const isCron =
-      vercelCronHeader === "1" ||
-      (process.env.CRON_SECRET && authHeader === `Bearer ${process.env.CRON_SECRET}`);
+    // Vercel has shipped several cron identification mechanisms over time, so we
+    // accept all of them. Relying on a single legacy header caused the daily cron
+    // to silently 401 in production and skip posting entirely.
+    const cronSignals = [
+      vercelCronSchedule ? "x-vercel-cron-schedule" : null,
+      vercelCronAuthToken ? "x-vercel-cron-auth-token" : null,
+      legacyCronHeader ? "x-vercel-cron" : null,
+      /vercel-cron/i.test(userAgent) ? "user-agent" : null,
+    ].filter(Boolean) as string[];
+
+    const hasCronSecretBearer =
+      !!process.env.CRON_SECRET && authHeader === `Bearer ${process.env.CRON_SECRET}`;
+
+    const isCron = cronSignals.length > 0 || hasCronSecretBearer;
 
     let isAuthorizedAdmin = false;
     if (!isCron) {
@@ -213,7 +228,9 @@ export async function GET(req: Request) {
         .select("value")
         .eq("key", "auto_category")
         .maybeSingle();
-      if (categorySetting?.value) activeCategory = categorySetting.value;
+      if (categorySetting?.value && CATEGORIES.includes(categorySetting.value)) {
+        activeCategory = categorySetting.value;
+      }
     } catch (err) {
       console.warn("[AutoPost] Could not fetch auto_category setting, using default:", err);
     }
@@ -260,6 +277,7 @@ export async function GET(req: Request) {
     }
 
     const results: any[] = [];
+    const pingUrls: string[] = [];
     let attempts = 0;
     const maxAttempts = count + 2; // Allow extra attempts for retries
 
@@ -333,16 +351,52 @@ export async function GET(req: Request) {
 
       // Guard against off-topic / consumer-spam subjects that trigger
       // "low value content" flags in Google Search Console & AdSense review.
+      // Layer 1: hard blacklist of consumer-service verticals.
       const OFF_TOPIC_TERMS = [
-        "insurance", "denture", "attorney", "lawyer", "legal advice",
-        "burger", "restaurant", "recipe", "food near",
-        "roofing", "gutter", "plumb", "hvac", "pest control",
-        "casino", "betting", "slot ",
-        "half-cow", "cow price", "beef cost",
-        "real estate agent", "mortgage rate",
+        "insurance", "denture", "dental", "oral surgery", "attorney", "lawyer", "legal advice",
+        "burger", "restaurant", "recipe", "food near", "catering", "cuisine",
+        "roof", "gutter", "plumb", "drain", "hvac", "pest control", "pest ", "exterminat",
+        "remodel", "renovation", "landscap", "fence ", "siding", "flooring", "window replacement",
+        "casino", "betting", "slot ", "lottery", "poker",
+        "half-cow", "cow price", "beef cost", "livestock",
+        "real estate agent", "realtor", "mortgage", "property listing",
+        "dentist", "chiropract", "massager", "supplement", "weight loss", "skin care",
+        "boat tour", "excursion", "hotel deal", "flight deal", "vacation package",
+        "wedding", "divorce", "towing", "movers", "cleaning service", "lawn care",
       ];
-      if (OFF_TOPIC_TERMS.some((t) => titleLower.includes(t))) {
-        console.warn(`[AutoPost] OFF-TOPIC REJECTED: "${blogData.title}". Retrying with different topic.`);
+
+      // Layer 2: the headline MUST carry a technology signal. If it does not,
+      // the model drifted off-domain — reject and retry with another topic.
+      const TECH_SIGNALS = [
+        "ai", "artificial intelligence", "machine learning", "deep learning", "neural",
+        "llm", "language model", "chatbot", "prompt", "inference", "algorithm",
+        "software", "app", "application", "developer", "code", "coding", "programming",
+        "api", "sdk", "open source", "framework", "database", "server", "devops",
+        "cloud", "saas", "data", "analytics", "big data", "dataset",
+        "cyber", "security", "encryption", "privacy", "malware", "ransomware", "hacker",
+        "quantum", "semiconductor", "chip", "gpu", "processor", "hardware", "silicon",
+        "robot", "automation", "autonomous", "drone",
+        "blockchain", "crypto", "web3", "defi", "smart contract", "token",
+        "space", "satellite", "rocket", "mars", "nasa", "spacex", "orbit",
+        "startup", "venture", "tech", "technology", "digital", "internet", "network",
+        "browser", "mobile", "smartphone", "gadget", "device", "platform",
+        "seo", "search engine", "web", "website", "e-commerce", "ecommerce",
+        "biotech", "genome", "crispr", "renewable", "electric vehicle", "battery",
+        "5g", "6g", "iot", "edge computing", "virtual reality", "augmented reality",
+      ];
+
+      const matchesWord = (haystack: string, needle: string) =>
+        new RegExp(`(^|[^a-z0-9])${needle.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}([^a-z0-9]|$)`, "i").test(haystack);
+
+      const blockedTerm = OFF_TOPIC_TERMS.find((t) => titleLower.includes(t));
+      const hasTechSignal = TECH_SIGNALS.some((t) => matchesWord(titleLower, t));
+
+      if (blockedTerm || !hasTechSignal) {
+        console.warn(
+          `[AutoPost] OFF-TOPIC REJECTED: "${blogData.title}" | reason: ${
+            blockedTerm ? `blacklisted term "${blockedTerm}"` : "no technology signal in headline"
+          }. Retrying with different topic.`,
+        );
         allExistingTitles.push(`_offtopic_${attempts}_`);
         continue;
       }
@@ -417,9 +471,16 @@ export async function GET(req: Request) {
       results.push({ status: "success", id: newPost.id, title: newPost.title, category: currentCategory });
       allExistingTitles.push(newPost.title);
 
-      // Instant-indexing ping to Bing/Yandex/Seznam via IndexNow (non-blocking failure)
-      const postUrl = `https://xylosai.vercel.app/blog/${newPost.slug}`;
-      pingIndexNow([postUrl, "https://xylosai.vercel.app/blog"]);
+      // Collect for a single IndexNow ping after the loop (see below)
+      pingUrls.push(`https://xylosai.vercel.app/blog/${newPost.slug}`);
+    }
+
+    // Instant-indexing ping to Bing/Yandex/Seznam via IndexNow.
+    // Awaited (with internal timeout) so the request is not dropped when the
+    // serverless function freezes after the response is sent.
+    if (pingUrls.length > 0) {
+      pingUrls.push("https://xylosai.vercel.app/blog");
+      await pingIndexNow(pingUrls);
     }
 
     const duration = ((Date.now() - startTime) / 1000).toFixed(2);

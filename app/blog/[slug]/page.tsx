@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: post.meta_title || post.title,
     description: post.meta_description || post.excerpt,
     keywords: post.keywords,
-    authors: [{ name: post.profiles?.full_name || 'Xylos AI Research' }],
+    authors: [{ name: "Teamx" }],
     alternates: {
       canonical: canonicalUrl,
     },
@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: 'article',
       publishedTime: post.published_at,
       modifiedTime: post.updated_at || post.published_at,
-      authors: [post.profiles?.full_name || 'Xylos AI Research'],
+      authors: ["Teamx"],
       tags: post.keywords ? [post.keywords] : [],
     },
     twitter: {
@@ -173,8 +173,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               "@id": `https://xylosai.vercel.app/blog/${post.slug}`
             },
             "author": {
-              "@type": "Person",
-              "name": post.author?.full_name || 'Xylos Editorial Team'
+              "@type": "Organization",
+              "name": "Teamx",
+              "url": "https://xylosai.vercel.app"
             },
             "publisher": {
               "@type": "Organization",
@@ -266,10 +267,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-white" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-                    {post.author?.full_name || 'Xylos Editorial Team'}
+                    Teamx
                   </h3>
                   <p className="text-[12px]" style={{ color: '#849495' }}>
-                    Lead AI Researcher
+                    AI Research &amp; Editorial
                   </p>
                 </div>
               </div>

@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { AnimeText } from '@/components/premium/anime-text';
 import { BentoGrid, BentoCard } from '@/components/premium/bento-grid';
 import { 
   Sparkles, 
@@ -157,17 +156,19 @@ export default async function ToolProxyPage({ params }: { params: Promise<{ tool
         </div>
         
         <p className="text-[12px] font-semibold uppercase tracking-[0.25em]" style={{ color: '#00f0ff' }}>Xylos AI</p>
-        <AnimeText 
-          text={tool.h1} 
-          className="text-5xl md:text-7xl font-bold tracking-[-0.03em] leading-[1.05] max-w-4xl text-white"
-        />
+        <h1
+          className="text-4xl md:text-6xl font-bold tracking-[-0.03em] leading-[1.08] max-w-4xl text-white"
+          style={{ fontFamily: 'Sora, sans-serif' }}
+        >
+          {tool.h1}
+        </h1>
         
         <p className="max-w-2xl font-medium leading-relaxed" style={{ color: '#aeb9bd', fontSize: '1.125rem' }}>
           {tool.description}
         </p>
 
         <Link 
-          href="/dashboard/chat"
+          href="/chat"
           className="mt-8 flex items-center gap-3 px-8 py-4 rounded-2xl glass-cta font-semibold group text-sm"
         >
           Get started
@@ -179,14 +180,14 @@ export default async function ToolProxyPage({ params }: { params: Promise<{ tool
         <h2 className="text-3xl font-bold mb-12 text-center text-white" style={{ fontFamily: 'Sora, sans-serif' }}>Built for real work</h2>
         <BentoGrid>
           {tool.benefits.map((benefit, idx) => (
-             <BentoCard key={idx} delay={idx * 0.1} className="col-span-1 md:col-span-1 flex flex-col items-center text-center">
+             <BentoCard key={idx} className="col-span-1 md:col-span-1 flex flex-col items-center text-center">
                 <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 text-[#00f0ff]" style={{ background: 'rgba(0,240,255,0.12)' }}>
                    <Zap className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-semibold text-white" style={{ fontFamily: 'Sora, sans-serif' }}>{benefit}</h3>
              </BentoCard>
           ))}
-          <BentoCard delay={0.3} className="col-span-1 md:col-span-3 lg:col-span-1 glass-card">
+          <BentoCard className="col-span-1 md:col-span-3 lg:col-span-1 glass-card">
              <div className="flex flex-col h-full justify-between">
                 <Shield className="w-10 h-10 text-[#00f0ff] mb-4" />
                 <h3 className="text-2xl font-bold mb-2 text-white" style={{ fontFamily: 'Sora, sans-serif' }}>Enterprise-grade security</h3>

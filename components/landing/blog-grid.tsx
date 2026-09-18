@@ -17,22 +17,13 @@ interface Blog {
 }
 
 /**
- * Cohesive luxury accent set — varied enough to kill the "same-same" feel,
- * but every hue sits cleanly on the dark surface. Red is reserved for errors only.
+ * Single restrained accent — keeps the archive calm and editorial.
+ * Multi-hue card accents read as playful; one accent reads as premium.
  */
-const ACCENTS: Record<string, { text: string; soft: string; border: string }> = {
-  cyan:   { text: "#00f0ff", soft: "rgba(0,240,255,0.12)",  border: "rgba(0,240,255,0.30)" },
-  violet: { text: "#9d8cff", soft: "rgba(157,140,255,0.12)", border: "rgba(157,140,255,0.30)" },
-  teal:   { text: "#2dd4bf", soft: "rgba(45,212,191,0.12)",  border: "rgba(45,212,191,0.30)" },
-  gold:   { text: "#f5c451", soft: "rgba(245,196,81,0.12)",  border: "rgba(245,196,81,0.30)" },
-};
+const ACCENT = { text: "#00f0ff", soft: "rgba(0,240,255,0.08)", border: "rgba(0,240,255,0.22)" };
 
-function accentFor(key: string) {
-  // stable hash -> one of 4 accents so a given category keeps its color
-  let h = 0;
-  for (let i = 0; i < key.length; i++) h = (h * 31 + key.charCodeAt(i)) >>> 0;
-  const keys = Object.keys(ACCENTS);
-  return ACCENTS[keys[h % keys.length]];
+function accentFor(_key: string) {
+  return ACCENT;
 }
 
 export function BlogGrid({ blogs }: { blogs: Blog[] }) {
@@ -120,7 +111,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                               <User className="w-5 h-5" style={{ color: accent.text, opacity: 0.5 }} />
                            </div>
                            <div className="flex flex-col">
-                             <span className="text-[11px] font-semibold text-gray-300 tracking-wide">{blog.profiles?.full_name || 'Xylos Team'}</span>
+                             <span className="text-[11px] font-semibold text-gray-300 tracking-wide">{blog.profiles?.full_name || 'Teamx'}</span>
                              <span className="text-[9px] font-medium text-gray-600 uppercase tracking-widest">Author</span>
                            </div>
                         </div>

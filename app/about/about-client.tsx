@@ -87,7 +87,7 @@ export default function AboutPageClient() {
               <FeatureCard
                 icon={ShieldCheck}
                 title="Secure core"
-                desc="Enterprise-grade encryption protecting your intellectual property."
+                desc="Your provider API keys are stored encrypted with AES-256-GCM."
               />
             </div>
           </motion.div>
@@ -123,8 +123,8 @@ export default function AboutPageClient() {
                   <Brain className="w-6 h-6" style={{ color: '#00f0ff' }} />
                 </div>
                 <div>
-                  <p className="text-[12px] font-medium" style={{ color: '#849495' }}>Active nodes</p>
-                  <p className="text-2xl font-bold text-white" style={{ fontFamily: 'Sora, sans-serif' }}>4,821</p>
+                  <p className="text-[12px] font-medium" style={{ color: '#849495' }}>AI providers</p>
+                  <p className="text-2xl font-bold text-white" style={{ fontFamily: 'Sora, sans-serif' }}>8</p>
                 </div>
               </div>
             </div>
@@ -145,7 +145,7 @@ export default function AboutPageClient() {
               </div>
               <div className="flex-1">
                 <h3 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: 'Sora, sans-serif' }}>Unified AI chat</h3>
-                <p className="text-lg leading-relaxed" style={{ color: '#849495' }}>Access 7+ models including Gemini, Claude, Llama, and Mistral in a single interface.</p>
+                <p className="text-lg leading-relaxed" style={{ color: '#849495' }}>Access 7+ models including Llama 3, Gemini, Mistral and Qwen in a single interface.</p>
               </div>
               <div className="text-right hidden sm:block">
                 <p className="text-5xl font-bold text-white" style={{ fontFamily: 'Sora, sans-serif' }}>7+</p>
@@ -156,14 +156,14 @@ export default function AboutPageClient() {
 
           <FeatureBento icon={Code2} title="Code assistant" desc="Full-stack development tools powered by AI." />
           <FeatureBento icon={FileText} title="Content factory" desc="Blog & social media content generation." />
-          <FeatureBento icon={Zap} title="Smart tools" desc="12+ specialized AI tools for productivity." />
+          <FeatureBento icon={Zap} title="Smart tools" desc="9 specialized AI tools for productivity." />
         </div>
 
         {/* Vision Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-24">
-          <StatBox label="Execution time" value="< 2.4s" />
-          <StatBox label="Neural accuracy" value="99.9%" />
-          <StatBox label="Global reach" value="Syncing" />
+          <StatBox label="Frontier models" value="7+" />
+          <StatBox label="AI providers" value="8" />
+          <StatBox label="Sign-up cost" value="Free" />
         </div>
 
         {/* Mission Statement */}

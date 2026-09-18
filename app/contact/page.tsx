@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, MessageSquare, Twitter, Linkedin } from "lucide-react";
+import { Mail, MapPin, MessageSquare, Github } from "lucide-react";
 import { ContactForm } from "./contact-form";
 
 export const metadata: Metadata = {
@@ -71,11 +71,8 @@ export default function ContactPage() {
         <section className="text-center pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           <p className="text-sm font-medium mb-4" style={{ color: '#849495' }}>Follow our journey</p>
           <div className="flex justify-center gap-4">
-            <a href="https://twitter.com/xylos_ai" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl flex items-center justify-center transition-all" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
-              <Twitter className="w-5 h-5" style={{ color: '#849495' }} />
-            </a>
-            <a href="https://linkedin.com/company/xylos-ai" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl flex items-center justify-center transition-all" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
-              <Linkedin className="w-5 h-5" style={{ color: '#849495' }} />
+            <a href="https://github.com/surinder2003k/Xylos-AI" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl flex items-center justify-center transition-all hover:border-[rgba(0,240,255,0.4)]" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }} aria-label="GitHub repository">
+              <Github className="w-5 h-5" style={{ color: '#849495' }} />
             </a>
           </div>
         </section>
