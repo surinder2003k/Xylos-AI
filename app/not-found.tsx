@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { XylosLogo } from "@/components/premium/xylos-logo";
-import { ArrowLeft, Cpu, MessageSquare } from "lucide-react";
+import { ArrowLeft, Cpu, MessageSquare, Search, FileText, Wrench } from "lucide-react";
 
 export default function NotFound() {
   return (
@@ -10,7 +10,7 @@ export default function NotFound() {
         <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[90vw] max-w-[700px] h-[400px] md:h-[500px] rounded-full blur-[120px] md:blur-[160px]" style={{ background: 'radial-gradient(closest-side, rgba(0,240,255,0.05), transparent)' }} />
       </div>
 
-      <div className="relative z-10 flex flex-col items-center text-center space-y-10 max-w-xl flex-1">
+      <div className="relative z-10 flex flex-col items-center text-center space-y-10 max-w-xl flex-1 py-12">
         <XylosLogo size={48} className="text-[#00f0ff]" />
 
         <div className="space-y-4">
@@ -30,6 +30,27 @@ export default function NotFound() {
           </p>
         </div>
 
+        {/* Search the blog */}
+        <form action="/blog" method="get" className="w-full flex items-center gap-2 max-w-md">
+          <div className="relative flex-1">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: '#5a6c6d' }} />
+            <input
+              type="text"
+              name="q"
+              placeholder="Search the blog…"
+              className="w-full py-3.5 pl-11 pr-4 rounded-xl text-sm text-white placeholder:text-[#5a6c6d] focus:outline-none focus:ring-2 focus:ring-[#00f0ff]/40 transition-all"
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(59,73,75,0.3)' }}
+            />
+          </div>
+          <button
+            type="submit"
+            className="px-6 py-3.5 rounded-xl font-semibold text-xs uppercase tracking-widest transition-all"
+            style={{ background: '#00f0ff', color: '#04141a' }}
+          >
+            Search
+          </button>
+        </form>
+
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full">
           <Link
             href="/"
@@ -39,12 +60,32 @@ export default function NotFound() {
             Back to home
           </Link>
           <Link
-            href="/dashboard/chat"
+            href="/chat"
             className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl glass-outline font-semibold text-sm transition-all w-full sm:w-auto"
           >
             <MessageSquare className="w-4 h-4" />
             Open chat
           </Link>
+        </div>
+
+        {/* Popular destinations */}
+        <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {[
+            { href: '/blog', label: 'AI Blog', icon: FileText },
+            { href: '/tools', label: 'Free Tools', icon: Wrench },
+            { href: '/about', label: 'About', icon: Cpu },
+            { href: '/contact', label: 'Contact', icon: MessageSquare },
+          ].map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="flex flex-col items-center gap-2 p-4 rounded-xl text-[11px] font-semibold text-gray-400 hover:text-white transition-all group"
+              style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(59,73,75,0.2)' }}
+            >
+              <item.icon className="w-4 h-4 text-gray-500 group-hover:text-[#00f0ff] transition-colors" />
+              {item.label}
+            </Link>
+          ))}
         </div>
       </div>
       

@@ -23,6 +23,15 @@ function LoginContent() {
   const [isLoading, setIsLoading] = useState(false);
   const searchParams = useSearchParams();
   const error = searchParams.get('error');
+  // Post-login destination (e.g. /chat) + contextual reason banner
+  const next = searchParams.get('next') || '/dashboard';
+  const reason = searchParams.get('reason');
+  const reasonText =
+    reason === 'chat'
+      ? 'Sign in to start chatting with 7+ AI models — it takes 10 seconds and it\'s free.'
+      : reason === 'dashboard'
+      ? 'Sign in to access your Xylos dashboard.'
+      : null;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     setIsLoading(true);
@@ -105,6 +114,18 @@ function LoginContent() {
             </p>
           </div>
 
+          {reasonText && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              className="mb-6 p-4 border border-[#00f0ff]/25 rounded-2xl flex items-center gap-3 text-sm"
+              style={{ background: 'rgba(0,240,255,0.08)', color: '#00f0ff' }}
+            >
+              <MessageSquare className="w-4 h-4 shrink-0" />
+              {reasonText}
+            </motion.div>
+          )}
+
           {error && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
@@ -120,6 +141,7 @@ function LoginContent() {
           {/* Auth Card */}
           <div className="p-7 md:p-9 rounded-3xl glass-card" style={{ borderColor: 'rgba(255,255,255,0.09)' }}>
             <form action={isLogin ? signInWithEmail : signUpWithEmail} onSubmit={handleSubmit} className="space-y-4">
+              <input type="hidden" name="next" value={next} />
               {!isLogin && (
                 <div className="space-y-1.5">
                   <label className="text-[12px] font-medium ml-1" style={{ color: '#849495' }}>Full name</label>
@@ -186,15 +208,17 @@ function LoginContent() {
               </div>
             </div>
 
-            <button
-              type="button"
-              onClick={() => signInWithGoogle()}
-              className="w-full font-semibold py-4 rounded-xl flex items-center justify-center gap-3 hover:border-[#00f0ff] hover:bg-[rgba(0,240,255,0.06)] transition-all group text-sm text-white"
-              style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}
-            >
-              <Chrome className="w-5 h-5 text-[#00f0ff] group-hover:scale-105 transition-transform" />
-              Continue with Google
-            </button>
+            <form action={signInWithGoogle}>
+              <input type="hidden" name="next" value={next} />
+              <button
+                type="submit"
+                className="w-full font-semibold py-4 rounded-xl flex items-center justify-center gap-3 hover:border-[#00f0ff] hover:bg-[rgba(0,240,255,0.06)] transition-all group text-sm text-white"
+                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}
+              >
+                <Chrome className="w-5 h-5 text-[#00f0ff] group-hover:scale-105 transition-transform" />
+                Continue with Google
+              </button>
+            </form>
           </div>
 
           <p className="mt-8 text-center text-sm" style={{ color: '#849495' }}>

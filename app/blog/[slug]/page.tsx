@@ -1,14 +1,15 @@
+import { Metadata } from "next";
+import Link from "next/link";
+import { notFound, permanentRedirect } from "next/navigation";
 import { createClient } from "@/utils/supabase/server";
 import { createClient as createPublicClient } from "@supabase/supabase-js";
 import { Clock, Share2, Copy, ChevronRight } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import { notFound, permanentRedirect } from "next/navigation";
+import remarkGfm from "remark-gfm";
 import { formatIST } from "@/lib/utils/date-format";
 import { ShareButtons } from "@/components/blog/share-buttons";
-import { Metadata } from "next";
-import remarkGfm from "remark-gfm";
+import { NewsletterCard } from "@/components/blog/newsletter-card";
 
 function sanitizeHtml(html: string): string {
   return html
@@ -39,7 +40,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   const canonicalUrl = `https://xylosai.vercel.app/blog/${post.slug}`;
-  const imageUrl = post.feature_image_url || 'https://xylosai.vercel.app/og-image.png';
 
   return {
     title: post.meta_title || post.title,
@@ -52,7 +52,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       title: post.meta_title || post.title,
       description: post.meta_description || post.excerpt,
-      images: [{ url: imageUrl, width: 1200, height: 630, alt: post.title }],
+      // NOTE: no explicit images — app/blog/[slug]/opengraph-image.tsx
+      // generates a dynamic branded OG image per post.
       url: canonicalUrl,
       type: 'article',
       publishedTime: post.published_at,
@@ -64,7 +65,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: 'summary_large_image',
       title: post.meta_title || post.title,
       description: post.meta_description || post.excerpt,
-      images: [{ url: imageUrl, alt: post.title }],
     },
   };
 }
@@ -323,6 +323,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     {formatMarkdown(post.content)}
                   </ReactMarkdown>
                 )}
+              </div>
+
+              {/* Newsletter CTA — high-visibility placement between article body and footer */}
+              <div className="my-14">
+                <NewsletterCard />
               </div>
 
               {/* Footer */}
