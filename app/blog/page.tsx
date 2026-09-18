@@ -109,7 +109,7 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
                    <BookOpen className="w-3 h-3" /> The Perspective
                 </div>
              </div>
-             <h1 className="text-5xl md:text-7xl font-bold tracking-[-0.03em] leading-[1.02] text-white" style={{ fontFamily: 'Sora, sans-serif' }}>
+             <h1 className="text-5xl md:text-6xl font-bold tracking-[-0.03em] leading-[1.02] text-white" style={{ fontFamily: 'Sora, sans-serif' }}>
                Editorial <br />
                <span style={{ color: '#00f0ff' }}>Archives</span>
              </h1>
@@ -132,25 +132,25 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
           {totalPages > 1 && (
             <div className="flex justify-center items-center gap-8 pt-12 mt-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
               {page > 1 ? (
-                 <Link href={`/blog?page=${page - 1}${category !== 'all' ? `&category=${category}` : ''}${query ? `&q=${query}` : ''}`} className="px-8 py-4 rounded-xl font-semibold text-[13px] hover:bg-[rgba(0,240,255,0.12)] hover:text-[#00f0ff] transition-all duration-300" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                 <Link href={`/blog?page=${page - 1}${category !== 'all' ? `&category=${category}` : ''}${query ? `&q=${query}` : ''}`} className="px-8 py-4 rounded-xl font-semibold text-sm hover:bg-[rgba(0,240,255,0.12)] hover:text-[#00f0ff] transition-all duration-300" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}>
                    Previous
                  </Link>
               ) : (
-                 <div className="px-8 py-4 rounded-xl text-gray-600 font-semibold text-[13px] cursor-not-allowed" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                 <div className="px-8 py-4 rounded-xl text-gray-600 font-semibold text-sm cursor-not-allowed" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
                    Previous
                  </div>
               )}
               
-              <div className="text-[13px] font-semibold" style={{ color: '#849495' }}>
+              <div className="text-sm font-semibold" style={{ color: '#849495' }}>
                 {page} / {totalPages}
               </div>
 
               {page < totalPages ? (
-                  <Link href={`/blog?page=${page + 1}${category !== 'all' ? `&category=${category}` : ''}${query ? `&q=${query}` : ''}`} className="px-8 py-4 rounded-xl font-semibold text-[13px] hover:bg-[rgba(0,240,255,0.12)] hover:text-[#00f0ff] transition-all duration-300" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                  <Link href={`/blog?page=${page + 1}${category !== 'all' ? `&category=${category}` : ''}${query ? `&q=${query}` : ''}`} className="px-8 py-4 rounded-xl font-semibold text-sm hover:bg-[rgba(0,240,255,0.12)] hover:text-[#00f0ff] transition-all duration-300" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}>
                    Next
                  </Link>
               ) : (
-                 <div className="px-8 py-4 rounded-xl text-gray-600 font-semibold text-[13px] cursor-not-allowed" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                 <div className="px-8 py-4 rounded-xl text-gray-600 font-semibold text-sm cursor-not-allowed" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
                    Next
                  </div>
               )}

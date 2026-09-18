@@ -75,6 +75,11 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                         fill
                         className="w-full h-full object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        onError={(e) => {
+                          const target = e.currentTarget as HTMLImageElement;
+                          if (target.src.includes("pexels.com") || !blog.feature_image_url) return;
+                          target.src = "https://images.pexels.com/photos/1031201/pexels-photo-1031201.jpeg?auto=compress&cs=tinysrgb&w=800";
+                        }}
                       />
                       {/* subtle gradient scrim for legibility */}
                       <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,11,14,0.55), rgba(10,11,14,0) 45%)' }} />

@@ -267,7 +267,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-white" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-                    Teamx
+                    {post.profiles?.full_name || 'Teamx'}
                   </h3>
                   <p className="text-[12px]" style={{ color: '#849495' }}>
                     AI Research &amp; Editorial
