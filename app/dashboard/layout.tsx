@@ -99,14 +99,14 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 user_id: user.id,
                 email: email,
                 full_name: user.user_metadata?.full_name || email.split("@")[0],
-                role: isUserAdmin ? "admin" : "user"
+                role: "user"
               });
             if (insertError) {
               console.error("[Editorial Sync] Failed to auto-create profile:", insertError);
             }
           }
           
-          if (!isUserAdmin) {
+          if (profileError || !profile) {
             setIsAdmin(false);
             setUserRole("user");
           }

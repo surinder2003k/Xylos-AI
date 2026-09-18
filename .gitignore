@@ -63,3 +63,10 @@ resolve-db-error.md
 
 # build log
 build-output.log
+build-check.log
+build-log.txt
+tsc-check.log
+tsc-output-2.log
+tsc-output-3.log
+tsc-output-4.log
+tsc-output.log

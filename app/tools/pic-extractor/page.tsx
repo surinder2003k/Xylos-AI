@@ -35,22 +35,10 @@ export default function PicExtractor() {
 
               {/* Parallax Effect */}
               <div className="relative h-96 overflow-hidden">
-                <motion.div
-                  style={{
-                    transformOrigin: 'top',
-                    transform: useScroll(({ scrollYProgress }) => `translate3d(0, ${scrollYProgress * -200}px, 0)`),
-                  }}
-                  className="absolute inset-0 bg-gradient-to-b from-[#00f0ff33] to-[#9d8cff33]"
-                />
-                <motion.div
-                  style={{
-                    transformOrigin: 'top',
-                    transform: useScroll(({ scrollYProgress }) => `translate3d(0, ${scrollYProgress * -100}px, 0)`),
-                  }}
-                  className="absolute inset-0 bg-gradient-to-r from-[#00f0ff22] to-[#2dd4bf22]"
-                />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#00f0ff33] to-[#9d8cff33]" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#00f0ff22] to-[#2dd4bf22]" />
                 <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-3xl">
-                  Parallax Layers (Different Speeds)
+                  Parallax Layers (Coming Soon)
                 </div>
               </div>
 
@@ -74,10 +62,10 @@ export default function PicExtractor() {
               </div>
 
               {/* Scroll Progress Bar */}
-              <div className="relative h-2.5 mb-12 w-full bg-white/5 rounded-full">
-                <motion.div
+              <div className="relative h-2.5 mb-12 w-full bg-white/5 rounded-full overflow-hidden">
+                <div
                   style={{
-                    width: useScroll(({ scrollYProgress }) => `${scrollYProgress * 100}%`),
+                    width: '30%',
                     background: 'linear-gradient(90deg, #00f0ff, #9d8cff)',
                     height: '100%',
                     borderRadius: 'inherit',
@@ -118,9 +106,9 @@ export default function PicExtractor() {
 }
 
 // Import icons locally to avoid circular dependency issues
-function ArrowRight() {
+function ArrowRight(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
       <line x1="5" y1="12" x2="19" y2="12"></line>
       <polyline points="12 5 19 12 12 19"></polyline>
     </svg>

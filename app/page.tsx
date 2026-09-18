@@ -81,13 +81,13 @@ export default async function LandingPage() {
                 <StaggerItem>
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8" style={{ border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.03)' }}>
                   <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#00f0ff' }} />
-                  <span className="text-[11px] font-medium tracking-wide" style={{ color: '#aeb9bd' }}>Free AI, ready when you are</span>
+                  <span className="text-xs font-medium tracking-wide" style={{ color: '#aeb9bd' }}>Free AI, ready when you are</span>
                 </div>
                 </StaggerItem>
 
                 {/* Heading */}
                 <StaggerItem>
-                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-bold leading-[1.02] tracking-[-0.03em] text-white mb-6" style={{ fontFamily: 'Sora, sans-serif' }}>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-[-0.03em] text-white mb-6" style={{ fontFamily: 'Sora, sans-serif' }}>
                   Intelligence,
                   <br />
                   <span style={{ color: '#00f0ff' }}>beautifully simple.</span>
@@ -96,7 +96,7 @@ export default async function LandingPage() {
 
                 {/* Subheading */}
                 <StaggerItem>
-                <p className="text-lg md:text-xl max-w-xl leading-relaxed mb-10" style={{ color: '#aeb9bd' }}>
+                <p className="text-base md:text-base max-w-xl leading-relaxed mb-10" style={{ color: '#aeb9bd' }}>
                   One calm workspace for 7+ frontier models — Llama, Gemini, Mistral. No clutter, no cost. Just clear, fast answers.
                 </p>
                 </StaggerItem>
@@ -131,7 +131,7 @@ export default async function LandingPage() {
                   ].map((stat, i) => (
                     <div key={i} className="flex flex-col">
                       <span className="text-2xl font-bold tracking-tight" style={{ color: '#ffffff', fontFamily: 'Sora, sans-serif' }}>{stat.value}</span>
-                      <span className="text-[12px] tracking-wide" style={{ color: '#7d8a8e' }}>{stat.label}</span>
+                      <span className="text-xs tracking-wide" style={{ color: '#aeb9bd' }}>{stat.label}</span>
                     </div>
                   ))}
                 </div>
@@ -142,8 +142,8 @@ export default async function LandingPage() {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-          <span className="text-[11px] tracking-wide" style={{ color: '#7d8a8e' }}>Scroll</span>
-          <ChevronDown className="w-4 h-4" style={{ color: '#7d8a8e' }} />
+          <span className="text-xs tracking-wide" style={{ color: '#aeb9bd' }}>Scroll</span>
+          <ChevronDown className="w-5 h-5" style={{ color: '#aeb9bd' }} />
         </div>
       </section>
 
@@ -152,7 +152,7 @@ export default async function LandingPage() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-16">
             <Reveal>
-            <p className="text-[12px] font-semibold uppercase tracking-[0.25em] mb-4" style={{ color: '#00f0ff' }}>Capabilities</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] mb-4" style={{ color: '#00f0ff' }}>Capabilities</p>
             <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Built for focused work</h2>
             </Reveal>
           </div>
@@ -177,7 +177,7 @@ export default async function LandingPage() {
             {/* Encrypted Core */}
             <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(157,140,255,0.18)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <Lock className="w-5 h-5" style={{ color: '#9d8cff' }} />
+                <Lock className="w-5 h-5" style={{ color: '#00f0ff' }} />
                 <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Encrypted Core</h3>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: '#aeb9bd' }}>
@@ -188,7 +188,7 @@ export default async function LandingPage() {
             {/* Neural Orb */}
             <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(45,212,191,0.18)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <Eye className="w-5 h-5" style={{ color: '#2dd4bf' }} />
+                <Eye className="w-5 h-5" style={{ color: '#00f0ff' }} />
                 <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Automatic Failover</h3>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: '#aeb9bd' }}>
@@ -199,7 +199,7 @@ export default async function LandingPage() {
             {/* Visual Synthesis */}
             <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(245,196,81,0.18)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <Layers className="w-5 h-5" style={{ color: '#f5c451' }} />
+                <Layers className="w-5 h-5" style={{ color: '#00f0ff' }} />
                 <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Streaming Answers</h3>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: '#aeb9bd' }}>
@@ -219,7 +219,7 @@ export default async function LandingPage() {
             <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-4" style={{ color: '#ffffff', fontFamily: 'Sora, sans-serif' }}>
               Ready whenever you are.
             </h2>
-            <p className="text-lg max-w-xl mx-auto mb-10" style={{ color: '#b9cacb' }}>
+            <p className="text-lg max-w-xl mx-auto mb-10" style={{ color: '#aeb9bd' }}>
               Open a chat with 7+ AI models. No credit card, no trial timer — just sign in and start typing.
             </p>
             <Link
@@ -240,11 +240,11 @@ export default async function LandingPage() {
           <Reveal>
           <div className="flex items-end justify-between mb-12">
             <div>
-              <p className="text-[12px] font-semibold uppercase tracking-[0.25em] mb-4" style={{ color: '#00f0ff' }}>From the blog</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] mb-4" style={{ color: '#00f0ff' }}>From the blog</p>
               <h2 className="text-4xl md:text-5xl font-bold tracking-[-0.02em]" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Latest writing</h2>
             </div>
-            <Link href="/blog" className="hidden md:inline-flex items-center gap-2 text-sm font-medium hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>
-              View all <ArrowRight className="w-3.5 h-3.5" />
+            <Link href="/blog" className="hidden md:inline-flex items-center gap-2 text-sm font-medium hover:text-[#00f0ff] transition-colors" style={{ color: '#aeb9bd' }}>
+              View all <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
           </Reveal>
@@ -339,7 +339,7 @@ export default async function LandingPage() {
       <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
         <div className="max-w-4xl mx-auto">
           <Reveal>
-          <p className="text-[12px] font-semibold uppercase tracking-[0.25em] mb-4 text-center" style={{ color: '#00f0ff' }}>FAQ</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] mb-4 text-center" style={{ color: '#00f0ff' }}>FAQ</p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-[-0.02em] text-center mb-16" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Frequently asked</h2>
           </Reveal>
 
@@ -369,7 +369,7 @@ export default async function LandingPage() {
                   <ChevronDown className="w-5 h-5 shrink-0 group-open:rotate-180 transition-transform" style={{ color: '#00f0ff' }} />
                 </summary>
                 <div className="px-6 pb-6">
-                  <p style={{ color: '#849495' }}>{faq.a}</p>
+                  <p style={{ color: '#aeb9bd' }}>{faq.a}</p>
                 </div>
               </details>
             ))}

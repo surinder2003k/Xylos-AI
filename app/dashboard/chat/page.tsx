@@ -311,7 +311,7 @@ function ChatContent() {
               >
                 <p className="text-sm font-bold truncate pr-8">{s.title}</p>
                 <p className="text-[10px] text-white/30 uppercase font-bold tracking-widest mt-1">
-                  {new Date(s.updatedAt).toLocaleDateString()}
+                  {new Date(s.updated_at).toLocaleDateString()}
                 </p>
               </button>
               <button 

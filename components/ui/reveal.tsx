@@ -42,7 +42,7 @@ export function Reveal({ children, className = "", delay = 0, y = 16, as = "div"
     return () => io.disconnect();
   }, []);
 
-  const Tag = as as keyof JSX.IntrinsicElements;
+  const Tag = as as any;
   const style: React.CSSProperties = {
     opacity: shown ? 1 : 0,
     transform: shown ? "translateY(0)" : `translateY(${y}px)`,
