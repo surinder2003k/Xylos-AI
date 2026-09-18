@@ -24,12 +24,12 @@ export function HeroCTA() {
     <>
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-12 max-w-2xl mx-auto w-full">
         <Link
-          href="/chat"
+          href={isLoggedIn ? "/chat" : "/login"}
           aria-label="Launch Xylos AI Neural Link Chat"
           className="relative flex items-center justify-center gap-4 px-10 md:px-16 py-5 md:py-6 rounded-2xl bg-primary text-[#04141a] font-bold text-sm uppercase tracking-[0.2em] shadow-lg hover:shadow-[0_0_30px_rgba(0,240,255,0.4)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group w-full sm:w-auto overflow-hidden"
           style={{ boxShadow: '0 4px 20px rgba(0,240,255,0.3)' }}
         >
-          Launch Neural Link
+          {isLoggedIn ? "Launch Neural Link" : "Start Chatting — Free"}
           <MessageSquare aria-hidden="true" className="w-5 h-5 group-hover:rotate-12 transition-transform" />
         </Link>
 

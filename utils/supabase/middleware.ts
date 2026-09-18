@@ -76,7 +76,8 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url)
   }
 
-  // If user is NOT logged in and tries to access known protected routes, redirect to landing.
+  // If user is NOT logged in and tries to access known protected routes,
+  // send them to login (better UX than bouncing back to homepage silently).
   // NOTE: /tools is NOT protected anymore — its SEO landing pages need to be public/crawlable.
   const protectedPaths = ['/chat', '/dashboard'];
   const isProtectedPath = protectedPaths.some(p =>
@@ -84,7 +85,7 @@ export async function updateSession(request: NextRequest) {
   );
   if (!user && isProtectedPath) {
     const url = request.nextUrl.clone()
-    url.pathname = '/'
+    url.pathname = '/login'
     return NextResponse.redirect(url)
   }
 
