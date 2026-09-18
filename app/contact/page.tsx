@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, MessageSquare, Github, Twitter, Linkedin, ArrowUpRight } from "lucide-react";
-import Link from "next/link";
+import { Mail, MapPin, MessageSquare, Twitter, Linkedin } from "lucide-react";
 import { ContactForm } from "./contact-form";
 
 export const metadata: Metadata = {
@@ -36,14 +35,14 @@ export default function ContactPage() {
         </header>
 
         {/* Contact Methods */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <ContactCard
             icon={Mail}
             title="Email Us"
             description="For partnerships, press, and general inquiries"
             action={
-              <a href="mailto:hello@xylosai.com" className="text-[#00f0ff] hover:underline text-sm font-medium">
-                hello@xylosai.com
+              <a href="mailto:xyzg135@gmail.com" className="text-[#00f0ff] hover:underline text-sm font-medium">
+                xyzg135@gmail.com
               </a>
             }
           />
@@ -55,16 +54,6 @@ export default function ContactPage() {
               <span className="text-sm font-medium" style={{ color: '#849495' }}>
                 Remote-first, Worldwide
               </span>
-            }
-          />
-          <ContactCard
-            icon={Github}
-            title="Open Source"
-            description="Contribute, report issues, or explore our code"
-            action={
-              <Link href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="text-[#00f0ff] hover:underline text-sm font-medium flex items-center gap-1">
-                GitHub <ArrowUpRight className="w-3 h-3" />
-              </Link>
             }
           />
         </section>
@@ -82,9 +71,6 @@ export default function ContactPage() {
         <section className="text-center pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           <p className="text-sm font-medium mb-4" style={{ color: '#849495' }}>Follow our journey</p>
           <div className="flex justify-center gap-4">
-            <a href="https://github.com/surinder2003k" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl flex items-center justify-center transition-all" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
-              <Github className="w-5 h-5" style={{ color: '#849495' }} />
-            </a>
             <a href="https://twitter.com/xylos_ai" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl flex items-center justify-center transition-all" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
               <Twitter className="w-5 h-5" style={{ color: '#849495' }} />
             </a>
