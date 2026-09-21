@@ -75,7 +75,12 @@ export async function getProviderResponse(
       },
       body: JSON.stringify({
         model: model || "openai/gpt-oss-120b",
-        messages: safeMessages
+        messages: safeMessages,
+        // Force structurally valid JSON — the blog generator expects a pure
+        // JSON object and prose-wrapped JSON used to break the parser.
+        response_format: { type: "json_object" },
+        temperature: 0.7,
+        max_tokens: 8000
       })
     });
     const data = await res.json();
