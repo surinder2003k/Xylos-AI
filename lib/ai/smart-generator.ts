@@ -27,9 +27,9 @@ export async function generateSmartBlog(
   deadlineAt?: number
 ): Promise<BlogContent> {
   const providers = [
-    { name: 'groq', model: 'openai/gpt-oss-120b', timeoutMs: 30_000 },
-    { name: 'gemini', model: 'gemini-3.6-flash', timeoutMs: 30_000 },
-    { name: 'openrouter', model: 'nvidia/nemotron-3-super-120b-a12b:free', timeoutMs: 25_000 },
+    { name: 'groq', model: 'openai/gpt-oss-120b', timeoutMs: 45_000 },
+    { name: 'gemini', model: 'gemini-3.6-flash', timeoutMs: 40_000 },
+    { name: 'openrouter', model: 'nvidia/nemotron-3-super-120b-a12b:free', timeoutMs: 35_000 },
   ];
 
   const systemPrompt = `You are the Xylos Neural Engine, a senior investigative journalist and content strategist.
@@ -113,10 +113,12 @@ export async function generateSmartBlog(
 
   for (const provider of providers) {
     // Dynamic per-provider timeout: never let a provider call run past the
-    // serverless deadline (60s on Hobby). Skip provider if < 12s remain.
+    // serverless deadline (60s on Hobby). Skip provider if < 10s remain;
+    // otherwise give the AI the full remaining window minus a 10s reserve
+    // (headroom for image search + DB insert + IndexNow ping).
     const remaining = deadlineAt ? deadlineAt - Date.now() : provider.timeoutMs;
-    const effectiveTimeout = Math.min(provider.timeoutMs, remaining - 3000); // 3s headroom for insert+ping
-    if (effectiveTimeout < 12_000) {
+    const effectiveTimeout = Math.min(provider.timeoutMs, remaining - 10_000);
+    if (effectiveTimeout < 10_000) {
       console.warn(`[Neural Sync] Skipping ${provider.name}: only ${(remaining / 1000).toFixed(1)}s of budget left.`);
       continue;
     }
