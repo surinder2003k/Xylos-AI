@@ -22,11 +22,11 @@ export async function searchSmartImage(query: string, category: string = "Techno
       try {
         console.log(`[Neural Sync] Searching Pexels for: ${query}`);
         const res = await fetch(
-          `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=40&orientation=landscape`,
+          `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=3&orientation=landscape`,
           {
             headers: { Authorization: PEXELS_API_KEY },
-            // Hard 8s cap — a hung Pexels call must never eat the serverless budget.
-            signal: AbortSignal.timeout(8000),
+            // Hard 5s cap — a hung Pexels call must never eat the serverless budget.
+            signal: AbortSignal.timeout(5000),
           }
         );
         const data = await res.json();

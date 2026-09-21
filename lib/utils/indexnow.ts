@@ -20,7 +20,7 @@ export async function pingIndexNow(urls: string[]): Promise<boolean> {
         urlList: urls.slice(0, 10000),
       }),
       // Do not let this block the response path for long
-      signal: AbortSignal.timeout(8000),
+      signal: AbortSignal.timeout(5000),
     });
     if (!res.ok && res.status !== 202 && res.status !== 200) {
       console.warn(`[IndexNow] Ping returned ${res.status}`);
