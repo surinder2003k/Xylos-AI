@@ -109,6 +109,7 @@ export async function generateSmartBlog(
   - Minimum total word count: 1100 words. Aim for 1300 words. Dense analysis beats padded length — every section must carry substance, not filler.`;
 
   let lastError: Error | null = null;
+  const providerErrors: string[] = [];
 
   for (const provider of providers) {
     // Dynamic per-provider timeout: never let a provider call run past the
@@ -146,12 +147,12 @@ export async function generateSmartBlog(
       }
     } catch (err: any) {
       console.warn(`[Neural Sync] ${provider.name} failed:`, err.message);
-      lastError = err;
+      providerErrors.push(`${provider.name}: ${err.message}`);
       continue; // Try next provider
     }
   }
 
-  throw new Error(`All AI providers failed. Last error: ${lastError?.message}`);
+  throw new Error(`All AI providers failed. ${providerErrors.join(' | ')}`);
 }
 
 /**
