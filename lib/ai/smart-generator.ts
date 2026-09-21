@@ -69,14 +69,14 @@ export async function generateSmartBlog(
 
   MANDATORY RULE: You MUST include AT LEAST ONE link from the Internal Targets list, AT LEAST ONE link from the External Partner Targets list, and AT LEAST TWO General High-Authority Citations in the body content.
   
-  STRUCTURE & LENGTH REQUIREMENTS (MINIMUM 1500 TO 2000+ WORDS TOTAL):
-  You must ensure the article is highly exhaustive and detailed. Write at least 4-5 long, detailed paragraphs for each section:
-  1. Introduction (250+ words): Start with a profound global perspective. Establish the gravity of the subject, citing societal, corporate, or technological paradigms.
-  2. Background, Evolution & Genesis (350+ words): Detailed historical context, tracing the evolution of this technology or event over the past decade to the current state.
-  3. Strategic Deep Dive & Technical Analysis (550+ words): High-fidelity, granular analysis of the core dynamics, architectural patterns, implementation protocols, major players, and specific case studies or code architectures.
-  4. Global Market & Sociopolitical/Economic Implications (350+ words): Broad evaluation of how this shapes industries, global economies, supply chains, regulatory environments, or international relations.
-  5. Technical Challenges, Limitations & Neural Outlook (350+ words): Critical analysis of technical bottlenecks, security challenges, scaling issues, and a visionary 5-to-10-year forecast of the domain.
-  6. Final Authoritative Verdict & Synthesis (150+ words): Authoritative conclusion, summarizing key takeaways and the future state.
+  STRUCTURE & LENGTH REQUIREMENTS (MINIMUM 1100 TO 1400 WORDS TOTAL):
+  You must ensure the article is highly exhaustive and detailed. Write 4-5 long, detailed paragraphs for each section:
+  1. Introduction (100+ words): Start with a profound global perspective. Establish the gravity of the subject, citing societal, corporate, or technological paradigms.
+  2. Background, Evolution & Genesis (200+ words): Detailed historical context, tracing the evolution of this technology or event over the past decade to the current state.
+  3. Strategic Deep Dive & Technical Analysis (350+ words): High-fidelity, granular analysis of the core dynamics, architectural patterns, implementation protocols, major players, and specific case studies or code architectures.
+  4. Global Market & Sociopolitical/Economic Implications (200+ words): Broad evaluation of how this shapes industries, global economies, supply chains, regulatory environments, or international relations.
+  5. Technical Challenges, Limitations & Neural Outlook (200+ words): Critical analysis of technical bottlenecks, security challenges, scaling issues, and a visionary 5-to-10-year forecast of the domain.
+  6. Final Authoritative Verdict & Synthesis (100+ words): Authoritative conclusion, summarizing key takeaways and the future state.
 
   WRITING STYLE:
   - Professional, sophisticated, and slightly futuristic/noir.
@@ -106,7 +106,7 @@ export async function generateSmartBlog(
   IMPORTANT:
   - Return ONLY raw JSON. No markdown fences around the JSON.
   - Ensure the "content" field is a single string containing the HTML-style markdown.
-  - Minimum total word count: 1100 words. Aim for 1300 words. Dense analysis beats padded length — every section must carry substance, not filler.`;
+  - Minimum total word count: 1000 words. Aim for 1200 words. Dense analysis beats padded length — every section must carry substance, not filler.`;
 
   let lastError: Error | null = null;
   const providerErrors: string[] = [];

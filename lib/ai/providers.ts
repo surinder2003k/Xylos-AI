@@ -80,7 +80,7 @@ export async function getProviderResponse(
         // JSON object and prose-wrapped JSON used to break the parser.
         response_format: { type: "json_object" },
         temperature: 0.7,
-        max_tokens: 8000
+        max_tokens: 4000
       })
     });
     const data = await res.json();
