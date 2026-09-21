@@ -26,9 +26,9 @@ export async function generateSmartBlog(
   externalLinks: string[] = []
 ): Promise<BlogContent> {
   const providers = [
-    { name: 'groq', model: 'openai/gpt-oss-120b' },
-    { name: 'gemini', model: 'gemini-3.6-flash' },
-    { name: 'openrouter', model: 'nvidia/nemotron-3-super-120b-a12b:free' },
+    { name: 'groq', model: 'openai/gpt-oss-120b', timeoutMs: 30_000 },
+    { name: 'gemini', model: 'gemini-3.6-flash', timeoutMs: 30_000 },
+    { name: 'openrouter', model: 'nvidia/nemotron-3-super-120b-a12b:free', timeoutMs: 25_000 },
   ];
 
   const systemPrompt = `You are the Xylos Neural Engine, a senior investigative journalist and content strategist.
@@ -105,18 +105,25 @@ export async function generateSmartBlog(
   IMPORTANT:
   - Return ONLY raw JSON. No markdown fences around the JSON.
   - Ensure the "content" field is a single string containing the HTML-style markdown.
-  - Minimum total word count: 1800+ words. Aim for 2000+ words. Do NOT summarize or write brief lists; expand every section with deep analyses, detailed descriptions, and historical context.`;
+  - Minimum total word count: 1100 words. Aim for 1300 words. Dense analysis beats padded length — every section must carry substance, not filler.`;
 
   let lastError: Error | null = null;
 
   for (const provider of providers) {
     try {
       console.log(`[Neural Sync] Attempting generation with ${provider.name}...`);
-      const response = await getProviderResponse(
-        provider.name,
-        provider.model,
-        [{ role: 'user', content: systemPrompt }]
-      );
+      // Fail-fast per-provider timeout so the 60s serverless budget is respected.
+      // Without this, a hung provider burns the whole function window -> 504.
+      const response = await Promise.race([
+        getProviderResponse(
+          provider.name,
+          provider.model,
+          [{ role: 'user', content: systemPrompt }]
+        ),
+        new Promise<never>((_, reject) =>
+          setTimeout(() => reject(new Error(`${provider.name} timed out after ${provider.timeoutMs}ms`)), provider.timeoutMs)
+        ),
+      ]);
 
       // Clean and parse JSON
       const blogData = parseNeuralJson(response.content);

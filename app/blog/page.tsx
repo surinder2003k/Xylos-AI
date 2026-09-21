@@ -126,7 +126,32 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
           </div>
 
           {/* Blog Grid */}
-          <BlogGrid blogs={blogs || []} />
+          {blogs && blogs.length > 0 ? (
+            <BlogGrid blogs={blogs} />
+          ) : (
+            <div className="text-center py-20 px-6 rounded-2xl" style={{ background: 'rgba(12, 14, 18, 0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center" style={{ background: 'rgba(0, 240, 255, 0.08)', border: '1px solid rgba(0, 240, 255, 0.2)' }}>
+                  <Search className="w-7 h-7 text-[#00f0ff]" />
+                </div>
+              </div>
+              <h2 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: 'Sora, sans-serif' }}>
+                {query ? `No stories found for "${query}"` : 'No stories in this category yet'}
+              </h2>
+              <p className="text-gray-400 text-sm max-w-md mx-auto mb-8">
+                {query
+                  ? 'Try a different keyword, or browse the full archive — new stories are published daily.'
+                  : 'New stories are published daily. Check back soon or explore all categories.'}
+              </p>
+              <Link
+                href="/blog"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 hover:bg-[rgba(0,240,255,0.12)] hover:text-[#00f0ff] text-white"
+                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}
+              >
+                View Full Archive
+              </Link>
+            </div>
+          )}
 
           {/* Pagination */}
           {totalPages > 1 && (

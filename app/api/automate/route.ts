@@ -302,10 +302,12 @@ export async function GET(req: Request) {
     while (results.filter(r => r.status === "success").length < count && attempts < maxAttempts) {
       attempts++;
       
-      // Check remaining time - more lenient: allow up to 55 seconds
+      // Check remaining time — a full generation cycle takes 15-30s, so any
+      // attempt started after this budget would finish past the 60s function
+      // limit and 504, losing BOTH the post and the IndexNow ping.
       const elapsed = Date.now() - startTime;
-      if (elapsed > 55000) {
-        console.warn(`[AutoPost] Timeout approaching after ${attempts} attempts (${(elapsed/1000).toFixed(1)}s). Aborting.`);
+      if (elapsed > 35000) {
+        console.warn(`[AutoPost] Time budget exhausted after ${attempts} attempts (${(elapsed/1000).toFixed(1)}s). Aborting cleanly.`);
         break;
       }
 
