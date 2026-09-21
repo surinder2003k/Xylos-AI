@@ -25,6 +25,8 @@ export async function searchSmartImage(query: string, category: string = "Techno
           `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=40&orientation=landscape`,
           {
             headers: { Authorization: PEXELS_API_KEY },
+            // Hard 8s cap — a hung Pexels call must never eat the serverless budget.
+            signal: AbortSignal.timeout(8000),
           }
         );
         const data = await res.json();

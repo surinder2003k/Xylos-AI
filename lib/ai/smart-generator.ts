@@ -23,7 +23,8 @@ export async function generateSmartBlog(
   recentTitles: string[] = [], 
   category?: string,
   internalLinks: string[] = [],
-  externalLinks: string[] = []
+  externalLinks: string[] = [],
+  deadlineAt?: number
 ): Promise<BlogContent> {
   const providers = [
     { name: 'groq', model: 'openai/gpt-oss-120b', timeoutMs: 30_000 },
@@ -110,8 +111,16 @@ export async function generateSmartBlog(
   let lastError: Error | null = null;
 
   for (const provider of providers) {
+    // Dynamic per-provider timeout: never let a provider call run past the
+    // serverless deadline (60s on Hobby). Skip provider if < 12s remain.
+    const remaining = deadlineAt ? deadlineAt - Date.now() : provider.timeoutMs;
+    const effectiveTimeout = Math.min(provider.timeoutMs, remaining - 3000); // 3s headroom for insert+ping
+    if (effectiveTimeout < 12_000) {
+      console.warn(`[Neural Sync] Skipping ${provider.name}: only ${(remaining / 1000).toFixed(1)}s of budget left.`);
+      continue;
+    }
     try {
-      console.log(`[Neural Sync] Attempting generation with ${provider.name}...`);
+      console.log(`[Neural Sync] Attempting generation with ${provider.name} (timeout ${(effectiveTimeout / 1000).toFixed(0)}s)...`);
       // Fail-fast per-provider timeout so the 60s serverless budget is respected.
       // Without this, a hung provider burns the whole function window -> 504.
       const response = await Promise.race([
@@ -121,7 +130,7 @@ export async function generateSmartBlog(
           [{ role: 'user', content: systemPrompt }]
         ),
         new Promise<never>((_, reject) =>
-          setTimeout(() => reject(new Error(`${provider.name} timed out after ${provider.timeoutMs}ms`)), provider.timeoutMs)
+          setTimeout(() => reject(new Error(`${provider.name} timed out after ${effectiveTimeout}ms`)), effectiveTimeout)
         ),
       ]);
 

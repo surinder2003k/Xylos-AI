@@ -19,7 +19,9 @@ export async function discoverLatestPosts(feedUrl: string, limit: number = 5): P
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
         'Accept': 'application/xml, text/xml, */*'
       },
-      next: { revalidate: 3600 } // Cache for 1 hour
+      next: { revalidate: 3600 }, // Cache for 1 hour
+      // Hard 8s cap — a hung feed must never eat the 60s serverless budget.
+      signal: AbortSignal.timeout(8000),
     });
 
     if (!response.ok) {

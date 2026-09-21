@@ -336,6 +336,7 @@ export async function GET(req: Request) {
           currentCategory,
           internalLinks,
           externalLinks,
+          startTime + 55_000, // hard deadline: 5s headroom before the 60s function limit
         );
       } catch (genErr: any) {
         console.error(`[AutoPost] AI generation failed:`, genErr.message);
