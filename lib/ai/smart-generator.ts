@@ -10,7 +10,95 @@ export type BlogContent = {
   meta_description: string;
   keywords: string;
   content: string;
+  // 2-4 word canonical subject (e.g. "on-device ai smartphones"). Used by the
+  // automation route to block near-duplicate posts whose headlines are
+  // rephrased but cover the exact same subject.
+  subject_key?: string;
 };
+
+/**
+ * Flesch Reading Ease for a content blob (HTML stripped).
+ *
+ * This is the same metric audit tools and Google's helpful-content signals lean
+ * on. It is driven by two things: words per sentence and SYLLABLES per word.
+ * Measured on our own generated drafts the sentence length was already fine
+ * (~18) but the syllable density was ~1.89 per word, which is what pinned the
+ * score at "college graduate" (28) even though the prose looked tidy.
+ */
+export function readabilityScore(input: string): {
+  words: number;
+  sentences: number;
+  avgSentenceLength: number;
+  avgSyllablesPerWord: number;
+  flesch: number;
+  grade: string;
+} {
+  const text = (input || '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\[AI_IMAGE_PROMPT:[^\]]*\]/g, ' ')
+    .replace(/&[a-z]+;/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  const countSyllables = (word: string): number => {
+    const w = word.toLowerCase().replace(/[^a-z]/g, '');
+    if (w.length <= 3) return 1;
+    const cleaned = w
+      .replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '')
+      .replace(/^y/, '');
+    const groups = cleaned.match(/[aeiouy]{1,2}/g);
+    return groups ? groups.length : 1;
+  };
+
+  const sentences = text.split(/(?<=[.!?])\s+/).filter((s) => s.split(' ').length > 2);
+  const words = text.split(' ').filter(Boolean);
+  if (!words.length || !sentences.length) {
+    return { words: words.length, sentences: sentences.length, avgSentenceLength: 0, avgSyllablesPerWord: 0, flesch: 0, grade: 'unknown' };
+  }
+
+  const syllables = words.reduce((a, w) => a + countSyllables(w), 0);
+  const asl = words.length / sentences.length;
+  const asw = syllables / words.length;
+  const flesch = 206.835 - 1.015 * asl - 84.6 * asw;
+
+  let grade = 'Very difficult (college graduate)';
+  if (flesch >= 70) grade = 'Easy (7th grade)';
+  else if (flesch >= 60) grade = 'Plain English (8-9th grade)';
+  else if (flesch >= 50) grade = 'Fairly difficult (10-12th)';
+  else if (flesch >= 30) grade = 'Difficult (college)';
+
+  return {
+    words: words.length,
+    sentences: sentences.length,
+    avgSentenceLength: +asl.toFixed(1),
+    avgSyllablesPerWord: +asw.toFixed(2),
+    flesch: +flesch.toFixed(1),
+    grade,
+  };
+}
+
+/**
+ * Prompt for the plain-English rewrite pass. Returns rewritten HTML only, so the
+ * caller can drop the response straight into `content` without re-parsing JSON.
+ */
+function buildSimplifyPrompt(content: string): string {
+  return `You are a plain-English editor. Rewrite the article below so a 14-year-old can read it easily.
+
+HARD RULES:
+- Keep every fact, product name, number, link and <h2> heading exactly as it is. Do not add or remove information.
+- Shorten words: use "use" not "utilise/leverage", "help" not "facilitate", "build" not "implement", "improve" not "optimise", "big" not "significant", "many" not "numerous", "show" not "demonstrate", "need" not "require", "give" not "provide", "about" not "approximately", "also" not "additionally", "but" not "however", "so" not "therefore".
+- Any word with 4 or more syllables that has a short common synonym must be replaced by the short one.
+- Keep sentences short: 10-16 words on average. Never more than 25 words. Split long sentences.
+- Keep paragraphs 2-4 sentences, under 55 words each.
+- Keep technical terms that have no plain equivalent (API, GPU, encryption, LLM). Explain them in the same sentence if unclear.
+- Keep the <p> and <h2> tags and the [AI_IMAGE_PROMPT: ...] markers. Keep all <a href> links.
+- Do not add a preamble, do not use markdown fences.
+
+Return ONLY the rewritten article HTML.
+
+ARTICLE:
+${content}`;
+}
 
 /**
  * Tiered Fallback Strategy:
@@ -26,87 +114,89 @@ export async function generateSmartBlog(
   externalLinks: string[] = [],
   deadlineAt?: number
 ): Promise<BlogContent> {
-  const providers = [
+  // Only attempt providers whose key is actually configured. A missing key used
+  // to cost a full timeout window per attempt before failing, which pushed the
+  // whole run past the serverless deadline (504). Groq is the primary and needs
+  // GROQ_API_KEY; the rest are optional fallbacks.
+  const PROVIDER_KEY_ENV: Record<string, string> = {
+    groq: 'GROQ_API_KEY',
+    gemini: 'GOOGLE_GEMINI_API_KEY',
+    openrouter: 'OPENROUTER_API_KEY',
+    mistral: 'MISTRAL_API_KEY',
+    cerebras: 'CEREBRAS_API_KEY',
+    'huggingface': 'HF_TOKEN',
+    cloudflare: 'CLOUDFLARE_API_TOKEN',
+  };
+
+  const configuredProviders = [
     { name: 'groq', model: 'openai/gpt-oss-120b', timeoutMs: 25_000 },
     { name: 'gemini', model: 'gemini-3.6-flash', timeoutMs: 20_000 },
     { name: 'openrouter', model: 'nvidia/nemotron-3-super-120b-a12b:free', timeoutMs: 20_000 },
-  ];
+  ].filter((p) => {
+    const envVar = PROVIDER_KEY_ENV[p.name];
+    const hasKey = !!process.env[envVar];
+    if (!hasKey) console.warn(`[Neural Sync] Skipping ${p.name}: ${envVar} is not set.`);
+    return hasKey;
+  });
 
-  const systemPrompt = `You are the Xylos Neural Engine, a senior investigative journalist and content strategist.
-  
-  CORE MISSION: 
-  Analyze, research, and synthesize a definitive, long-form report on the provided topic. 
-  If the topic is generic, identify a NEW trending development from the last 48 hours within that domain (especially focusing on ${category || 'Global Technology'}) and write about it with authority.
-  
-  CONTEXT (RECENT TITLES):
+  const providers = configuredProviders.length
+    ? configuredProviders
+    : [{ name: 'groq', model: 'openai/gpt-oss-120b', timeoutMs: 25_000 }];
+
+  const systemPrompt = `You are the Xylos Neural Engine, a senior technology journalist writing for Xylos AI.
+
+  TASK: Write a definitive, original technology article about "${prompt.toUpperCase()}" (category: ${category || 'Technology'}).
+  If that topic is generic, pick one concrete development inside the same domain and write about that instead.
+
+  ALREADY PUBLISHED (never repeat, never reword these subjects):
   ${recentTitles.length > 0 ? recentTitles.join("\n") : "None"}
 
-  PRIMARY DIRECTIVE: 
-  Write a high-authority, definitive article about: "${prompt.toUpperCase()}" in the context of ${category || 'General Technology'}.
-  DO NOT repeat any of the recent titles mentioned above. Provide a fresh, insightful perspective.
+  SUBJECT DEDUPLICATION: rewording a published subject is a rejection. REJECTED example: existing "On-Device AI: The Silent Revolution Reshaping Smartphones" -> new "On-Device AI: The Quiet Engine Redefining Smartphones". Also return "subject_key": the canonical 2-4 word lowercase subject (example: "on-device ai smartphones") that matches no published subject above.
 
-  TOPICAL FOCUS (STRICT — VIOLATION = REJECTED):
-  Xylos AI is a technology publication. The article MUST be strictly about technology, software, artificial intelligence, cybersecurity, blockchain, space technology, or a clearly technology-driven angle on the assigned category.
-  FORBIDDEN SUBJECTS (never write these, even if the topic implies them): insurance, legal advice, medical/dental/health treatment advice, food & restaurants, travel deals, home services (roofing, gutters, plumbing), real estate listings, gambling, adult content, or generic consumer-service listicles.
-  If the requested topic drifts off-domain, pivot to the closest technology angle (e.g., "How AI is transforming logistics") instead of writing generic consumer advice. Prioritize original analysis, data points, and expert-level framing over SEO-filler prose.
-  
-  SEO & LINKING ARCHITECTURE (CRITICAL):
-  You MUST naturally weave internal citations, external partner citations, and general high-authority reference citations into the narrative using <a> tags with target="_blank" and rel="noopener noreferrer".
-  
-  1. INTERNAL TARGETS (Link at least ONE of these for deep-dive contextual exploration):
-  ${internalLinks.length > 0 ? internalLinks.join("\n") : "None provided. Use relevant internal site structure references."}
-  
-  2. EXTERNAL PARTNER TARGETS (Link at least ONE of these for global authority/verification):
-  ${externalLinks.length > 0 ? externalLinks.join("\n") : "None provided. Use generic high-authority citations if needed."}
-  
-  3. GENERAL HIGH-AUTHORITY CITATIONS (Link at least TWO of these to key concepts/keywords in the article):
-  - Hyperlink major technologies, companies, or scientific terms to their official websites or highly authoritative Wikipedia pages.
-  - Examples of keywords and their targets:
-    * "artificial intelligence", "AI" or "machine learning" -> link to "https://en.wikipedia.org/wiki/Artificial_intelligence" or "https://arxiv.org"
-    * "Next.js", "React", "TypeScript", "Node.js", "Python" -> link to their official websites ("https://nextjs.org", "https://react.dev", "https://www.typescriptlang.org", "https://nodejs.org", "https://www.python.org")
-    * "OpenAI", "Gemini", "Llama 3", "Mistral AI", "Google DeepMind" -> link to their official pages ("https://openai.com", "https://deepmind.google/technologies/gemini/", "https://llama.meta.com", "https://mistral.ai", "https://deepmind.google")
-  - Avoid generic "click here" text. The hyperlinked text MUST be the exact name of the concept, technology, or company.
+  TOPIC LOCK (violation = rejected): technology only — AI, software, cybersecurity, chips, cloud, robotics, blockchain, space tech, or a clearly tech-driven angle. NEVER write about insurance, legal or medical advice, food, travel, home services (roofing, plumbing), real estate, gambling, or consumer listicles. If a topic drifts, pivot to its closest technology angle.
 
-  MANDATORY RULE: You MUST include AT LEAST ONE link from the Internal Targets list, AT LEAST ONE link from the External Partner Targets list, and AT LEAST TWO General High-Authority Citations in the body content.
-  
-  STRUCTURE & LENGTH REQUIREMENTS (MINIMUM 1100 TO 1400 WORDS TOTAL):
-  You must ensure the article is highly exhaustive and detailed. Write 4-5 long, detailed paragraphs for each section:
-  1. Introduction (100+ words): Start with a profound global perspective. Establish the gravity of the subject, citing societal, corporate, or technological paradigms.
-  2. Background, Evolution & Genesis (200+ words): Detailed historical context, tracing the evolution of this technology or event over the past decade to the current state.
-  3. Strategic Deep Dive & Technical Analysis (350+ words): High-fidelity, granular analysis of the core dynamics, architectural patterns, implementation protocols, major players, and specific case studies or code architectures.
-  4. Global Market & Sociopolitical/Economic Implications (200+ words): Broad evaluation of how this shapes industries, global economies, supply chains, regulatory environments, or international relations.
-  5. Technical Challenges, Limitations & Neural Outlook (200+ words): Critical analysis of technical bottlenecks, security challenges, scaling issues, and a visionary 5-to-10-year forecast of the domain.
-  6. Final Authoritative Verdict & Synthesis (100+ words): Authoritative conclusion, summarizing key takeaways and the future state.
+  TITLE RULES: plain, specific, human — the reader must know what they get. Banned words: epistemic, paradigm, imperative, omniscience, deconstruct, re-architect, asymmetric, calibration, nuance, frontier, realm, delve, unleash, revolutionize, supercharge, game-changer, cutting-edge, tapestry, zeitgeist. Banned shapes: "The X Imperative", "The X Paradox", "The X Horizon", "Beyond X: Y", "X vs Y: The Definitive Guide". Good examples: "How On-Device AI Models Are Cutting Cloud Costs for Mobile Apps", "Passkeys Explained: What Changes for Developers in 2026".
 
-  WRITING STYLE:
-  - Professional, sophisticated, and slightly futuristic/noir.
-  - High vocabulary but clear logic.
-  - Avoid generic "AI-isms" (e.g., "In the fast-paced world of...").
-  - Use <h2> for section headers and <p> for paragraphs within the text.
-  - IMPORTANT: You MUST ensure every header (<h2>) and every paragraph block is preceded and followed by TWO NEWLINES (\n\n) to ensure correct structural parsing. DO NOT omit these newlines.
+  LINKS (inside content, <a href> with target="_blank" rel="noopener noreferrer"):
+  - 1+ INTERNAL link from: ${internalLinks.length > 0 ? internalLinks.join(" | ") : "any relevant /blog post on this site"}
+  - 1+ EXTERNAL partner link from: ${externalLinks.length > 0 ? externalLinks.join(" | ") : "any authoritative technology source"}
+  - 2+ high-authority citations (Wikipedia or official company/product pages) on the exact term. Never "click here".
 
-  METADATA QUALITY STANDARDS:
-  - keywords: Provide 10-15 high-intent, LSI (Latent Semantic Indexing) keywords that match the investigative depth of the article.
-  - alt_text: Write a factual, SEO-rich description of the feature image that MENTIONS the article's core subject.
-  - search_term: Provide a VIVID, PHOTOGRAPHIC SCENE DESCRIPTION (not just keywords). Example: Instead of "AI", use "A sleek futuristic neural processor glowing in a dimly lit high-tech laboratory with blue fiber-optic cables, 8k resolution, cinematic."
+  STRUCTURE — six sections, each an <h2> plus 3-4 paragraphs:
+  1. What Happened (150+ words): the concrete change; name company, product and a number in the first two sentences.
+  2. How We Got Here (170+ words): the short history behind it.
+  3. How It Actually Works (260+ words): mechanism step by step, one <ol> list, a real product name, one number, jargon explained inline.
+  4. Who Wins and Who Loses (170+ words): named companies and groups, concrete costs and gains.
+  5. What Can Still Go Wrong (170+ words): real limits (bugs, cost, speed, privacy, rules) plus a short <ul>.
+  6. What To Watch Next (150+ words): 3-4 checkable things to track over 12 months.
 
-  Format your response STRICTLY as a valid JSON object:
+  READABILITY (hard requirement, Flesch 60+, grade 9 or below):
+  - Sentences average 12-18 words, never over 30. Paragraphs 2-4 sentences, under 60 words. One idea per paragraph.
+  - Active voice. Address the reader as "you". Define each technical term the first time you use it.
+  - Short words only: utilise/leverage->use, facilitate->help, implement->build, optimise->improve, comprehensive->full, significant->big, numerous->many, demonstrate->show, require->need, provide->give, approximately->about, additionally/however/therefore->also/but/so, functionality->features, infrastructure->systems, architecture->design.
+  - Every section carries one concrete number, product name or real example.
+  - Banned filler: "In the fast-paced world of", "In today's digital age", "It is important to note that", "When it comes to", "In conclusion", "plays a pivotal role", "in the realm of", "testament to". No emoji, no rhetorical questions, no padding.
+
+  LENGTH (hard gate, under 1000 words is discarded): 1000-1300 words total, aim 1150, reached with concrete detail instead of adjectives.
+  Format: <h2> for headers, <p> for paragraphs, every block separated by a blank line. Add 2-3 [AI_IMAGE_PROMPT: cinematic scene description] markers between sections.
+
+  METADATA: keywords = 10-15 high-intent LSI keywords. alt_text = factual SEO description naming the subject. search_term = vivid photographic scene description for the image search. excerpt = 1-2 plain sentences, 120-200 characters. meta_description = 140-160 characters, plain and specific.
+
+  Return ONLY raw JSON, no markdown fences, "content" is one string:
   {
-    "title": "A high-authority, cinematic headline",
-    "excerpt": "A concise executive summary",
-    "meta_title": "SEO Optimized Meta Title (60 chars)",
-    "meta_description": "Compelling SEO Meta Description (160 chars)",
+    "title": "...",
+    "excerpt": "...",
+    "meta_title": "SEO meta title, about 60 characters",
+    "meta_description": "SEO meta description, 140-160 characters",
     "keywords": "comma, separated, high-intent, lsi, keywords",
-    "category": "Technology/Business/Politics/Science/Sports/Culture",
-    "search_term": "A vivid photorealistic scene description for the feature image",
-    "alt_text": "Fact-based SEO description mentioning the subject",
-    "content": "THE FULL ARTICLE IN HTML-COMPATIBLE MARKDOWN WITH <h2> AND <p> TAGS. IMPORTANT: Insert [AI_IMAGE_PROMPT: vivid cinematic scene description related to the adjacent text] markers between sections (2-3 times) where an image would be beneficial."
+    "subject_key": "canonical 2-4 word lowercase subject",
+    "category": "Technology | AI & ML | Cybersecurity | Software Development | Cloud & DevOps | Consumer Tech | Blockchain | Space",
+    "search_term": "vivid photorealistic scene description",
+    "alt_text": "fact-based SEO description of the feature image",
+    "content": "<p>opening paragraph</p> <h2>Section</h2> <p>...</p> [AI_IMAGE_PROMPT: scene description] ..."
   }
+  Pick the category from that list only, never invent one.`;
 
-  IMPORTANT:
-  - Return ONLY raw JSON. No markdown fences around the JSON.
-  - Ensure the "content" field is a single string containing the HTML-style markdown.
-  - Minimum total word count: 1000 words. Aim for 1200 words. Dense analysis beats padded length — every section must carry substance, not filler.`;
 
   let lastError: Error | null = null;
   const providerErrors: string[] = [];
@@ -143,7 +233,59 @@ export async function generateSmartBlog(
       if (blogData.title && blogData.content) {
         // Sanitize content from unwanted tags/markdown artifacts
         blogData.content = sanitizeNeuralContent(blogData.content);
-        
+
+        // READABILITY GATE -------------------------------------------------
+        // Audit tools and Google's helpful-content signals punish dense prose.
+        // The draft above measured Flesch ~28 (college graduate) purely because
+        // of long Latinate words, not sentence length. When that happens, spend
+        // one extra provider call on a plain-English rewrite — but only if the
+        // serverless budget can still absorb it.
+        const before = readabilityScore(blogData.content);
+        const budgetLeft = deadlineAt ? deadlineAt - Date.now() : 0;
+        if (before.flesch < 58 && before.words >= 700 && budgetLeft > 30_000) {
+          try {
+            console.log(
+              `[Neural Sync] Readability ${before.flesch} (${before.grade}, ${before.avgSyllablesPerWord} syl/word) — running plain-English simplify pass...`,
+            );
+            const rewriteTimeout = Math.min(28_000, budgetLeft - 15_000);
+            const simplified = await Promise.race([
+              getProviderResponse(provider.name, provider.model, [
+                { role: 'user', content: buildSimplifyPrompt(blogData.content) },
+              ]),
+              new Promise<never>((_, reject) =>
+                setTimeout(() => reject(new Error(`simplify pass timed out after ${rewriteTimeout}ms`)), rewriteTimeout),
+              ),
+            ]);
+
+            const rewritten = sanitizeNeuralContent(
+              (simplified.content || '')
+                .replace(/^```[a-z]*\s*/i, '')
+                .replace(/```\s*$/i, '')
+                .trim(),
+            );
+            const after = readabilityScore(rewritten);
+
+            // Accept only when readability actually improved and the article did
+            // not collapse (a truncated rewrite must never replace the draft).
+            if (after.flesch > before.flesch && after.words >= Math.min(850, before.words * 0.7)) {
+              console.log(
+                `[Neural Sync] Simplify pass accepted: Flesch ${before.flesch} -> ${after.flesch} (${after.grade})`,
+              );
+              blogData.content = rewritten;
+            } else {
+              console.warn(
+                `[Neural Sync] Simplify pass rejected (Flesch ${after.flesch}, ${after.words} words vs ${before.words}) — keeping original draft.`,
+              );
+            }
+          } catch (err: any) {
+            console.warn(`[Neural Sync] Simplify pass skipped: ${err.message}`);
+          }
+        } else {
+          console.log(
+            `[Neural Sync] Readability ${before.flesch} (${before.grade}) — no rewrite needed or no budget (${(budgetLeft / 1000).toFixed(0)}s left).`,
+          );
+        }
+
         console.log(`[Neural Sync] Success with ${provider.name}`);
         return blogData;
       }
@@ -224,6 +366,7 @@ function parseNeuralJson(raw: string): BlogContent {
       meta_title: extract("meta_title"),
       meta_description: extract("meta_description"),
       keywords: extract("keywords"),
+      subject_key: extract("subject_key"),
       category: extract("category") || "Technology",
       search_term: extract("search_term"),
       alt_text: extract("alt_text"),

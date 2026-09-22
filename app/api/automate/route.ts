@@ -142,6 +142,80 @@ function injectExternalLinks(content: string, keywords: string): string {
   return modifiedContent;
 }
 
+// ---------------------------------------------------------------------------
+// Content quality guards
+// ---------------------------------------------------------------------------
+
+// Words that carry no topical meaning — ignored when comparing subjects.
+const STOP_WORDS = new Set([
+  "the", "a", "an", "and", "or", "of", "in", "on", "for", "to", "with", "is", "are",
+  "was", "were", "be", "been", "by", "at", "as", "it", "its", "this", "that", "these",
+  "those", "from", "into", "your", "you", "our", "we", "how", "why", "what", "when",
+  "who", "will", "can", "could", "should", "would", "might", "new", "latest", "2026",
+  "2025", "2024", "guide", "explained", "best", "top", "vs", "versus", "after", "before",
+  "about", "over", "under", "more", "most", "than", "then", "there", "here", "not",
+]);
+
+/**
+ * Normalise a headline/subject into comparable significant tokens.
+ * Handles unicode hyphen look-alikes (U+2010..U+2015, non-breaking hyphen) that
+ * previously made "On‑Device" and "On-Device" look like different words.
+ */
+function significantTokens(input: string): string[] {
+  return input
+    .toLowerCase()
+    .replace(/[\u2010-\u2015\u2212\u00ad]/g, "-")
+    .replace(/[^a-z0-9]+/g, " ")
+    .split(" ")
+    .map((w) => w.trim())
+    .filter((w) => w.length > 1 && !STOP_WORDS.has(w));
+}
+
+/**
+ * True when the incoming article covers a subject that a recent post already
+ * covered. Two signals, either one is enough:
+ *  1. Token-overlap (Jaccard) above the threshold — catches reworded headlines.
+ *  2. Every significant token of the canonical subject_key already appears in a
+ *     recent title — catches "same subject, different headline" duplicates such
+ *     as "On-Device AI: The Silent Revolution Reshaping Smartphones" vs
+ *     "On-Device AI: The Quiet Engine Redefining Smartphones".
+ */
+function isNearDuplicate(
+  title: string,
+  subjectKey: string | undefined,
+  recentTitles: string[],
+): { duplicate: boolean; matchedTitle: string | null; reason: string } {
+  const newTokens = significantTokens(title);
+  const subjectTokens = subjectKey ? significantTokens(subjectKey) : [];
+  const newSet = new Set(newTokens);
+
+  for (const existing of recentTitles) {
+    if (!existing || existing.startsWith("_")) continue;
+
+    // Signal 2: canonical subject fully contained in an existing headline.
+    if (subjectTokens.length >= 2) {
+      const existingTokens = new Set(significantTokens(existing));
+      const allPresent = subjectTokens.every((t) => existingTokens.has(t));
+      if (allPresent) {
+        return { duplicate: true, matchedTitle: existing, reason: "same subject_key" };
+      }
+    }
+
+    // Signal 1: reworded headline similarity.
+    const existingTokens = significantTokens(existing);
+    if (existingTokens.length === 0) continue;
+    const existingSet = new Set(existingTokens);
+    const common = newTokens.filter((w) => existingSet.has(w)).length;
+    const union = new Set([...newSet, ...existingSet]).size;
+    const jaccard = union === 0 ? 0 : common / union;
+    if (jaccard >= 0.45 || (common >= 4 && jaccard >= 0.35)) {
+      return { duplicate: true, matchedTitle: existing, reason: `similarity ${jaccard.toFixed(2)}` };
+    }
+  }
+
+  return { duplicate: false, matchedTitle: null, reason: "" };
+}
+
 export async function GET(req: Request) {
   const startTime = Date.now();
 
@@ -354,21 +428,38 @@ export async function GET(req: Request) {
 
       // Guard against off-topic / consumer-spam subjects that trigger
       // "low value content" flags in Google Search Console & AdSense review.
-      // Layer 1: hard blacklist of consumer-service verticals.
+      // Layer 1: hard blacklist of consumer-service verticals. Keep adding any
+      // new vertical a model manages to slip through.
       const OFF_TOPIC_TERMS = [
         "insurance", "denture", "dental", "oral surgery", "attorney", "lawyer", "legal advice",
         "burger", "restaurant", "recipe", "food near", "catering", "cuisine",
         "roof", "gutter", "plumb", "drain", "hvac", "pest control", "pest ", "exterminat",
         "remodel", "renovation", "landscap", "fence ", "siding", "flooring", "window replacement",
         "casino", "betting", "slot ", "lottery", "poker",
-        "half-cow", "cow price", "beef cost", "livestock",
+        "half-cow", "cow price", "beef cost", "livestock", "cattle",
         "real estate agent", "realtor", "mortgage", "property listing",
         "dentist", "chiropract", "massager", "supplement", "weight loss", "skin care",
-        "boat tour", "excursion", "hotel deal", "flight deal", "vacation package",
+        "boat tour", "boat trips", "excursion", "escursion", "barca", "arcipelago", "maddalena",
+        "hotel deal", "flight deal", "vacation package", "itinerary",
         "wedding", "divorce", "towing", "movers", "cleaning service", "lawn care",
+        "tiny house", "trailer made", "camper", "rv ", "buy a home", "buying a home",
+        "home buying", "home in ", "moving to ", "best places to live", "neighborhood",
+        "cost of living", "salary", "job openings", "hiring ", "resume", "cover letter",
       ];
 
-      // Layer 2: the headline MUST carry a technology signal. If it does not,
+      // Layer 2: AI-slop headline jargon. These phrases are the fingerprint of
+      // machine-generated filler and are aggressively demoted by Google's
+      // helpful-content system, even when the topic itself is on-domain.
+      const SLOP_TERMS = [
+        "epistemic", "paradigm", "imperative", "omniscience", "omniscient",
+        "deconstruct", "re-architect", "rearchitect", "asymmetric", "asymmetry",
+        "calibration", "zeitgeist", "tapestry", "synergy", "leverage the",
+        "unleash", "revolutionize", "supercharge", "game-changer", "game changer",
+        "cutting-edge", "state-of-the-art", "delve into", "navigate the",
+        "frontier of", "nexus", "juxtaposition", "symphony of", "dance of",
+      ];
+
+      // Layer 3: the headline MUST carry a technology signal. If it does not,
       // the model drifted off-domain — reject and retry with another topic.
       const TECH_SIGNALS = [
         "ai", "artificial intelligence", "machine learning", "deep learning", "neural",
@@ -392,33 +483,78 @@ export async function GET(req: Request) {
         new RegExp(`(^|[^a-z0-9])${needle.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}([^a-z0-9]|$)`, "i").test(haystack);
 
       const blockedTerm = OFF_TOPIC_TERMS.find((t) => titleLower.includes(t));
+      const slopTerm = SLOP_TERMS.find((t) => titleLower.includes(t));
       const hasTechSignal = TECH_SIGNALS.some((t) => matchesWord(titleLower, t));
 
-      if (blockedTerm || !hasTechSignal) {
+      if (blockedTerm || slopTerm || !hasTechSignal) {
         console.warn(
           `[AutoPost] OFF-TOPIC REJECTED: "${blogData.title}" | reason: ${
-            blockedTerm ? `blacklisted term "${blockedTerm}"` : "no technology signal in headline"
+            blockedTerm
+              ? `blacklisted term "${blockedTerm}"`
+              : slopTerm
+                ? `AI-slop jargon "${slopTerm}"`
+                : "no technology signal in headline"
           }. Retrying with different topic.`,
         );
         allExistingTitles.push(`_offtopic_${attempts}_`);
         continue;
       }
 
-      const isDuplicate = allExistingTitles.some(existingTitle => {
-        const existingLower = existingTitle.toLowerCase();
-        if (existingLower === titleLower) return true;
-        const existingWords = new Set(existingLower.split(/\s+/));
-        const newWords = titleLower.split(/\s+/);
-        const commonWords = newWords.filter(w => existingWords.has(w));
-        const similarity = commonWords.length / Math.max(newWords.length, existingWords.size);
-        return similarity > 0.6;
-      });
+      // Duplicate guard: catches reworded headlines AND same-subject rewrites
+      // that share no literal words (see isNearDuplicate above).
+      const duplicateCheck = isNearDuplicate(blogData.title, blogData.subject_key, allExistingTitles);
 
-      if (isDuplicate) {
-        console.warn(`[AutoPost] DUPLICATE DETECTED: "${blogData.title}". Retrying with different topic.`);
-        // Change topic for retry
-        const nextTopicIndex = (topicIndex + 1) % topics.length;
+      if (duplicateCheck.duplicate) {
+        console.warn(
+          `[AutoPost] DUPLICATE DETECTED: "${blogData.title}" matches "${duplicateCheck.matchedTitle}" (${duplicateCheck.reason}). Retrying with different topic.`,
+        );
         allExistingTitles.push(`_dummy_${attempts}_`); // Force different topic index
+        continue;
+      }
+
+      // ---------------------------------------------------------------------
+      // Post-generation quality gate
+      // The model produced content — but is it publishable? These checks run
+      // before the DB insert so a bad article is discarded instead of shipped.
+      // ---------------------------------------------------------------------
+      const plainContent = (blogData.content || "")
+        .replace(/<[^>]+>/g, " ")
+        .replace(/&[a-z]+;/gi, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+      const wordCount = plainContent ? plainContent.split(" ").length : 0;
+
+      // Minimum substance: thin posts are the single biggest "low value
+      // content" trigger in Search Console, so refuse anything under 700 words.
+      if (wordCount < 700) {
+        console.warn(
+          `[AutoPost] TOO THIN REJECTED: "${blogData.title}" has only ${wordCount} words. Retrying.`,
+        );
+        allExistingTitles.push(`_thin_${attempts}_`);
+        continue;
+      }
+
+      // AI-slop density: count how many filler phrases leaked into the body.
+      // A couple are tolerable, a cluster is a fingerprint of machine filler.
+      const bodySlop = SLOP_TERMS.filter((t) => plainContent.toLowerCase().includes(t));
+      if (bodySlop.length >= 4) {
+        console.warn(
+          `[AutoPost] SLOP REJECTED: "${blogData.title}" contains ${bodySlop.length} filler phrases (${bodySlop.slice(0, 4).join(", ")}). Retrying.`,
+        );
+        allExistingTitles.push(`_slop_${attempts}_`);
+        continue;
+      }
+
+      // Excerpt sanity: a missing or stub excerpt renders an empty card.
+      const excerptOk = (blogData.excerpt || "").trim().length >= 60;
+      const metaOk = (blogData.meta_description || "").trim().length >= 70;
+
+      if (!excerptOk || !metaOk) {
+        console.warn(
+          `[AutoPost] INCOMPLETE METADATA: excerpt=${(blogData.excerpt || "").length} chars, meta=${(blogData.meta_description || "").length} chars. Retrying.`,
+        );
+        allExistingTitles.push(`_meta_${attempts}_`);
         continue;
       }
 
@@ -437,12 +573,25 @@ export async function GET(req: Request) {
         };
       }
 
-      const slug = blogData.title
+      // Slug must be unique — a collision makes the whole attempt fail at the DB
+      // layer. Probe first and add a short numeric suffix instead of losing the post.
+      const baseSlug = blogData.title
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, "-")
-        .replace(/(^-|-$)+/g, "")
         .replace(/^-+|-+$/g, "")
         .substring(0, 80);
+
+      let slug = baseSlug || `tech-post-${Date.now()}`;
+      const { data: slugClash } = await supabaseAdmin
+        .from("blogs")
+        .select("id")
+        .eq("slug", slug)
+        .maybeSingle();
+
+      if (slugClash) {
+        slug = `${baseSlug.substring(0, 72)}-${Date.now().toString(36).slice(-5)}`;
+        console.log(`[AutoPost] Slug collision on "${baseSlug}" — using "${slug}" instead.`);
+      }
 
       const { data: newPost, error: insertError } = await supabaseAdmin
         .from("blogs")

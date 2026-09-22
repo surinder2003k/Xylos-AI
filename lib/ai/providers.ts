@@ -157,6 +157,11 @@ export async function getProviderResponse(
   // 4. MISTRAL AI
   if (provider === 'mistral') {
     const safeMessages = processedMessages.map(m => ({ role: m.role, content: m.content }));
+    // "mistral-medium-2505" is not a valid model id for this account (the live
+    // /v1/models list exposes mistral-medium-latest, mistral-medium-3-5 and
+    // mistral-medium-2604). Use the rolling alias so the provider keeps working
+    // when Mistral rotates snapshots.
+    const mistralModel = model && model !== 'mistral-medium-2505' ? model : 'mistral-medium-latest';
     const res = await fetch("https://api.mistral.ai/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -164,7 +169,7 @@ export async function getProviderResponse(
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: model || "mistral-medium-2505",
+        model: mistralModel,
         messages: safeMessages
       })
     });
