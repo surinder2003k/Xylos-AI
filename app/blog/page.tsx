@@ -65,7 +65,7 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
   const from = (page - 1) * limit;
   const to = from + limit - 1;
 
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Fetch real categories from DB so the filter UI reflects actual content
   const { data: catRows } = await supabase
@@ -76,7 +76,7 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
 
   const realCats = Array.from(new Set(catRows?.map((r) => r.category).filter(Boolean))) as string[];
   const orderedCategories = [...CANONICAL_CATEGORIES].filter((c) => realCats.includes(c));
-  const extraCategories = realCats.filter((c) => !CANONICAL_CATEGORIES.includes(c));
+  const extraCategories = realCats.filter((c) => !(CANONICAL_CATEGORIES as readonly string[]).includes(c));
   const availableCategories = ["all", ...orderedCategories, ...extraCategories.sort()];
 
   const sanitizedQuery = query ? sanitizeSearchTerm(query) : "";
@@ -137,7 +137,7 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
           </span>
         </div>
 
-        <BlogGrid posts={postsFinal} />
+        <BlogGrid blogs={postsFinal} />
 
         {totalPages > 1 && (
           <div className="flex justify-center items-center gap-8 pt-12 mt-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
