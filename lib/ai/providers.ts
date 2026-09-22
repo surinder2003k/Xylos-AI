@@ -19,10 +19,28 @@ type ProviderResponse = {
   provider: string;
 };
 
+/**
+ * Per-call tuning. Kept optional so existing callers (the chat route) keep the
+ * exact previous behaviour: prose output, provider default token budget.
+ */
+type CallOptions = {
+  /** Force a single JSON object back (blog generator only — never for chat). */
+  jsonMode?: boolean;
+  /** Output token ceiling. */
+  maxTokens?: number;
+  /**
+   * Reasoning-token budget for hybrid reasoning models (gpt-oss, qwen3...).
+   * These models otherwise spend most of `maxTokens` on hidden reasoning and
+   * return truncated JSON.
+   */
+  reasoningEffort?: 'low' | 'medium' | 'high';
+};
+
 export async function getProviderResponse(
   provider: string,
   model: string,
-  messages: Message[]
+  messages: Message[],
+  options?: CallOptions
 ): Promise<ProviderResponse> {
 
   // High-Performance Link & Asset Pre-processor
@@ -67,21 +85,35 @@ export async function getProviderResponse(
   // 2. GROQ
   if (provider === 'groq') {
     const safeMessages = processedMessages.map(m => ({ role: m.role, content: m.content }));
+    const groqModel = model || "llama-3.3-70b-versatile";
+
+    const body: Record<string, unknown> = {
+      model: groqModel,
+      messages: safeMessages,
+      temperature: 0.7,
+    };
+
+    // JSON mode is opt-in: the blog generator needs one raw JSON object, but the
+    // chat route must stay prose. Forcing json_object for chat returned JSON
+    // blobs instead of answers.
+    if (options?.jsonMode) body.response_format = { type: "json_object" };
+    if (options?.maxTokens) body.max_tokens = options.maxTokens;
+
+    // Hybrid reasoning models (gpt-oss, qwen3) otherwise burn most of the token
+    // budget on hidden reasoning, which truncated the JSON mid-object and broke
+    // the parser. Cap it — and include the reasoning field when asked for.
+    if (options?.reasoningEffort && /gpt-oss|qwen3|deepseek-r1/i.test(groqModel)) {
+      body.reasoning_effort = options.reasoningEffort;
+      body.include_reasoning = false;
+    }
+
     const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${process.env.GROQ_API_KEY}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        model: model || "openai/gpt-oss-120b",
-        messages: safeMessages,
-        // Force structurally valid JSON — the blog generator expects a pure
-        // JSON object and prose-wrapped JSON used to break the parser.
-        response_format: { type: "json_object" },
-        temperature: 0.7,
-        max_tokens: 4000
-      })
+      body: JSON.stringify(body)
     });
     const data = await res.json();
     if (!data.choices?.[0]?.message) {
@@ -275,6 +307,7 @@ export async function getProviderResponse(
     };
   }
 
-  // BEST FREE ROUTE (Groq gpt-oss-120b — fastest free, live-tested)
-  return getProviderResponse('groq', 'openai/gpt-oss-120b', processedMessages);
+  // BEST FREE ROUTE (Groq llama-3.3-70b-versatile — fastest free, no hidden
+  // reasoning tokens, live-tested for valid JSON)
+  return getProviderResponse('groq', 'llama-3.3-70b-versatile', processedMessages, options);
 }

@@ -112,7 +112,13 @@ export async function generateSmartBlog(
   category?: string,
   internalLinks: string[] = [],
   externalLinks: string[] = [],
-  deadlineAt?: number
+  deadlineAt?: number,
+  /**
+   * Rotates which provider is tried first. Post #2 of a run starts on a
+   * different provider so a single free-tier TPM ceiling (Groq = 8k/min) cannot
+   * starve the second article — the previous cause of "all providers failed".
+   */
+  providerOffset: number = 0
 ): Promise<BlogContent> {
   // Only attempt providers whose key is actually configured. A missing key used
   // to cost a full timeout window per attempt before failing, which pushed the
@@ -128,10 +134,17 @@ export async function generateSmartBlog(
     cloudflare: 'CLOUDFLARE_API_TOKEN',
   };
 
-  const configuredProviders = [
-    { name: 'groq', model: 'openai/gpt-oss-120b', timeoutMs: 25_000 },
-    { name: 'gemini', model: 'gemini-3.6-flash', timeoutMs: 20_000 },
+  const providerChain = [
+    // llama-3.3-70b-versatile: no hidden reasoning tokens, so the full
+    // maxTokens budget goes to the article JSON instead of being truncated.
+    { name: 'groq', model: 'llama-3.3-70b-versatile', timeoutMs: 25_000 },
+    { name: 'gemini', model: 'gemini-2.5-flash', timeoutMs: 20_000 },
     { name: 'openrouter', model: 'nvidia/nemotron-3-super-120b-a12b:free', timeoutMs: 20_000 },
+    // Last-resort attempts for a reasoning-capable model: capping the reasoning
+    // budget keeps the JSON intact.
+    { name: 'groq', model: 'openai/gpt-oss-120b', timeoutMs: 18_000 },
+    { name: 'cerebras', model: 'gpt-oss-120b', timeoutMs: 18_000 },
+    { name: 'mistral', model: 'mistral-medium-latest', timeoutMs: 18_000 },
   ].filter((p) => {
     const envVar = PROVIDER_KEY_ENV[p.name];
     const hasKey = !!process.env[envVar];
@@ -139,9 +152,26 @@ export async function generateSmartBlog(
     return hasKey;
   });
 
-  const providers = configuredProviders.length
-    ? configuredProviders
-    : [{ name: 'groq', model: 'openai/gpt-oss-120b', timeoutMs: 25_000 }];
+  // De-duplicate by provider (Groq appears twice with different models) while
+  // keeping order, then rotate the starting point.
+  const seen = new Set<string>();
+  const unique = providerChain.filter((p) => {
+    if (seen.has(p.name)) return false;
+    seen.add(p.name);
+    return true;
+  });
+
+  const ordered = unique.length
+    ? [...unique.slice(providerOffset % unique.length), ...unique.slice(0, providerOffset % unique.length)]
+    : [{ name: 'groq', model: 'llama-3.3-70b-versatile', timeoutMs: 25_000 }];
+
+  // Each provider gets one shot; a second Groq attempt is appended with the
+  // reasoning model only when Groq is the first choice (its TPM allows two
+  // small calls, not two large ones).
+  const providers =
+    ordered[0]?.name === 'groq' && unique.length > 0
+      ? [ordered[0], { name: 'groq', model: 'openai/gpt-oss-120b', timeoutMs: 18_000 }, ...ordered.slice(1)]
+      : ordered;
 
   const systemPrompt = `You are the Xylos Neural Engine, a senior technology journalist writing for Xylos AI.
 
@@ -220,7 +250,12 @@ export async function generateSmartBlog(
         getProviderResponse(
           provider.name,
           provider.model,
-          [{ role: 'user', content: systemPrompt }]
+          [{ role: 'user', content: systemPrompt }],
+          // Blog generation always needs one raw JSON object. maxTokens covers a
+          // 1000-1300 word HTML article (~2.4k tokens) with headroom so the JSON
+          // is never cut mid-object; reasoning models get their hidden budget
+          // capped so it cannot eat that allowance.
+          { jsonMode: true, maxTokens: 5000, reasoningEffort: 'low' }
         ),
         new Promise<never>((_, reject) =>
           setTimeout(() => reject(new Error(`${provider.name} timed out after ${effectiveTimeout}ms`)), effectiveTimeout)
