@@ -14,8 +14,6 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
   const page = parseInt(sp.page || "1");
   const category = sp.category || "all";
 
-  // Pagination-aware canonical: page 1 = /blog, page N = /blog?page=N (self-canonical)
-  // so Google treats paginated pages as distinct, indexable archive pages.
   const pageSuffix = page > 1 ? `?page=${page}` : "";
   const canonical = `https://xylosai.vercel.app/blog${pageSuffix}`;
   const catSuffix = category !== "all" ? ` — ${category}` : "";
@@ -26,9 +24,7 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
   return {
     title: pageTitle,
     description: "Explore expert articles on artificial intelligence, technology trends, and digital innovation. Written and curated by the Xylos AI editorial engine.",
-    alternates: {
-      canonical,
-    },
+    alternates: { canonical },
     openGraph: {
       title: pageTitle,
       description: "Deep-dive articles on AI, machine learning, and emerging tech — curated by automated intelligence.",
@@ -40,151 +36,138 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
 
 export const revalidate = 600;
 
+const CANONICAL_CATEGORIES = [
+  "Technology", "AI & Machine Learning", "Cybersecurity",
+  "Software Development", "Cloud & DevOps", "Consumer Tech",
+  "Blockchain & Crypto", "Space & Science",
+] as const;
+
+function sanitizeSearchTerm(raw: string): string {
+  return raw
+    .replace(/[\\%_]/g, (m) => `\\${m}`)
+    .replace(/["'(),{}[\]\\]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 60);
+}
+
+function qs(value: string): string {
+  return encodeURIComponent(value);
+}
+
 export default async function BlogArchivePage(props: { searchParams: Promise<{ [key: string]: string | undefined }> }) {
   const searchParams = await props.searchParams;
-  const page = parseInt(searchParams.page || "1");
+  const page = Math.max(1, parseInt(searchParams.page || "1") || 1);
   const category = searchParams.category || "all";
-  const query = searchParams.q || "";
-  
+  const query = (searchParams.q || "").trim();
+
   const limit = 9;
   const from = (page - 1) * limit;
   const to = from + limit - 1;
 
-  const publicSupabase = createPublicClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
-  
-  let dbQuery = publicSupabase
+  const supabase = createClient();
+
+  // Fetch real categories from DB so the filter UI reflects actual content
+  const { data: catRows } = await supabase
     .from("blogs")
-    .select("*", { count: 'exact' })
+    .select("category")
+    .not("category", "is", null)
+    .eq("status", "published");
+
+  const realCats = Array.from(new Set(catRows?.map((r) => r.category).filter(Boolean))) as string[];
+  const orderedCategories = [...CANONICAL_CATEGORIES].filter((c) => realCats.includes(c));
+  const extraCategories = realCats.filter((c) => !CANONICAL_CATEGORIES.includes(c));
+  const availableCategories = ["all", ...orderedCategories, ...extraCategories.sort()];
+
+  const sanitizedQuery = query ? sanitizeSearchTerm(query) : "";
+
+  let queryBuilder = supabase
+    .from("blogs")
+    .select("*", { count: "exact" })
     .eq("status", "published")
     .order("published_at", { ascending: false });
 
-  if (category && category !== "all") {
-    dbQuery = dbQuery.eq("category", category);
+  if (sanitizedQuery) {
+    queryBuilder = queryBuilder.or("title.like:*" + sanitizedQuery + "*,content.like:*" + sanitizedQuery + "*");
   }
-  
-  if (query) {
-    dbQuery = dbQuery.or(`title.ilike.%${query}%,excerpt.ilike.%${query}%`);
-  }
-
-  const { data: blogsData, count } = await dbQuery.range(from, to);
-
-  let blogs = blogsData;
-  if (blogsData && blogsData.length > 0) {
-    const authorIds = [...new Set(blogsData.map(b => b.author_id))].filter(Boolean);
-    const { data: profiles } = await publicSupabase
-      .from("profiles")
-      .select("user_id, full_name")
-      .in("user_id", authorIds);
-
-    blogs = blogsData.map(blog => ({
-      ...blog,
-      profiles: profiles?.find(p => p.user_id === blog.author_id)
-    }));
+  if (category !== "all") {
+    queryBuilder = queryBuilder.ilike("category", category);
   }
 
-  const totalPages = count ? Math.ceil(count / limit) : 1;
+  const { data: postsData, error: fetchError, count: totalCount } = await queryBuilder.range(from, to);
+  const postsFinal = postsData || [];
+
+  const totalPages = totalCount ? Math.ceil(totalCount / limit) : 0;
+  const currentPage = Math.min(page, Math.max(1, totalPages));
+
+  const hasNext = currentPage < totalPages;
+  const hasPrev = currentPage > 1;
+
+  const buildHref = (targetPage: number) => {
+    const params = new URLSearchParams();
+    if (category !== "all") params.set("category", category);
+    if (query) params.set("q", query);
+    params.set("page", String(targetPage));
+    return `/blog?${params.toString()}`;
+  };
 
   return (
-    <div className="min-h-screen" style={{ background: '#0a0b0e', color: '#e2e2e8' }}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xylosai.vercel.app" },
-              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://xylosai.vercel.app/blog" }
-            ]
-          })
-        }}
-      />
+    <div className="min-h-screen bg-[#0a0a0a] text-white">
+      <main className="max-w-7xl mx-auto px-4 py-12">
+        <section className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#00f0ff] via-[#a78bfa] to-[#fb7185] bg-clip-text text-transparent">
+            AI Blog — Insights on Technology, AI & Innovation
+          </h1>
+          <p className="text-gray-400 text-base max-w-2xl mx-auto">
+            Deep-dive articles on AI, machine learning, and emerging tech — curated by automated intelligence.
+          </p>
+        </section>
 
-      <main className="pt-32 md:pt-40 pb-24 px-6 relative">
-        <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
-          {/* Hero */}
-          <div className="text-center space-y-6 max-w-4xl mx-auto">
-             <div className="flex justify-center">
-                <div className="px-5 py-2 rounded-full text-[11px] font-medium tracking-wide flex items-center gap-2" style={{ background: 'rgba(0, 240, 255, 0.1)', border: '1px solid rgba(0, 240, 255, 0.2)', color: '#00f0ff' }}>
-                   <BookOpen className="w-3 h-3" /> The Perspective
-                </div>
-             </div>
-             <h1 className="text-5xl md:text-6xl font-bold tracking-[-0.03em] leading-[1.02] text-white" style={{ fontFamily: 'Sora, sans-serif' }}>
-               Editorial <br />
-               <span style={{ color: '#00f0ff' }}>Archives</span>
-             </h1>
-             <p className="text-gray-400 text-lg font-medium pt-4 max-w-2xl mx-auto leading-relaxed">
-               Deep dives into the intersection of artificial intelligence, high-stakes reporting, and the human narrative.
-             </p>
+        <Suspense fallback={<div className="text-center py-8">Loading filters…</div>}>
+          <div className="mb-8">
+            <BlogFilters categories={availableCategories} />
           </div>
+        </Suspense>
 
-          {/* Filters */}
-          <div className="py-8" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)', borderBottom: '1px solid rgba(59, 73, 75, 0.2)' }}>
-            <Suspense fallback={<div className="h-20" />}>
-              <BlogFilters />
-            </Suspense>
-          </div>
-
-          {/* Blog Grid */}
-          {blogs && blogs.length > 0 ? (
-            <BlogGrid blogs={blogs} />
-          ) : (
-            <div className="text-center py-20 px-6 rounded-2xl" style={{ background: 'rgba(12, 14, 18, 0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
-              <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-2xl flex items-center justify-center" style={{ background: 'rgba(0, 240, 255, 0.08)', border: '1px solid rgba(0, 240, 255, 0.2)' }}>
-                  <Search className="w-7 h-7 text-[#00f0ff]" />
-                </div>
-              </div>
-              <h2 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-                {query ? `No stories found for "${query}"` : 'No stories in this category yet'}
-              </h2>
-              <p className="text-gray-400 text-sm max-w-md mx-auto mb-8">
-                {query
-                  ? 'Try a different keyword, or browse the full archive — new stories are published daily.'
-                  : 'New stories are published daily. Check back soon or explore all categories.'}
-              </p>
-              <Link
-                href="/blog"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 hover:bg-[rgba(0,240,255,0.12)] hover:text-[#00f0ff] text-white"
-                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}
-              >
-                View Full Archive
-              </Link>
-            </div>
-          )}
-
-          {/* Pagination */}
-          {totalPages > 1 && (
-            <div className="flex justify-center items-center gap-8 pt-12 mt-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
-              {page > 1 ? (
-                 <Link href={`/blog?page=${page - 1}${category !== 'all' ? `&category=${category}` : ''}${query ? `&q=${query}` : ''}`} className="px-8 py-4 rounded-xl font-semibold text-sm hover:bg-[rgba(0,240,255,0.12)] hover:text-[#00f0ff] transition-all duration-300" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                   Previous
-                 </Link>
-              ) : (
-                 <div className="px-8 py-4 rounded-xl text-gray-600 font-semibold text-sm cursor-not-allowed" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                   Previous
-                 </div>
-              )}
-              
-              <div className="text-sm font-semibold" style={{ color: '#849495' }}>
-                {page} / {totalPages}
-              </div>
-
-              {page < totalPages ? (
-                  <Link href={`/blog?page=${page + 1}${category !== 'all' ? `&category=${category}` : ''}${query ? `&q=${query}` : ''}`} className="px-8 py-4 rounded-xl font-semibold text-sm hover:bg-[rgba(0,240,255,0.12)] hover:text-[#00f0ff] transition-all duration-300" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                   Next
-                 </Link>
-              ) : (
-                 <div className="px-8 py-4 rounded-xl text-gray-600 font-semibold text-sm cursor-not-allowed" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                   Next
-                 </div>
-              )}
-            </div>
-          )}
+        <div className="flex justify-between items-center mb-6 text-sm">
+          <span className="text-gray-400">
+            {totalCount} {totalCount === 1 ? "article" : "articles"} found
+            {category !== "all" ? ` in ${category}` : ""}
+            {query ? ` for "${query}"` : ""}
+          </span>
         </div>
+
+        <BlogGrid posts={postsFinal} />
+
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center gap-8 pt-12 mt-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
+            {hasPrev ? (
+              <Link href={buildHref(currentPage - 1)} className="px-8 py-4 rounded-xl font-semibold text-sm hover:bg-[rgba(0,240,255,0.12)] hover:text-[#00f0ff] transition-all duration-300" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                Previous
+              </Link>
+            ) : (
+              <div className="px-8 py-4 rounded-xl text-gray-600 font-semibold text-sm cursor-not-allowed" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                Previous
+              </div>
+            )}
+
+            <div className="text-sm font-semibold" style={{ color: '#849495' }}>
+              {currentPage} / {totalPages}
+            </div>
+
+            {hasNext ? (
+              <Link href={buildHref(currentPage + 1)} className="px-8 py-4 rounded-xl font-semibold text-sm hover:bg-[rgba(0,240,255,0.12)] hover:text-[#00f0ff] transition-all duration-300" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                Next
+              </Link>
+            ) : (
+              <div className="px-8 py-4 rounded-xl text-gray-600 font-semibold text-sm cursor-not-allowed" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                Next
+              </div>
+            )}
+          </div>
+        )}
       </main>
 
-      {/* Footer */}
       <footer className="py-16 px-6 text-center" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <div className="max-w-2xl mx-auto space-y-6">
           <div className="flex justify-center gap-6 text-[10px] uppercase tracking-widest mb-2" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
