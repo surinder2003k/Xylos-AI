@@ -179,13 +179,13 @@ export async function generateSmartBlog(
   If that topic is generic, pick one concrete development inside the same domain and write about that instead.
 
   ALREADY PUBLISHED (never repeat, never reword these subjects):
-  ${recentTitles.length > 0 ? recentTitles.join("\n") : "None"}
+  ${recentTitles.filter((t) => t && !t.startsWith("_")).join("\n") || "None"}
 
   SUBJECT DEDUPLICATION: rewording a published subject is a rejection. REJECTED example: existing "On-Device AI: The Silent Revolution Reshaping Smartphones" -> new "On-Device AI: The Quiet Engine Redefining Smartphones". Also return "subject_key": the canonical 2-4 word lowercase subject (example: "on-device ai smartphones") that matches no published subject above.
 
   TOPIC LOCK (violation = rejected): technology only — AI, software, cybersecurity, chips, cloud, robotics, blockchain, space tech, or a clearly tech-driven angle. NEVER write about insurance, legal or medical advice, food, travel, home services (roofing, plumbing), real estate, gambling, or consumer listicles. If a topic drifts, pivot to its closest technology angle.
 
-  TITLE RULES: plain, specific, human — the reader must know what they get. Banned words: epistemic, paradigm, imperative, omniscience, deconstruct, re-architect, asymmetric, calibration, nuance, frontier, realm, delve, unleash, revolutionize, supercharge, game-changer, cutting-edge, tapestry, zeitgeist. Banned shapes: "The X Imperative", "The X Paradox", "The X Horizon", "Beyond X: Y", "X vs Y: The Definitive Guide". Good examples: "How On-Device AI Models Are Cutting Cloud Costs for Mobile Apps", "Passkeys Explained: What Changes for Developers in 2026".
+  TITLE RULES: plain, specific, human — the reader must know what they get. Banned words: epistemic, paradigm, imperative, omniscience, deconstruct, re-architect, asymmetric, calibration, nuance, frontier, realm, delve, unleash, revolutionize, supercharge, game-changer, cutting-edge, tapestry, zeitgeist, unveiling, unlocking, unearthing, deciphering, decoding, navigating, odyssey, nexus, juxtaposition, synergy. Banned shapes: "The X Imperative", "The X Paradox", "The X Horizon", "Beyond X: Y", "X vs Y: The Definitive Guide", "Unveiling the X", "Unlocking the X", "Navigating the X", "Mastering the X", and any "A Futuristic Odyssey" subtitle. If the title still reads like a vague teaser rather than a concrete claim, rewrite it. Good examples: "How On-Device AI Models Are Cutting Cloud Costs for Mobile Apps", "Passkeys Explained: What Changes for Developers in 2026".
 
   LINKS (inside content, <a href> with target="_blank" rel="noopener noreferrer"):
   - 1+ INTERNAL link from: ${internalLinks.length > 0 ? internalLinks.join(" | ") : "any relevant /blog post on this site"}

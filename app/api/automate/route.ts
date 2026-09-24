@@ -25,14 +25,14 @@ const CATEGORIES = [
 ];
 
 const CATEGORY_TOPICS: Record<string, string[]> = {
-  "Technology": ["Open-source AI tools developers actually use", "How on-device AI is changing smartphones", "The real cost of running AI inference at scale", "Why small language models are winning on the edge"],
-  "AI & Machine Learning": ["Prompt engineering techniques that actually improve output", "Retrieval-augmented generation explained for builders", "Fine-tuning vs RAG: choosing the right approach", "How free-tier AI models compare in real benchmarks"],
-  "Cybersecurity": ["Passkey adoption and the death of passwords", "Practical API security mistakes developers still make", "How ransomware groups exploit unpatched servers", "Zero-trust architecture for small teams"],
-  "Software Development": ["TypeScript patterns that scale in large codebases", "Server-side rendering trade-offs in modern frameworks", "Testing strategies for AI-powered applications", "Why edge computing is reshaping web deployment"],
-  "Cloud & DevOps": ["Serverless vs containers for startup workloads", "Cutting cloud costs without cutting reliability", "CI/CD pipelines that deploy in under a minute", "Postgres vs specialized databases for app builders"],
-  "Consumer Tech": ["Battery tech breakthroughs coming to laptops", "The best privacy settings on modern browsers", "How foldable hardware finally got practical", "Smart home standards that actually interoperate"],
-  "Blockchain": ["Smart contract security audits explained", "Layer-2 scaling and what it means for fees", "Real-world uses of decentralized identity", "Energy use of proof-of-stake vs proof-of-work"],
-  "Space & Astronomy": ["Reusable rockets and falling launch costs", "Satellite internet constellations in practice", "AI's role in processing telescope data", "CubeSats and the new space startup wave"]
+  "Technology": ["Open-source AI tools developers actually use", "How on-device AI is changing smartphones", "The real cost of running AI inference at scale", "Why small language models are winning on the edge", "Why Rust is quietly taking over systems programming", "The state of WebAssembly beyond the browser", "How TypeScript strict mode changes team velocity", "RISC-V and the shifting chip landscape"],
+  "AI & Machine Learning": ["Prompt engineering techniques that actually improve output", "Retrieval-augmented generation explained for builders", "Fine-tuning vs RAG: choosing the right approach", "How free-tier AI models compare in real benchmarks", "Vector databases and the retrieval stack", "What small models mean for on-device assistants", "Evaluating LLM output without human reviewers", "AI agents and the function-calling standard"],
+  "Cybersecurity": ["Passkey adoption and the death of passwords", "Practical API security mistakes developers still make", "How ransomware groups exploit unpatched servers", "Zero-trust architecture for small teams", "Supply-chain attacks in open-source packages", "Secrets management for small teams", "Observability as a security signal", "Phishing-resistant MFA beyond SMS codes"],
+  "Software Development": ["TypeScript patterns that scale in large codebases", "Server-side rendering trade-offs in modern frameworks", "Testing strategies for AI-powered applications", "Why edge computing is reshaping web deployment", "Monorepos vs polyrepos in practice", "Feature flags as a deployment strategy", "Debugging production incidents with traces", "Why your CI is slow and how to fix it"],
+  "Cloud & DevOps": ["Serverless vs containers for startup workloads", "Cutting cloud costs without cutting reliability", "CI/CD pipelines that deploy in under a minute", "Postgres vs specialized databases for app builders", "Platform engineering without the platform team", "Kubernetes cost control that actually works", "Edge databases and data residency", "Terraform drift and how to catch it"],
+  "Consumer Tech": ["Battery tech breakthroughs coming to laptops", "The best privacy settings on modern browsers", "How foldable hardware finally got practical", "Smart home standards that actually interoperate", "Repairability scores and what they changed", "The smartwatch health-sensor arms race", "E-ink phones and digital minimalism", "Wi-Fi 7 routers: worth upgrading yet"],
+  "Blockchain": ["Smart contract security audits explained", "Layer-2 scaling and what it means for fees", "Real-world uses of decentralized identity", "Energy use of proof-of-stake vs proof-of-work", "Stablecoins as payment rails", "Account abstraction wallets explained", "NFTs after the hype: real utility", "Restaking and its systemic risks"],
+  "Space & Astronomy": ["Reusable rockets and falling launch costs", "Satellite internet constellations in practice", "AI's role in processing telescope data", "CubeSats and the new space startup wave", "Starlink congestion and orbital debris", "Rocket reusability economics, revisited", "Lunar internet: NASA's Moon to Mars network", "Asteroid mining claims and space law"]
 };
 
 // Keyword-to-URL mapping for auto external linking
@@ -211,6 +211,15 @@ function isNearDuplicate(
     if (jaccard >= 0.45 || (common >= 4 && jaccard >= 0.35)) {
       return { duplicate: true, matchedTitle: existing, reason: `similarity ${jaccard.toFixed(2)}` };
     }
+
+    // Signal 1b: containment — a short headline fully inside a longer one.
+    // Jaccard dilutes when the two lengths differ; containment does not, so
+    // "On-Device AI: The Quiet Engine Redefining Smartphones" is caught even
+    // when the matching published title is twice as long.
+    const minSize = Math.min(newSet.size, existingSet.size);
+    if (minSize >= 3 && common / minSize >= 0.7) {
+      return { duplicate: true, matchedTitle: existing, reason: `containment ${(common / minSize).toFixed(2)}` };
+    }
   }
 
   return { duplicate: false, matchedTitle: null, reason: "" };
@@ -288,7 +297,7 @@ export async function GET(req: Request) {
         .from("blogs")
         .select("title, category")
         .order("created_at", { ascending: false })
-        .limit(100);
+        .limit(250);
       if (latestPosts) {
         allExistingTitles = latestPosts.map((p) => p.title);
       }
@@ -397,8 +406,22 @@ export async function GET(req: Request) {
       }
 
       const topics = CATEGORY_TOPICS[currentCategory] || ["Latest Developments", "Industry Trends", "Expert Analysis"];
-      const topicIndex = (allExistingTitles.length + attempts) % topics.length;
-      const currentTopic = topics[topicIndex];
+      // Prefer topics NOT already covered by a recent headline — re-picking a
+      // covered topic makes the model reword a published subject, which the
+      // duplicate guard then rejects (wasted attempt + no post).
+      const uncoveredTopics = topics.filter((t) => {
+        const topicTokens = new Set(significantTokens(t));
+        if (topicTokens.size === 0) return true;
+        return !allExistingTitles.some((ex) => {
+          if (!ex || ex.startsWith("_")) return false;
+          const exSet = new Set(significantTokens(ex));
+          const shared = [...topicTokens].filter((w) => exSet.has(w)).length;
+          return shared / topicTokens.size >= 0.7;
+        });
+      });
+      const topicPool = uncoveredTopics.length > 0 ? uncoveredTopics : topics;
+      const topicIndex = (allExistingTitles.length + attempts) % topicPool.length;
+      const currentTopic = topicPool[topicIndex];
 
       console.log(`[AutoPost] Generating post ${i + 1}/${count} (attempt ${attempts}) | Category: ${currentCategory} | Topic: ${currentTopic}`);
 
@@ -434,7 +457,7 @@ export async function GET(req: Request) {
         "insurance", "denture", "dental", "oral surgery", "attorney", "lawyer", "legal advice",
         "burger", "restaurant", "recipe", "food near", "catering", "cuisine",
         "roof", "gutter", "plumb", "drain", "hvac", "pest control", "pest ", "exterminat",
-        "remodel", "renovation", "landscap", "fence ", "siding", "flooring", "window replacement",
+        "remodel", "renovation", "landscaping", "landscape design", "fence ", "siding", "flooring", "window replacement",
         "casino", "betting", "slot ", "lottery", "poker",
         "half-cow", "cow price", "beef cost", "livestock", "cattle",
         "real estate agent", "realtor", "mortgage", "property listing",
@@ -457,6 +480,12 @@ export async function GET(req: Request) {
         "unleash", "revolutionize", "supercharge", "game-changer", "game changer",
         "cutting-edge", "state-of-the-art", "delve into", "navigate the",
         "frontier of", "nexus", "juxtaposition", "symphony of", "dance of",
+        // Filler openers that dominated the legacy archive: every one of these
+        // "Unveiling/Unlocking/Navigating the X: A Futuristic Odyssey" style
+        // headlines had to be drafted manually, so block them at the source.
+        // Keep this list in sync with AI_SLOP in database/blog-quality-cleanup.js.
+        "unveiling", "unlocking", "unearthing", "deciphering", "decoding",
+        "navigating", "odyssey", "mastering the",
       ];
 
       // Layer 3: the headline MUST carry a technology signal. If it does not,
