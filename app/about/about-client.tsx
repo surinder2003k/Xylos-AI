@@ -21,11 +21,11 @@ import { NewsletterForm } from "@/components/landing/newsletter-form";
 export default function AboutPageClient() {
 
   return (
-    <div className="min-h-screen relative overflow-hidden" style={{ background: '#0a0b0e', color: '#e2e2e8' }}>
+    <div className="min-h-screen relative overflow-hidden" style={{ background: '#0d0e10', color: '#eeeae2' }}>
       {/* Subtle ambient depth — single soft cyan radial (matches landing) */}
       <div className="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
         <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[90vw] max-w-[550px] md:w-[70vw] md:max-w-[800px] h-[60vw] max-h-[350px] md:h-[50vw] md:max-h-[500px] rounded-full blur-[120px] md:blur-[160px]" style={{ background: 'radial-gradient(closest-side, rgba(0,240,255,0.05), transparent)' }} />
+        <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[90vw] max-w-[550px] md:w-[70vw] md:max-w-[800px] h-[60vw] max-h-[350px] md:h-[50vw] md:max-h-[500px] rounded-full blur-[120px] md:blur-[160px]" style={{ background: 'radial-gradient(closest-side, rgba(54,183,176,0.05), transparent)' }} />
       </div>
       </div>
 
@@ -37,7 +37,7 @@ export default function AboutPageClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[11px] font-medium tracking-wide"
-            style={{ background: 'rgba(0,240,255,0.1)', border: '1px solid rgba(0,240,255,0.2)', color: '#00f0ff' }}
+            style={{ background: 'rgba(54,183,176,0.1)', border: '1px solid rgba(54,183,176,0.2)', color: '#36b7b0' }}
           >
             <Sparkles className="w-3 h-3" />
             About Xylos
@@ -52,9 +52,9 @@ export default function AboutPageClient() {
               style={{ fontFamily: 'Sora, sans-serif' }}
             >
               AI and human intelligence,<br />
-              <span style={{ color: '#00f0ff' }}>working in harmony.</span>
+              <span style={{ color: '#36b7b0' }}>working in harmony.</span>
             </motion.h1>
-            <p className="text-lg md:text-xl font-medium max-w-3xl mx-auto leading-relaxed" style={{ color: '#849495' }}>
+            <p className="text-lg md:text-xl font-medium max-w-3xl mx-auto leading-relaxed" style={{ color: '#8d8b85' }}>
               Xylos AI is a calm, decentralized workspace that augments human creativity with industrial-grade artificial intelligence.
             </p>
           </div>
@@ -70,10 +70,10 @@ export default function AboutPageClient() {
           >
             <div className="space-y-4">
               <h2 className="text-2xl sm:text-3xl font-bold tracking-[-0.02em] flex items-center gap-4 text-white" style={{ fontFamily: 'Sora, sans-serif' }}>
-                <Cpu aria-hidden="true" className="w-7 h-7" style={{ color: '#00f0ff' }} />
+                <Cpu aria-hidden="true" className="w-7 h-7" style={{ color: '#36b7b0' }} />
                 The protocol
               </h2>
-              <p className="leading-loose text-lg" style={{ color: '#aeb9bd' }}>
+              <p className="leading-loose text-lg" style={{ color: '#b8b4ac' }}>
                 At the core of Xylos AI lies the <span className="text-white font-semibold">Aether Intelligence Layer</span>. This stack aggregates multi-model responses from Gemini, Llama, and Mistral, refining them through a specialized editorial filter to produce content that feels organic, authoritative, and precise.
               </p>
             </div>
@@ -117,13 +117,13 @@ export default function AboutPageClient() {
             </div>
 
             {/* Float Badge */}
-            <div className="absolute -bottom-6 -left-6 p-4 sm:p-6 rounded-2xl" style={{ background: 'rgba(12, 14, 18, 0.85)', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <div className="absolute -bottom-6 -left-6 p-4 sm:p-6 rounded-2xl" style={{ background: 'rgba(20, 21, 24, 0.85)', border: '1px solid rgba(255,255,255,0.08)' }}>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: 'rgba(0,240,255,0.12)' }}>
-                  <Brain className="w-6 h-6" style={{ color: '#00f0ff' }} />
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: 'rgba(54,183,176,0.12)' }}>
+                  <Brain className="w-6 h-6" style={{ color: '#36b7b0' }} />
                 </div>
                 <div>
-                  <p className="text-[12px] font-medium" style={{ color: '#849495' }}>AI providers</p>
+                  <p className="text-[12px] font-medium" style={{ color: '#8d8b85' }}>AI providers</p>
                   <p className="text-2xl font-bold text-white" style={{ fontFamily: 'Sora, sans-serif' }}>8</p>
                 </div>
               </div>
@@ -140,16 +140,16 @@ export default function AboutPageClient() {
             className="sm:col-span-2 md:col-span-2 p-8 sm:p-10 rounded-2xl glass-card"
           >
             <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center gap-6">
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0" style={{ background: 'rgba(0,240,255,0.12)' }}>
-                <MessageSquare className="w-8 h-8" style={{ color: '#00f0ff' }} />
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0" style={{ background: 'rgba(54,183,176,0.12)' }}>
+                <MessageSquare className="w-8 h-8" style={{ color: '#36b7b0' }} />
               </div>
               <div className="flex-1">
                 <h3 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: 'Sora, sans-serif' }}>Unified AI chat</h3>
-                <p className="text-lg leading-relaxed" style={{ color: '#849495' }}>Access 7+ models including Llama 3, Gemini, Mistral and Qwen in a single interface.</p>
+                <p className="text-lg leading-relaxed" style={{ color: '#8d8b85' }}>Access 7+ models including Llama 3, Gemini, Mistral and Qwen in a single interface.</p>
               </div>
               <div className="text-right hidden sm:block">
                 <p className="text-5xl font-bold text-white" style={{ fontFamily: 'Sora, sans-serif' }}>7+</p>
-                <p className="text-[12px] font-medium" style={{ color: '#849495' }}>Models</p>
+                <p className="text-[12px] font-medium" style={{ color: '#8d8b85' }}>Models</p>
               </div>
             </div>
           </motion.div>
@@ -167,9 +167,9 @@ export default function AboutPageClient() {
         </div>
 
         {/* Mission Statement */}
-        <section className="p-8 sm:p-12 md:p-24 text-center space-y-8 relative overflow-hidden rounded-3xl" style={{ background: 'rgba(0,240,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+        <section className="p-8 sm:p-12 md:p-24 text-center space-y-8 relative overflow-hidden rounded-3xl" style={{ background: 'rgba(54,183,176,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
            <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.02em] text-white relative z-10" style={{ fontFamily: 'Sora, sans-serif' }}>Our mission</h2>
-           <p className="text-lg sm:text-xl md:text-3xl font-medium max-w-4xl mx-auto leading-tight relative z-10" style={{ color: '#aeb9bd' }}>
+           <p className="text-lg sm:text-xl md:text-3xl font-medium max-w-4xl mx-auto leading-tight relative z-10" style={{ color: '#b8b4ac' }}>
              Xylos was founded on a singular premise: that technology should empower human expression, not replace it. We are building the infrastructure for the next century of digital storytelling.
            </p>
         </section>
@@ -180,12 +180,12 @@ export default function AboutPageClient() {
 
       <footer className="py-12 px-6 text-center" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <div className="flex justify-center gap-6 text-[10px] uppercase tracking-widest mb-4" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-          <a href="/about" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>About</a>
-          <a href="/blog" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Blog</a>
-          <a href="/contact" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Contact</a>
-          <a href="/terms" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Terms</a>
-          <a href="/cookies" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Cookies</a>
-          <a href="/privacy" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Privacy</a>
+          <a href="/about" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>About</a>
+          <a href="/blog" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Blog</a>
+          <a href="/contact" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Contact</a>
+          <a href="/terms" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Terms</a>
+          <a href="/cookies" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Cookies</a>
+          <a href="/privacy" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Privacy</a>
         </div>
         <p className="text-[12px] font-medium" style={{ color: '#5a6c6d' }}>
           &copy; 2026 Xylos AI
@@ -198,11 +198,11 @@ export default function AboutPageClient() {
 function FeatureCard({ icon: Icon, title, desc }: any) {
   return (
     <div className="p-5 sm:p-6 rounded-2xl transition-all duration-300 group glass-card">
-      <div className="w-10 h-10 rounded-xl flex items-center justify-center text-[#00f0ff] group-hover:bg-[rgba(0,240,255,0.16)] transition-all duration-300 mb-4" style={{ background: 'rgba(0,240,255,0.1)' }}>
+      <div className="w-10 h-10 rounded-xl flex items-center justify-center text-[#36b7b0] group-hover:bg-[rgba(54,183,176,0.16)] transition-all duration-300 mb-4" style={{ background: 'rgba(54,183,176,0.1)' }}>
         <Icon className="w-5 h-5" />
       </div>
       <h3 className="font-semibold text-sm mb-2 text-white" style={{ fontFamily: 'Sora, sans-serif' }}>{title}</h3>
-      <p className="text-xs leading-relaxed" style={{ color: '#849495' }}>{desc}</p>
+      <p className="text-xs leading-relaxed" style={{ color: '#8d8b85' }}>{desc}</p>
     </div>
   );
 }
@@ -216,11 +216,11 @@ function FeatureBento({ icon: Icon, title, desc }: any) {
       className="p-8 sm:p-10 rounded-2xl glass-card"
     >
       <div className="relative z-10 space-y-4">
-        <div className="w-16 h-16 rounded-2xl flex items-center justify-center" style={{ background: 'rgba(0,240,255,0.12)' }}>
-          <Icon className="w-8 h-8" style={{ color: '#00f0ff' }} />
+        <div className="w-16 h-16 rounded-2xl flex items-center justify-center" style={{ background: 'rgba(54,183,176,0.12)' }}>
+          <Icon className="w-8 h-8" style={{ color: '#36b7b0' }} />
         </div>
         <h3 className="text-xl font-bold text-white" style={{ fontFamily: 'Sora, sans-serif' }}>{title}</h3>
-        <p className="leading-relaxed" style={{ color: '#849495' }}>{desc}</p>
+        <p className="leading-relaxed" style={{ color: '#8d8b85' }}>{desc}</p>
       </div>
     </motion.div>
   );
@@ -229,8 +229,8 @@ function FeatureBento({ icon: Icon, title, desc }: any) {
 function StatBox({ label, value }: any) {
   return (
     <div className="p-6 sm:p-8 rounded-2xl text-center space-y-2 transition-all duration-300 cursor-default group glass-card">
-      <p className="text-[12px] font-medium" style={{ color: '#849495' }}>{label}</p>
-      <p className="text-3xl sm:text-4xl font-bold text-white group-hover:text-[#00f0ff] transition-colors" style={{ fontFamily: 'Sora, sans-serif' }}>{value}</p>
+      <p className="text-[12px] font-medium" style={{ color: '#8d8b85' }}>{label}</p>
+      <p className="text-3xl sm:text-4xl font-bold text-white group-hover:text-[#36b7b0] transition-colors" style={{ fontFamily: 'Sora, sans-serif' }}>{value}</p>
     </div>
   );
 }

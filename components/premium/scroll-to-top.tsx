@@ -43,14 +43,14 @@ export function ScrollToTop() {
       }`}
       style={{
         background: '#14171c',
-        border: '1px solid rgba(0, 240, 255, 0.25)',
+        border: '1px solid rgba(54, 183, 176, 0.25)',
         boxShadow: '0 4px 16px rgba(0, 0, 0, 0.5)',
         minHeight: '44px',
         minWidth: '44px',
       }}
       aria-label="Scroll to top"
     >
-      <ChevronUp className="w-6 h-6 transition-transform group-hover:-translate-y-0.5" style={{ color: '#00f0ff' }} />
+      <ChevronUp className="w-6 h-6 transition-transform group-hover:-translate-y-0.5" style={{ color: '#36b7b0' }} />
     </button>
   );
 }

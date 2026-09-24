@@ -19,32 +19,32 @@ export default function CookiesPage() {
   const lastUpdated = "April 17, 2026";
 
   return (
-    <div className="min-h-screen relative overflow-hidden" style={{ background: '#0a0b0e', color: '#e2e2e8' }}>
+    <div className="min-h-screen relative overflow-hidden" style={{ background: '#0d0e10', color: '#eeeae2' }}>
       <main className="relative z-10 pt-32 px-6 pb-20 max-w-4xl mx-auto space-y-16">
         {/* Hero */}
         <header className="space-y-6 text-center">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[11px] font-medium tracking-wide" style={{ background: 'rgba(0, 240, 255, 0.1)', border: '1px solid rgba(0, 240, 255, 0.2)', color: '#00f0ff' }}>
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[11px] font-medium tracking-wide" style={{ background: 'rgba(54, 183, 176, 0.1)', border: '1px solid rgba(54, 183, 176, 0.2)', color: '#36b7b0' }}>
             <Cookie className="w-3 h-3" />
             Privacy
           </div>
           <h1 className="text-5xl md:text-7xl font-bold tracking-[-0.03em] text-white" style={{ fontFamily: 'Sora, sans-serif' }}>
-            Cookie <span style={{ color: '#00f0ff' }}>Policy</span>
+            Cookie <span style={{ color: '#36b7b0' }}>Policy</span>
           </h1>
-          <p className="text-lg font-medium max-w-2xl mx-auto" style={{ color: '#aeb9bd' }}>
+          <p className="text-lg font-medium max-w-2xl mx-auto" style={{ color: '#b8b4ac' }}>
             This policy explains how Xylos AI uses cookies and similar technologies to improve your experience.
           </p>
         </header>
 
         {/* Last Updated */}
-        <div className="text-center text-sm" style={{ color: '#849495' }}>
+        <div className="text-center text-sm" style={{ color: '#8d8b85' }}>
           Last updated: {lastUpdated}
         </div>
 
         {/* Cookie Policy Content */}
-        <article className="space-y-12 leading-relaxed" style={{ color: '#aeb9bd' }}>
+        <article className="space-y-12 leading-relaxed" style={{ color: '#b8b4ac' }}>
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <Cookie className="w-5 h-5 text-[#00f0ff]" />
+              <Cookie className="w-5 h-5 text-[#36b7b0]" />
               1. What Are Cookies
             </h2>
             <p className="text-lg">
@@ -54,7 +54,7 @@ export default function CookiesPage() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <Shield className="w-5 h-5 text-[#00f0ff]" />
+              <Shield className="w-5 h-5 text-[#36b7b0]" />
               2. How We Use Cookies
             </h2>
             <p className="text-lg">Xylos AI uses cookies for the following purposes:</p>
@@ -68,7 +68,7 @@ export default function CookiesPage() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <Database className="w-5 h-5 text-[#00f0ff]" />
+              <Database className="w-5 h-5 text-[#36b7b0]" />
               3. Specific Cookies We Set
             </h2>
             <table className="w-full text-sm border-collapse">
@@ -93,15 +93,15 @@ export default function CookiesPage() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <Eye className="w-5 h-5 text-[#00f0ff]" />
+              <Eye className="w-5 h-5 text-[#36b7b0]" />
               4. Third-Party Cookies
             </h2>
             <p className="text-lg">
               We integrate with the following third-party services that may set their own cookies:
             </p>
             <ul className="space-y-3 text-lg list-disc list-inside">
-              <li><strong>Google Analytics / Vercel Analytics:</strong> Aggregate usage statistics. <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener noreferrer" className="text-[#00f0ff] hover:underline">Google's cookie policy</a>.</li>
-              <li><strong>Google AdSense:</strong> If ads are displayed, Google may use cookies to personalize ads. <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="text-[#00f0ff] hover:underline">AdSense cookie policy</a>.</li>
+              <li><strong>Google Analytics / Vercel Analytics:</strong> Aggregate usage statistics. <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener noreferrer" className="text-[#36b7b0] hover:underline">Google's cookie policy</a>.</li>
+              <li><strong>Google AdSense:</strong> If ads are displayed, Google may use cookies to personalize ads. <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="text-[#36b7b0] hover:underline">AdSense cookie policy</a>.</li>
               <li><strong>Supabase Auth:</strong> Authentication cookies for user sessions.</li>
               <li><strong>Unsplash / Pexels:</strong> Image CDN may set cookies for content delivery.</li>
             </ul>
@@ -112,18 +112,18 @@ export default function CookiesPage() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <Settings className="w-5 h-5 text-[#00f0ff]" />
+              <Settings className="w-5 h-5 text-[#36b7b0]" />
               5. Your Cookie Choices
             </h2>
             <p className="text-lg">You have the following options to manage cookies:</p>
             <ul className="space-y-3 text-lg list-disc list-inside">
               <li><strong>Browser Settings:</strong> Most browsers allow you to block, delete, or alert you about cookies. Check your browser's help menu.</li>
-              <li><strong>Opt-Out Tools:</strong> Use <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-[#00f0ff] hover:underline">Google Analytics Opt-out</a> or <a href="https://optout.networkadvertising.org/" target="_blank" rel="noopener noreferrer" className="text-[#00f0ff] hover:underline">NAI Opt-out</a>.</li>
+              <li><strong>Opt-Out Tools:</strong> Use <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-[#36b7b0] hover:underline">Google Analytics Opt-out</a> or <a href="https://optout.networkadvertising.org/" target="_blank" rel="noopener noreferrer" className="text-[#36b7b0] hover:underline">NAI Opt-out</a>.</li>
               <li><strong>Platform Settings:</strong> Toggle theme and some preferences in your Xylos AI dashboard.</li>
               <li><strong>Do Not Track:</strong> We respect DNT signals where technically feasible.</li>
             </ul>
-            <div className="p-4 rounded-xl" style={{ background: 'rgba(0,240,255,0.05)', border: '1px solid rgba(0,240,255,0.1)' }}>
-              <p className="text-sm font-medium" style={{ color: '#00f0ff' }}>
+            <div className="p-4 rounded-xl" style={{ background: 'rgba(54,183,176,0.05)', border: '1px solid rgba(54,183,176,0.1)' }}>
+              <p className="text-sm font-medium" style={{ color: '#36b7b0' }}>
                 Note: Disabling essential cookies will break core functionality (login, dashboard, chat).
               </p>
             </div>
@@ -131,22 +131,22 @@ export default function CookiesPage() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <LinkIcon className="w-5 h-5 text-[#00f0ff]" />
+              <LinkIcon className="w-5 h-5 text-[#36b7b0]" />
               6. Related Policies
             </h2>
             <ul className="space-y-2 text-lg list-disc list-inside">
-              <li><a href="/privacy" className="text-[#00f0ff] hover:underline">Privacy Policy</a> — How we collect and use personal data</li>
-              <li><a href="/terms" className="text-[#00f0ff] hover:underline">Terms of Service</a> — Platform usage terms</li>
+              <li><a href="/privacy" className="text-[#36b7b0] hover:underline">Privacy Policy</a> — How we collect and use personal data</li>
+              <li><a href="/terms" className="text-[#36b7b0] hover:underline">Terms of Service</a> — Platform usage terms</li>
             </ul>
           </section>
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <Mail className="w-5 h-5 text-[#00f0ff]" />
+              <Mail className="w-5 h-5 text-[#36b7b0]" />
               7. Contact
             </h2>
             <p className="text-lg">
-              Questions about this Cookie Policy? Contact us at <a href="mailto:xyzg135@gmail.com" className="text-[#00f0ff] hover:underline">xyzg135@gmail.com</a> or visit our <a href="/contact" className="text-[#00f0ff] hover:underline">Contact page</a>.
+              Questions about this Cookie Policy? Contact us at <a href="mailto:xyzg135@gmail.com" className="text-[#36b7b0] hover:underline">xyzg135@gmail.com</a> or visit our <a href="/contact" className="text-[#36b7b0] hover:underline">Contact page</a>.
             </p>
           </section>
         </article>
@@ -154,12 +154,12 @@ export default function CookiesPage() {
         {/* Footer */}
         <footer className="text-center pt-10" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           <div className="flex justify-center gap-6 text-[10px] uppercase tracking-widest mb-4" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-            <a href="/about" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>About</a>
-            <a href="/blog" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Blog</a>
-            <a href="/contact" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Contact</a>
-            <a href="/terms" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Terms</a>
-            <a href="/cookies" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Cookies</a>
-            <a href="/privacy" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Privacy</a>
+            <a href="/about" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>About</a>
+            <a href="/blog" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Blog</a>
+            <a href="/contact" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Contact</a>
+            <a href="/terms" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Terms</a>
+            <a href="/cookies" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Cookies</a>
+            <a href="/privacy" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Privacy</a>
           </div>
           <p className="text-[12px] font-medium" style={{ color: '#5a6c6d' }}>
             &copy; {new Date().getFullYear()} Xylos AI. All rights reserved.

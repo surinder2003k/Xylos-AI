@@ -60,7 +60,7 @@ export default async function LandingPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen relative overflow-hidden text-white" style={{ background: '#0a0b0e' }}>
+    <div className="flex flex-col min-h-screen relative overflow-hidden text-white" style={{ background: '#0d0e10' }}>
 
       <script
         type="application/ld+json"
@@ -69,7 +69,7 @@ export default async function LandingPage() {
 
         {/* Subtle ambient depth — single soft radial, very low opacity (luxury, not neon) */}
         <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
-          <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[90vw] max-w-[600px] md:w-[70vw] md:max-w-[900px] h-[60vw] max-h-[400px] md:h-[50vw] md:max-h-[600px] rounded-full blur-[120px] md:blur-[160px]" style={{ background: 'radial-gradient(closest-side, rgba(0,240,255,0.06), transparent)' }} />
+          <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[90vw] max-w-[600px] md:w-[70vw] md:max-w-[900px] h-[60vw] max-h-[400px] md:h-[50vw] md:max-h-[600px] rounded-full blur-[120px] md:blur-[160px]" style={{ background: 'radial-gradient(closest-side, rgba(54,183,176,0.06), transparent)' }} />
         </div>
 
         {/* ===== HERO ===== */}
@@ -80,8 +80,8 @@ export default async function LandingPage() {
                 {/* Badge */}
                 <StaggerItem>
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8" style={{ border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.03)' }}>
-                  <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#00f0ff' }} />
-                  <span className="text-xs font-medium tracking-wide" style={{ color: '#aeb9bd' }}>Free AI, ready when you are</span>
+                  <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#36b7b0' }} />
+                  <span className="text-xs font-medium tracking-wide" style={{ color: '#b8b4ac' }}>Free AI, ready when you are</span>
                 </div>
                 </StaggerItem>
 
@@ -90,13 +90,13 @@ export default async function LandingPage() {
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-[-0.03em] text-white mb-6" style={{ fontFamily: 'Sora, sans-serif' }}>
                   Intelligence,
                   <br />
-                  <span style={{ color: '#00f0ff' }}>beautifully simple.</span>
+                  <span style={{ color: '#36b7b0' }}>beautifully simple.</span>
                 </h1>
                 </StaggerItem>
 
                 {/* Subheading */}
                 <StaggerItem>
-                <p className="text-base md:text-base max-w-xl leading-relaxed mb-10" style={{ color: '#aeb9bd' }}>
+                <p className="text-base md:text-base max-w-xl leading-relaxed mb-10" style={{ color: '#b8b4ac' }}>
                   One calm workspace for 7+ frontier models — Llama, Gemini, Mistral. No clutter, no cost. Just clear, fast answers.
                 </p>
                 </StaggerItem>
@@ -131,7 +131,7 @@ export default async function LandingPage() {
                   ].map((stat, i) => (
                     <div key={i} className="flex flex-col">
                       <span className="text-2xl font-bold tracking-tight" style={{ color: '#ffffff', fontFamily: 'Sora, sans-serif' }}>{stat.value}</span>
-                      <span className="text-xs tracking-wide" style={{ color: '#aeb9bd' }}>{stat.label}</span>
+                      <span className="text-xs tracking-wide" style={{ color: '#b8b4ac' }}>{stat.label}</span>
                     </div>
                   ))}
                 </div>
@@ -142,45 +142,45 @@ export default async function LandingPage() {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-          <span className="text-xs tracking-wide" style={{ color: '#aeb9bd' }}>Scroll</span>
-          <ChevronDown className="w-5 h-5" style={{ color: '#aeb9bd' }} />
+          <span className="text-xs tracking-wide" style={{ color: '#b8b4ac' }}>Scroll</span>
+          <ChevronDown className="w-5 h-5" style={{ color: '#b8b4ac' }} />
         </div>
       </section>
 
       {/* ===== HARDWARE_FEATURES ===== */}
-      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
+      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(190, 184, 170, 0.2)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="mb-16">
             <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] mb-4" style={{ color: '#00f0ff' }}>Capabilities</p>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Built for focused work</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] mb-4" style={{ color: '#36b7b0' }}>Capabilities</p>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em]" style={{ color: '#eeeae2', fontFamily: 'Sora, sans-serif' }}>Built for focused work</h2>
             </Reveal>
           </div>
 
           <Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Frontier Processing */}
-            <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(0,240,255,0.18)] transition-all duration-300">
+            <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(54,183,176,0.18)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <Terminal className="w-5 h-5" style={{ color: '#00f0ff' }} />
-                <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Frontier Processing</h3>
+                <Terminal className="w-5 h-5" style={{ color: '#36b7b0' }} />
+                <h3 className="text-xl font-semibold" style={{ color: '#eeeae2', fontFamily: 'Sora, sans-serif' }}>Frontier Processing</h3>
               </div>
-              <p className="text-sm leading-relaxed mb-6" style={{ color: '#aeb9bd' }}>
+              <p className="text-sm leading-relaxed mb-6" style={{ color: '#b8b4ac' }}>
                 Access open frontier models including Llama 3.3, Gemini, Mistral and Qwen through a single OpenAI-compatible interface — with automatic failover when a provider is busy.
               </p>
               <div className="flex gap-3">
-                <span className="px-3 py-1 rounded-full text-[11px] font-medium" style={{ background: 'rgba(0, 240, 255, 0.1)', color: '#00f0ff' }}>7+ models</span>
-                <span className="px-3 py-1 rounded-full text-[11px] font-medium" style={{ background: 'rgba(255,255,255,0.06)', color: '#aeb9bd' }}>Real-time</span>
+                <span className="px-3 py-1 rounded-full text-[11px] font-medium" style={{ background: 'rgba(54, 183, 176, 0.1)', color: '#36b7b0' }}>7+ models</span>
+                <span className="px-3 py-1 rounded-full text-[11px] font-medium" style={{ background: 'rgba(255,255,255,0.06)', color: '#b8b4ac' }}>Real-time</span>
               </div>
             </div>
 
             {/* Encrypted Core */}
             <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(157,140,255,0.18)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <Lock className="w-5 h-5" style={{ color: '#00f0ff' }} />
-                <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Encrypted Core</h3>
+                <Lock className="w-5 h-5" style={{ color: '#36b7b0' }} />
+                <h3 className="text-xl font-semibold" style={{ color: '#eeeae2', fontFamily: 'Sora, sans-serif' }}>Encrypted Core</h3>
               </div>
-              <p className="text-sm leading-relaxed" style={{ color: '#aeb9bd' }}>
+              <p className="text-sm leading-relaxed" style={{ color: '#b8b4ac' }}>
                 Your provider API keys are encrypted at rest with AES-256-GCM and are only decrypted server-side when you send a message.
               </p>
             </div>
@@ -188,10 +188,10 @@ export default async function LandingPage() {
             {/* Neural Orb */}
             <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(45,212,191,0.18)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <Eye className="w-5 h-5" style={{ color: '#00f0ff' }} />
-                <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Automatic Failover</h3>
+                <Eye className="w-5 h-5" style={{ color: '#36b7b0' }} />
+                <h3 className="text-xl font-semibold" style={{ color: '#eeeae2', fontFamily: 'Sora, sans-serif' }}>Automatic Failover</h3>
               </div>
-              <p className="text-sm leading-relaxed" style={{ color: '#aeb9bd' }}>
+              <p className="text-sm leading-relaxed" style={{ color: '#b8b4ac' }}>
                 If one provider rate-limits you, the request is retried on the next model in the chain — no manual switching.
               </p>
             </div>
@@ -199,10 +199,10 @@ export default async function LandingPage() {
             {/* Visual Synthesis */}
             <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(245,196,81,0.18)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <Layers className="w-5 h-5" style={{ color: '#00f0ff' }} />
-                <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Streaming Answers</h3>
+                <Layers className="w-5 h-5" style={{ color: '#36b7b0' }} />
+                <h3 className="text-xl font-semibold" style={{ color: '#eeeae2', fontFamily: 'Sora, sans-serif' }}>Streaming Answers</h3>
               </div>
-              <p className="text-sm leading-relaxed" style={{ color: '#aeb9bd' }}>
+              <p className="text-sm leading-relaxed" style={{ color: '#b8b4ac' }}>
                 Responses stream token by token so you can start reading immediately instead of waiting for the full reply.
               </p>
             </div>
@@ -212,14 +212,14 @@ export default async function LandingPage() {
       </section>
 
       {/* ===== CTA: SYSTEM READY ===== */}
-      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
+      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(190, 184, 170, 0.2)' }}>
         <div className="max-w-5xl mx-auto">
           <Reveal>
           <div className="glass-card rounded-3xl p-12 md:p-16 text-center">
             <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-4" style={{ color: '#ffffff', fontFamily: 'Sora, sans-serif' }}>
               Ready whenever you are.
             </h2>
-            <p className="text-lg max-w-xl mx-auto mb-10" style={{ color: '#aeb9bd' }}>
+            <p className="text-lg max-w-xl mx-auto mb-10" style={{ color: '#b8b4ac' }}>
               Open a chat with 7+ AI models. No credit card, no trial timer — just sign in and start typing.
             </p>
             <Link
@@ -235,15 +235,15 @@ export default async function LandingPage() {
       </section>
 
       {/* ===== BLOG: LATEST NEURAL BROADCASTS ===== */}
-      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
+      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(190, 184, 170, 0.2)' }}>
         <div className="max-w-7xl mx-auto">
           <Reveal>
           <div className="flex items-end justify-between mb-12">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] mb-4" style={{ color: '#00f0ff' }}>From the blog</p>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-[-0.02em]" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Latest writing</h2>
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] mb-4" style={{ color: '#36b7b0' }}>From the blog</p>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-[-0.02em]" style={{ color: '#eeeae2', fontFamily: 'Sora, sans-serif' }}>Latest writing</h2>
             </div>
-            <Link href="/blog" className="hidden md:inline-flex items-center gap-2 text-sm font-medium hover:text-[#00f0ff] transition-colors" style={{ color: '#aeb9bd' }}>
+            <Link href="/blog" className="hidden md:inline-flex items-center gap-2 text-sm font-medium hover:text-[#36b7b0] transition-colors" style={{ color: '#b8b4ac' }}>
               View all <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -252,7 +252,7 @@ export default async function LandingPage() {
           <Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {blogs?.map((blog, i) => {
-              const accents = ['#00f0ff', '#9d8cff', '#2dd4bf'];
+              const accents = ['#36b7b0', '#9d8cff', '#2dd4bf'];
               const acc = accents[i % accents.length];
               return (
               <Link key={blog.id} href={`/blog/${blog.slug || blog.id}`} className="group">
@@ -268,14 +268,14 @@ export default async function LandingPage() {
                     <span className="px-3 py-1 rounded-full text-[10px] font-medium" style={{ background: 'rgba(255,255,255,0.08)', color: acc }}>{blog.category}</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-bold leading-tight mb-2 line-clamp-2 group-hover:text-white transition-colors" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>
+                <h3 className="text-lg font-bold leading-tight mb-2 line-clamp-2 group-hover:text-white transition-colors" style={{ color: '#eeeae2', fontFamily: 'Sora, sans-serif' }}>
                   {blog.title}
                 </h3>
-                <p className="text-sm line-clamp-2" style={{ color: '#849495' }}>{blog.excerpt}</p>
+                <p className="text-sm line-clamp-2" style={{ color: '#8d8b85' }}>{blog.excerpt}</p>
                 <div className="mt-3 flex items-center gap-2 text-[12px]" style={{ color: '#7d8a8e' }}>
                   <span>{blog.profiles?.full_name || 'Teamx'}</span>
-                  <span>·</span>
-                  <span style={{ color: acc }}>Read →</span>
+                  <span>Â·</span>
+                  <span style={{ color: acc }}>Read â†’</span>
                 </div>
               </Link>
               );
@@ -286,13 +286,13 @@ export default async function LandingPage() {
       </section>
 
       {/* ===== MORE TOOLS ===== */}
-      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
+      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(190, 184, 170, 0.2)' }}>
         <div className="max-w-7xl mx-auto">
           <Reveal>
           <div className="flex items-end justify-between mb-12">
             <div>
-              <p className="text-[12px] font-semibold uppercase tracking-[0.25em] mb-4" style={{ color: '#00f0ff' }}>More Tools</p>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-[-0.02em]" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Handy utilities</h2>
+              <p className="text-[12px] font-semibold uppercase tracking-[0.25em] mb-4" style={{ color: '#36b7b0' }}>More Tools</p>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-[-0.02em]" style={{ color: '#eeeae2', fontFamily: 'Sora, sans-serif' }}>Handy utilities</h2>
             </div>
           </div>
           </Reveal>
@@ -300,32 +300,32 @@ export default async function LandingPage() {
           <Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* PicExtractor */}
-            <Link href="https://picextractor.vercel.app/" className="glass-card rounded-2xl p-8 group hover:border-[rgba(0,240,255,0.18)] transition-all duration-300" target="_blank" rel="noopener noreferrer">
+            <Link href="https://picextractor.vercel.app/" className="glass-card rounded-2xl p-8 group hover:border-[rgba(54,183,176,0.18)] transition-all duration-300" target="_blank" rel="noopener noreferrer">
               <div className="flex items-center gap-3 mb-4">
-                <Terminal className="w-5 h-5" style={{ color: '#00f0ff' }} />
-                <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>PicExtractor</h3>
+                <Terminal className="w-5 h-5" style={{ color: '#36b7b0' }} />
+                <h3 className="text-xl font-semibold" style={{ color: '#eeeae2', fontFamily: 'Sora, sans-serif' }}>PicExtractor</h3>
               </div>
-              <p className="text-sm leading-relaxed mb-6" style={{ color: '#aeb9bd' }}>
+              <p className="text-sm leading-relaxed mb-6" style={{ color: '#b8b4ac' }}>
                 Extract text, colors, and metadata from images instantly.
               </p>
               <div className="flex gap-3">
-                <span className="px-3 py-1 rounded-full text-[11px] font-medium" style={{ background: 'rgba(0, 240, 255, 0.1)', color: '#00f0ff' }}>AI-powered</span>
-                <span className="px-3 py-1 rounded-full text-[11px] font-medium" style={{ background: 'rgba(255,255,255,0.06)', color: '#aeb9bd' }}>Free</span>
+                <span className="px-3 py-1 rounded-full text-[11px] font-medium" style={{ background: 'rgba(54, 183, 176, 0.1)', color: '#36b7b0' }}>AI-powered</span>
+                <span className="px-3 py-1 rounded-full text-[11px] font-medium" style={{ background: 'rgba(255,255,255,0.06)', color: '#b8b4ac' }}>Free</span>
               </div>
             </Link>
 
             {/* Dropzone-Share */}
-            <Link href="https://dropzone-k48dpchv.manus.space" className="glass-card rounded-2xl p-8 group hover:border-[rgba(0,240,255,0.18)] transition-all duration-300" target="_blank" rel="noopener noreferrer">
+            <Link href="https://dropzone-k48dpchv.manus.space" className="glass-card rounded-2xl p-8 group hover:border-[rgba(54,183,176,0.18)] transition-all duration-300" target="_blank" rel="noopener noreferrer">
               <div className="flex items-center gap-3 mb-4">
-                <Terminal className="w-5 h-5" style={{ color: '#00f0ff' }} />
-                <h3 className="text-xl font-semibold" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Dropzone Share</h3>
+                <Terminal className="w-5 h-5" style={{ color: '#36b7b0' }} />
+                <h3 className="text-xl font-semibold" style={{ color: '#eeeae2', fontFamily: 'Sora, sans-serif' }}>Dropzone Share</h3>
               </div>
-              <p className="text-sm leading-relaxed mb-6" style={{ color: '#aeb9bd' }}>
+              <p className="text-sm leading-relaxed mb-6" style={{ color: '#b8b4ac' }}>
                 Drag and drop files to share them instantly via a link.
               </p>
               <div className="flex gap-3">
-                <span className="px-3 py-1 rounded-full text-[11px] font-medium" style={{ background: 'rgba(0, 240, 255, 0.1)', color: '#00f0ff' }}>Instant sharing</span>
-                <span className="px-3 py-1 rounded-full text-[11px] font-medium" style={{ background: 'rgba(255,255,255,0.06)', color: '#aeb9bd' }}>No signup</span>
+                <span className="px-3 py-1 rounded-full text-[11px] font-medium" style={{ background: 'rgba(54, 183, 176, 0.1)', color: '#36b7b0' }}>Instant sharing</span>
+                <span className="px-3 py-1 rounded-full text-[11px] font-medium" style={{ background: 'rgba(255,255,255,0.06)', color: '#b8b4ac' }}>No signup</span>
               </div>
             </Link>
           </div>
@@ -336,11 +336,11 @@ export default async function LandingPage() {
       
 
       {/* ===== FAQ ===== */}
-      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
+      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(190, 184, 170, 0.2)' }}>
         <div className="max-w-4xl mx-auto">
           <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] mb-4 text-center" style={{ color: '#00f0ff' }}>FAQ</p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-[-0.02em] text-center mb-16" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Frequently asked</h2>
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] mb-4 text-center" style={{ color: '#36b7b0' }}>FAQ</p>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-[-0.02em] text-center mb-16" style={{ color: '#eeeae2', fontFamily: 'Sora, sans-serif' }}>Frequently asked</h2>
           </Reveal>
 
           <Reveal>
@@ -363,13 +363,13 @@ export default async function LandingPage() {
                 a: 'Chats you start while signed in are stored in your own account so you can return to them later. You can delete any conversation from your dashboard at any time. Provider API keys you add yourself are encrypted at rest.'
               },
             ].map((faq, i) => (
-              <details key={i} className="group rounded-xl overflow-hidden transition-all duration-300" style={{ border: '1px solid rgba(59, 73, 75, 0.2)', background: 'rgba(255, 255, 255, 0.02)' }}>
-                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-[rgba(0,240,255,0.02)] transition-colors">
-                  <span className="text-base font-bold pr-4" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>{faq.q}</span>
-                  <ChevronDown className="w-5 h-5 shrink-0 group-open:rotate-180 transition-transform" style={{ color: '#00f0ff' }} />
+              <details key={i} className="group rounded-xl overflow-hidden transition-all duration-300" style={{ border: '1px solid rgba(190, 184, 170, 0.2)', background: 'rgba(240, 232, 216, 0.02)' }}>
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-[rgba(54,183,176,0.02)] transition-colors">
+                  <span className="text-base font-bold pr-4" style={{ color: '#eeeae2', fontFamily: 'Sora, sans-serif' }}>{faq.q}</span>
+                  <ChevronDown className="w-5 h-5 shrink-0 group-open:rotate-180 transition-transform" style={{ color: '#36b7b0' }} />
                 </summary>
                 <div className="px-6 pb-6">
-                  <p style={{ color: '#aeb9bd' }}>{faq.a}</p>
+                  <p style={{ color: '#b8b4ac' }}>{faq.a}</p>
                 </div>
               </details>
             ))}
@@ -381,21 +381,21 @@ export default async function LandingPage() {
       <NewsletterForm />
 
       {/* ===== FOOTER ===== */}
-      <footer className="relative z-10 py-12 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)', background: 'rgba(0,0,0,0.3)' }}>
+      <footer className="relative z-10 py-12 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(190, 184, 170, 0.2)', background: 'rgba(0,0,0,0.3)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex items-center gap-3">
-              <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>Xylos AI</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: '#8d8b85', fontFamily: 'JetBrains Mono, monospace' }}>Xylos AI</span>
             </div>
             <div className="flex items-center gap-6">
-              <Link href="/about" className="text-[10px] uppercase tracking-widest hover:text-[#00f0ff] transition-colors" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>About</Link>
-              <Link href="/blog" className="text-[10px] uppercase tracking-widest hover:text-[#00f0ff] transition-colors" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>Blog</Link>
-              <Link href="/contact" className="text-[10px] uppercase tracking-widest hover:text-[#00f0ff] transition-colors" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>Contact</Link>
-              <Link href="/terms" className="text-[10px] uppercase tracking-widest hover:text-[#00f0ff] transition-colors" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>Terms</Link>
-              <Link href="/cookies" className="text-[10px] uppercase tracking-widest hover:text-[#00f0ff] transition-colors" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>Cookies</Link>
-              <Link href="/privacy" className="text-[10px] uppercase tracking-widest hover:text-[#00f0ff] transition-colors" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>Privacy</Link>
+              <Link href="/about" className="text-[10px] uppercase tracking-widest hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85', fontFamily: 'JetBrains Mono, monospace' }}>About</Link>
+              <Link href="/blog" className="text-[10px] uppercase tracking-widest hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85', fontFamily: 'JetBrains Mono, monospace' }}>Blog</Link>
+              <Link href="/contact" className="text-[10px] uppercase tracking-widest hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85', fontFamily: 'JetBrains Mono, monospace' }}>Contact</Link>
+              <Link href="/terms" className="text-[10px] uppercase tracking-widest hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85', fontFamily: 'JetBrains Mono, monospace' }}>Terms</Link>
+              <Link href="/cookies" className="text-[10px] uppercase tracking-widest hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85', fontFamily: 'JetBrains Mono, monospace' }}>Cookies</Link>
+              <Link href="/privacy" className="text-[10px] uppercase tracking-widest hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85', fontFamily: 'JetBrains Mono, monospace' }}>Privacy</Link>
             </div>
-            <p className="text-[10px] uppercase tracking-widest" style={{ color: '#849495', fontFamily: 'JetBrains Mono, monospace' }}>© 2026 Xylos AI</p>
+            <p className="text-[10px] uppercase tracking-widest" style={{ color: '#8d8b85', fontFamily: 'JetBrains Mono, monospace' }}>Â© 2026 Xylos AI</p>
           </div>
         </div>
       </footer>

@@ -49,7 +49,7 @@ export function OfflineNotice() {
         >
           <div className="text-center max-w-md w-full">
             <div className="mb-8 flex justify-center">
-              <XylosLogo size={56} className="text-[#00f0ff]" />
+              <XylosLogo size={56} className="text-[#36b7b0]" />
             </div>
             <div
               className="glass-card rounded-3xl p-10 md:p-12"
@@ -58,11 +58,11 @@ export function OfflineNotice() {
               <div
                 className="mx-auto mb-6 w-14 h-14 rounded-2xl flex items-center justify-center"
                 style={{
-                  background: "rgba(0, 240, 255, 0.08)",
-                  border: "1px solid rgba(0, 240, 255, 0.2)",
+                  background: "rgba(54, 183, 176, 0.08)",
+                  border: "1px solid rgba(54, 183, 176, 0.2)",
                 }}
               >
-                <WifiOff className="w-7 h-7 text-[#00f0ff]" />
+                <WifiOff className="w-7 h-7 text-[#36b7b0]" />
               </div>
               <h1
                 className="text-2xl md:text-3xl font-bold tracking-[-0.02em] text-white mb-3"
@@ -72,15 +72,15 @@ export function OfflineNotice() {
               </h1>
               <p
                 className="text-[15px] leading-relaxed"
-                style={{ color: "#849495" }}
+                style={{ color: "#8d8b85" }}
               >
                 Your connection dropped. Don&apos;t worry — your work is safe.
                 Xylos will reconnect automatically the moment you&apos;re back online.
               </p>
               <button
                 onClick={() => window.location.reload()}
-                className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-[#04141a] transition-colors hover:bg-[#33f3ff]"
-                style={{ background: "#00f0ff" }}
+                className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-[#17181b] transition-colors hover:bg-[#33f3ff]"
+                style={{ background: "#36b7b0" }}
               >
                 <RefreshCw className="w-4 h-4" />
                 Try again

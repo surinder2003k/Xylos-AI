@@ -26,8 +26,8 @@ export function HeroCTA() {
         <Link
           href={isLoggedIn ? "/chat" : "/login"}
           aria-label="Launch Xylos AI Neural Link Chat"
-          className="relative flex items-center justify-center gap-4 px-10 md:px-16 py-5 md:py-6 rounded-2xl bg-primary text-[#04141a] font-bold text-sm uppercase tracking-[0.2em] shadow-lg hover:shadow-[0_0_30px_rgba(0,240,255,0.4)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group w-full sm:w-auto overflow-hidden"
-          style={{ boxShadow: '0 4px 20px rgba(0,240,255,0.3)' }}
+          className="relative flex items-center justify-center gap-4 px-10 md:px-16 py-5 md:py-6 rounded-2xl bg-primary text-[#17181b] font-bold text-sm uppercase tracking-[0.2em] shadow-lg hover:shadow-[0_0_30px_rgba(54,183,176,0.4)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group w-full sm:w-auto overflow-hidden"
+          style={{ boxShadow: '0 4px 20px rgba(54,183,176,0.3)' }}
         >
           {isLoggedIn ? "Launch Neural Link" : "Start Chatting — Free"}
           <MessageSquare aria-hidden="true" className="w-5 h-5 group-hover:rotate-12 transition-transform" />
@@ -36,7 +36,7 @@ export function HeroCTA() {
         <Link
           href={isLoggedIn ? "/dashboard" : "/login"}
           className="relative px-12 py-6 rounded-2xl border bg-white/5 font-bold text-xs uppercase tracking-[0.2em] hover:bg-primary/10 transition-all duration-300 w-full sm:w-auto text-gray-400 text-center"
-          style={{ borderColor: 'rgba(59, 73, 75, 0.3)' }}
+          style={{ borderColor: 'rgba(190, 184, 170, 0.3)' }}
         >
           <span className="relative z-10">{isLoggedIn ? "Admin Dashboard" : "Access Interface"}</span>
         </Link>
@@ -47,8 +47,8 @@ export function HeroCTA() {
         <Link
           href="/chat"
           aria-label="Launch Neural Link"
-          className="md:hidden fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-2xl bg-primary text-[#04141a] flex items-center justify-center shadow-lg"
-          style={{ boxShadow: '0 4px 20px rgba(0,240,255,0.4)' }}
+          className="md:hidden fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-2xl bg-primary text-[#17181b] flex items-center justify-center shadow-lg"
+          style={{ boxShadow: '0 4px 20px rgba(54,183,176,0.4)' }}
         >
           <MessageSquare className="w-6 h-6" />
         </Link>

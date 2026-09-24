@@ -166,7 +166,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 exit={{ opacity: 0, x: -20 }}
                 className="flex items-center gap-2"
               >
-                <XylosLogo size={32} className="text-[#00f0ff]" />
+                <XylosLogo size={32} className="text-[#36b7b0]" />
                 <span className="text-lg font-bold tracking-[-0.02em] text-white" style={{ fontFamily: 'Sora, sans-serif' }}>Xylos</span>
               </motion.div>
             ) : (
@@ -176,7 +176,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <XylosLogo size={32} className="text-[#00f0ff]" />
+                <XylosLogo size={32} className="text-[#36b7b0]" />
               </motion.div>
             )}
           </AnimatePresence>

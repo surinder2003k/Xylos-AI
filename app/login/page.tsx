@@ -38,16 +38,16 @@ function LoginContent() {
   };
 
   const features = [
-    { icon: MessageSquare, title: "Unified AI Chat", sub: "7+ models in one interface", accent: "#00f0ff" },
+    { icon: MessageSquare, title: "Unified AI Chat", sub: "7+ models in one interface", accent: "#36b7b0" },
     { icon: Code2, title: "Code Assistant", sub: "Full-stack dev tools", accent: "#9d8cff" },
     { icon: FileText, title: "Content Factory", sub: "Blog & social generation", accent: "#2dd4bf" },
   ];
 
   return (
-    <div className="min-h-screen flex relative overflow-hidden" style={{ background: '#0a0b0e', color: '#e2e2e8' }}>
+    <div className="min-h-screen flex relative overflow-hidden" style={{ background: '#0d0e10', color: '#eeeae2' }}>
       {/* Subtle ambient depth — single soft cyan radial (matches landing) */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <div className="absolute top-[-100px] left-1/4 w-[80vw] max-w-[500px] md:w-[60vw] md:max-w-[700px] h-[50vw] max-h-[350px] md:h-[40vw] md:max-h-[500px] rounded-full blur-[120px] md:blur-[160px]" style={{ background: 'radial-gradient(closest-side, rgba(0,240,255,0.05), transparent)' }} />
+        <div className="absolute top-[-100px] left-1/4 w-[80vw] max-w-[500px] md:w-[60vw] md:max-w-[700px] h-[50vw] max-h-[350px] md:h-[40vw] md:max-h-[500px] rounded-full blur-[120px] md:blur-[160px]" style={{ background: 'radial-gradient(closest-side, rgba(54,183,176,0.05), transparent)' }} />
       </div>
 
       {/* Left Panel - Visual (hidden on mobile) */}
@@ -68,7 +68,7 @@ function LoginContent() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-white">{f.title}</p>
-                  <p className="text-[12px]" style={{ color: '#849495' }}>{f.sub}</p>
+                  <p className="text-[12px]" style={{ color: '#8d8b85' }}>{f.sub}</p>
                 </div>
               </motion.div>
             ))}
@@ -82,8 +82,8 @@ function LoginContent() {
             className="space-y-2"
           >
             <h2 className="text-3xl font-bold tracking-[-0.02em] text-white" style={{ fontFamily: 'Sora, sans-serif' }}>Free AI Chat.</h2>
-            <h2 className="text-3xl font-bold tracking-[-0.02em]" style={{ color: '#00f0ff', fontFamily: 'Sora, sans-serif' }}>Refine your work.</h2>
-            <p className="text-sm" style={{ color: '#849495' }}>Zero cost. Infinite possibilities.</p>
+            <h2 className="text-3xl font-bold tracking-[-0.02em]" style={{ color: '#36b7b0', fontFamily: 'Sora, sans-serif' }}>Refine your work.</h2>
+            <p className="text-sm" style={{ color: '#8d8b85' }}>Zero cost. Infinite possibilities.</p>
           </motion.div>
         </div>
       </div>
@@ -92,7 +92,7 @@ function LoginContent() {
       <div className="flex-1 flex items-center justify-center p-6 md:p-12 relative z-10">
         {/* Back to home */}
         <div className="absolute top-6 left-6 z-10">
-          <Link href="/" className="flex items-center gap-2 text-sm font-medium hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>
+          <Link href="/" className="flex items-center gap-2 text-sm font-medium hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>
             ← Back to home
           </Link>
         </div>
@@ -105,11 +105,11 @@ function LoginContent() {
         >
           {/* Logo */}
           <div className="flex flex-col items-center mb-10">
-            <XylosLogo size={48} className="mb-6 text-[#00f0ff]" />
+            <XylosLogo size={48} className="mb-6 text-[#36b7b0]" />
             <h1 className="text-2xl font-bold tracking-[-0.02em] text-white text-center" style={{ fontFamily: 'Sora, sans-serif' }}>
               {isLogin ? "Welcome back" : "Create your account"}
             </h1>
-            <p className="text-sm mt-2 text-center" style={{ color: '#849495' }}>
+            <p className="text-sm mt-2 text-center" style={{ color: '#8d8b85' }}>
               {isLogin ? "Access your unified AI workspace." : "Join the ultimate free AI arsenal."}
             </p>
           </div>
@@ -118,8 +118,8 @@ function LoginContent() {
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
-              className="mb-6 p-4 border border-[#00f0ff]/25 rounded-2xl flex items-center gap-3 text-sm"
-              style={{ background: 'rgba(0,240,255,0.08)', color: '#00f0ff' }}
+              className="mb-6 p-4 border border-[#36b7b0]/25 rounded-2xl flex items-center gap-3 text-sm"
+              style={{ background: 'rgba(54,183,176,0.08)', color: '#36b7b0' }}
             >
               <MessageSquare className="w-4 h-4 shrink-0" />
               {reasonText}
@@ -144,7 +144,7 @@ function LoginContent() {
               <input type="hidden" name="next" value={next} />
               {!isLogin && (
                 <div className="space-y-1.5">
-                  <label className="text-[12px] font-medium ml-1" style={{ color: '#849495' }}>Full name</label>
+                  <label className="text-[12px] font-medium ml-1" style={{ color: '#8d8b85' }}>Full name</label>
                   <div className="relative">
                     <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: '#5a6c6d' }} />
                     <input
@@ -152,7 +152,7 @@ function LoginContent() {
                       type="text"
                       placeholder="Enter your name"
                       required
-                      className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-[#00f0ff]/40 focus:border-[#00f0ff]/30 transition-all text-white placeholder:text-[#5a6c6d] text-sm"
+                      className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-[#36b7b0]/40 focus:border-[#36b7b0]/30 transition-all text-white placeholder:text-[#5a6c6d] text-sm"
                       style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
                     />
                   </div>
@@ -160,7 +160,7 @@ function LoginContent() {
               )}
 
               <div className="space-y-1.5">
-                <label className="text-[12px] font-medium ml-1" style={{ color: '#849495' }}>Email address</label>
+                <label className="text-[12px] font-medium ml-1" style={{ color: '#8d8b85' }}>Email address</label>
                 <div className="relative">
                   <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: '#5a6c6d' }} />
                   <input
@@ -168,14 +168,14 @@ function LoginContent() {
                     type="email"
                     placeholder="name@example.com"
                     required
-                    className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-[#00f0ff]/40 focus:border-[#00f0ff]/30 transition-all text-white placeholder:text-[#5a6c6d] text-sm"
+                    className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-[#36b7b0]/40 focus:border-[#36b7b0]/30 transition-all text-white placeholder:text-[#5a6c6d] text-sm"
                     style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
                   />
                 </div>
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-[12px] font-medium ml-1" style={{ color: '#849495' }}>Password</label>
+                <label className="text-[12px] font-medium ml-1" style={{ color: '#8d8b85' }}>Password</label>
                 <div className="relative">
                   <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: '#5a6c6d' }} />
                   <input
@@ -183,7 +183,7 @@ function LoginContent() {
                     type="password"
                     placeholder="••••••••"
                     required
-                    className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-[#00f0ff]/40 focus:border-[#00f0ff]/30 transition-all text-white placeholder:text-[#5a6c6d] text-sm"
+                    className="w-full rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-[#36b7b0]/40 focus:border-[#36b7b0]/30 transition-all text-white placeholder:text-[#5a6c6d] text-sm"
                     style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
                   />
                 </div>
@@ -204,7 +204,7 @@ function LoginContent() {
                 <div className="w-full" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}></div>
               </div>
               <div className="relative flex justify-center text-xs font-medium">
-                <span className="px-4" style={{ background: '#0a0b0e', color: '#5a6c6d' }}>or</span>
+                <span className="px-4" style={{ background: '#0d0e10', color: '#5a6c6d' }}>or</span>
               </div>
             </div>
 
@@ -212,20 +212,20 @@ function LoginContent() {
               <input type="hidden" name="next" value={next} />
               <button
                 type="submit"
-                className="w-full font-semibold py-4 rounded-xl flex items-center justify-center gap-3 hover:border-[#00f0ff] hover:bg-[rgba(0,240,255,0.06)] transition-all group text-sm text-white"
+                className="w-full font-semibold py-4 rounded-xl flex items-center justify-center gap-3 hover:border-[#36b7b0] hover:bg-[rgba(54,183,176,0.06)] transition-all group text-sm text-white"
                 style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}
               >
-                <Chrome className="w-5 h-5 text-[#00f0ff] group-hover:scale-105 transition-transform" />
+                <Chrome className="w-5 h-5 text-[#36b7b0] group-hover:scale-105 transition-transform" />
                 Continue with Google
               </button>
             </form>
           </div>
 
-          <p className="mt-8 text-center text-sm" style={{ color: '#849495' }}>
+          <p className="mt-8 text-center text-sm" style={{ color: '#8d8b85' }}>
             {isLogin ? "New to Xylos AI?" : "Already have an account?"}
             <button
               onClick={() => setIsLogin(!isLogin)}
-              className="ml-2 text-[#00f0ff] font-semibold hover:underline"
+              className="ml-2 text-[#36b7b0] font-semibold hover:underline"
             >
               {isLogin ? "Create an account" : "Sign in"}
             </button>
@@ -238,7 +238,7 @@ function LoginContent() {
 
 export default function LoginPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center" style={{ background: '#0a0b0e' }}><div className="w-8 h-8 rounded-full border-2 border-[#00f0ff] border-t-transparent animate-spin" /></div>}>
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center" style={{ background: '#0d0e10' }}><div className="w-8 h-8 rounded-full border-2 border-[#36b7b0] border-t-transparent animate-spin" /></div>}>
        <LoginContent />
     </Suspense>
   );

@@ -277,7 +277,7 @@ export default function AIManagerPage() {
             <Cpu className="w-32 h-32 text-primary" />
          </div>
          <div>
-            <h1 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] leading-none text-white" style={{ fontFamily: 'Sora, sans-serif' }}>Autonomous <span className="text-[#00f0ff]">Manager</span></h1>
+            <h1 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] leading-none text-white" style={{ fontFamily: 'Sora, sans-serif' }}>Autonomous <span className="text-[#36b7b0]">Manager</span></h1>
             <p className="text-white/40 mt-3 font-medium uppercase tracking-[0.2em] text-[8px] md:text-[10px]">Editorial Synthesis Core V3.1 // Status: Online</p>
          </div>
          <div className="flex items-center gap-4">
@@ -288,7 +288,7 @@ export default function AIManagerPage() {
             <button 
               onClick={runAutomation}
               disabled={isRunning}
-              className="px-8 py-3.5 rounded-xl bg-primary text-[#04141a] font-bold hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] transition-all flex items-center gap-3 disabled:opacity-50"
+              className="px-8 py-3.5 rounded-xl bg-primary text-[#17181b] font-bold hover:shadow-[0_0_30px_rgba(54,183,176,0.3)] transition-all flex items-center gap-3 disabled:opacity-50"
             >
               {isRunning ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Play className="w-4 h-4" />}
               {isRunning ? "PROCESSING..." : "CREATE 2 POST"}
@@ -374,7 +374,7 @@ export default function AIManagerPage() {
                    </button>
                    
                    {isCategoryDropdownOpen && (
-                     <div className="absolute z-50 w-full mt-1 bg-[#0c0e12] border border-white/10 backdrop-blur-xl shadow-2xl max-h-64 overflow-y-auto">
+                     <div className="absolute z-50 w-full mt-1 bg-[#141518] border border-white/10 backdrop-blur-xl shadow-2xl max-h-64 overflow-y-auto">
                        {autoCategoriesList.map(cat => (
                          <div key={cat} className="flex items-center justify-between px-4 py-2.5 hover:bg-white/5 cursor-pointer group">
                            <span 

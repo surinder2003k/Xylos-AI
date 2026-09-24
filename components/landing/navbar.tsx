@@ -32,12 +32,12 @@ export function Navbar({ user }: NavbarProps) {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b transition-all duration-300" style={{ background: 'rgba(12, 14, 18, 0.85)', borderColor: 'rgba(59, 73, 75, 0.2)' }}>
+      className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b transition-all duration-300" style={{ background: 'rgba(20, 21, 24, 0.85)', borderColor: 'rgba(190, 184, 170, 0.2)' }}>
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-sm font-bold tracking-wider" style={{ color: '#e2e2e8', fontFamily: 'Sora, sans-serif' }}>Xylos AI</span>
+          <span className="text-sm font-bold tracking-wider" style={{ color: '#eeeae2', fontFamily: 'Sora, sans-serif' }}>Xylos AI</span>
         </Link>
         
         {/* Desktop Links */}
@@ -46,10 +46,10 @@ export function Navbar({ user }: NavbarProps) {
             <Link
               key={link.href}
               href={link.href}
-              className={`transition-colors hover:text-[#00f0ff] ${
+              className={`transition-colors hover:text-[#36b7b0] ${
                 isActive(link.href)
                   ? "text-white"
-                  : "text-[#849495]"
+                  : "text-[#8d8b85]"
               }`}
               style={{ fontFamily: 'JetBrains Mono, monospace' }}
             >
@@ -64,9 +64,9 @@ export function Navbar({ user }: NavbarProps) {
             href={user ? "/dashboard" : "/login"}
             className="px-6 py-2.5 rounded-xl transition-all text-[10px] font-bold uppercase tracking-widest"
             style={{ 
-              background: 'rgba(0, 240, 255, 0.1)', 
-              border: '1px solid rgba(0, 240, 255, 0.2)', 
-              color: '#00f0ff',
+              background: 'rgba(54, 183, 176, 0.1)',
+              border: '1px solid rgba(54, 183, 176, 0.2)',
+              color: '#36b7b0',
               fontFamily: 'JetBrains Mono, monospace'
             }}
           >
@@ -80,7 +80,7 @@ export function Navbar({ user }: NavbarProps) {
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             className="p-2 rounded-xl"
-            style={{ background: 'rgba(0, 240, 255, 0.05)', border: '1px solid rgba(59, 73, 75, 0.3)', color: 'rgba(226, 226, 232, 0.6)' }}
+            style={{ background: 'rgba(54, 183, 176, 0.05)', border: '1px solid rgba(190, 184, 170, 0.3)', color: 'rgba(226, 226, 232, 0.6)' }}
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -95,7 +95,7 @@ export function Navbar({ user }: NavbarProps) {
             : "opacity-0 -translate-y-4 pointer-events-none"
         }`}
       >
-        <div className="p-8 rounded-2xl shadow-lg space-y-6" style={{ background: 'rgba(12, 14, 18, 0.95)', border: '1px solid rgba(59, 73, 75, 0.3)' }}>
+        <div className="p-8 rounded-2xl shadow-lg space-y-6" style={{ background: 'rgba(20, 21, 24, 0.95)', border: '1px solid rgba(190, 184, 170, 0.3)' }}>
           <div className="flex flex-col gap-6">
             {navLinks.map((link) => (
               <Link 
@@ -103,24 +103,24 @@ export function Navbar({ user }: NavbarProps) {
                 href={link.href} 
                 onClick={() => setIsOpen(false)}
                 className={`text-2xl font-black uppercase tracking-tight transition-colors ${
-                  isActive(link.href) ? "text-white" : "text-[#849495] hover:text-white"
+                  isActive(link.href) ? "text-white" : "text-[#8d8b85] hover:text-white"
                 }`}
                 style={{ fontFamily: 'Sora, sans-serif' }}
               >
                 {link.label}
                 {isActive(link.href) && (
-                  <span className="ml-3 text-[9px] font-bold uppercase tracking-widest align-middle" style={{ color: '#00f0ff', fontFamily: 'JetBrains Mono, monospace' }}>— Active</span>
+                  <span className="ml-3 text-[9px] font-bold uppercase tracking-widest align-middle" style={{ color: '#36b7b0', fontFamily: 'JetBrains Mono, monospace' }}>— Active</span>
                 )}
               </Link>
             ))}
           </div>
           
-          <div className="pt-6 space-y-4" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.3)' }}>
+          <div className="pt-6 space-y-4" style={{ borderTop: '1px solid rgba(190, 184, 170, 0.3)' }}>
             <Link 
               href={user ? "/dashboard" : "/login"}
               onClick={() => setIsOpen(false)}
               className="block w-full text-center px-6 py-4 rounded-xl text-white font-bold text-xs uppercase tracking-[0.2em]"
-              style={{ background: 'linear-gradient(135deg, #00f0ff, #0099ff)' }}
+              style={{ background: 'linear-gradient(135deg, #36b7b0, #368fa3)' }}
             >
               {user ? "Go to Dashboard" : "Get Started"}
             </Link>
@@ -133,7 +133,7 @@ export function Navbar({ user }: NavbarProps) {
                   router.push('/');
                 }}
                 className="flex items-center justify-center gap-3 w-full px-6 py-4 rounded-xl transition-all text-xs font-bold uppercase tracking-widest"
-                style={{ border: '1px solid rgba(59, 73, 75, 0.3)', background: 'rgba(0, 240, 255, 0.05)', color: '#849495' }}
+                style={{ border: '1px solid rgba(190, 184, 170, 0.3)', background: 'rgba(54, 183, 176, 0.05)', color: '#8d8b85' }}
               >
                 <LogOut className="w-4 h-4" />
                 Sign Out

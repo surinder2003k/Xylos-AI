@@ -418,7 +418,7 @@ function ChatContent() {
                           </div>
                         )}
                         
-                        <div className={`px-5 py-4 rounded-xl text-sm md:text-base leading-relaxed relative group/msg ${message.role === 'user' ? 'bg-primary text-[#04141a] font-medium' : ''}`}>
+                        <div className={`px-5 py-4 rounded-xl text-sm md:text-base leading-relaxed relative group/msg ${message.role === 'user' ? 'bg-primary text-[#17181b] font-medium' : ''}`}>
                           {message.role === 'user' ? (
                             editingMsgIndex === i ? (
                               <div className="flex flex-col gap-3 min-w-[250px]">
@@ -533,7 +533,7 @@ function ChatContent() {
         {showScrollBtn && (
           <button
             onClick={() => { isNearBottomRef.current = true; scrollToBottom(true); }}
-            className="absolute bottom-44 right-6 z-20 p-2.5 rounded-full bg-primary text-[#04141a] shadow-xl hover:scale-110 transition-all animate-bounce"
+            className="absolute bottom-44 right-6 z-20 p-2.5 rounded-full bg-primary text-[#17181b] shadow-xl hover:scale-110 transition-all animate-bounce"
           >
             <ChevronDown className="w-4 h-4" />
           </button>
@@ -615,7 +615,7 @@ function ChatContent() {
                       <button 
                         onClick={handleSend} 
                         disabled={(!input.trim() && !stagedFile) || isLoading} 
-                        className="p-3.5 rounded-xl bg-primary text-[#04141a] hover:bg-[#33f3ff] transition-all disabled:opacity-50"
+                        className="p-3.5 rounded-xl bg-primary text-[#17181b] hover:bg-[#33f3ff] transition-all disabled:opacity-50"
                       >
                          <Send className="w-5 h-5" />
                       </button>

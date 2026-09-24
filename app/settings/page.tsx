@@ -52,7 +52,7 @@ export default function SettingsPage() {
     <div className="max-w-4xl mx-auto space-y-10">
       <header className="space-y-2">
         <h1 className="text-4xl font-bold tracking-[-0.02em] text-white" style={{ fontFamily: 'Sora, sans-serif' }}>Settings<span className="text-primary">.</span></h1>
-        <p className="text-sm mt-1" style={{ color: '#849495' }}>Global API integrations</p>
+        <p className="text-sm mt-1" style={{ color: '#8d8b85' }}>Global API integrations</p>
       </header>
 
       <section className="grid grid-cols-1 gap-6">
@@ -62,7 +62,7 @@ export default function SettingsPage() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: idx * 0.05 }}
-            className="group p-6 rounded-xl glass-card hover:border-[rgba(0,240,255,0.18)] transition-all"
+            className="group p-6 rounded-xl glass-card hover:border-[rgba(54,183,176,0.18)] transition-all"
           >
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="flex items-center gap-4">
@@ -71,7 +71,7 @@ export default function SettingsPage() {
                 </div>
                 <div>
                    <h3 className="text-lg font-semibold text-white" style={{ fontFamily: 'Sora, sans-serif' }}>{provider.name} integration</h3>
-                   <div className="flex items-center gap-2 text-[12px] mt-0.5" style={{ color: '#849495' }}>
+                   <div className="flex items-center gap-2 text-[12px] mt-0.5" style={{ color: '#8d8b85' }}>
                       <Lock className="w-3 h-3" />
                       End-to-end encrypted
                    </div>
@@ -106,7 +106,7 @@ export default function SettingsPage() {
           disabled={isSaving}
           className={`
             px-8 py-3 rounded-xl font-semibold flex items-center gap-2 transition-all duration-300
-            ${saveStatus === 'success' ? 'bg-green-500 text-white' : 'bg-primary text-[#04141a] hover:bg-[#33f3ff]'}
+            ${saveStatus === 'success' ? 'bg-green-500 text-white' : 'bg-primary text-[#17181b] hover:bg-[#33f3ff]'}
             disabled:opacity-50
           `}
         >

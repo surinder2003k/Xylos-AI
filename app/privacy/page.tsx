@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
 
   return (
-    <div className="min-h-screen relative overflow-hidden" style={{ background: '#0a0b0e', color: '#e2e2e8' }}>
+    <div className="min-h-screen relative overflow-hidden" style={{ background: '#0d0e10', color: '#eeeae2' }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -31,14 +31,14 @@ export default function PrivacyPage() {
       <main className="relative z-10 pt-32 px-6 pb-20 max-w-4xl mx-auto space-y-16">
         {/* Hero */}
         <header className="space-y-6 text-center">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[11px] font-medium tracking-wide" style={{ background: 'rgba(0, 240, 255, 0.1)', border: '1px solid rgba(0, 240, 255, 0.2)', color: '#00f0ff' }}>
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[11px] font-medium tracking-wide" style={{ background: 'rgba(54, 183, 176, 0.1)', border: '1px solid rgba(54, 183, 176, 0.2)', color: '#36b7b0' }}>
             <Shield className="w-3 h-3" />
             Data governance
           </div>
           <h1 className="text-5xl md:text-7xl font-bold tracking-[-0.03em] text-white" style={{ fontFamily: 'Sora, sans-serif' }}>
-            Privacy &amp; <span style={{ color: '#00f0ff' }}>ethics</span>
+            Privacy &amp; <span style={{ color: '#36b7b0' }}>ethics</span>
           </h1>
-          <p className="text-lg font-medium max-w-2xl mx-auto" style={{ color: '#aeb9bd' }}>
+          <p className="text-lg font-medium max-w-2xl mx-auto" style={{ color: '#b8b4ac' }}>
             &quot;Trust is the currency of intelligence. Xylos AI is built on a foundation of zero-compromise data integrity.&quot;
           </p>
         </header>
@@ -52,10 +52,10 @@ export default function PrivacyPage() {
         </section>
 
         {/* Privacy Details */}
-        <article className="space-y-12 leading-relaxed" style={{ color: '#aeb9bd' }}>
+        <article className="space-y-12 leading-relaxed" style={{ color: '#b8b4ac' }}>
           <div className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <Database className="w-5 h-5 text-[#00f0ff]" />
+              <Database className="w-5 h-5 text-[#36b7b0]" />
               1. Data collection
             </h2>
             <p className="text-lg">Xylos AI collects minimal metadata required to provide the service. This includes account identifiers and usage logs necessary for system stability. We do NOT monetize user data or sell it to third-party advertisers.</p>
@@ -63,7 +63,7 @@ export default function PrivacyPage() {
 
           <div className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <Code className="w-5 h-5 text-[#00f0ff]" />
+              <Code className="w-5 h-5 text-[#36b7b0]" />
               2. AI training
             </h2>
             <p className="text-lg">Content synthesized using Xylos AI is NOT used to train the underlying models (Llama, Gemini, Mistral) by default. We leverage API-level privacy flags to ensure your corporate and personal secrets remain private.</p>
@@ -71,7 +71,7 @@ export default function PrivacyPage() {
 
           <div className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <Users className="w-5 h-5 text-[#00f0ff]" />
+              <Users className="w-5 h-5 text-[#36b7b0]" />
               3. Ethics commitment
             </h2>
             <p className="text-lg">Our editorial engine is tuned to recognize and mitigate bias. While AI can still generate unexpected responses, our 'Aether Intelligence Layer' acts as a secondary filter to maintain professional standards of communication.</p>
@@ -81,12 +81,12 @@ export default function PrivacyPage() {
         {/* Footer */}
         <footer className="text-center pt-10" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           <div className="flex justify-center gap-6 text-[10px] uppercase tracking-widest mb-4" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-            <a href="/about" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>About</a>
-            <a href="/blog" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Blog</a>
-            <a href="/contact" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Contact</a>
-            <a href="/terms" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Terms</a>
-            <a href="/cookies" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Cookies</a>
-            <a href="/privacy" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Privacy</a>
+            <a href="/about" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>About</a>
+            <a href="/blog" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Blog</a>
+            <a href="/contact" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Contact</a>
+            <a href="/terms" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Terms</a>
+            <a href="/cookies" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Cookies</a>
+            <a href="/privacy" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Privacy</a>
           </div>
           <p className="text-[12px] font-medium" style={{ color: '#5a6c6d' }}>
             Last updated: April 17, 2026
@@ -100,11 +100,11 @@ export default function PrivacyPage() {
 function InfoCard({ icon: Icon, title, content }: any) {
   return (
     <div className="p-8 rounded-2xl space-y-4 transition-all group glass-card">
-      <div className="w-12 h-12 rounded-xl flex items-center justify-center transition-all" style={{ background: 'rgba(0,240,255,0.12)' }}>
-        <Icon className="w-6 h-6 text-[#00f0ff]" />
+      <div className="w-12 h-12 rounded-xl flex items-center justify-center transition-all" style={{ background: 'rgba(54,183,176,0.12)' }}>
+        <Icon className="w-6 h-6 text-[#36b7b0]" />
       </div>
       <h3 className="text-xl font-semibold text-white" style={{ fontFamily: 'Sora, sans-serif' }}>{title}</h3>
-      <p className="text-sm font-medium leading-relaxed" style={{ color: '#849495' }}>{content}</p>
+      <p className="text-sm font-medium leading-relaxed" style={{ color: '#8d8b85' }}>{content}</p>
     </div>
   );
 }

@@ -213,7 +213,7 @@ export default function AllStoriesPage() {
         
         <Link 
           href="/dashboard/create"
-          className="group flex items-center justify-center gap-2 md:gap-4 bg-primary text-[#04141a] px-5 md:px-10 py-4 md:py-5 rounded-xl font-semibold text-xs uppercase tracking-wide hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] transition-all"
+          className="group flex items-center justify-center gap-2 md:gap-4 bg-primary text-[#17181b] px-5 md:px-10 py-4 md:py-5 rounded-xl font-semibold text-xs uppercase tracking-wide hover:shadow-[0_0_30px_rgba(54,183,176,0.3)] transition-all"
         >
           <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
           <span className="whitespace-nowrap">Draft New Story</span>
@@ -322,7 +322,7 @@ export default function AllStoriesPage() {
                        <div className="flex items-center justify-center gap-3">
                           <button 
                             onClick={() => toggleStatus(post)}
-                            className={`p-3.5 rounded-xl border border-white/10 transition-all group/btn ${post.status === 'published' ? 'bg-white/5 hover:bg-white/10 text-white/60' : 'bg-primary/10 hover:bg-primary text-primary hover:text-[#04141a]'}`}
+                            className={`p-3.5 rounded-xl border border-white/10 transition-all group/btn ${post.status === 'published' ? 'bg-white/5 hover:bg-white/10 text-white/60' : 'bg-primary/10 hover:bg-primary text-primary hover:text-[#17181b]'}`}
                             title={post.status === 'published' ? "Unpublish Protocol" : "Deploy Protocol"}
                           >
                              {post.status === 'published' ? <EyeOff className="w-4 h-4 opacity-70 group-hover/btn:opacity-100" /> : <Eye className="w-4 h-4 opacity-70 group-hover/btn:opacity-100" />}
@@ -475,7 +475,7 @@ export default function AllStoriesPage() {
                     aria-current={safePage === p ? 'page' : undefined}
                     className={`w-9 h-9 rounded-lg text-xs font-semibold transition-all ${
                       safePage === p
-                        ? 'bg-primary text-[#04141a] shadow-[0_0_20px_rgba(0,240,255,0.25)]'
+                        ? 'bg-primary text-[#17181b] shadow-[0_0_20px_rgba(54,183,176,0.25)]'
                         : 'bg-white/5 border border-white/10 text-white/50 hover:bg-primary/10 hover:text-primary'
                     }`}
                   >

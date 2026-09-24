@@ -47,7 +47,7 @@ export function BlogFilters({ categories }: { categories: string[] }) {
               onClick={() => handleCategoryChange(cat)}
               className={`shrink-0 px-3 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] transition-colors ${
                 isActive
-                  ? "bg-[#00f0ff] text-[#04141a]"
+                  ? "bg-[#36b7b0] text-[#17181b]"
                   : "text-gray-400 hover:text-white"
               }`}
               style={!isActive ? { background: 'transparent', border: '1px solid rgba(255,255,255,0.1)' } : {}}
@@ -58,19 +58,19 @@ export function BlogFilters({ categories }: { categories: string[] }) {
         })}
       </div>
 
-      <form onSubmit={handleSearch} className="flex w-full items-center gap-3 border-b border-white/[0.12] px-1 py-2 group transition-colors focus-within:border-[#00f0ff]/60 md:w-auto md:ml-auto">
-        <Search className="w-4 h-4 text-[#00f0ff]/40 group-focus-within:text-[#00f0ff] shrink-0" aria-hidden="true" />
+      <form onSubmit={handleSearch} className="flex w-full items-center gap-3 border-b border-white/[0.12] px-1 py-2 group transition-colors focus-within:border-[#36b7b0]/60 md:w-auto md:ml-auto">
+        <Search className="w-4 h-4 text-[#36b7b0]/40 group-focus-within:text-[#36b7b0] shrink-0" aria-hidden="true" />
         <input
           type="search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search archive..."
-          className="bg-transparent border-none outline-none text-xs font-bold uppercase tracking-widest placeholder:text-gray-400 w-full md:w-48 text-white focus-visible:ring-2 focus-visible:ring-[#00f0ff]/50 rounded-lg"
+          className="bg-transparent border-none outline-none text-xs font-bold uppercase tracking-widest placeholder:text-gray-400 w-full md:w-48 text-white focus-visible:ring-2 focus-visible:ring-[#36b7b0]/50 rounded-lg"
           aria-label="Search blog archive"
         />
         <button
           type="submit"
-          className="shrink-0 p-1.5 rounded-lg text-[#00f0ff]/40 hover:text-[#00f0ff] hover:bg-[#00f0ff]/10 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00f0ff]/50"
+          className="shrink-0 p-1.5 rounded-lg text-[#36b7b0]/40 hover:text-[#36b7b0] hover:bg-[#36b7b0]/10 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#36b7b0]/50"
           aria-label="Submit search"
         >
           <Search className="w-4 h-4" />

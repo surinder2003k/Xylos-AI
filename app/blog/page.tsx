@@ -108,7 +108,7 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
     <div className="min-h-screen overflow-x-hidden bg-[#0a0a0a] text-white">
       <main className="mx-auto max-w-7xl px-4 pb-16 pt-28 sm:px-6 md:px-8 md:pt-32">
         <section className="mb-12 border-b border-white/[0.08] pb-12 text-left md:pb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#00f0ff] via-[#a78bfa] to-[#fb7185] bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#36b7b0] via-[#a78bfa] to-[#fb7185] bg-clip-text text-transparent">
             AI Blog — Insights on Technology, AI & Innovation
           </h1>
           <p className="text-gray-400 text-base max-w-2xl mx-auto">
@@ -130,9 +130,9 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
         <BlogGrid blogs={postsFinal} />
 
         {totalPages > 1 && (
-          <div className="flex justify-center items-center gap-8 pt-12 mt-20" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.2)' }}>
+          <div className="flex justify-center items-center gap-8 pt-12 mt-20" style={{ borderTop: '1px solid rgba(190, 184, 170, 0.2)' }}>
             {hasPrev ? (
-              <Link href={buildHref(currentPage - 1)} className="px-8 py-4 rounded-xl font-semibold text-sm hover:bg-[rgba(0,240,255,0.12)] hover:text-[#00f0ff] transition-all duration-300" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <Link href={buildHref(currentPage - 1)} className="px-8 py-4 rounded-xl font-semibold text-sm hover:bg-[rgba(54,183,176,0.12)] hover:text-[#36b7b0] transition-all duration-300" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 Previous
               </Link>
             ) : (
@@ -141,12 +141,12 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
               </div>
             )}
 
-            <div className="text-sm font-semibold" style={{ color: '#849495' }}>
+            <div className="text-sm font-semibold" style={{ color: '#8d8b85' }}>
               {currentPage} / {totalPages}
             </div>
 
             {hasNext ? (
-              <Link href={buildHref(currentPage + 1)} className="px-8 py-4 rounded-xl font-semibold text-sm hover:bg-[rgba(0,240,255,0.12)] hover:text-[#00f0ff] transition-all duration-300" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <Link href={buildHref(currentPage + 1)} className="px-8 py-4 rounded-xl font-semibold text-sm hover:bg-[rgba(54,183,176,0.12)] hover:text-[#36b7b0] transition-all duration-300" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 Next
               </Link>
             ) : (
@@ -161,12 +161,12 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
       <footer className="py-16 px-6 text-center" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <div className="max-w-2xl mx-auto space-y-6">
           <div className="flex justify-center gap-6 text-[10px] uppercase tracking-widest mb-2" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-            <Link href="/about" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>About</Link>
-            <Link href="/blog" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Blog</Link>
-            <Link href="/contact" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Contact</Link>
-            <Link href="/terms" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Terms</Link>
-            <Link href="/cookies" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Cookies</Link>
-            <Link href="/privacy" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Privacy</Link>
+            <Link href="/about" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>About</Link>
+            <Link href="/blog" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Blog</Link>
+            <Link href="/contact" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Contact</Link>
+            <Link href="/terms" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Terms</Link>
+            <Link href="/cookies" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Cookies</Link>
+            <Link href="/privacy" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Privacy</Link>
           </div>
           <p className="text-[12px] font-medium" style={{ color: '#5a6c6d' }}>
             &copy; {new Date().getFullYear()} Xylos AI

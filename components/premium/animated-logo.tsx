@@ -15,7 +15,7 @@ export function AnimatedLogo({ className = "", showText = true }: { className?: 
       {showText && (
         <div className="flex flex-col">
           <span className="font-sora font-black text-2xl tracking-tighter uppercase leading-none text-white">
-            Xylos<span className="bg-gradient-to-r from-[#00f0ff] to-[#0099ff] bg-clip-text text-transparent italic">AI</span>
+            Xylos<span className="bg-gradient-to-r from-[#36b7b0] to-[#368fa3] bg-clip-text text-transparent italic">AI</span>
           </span>
         </div>
       )}

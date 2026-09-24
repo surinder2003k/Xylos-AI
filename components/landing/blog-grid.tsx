@@ -20,7 +20,7 @@ interface Blog {
  * Single restrained accent — keeps the archive calm and editorial.
  * Multi-hue card accents read as playful; one accent reads as premium.
  */
-const ACCENT = { text: "#00f0ff", soft: "rgba(0,240,255,0.08)", border: "rgba(0,240,255,0.22)" };
+const ACCENT = { text: "#36b7b0", soft: "rgba(54,183,176,0.08)", border: "rgba(54,183,176,0.22)" };
 
 function accentFor(_key: string) {
   return ACCENT;

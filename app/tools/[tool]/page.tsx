@@ -144,7 +144,7 @@ export default async function ToolProxyPage({ params }: { params: Promise<{ tool
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-24 px-6 overflow-hidden" style={{ background: '#0a0b0e', color: '#e2e2e8' }}>
+    <div className="min-h-screen pt-32 pb-24 px-6 overflow-hidden" style={{ background: '#0d0e10', color: '#eeeae2' }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -152,10 +152,10 @@ export default async function ToolProxyPage({ params }: { params: Promise<{ tool
       
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center space-y-8 relative">
         <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 glass-card">
-          <tool.icon className="w-8 h-8 text-[#00f0ff]" />
+          <tool.icon className="w-8 h-8 text-[#36b7b0]" />
         </div>
         
-        <p className="text-[12px] font-semibold uppercase tracking-[0.25em]" style={{ color: '#00f0ff' }}>Xylos AI</p>
+        <p className="text-[12px] font-semibold uppercase tracking-[0.25em]" style={{ color: '#36b7b0' }}>Xylos AI</p>
         <h1
           className="text-4xl md:text-6xl font-bold tracking-[-0.03em] leading-[1.08] max-w-4xl text-white"
           style={{ fontFamily: 'Sora, sans-serif' }}
@@ -163,7 +163,7 @@ export default async function ToolProxyPage({ params }: { params: Promise<{ tool
           {tool.h1}
         </h1>
         
-        <p className="max-w-2xl font-medium leading-relaxed" style={{ color: '#aeb9bd', fontSize: '1.125rem' }}>
+        <p className="max-w-2xl font-medium leading-relaxed" style={{ color: '#b8b4ac', fontSize: '1.125rem' }}>
           {tool.description}
         </p>
 
@@ -181,7 +181,7 @@ export default async function ToolProxyPage({ params }: { params: Promise<{ tool
         <BentoGrid>
           {tool.benefits.map((benefit, idx) => (
              <BentoCard key={idx} className="col-span-1 md:col-span-1 flex flex-col items-center text-center">
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 text-[#00f0ff]" style={{ background: 'rgba(0,240,255,0.12)' }}>
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 text-[#36b7b0]" style={{ background: 'rgba(54,183,176,0.12)' }}>
                    <Zap className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-semibold text-white" style={{ fontFamily: 'Sora, sans-serif' }}>{benefit}</h3>
@@ -189,9 +189,9 @@ export default async function ToolProxyPage({ params }: { params: Promise<{ tool
           ))}
           <BentoCard className="col-span-1 md:col-span-3 lg:col-span-1 glass-card">
              <div className="flex flex-col h-full justify-between">
-                <Shield className="w-10 h-10 text-[#00f0ff] mb-4" />
+                <Shield className="w-10 h-10 text-[#36b7b0] mb-4" />
                 <h3 className="text-2xl font-bold mb-2 text-white" style={{ fontFamily: 'Sora, sans-serif' }}>Enterprise-grade security</h3>
-                <p className="text-sm font-medium" style={{ color: '#aeb9bd' }}>This tool is powered by Xylos AI&apos;s intelligence layer — privacy-first and encrypted.</p>
+                <p className="text-sm font-medium" style={{ color: '#b8b4ac' }}>This tool is powered by Xylos AI&apos;s intelligence layer — privacy-first and encrypted.</p>
              </div>
           </BentoCard>
         </BentoGrid>

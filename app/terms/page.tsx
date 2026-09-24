@@ -19,42 +19,42 @@ export default function TermsPage() {
   const lastUpdated = "April 17, 2026";
 
   return (
-    <div className="min-h-screen relative overflow-hidden" style={{ background: '#0a0b0e', color: '#e2e2e8' }}>
+    <div className="min-h-screen relative overflow-hidden" style={{ background: '#0d0e10', color: '#eeeae2' }}>
       <main className="relative z-10 pt-32 px-6 pb-20 max-w-4xl mx-auto space-y-16">
         {/* Hero */}
         <header className="space-y-6 text-center">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[11px] font-medium tracking-wide" style={{ background: 'rgba(0, 240, 255, 0.1)', border: '1px solid rgba(0, 240, 255, 0.2)', color: '#00f0ff' }}>
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[11px] font-medium tracking-wide" style={{ background: 'rgba(54, 183, 176, 0.1)', border: '1px solid rgba(54, 183, 176, 0.2)', color: '#36b7b0' }}>
             <Scale className="w-3 h-3" />
             Legal
           </div>
           <h1 className="text-5xl md:text-7xl font-bold tracking-[-0.03em] text-white" style={{ fontFamily: 'Sora, sans-serif' }}>
-            Terms of <span style={{ color: '#00f0ff' }}>Service</span>
+            Terms of <span style={{ color: '#36b7b0' }}>Service</span>
           </h1>
-          <p className="text-lg font-medium max-w-2xl mx-auto" style={{ color: '#aeb9bd' }}>
+          <p className="text-lg font-medium max-w-2xl mx-auto" style={{ color: '#b8b4ac' }}>
             Please read these terms carefully before using Xylos AI. By accessing our platform, you agree to be bound by these terms.
           </p>
         </header>
 
         {/* Last Updated */}
-        <div className="text-center text-sm" style={{ color: '#849495' }}>
+        <div className="text-center text-sm" style={{ color: '#8d8b85' }}>
           Last updated: {lastUpdated}
         </div>
 
         {/* Terms Content */}
-        <article className="space-y-12 leading-relaxed" style={{ color: '#aeb9bd' }}>
+        <article className="space-y-12 leading-relaxed" style={{ color: '#b8b4ac' }}>
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <Shield className="w-5 h-5 text-[#00f0ff]" />
+              <Shield className="w-5 h-5 text-[#36b7b0]" />
               1. Acceptance of Terms
             </h2>
             <p className="text-lg">
-              By accessing and using Xylos AI ("the Platform", "we", "us", "our"), you ("User", "you") agree to be bound by these Terms of Service ("Terms") and our <a href="/privacy" className="text-[#00f0ff] hover:underline">Privacy Policy</a>. If you do not agree with any part of these Terms, you may not use the Platform.
+              By accessing and using Xylos AI ("the Platform", "we", "us", "our"), you ("User", "you") agree to be bound by these Terms of Service ("Terms") and our <a href="/privacy" className="text-[#36b7b0] hover:underline">Privacy Policy</a>. If you do not agree with any part of these Terms, you may not use the Platform.
             </p>
           </section>
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <FileText className="w-5 h-5 text-[#00f0ff]" />
+              <FileText className="w-5 h-5 text-[#36b7b0]" />
               2. Description of Service
             </h2>
             <p className="text-lg">
@@ -64,7 +64,7 @@ export default function TermsPage() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <Lock className="w-5 h-5 text-[#00f0ff]" />
+              <Lock className="w-5 h-5 text-[#36b7b0]" />
               3. User Accounts & Registration
             </h2>
             <ul className="space-y-3 text-lg list-disc list-inside">
@@ -77,7 +77,7 @@ export default function TermsPage() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <Scale className="w-5 h-5 text-[#00f0ff]" />
+              <Scale className="w-5 h-5 text-[#36b7b0]" />
               4. Acceptable Use
             </h2>
             <p className="text-lg">You agree not to use the Platform for:</p>
@@ -95,7 +95,7 @@ export default function TermsPage() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <FileText className="w-5 h-5 text-[#00f0ff]" />
+              <FileText className="w-5 h-5 text-[#36b7b0]" />
               5. Intellectual Property
             </h2>
             <ul className="space-y-3 text-lg list-disc list-inside">
@@ -108,17 +108,17 @@ export default function TermsPage() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <Shield className="w-5 h-5 text-[#00f0ff]" />
+              <Shield className="w-5 h-5 text-[#36b7b0]" />
               6. Privacy & Data
             </h2>
             <p className="text-lg">
-              Your privacy is important to us. Our <a href="/privacy" className="text-[#00f0ff] hover:underline">Privacy Policy</a> explains how we collect, use, and protect your information. By using the Platform, you consent to our data practices as described in the Privacy Policy.
+              Your privacy is important to us. Our <a href="/privacy" className="text-[#36b7b0] hover:underline">Privacy Policy</a> explains how we collect, use, and protect your information. By using the Platform, you consent to our data practices as described in the Privacy Policy.
             </p>
           </section>
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <AlertCircle className="w-5 h-5 text-[#00f0ff]" />
+              <AlertCircle className="w-5 h-5 text-[#36b7b0]" />
               7. Disclaimers & No Warranties
             </h2>
             <p className="text-lg"><strong>THE PLATFORM IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND.</strong></p>
@@ -132,7 +132,7 @@ export default function TermsPage() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <Scale className="w-5 h-5 text-[#00f0ff]" />
+              <Scale className="w-5 h-5 text-[#36b7b0]" />
               8. Limitation of Liability
             </h2>
             <p className="text-lg">
@@ -142,7 +142,7 @@ export default function TermsPage() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <Lock className="w-5 h-5 text-[#00f0ff]" />
+              <Lock className="w-5 h-5 text-[#36b7b0]" />
               9. Indemnification
             </h2>
             <p className="text-lg">
@@ -152,7 +152,7 @@ export default function TermsPage() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <Clock className="w-5 h-5 text-[#00f0ff]" />
+              <Clock className="w-5 h-5 text-[#36b7b0]" />
               10. Termination
             </h2>
             <ul className="space-y-3 text-lg list-disc list-inside">
@@ -165,7 +165,7 @@ export default function TermsPage() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <FileText className="w-5 h-5 text-[#00f0ff]" />
+              <FileText className="w-5 h-5 text-[#36b7b0]" />
               11. Governing Law & Disputes
             </h2>
             <p className="text-lg">
@@ -175,7 +175,7 @@ export default function TermsPage() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <Shield className="w-5 h-5 text-[#00f0ff]" />
+              <Shield className="w-5 h-5 text-[#36b7b0]" />
               12. Changes to Terms
             </h2>
             <p className="text-lg">
@@ -185,11 +185,11 @@ export default function TermsPage() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3" style={{ fontFamily: 'Sora, sans-serif' }}>
-              <Mail className="w-5 h-5 text-[#00f0ff]" />
+              <Mail className="w-5 h-5 text-[#36b7b0]" />
               13. Contact
             </h2>
             <p className="text-lg">
-              Questions about these Terms? Contact us at <a href="mailto:xyzg135@gmail.com" className="text-[#00f0ff] hover:underline">xyzg135@gmail.com</a> or visit our <a href="/contact" className="text-[#00f0ff] hover:underline">Contact page</a>.
+              Questions about these Terms? Contact us at <a href="mailto:xyzg135@gmail.com" className="text-[#36b7b0] hover:underline">xyzg135@gmail.com</a> or visit our <a href="/contact" className="text-[#36b7b0] hover:underline">Contact page</a>.
             </p>
           </section>
         </article>
@@ -197,12 +197,12 @@ export default function TermsPage() {
         {/* Footer */}
         <footer className="text-center pt-10" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           <div className="flex justify-center gap-6 text-[10px] uppercase tracking-widest mb-4" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-            <a href="/about" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>About</a>
-            <a href="/blog" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Blog</a>
-            <a href="/contact" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Contact</a>
-            <a href="/terms" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Terms</a>
-            <a href="/cookies" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Cookies</a>
-            <a href="/privacy" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Privacy</a>
+            <a href="/about" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>About</a>
+            <a href="/blog" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Blog</a>
+            <a href="/contact" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Contact</a>
+            <a href="/terms" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Terms</a>
+            <a href="/cookies" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Cookies</a>
+            <a href="/privacy" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Privacy</a>
           </div>
           <p className="text-[12px] font-medium" style={{ color: '#5a6c6d' }}>
             &copy; {new Date().getFullYear()} Xylos AI. All rights reserved.

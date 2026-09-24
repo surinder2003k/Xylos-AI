@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function DropzoneShare() {
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden text-white" style={{ background: '#0a0b0e' }}>
+    <div className="min-h-screen flex flex-col relative overflow-hidden text-white" style={{ background: '#0d0e10' }}>
       {/* Aurora Wallpaper and Cursor Follower can be reused if needed, but for simplicity we omit here */}
       <section className="relative z-10 flex-1 flex items-center">
         <div className="w-full px-6 md:px-12 lg:px-20 py-24">
@@ -14,7 +14,7 @@ export default function DropzoneShare() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.02] tracking-[-0.03em] text-white mb-6" style={{ fontFamily: 'Sora, sans-serif' }}>
               Dropzone Share
             </h1>
-            <p className="text-lg md:text-xl max-w-xl leading-relaxed mb-10" style={{ color: '#aeb9bd' }}>
+            <p className="text-lg md:text-xl max-w-xl leading-relaxed mb-10" style={{ color: '#b8b4ac' }}>
               Drag and drop files to share them instantly via a shareable link.
             </p>
             {/* Scroll-linked animation demo */}
@@ -35,8 +35,8 @@ export default function DropzoneShare() {
 
               {/* Parallax Effect */}
               <div className="relative h-96 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-[#00f0ff33] to-[#9d8cff33]" />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#00f0ff22] to-[#2dd4bf22]" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#36b7b033] to-[#9d8cff33]" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#36b7b022] to-[#2dd4bf22]" />
                 <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-3xl">
                   Parallax Layers (Coming Soon)
                 </div>
@@ -66,7 +66,7 @@ export default function DropzoneShare() {
                 <div
                   style={{
                     width: '30%',
-                    background: 'linear-gradient(90deg, #00f0ff, #9d8cff)',
+                    background: 'linear-gradient(90deg, #36b7b0, #9d8cff)',
                     height: '100%',
                     borderRadius: 'inherit',
                   }}
@@ -105,12 +105,12 @@ export default function DropzoneShare() {
       {/* Footer */}
       <footer className="py-16 px-6 text-center" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <div className="flex justify-center gap-6 text-[10px] uppercase tracking-widest mb-2" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-          <a href="/about" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>About</a>
-          <a href="/blog" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Blog</a>
-          <a href="/contact" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Contact</a>
-          <a href="/terms" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Terms</a>
-          <a href="/cookies" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Cookies</a>
-          <a href="/privacy" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Privacy</a>
+          <a href="/about" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>About</a>
+          <a href="/blog" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Blog</a>
+          <a href="/contact" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Contact</a>
+          <a href="/terms" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Terms</a>
+          <a href="/cookies" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Cookies</a>
+          <a href="/privacy" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Privacy</a>
         </div>
         <p className="text-[12px] font-medium" style={{ color: '#5a6c6d' }}>
           &copy; {new Date().getFullYear()} Xylos AI

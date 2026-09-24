@@ -250,7 +250,7 @@ function CreatePostContent() {
           <button 
             onClick={handlePublish}
             disabled={isPublishing || isGenerating}
-            className="px-8 py-4 rounded-xl bg-primary text-[#04141a] font-black hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] transition-all flex items-center gap-2 disabled:opacity-50 disabled:grayscale"
+            className="px-8 py-4 rounded-xl bg-primary text-[#17181b] font-black hover:shadow-[0_0_30px_rgba(54,183,176,0.3)] transition-all flex items-center gap-2 disabled:opacity-50 disabled:grayscale"
           >
             {isPublishing ? (
               <>
@@ -319,13 +319,13 @@ function CreatePostContent() {
             <div className="flex p-1 bg-white/5 rounded-xl">
               <button 
                 onClick={() => setAssetMode('search')}
-                className={`flex-1 py-2 text-[10px] font-semibold uppercase tracking-wide rounded-xl transition-all ${assetMode === 'search' ? 'bg-primary text-[#04141a]' : 'text-white/40 hover:bg-white/5'}`}
+                className={`flex-1 py-2 text-[10px] font-semibold uppercase tracking-wide rounded-xl transition-all ${assetMode === 'search' ? 'bg-primary text-[#17181b]' : 'text-white/40 hover:bg-white/5'}`}
               >
                 Search
               </button>
               <button 
                 onClick={() => setAssetMode('upload')}
-                className={`flex-1 py-2 text-[10px] font-semibold uppercase tracking-wide rounded-xl transition-all ${assetMode === 'upload' ? 'bg-primary text-[#04141a]' : 'text-white/40 hover:bg-white/5'}`}
+                className={`flex-1 py-2 text-[10px] font-semibold uppercase tracking-wide rounded-xl transition-all ${assetMode === 'upload' ? 'bg-primary text-[#17181b]' : 'text-white/40 hover:bg-white/5'}`}
               >
                 Upload
               </button>
@@ -382,7 +382,7 @@ function CreatePostContent() {
               <button 
                 onClick={handleGenerateDraft}
                 disabled={isGenerating || isPublishing}
-                className="w-full bg-primary text-[#04141a] font-black py-4 rounded-xl hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] transition-all flex items-center justify-center gap-2 group disabled:opacity-50"
+                className="w-full bg-primary text-[#17181b] font-black py-4 rounded-xl hover:shadow-[0_0_30px_rgba(54,183,176,0.3)] transition-all flex items-center justify-center gap-2 group disabled:opacity-50"
               >
                 {isGenerating ? (
                   <>

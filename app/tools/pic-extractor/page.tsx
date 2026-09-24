@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function PicExtractor() {
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden text-white" style={{ background: '#0a0b0e' }}>
+    <div className="min-h-screen flex flex-col relative overflow-hidden text-white" style={{ background: '#0d0e10' }}>
       {/* Aurora Wallpaper and Cursor Follower can be reused if needed, but for simplicity we omit here */}
       <section className="relative z-10 flex-1 flex items-center">
         <div className="w-full px-6 md:px-12 lg:px-20 py-24">
@@ -14,7 +14,7 @@ export default function PicExtractor() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.02] tracking-[-0.03em] text-white mb-6" style={{ fontFamily: 'Sora, sans-serif' }}>
               PicExtractor
             </h1>
-            <p className="text-lg md:text-xl max-w-xl leading-relaxed mb-10" style={{ color: '#aeb9bd' }}>
+            <p className="text-lg md:text-xl max-w-xl leading-relaxed mb-10" style={{ color: '#b8b4ac' }}>
               Extract text, colors, and metadata from images.
             </p>
             {/* Scroll-linked animation demo */}
@@ -35,8 +35,8 @@ export default function PicExtractor() {
 
               {/* Parallax Effect */}
               <div className="relative h-96 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-[#00f0ff33] to-[#9d8cff33]" />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#00f0ff22] to-[#2dd4bf22]" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#36b7b033] to-[#9d8cff33]" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#36b7b022] to-[#2dd4bf22]" />
                 <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-3xl">
                   Parallax Layers (Coming Soon)
                 </div>
@@ -66,7 +66,7 @@ export default function PicExtractor() {
                 <div
                   style={{
                     width: '30%',
-                    background: 'linear-gradient(90deg, #00f0ff, #9d8cff)',
+                    background: 'linear-gradient(90deg, #36b7b0, #9d8cff)',
                     height: '100%',
                     borderRadius: 'inherit',
                   }}

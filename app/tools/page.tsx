@@ -19,14 +19,14 @@ export const metadata: Metadata = {
 
 export default function ToolsPage() {
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden text-white" style={{ background: '#0a0b0e' }}>
+    <div className="min-h-screen flex flex-col relative overflow-hidden text-white" style={{ background: '#0d0e10' }}>
       <section className="relative z-10 flex-1 flex items-center">
         <div className="w-full px-6 md:px-12 lg:px-20 py-24">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.02] tracking-[-0.03em] text-white mb-6" style={{ fontFamily: 'Sora, sans-serif' }}>
               Tools
             </h1>
-            <p className="text-lg md:text-xl max-w-xl leading-relaxed mb-10" style={{ color: '#aeb9bd' }}>
+            <p className="text-lg md:text-xl max-w-xl leading-relaxed mb-10" style={{ color: '#b8b4ac' }}>
               A collection of tiny utilities built with Xylos AI.
             </p>
             <div className="mt-16 space-y-6">
@@ -58,7 +58,7 @@ export default function ToolsPage() {
             </div>
 
             <Link href="/" className="mt-12 inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80">
-              ← Back to Home
+              â† Back to Home
               <ArrowLeft className="w-4 h-4" />
             </Link>
           </div>

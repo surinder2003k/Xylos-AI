@@ -42,8 +42,8 @@ export default async function OpengraphImage({ params }: { params: Promise<{ slu
           flexDirection: 'column',
           justifyContent: 'space-between',
           padding: '60px 70px',
-          background: 'linear-gradient(135deg, #0a0b0e 0%, #0d1117 60%, #101725 100%)',
-          color: '#e2e2e8',
+          background: 'linear-gradient(135deg, #0d0e10 0%, #0d1117 60%, #101725 100%)',
+          color: '#eeeae2',
           fontFamily: 'sans-serif',
           position: 'relative',
         }}
@@ -57,7 +57,7 @@ export default async function OpengraphImage({ params }: { params: Promise<{ slu
             width: 700,
             height: 400,
             borderRadius: 9999,
-            background: 'radial-gradient(closest-side, rgba(0,240,255,0.12), transparent)',
+            background: 'radial-gradient(closest-side, rgba(54,183,176,0.12), transparent)',
             display: 'flex',
           }}
         />
@@ -82,8 +82,8 @@ export default async function OpengraphImage({ params }: { params: Promise<{ slu
                 width: 44,
                 height: 44,
                 borderRadius: 10,
-                background: '#00f0ff',
-                color: '#04141a',
+                background: '#36b7b0',
+                color: '#17181b',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -93,16 +93,16 @@ export default async function OpengraphImage({ params }: { params: Promise<{ slu
             >
               X
             </div>
-            <span style={{ fontSize: 26, fontWeight: 700, color: '#e2e2e8', letterSpacing: 2 }}>XYLOS AI</span>
+            <span style={{ fontSize: 26, fontWeight: 700, color: '#eeeae2', letterSpacing: 2 }}>XYLOS AI</span>
           </div>
           <div
             style={{
               display: 'flex',
               padding: '8px 20px',
               borderRadius: 9999,
-              border: '1px solid rgba(0,240,255,0.35)',
-              background: 'rgba(0,240,255,0.08)',
-              color: '#00f0ff',
+              border: '1px solid rgba(54,183,176,0.35)',
+              background: 'rgba(54,183,176,0.08)',
+              color: '#36b7b0',
               fontSize: 16,
               fontWeight: 600,
               textTransform: 'uppercase',
@@ -130,7 +130,7 @@ export default async function OpengraphImage({ params }: { params: Promise<{ slu
 
         {/* Bottom row */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <span style={{ fontSize: 20, color: '#849495', display: 'flex' }}>xylosai.vercel.app</span>
+          <span style={{ fontSize: 20, color: '#8d8b85', display: 'flex' }}>xylosai.vercel.app</span>
           <span style={{ fontSize: 18, color: '#5a6c6d', display: 'flex' }}>Free AI Chat · Llama 3 · Gemini · Mistral</span>
         </div>
       </div>

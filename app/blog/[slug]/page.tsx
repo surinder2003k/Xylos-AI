@@ -152,7 +152,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   };
 
   return (
-    <div className="min-h-screen" style={{ background: '#0a0b0e', color: '#e2e2e8' }}>
+    <div className="min-h-screen" style={{ background: '#0d0e10', color: '#eeeae2' }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -202,12 +202,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       {/* Sticky Header */}
       <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4" style={{ background: 'rgba(10, 11, 14, 0.9)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-      <Link href="/blog" className="flex items-center gap-2 text-[11px] font-semibold text-gray-400 hover:text-[#00f0ff] transition-colors" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+      <Link href="/blog" className="flex items-center gap-2 text-[11px] font-semibold text-gray-400 hover:text-[#36b7b0] transition-colors" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
         <ChevronRight className="w-3 h-3 rotate-180" />
         Blog
       </Link>
       <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-white" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-        <div className="w-5 h-5 rounded flex items-center justify-center text-[8px] text-white font-bold" style={{ background: '#00f0ff' }}>X</div>
+        <div className="w-5 h-5 rounded flex items-center justify-center text-[8px] text-white font-bold" style={{ background: '#36b7b0' }}>X</div>
         XYLOS AI
       </div>
         <ShareButtons title={post.title} excerpt={post.excerpt} slug={post.slug} />
@@ -224,7 +224,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(12,14,18,0.3) 0%, rgba(12,14,18,0.6) 50%, rgba(12,14,18,1) 100%)' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(20,21,24,0.3) 0%, rgba(20,21,24,0.6) 50%, rgba(20,21,24,1) 100%)' }} />
         </div>
 
         {/* Article Container */}
@@ -235,7 +235,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <article className="flex-1 max-w-4xl">
               {/* Category & Meta */}
               <div className="flex flex-wrap items-center gap-4 mb-6 text-[10px] font-bold uppercase tracking-[0.15em]" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
-                <span className="px-3 py-1 rounded-full" style={{ background: 'rgba(0, 240, 255, 0.1)', border: '1px solid rgba(0, 240, 255, 0.3)', color: '#00f0ff' }}>
+                <span className="px-3 py-1 rounded-full" style={{ background: 'rgba(54, 183, 176, 0.1)', border: '1px solid rgba(54, 183, 176, 0.3)', color: '#36b7b0' }}>
                   {category}
                 </span>
                 <span className="text-gray-500">{pubDate}</span>
@@ -248,19 +248,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 {post.title.split(' ').map((word: string, i: number) => {
                   const highlightWords = ['AI', 'Neural', 'Intelligence', 'Network', 'Consciousness', 'Future', 'Revolution', 'Machine', 'Deep', 'Learning', 'Quantum', 'Autonomous', 'System', 'Algorithm'];
                   if (highlightWords.some(hw => word.toLowerCase().includes(hw.toLowerCase()))) {
-                    return <span key={i} style={{ color: '#00f0ff' }}>{word} </span>;
+                    return <span key={i} style={{ color: '#36b7b0' }}>{word} </span>;
                   }
                   return <span key={i}>{word} </span>;
                 })}
               </h1>
 
               {/* Author Card */}
-              <div className="flex items-center gap-4 mb-12 pb-8" style={{ borderBottom: '1px solid rgba(59, 73, 75, 0.15)' }}>
-                <div className="w-11 h-11 rounded-full overflow-hidden" style={{ background: 'rgba(0,240,255,0.1)', border: '2px solid rgba(0,240,255,0.25)' }}>
+              <div className="flex items-center gap-4 mb-12 pb-8" style={{ borderBottom: '1px solid rgba(190, 184, 170, 0.15)' }}>
+                <div className="w-11 h-11 rounded-full overflow-hidden" style={{ background: 'rgba(54,183,176,0.1)', border: '2px solid rgba(54,183,176,0.25)' }}>
                   {post.author?.avatar_url ? (
                     <Image src={post.author.avatar_url} alt={post.author.full_name || 'Author'} width={44} height={44} className="w-full h-full object-cover" />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-[#00f0ff] text-sm font-bold">
+                    <div className="w-full h-full flex items-center justify-center text-[#36b7b0] text-sm font-bold">
                       {(post.author?.full_name || 'X')[0]}
                     </div>
                   )}
@@ -269,7 +269,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   <h3 className="text-sm font-semibold text-white" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
                     {post.profiles?.full_name || 'Teamx'}
                   </h3>
-                  <p className="text-[12px]" style={{ color: '#849495' }}>
+                  <p className="text-[12px]" style={{ color: '#8d8b85' }}>
                     AI Research &amp; Editorial
                   </p>
                 </div>
@@ -279,12 +279,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <div className="prose prose-lg dark:prose-invert max-w-none
                 [&_*]:text-[#a0a0b0]
                 prose-headings:text-white prose-headings:font-bold prose-headings:tracking-[-0.02em]
-                prose-a:text-[#00f0ff] prose-strong:text-white
-                prose-blockquote:border-l-[#00f0ff] prose-blockquote:text-[#c8c8cc] prose-blockquote:italic
-                prose-code:text-[#00f0ff] prose-code:bg-[rgba(0,240,255,0.05)] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+                prose-a:text-[#36b7b0] prose-strong:text-white
+                prose-blockquote:border-l-[#36b7b0] prose-blockquote:text-[#c8c8cc] prose-blockquote:italic
+                prose-code:text-[#36b7b0] prose-code:bg-[rgba(54,183,176,0.05)] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
                 prose-pre:bg-[#0a0c10] prose-pre:border prose-pre:border-[rgba(255,255,255,0.08)]
                 prose-img:rounded-xl prose-img:border prose-img:border-[rgba(255,255,255,0.08)]
-                selection:bg-[rgba(0,240,255,0.25)]
+                selection:bg-[rgba(54,183,176,0.25)]
                 break-words overflow-hidden"
                 style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
                 {post.content && post.content.startsWith('<') ? (
@@ -302,15 +302,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         return <h2 id={id}>{children}</h2>;
                       },
                       blockquote: ({ children }) => (
-                        <blockquote className="!border-l-2 !pl-6 !py-2 my-8" style={{ background: 'rgba(0,240,255,0.03)', borderLeft: '3px solid #00f0ff', borderRadius: '0 8px 8px 0' }}>
+                        <blockquote className="!border-l-2 !pl-6 !py-2 my-8" style={{ background: 'rgba(54,183,176,0.03)', borderLeft: '3px solid #36b7b0', borderRadius: '0 8px 8px 0' }}>
                           {children}
                         </blockquote>
                       ),
                       pre: ({ children }) => (
-                        <div className="my-8 rounded-xl overflow-hidden" style={{ background: '#0a0c10', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
-                          <div className="flex items-center justify-between px-4 py-2" style={{ background: 'rgba(59, 73, 75, 0.1)', borderBottom: '1px solid rgba(59, 73, 75, 0.15)' }}>
+                        <div className="my-8 rounded-xl overflow-hidden" style={{ background: '#0a0c10', border: '1px solid rgba(190, 184, 170, 0.2)' }}>
+                          <div className="flex items-center justify-between px-4 py-2" style={{ background: 'rgba(190, 184, 170, 0.1)', borderBottom: '1px solid rgba(190, 184, 170, 0.15)' }}>
                             <span className="text-[9px] font-bold text-gray-500 uppercase tracking-wider" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>code_block</span>
-                            <button className="text-[9px] font-bold text-[#00f0ff] uppercase tracking-wider hover:text-white transition-colors" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>COPY</button>
+                            <button className="text-[9px] font-bold text-[#36b7b0] uppercase tracking-wider hover:text-white transition-colors" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>COPY</button>
                           </div>
                           <pre className="!bg-transparent !p-4 overflow-x-auto">{children}</pre>
                         </div>
@@ -332,14 +332,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </div>
 
               {/* Footer */}
-              <footer className="mt-16 pt-8 pb-8 text-center" style={{ borderTop: '1px solid rgba(59, 73, 75, 0.15)' }}>
+              <footer className="mt-16 pt-8 pb-8 text-center" style={{ borderTop: '1px solid rgba(190, 184, 170, 0.15)' }}>
                 <div className="flex justify-center gap-6 text-[10px] uppercase tracking-widest mb-2" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-                  <Link href="/about" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>About</Link>
-                  <Link href="/blog" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Blog</Link>
-                  <Link href="/contact" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Contact</Link>
-                  <Link href="/terms" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Terms</Link>
-                  <Link href="/cookies" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Cookies</Link>
-                  <Link href="/privacy" className="hover:text-[#00f0ff] transition-colors" style={{ color: '#849495' }}>Privacy</Link>
+                  <Link href="/about" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>About</Link>
+                  <Link href="/blog" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Blog</Link>
+                  <Link href="/contact" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Contact</Link>
+                  <Link href="/terms" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Terms</Link>
+                  <Link href="/cookies" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Cookies</Link>
+                  <Link href="/privacy" className="hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85' }}>Privacy</Link>
                 </div>
                 <p className="text-[12px] font-medium" style={{ color: '#5a6c6d' }}>
                   &copy; {new Date().getFullYear()} Xylos AI
@@ -352,7 +352,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <div className="lg:sticky lg:top-24 space-y-8">
                 {/* Table of Contents */}
                 {headings.length > 0 && (
-                  <div className="rounded-xl p-5" style={{ background: 'rgba(26, 29, 35, 0.6)', border: '1px solid rgba(59, 73, 75, 0.15)' }}>
+                  <div className="rounded-xl p-5" style={{ background: 'rgba(26, 29, 35, 0.6)', border: '1px solid rgba(190, 184, 170, 0.15)' }}>
                     <h4 className="text-[10px] font-bold text-white uppercase tracking-[0.2em] mb-1" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
                       Table of Contents
                     </h4>
@@ -363,10 +363,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                           <li key={i}>
                             <a
                               href={`#${h.id}`}
-                              className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-[11px] text-gray-400 hover:text-white hover:bg-[rgba(0,240,255,0.05)] transition-all group"
+                              className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-[11px] text-gray-400 hover:text-white hover:bg-[rgba(54,183,176,0.05)] transition-all group"
                               style={{ fontFamily: 'var(--font-sora), sans-serif' }}
                             >
-                              <span className="material-symbols-outlined text-[14px] text-gray-600 group-hover:text-[#00f0ff] transition-colors">
+                              <span className="material-symbols-outlined text-[14px] text-gray-600 group-hover:text-[#36b7b0] transition-colors">
                                 {i === 0 ? 'segment' : i === 1 ? 'architecture' : i === 2 ? 'query_stats' : 'auto_awesome'}
                               </span>
                               {h.text}
@@ -380,7 +380,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
                 {/* Related Logs */}
                 {relatedPosts && relatedPosts.length > 0 && (
-                  <div className="rounded-xl p-5" style={{ background: 'rgba(26, 29, 35, 0.6)', border: '1px solid rgba(59, 73, 75, 0.15)' }}>
+                  <div className="rounded-xl p-5" style={{ background: 'rgba(26, 29, 35, 0.6)', border: '1px solid rgba(190, 184, 170, 0.15)' }}>
                     <h4 className="text-[10px] font-bold text-white uppercase tracking-[0.2em] mb-4" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
                       Related Logs
                     </h4>
@@ -389,8 +389,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         <Link
                           key={i}
                           href={`/blog/${rp.slug}`}
-                          className="block p-3 rounded-lg transition-all hover:bg-[rgba(0,240,255,0.05)] group"
-                          style={{ border: '1px solid rgba(59, 73, 75, 0.1)' }}
+                          className="block p-3 rounded-lg transition-all hover:bg-[rgba(54,183,176,0.05)] group"
+                          style={{ border: '1px solid rgba(190, 184, 170, 0.1)' }}
                         >
                           <span className="text-[9px] text-gray-600 block mb-1" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
                             {formatDate(rp.published_at)}
