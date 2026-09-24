@@ -224,7 +224,7 @@ function CreatePostContent() {
   return (
     <div className="max-w-7xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-1000 ease-out pb-20">
       {/* Header Section */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 glass-card p-8 relative overflow-hidden group">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 editorial-card p-8 relative overflow-hidden group">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-50" />
         <div className="relative z-10">
           <div className="flex items-center gap-3 text-primary mb-2">
@@ -250,7 +250,7 @@ function CreatePostContent() {
           <button 
             onClick={handlePublish}
             disabled={isPublishing || isGenerating}
-            className="px-8 py-4 rounded-xl bg-primary text-[#17181b] font-black hover:shadow-[0_0_30px_rgba(54,183,176,0.3)] transition-all flex items-center gap-2 disabled:opacity-50 disabled:grayscale"
+            className="px-8 py-4 rounded-xl bg-primary text-[#17181b] font-black hover:shadow-lg transition-all flex items-center gap-2 disabled:opacity-50 disabled:grayscale"
           >
             {isPublishing ? (
               <>
@@ -270,7 +270,7 @@ function CreatePostContent() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Main Editor Section */}
         <div className="lg:col-span-3 space-y-6">
-          <div className="glass-card p-8 space-y-8">
+          <div className="editorial-card p-8 space-y-8">
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-white/40">
                 <Type className="w-4 h-4" />
@@ -310,7 +310,7 @@ function CreatePostContent() {
         {/* Sidebar Controls */}
         <div className="lg:col-span-1 space-y-6">
           {/* Visual Identity Panel */}
-          <div className="glass-card p-8 space-y-6">
+          <div className="editorial-card p-8 space-y-6">
             <h3 className="font-black text-lg flex items-center gap-3 text-white">
               <ImageIcon className="w-5 h-5 text-primary" />
               Visual Asset
@@ -382,7 +382,7 @@ function CreatePostContent() {
               <button 
                 onClick={handleGenerateDraft}
                 disabled={isGenerating || isPublishing}
-                className="w-full bg-primary text-[#17181b] font-black py-4 rounded-xl hover:shadow-[0_0_30px_rgba(54,183,176,0.3)] transition-all flex items-center justify-center gap-2 group disabled:opacity-50"
+                className="w-full bg-primary text-[#17181b] font-black py-4 rounded-xl hover:shadow-lg transition-all flex items-center justify-center gap-2 group disabled:opacity-50"
               >
                 {isGenerating ? (
                   <>
@@ -400,7 +400,7 @@ function CreatePostContent() {
           </div>
 
           {/* SEO Matrix Panel */}
-          <div className="glass-card p-8 space-y-6">
+          <div className="editorial-card p-8 space-y-6">
             <h3 className="font-black text-lg flex items-center gap-3 text-white">
               <BarChart className="w-5 h-5 text-primary" />
               SEO Matrix

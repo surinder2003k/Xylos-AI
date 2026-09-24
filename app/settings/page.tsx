@@ -62,7 +62,7 @@ export default function SettingsPage() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: idx * 0.05 }}
-            className="group p-6 rounded-xl glass-card hover:border-[rgba(54,183,176,0.18)] transition-all"
+            className="group p-6 rounded-xl editorial-card hover:border-[rgba(54,183,176,0.18)] transition-all"
           >
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="flex items-center gap-4">
@@ -92,7 +92,7 @@ export default function SettingsPage() {
         ))}
       </section>
 
-      <footer className="sticky bottom-8 flex items-center justify-between p-6 rounded-xl glass-card border-primary/20 backdrop-blur-xl">
+      <footer className="sticky bottom-8 flex items-center justify-between p-6 rounded-xl editorial-card border-primary/20 backdrop-blur-xl">
         <div className="flex items-center gap-3">
            <ShieldCheck className="w-6 h-6 text-primary" />
            <div className="text-sm">
@@ -106,7 +106,7 @@ export default function SettingsPage() {
           disabled={isSaving}
           className={`
             px-8 py-3 rounded-xl font-semibold flex items-center gap-2 transition-all duration-300
-            ${saveStatus === 'success' ? 'bg-green-500 text-white' : 'bg-primary text-[#17181b] hover:bg-[#33f3ff]'}
+            ${saveStatus === 'success' ? 'bg-green-500 text-white' : 'bg-primary text-[#17181b] hover:bg-[#4accc4]'}
             disabled:opacity-50
           `}
         >

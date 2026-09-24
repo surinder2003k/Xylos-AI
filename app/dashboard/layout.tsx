@@ -297,7 +297,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                     initial={{ opacity: 0, y: 10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    className="absolute right-0 top-full mt-3 w-48 sm:w-56 glass-card rounded-2xl shadow-2xl z-[100] overflow-hidden"
+                    className="absolute right-0 top-full mt-3 w-48 sm:w-56 editorial-card rounded-2xl shadow-2xl z-[100] overflow-hidden"
                   >
                     <div className="p-3">
                       <div className="px-3 py-3 mb-2 bg-white/5 rounded-xl border border-white/10">

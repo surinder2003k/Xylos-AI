@@ -144,14 +144,14 @@ export default async function ToolProxyPage({ params }: { params: Promise<{ tool
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-24 px-6 overflow-hidden" style={{ background: '#0d0e10', color: '#eeeae2' }}>
+    <div className="editorial-page min-h-screen pt-32 pb-24 px-6 overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center space-y-8 relative">
-        <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 glass-card">
+        <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 editorial-card">
           <tool.icon className="w-8 h-8 text-[#36b7b0]" />
         </div>
         
@@ -169,7 +169,7 @@ export default async function ToolProxyPage({ params }: { params: Promise<{ tool
 
         <Link 
           href="/chat"
-          className="mt-8 flex items-center gap-3 px-8 py-4 rounded-2xl glass-cta font-semibold group text-sm"
+          className="mt-8 flex items-center gap-3 px-8 py-4 rounded-2xl editorial-button editorial-button-primary font-semibold group text-sm"
         >
           Get started
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -187,7 +187,7 @@ export default async function ToolProxyPage({ params }: { params: Promise<{ tool
                 <h3 className="text-lg font-semibold text-white" style={{ fontFamily: 'Sora, sans-serif' }}>{benefit}</h3>
              </BentoCard>
           ))}
-          <BentoCard className="col-span-1 md:col-span-3 lg:col-span-1 glass-card">
+          <BentoCard className="col-span-1 md:col-span-3 lg:col-span-1 editorial-card">
              <div className="flex flex-col h-full justify-between">
                 <Shield className="w-10 h-10 text-[#36b7b0] mb-4" />
                 <h3 className="text-2xl font-bold mb-2 text-white" style={{ fontFamily: 'Sora, sans-serif' }}>Enterprise-grade security</h3>

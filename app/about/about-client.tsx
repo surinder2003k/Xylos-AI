@@ -21,7 +21,7 @@ import { NewsletterForm } from "@/components/landing/newsletter-form";
 export default function AboutPageClient() {
 
   return (
-    <div className="min-h-screen relative overflow-hidden" style={{ background: '#0d0e10', color: '#eeeae2' }}>
+    <div className="editorial-page min-h-screen relative overflow-hidden">
       {/* Subtle ambient depth — single soft cyan radial (matches landing) */}
       <div className="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
         <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
@@ -98,7 +98,7 @@ export default function AboutPageClient() {
             transition={{ delay: 0.4, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="aspect-video rounded-3xl p-1 overflow-hidden glass-card">
+            <div className="aspect-video rounded-2xl p-1 overflow-hidden editorial-card">
                <div className="w-full h-full rounded-2xl overflow-hidden relative">
                   <Image
                     src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80"
@@ -137,7 +137,7 @@ export default function AboutPageClient() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="sm:col-span-2 md:col-span-2 p-8 sm:p-10 rounded-2xl glass-card"
+            className="sm:col-span-2 md:col-span-2 p-8 sm:p-10 rounded-2xl editorial-card"
           >
             <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <div className="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0" style={{ background: 'rgba(54,183,176,0.12)' }}>
@@ -167,7 +167,7 @@ export default function AboutPageClient() {
         </div>
 
         {/* Mission Statement */}
-        <section className="p-8 sm:p-12 md:p-24 text-center space-y-8 relative overflow-hidden rounded-3xl" style={{ background: 'rgba(54,183,176,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+        <section className="p-8 sm:p-12 md:p-24 text-center space-y-8 relative overflow-hidden rounded-2xl" style={{ background: 'rgba(54,183,176,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
            <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.02em] text-white relative z-10" style={{ fontFamily: 'Sora, sans-serif' }}>Our mission</h2>
            <p className="text-lg sm:text-xl md:text-3xl font-medium max-w-4xl mx-auto leading-tight relative z-10" style={{ color: '#b8b4ac' }}>
              Xylos was founded on a singular premise: that technology should empower human expression, not replace it. We are building the infrastructure for the next century of digital storytelling.
@@ -197,7 +197,7 @@ export default function AboutPageClient() {
 
 function FeatureCard({ icon: Icon, title, desc }: any) {
   return (
-    <div className="p-5 sm:p-6 rounded-2xl transition-all duration-300 group glass-card">
+    <div className="p-5 sm:p-6 rounded-2xl transition-all duration-300 group editorial-card">
       <div className="w-10 h-10 rounded-xl flex items-center justify-center text-[#36b7b0] group-hover:bg-[rgba(54,183,176,0.16)] transition-all duration-300 mb-4" style={{ background: 'rgba(54,183,176,0.1)' }}>
         <Icon className="w-5 h-5" />
       </div>
@@ -213,7 +213,7 @@ function FeatureBento({ icon: Icon, title, desc }: any) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="p-8 sm:p-10 rounded-2xl glass-card"
+      className="p-8 sm:p-10 rounded-2xl editorial-card"
     >
       <div className="relative z-10 space-y-4">
         <div className="w-16 h-16 rounded-2xl flex items-center justify-center" style={{ background: 'rgba(54,183,176,0.12)' }}>
@@ -228,7 +228,7 @@ function FeatureBento({ icon: Icon, title, desc }: any) {
 
 function StatBox({ label, value }: any) {
   return (
-    <div className="p-6 sm:p-8 rounded-2xl text-center space-y-2 transition-all duration-300 cursor-default group glass-card">
+    <div className="p-6 sm:p-8 rounded-2xl text-center space-y-2 transition-all duration-300 cursor-default group editorial-card">
       <p className="text-[12px] font-medium" style={{ color: '#8d8b85' }}>{label}</p>
       <p className="text-3xl sm:text-4xl font-bold text-white group-hover:text-[#36b7b0] transition-colors" style={{ fontFamily: 'Sora, sans-serif' }}>{value}</p>
     </div>

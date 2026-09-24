@@ -54,14 +54,14 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full">
           <Link
             href="/"
-            className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl glass-cta font-semibold text-sm transition-all w-full sm:w-auto"
+            className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl editorial-button editorial-button-primary font-semibold text-sm transition-all w-full sm:w-auto"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to home
           </Link>
           <Link
             href="/chat"
-            className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl glass-outline font-semibold text-sm transition-all w-full sm:w-auto"
+            className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl editorial-button font-semibold text-sm transition-all w-full sm:w-auto"
           >
             <MessageSquare className="w-4 h-4" />
             Open chat

@@ -35,7 +35,7 @@ export default function PicExtractor() {
 
               {/* Parallax Effect */}
               <div className="relative h-96 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-[#36b7b033] to-[#9d8cff33]" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#36b7b033] to-[#368fa333]" />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#36b7b022] to-[#2dd4bf22]" />
                 <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-3xl">
                   Parallax Layers (Coming Soon)
@@ -66,7 +66,7 @@ export default function PicExtractor() {
                 <div
                   style={{
                     width: '30%',
-                    background: 'linear-gradient(90deg, #36b7b0, #9d8cff)',
+                    background: 'linear-gradient(90deg, #36b7b0, #368fa3)',
                     height: '100%',
                     borderRadius: 'inherit',
                   }}

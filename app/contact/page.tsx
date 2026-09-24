@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen relative overflow-hidden" style={{ background: '#0d0e10', color: '#eeeae2' }}>
+    <div className="editorial-page min-h-screen relative overflow-hidden">
       <main className="relative z-10 pt-32 px-6 pb-20 max-w-4xl mx-auto space-y-16">
         {/* Hero */}
         <header className="space-y-6 text-center">
@@ -97,7 +97,7 @@ export default function ContactPage() {
 
 function ContactCard({ icon: Icon, title, description, action }: any) {
   return (
-    <div className="p-8 rounded-2xl space-y-4 transition-all group glass-card">
+    <div className="p-8 rounded-2xl space-y-4 transition-all group editorial-card">
       <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: 'rgba(54,183,176,0.12)' }}>
         <Icon className="w-6 h-6 text-[#36b7b0]" />
       </div>

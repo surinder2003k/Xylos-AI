@@ -105,11 +105,11 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
   };
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#0a0a0a] text-white">
+    <div className="editorial-page min-h-screen overflow-x-hidden bg-[#0d0e10] text-white">
       <main className="mx-auto max-w-7xl px-4 pb-16 pt-28 sm:px-6 md:px-8 md:pt-32">
         <section className="mb-12 border-b border-white/[0.08] pb-12 text-left md:pb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#36b7b0] via-[#a78bfa] to-[#fb7185] bg-clip-text text-transparent">
-            AI Blog — Insights on Technology, AI & Innovation
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white" style={{ fontFamily: 'Sora, sans-serif' }}>
+            Xylos AI Blog — Insights on Technology, AI &amp; Innovation
           </h1>
           <p className="text-gray-400 text-base max-w-2xl mx-auto">
             Deep-dive articles on AI, machine learning, and emerging tech — curated by automated intelligence.

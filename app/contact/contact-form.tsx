@@ -39,7 +39,7 @@ export function ContactForm() {
   };
 
   return (
-    <form className="space-y-6 glass-card p-8" onSubmit={handleSubmit}>
+    <form className="space-y-6 editorial-card p-8" onSubmit={handleSubmit}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label htmlFor="name" className="block text-sm font-medium mb-2" style={{ color: '#b8b4ac' }}>

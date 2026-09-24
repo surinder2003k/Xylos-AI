@@ -46,7 +46,7 @@ export function ConfirmationModal({
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="bg-card border border-border rounded-[2.5rem] shadow-2xl w-full max-w-md overflow-hidden pointer-events-auto"
+              className="bg-card border border-border rounded-2xl shadow-2xl w-full max-w-md overflow-hidden pointer-events-auto"
             >
               <div className="p-8 space-y-6">
                 {/* Icon & Close */}
@@ -90,7 +90,7 @@ export function ConfirmationModal({
                       flex-1 px-6 py-4 rounded-2xl font-bold transition-all text-sm flex items-center justify-center gap-2
                       ${type === "danger" ? "bg-red-500 text-white hover:bg-red-600" : ""}
                       ${type === "warning" ? "bg-yellow-500 text-black hover:bg-yellow-600" : ""}
-                      ${type === "info" ? "bg-primary text-black hover:scale-105 shadow-neon" : ""}
+                      ${type === "info" ? "bg-primary text-black hover:scale-105" : ""}
                       disabled:opacity-50
                     `}
                   >

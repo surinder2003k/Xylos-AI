@@ -404,10 +404,10 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
                 exit={{ opacity: 0, y: 10, scale: 0.95 }}
                 className="absolute top-full left-0 mt-3 bg-card border border-border p-2.5 rounded-2xl shadow-2xl z-[100] flex flex-col gap-2.5 min-w-[40px] backdrop-blur-xl"
               >
-                <button onClick={() => { setColor("#8b5cf6"); setShowColorPicker(false); }} className="w-6 h-6 rounded-full bg-violet-500 hover:scale-110 transition-transform shadow-[0_0_10px_rgba(139,92,246,0.3)]" title="Xylos Violet" />
-                <button onClick={() => { setColor("#6366f1"); setShowColorPicker(false); }} className="w-6 h-6 rounded-full bg-indigo-500 hover:scale-110 transition-transform shadow-[0_0_10px_rgba(99,102,241,0.3)]" title="Indigo Insight" />
-                <button onClick={() => { setColor("#a855f7"); setShowColorPicker(false); }} className="w-6 h-6 rounded-full bg-purple-500 hover:scale-110 transition-transform shadow-[0_0_10px_rgba(168,85,247,0.3)]" title="Purple Prestige" />
-                <button onClick={() => { setColor("#ef4444"); setShowColorPicker(false); }} className="w-6 h-6 rounded-full bg-red-500 hover:scale-110 transition-transform shadow-[0_0_10px_rgba(239,68,68,0.3)]" title="Alert Red" />
+                <button onClick={() => { setColor("#8b5cf6"); setShowColorPicker(false); }} className="w-6 h-6 rounded-full bg-violet-500 hover:scale-110 transition-transform" title="Xylos Violet" />
+                <button onClick={() => { setColor("#6366f1"); setShowColorPicker(false); }} className="w-6 h-6 rounded-full bg-indigo-500 hover:scale-110 transition-transform" title="Indigo Insight" />
+                <button onClick={() => { setColor("#a855f7"); setShowColorPicker(false); }} className="w-6 h-6 rounded-full bg-purple-500 hover:scale-110 transition-transform" title="Purple Prestige" />
+                <button onClick={() => { setColor("#ef4444"); setShowColorPicker(false); }} className="w-6 h-6 rounded-full bg-red-500 hover:scale-110 transition-transform" title="Alert Red" />
                 <div className="h-px bg-border mx-1" />
                 <button onClick={() => { setColor("currentColor"); setShowColorPicker(false); }} className={`w-6 h-6 rounded-full border border-border bg-black hover:scale-110 transition-transform`} title="Default Text Color" />
               </motion.div>
@@ -484,7 +484,7 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
           <div className="flex flex-col items-end">
             <span className="text-[8px] font-black text-muted-foreground uppercase tracking-[0.2em] mb-0.5">Draft Status</span>
             <div className="text-[10px] font-bold text-green-500 flex items-center gap-1.5 uppercase tracking-widest">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.4)]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
               Live Sync Active
             </div>
           </div>
@@ -499,7 +499,7 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
                initial={{ opacity: 0, scale: 0.95 }}
                animate={{ opacity: 1, scale: 1 }}
                exit={{ opacity: 0, scale: 0.95 }}
-               className="w-full max-w-sm bg-card border border-border rounded-3xl p-6 shadow-2xl space-y-6"
+               className="w-full max-w-sm bg-card border border-border rounded-2xl p-6 shadow-2xl space-y-6"
             >
               <div className="space-y-2">
                 <h3 className="font-black text-lg uppercase tracking-widest text-primary flex items-center gap-2">
@@ -529,7 +529,7 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
 
               <div className="flex items-center gap-3 pt-2 border-t border-border">
                 <button onClick={() => setLinkEditor(prev => ({ ...prev, isOpen: false }))} className="flex-1 py-3 rounded-xl border border-border text-xs font-bold uppercase hover:bg-muted transition-all text-muted-foreground">Cancel</button>
-                <button onClick={applyLink} className="flex-1 py-3 rounded-xl bg-primary text-black text-xs font-black uppercase hover:scale-105 transition-all shadow-neon">Confirm</button>
+                <button onClick={applyLink} className="flex-1 py-3 rounded-xl bg-primary text-black text-xs font-black uppercase hover:scale-105 transition-all">Confirm</button>
               </div>
             </motion.div>
           </div>
@@ -544,7 +544,7 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
                initial={{ opacity: 0, scale: 0.95 }}
                animate={{ opacity: 1, scale: 1 }}
                exit={{ opacity: 0, scale: 0.95 }}
-               className="w-full max-w-sm bg-card border border-border rounded-3xl p-6 shadow-2xl space-y-6"
+               className="w-full max-w-sm bg-card border border-border rounded-2xl p-6 shadow-2xl space-y-6"
             >
               <div className="space-y-2">
                 <h3 className="font-black text-lg uppercase tracking-widest text-primary flex items-center gap-2">
@@ -579,7 +579,7 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
 
               <div className="flex items-center gap-3 pt-2 border-t border-border">
                 <button onClick={() => { metadataEditor.callback(null); setMetadataEditor(prev => ({ ...prev, isOpen: false })); }} className="flex-1 py-3 rounded-xl border border-border text-xs font-bold uppercase hover:bg-muted transition-all text-muted-foreground">Skip</button>
-                <button onClick={() => { metadataEditor.callback({ alt: metadataEditor.alt, title: metadataEditor.title }); setMetadataEditor(prev => ({ ...prev, isOpen: false })); }} className="flex-1 py-3 rounded-xl bg-primary text-black text-xs font-black uppercase hover:scale-105 transition-all shadow-neon">Verify Data</button>
+                <button onClick={() => { metadataEditor.callback({ alt: metadataEditor.alt, title: metadataEditor.title }); setMetadataEditor(prev => ({ ...prev, isOpen: false })); }} className="flex-1 py-3 rounded-xl bg-primary text-black text-xs font-black uppercase hover:scale-105 transition-all">Verify Data</button>
               </div>
             </motion.div>
           </div>

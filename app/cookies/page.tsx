@@ -19,7 +19,7 @@ export default function CookiesPage() {
   const lastUpdated = "April 17, 2026";
 
   return (
-    <div className="min-h-screen relative overflow-hidden" style={{ background: '#0d0e10', color: '#eeeae2' }}>
+    <div className="editorial-page min-h-screen relative overflow-hidden">
       <main className="relative z-10 pt-32 px-6 pb-20 max-w-4xl mx-auto space-y-16">
         {/* Hero */}
         <header className="space-y-6 text-center">

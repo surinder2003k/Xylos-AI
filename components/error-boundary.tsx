@@ -33,7 +33,7 @@ export class EditorialErrorBoundary extends Component<Props, State> {
       if (this.props.fallback) return this.props.fallback;
 
       return (
-        <div className="p-12 rounded-[2.5rem] bg-red-500/5 border border-red-500/20 flex flex-col items-center text-center gap-6 backdrop-blur-xl">
+        <div className="p-12 rounded-2xl bg-red-500/5 border border-red-500/20 flex flex-col items-center text-center gap-6 backdrop-blur-xl">
           <div className="w-16 h-16 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-500">
             <AlertCircle className="w-8 h-8" />
           </div>

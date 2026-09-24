@@ -47,7 +47,7 @@ export function NewsletterForm() {
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto my-24 p-6 md:p-12 rounded-3xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-12" style={{ background: 'rgba(20, 21, 24, 0.6)', border: '1px solid rgba(190, 184, 170, 0.2)' }}>
+    <div className="w-full max-w-5xl mx-auto my-24 p-6 md:p-12 rounded-2xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-12" style={{ background: 'rgba(20, 21, 24, 0.6)', border: '1px solid rgba(190, 184, 170, 0.2)' }}>
       
       {/* Left Content Area */}
       <div className="relative z-10 w-full lg:w-1/2 space-y-6 text-center lg:text-left">
@@ -75,7 +75,7 @@ export function NewsletterForm() {
           <button 
             type="submit"
             disabled={status === 'loading' || status === 'success'}
-            className="flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-xl bg-[#36b7b0] text-[#17181b] font-bold text-[10px] uppercase tracking-widest hover:bg-[#33f3ff] hover:shadow-[0_0_30px_rgba(54,183,176,0.25)] transition-all disabled:opacity-80 disabled:pointer-events-none"
+            className="flex items-center justify-center whitespace-nowrap px-8 py-4 rounded-xl bg-[#36b7b0] text-[#17181b] font-bold text-[10px] uppercase tracking-widest hover:bg-[#4accc4] hover:shadow-lg transition-all disabled:opacity-80 disabled:pointer-events-none"
           >
             {status === 'loading' ? (
               <span className="flex items-center gap-2">

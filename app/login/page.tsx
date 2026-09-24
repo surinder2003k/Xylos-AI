@@ -39,12 +39,12 @@ function LoginContent() {
 
   const features = [
     { icon: MessageSquare, title: "Unified AI Chat", sub: "7+ models in one interface", accent: "#36b7b0" },
-    { icon: Code2, title: "Code Assistant", sub: "Full-stack dev tools", accent: "#9d8cff" },
+    { icon: Code2, title: "Code Assistant", sub: "Full-stack dev tools", accent: "#368fa3" },
     { icon: FileText, title: "Content Factory", sub: "Blog & social generation", accent: "#2dd4bf" },
   ];
 
   return (
-    <div className="min-h-screen flex relative overflow-hidden" style={{ background: '#0d0e10', color: '#eeeae2' }}>
+    <div className="editorial-page min-h-screen flex relative overflow-hidden">
       {/* Subtle ambient depth — single soft cyan radial (matches landing) */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <div className="absolute top-[-100px] left-1/4 w-[80vw] max-w-[500px] md:w-[60vw] md:max-w-[700px] h-[50vw] max-h-[350px] md:h-[40vw] md:max-h-[500px] rounded-full blur-[120px] md:blur-[160px]" style={{ background: 'radial-gradient(closest-side, rgba(54,183,176,0.05), transparent)' }} />
@@ -61,7 +61,7 @@ function LoginContent() {
                 initial={{ opacity: 0, x: -24 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.15 + i * 0.12, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="flex items-center gap-4 p-5 rounded-2xl glass-card"
+                className="flex items-center gap-4 p-5 rounded-2xl editorial-card"
               >
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style={{ background: `${f.accent}1f` }}>
                   <f.icon className="w-5 h-5" style={{ color: f.accent }} />
@@ -139,7 +139,7 @@ function LoginContent() {
           )}
 
           {/* Auth Card */}
-          <div className="p-7 md:p-9 rounded-3xl glass-card" style={{ borderColor: 'rgba(255,255,255,0.09)' }}>
+          <div className="p-7 md:p-9 rounded-2xl editorial-card" style={{ borderColor: 'rgba(255,255,255,0.09)' }}>
             <form action={isLogin ? signInWithEmail : signUpWithEmail} onSubmit={handleSubmit} className="space-y-4">
               <input type="hidden" name="next" value={next} />
               {!isLogin && (
@@ -192,7 +192,7 @@ function LoginContent() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full glass-cta font-semibold py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group mt-6 disabled:opacity-50 disabled:pointer-events-none text-sm"
+                className="w-full editorial-button editorial-button-primary font-semibold py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group mt-6 disabled:opacity-50 disabled:pointer-events-none text-sm"
               >
                 {isLoading ? "Signing in..." : isLogin ? "Sign in" : "Create account"}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

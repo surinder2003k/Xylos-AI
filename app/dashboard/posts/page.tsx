@@ -213,7 +213,7 @@ export default function AllStoriesPage() {
         
         <Link 
           href="/dashboard/create"
-          className="group flex items-center justify-center gap-2 md:gap-4 bg-primary text-[#17181b] px-5 md:px-10 py-4 md:py-5 rounded-xl font-semibold text-xs uppercase tracking-wide hover:shadow-[0_0_30px_rgba(54,183,176,0.3)] transition-all"
+          className="group flex items-center justify-center gap-2 md:gap-4 bg-primary text-[#17181b] px-5 md:px-10 py-4 md:py-5 rounded-xl font-semibold text-xs uppercase tracking-wide hover:shadow-lg transition-all"
         >
           <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
           <span className="whitespace-nowrap">Draft New Story</span>
@@ -221,7 +221,7 @@ export default function AllStoriesPage() {
       </div>
 
       {/* Filter Bar */}
-      <div className="flex items-center gap-4 glass-card p-4">
+      <div className="flex items-center gap-4 editorial-card p-4">
         <div className="flex-1 relative group">
           <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 transition-colors group-focus-within:text-primary" />
           <input 
@@ -242,7 +242,7 @@ export default function AllStoriesPage() {
       </div>
 
       {/* Content Feed */}
-      <div className="glass-card overflow-hidden" id="stories-table">
+      <div className="editorial-card overflow-hidden" id="stories-table">
         {/* ── Desktop: Table (md and up) ── */}
         <div className="hidden md:block overflow-x-auto custom-scrollbar">
           <table className="w-full text-left border-collapse min-w-[900px]">
@@ -475,7 +475,7 @@ export default function AllStoriesPage() {
                     aria-current={safePage === p ? 'page' : undefined}
                     className={`w-9 h-9 rounded-lg text-xs font-semibold transition-all ${
                       safePage === p
-                        ? 'bg-primary text-[#17181b] shadow-[0_0_20px_rgba(54,183,176,0.25)]'
+                        ? 'bg-primary text-[#17181b]'
                         : 'bg-white/5 border border-white/10 text-white/50 hover:bg-primary/10 hover:text-primary'
                     }`}
                   >

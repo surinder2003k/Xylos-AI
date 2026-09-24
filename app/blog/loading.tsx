@@ -1,6 +1,6 @@
 export default function BlogLoading() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#0a0a0a] px-4 pb-16 pt-28 text-white sm:px-6 md:px-8 md:pt-32">
+    <div className="editorial-page min-h-screen overflow-x-hidden bg-[#0d0e10] px-4 pb-16 pt-28 text-white sm:px-6 md:px-8 md:pt-32">
       <div className="mx-auto max-w-[1400px]">
         {/* Header skeleton */}
         <div className="mb-14 flex flex-col items-center gap-4">

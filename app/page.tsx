@@ -60,7 +60,7 @@ export default async function LandingPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen relative overflow-hidden text-white" style={{ background: '#0d0e10' }}>
+    <div className="editorial-page flex flex-col min-h-screen relative overflow-hidden text-white">
 
       <script
         type="application/ld+json"
@@ -88,7 +88,7 @@ export default async function LandingPage() {
                 {/* Heading */}
                 <StaggerItem>
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-[-0.03em] text-white mb-6" style={{ fontFamily: 'Sora, sans-serif' }}>
-                  Intelligence,
+                  Xylos AI. Intelligence,
                   <br />
                   <span style={{ color: '#36b7b0' }}>beautifully simple.</span>
                 </h1>
@@ -97,7 +97,7 @@ export default async function LandingPage() {
                 {/* Subheading */}
                 <StaggerItem>
                 <p className="text-base md:text-base max-w-xl leading-relaxed mb-10" style={{ color: '#b8b4ac' }}>
-                  One calm workspace for 7+ frontier models — Llama, Gemini, Mistral. No clutter, no cost. Just clear, fast answers.
+                  Xylos AI is one calm workspace for 7+ frontier models — Llama, Gemini, Mistral. No clutter, no cost. Just clear, fast answers.
                 </p>
                 </StaggerItem>
 
@@ -106,14 +106,14 @@ export default async function LandingPage() {
                 <div className="flex flex-col sm:flex-row gap-4 mb-16">
                   <Link
                     href="/chat"
-                    className="group glass-cta flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold"
+                    className="group editorial-button editorial-button-primary flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold"
                   >
                     Start chatting
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                   <Link
                     href="/about"
-                    className="group glass-outline flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold"
+                    className="group editorial-button flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold"
                   >
                     Learn more
                     <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -160,7 +160,7 @@ export default async function LandingPage() {
           <Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Frontier Processing */}
-            <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(54,183,176,0.18)] transition-all duration-300">
+            <div className="editorial-card rounded-2xl p-8 group hover:border-[rgba(54,183,176,0.18)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <Terminal className="w-5 h-5" style={{ color: '#36b7b0' }} />
                 <h3 className="text-xl font-semibold" style={{ color: '#eeeae2', fontFamily: 'Sora, sans-serif' }}>Frontier Processing</h3>
@@ -175,7 +175,7 @@ export default async function LandingPage() {
             </div>
 
             {/* Encrypted Core */}
-            <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(157,140,255,0.18)] transition-all duration-300">
+            <div className="editorial-card rounded-2xl p-8 group hover:border-[rgba(157,140,255,0.18)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <Lock className="w-5 h-5" style={{ color: '#36b7b0' }} />
                 <h3 className="text-xl font-semibold" style={{ color: '#eeeae2', fontFamily: 'Sora, sans-serif' }}>Encrypted Core</h3>
@@ -186,7 +186,7 @@ export default async function LandingPage() {
             </div>
 
             {/* Neural Orb */}
-            <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(45,212,191,0.18)] transition-all duration-300">
+            <div className="editorial-card rounded-2xl p-8 group hover:border-[rgba(45,212,191,0.18)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <Eye className="w-5 h-5" style={{ color: '#36b7b0' }} />
                 <h3 className="text-xl font-semibold" style={{ color: '#eeeae2', fontFamily: 'Sora, sans-serif' }}>Automatic Failover</h3>
@@ -197,7 +197,7 @@ export default async function LandingPage() {
             </div>
 
             {/* Visual Synthesis */}
-            <div className="glass-card rounded-2xl p-8 group hover:border-[rgba(245,196,81,0.18)] transition-all duration-300">
+            <div className="editorial-card rounded-2xl p-8 group hover:border-[rgba(245,196,81,0.18)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <Layers className="w-5 h-5" style={{ color: '#36b7b0' }} />
                 <h3 className="text-xl font-semibold" style={{ color: '#eeeae2', fontFamily: 'Sora, sans-serif' }}>Streaming Answers</h3>
@@ -215,7 +215,7 @@ export default async function LandingPage() {
       <section className="relative z-10 py-24 px-6 md:px-12 lg:px-20" style={{ borderTop: '1px solid rgba(190, 184, 170, 0.2)' }}>
         <div className="max-w-5xl mx-auto">
           <Reveal>
-          <div className="glass-card rounded-3xl p-12 md:p-16 text-center">
+          <div className="editorial-card rounded-2xl p-12 md:p-16 text-center">
             <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] mb-4" style={{ color: '#ffffff', fontFamily: 'Sora, sans-serif' }}>
               Ready whenever you are.
             </h2>
@@ -224,7 +224,7 @@ export default async function LandingPage() {
             </p>
             <Link
               href="/chat"
-              className="group glass-cta inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold"
+              className="group editorial-button editorial-button-primary inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold"
             >
               Try Xylos free
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -252,7 +252,7 @@ export default async function LandingPage() {
           <Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {blogs?.map((blog, i) => {
-              const accents = ['#36b7b0', '#9d8cff', '#2dd4bf'];
+              const accents = ['#36b7b0', '#368fa3', '#2dd4bf'];
               const acc = accents[i % accents.length];
               return (
               <Link key={blog.id} href={`/blog/${blog.slug || blog.id}`} className="group">
@@ -300,7 +300,7 @@ export default async function LandingPage() {
           <Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* PicExtractor */}
-            <Link href="https://picextractor.vercel.app/" className="glass-card rounded-2xl p-8 group hover:border-[rgba(54,183,176,0.18)] transition-all duration-300" target="_blank" rel="noopener noreferrer">
+            <Link href="https://picextractor.vercel.app/" className="editorial-card rounded-2xl p-8 group hover:border-[rgba(54,183,176,0.18)] transition-all duration-300" target="_blank" rel="noopener noreferrer">
               <div className="flex items-center gap-3 mb-4">
                 <Terminal className="w-5 h-5" style={{ color: '#36b7b0' }} />
                 <h3 className="text-xl font-semibold" style={{ color: '#eeeae2', fontFamily: 'Sora, sans-serif' }}>PicExtractor</h3>
@@ -315,7 +315,7 @@ export default async function LandingPage() {
             </Link>
 
             {/* Dropzone-Share */}
-            <Link href="https://dropzone-k48dpchv.manus.space" className="glass-card rounded-2xl p-8 group hover:border-[rgba(54,183,176,0.18)] transition-all duration-300" target="_blank" rel="noopener noreferrer">
+            <Link href="https://dropzone-k48dpchv.manus.space" className="editorial-card rounded-2xl p-8 group hover:border-[rgba(54,183,176,0.18)] transition-all duration-300" target="_blank" rel="noopener noreferrer">
               <div className="flex items-center gap-3 mb-4">
                 <Terminal className="w-5 h-5" style={{ color: '#36b7b0' }} />
                 <h3 className="text-xl font-semibold" style={{ color: '#eeeae2', fontFamily: 'Sora, sans-serif' }}>Dropzone Share</h3>

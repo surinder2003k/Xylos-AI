@@ -26,7 +26,7 @@ export function HeroCTA() {
         <Link
           href={isLoggedIn ? "/chat" : "/login"}
           aria-label="Launch Xylos AI Neural Link Chat"
-          className="relative flex items-center justify-center gap-4 px-10 md:px-16 py-5 md:py-6 rounded-2xl bg-primary text-[#17181b] font-bold text-sm uppercase tracking-[0.2em] shadow-lg hover:shadow-[0_0_30px_rgba(54,183,176,0.4)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group w-full sm:w-auto overflow-hidden"
+          className="relative flex items-center justify-center gap-4 px-10 md:px-16 py-5 md:py-6 rounded-2xl bg-primary text-[#17181b] font-bold text-sm uppercase tracking-[0.2em] shadow-lg hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group w-full sm:w-auto overflow-hidden"
           style={{ boxShadow: '0 4px 20px rgba(54,183,176,0.3)' }}
         >
           {isLoggedIn ? "Launch Neural Link" : "Start Chatting — Free"}

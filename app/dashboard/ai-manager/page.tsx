@@ -272,7 +272,7 @@ export default function AIManagerPage() {
   return (
     <div className="max-w-7xl mx-auto space-y-10 animate-in fade-in slide-in-from-bottom-8 duration-700">
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 glass-card p-6 md:p-8 relative overflow-hidden group">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 editorial-card p-6 md:p-8 relative overflow-hidden group">
          <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
             <Cpu className="w-32 h-32 text-primary" />
          </div>
@@ -288,7 +288,7 @@ export default function AIManagerPage() {
             <button 
               onClick={runAutomation}
               disabled={isRunning}
-              className="px-8 py-3.5 rounded-xl bg-primary text-[#17181b] font-bold hover:shadow-[0_0_30px_rgba(54,183,176,0.3)] transition-all flex items-center gap-3 disabled:opacity-50"
+              className="px-8 py-3.5 rounded-xl bg-primary text-[#17181b] font-bold hover:shadow-lg transition-all flex items-center gap-3 disabled:opacity-50"
             >
               {isRunning ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Play className="w-4 h-4" />}
               {isRunning ? "PROCESSING..." : "CREATE 2 POST"}
@@ -316,7 +316,7 @@ export default function AIManagerPage() {
               />
            </div>
 
-            <div className="glass-card p-6 md:p-8 space-y-6">
+            <div className="editorial-card p-6 md:p-8 space-y-6">
               <h3 className="font-bold text-lg flex items-center gap-3 text-white">
                  <Terminal className="w-5 h-5 text-white/30" />
                  Editorial Strategy Logs
@@ -332,7 +332,7 @@ export default function AIManagerPage() {
         </div>
 
         {/* Sync Protocols */}
-        <div className="glass-card p-6 md:p-8 space-y-8">
+        <div className="editorial-card p-6 md:p-8 space-y-8">
            <h3 className="font-bold text-lg flex items-center gap-3 underline decoration-primary decoration-4 underline-offset-8 text-white">
               <Settings2 className="w-5 h-5 text-white/30" />
               Sync Protocols
@@ -472,7 +472,7 @@ export default function AIManagerPage() {
       </div>
 
       {/* User Management Section */}
-      <div className="glass-card p-6 md:p-8 space-y-8">
+      <div className="editorial-card p-6 md:p-8 space-y-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="flex items-center gap-4">
              <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-primary">
@@ -623,7 +623,7 @@ function ApiItem({ icon: Icon, name, status, desc }: any) {
         </div>
       </div>
       <div className="flex items-center gap-1.5">
-        <div className={`w-1.5 h-1.5 rounded-full ${status === 'online' ? 'bg-primary shadow-neon animate-pulse' : 'bg-red-500'}`} />
+        <div className={`w-1.5 h-1.5 rounded-full ${status === 'online' ? 'bg-primary animate-pulse' : 'bg-red-500'}`} />
         <span className={`text-[9px] font-bold uppercase ${status === 'online' ? 'text-primary' : 'text-red-500'}`}>
           {status}
         </span>
@@ -634,7 +634,7 @@ function ApiItem({ icon: Icon, name, status, desc }: any) {
 
 function StatusCard({ icon: Icon, title, value, subtitle, color }: any) {
   return (
-    <div className="glass-card p-8 space-y-4 hover:border-white/20 transition-colors group">
+    <div className="editorial-card p-8 space-y-4 hover:border-white/20 transition-colors group">
        <div className={`w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center ${color} group-hover:scale-110 transition-transform`}>
           <Icon className="w-6 h-6" />
        </div>

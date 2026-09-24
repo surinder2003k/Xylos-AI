@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function ToolsPage() {
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden text-white" style={{ background: '#0d0e10' }}>
+    <div className="editorial-page min-h-screen flex flex-col relative overflow-hidden text-white">
       <section className="relative z-10 flex-1 flex items-center">
         <div className="w-full px-6 md:px-12 lg:px-20 py-24">
           <div className="max-w-4xl mx-auto">

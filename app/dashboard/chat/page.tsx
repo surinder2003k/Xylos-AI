@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { Suspense, useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -542,7 +542,7 @@ function ChatContent() {
         {/* Neural Input Interface */}
         <div className="absolute bottom-0 w-full bg-gradient-to-t from-background via-background/95 to-transparent pt-8 pb-4 px-2 md:pt-12 md:pb-8 md:px-12">
           <div className="max-w-3xl mx-auto relative">
-            <div className={`glass-card ${isLoading ? 'border-primary/50' : 'border-white/10'} transition-all focus-within:border-primary/50 overflow-hidden`}>
+            <div className={`editorial-card ${isLoading ? 'border-primary/50' : 'border-white/10'} transition-all focus-within:border-primary/50 overflow-hidden`}>
               {stagedFile && (
                 <div className="mx-6 mt-4 flex items-center gap-3 bg-white/5 border border-white/10 pl-3 pr-2 py-2 rounded-xl animate-in fade-in slide-in-from-bottom-2">
                   <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-primary">
@@ -587,7 +587,7 @@ function ChatContent() {
                            initial={{ opacity: 0, y: 10 }}
                            animate={{ opacity: 1, y: 0 }}
                            exit={{ opacity: 0, scale: 0.95 }}
-                            className="absolute bottom-[110%] left-0 w-64 glass-card shadow-2xl rounded-xl overflow-hidden z-[100]"
+                            className="absolute bottom-[110%] left-0 w-64 editorial-card shadow-2xl rounded-xl overflow-hidden z-[100]"
                           > {providers.map((p) => (
                             <button key={p.id} onClick={() => { setSelectedProvider(p); setIsProviderMenuOpen(false); }} className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all ${selectedProvider.id === p.id ? 'bg-primary/10 text-primary' : 'hover:bg-white/5 text-white/50 hover:text-white'}`}>
                               <div className="flex items-center gap-3 text-xs font-bold"><p.icon className="w-4 h-4" />{p.name}</div>
@@ -615,7 +615,7 @@ function ChatContent() {
                       <button 
                         onClick={handleSend} 
                         disabled={(!input.trim() && !stagedFile) || isLoading} 
-                        className="p-3.5 rounded-xl bg-primary text-[#17181b] hover:bg-[#33f3ff] transition-all disabled:opacity-50"
+                        className="p-3.5 rounded-xl bg-primary text-[#17181b] hover:bg-[#4accc4] transition-all disabled:opacity-50"
                       >
                          <Send className="w-5 h-5" />
                       </button>

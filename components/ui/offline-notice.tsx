@@ -52,7 +52,7 @@ export function OfflineNotice() {
               <XylosLogo size={56} className="text-[#36b7b0]" />
             </div>
             <div
-              className="glass-card rounded-3xl p-10 md:p-12"
+              className="editorial-card rounded-2xl p-10 md:p-12"
               style={{ background: "rgba(18, 20, 26, 0.7)" }}
             >
               <div
@@ -79,7 +79,7 @@ export function OfflineNotice() {
               </p>
               <button
                 onClick={() => window.location.reload()}
-                className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-[#17181b] transition-colors hover:bg-[#33f3ff]"
+                className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-[#17181b] transition-colors hover:bg-[#4accc4]"
                 style={{ background: "#36b7b0" }}
               >
                 <RefreshCw className="w-4 h-4" />

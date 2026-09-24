@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
 
   return (
-    <div className="min-h-screen relative overflow-hidden" style={{ background: '#0d0e10', color: '#eeeae2' }}>
+    <div className="editorial-page min-h-screen relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -99,7 +99,7 @@ export default function PrivacyPage() {
 
 function InfoCard({ icon: Icon, title, content }: any) {
   return (
-    <div className="p-8 rounded-2xl space-y-4 transition-all group glass-card">
+    <div className="p-8 rounded-2xl space-y-4 transition-all group editorial-card">
       <div className="w-12 h-12 rounded-xl flex items-center justify-center transition-all" style={{ background: 'rgba(54,183,176,0.12)' }}>
         <Icon className="w-6 h-6 text-[#36b7b0]" />
       </div>

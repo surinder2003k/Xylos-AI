@@ -37,7 +37,7 @@ export function CustomModal({
   const icons = {
     info: <Info className="w-6 h-6 text-blue-400" />,
     success: <CheckCircle2 className="w-6 h-6 text-emerald-400" />,
-    warning: <AlertTriangle className="w-6 h-6 text-[#c7955f]" />,
+    warning: <AlertTriangle className="w-6 h-6 text-amber-500" />,
     error: <X className="w-6 h-6 text-red-500" />,
   };
 
@@ -60,7 +60,7 @@ export function CustomModal({
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="w-full max-w-md bg-card border border-border rounded-[2.5rem] shadow-2xl overflow-hidden pointer-events-auto relative"
+              className="w-full max-w-md bg-card border border-border rounded-2xl shadow-2xl overflow-hidden pointer-events-auto relative"
             >
               {/* Artistic Accent */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
@@ -103,7 +103,7 @@ export function CustomModal({
                           onConfirm();
                           onClose();
                         }}
-                        className="flex-1 px-6 py-3 rounded-2xl bg-primary text-black font-black text-[10px] uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all shadow-neon"
+                        className="flex-1 px-6 py-3 rounded-2xl bg-primary text-black font-black text-[10px] uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all"
                       >
                         {confirmText}
                       </button>
