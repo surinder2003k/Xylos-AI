@@ -70,3 +70,7 @@ tsc-output-2.log
 tsc-output-3.log
 tsc-output-4.log
 tsc-output.log
+
+# local one-off content review artifacts
+database/retitle-slop.plan.json
+database/retitle-slop.full.*
