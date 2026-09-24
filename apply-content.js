@@ -11,19 +11,22 @@ const key = envVars.SUPABASE_SERVICE_ROLE_KEY || envVars.SUPABASE_SERVICE;
 const H = { apikey: key, Authorization: `Bearer ${key}` };
 
 const actions = JSON.parse(fs.readFileSync("actions.json", "utf8"));
-let ok = 0, fail = 0;
+let ok = 0, fail = 0, skipped = 0;
 const failIds = [];
 let doneCount = 0;
 const total = actions.length;
 
 const applyPatch = async (id, patch) => {
-  // Use `in=.` syntax with parentheses to avoid URL parsing issues with UUID hyphens
-  const res = await fetch(`${url}/rest/v1/blogs?id=in.(${id})`, {
+  const encodedId = encodeURIComponent(id);
+  const res = await fetch(`${url}/rest/v1/blogs?id=eq.${encodedId}`, {
     method: "PATCH",
-    headers: { ...H, "Content-Type": "application/json", "Prefer": "return=minimal" },
+    headers: { ...H, "Content-Type": "application/json", "Prefer": "count=exact" },
     body: JSON.stringify(patch),
   });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  if (!res.ok) {
+    const errBody = await res.text();
+    throw new Error(`HTTP ${res.status}: ${errBody}`);
+  }
 };
 
 (async () => {
@@ -38,15 +41,15 @@ const applyPatch = async (id, patch) => {
       const action = queue.shift();
       if (!action) break;
       try {
-        if (action.decision === "archive") {
-          await applyPatch(action.id, { status: "archived", archived_reason: action.reason });
-        } else if (action.decision === "rewrite") {
-          await applyPatch(action.id, { status: "rewrite_needed", rewrite_reason: action.reason });
-        } else if (action.decision === "enhance") {
-          await applyPatch(action.id, { status: "enhance_needed", enhance_reason: action.reason });
-        } else if (action.newCat) {
-          await applyPatch(action.id, { category: action.newCat });
-        }
+        // Schema: status TEXT (published/draft), no *_reason columns.
+        // archive -> unpublish as 'draft' (reversible, matches cleanup_thin_posts.sql).
+        // rewrite/enhance -> stay published; tracked in actions.json for manual follow-up.
+        // newCat -> normalise category to canonical value.
+        const body = {};
+        if (action.decision === "archive") body.status = "draft";
+        if (action.newCat) body.category = action.newCat;
+        if (Object.keys(body).length === 0) { skipped++; continue; }
+        await applyPatch(action.id, body);
         ok++;
       } catch (e) {
         fail++;
@@ -54,13 +57,13 @@ const applyPatch = async (id, patch) => {
       }
       doneCount++;
       if (doneCount % 10 === 0 || doneCount === total) {
-        console.log(`  progress: ${doneCount}/${total} | ok=${ok} fail=${fail}`);
+        console.log(`  progress: ${doneCount}/${total} | ok=${ok} skip=${skipped} fail=${fail}`);
       }
     }
   });
 
   await Promise.all(workers);
-  console.log(`\n=== DONE: ${ok} ok, ${fail} failed ===`);
+  console.log(`\n=== DONE: ${ok} ok, ${skipped} skipped (rewrite/enhance tracked in actions.json), ${fail} failed ===`);
 
   if (failIds.length) {
     console.log("\n=== FAILED ===");
@@ -73,5 +76,6 @@ const applyPatch = async (id, patch) => {
   Object.entries(byDecision).forEach(([k, v]) => console.log(`  ${k}: ${v}`));
   console.log(`  TOTAL: ${actions.length}`);
   console.log(`  SUCCESS: ${ok}`);
+  console.log(`  SKIPPED: ${skipped}`);
   console.log(`  FAILED: ${fail}`);
 })();
