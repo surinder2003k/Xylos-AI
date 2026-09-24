@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight, Clock, User, Bookmark } from "lucide-react";
+import { ArrowUpRight, Clock, User } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { formatIST } from "@/lib/utils/date-format";
@@ -30,24 +30,8 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
   if (!blogs || blogs.length === 0) return null;
 
   return (
-    <div id="stories" className="w-full max-w-7xl mx-auto py-8 md:py-12 space-y-8 md:space-y-12">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10" style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-        <div className="space-y-4">
-          <div className="flex items-center gap-3 text-[#00f0ff] font-semibold text-[11px] uppercase tracking-[0.25em]">
-            <Bookmark className="w-4 h-4 text-[#00f0ff]" />
-            Curated Insights
-          </div>
-          <h2 className="text-4xl md:text-6xl font-bold tracking-[-0.02em] leading-none text-white" style={{ fontFamily: 'Sora, sans-serif' }}>
-            Human <span className="text-white/20 italic">&</span> Tech
-          </h2>
-        </div>
-        <Link href="/blog" className="group text-[13px] font-semibold text-gray-400 hover:text-[#00f0ff] tracking-wide transition-colors flex items-center gap-2">
-           View Full Archive
-           <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-        </Link>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div id="stories" className="w-full max-w-7xl mx-auto py-2 md:py-4">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
         {blogs.map((blog, idx) => {
           const accent = accentFor(blog.category || blog.title);
           return (

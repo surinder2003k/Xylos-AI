@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { createClient } from "@/utils/supabase/server";
-import { Search, Filter, BookOpen, ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { BlogGrid } from "@/components/landing/blog-grid";
 import { BlogFilters } from "@/components/landing/blog-filters";
-import { createClient as createPublicClient } from "@supabase/supabase-js";
-import { XylosLogo } from "@/components/premium/xylos-logo";
 
 
 export async function generateMetadata({ searchParams }: { searchParams: Promise<{ [key: string]: string | undefined }> }): Promise<Metadata> {
@@ -51,10 +48,6 @@ function sanitizeSearchTerm(raw: string): string {
     .slice(0, 60);
 }
 
-function qs(value: string): string {
-  return encodeURIComponent(value);
-}
-
 export default async function BlogArchivePage(props: { searchParams: Promise<{ [key: string]: string | undefined }> }) {
   const searchParams = await props.searchParams;
   const page = Math.max(1, parseInt(searchParams.page || "1") || 1);
@@ -94,7 +87,7 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
     queryBuilder = queryBuilder.ilike("category", category);
   }
 
-  const { data: postsData, error: fetchError, count: totalCount } = await queryBuilder.range(from, to);
+  const { data: postsData, count: totalCount } = await queryBuilder.range(from, to);
   const postsFinal = postsData || [];
 
   const totalPages = totalCount ? Math.ceil(totalCount / limit) : 0;
@@ -112,9 +105,9 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
-      <main className="max-w-7xl mx-auto px-4 py-12">
-        <section className="text-center mb-12">
+    <div className="min-h-screen overflow-x-hidden bg-[#0a0a0a] text-white">
+      <main className="mx-auto max-w-7xl px-4 pb-16 pt-28 sm:px-6 md:px-8 md:pt-32">
+        <section className="mb-12 border-b border-white/[0.08] pb-12 text-left md:pb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#00f0ff] via-[#a78bfa] to-[#fb7185] bg-clip-text text-transparent">
             AI Blog — Insights on Technology, AI & Innovation
           </h1>
@@ -123,19 +116,16 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
           </p>
         </section>
 
-        <Suspense fallback={<div className="text-center py-8">Loading filters…</div>}>
-          <div className="mb-8">
+        <div className="mb-8">
+          <Suspense fallback={<div className="py-6 text-center text-sm text-slate-500">Loading filters…</div>}>
             <BlogFilters categories={availableCategories} />
-          </div>
-        </Suspense>
-
-        <div className="flex justify-between items-center mb-6 text-sm">
-          <span className="text-gray-400">
-            {totalCount} {totalCount === 1 ? "article" : "articles"} found
-            {category !== "all" ? ` in ${category}` : ""}
-            {query ? ` for "${query}"` : ""}
-          </span>
+          </Suspense>
         </div>
+
+          <div className="mb-5 flex items-center justify-between gap-4">
+            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-slate-500">Latest stories</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-slate-600">{totalCount} published</span>
+          </div>
 
         <BlogGrid blogs={postsFinal} />
 

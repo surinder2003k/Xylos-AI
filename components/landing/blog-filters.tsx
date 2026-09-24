@@ -2,7 +2,7 @@
 
 import { Search } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export function BlogFilters({ categories }: { categories: string[] }) {
   const router = useRouter();
@@ -37,20 +37,20 @@ export function BlogFilters({ categories }: { categories: string[] }) {
   };
 
   return (
-    <div className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-4 py-6 md:py-8 px-4 md:px-8 rounded-2xl" style={{ background: 'rgba(12, 14, 18, 0.6)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
-      <div className="flex flex-wrap justify-center gap-2 md:gap-4 order-2 md:order-1">
+    <div className="flex w-full flex-col gap-3 border-b border-white/[0.08] pb-5 md:flex-row md:items-center md:justify-between">
+      <div className="scrollbar-hide order-2 flex min-w-0 max-w-full gap-2 overflow-x-auto md:order-1 md:flex-wrap md:justify-start">
         {categories.map((cat) => {
           const isActive = currentCategory === cat;
           return (
             <button
               key={cat}
               onClick={() => handleCategoryChange(cat)}
-              className={`px-4 md:px-6 py-2 rounded-xl font-bold text-[9px] md:text-[10px] uppercase tracking-widest transition-all ${
+              className={`shrink-0 px-3 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] transition-colors ${
                 isActive
                   ? "bg-[#00f0ff] text-[#04141a]"
                   : "text-gray-400 hover:text-white"
               }`}
-              style={!isActive ? { background: 'rgba(59, 73, 75, 0.15)', border: '1px solid rgba(59, 73, 75, 0.2)' } : {}}
+              style={!isActive ? { background: 'transparent', border: '1px solid rgba(255,255,255,0.1)' } : {}}
             >
               {cat === "all" ? "All Categories" : cat}
             </button>
@@ -58,7 +58,7 @@ export function BlogFilters({ categories }: { categories: string[] }) {
         })}
       </div>
 
-      <form onSubmit={handleSearch} className="flex w-full md:w-auto md:ml-auto items-center gap-3 px-5 py-3 md:py-2 rounded-xl group transition-all order-1 md:order-2" style={{ background: 'rgba(59, 73, 75, 0.15)', border: '1px solid rgba(59, 73, 75, 0.2)' }}>
+      <form onSubmit={handleSearch} className="flex w-full items-center gap-3 border-b border-white/[0.12] px-1 py-2 group transition-colors focus-within:border-[#00f0ff]/60 md:w-auto md:ml-auto">
         <Search className="w-4 h-4 text-[#00f0ff]/40 group-focus-within:text-[#00f0ff] shrink-0" aria-hidden="true" />
         <input
           type="search"
