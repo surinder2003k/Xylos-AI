@@ -1,5 +1,5 @@
 {
-  "note": "Rows set to status='draft' by database/blog-quality-cleanup.js (248 published -> 169). The blogs table has no updated_at trigger, so this list is reconstructed, not logged: actions.json (the earlier content-audit plan) audited only 131 of the 248 rows. Rows it marked keep/enhance but that are now draft are provably from this cleanup; rows it never audited cannot be told apart from drafts that predate it.",
+  "note": "Rows set to status='draft' by database/blog-quality-cleanup.js (248 published -> 169). The blogs table has no updated_at trigger, so this list is reconstructed, not logged: database/actions.json (the earlier content-audit plan) audited only 131 of the 248 rows. Rows it marked keep/enhance but that are now draft are provably from this cleanup; rows it never audited cannot be told apart from drafts that predate it.",
   "publishedBefore": 248,
   "publishedAfter": 169,
   "exact": {

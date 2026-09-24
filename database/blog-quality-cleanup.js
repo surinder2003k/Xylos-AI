@@ -22,6 +22,7 @@
  * "--only=... selected 0 of N" line says 0.
  */
 const fs = require("fs");
+const path = require("path");
 
 const APPLY = process.argv.includes("--apply");
 
@@ -277,7 +278,7 @@ const similarity = (a, b) => {
   // Append to an audit log *before* touching the database, so the exact set of
   // drafted ids (and the reason for each) is always recoverable. To undo:
   //   UPDATE blogs SET status='published' WHERE id = ANY(<ids from this file>);
-  const AUDIT = "blog-quality-cleanup.applied.json";
+  const AUDIT = path.join(__dirname, "blog-quality-cleanup.applied.json");
   let audit = [];
   try {
     audit = JSON.parse(fs.readFileSync(AUDIT, "utf8"));
