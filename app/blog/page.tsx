@@ -59,19 +59,33 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
   return (
     <div className="editorial-page min-h-screen overflow-x-hidden bg-[#0d0e10] text-white">
       <main className="mx-auto max-w-7xl px-4 pb-16 pt-28 sm:px-6 md:px-8 md:pt-32">
-        <section className="mb-12 border-b border-white/[0.08] pb-12 text-left md:pb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white" style={{ fontFamily: 'Sora, sans-serif' }}>
-            Xylos AI Blog — Insights on Technology, AI &amp; Innovation
-          </h1>
-          <p className="text-gray-400 text-base max-w-2xl mx-auto">
-            Deep-dive articles on AI, machine learning, and emerging tech — curated by automated intelligence.
-          </p>
+        <section className="relative mb-12 overflow-hidden border-b border-white/[0.08] pb-10 md:mb-16 md:pb-14">
+          <div className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-[#36b7b0]/[0.07] blur-3xl" aria-hidden="true" />
+          <div className="relative grid gap-7 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
+            <div>
+              <p className="mb-4 font-mono text-[10px] font-semibold uppercase tracking-[0.24em] text-[#36b7b0]">
+                The Xylos AI journal
+              </p>
+              <h1 className="max-w-4xl text-4xl font-bold leading-[1.08] tracking-[-0.035em] text-[#eeeae2] sm:text-5xl md:text-6xl">
+                Ideas for an <span className="text-[#36b7b0]">intelligent</span> future.
+              </h1>
+              <p className="mt-5 max-w-2xl text-base leading-7 text-[#a8a59e] md:text-lg">
+                Clear, practical writing on artificial intelligence, software, and the technologies shaping how we work.
+              </p>
+            </div>
+            <div className="flex items-center gap-3 self-start border-l border-[#36b7b0]/30 pl-4 md:self-end">
+              <span className="font-mono text-2xl font-semibold text-[#eeeae2]">{totalCount ?? 0}</span>
+              <span className="max-w-[72px] font-mono text-[9px] uppercase leading-4 tracking-[0.16em] text-[#77756f]">
+                Published stories
+              </span>
+            </div>
+          </div>
         </section>
 
-          <div className="mb-5 flex items-center justify-between gap-4">
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-slate-500">Latest stories</span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-slate-600">{totalCount} published</span>
-          </div>
+        <div className="mb-7 flex items-center gap-4">
+          <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[#b8b4ac]">Latest stories</span>
+          <span className="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent" aria-hidden="true" />
+        </div>
 
         <BlogGrid blogs={postsFinal} />
 
