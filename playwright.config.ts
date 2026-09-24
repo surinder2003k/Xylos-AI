@@ -8,7 +8,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: [["html"], ["line"]],
   use: {
-    baseURL: "https://xylosai.vercel.app",
+    baseURL: process.env.PLAYWRIGHT_BASE_URL || "https://xylosai.vercel.app",
     trace: "on-first-retry",
     screenshot: "only-on-failure",
     video: "retain-on-failure",

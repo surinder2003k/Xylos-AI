@@ -58,7 +58,7 @@ export default function ToolsPage() {
             </div>
 
             <Link href="/" className="mt-12 inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80">
-              â† Back to Home
+              Back to Home
               <ArrowLeft className="w-4 h-4" />
             </Link>
           </div>
