@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/lib/site-config";
 import type { Metadata } from "next";
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
@@ -9,7 +10,7 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
   const page = parseInt(sp.page || "1");
 
   const pageSuffix = page > 1 ? `?page=${page}` : "";
-  const canonical = `https://xylosai.vercel.app/blog${pageSuffix}`;
+  const canonical = `${SITE_URL}/blog${pageSuffix}`;
   const pageTitle = page > 1
     ? `AI Blog — Page ${page} | Xylos AI`
     : `AI Blog — Insights on Technology, AI & Innovation | Xylos AI`;

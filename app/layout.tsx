@@ -11,6 +11,8 @@ import { ToastProvider } from "@/components/ui/toast";
 import { OfflineNotice } from "@/components/ui/offline-notice";
 import { PageFade } from "@/components/ui/motion-primitives";
 
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, SITE_AUTHOR, SITE_EMAIL, absoluteUrl } from "@/lib/site-config";
+
 const sora = Sora({
   subsets: ["latin"],
   variable: "--font-sora",
@@ -35,11 +37,11 @@ export const metadata: Metadata = {
     default: "Xylos AI (xylosai) — Free AI Chat & Blog | Llama 3, Gemini, Mistral",
     template: "%s | Xylos AI",
   },
-  description: "Xylos AI (xylosai) is the ultimate free AI platform. Access Llama 3, Gemini & Mistral in one free AI chat, content generator, and editorial suite at zero cost.",
+  description: SITE_DESCRIPTION,
   applicationName: "Xylos AI",
   referrer: "origin-when-cross-origin",
-  authors: [{ name: "Teamx", url: "https://xylosai.vercel.app" }],
-  creator: "Teamx",
+  authors: [{ name: SITE_AUTHOR, url: SITE_URL }],
+  creator: SITE_AUTHOR,
   publisher: "Xylos AI",
   icons: {
     icon: [
@@ -67,12 +69,12 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://xylosai.vercel.app',
+    canonical: SITE_URL,
   },
   openGraph: {
     title: "Xylos AI — Free AI Chat & Blog Platform",
     description: "Access 7+ free AI models (Llama 3, Gemini, Mistral) in one premium workspace. Zero cost, professional grade.",
-    url: 'https://xylosai.vercel.app',
+    url: SITE_URL,
     siteName: 'Xylos AI',
     images: [
       {
@@ -123,8 +125,8 @@ export default async function RootLayout({
       "@type": "WebSite",
       "name": "Xylos AI",
       "alternateName": ["xylosai", "xylos-ai", "XylosAI"],
-      "url": "https://xylosai.vercel.app",
-      "description": "Free AI chat and content platform with Llama 3, Gemini, and Mistral.",
+      "url": SITE_URL,
+      "description": SITE_DESCRIPTION,
       "inLanguage": "en",
       "publisher": { "@type": "Organization", "name": "Xylos AI" }
     },
@@ -133,9 +135,9 @@ export default async function RootLayout({
       "@type": "Organization",
       "name": "Xylos AI",
       "alternateName": "xylosai",
-      "url": "https://xylosai.vercel.app",
-      "logo": "https://xylosai.vercel.app/icon.svg",
-      "email": "xyzg135@gmail.com",
+      "url": SITE_URL,
+      "logo": absoluteUrl('/icon.svg'),
+      "email": SITE_EMAIL,
       "foundingDate": "2026",
       "address": {
         "@type": "PostalAddress",
@@ -145,7 +147,7 @@ export default async function RootLayout({
         {
           "@type": "ContactPoint",
           "contactType": "customer support",
-          "email": "xyzg135@gmail.com",
+          "email": SITE_EMAIL,
           "availableLanguage": ["English", "Hindi"]
         }
       ],

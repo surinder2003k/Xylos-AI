@@ -1,3 +1,5 @@
+import { SITE_URL } from "@/lib/site-config";
+
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
@@ -45,7 +47,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: post.meta_title || post.title,
     description: post.meta_description || post.excerpt,
     keywords: post.keywords,
-    authors: [{ name: "Teamx" }],
+    authors: [{ name: "Xylos AI team" }],
     alternates: {
       canonical: canonicalUrl,
     },
@@ -58,7 +60,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: 'article',
       publishedTime: post.published_at,
       modifiedTime: post.updated_at || post.published_at,
-      authors: ["Teamx"],
+      authors: ["Xylos AI team"],
       tags: post.keywords ? [post.keywords] : [],
     },
     twitter: {
@@ -161,7 +163,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             "@type": "BlogPosting",
             "headline": post.title,
             "description": post.excerpt,
-            "image": post.feature_image_url || "https://xylosai.vercel.app/og-image.png",
+            "image": post.feature_image_url || `${SITE_URL}/og-image.png`,
             "datePublished": post.created_at,
             "dateModified": post.updated_at || post.created_at,
             "articleSection": post.category || "Technology",
@@ -174,7 +176,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             },
             "author": {
               "@type": "Organization",
-              "name": "Teamx",
+              "name": "Xylos AI team",
               "url": "https://xylosai.vercel.app"
             },
             "publisher": {
@@ -267,7 +269,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-white" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-                    {post.profiles?.full_name || 'Teamx'}
+                    {post.profiles?.full_name || 'Xylos AI team'}
                   </h3>
                   <p className="text-[12px]" style={{ color: '#8d8b85' }}>
                     AI Research &amp; Editorial

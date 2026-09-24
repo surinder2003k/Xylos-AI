@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'Access 7+ top AI models in one premium workspace. Free, fast, and privacy-first.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#faf9f8',
-    theme_color: '#7c3aed',
+    background_color: '#0d0e10',
+    theme_color: '#0d0e10',
     orientation: 'portrait',
     icons: [
       {

@@ -18,12 +18,15 @@ export default async function LandingPage() {
 
   const { data: blogsData } = await publicSupabase
     .from("blogs")
-    .select("*")
+    .select("id, slug, title, excerpt, feature_image_url, category, published_at, author_id")
     .eq("status", "published")
     .order("published_at", { ascending: false })
     .limit(3);
 
-  let blogs = blogsData;
+  let blogs: Array<{
+    id: string; slug: string; title: string; excerpt: string; feature_image_url: string | null; category: string; published_at: string; author_id?: string | null;
+    profiles?: { full_name: string | null } | null;
+  }> = blogsData || [];
   if (blogsData && blogsData.length > 0) {
     const authorIds = [...new Set(blogsData.map(b => b.author_id))];
     const { data: profiles } = await publicSupabase
@@ -273,7 +276,7 @@ export default async function LandingPage() {
                 </h3>
                 <p className="text-sm line-clamp-2" style={{ color: '#8d8b85' }}>{blog.excerpt}</p>
                 <div className="mt-3 flex items-center gap-2 text-[12px]" style={{ color: '#7d8a8e' }}>
-                  <span>{blog.profiles?.full_name || 'Teamx'}</span>
+                  <span>{blog.profiles?.full_name || 'Xylos AI team'}</span>
                   <span>Â·</span>
                   <span style={{ color: acc }}>Read â†’</span>
                 </div>
