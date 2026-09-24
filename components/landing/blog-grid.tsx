@@ -100,8 +100,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                               <User className="w-5 h-5" style={{ color: accent.text, opacity: 0.5 }} />
                            </div>
                            <div className="flex flex-col">
-                             <span className="text-[11px] font-semibold text-gray-300 tracking-wide">{blog.profiles?.full_name || 'Teamx'}</span>
-                             <span className="text-[9px] font-medium text-gray-600 uppercase tracking-widest">Author</span>
+                             <span className="text-[12px] font-medium text-gray-300">By {blog.profiles?.full_name || 'the Xylos AI team'}</span>
                            </div>
                         </div>
                         <div

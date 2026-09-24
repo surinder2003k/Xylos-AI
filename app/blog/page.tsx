@@ -1,22 +1,18 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
 import { BlogGrid } from "@/components/landing/blog-grid";
-import { BlogFilters } from "@/components/landing/blog-filters";
 
 
 export async function generateMetadata({ searchParams }: { searchParams: Promise<{ [key: string]: string | undefined }> }): Promise<Metadata> {
   const sp = await searchParams;
   const page = parseInt(sp.page || "1");
-  const category = sp.category || "all";
 
   const pageSuffix = page > 1 ? `?page=${page}` : "";
   const canonical = `https://xylosai.vercel.app/blog${pageSuffix}`;
-  const catSuffix = category !== "all" ? ` — ${category}` : "";
   const pageTitle = page > 1
-    ? `AI Blog — Page ${page}${catSuffix} | Xylos AI`
-    : `AI Blog — Insights on Technology, AI & Innovation${catSuffix} | Xylos AI`;
+    ? `AI Blog — Page ${page} | Xylos AI`
+    : `AI Blog — Insights on Technology, AI & Innovation | Xylos AI`;
 
   return {
     title: pageTitle,
@@ -33,59 +29,20 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
 
 export const revalidate = 600;
 
-const CANONICAL_CATEGORIES = [
-  "Technology", "AI & Machine Learning", "Cybersecurity",
-  "Software Development", "Cloud & DevOps", "Consumer Tech",
-  "Blockchain & Crypto", "Space & Science",
-] as const;
-
-function sanitizeSearchTerm(raw: string): string {
-  return raw
-    .replace(/[\\%_]/g, (m) => `\\${m}`)
-    .replace(/["'(),{}[\]\\]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim()
-    .slice(0, 60);
-}
-
 export default async function BlogArchivePage(props: { searchParams: Promise<{ [key: string]: string | undefined }> }) {
   const searchParams = await props.searchParams;
   const page = Math.max(1, parseInt(searchParams.page || "1") || 1);
-  const category = searchParams.category || "all";
-  const query = (searchParams.q || "").trim();
-
   const limit = 9;
   const from = (page - 1) * limit;
   const to = from + limit - 1;
-
   const supabase = await createClient();
 
-  // Fetch real categories from DB so the filter UI reflects actual content
-  const { data: catRows } = await supabase
+  // Fetch only card fields; article content can be very large and slows the archive.
+  const queryBuilder = supabase
     .from("blogs")
-    .select("category")
-    .not("category", "is", null)
-    .eq("status", "published");
-
-  const realCats = Array.from(new Set(catRows?.map((r) => r.category).filter(Boolean))) as string[];
-  const orderedCategories = [...CANONICAL_CATEGORIES].filter((c) => realCats.includes(c));
-  const extraCategories = realCats.filter((c) => !(CANONICAL_CATEGORIES as readonly string[]).includes(c));
-  const availableCategories = ["all", ...orderedCategories, ...extraCategories.sort()];
-
-  const sanitizedQuery = query ? sanitizeSearchTerm(query) : "";
-
-  let queryBuilder = supabase
-    .from("blogs")
-    .select("*", { count: "exact" })
+    .select("id, slug, title, excerpt, feature_image_url, category, published_at", { count: "exact" })
     .eq("status", "published")
     .order("published_at", { ascending: false });
-
-  if (sanitizedQuery) {
-    queryBuilder = queryBuilder.or("title.like:*" + sanitizedQuery + "*,content.like:*" + sanitizedQuery + "*");
-  }
-  if (category !== "all") {
-    queryBuilder = queryBuilder.ilike("category", category);
-  }
 
   const { data: postsData, count: totalCount } = await queryBuilder.range(from, to);
   const postsFinal = postsData || [];
@@ -96,13 +53,7 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
   const hasNext = currentPage < totalPages;
   const hasPrev = currentPage > 1;
 
-  const buildHref = (targetPage: number) => {
-    const params = new URLSearchParams();
-    if (category !== "all") params.set("category", category);
-    if (query) params.set("q", query);
-    params.set("page", String(targetPage));
-    return `/blog?${params.toString()}`;
-  };
+  const buildHref = (targetPage: number) => `/blog?page=${targetPage}`;
 
   return (
     <div className="editorial-page min-h-screen overflow-x-hidden bg-[#0d0e10] text-white">
@@ -115,12 +66,6 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
             Deep-dive articles on AI, machine learning, and emerging tech — curated by automated intelligence.
           </p>
         </section>
-
-        <div className="mb-8">
-          <Suspense fallback={<div className="py-6 text-center text-sm text-slate-500">Loading filters…</div>}>
-            <BlogFilters categories={availableCategories} />
-          </Suspense>
-        </div>
 
           <div className="mb-5 flex items-center justify-between gap-4">
             <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-slate-500">Latest stories</span>
