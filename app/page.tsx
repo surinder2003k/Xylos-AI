@@ -277,8 +277,8 @@ export default async function LandingPage() {
                 <p className="text-sm line-clamp-2" style={{ color: '#8d8b85' }}>{blog.excerpt}</p>
                 <div className="mt-3 flex items-center gap-2 text-[12px]" style={{ color: '#7d8a8e' }}>
                   <span>{blog.profiles?.full_name || 'Xylos AI team'}</span>
-                  <span>Â·</span>
-                  <span style={{ color: acc }}>Read â†’</span>
+                  <span>·</span>
+                  <span style={{ color: acc }}>Read →</span>
                 </div>
               </Link>
               );
@@ -398,7 +398,7 @@ export default async function LandingPage() {
               <Link href="/cookies" className="text-[10px] uppercase tracking-widest hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85', fontFamily: 'JetBrains Mono, monospace' }}>Cookies</Link>
               <Link href="/privacy" className="text-[10px] uppercase tracking-widest hover:text-[#36b7b0] transition-colors" style={{ color: '#8d8b85', fontFamily: 'JetBrains Mono, monospace' }}>Privacy</Link>
             </div>
-            <p className="text-[10px] uppercase tracking-widest" style={{ color: '#8d8b85', fontFamily: 'JetBrains Mono, monospace' }}>Â© 2026 Xylos AI</p>
+            <p className="text-[10px] uppercase tracking-widest" style={{ color: '#8d8b85', fontFamily: 'JetBrains Mono, monospace' }}>© 2026 Xylos AI</p>
           </div>
         </div>
       </footer>

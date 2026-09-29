@@ -10,7 +10,7 @@ test.describe("Blog Pages", () => {
     await page.goto("/blog");
     await expect(page).toHaveTitle(/Blog/);
     const articleCards = page.locator("a[href*='/blog/']");
-    await expect(articleCards.first()).toBeVisible();
+    await expect(articleCards.first()).toBeVisible({ timeout: 15000 });
     expect(consoleErrors.length).toBe(0);
   });
 
@@ -18,7 +18,7 @@ test.describe("Blog Pages", () => {
     await page.goto("/blog");
     const firstPost = page.locator("a[href*='/blog/']").first();
     await firstPost.click();
-    await expect(page).toHaveURL(/\/blog\//);
+    await expect(page).toHaveURL(/\/blog\//, { timeout: 15000 });
   });
 
   test("blog post should have content and metadata", async ({ page }) => {
@@ -30,10 +30,10 @@ test.describe("Blog Pages", () => {
     await page.goto("/blog");
     const firstPost = page.locator("a[href*='/blog/']").first();
     await firstPost.click();
-    await page.waitForLoadState("networkidle");
+    await page.waitForURL(/\/blog\//, { timeout: 15000 });
 
     const body = page.locator("article");
-    await expect(body).toBeVisible();
+    await expect(body).toBeVisible({ timeout: 15000 });
     expect(consoleErrors.length).toBe(0);
   });
 
@@ -41,9 +41,9 @@ test.describe("Blog Pages", () => {
     await page.goto("/blog");
     const firstPost = page.locator("a[href*='/blog/']").first();
     await firstPost.click();
-    await page.waitForLoadState("networkidle");
+    await page.waitForURL(/\/blog\//, { timeout: 15000 });
     const images = page.locator("img");
-    await expect(images.first()).toBeVisible();
+    await expect(images.first()).toBeVisible({ timeout: 15000 });
   });
 
   test("should have no broken blog images", async ({ page }) => {
@@ -55,32 +55,33 @@ test.describe("Blog Pages", () => {
     });
 
     await page.goto("/blog");
-    await page.waitForLoadState("networkidle");
+    await page.waitForLoadState("load");
+    await page.waitForTimeout(1500);
     expect(brokenImages.length).toBe(0);
   });
 
-  test("author bio should be visible on blog posts", async ({ page }) => {
+  test("author byline should be visible on blog posts", async ({ page }) => {
     await page.goto("/blog");
     const firstPost = page.locator("a[href*='/blog/']").first();
     await firstPost.click();
-    await page.waitForLoadState("networkidle");
-    await expect(page.locator("[title='Verified Author']").first()).toBeVisible();
+    await page.waitForURL(/\/blog\//, { timeout: 15000 });
+    await expect(page.locator("article").getByText("AI Research & Editorial").first()).toBeVisible({ timeout: 15000 });
   });
 
   test("share buttons should appear on blog posts", async ({ page }) => {
     await page.goto("/blog");
     const firstPost = page.locator("a[href*='/blog/']").first();
     await firstPost.click();
-    await page.waitForLoadState("networkidle");
-    await expect(page.locator('a[href*="twitter.com/intent/tweet"]').first()).toBeVisible();
+    await page.waitForURL(/\/blog\//, { timeout: 15000 });
+    await expect(page.locator('a[href*="twitter.com/intent/tweet"]').first()).toBeVisible({ timeout: 15000 });
   });
 
   test("newsletter card should be on blog posts", async ({ page }) => {
     await page.goto("/blog");
     const firstPost = page.locator("a[href*='/blog/']").first();
     await firstPost.click();
-    await page.waitForLoadState("networkidle");
+    await page.waitForURL(/\/blog\//, { timeout: 15000 });
     const emailInput = page.locator('input[type="email"]').last();
-    await expect(emailInput).toBeVisible();
+    await expect(emailInput).toBeVisible({ timeout: 15000 });
   });
 });

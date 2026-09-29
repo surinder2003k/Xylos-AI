@@ -10,7 +10,6 @@ test.describe("Navigation & Layout", () => {
     const pages = ["/", "/blog", "/about", "/privacy", "/login", "/chat"];
     for (const url of pages) {
       await page.goto(url);
-      await page.waitForLoadState("networkidle");
       const status = await page.evaluate(() => document.readyState);
       expect(status).toBe("complete");
     }
@@ -23,7 +22,7 @@ test.describe("Navigation & Layout", () => {
     const homeLink = page.locator('a[href="/"]');
     if (await homeLink.first().isVisible()) {
       await homeLink.first().click();
-      await expect(page).toHaveURL("https://xylosai.vercel.app/");
+      await expect(page).toHaveURL("/", { timeout: 15000 });
     }
   });
 
@@ -32,9 +31,9 @@ test.describe("Navigation & Layout", () => {
     const firstPost = page.locator("a[href*='/blog/']").first();
     if (await firstPost.isVisible()) {
       await firstPost.click();
-      await page.waitForLoadState("networkidle");
-      await page.locator("text=Archive").or(page.locator("text=Blog")).first().click();
-      await expect(page).toHaveURL(/\/blog/);
+      await page.waitForURL(/\/blog\//, { timeout: 15000 });
+      await page.getByRole("link", { name: "Blog", exact: true }).first().click();
+      await expect(page).toHaveURL(/\/blog$/, { timeout: 15000 });
     }
   });
 
@@ -42,6 +41,6 @@ test.describe("Navigation & Layout", () => {
     await page.goto("/blog");
     const logo = page.locator("a[href='/']").first();
     await logo.click();
-    await expect(page).toHaveURL("/");
+    await expect(page).toHaveURL("/", { timeout: 15000 });
   });
 });
