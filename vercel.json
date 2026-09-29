@@ -1,5 +1,4 @@
 {
-  "_cronNote": "Daily auto-post runs at 02:30 UTC. Was paused while the Apr-Aug 2026 archive (79 off-topic/duplicate/slop posts) was drafted and 25 slop slugs rewritten; the two starvation bugs that made the generator repeat one topic family were fixed first (category + topic rotation now advance by day, not per-run). The publish-time guards in app/api/automate/route.ts plus the shared rules in database/slop-rules.js reject a post before it can reach the DB. Restore this crons array only if a manual run shows a post being rejected too aggressively — the rules are intentionally conservative.",
   "crons": [
     {
       "path": "/api/automate?count=1",
