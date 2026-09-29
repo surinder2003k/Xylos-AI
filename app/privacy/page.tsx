@@ -58,7 +58,7 @@ export default function PrivacyPage() {
               <Database className="w-5 h-5 text-[#36b7b0]" />
               1. Data collection
             </h2>
-            <p className="text-lg">Xylos AI collects minimal metadata required to provide the service. This includes account identifiers and usage logs necessary for system stability. We do NOT monetize user data or sell it to third-party advertisers.</p>
+            <p className="text-lg">Xylos AI collects minimal metadata required to provide the service. This includes account identifiers and usage logs necessary for system stability. We do not sell your personal data. If advertising is displayed in future, the ad partner may set cookies to measure and personalise ads, and you can decline non-essential cookies using the cookie settings on this site.</p>
           </div>
 
           <div className="space-y-4">

@@ -382,6 +382,11 @@ export async function GET(req: Request) {
       console.warn("[AutoPost] Link discovery failed, continuing without links:", err);
     }
 
+    // Day counter driving both category and topic rotation below. Declared out
+    // here so the topic picker can use the same value.
+    const dayIndex = Math.floor(Date.now() / 86_400_000);
+    const isManualSingle = !isCron && count === 1;
+
     while (results.filter(r => r.status === "success").length < count && attempts < maxAttempts) {
       attempts++;
       
@@ -396,13 +401,29 @@ export async function GET(req: Request) {
 
       const i = results.filter(r => r.status === "success").length;
 
-      // Rotate category
-      if (i > 0) {
-        const categoryIndex = CATEGORIES.indexOf(currentCategory);
-        const nextCategoryIndex = (categoryIndex + 1) % CATEGORIES.length;
-        currentCategory = CATEGORIES[nextCategoryIndex];
-      } else {
+      // Rotate category.
+      //
+      // The old code rotated on `i > 0`, where i is the count of posts already
+      // SUCCEEDED in this run. With the daily cron at count=1, i is always 0, so
+      // the branch never ran and every single day published the same category —
+      // which is how the archive ended up with a 20-post "epistemic/cognitive/
+      // grounding" cluster and, later, six RISC-V posts in eight days. Rotation
+      // is now driven by a day counter that advances across days as well as
+      // across posts in one run, so consecutive cron invocations land on
+      // different categories.
+      const preferredIndex = attempts - 1 + dayIndex;
+      if (isManualSingle) {
+        // A manual one-off should honour the configured category instead of
+        // jumping to whatever the day counter lands on.
         currentCategory = activeCategory;
+      } else {
+        const rotated = preferredIndex % CATEGORIES.length;
+        // Never sit on the configured category twice in a row — the admin
+        // setting is a preference for where to start, not a permanent pin.
+        currentCategory =
+          rotated === CATEGORIES.indexOf(activeCategory)
+            ? CATEGORIES[(rotated + 1) % CATEGORIES.length]
+            : CATEGORIES[rotated];
       }
 
       const topics = CATEGORY_TOPICS[currentCategory] || ["Latest Developments", "Industry Trends", "Expert Analysis"];
@@ -420,9 +441,13 @@ export async function GET(req: Request) {
         });
       });
       const topicPool = uncoveredTopics.length > 0 ? uncoveredTopics : topics;
-      const topicIndex = (allExistingTitles.length + attempts) % topicPool.length;
+      // Index by day as well as attempt. The old expression used
+      // `allExistingTitles.length`, which is a constant (capped at 250 by the
+      // fetch above) — so on a count=1 cron every day resolved to the same
+      // offset and the same topic, no matter how many days passed. Combined with
+      // the fixed category that produced six RISC-V posts in eight days.
+      const topicIndex = (dayIndex + attempts) % topicPool.length;
       const currentTopic = topicPool[topicIndex];
-
       console.log(`[AutoPost] Generating post ${i + 1}/${count} (attempt ${attempts}) | Category: ${currentCategory} | Topic: ${currentTopic}`);
 
       let blogData;
@@ -451,8 +476,11 @@ export async function GET(req: Request) {
 
       // Guard against off-topic / consumer-spam subjects that trigger
       // "low value content" flags in Google Search Console & AdSense review.
-      // Layer 1: hard blacklist of consumer-service verticals. Keep adding any
-      // new vertical a model manages to slip through.
+      // Layer 1: hard blacklist of consumer-service verticals. Keep in sync with
+      // OFF_TOPIC in database/slop-rules.js (that file is JS, this is TS, so the
+      // two cannot share a module). The structural tech-signal gate in Layer 3
+      // is the real backstop — this list only needs the on-topic-adjacent
+      // verticals that would otherwise survive it.
       const OFF_TOPIC_TERMS = [
         "insurance", "denture", "dental", "oral surgery", "attorney", "lawyer", "legal advice",
         "burger", "restaurant", "recipe", "food near", "catering", "cuisine",
@@ -468,6 +496,20 @@ export async function GET(req: Request) {
         "tiny house", "trailer made", "camper", "rv ", "buy a home", "buying a home",
         "home buying", "home in ", "moving to ", "best places to live", "neighborhood",
         "cost of living", "salary", "job openings", "hiring ", "resume", "cover letter",
+        // Apr-Aug 2026 residue — verticals that reached production and produced
+        // 18 published off-topic posts the generator's old list did not veto.
+        "electrical compan", "electrician", "transformer suppl", "fastener suppl", "aerospace fastener",
+        "benefits provider", "self-insured", "medical reimbursement", "healthcare cost", "diabetes", "personal trainer",
+        "logistics recruitment", "recruitment agency", "staffing agency",
+        "clerical job", "elite job",
+        "section 125", "cafeteria plan", "hr benefit", "employee benefit",
+        "vinyl wrap", "ceramic tint", "window tint", "car wrap",
+        "jewelry", "jewellery", "iskin", "jeweler", "jeweller",
+        "virtual design consultation", "interior design consultation", "home staging",
+        "supply chain management", "supply chain advantage", "locking in your supply", "lock in your supply",
+        "mental health", "body focused", "repetitive behavior", "therapy", "counselling", "counseling",
+        "your land ", "buy land", "land parcel", "acreage",
+        "content creation services", "website content services", "seo services",
       ];
 
       // Layer 2: AI-slop headline jargon. These phrases are the fingerprint of

@@ -23,7 +23,7 @@
  */
 const fs = require("fs");
 const path = require("path");
-const { STOP, OFF_TOPIC: OFF_TOPIC_RULES, AI_SLOP: AI_SLOP_RULES } = require("./slop-rules");
+const { STOP, OFF_TOPIC: OFF_TOPIC_RULES, AI_SLOP: AI_SLOP_RULES, hasTechSignal } = require("./slop-rules");
 
 const APPLY = process.argv.includes("--apply");
 
@@ -110,7 +110,11 @@ const similarity = (a, b) => {
   rows.forEach((r, i) => {
     const title = r.title || "";
     const off = OFF_TOPIC.find((re) => re.test(title));
+    // Structural gate: a headline carrying no technology vocabulary is off-topic
+    // for this publication no matter which vertical it names. Catches the long
+    // tail the hand-written backstop list cannot enumerate.
     if (off) OFF.set(i, off.source);
+    else if (!hasTechSignal(title)) OFF.set(i, "no technology signal in headline");
     const slop = AI_SLOP.find((re) => re.test(title));
     if (slop) SLOP.set(i, slop.source);
     if (wc[i] < MIN_WORDS) THIN.add(i);

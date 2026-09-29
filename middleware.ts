@@ -1,7 +1,25 @@
-import { type NextRequest } from 'next/server'
+import { type NextRequest, NextResponse } from 'next/server'
 import { updateSession } from '@/utils/supabase/middleware'
+import SLUG_REDIRECTS from '@/lib/slug-redirects'
 
 export async function middleware(request: NextRequest) {
+  // 301 legacy blog slugs -> their de-slopped equivalents.
+  //
+  // These URLs were published in the sitemap and may already have inbound links
+  // or be indexed, so the rewrite done by database/fix-slop-slugs.js has to be
+  // mirrored here or those signals are lost. Checked before updateSession so it
+  // costs nothing on the ~99.9% of requests that are not legacy slugs.
+  const { pathname } = request.nextUrl
+  if (pathname.startsWith('/blog/')) {
+    const legacy = pathname.slice('/blog/'.length)
+    const target = SLUG_REDIRECTS[legacy]
+    if (target) {
+      const url = request.nextUrl.clone()
+      url.pathname = `/blog/${target}`
+      return NextResponse.redirect(url, 301)
+    }
+  }
+
   return await updateSession(request)
 }
 

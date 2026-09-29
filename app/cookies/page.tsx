@@ -62,7 +62,7 @@ export default function CookiesPage() {
               <li><strong>Essential Cookies:</strong> Required for the Platform to function properly (authentication, security, session management). These cannot be disabled.</li>
               <li><strong>Analytics Cookies:</strong> Help us understand how visitors interact with our site (pages visited, time spent, traffic sources) using Google Analytics / Vercel Analytics.</li>
               <li><strong>Preference Cookies:</strong> Remember your settings (theme preference, language, dashboard layout) for a personalized experience.</li>
-              <li><strong>Marketing Cookies:</strong> May be used by third-party advertising partners (Google AdSense) to show relevant ads and measure ad performance.</li>
+              <li><strong>Marketing Cookies:</strong> If advertising is enabled in future, third-party advertising partners may use cookies to show relevant ads and measure ad performance. You can decline these at any time.</li>
             </ul>
           </section>
 
@@ -101,7 +101,7 @@ export default function CookiesPage() {
             </p>
             <ul className="space-y-3 text-lg list-disc list-inside">
               <li><strong>Google Analytics / Vercel Analytics:</strong> Aggregate usage statistics. <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener noreferrer" className="text-[#36b7b0] hover:underline">Google's cookie policy</a>.</li>
-              <li><strong>Google AdSense:</strong> If ads are displayed, Google may use cookies to personalize ads. <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="text-[#36b7b0] hover:underline">AdSense cookie policy</a>.</li>
+              <li><strong>Advertising partners:</strong> If advertising is enabled in future, our ad partner (and its vendors) may set cookies to personalise and measure ads. <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="text-[#36b7b0] hover:underline">Advertising cookie policy</a>.</li>
               <li><strong>Supabase Auth:</strong> Authentication cookies for user sessions.</li>
               <li><strong>Unsplash / Pexels:</strong> Image CDN may set cookies for content delivery.</li>
             </ul>

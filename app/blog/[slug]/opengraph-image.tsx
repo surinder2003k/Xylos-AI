@@ -20,6 +20,7 @@ export default async function OpengraphImage({ params }: { params: Promise<{ slu
       .from('blogs')
       .select('title, category')
       .eq('slug', slug)
+      .eq('status', 'published')
       .maybeSingle();
     if (post) {
       title = post.title;

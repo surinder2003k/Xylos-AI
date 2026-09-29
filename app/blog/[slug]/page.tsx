@@ -31,12 +31,22 @@ function sanitizeHtml(html: string): string {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const supabase = await createClient();
   const { slug } = await params;
-  const { data: post } = await supabase.from("blogs").select("*, profiles(full_name)").eq("slug", slug).single();
+  const { data: post } = await supabase
+    .from("blogs")
+    .select("*, profiles(full_name)")
+    .eq("slug", slug)
+    .eq("status", "published")
+    .maybeSingle();
 
   if (!post) {
     // UUID fallback: page accessed by post id instead of slug.
     // Permanently redirect to the canonical slug URL so Google indexes exactly ONE URL per post.
-    const { data: idPost } = await supabase.from("blogs").select("slug").eq("id", slug).maybeSingle();
+    const { data: idPost } = await supabase
+      .from("blogs")
+      .select("slug")
+      .eq("id", slug)
+      .eq("status", "published")
+      .maybeSingle();
     if (idPost?.slug) permanentRedirect(`/blog/${idPost.slug}`);
     notFound();
   }
@@ -103,6 +113,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     .from("blogs")
     .select("*")
     .eq("slug", slug)
+    .eq("status", "published")
     .maybeSingle();
 
   if (post && post.author_id) {
@@ -120,6 +131,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       .from("blogs")
       .select("slug")
       .eq("id", slug)
+      .eq("status", "published")
       .maybeSingle();
     if (idPost?.slug) {
       permanentRedirect(`/blog/${idPost.slug}`);
