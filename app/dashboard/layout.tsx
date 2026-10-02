@@ -27,6 +27,7 @@ import { createClient } from "@/utils/supabase/client";
 
 import { XylosLogo } from "@/components/premium/xylos-logo";
 import { useToast } from "@/components/ui/toast";
+import { PresenceHeartbeat } from "@/components/presence-heartbeat";
 
 const baseNavItems = [
   { icon: Home, label: "Main Portal", href: "/" },
@@ -348,6 +349,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           </motion.div>
         </main>
       </div>
+      {/* Keeps profiles.last_seen_at fresh so the admin directory can show
+          Online / Last seen status for every active user. */}
+      <PresenceHeartbeat />
     </div>
   );
 }

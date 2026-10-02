@@ -21,6 +21,7 @@ CREATE TABLE public.profiles (
     avatar_url TEXT,
     role TEXT DEFAULT 'user' CHECK (role IN ('super_admin', 'admin', 'user')),
     created_at TIMESTAMPTZ DEFAULT now(),
+    last_seen_at TIMESTAMPTZ,
     updated_at TIMESTAMPTZ DEFAULT now()
 );
 

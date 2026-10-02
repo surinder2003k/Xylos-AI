@@ -110,7 +110,17 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 RESEND_API_KEY=your_resend_key
 GROQ_API_KEY=your_groq_key
+GOOGLE_GEMINI_API_KEY=your_gemini_key
+OPENROUTER_API_KEY=your_openrouter_key
+MISTRAL_API_KEY=your_mistral_key
+CEREBRAS_API_KEY=your_cerebras_key
+CLOUDFLARE_ACCOUNT_ID=your_cloudflare_account_id
+CLOUDFLARE_API_TOKEN=your_cloudflare_api_token
 ```
+
+Only the providers you configure show up in the in-app **Model Library** — the
+chat model picker fetches each provider's live model list (1h cache) so newly
+released free models appear automatically.
 
 ### Database
 
@@ -119,6 +129,7 @@ Run the migration files in `database/` via Supabase SQL Editor:
 | File | Purpose |
 |---|---|
 | `cms_v3_migration.sql` | Core tables: blogs, profiles, chats, conversations, messages, app_settings |
+| `migrations/add_last_seen.sql` | Adds `profiles.last_seen_at` for the admin Online / Last seen directory |
 | `supabase-init.sql` | Storage buckets, triggers, policies |
 
 ### Storage

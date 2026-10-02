@@ -131,7 +131,9 @@ export async function getProviderResponse(
     const systemInstruction = processedMessages.find(m => m.role === 'system')?.content;
     const chatMessages = processedMessages.filter(m => m.role !== 'system');
 
-    const modelToUse = "gemini-3.6-flash";
+    // Respect the caller's model (catalog pick or user's custom id); allow
+    // "models/gemini-..." style ids from the live catalog as-is.
+    const modelToUse = (model || "gemini-3.6-flash").replace(/^models\//, "");
 
     const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelToUse}:generateContent?key=${process.env.GOOGLE_GEMINI_API_KEY}`, {
       method: "POST",

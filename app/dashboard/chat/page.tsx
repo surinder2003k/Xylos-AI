@@ -10,7 +10,6 @@ import {
   Settings2, 
   Sparkles, 
   ChevronDown,
-  Diamond,
   Plus,
   ImageIcon,
   Copy,
@@ -30,13 +29,26 @@ import { chatService, Message, ChatSession } from "@/lib/supabase/chat-service";
 import { historyManager } from "@/lib/chat/history";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { ModelLibraryMenu, AUTO_MODEL, SelectedModel } from "@/components/chat/model-library-menu";
 
-const providers = [
-  { id: "best", name: "Best Free Route", icon: Sparkles },
-  { id: "groq", name: "Groq GPT-OSS 120B", icon: Diamond },
-  { id: "gemini", name: "Gemini 3.6 Flash", icon: Diamond },
-  { id: "openrouter", name: "Nemotron Super (Free)", icon: Diamond },
-];
+/** Persisted so the user's choice survives reloads and new conversations. */
+const MODEL_STORAGE_KEY = "xylos.chat.model";
+
+function readStoredModel(): SelectedModel {
+  if (typeof window === "undefined") return AUTO_MODEL;
+  try {
+    const raw = window.localStorage.getItem(MODEL_STORAGE_KEY);
+    if (!raw) return AUTO_MODEL;
+    const parsed = JSON.parse(raw) as Partial<SelectedModel>;
+    if (!parsed?.provider || typeof parsed.provider !== "string") return AUTO_MODEL;
+    const model = typeof parsed.model === "string" && parsed.model ? parsed.model : null;
+    if (parsed.provider === "best") return AUTO_MODEL;
+    const label = typeof parsed.label === "string" && parsed.label ? parsed.label : (model ?? parsed.provider);
+    return { provider: parsed.provider, model, label };
+  } catch {
+    return AUTO_MODEL;
+  }
+}
 
 function ChatContent() {
   const searchParams = useSearchParams();
@@ -47,7 +59,17 @@ function ChatContent() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isProviderMenuOpen, setIsProviderMenuOpen] = useState(false);
-  const [selectedProvider, setSelectedProvider] = useState(providers[0]);
+  const [selectedModel, setSelectedModel] = useState<SelectedModel>(AUTO_MODEL);
+  // Rehydrate after mount so SSR/CSR markup match on first paint.
+  useEffect(() => { setSelectedModel(readStoredModel()); }, []);
+  const handleSelectModel = (model: SelectedModel) => {
+    setSelectedModel(model);
+    try {
+      window.localStorage.setItem(MODEL_STORAGE_KEY, JSON.stringify(model));
+    } catch {
+      // Storage may be unavailable (private mode); selection still applies in-session.
+    }
+  };
   const [isMicActive, setIsMicActive] = useState(false);
   const [stagedFile, setStagedFile] = useState<{name: string, content: string, type: string} | null>(null);
   const [sessions, setSessions] = useState<ChatSession[]>([]);
@@ -222,7 +244,10 @@ function ChatContent() {
             content: m.content, 
             attachments: m.attachment ? [m.attachment] : [] 
           })),
-          provider: selectedProvider.id
+          provider: selectedModel.provider,
+          model: selectedModel.model ?? undefined,
+          // An explicit pick must never be silently answered by another model.
+          strict: selectedModel.model ? true : undefined
         }),
         signal: abortControllerRef.current.signal
       });
@@ -356,7 +381,7 @@ function ChatContent() {
           <div className="flex-1 flex items-center justify-between">
             <div className="flex items-center gap-2">
                <span className="text-[10px] font-semibold uppercase tracking-wide text-white/40 hidden sm:inline">Active Link:</span>
-               <span className="text-[10px] font-semibold uppercase tracking-wide text-primary">{selectedProvider.name}</span>
+               <span className="text-[10px] font-semibold uppercase tracking-wide text-primary max-w-[200px] truncate">{selectedModel.label}</span>
             </div>
           </div>
         </div>
@@ -571,32 +596,12 @@ function ChatContent() {
                       <Mic className="w-5 h-5" />
                    </button>
                    <div className="w-[1px] h-6 bg-white/10 mx-1" />
-                   <div className="relative">
-                     <button 
-                      onClick={() => setIsProviderMenuOpen(!isProviderMenuOpen)}
-                      className="flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-white/5 transition-all text-[10px] font-semibold uppercase tracking-wide text-white/40"
-                     >
-                        <selectedProvider.icon className="w-3.5 h-3.5 text-primary" />
-                        <span className="hidden sm:inline">{selectedProvider.name}</span>
-                        <ChevronDown className={`w-3 h-3 transition-transform ${isProviderMenuOpen ? 'rotate-180' : ''}`} />
-                     </button>
-                     {/* Provider Dropdown Popup */}
-                     <AnimatePresence>
-                       {isProviderMenuOpen && (
-                         <motion.div 
-                           initial={{ opacity: 0, y: 10 }}
-                           animate={{ opacity: 1, y: 0 }}
-                           exit={{ opacity: 0, scale: 0.95 }}
-                            className="absolute bottom-[110%] left-0 w-64 editorial-card shadow-2xl rounded-xl overflow-hidden z-[100]"
-                          > {providers.map((p) => (
-                            <button key={p.id} onClick={() => { setSelectedProvider(p); setIsProviderMenuOpen(false); }} className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all ${selectedProvider.id === p.id ? 'bg-primary/10 text-primary' : 'hover:bg-white/5 text-white/50 hover:text-white'}`}>
-                              <div className="flex items-center gap-3 text-xs font-bold"><p.icon className="w-4 h-4" />{p.name}</div>
-                            </button>
-                          ))}
-                        </motion.div>
-                       )}
-                     </AnimatePresence>
-                   </div>
+                    <ModelLibraryMenu
+                      isOpen={isProviderMenuOpen}
+                      onToggle={() => setIsProviderMenuOpen((v) => !v)}
+                      selected={selectedModel}
+                      onSelect={handleSelectModel}
+                    />
                 </div>
 
                 <div className="flex items-center gap-2">

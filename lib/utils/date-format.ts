@@ -1,3 +1,23 @@
+export function timeAgo(dateString: string | Date | null | undefined): string {
+  if (!dateString) return "Never";
+  try {
+    const date = dateString instanceof Date ? dateString : new Date(dateString);
+    const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
+    if (Number.isNaN(seconds)) return "Unknown";
+
+    if (seconds < 45) return "Just now";
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) return `${minutes}m ago`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours}h ago`;
+    const days = Math.floor(hours / 24);
+    if (days < 7) return `${days}d ago`;
+    return formatIST(date).split(" at")[0];
+  } catch {
+    return "Unknown";
+  }
+}
+
 export function formatIST(dateString: string | Date | null | undefined): string {
   if (!dateString) return "Neural Engine";
   try {

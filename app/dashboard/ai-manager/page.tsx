@@ -32,6 +32,10 @@ import { createClient } from "@/utils/supabase/client";
 import { useToast } from "@/components/ui/toast";
 import { ConfirmationModal } from "@/components/ui/modal";
 import { updateAppSetting, getAppSetting, getProfiles, updateProfileRole } from "@/app/actions/settings";
+import { timeAgo, formatIST } from "@/lib/utils/date-format";
+
+/** Heartbeat cadence is 60s — anything within this window counts as Online. */
+const ONLINE_WINDOW_MS = 150_000;
 
 export default function AIManagerPage() {
   const [isRunning, setIsRunning] = useState(false);
@@ -91,16 +95,16 @@ export default function AIManagerPage() {
     }
   };
 
-  const fetchUsers = async () => {
-    setLoadingUsers(true);
+  const fetchUsers = async (silent = false) => {
+    if (!silent) setLoadingUsers(true);
     try {
       const result = await getProfiles();
       if (!result.success) throw new Error(result.error);
       setUsers(result.profiles || []);
     } catch (err: any) {
-      showToast("Access Denied: Could not sync neural directory.", "error");
+      if (!silent) showToast("Access Denied: Could not sync neural directory.", "error");
     } finally {
-      setLoadingUsers(false);
+      if (!silent) setLoadingUsers(false);
     }
   };
 
@@ -118,6 +122,18 @@ export default function AIManagerPage() {
       if (user) setCurrentUserId(user.id);
     };
     fetchCurrentUser();
+  }, []);
+
+  // Keep Online / Last seen status fresh: silent refresh every 30s + on tab
+  // focus, without flashing the "Scanning directory..." loading state.
+  useEffect(() => {
+    const id = setInterval(() => fetchUsers(true), 30_000);
+    const handleFocus = () => fetchUsers(true);
+    window.addEventListener("focus", handleFocus);
+    return () => {
+      clearInterval(id);
+      window.removeEventListener("focus", handleFocus);
+    };
   }, []);
 
   // Close category dropdown when clicking outside
@@ -500,15 +516,16 @@ export default function AIManagerPage() {
               <tr className="border-b border-white/10">
                 <th className="pb-4 text-[9px] font-bold text-white/30 uppercase tracking-widest">Digital ID / User</th>
                 <th className="pb-4 text-[9px] font-bold text-white/30 uppercase tracking-widest">Email Access</th>
+                <th className="pb-4 text-[9px] font-bold text-white/30 uppercase tracking-widest">Status</th>
                 <th className="pb-4 text-[9px] font-bold text-white/30 uppercase tracking-widest">Permission Level</th>
                 <th className="pb-4 text-[9px] font-bold text-white/30 uppercase tracking-widest text-center">Global Protocol</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/5">
               {loadingUsers ? (
-                <tr><td colSpan={4} className="py-10 text-center opacity-20 italic text-white">Scanning directory...</td></tr>
+                <tr><td colSpan={5} className="py-10 text-center opacity-20 italic text-white">Scanning directory...</td></tr>
               ) : filteredUsers.length === 0 ? (
-                <tr><td colSpan={4} className="py-10 text-center opacity-20 italic text-white">No users found.</td></tr>
+                <tr><td colSpan={5} className="py-10 text-center opacity-20 italic text-white">No users found.</td></tr>
               ) : (
                 filteredUsers.map((user) => (
                   <tr key={user.id} className="group hover:bg-white/[0.03] transition-all">
@@ -530,6 +547,7 @@ export default function AIManagerPage() {
                       </div>
                     </td>
                     <td className="py-6 text-xs text-white/40">{user.email || "Confidential Entry"}</td>
+                    <PresenceCell lastSeen={user.last_seen_at} />
                     <td className="py-6">
                       <div className={`
                         inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-[9px] font-semibold uppercase tracking-wide
@@ -607,6 +625,27 @@ export default function AIManagerPage() {
         type="danger"
       />
     </div>
+  );
+}
+
+function PresenceCell({ lastSeen }: { lastSeen?: string | null }) {
+  const ts = lastSeen ? new Date(lastSeen).getTime() : NaN;
+  const online = !Number.isNaN(ts) && Date.now() - ts <= ONLINE_WINDOW_MS;
+
+  return (
+    <td className="py-6">
+      <div className="flex items-center gap-2" title={lastSeen ? `Last seen: ${formatIST(lastSeen)}` : "No activity recorded yet"}>
+        <span className="relative flex h-2 w-2 shrink-0">
+          {online && (
+            <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping" />
+          )}
+          <span className={`relative inline-flex h-2 w-2 rounded-full ${online ? "bg-green-400" : "bg-white/30"}`} />
+        </span>
+        <span className={`text-[11px] font-semibold ${online ? "text-green-400" : "text-white/40"}`}>
+          {online ? "Online" : timeAgo(lastSeen)}
+        </span>
+      </div>
+    </td>
   );
 }
 

@@ -82,6 +82,32 @@ export async function getProfiles() {
   }
 }
 
+/**
+ * Heartbeat: bumps the caller's own profiles.last_seen_at.
+ * Called from the dashboard PresenceHeartbeat component every ~60s while the
+ * tab is visible. Never throws — a failed heartbeat must not break the UI.
+ */
+export async function touchLastSeen() {
+  try {
+    const supabase = await createAuthClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return { success: false, error: "Unauthorized" };
+
+    const admin = getAdminClient();
+    const { error } = await admin
+      .from("profiles")
+      .update({ last_seen_at: new Date().toISOString() })
+      .eq("user_id", user.id);
+    if (error) throw error;
+    return { success: true };
+  } catch (err: unknown) {
+    const errorMsg = err instanceof Error ? err.message : "Heartbeat failed";
+    // Missing column (migration not run yet) surfaces here as a clear message.
+    console.warn("[Presence]", errorMsg);
+    return { success: false, error: errorMsg };
+  }
+}
+
 export async function updateProfileRole(userId: string, role: string) {
   try {
     await requireAdmin();

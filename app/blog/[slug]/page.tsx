@@ -214,20 +214,20 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         }}
       />
 
-      {/* Sticky Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4" style={{ background: 'rgba(10, 11, 14, 0.9)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-      <Link href="/blog" className="flex items-center gap-2 text-[11px] font-semibold text-gray-400 hover:text-[#36b7b0] transition-colors" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+      {/* Sticky Header — sits directly below the global Navbar so both bars stay
+          usable; previously this bar (same z-50, later in the DOM) covered the
+          site nav and swallowed clicks on Home / Blog / About / Contact. */}
+      <header className="fixed top-[57px] left-0 right-0 z-40 flex items-center justify-between px-6 py-3" style={{ background: 'rgba(10, 11, 14, 0.9)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+      {/* The global Navbar already carries the wordmark, so this bar keeps just
+          the back-link and the share row. */}
+      <Link href="/blog" className="flex shrink-0 items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-400 hover:text-[#36b7b0] transition-colors" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
         <ChevronRight className="w-3 h-3 rotate-180" />
         Blog
       </Link>
-      <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-white" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-        <div className="w-5 h-5 rounded flex items-center justify-center text-[8px] text-white font-bold" style={{ background: '#36b7b0' }}>X</div>
-        XYLOS AI
-      </div>
-        <ShareButtons title={post.title} excerpt={post.excerpt} slug={post.slug} />
+      <ShareButtons title={post.title} excerpt={post.excerpt} slug={post.slug} />
       </header>
 
-      <main className="pt-20">
+      <main className="pt-[105px]">
         {/* Hero Image */}
         <div className="relative w-full" style={{ height: '70vh', minHeight: '500px' }}>
           <Image
