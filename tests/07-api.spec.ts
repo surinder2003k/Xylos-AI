@@ -67,6 +67,29 @@ test.describe("API Endpoints", () => {
     expect(data.providers.length).toBeGreaterThan(0);
   });
 
+  // The catalog route is public, so a burst from one client must be rejected
+  // rather than turned into a fan-out against every configured provider.
+  test("GET /api/models should rate limit a burst from one client", async ({ page }) => {
+    const codes: number[] = [];
+    let retryAfter: string | null = null;
+    for (let i = 0; i < 70; i++) {
+      const response = await page.request.get("/api/models");
+      codes.push(response.status());
+      if (response.status() === 429 && retryAfter === null) {
+        retryAfter = response.headers()["retry-after"] ?? null;
+      }
+    }
+
+    const rejected = codes.filter((c) => c === 429).length;
+    const allowed = codes.filter((c) => c === 200).length;
+
+    // The window allows 60/min, so a 70-request burst cannot all be served.
+    expect(allowed).toBeLessThanOrEqual(60);
+    expect(allowed + rejected).toBe(codes.length);
+    expect(rejected).toBeGreaterThan(0);
+    expect(retryAfter).toBeTruthy();
+  });
+
   test("sitemap.xml should serve valid XML", async ({ page }) => {
     const response = await page.goto("/sitemap.xml");
     expect(response?.status()).toBe(200);

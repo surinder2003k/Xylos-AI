@@ -198,13 +198,19 @@ function isDegraded(provider: string, model: string): boolean {
 // ---------------------------------------------------------------------------
 
 const CACHE_TTL_MS = 60 * 60 * 1000; // 1h
+/**
+ * Hard floor on how often the upstreams may be hit, even for an explicit
+ * refresh. This endpoint is public, so without a floor `?refresh=1` becomes a
+ * lever for making this server hammer Groq/Mistral/Cerebras/Gemini/OpenRouter
+ * on every request. A refresh arriving inside the window is served the cached
+ * catalog instead, which keeps the response correct and the fan-out bounded.
+ */
+const MIN_REFRESH_INTERVAL_MS = 60 * 1000; // 1m
 let cache: { at: number; data: ModelCatalog } | null = null;
+/** De-duplicates concurrent builds so a burst of first requests fetches once. */
+let inFlight: Promise<ModelCatalog> | null = null;
 
-export async function getModelCatalog(refresh = false): Promise<ModelCatalog> {
-  if (!refresh && cache && Date.now() - cache.at < CACHE_TTL_MS) {
-    return cache.data;
-  }
-
+async function buildCatalog(): Promise<ModelCatalog> {
   const configured = PROVIDERS.filter((p) => p.envKeys.every((k) => Boolean(process.env[k])));
   const settled = await Promise.allSettled(configured.map((p) => p.fetch()));
 
@@ -231,3 +237,14 @@ export async function getModelCatalog(refresh = false): Promise<ModelCatalog> {
   return catalog;
 }
 
+export async function getModelCatalog(refresh = false): Promise<ModelCatalog> {
+  const age = cache ? Date.now() - cache.at : Infinity;
+  if (age < CACHE_TTL_MS && (!refresh || age < MIN_REFRESH_INTERVAL_MS)) {
+    return cache!.data;
+  }
+  if (inFlight) return inFlight;
+  inFlight = buildCatalog().finally(() => {
+    inFlight = null;
+  });
+  return inFlight;
+}

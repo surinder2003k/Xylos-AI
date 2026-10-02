@@ -11,7 +11,8 @@
   <a href="https://xylosai.vercel.app"><img src="https://img.shields.io/badge/Live-xylosai.vercel.app-000?style=flat-square" /></a>
   <a href="#-tech-stack"><img src="https://img.shields.io/badge/Next.js%2015-000?style=flat-square&logo=next.js" /></a>
   <a href="#-tech-stack"><img src="https://img.shields.io/badge/Supabase-000?style=flat-square&logo=supabase" /></a>
-  <a href="https://github.com/surinder2003k/Xylos-AI"><img src="https://img.shields.io/badge/10%20test%20suites-passing-22c55e?style=flat-square" /></a>
+  <a href="https://github.com/surinder2003k/Xylos-AI/actions/workflows/ci.yml"><img src="https://github.com/surinder2003k/Xylos-AI/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/surinder2003k/Xylos-AI"><img src="https://img.shields.io/badge/tests-Playwright-22c55e?style=flat-square" /></a>
 </p>
 
 ---
@@ -201,13 +202,24 @@ tests/                Playwright E2E tests (10 suites)
 
 ## Testing
 
-Playwright runs against the live production site:
+10 Playwright suites covering landing, blog, auth, about, chat, static pages, API endpoints, navigation, performance, and dashboard.
 
 ```bash
+# against the deployed site (default target)
 npx playwright test
+
+# against your own production build — what CI does
+npm run build
+PLAYWRIGHT_TARGET_LOCAL=1 npx playwright test
 ```
 
-10 test suites covering landing, blog, auth, about, chat, static pages, API endpoints, navigation, performance, and dashboard.
+The local target starts and stops the server itself. CI runs the same command on
+every push and pull request, so a green badge means the committed code works —
+not that production happens to be up.
+
+Database changes are applied by hand in the Supabase SQL editor; see
+[`database/README.md`](database/README.md) for which files are safe to run and
+which one will delete your data.
 
 ---
 

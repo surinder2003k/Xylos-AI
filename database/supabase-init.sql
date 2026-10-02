@@ -1,3 +1,32 @@
+-- =============================================================================
+--  ⚠️  DESTRUCTIVE — THIS SCRIPT DELETES ALL DATA  ⚠️
+-- =============================================================================
+--  It DROPs public.blogs (and profiles, chats, messages, user_api_keys,
+--  automation_logs, app_settings) with CASCADE. Every blog post, user and
+--  conversation is permanently gone once this runs. There is no undo.
+--
+--  DO NOT paste this into the Supabase SQL Editor of a project that has data.
+--  It is kept in the repo only as a reference for the intended schema, and for
+--  building a brand-new empty project.
+--
+--  For a project that already has data, use database/README.md instead — the
+--  migrations there are additive and will not touch your rows.
+--
+--  To actually run it (fresh project only), you must first set the opt-in flag
+--  in the same session:
+--      SET app.allow_destructive_reset = 'yes';
+--  The guard below aborts the whole script unless that flag is present.
+-- =============================================================================
+
+DO $$
+BEGIN
+  IF current_setting('app.allow_destructive_reset', true) IS DISTINCT FROM 'yes' THEN
+    RAISE EXCEPTION
+      'Refusing to run: this script drops all tables and deletes all data. '
+      'Set app.allow_destructive_reset = ''yes'' in this session to confirm.';
+  END IF;
+END $$;
+
 -- Xylos AI | Supabase Master Reset Script (v2.0 - Code-Aligned)
 -- ERROR FIX: This version aligns with 'chats' and 'alt_text' columns found in the codebase.
 -- Run this in your Supabase SQL Editor to fix current errors.
