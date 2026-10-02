@@ -1,8 +1,6 @@
 import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
 import { createClient } from '@supabase/supabase-js';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import { sendEmail } from '@/lib/mail/resend';
 
 // Admin email to notify on new subscriber — configured via env var only.
 // NOTE: Never hardcode personal emails in source; this repo is public.
@@ -34,8 +32,7 @@ export async function POST(request: Request) {
 
     // ── STEP 2: Notify admin (skipped silently if ADMIN_EMAIL not configured) ──
     if (ADMIN_EMAIL) {
-      resend.emails.send({
-        from: 'Xylos AI <onboarding@resend.dev>',
+      sendEmail({
         to: ADMIN_EMAIL,
         subject: `🎉 New Xylos Subscriber: ${email}`,
         html: `
@@ -54,22 +51,21 @@ export async function POST(request: Request) {
             </div>
           </div>
         `
-      }).catch(err => console.warn('[Subscribe] Admin notification failed:', err?.message));
+      });
     }
 
     // ── STEP 3: Send confirmation to subscriber ──
     const { SUBSCRIBE_TEMPLATE } = await import('@/lib/mail/templates');
-    const { sendEmail } = await import('@/lib/mail/resend');
-    
+
     await sendEmail({
       to: email,
       subject: 'Intelligence Feed Active | Xylos AI',
       html: SUBSCRIBE_TEMPLATE(email)
     });
 
-    return NextResponse.json({ 
-      success: true, 
-      message: 'Successfully subscribed to Xylos intelligence briefings.' 
+    return NextResponse.json({
+      success: true,
+      message: 'Successfully subscribed to Xylos intelligence briefings.'
     });
 
   } catch (error: unknown) {
