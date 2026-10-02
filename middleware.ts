@@ -6,9 +6,10 @@ export async function middleware(request: NextRequest) {
   // 301 legacy blog slugs -> their de-slopped equivalents.
   //
   // These URLs were published in the sitemap and may already have inbound links
-  // or be indexed, so the rewrite done by database/fix-slop-slugs.js has to be
-  // mirrored here or those signals are lost. Checked before updateSession so it
-  // costs nothing on the ~99.9% of requests that are not legacy slugs.
+  // or be indexed, so the slugs were rewritten in the database at the same time
+  // as this map was generated (database/slug-redirects.json), and the mapping has
+  // to be mirrored here or those signals are lost. Checked before updateSession
+  // so it costs nothing on the ~99.9% of requests that are not legacy slugs.
   const { pathname } = request.nextUrl
   if (pathname.startsWith('/blog/')) {
     const legacy = pathname.slice('/blog/'.length)
