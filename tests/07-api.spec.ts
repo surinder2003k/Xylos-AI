@@ -25,6 +25,18 @@ test.describe("API Endpoints", () => {
     expect(response.status()).toBe(400);
   });
 
+  // A missing, empty or non-JSON body used to escape the validation as an
+  // unhandled throw, so callers saw a 500 for what is plainly a bad request.
+  test("POST /api/subscribe should answer 400 for an unusable body", async ({ request }) => {
+    for (const body of ["", "{}", "null", "not json at all"]) {
+      const response = await request.post("/api/subscribe", {
+        headers: { "content-type": "application/json" },
+        data: body,
+      });
+      expect(response.status(), `body: ${JSON.stringify(body)}`).toBe(400);
+    }
+  });
+
   test("POST /api/upload should return 401 without auth", async ({ request }) => {
     const response = await request.post("/api/upload", {
       multipart: {},

@@ -34,7 +34,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const body = await request.json();
+    // A missing or non-JSON body is a client error, so parse defensively: an
+    // unhandled throw here would surface as a 500 for what is a bad request.
+    const body = (await request.json().catch(() => null)) ?? {};
     const { messages, provider = 'best', model, strict: strictRequested } = body;
 
     if (!messages || !Array.isArray(messages) || messages.length === 0) {

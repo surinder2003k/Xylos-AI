@@ -9,7 +9,10 @@ const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
 
 export async function POST(request: Request) {
   try {
-    const { email } = await request.json();
+    // An empty or non-JSON body is a client error, not a server error: without
+    // this guard request.json() throws and the catch below reports it as a 500.
+    const body = await request.json().catch(() => null);
+    const email = typeof body?.email === 'string' ? body.email.trim() : '';
 
     if (!email || !email.includes('@')) {
       return NextResponse.json({ error: 'A valid email address is required.' }, { status: 400 });

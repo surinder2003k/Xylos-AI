@@ -32,11 +32,16 @@ export default defineConfig({
   // Only boots a server in local mode; against the deployed site there is
   // nothing to start, and CI sets the flag so the build under test is the one
   // that was just produced.
+  //
+  // reuseExistingServer is deliberately off: tests read limits from the
+  // environment, so they only describe reality when the server under test was
+  // started with that same environment. Reusing a server someone launched by
+  // hand made a test assert against a limit the server never had.
   webServer: useLocal
     ? {
         command: "npm run start -- -p 3100",
         url: baseURL,
-        reuseExistingServer: !process.env.CI,
+        reuseExistingServer: false,
         timeout: 120_000,
       }
     : undefined,

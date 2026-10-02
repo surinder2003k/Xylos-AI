@@ -9,8 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: '*',
         allow: '/',
         disallow: [
-          '/admin/',
-          '/private/',
           '/api/',
           '/login',
           '/dashboard/',
@@ -21,8 +19,22 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
       {
+        // The Googlebot/Bingbot group must repeat the private-path disallows.
+        // In robots.txt a more specific group does not inherit from the '*'
+        // group, so an allow-only rule here silently re-opened /dashboard/,
+        // /chat/, /settings/ and the auth routes to the engines that matter
+        // most. The noindex meta on those pages is a safety net, not the plan.
         userAgent: ['Googlebot', 'Bingbot'],
         allow: '/',
+        disallow: [
+          '/api/',
+          '/login',
+          '/dashboard/',
+          '/chat/',
+          '/settings/',
+          '/actions/',
+          '/auth/',
+        ],
       },
       {
         userAgent: ['AhrefsBot', 'SemrushBot', 'MJ12bot', 'DotBot', 'BLEXBot'],
