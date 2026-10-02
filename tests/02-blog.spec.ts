@@ -1,6 +1,12 @@
 import { test, expect } from "@playwright/test";
+import { skipWithoutBackend } from "./helpers";
 
+// Every test in this file reads posts from the database.
 test.describe("Blog Pages", () => {
+  test.beforeEach(() => {
+    skipWithoutBackend();
+  });
+
   test("blog listing should load with posts", async ({ page }) => {
     const consoleErrors: string[] = [];
     page.on("console", (msg) => {

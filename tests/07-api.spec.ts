@@ -1,12 +1,11 @@
 import { test, expect } from "@playwright/test";
-
-// Needs a working Supabase backend: the handler writes the subscriber row
-// before it will report success, so with no service-role key it correctly
-// returns 500 and there is nothing to assert here.
-const hasBackend = !!process.env.SUPABASE_SERVICE_ROLE_KEY;
+import { hasBackend } from "./helpers";
 
 test.describe("API Endpoints", () => {
   test("GET /api/automate should return 401 without auth", async ({ page }) => {
+    // Resolving the session needs the backend; without it the route cannot tell
+    // an anonymous caller from a misconfigured environment.
+    test.skip(!hasBackend, "no Supabase backend configured");
     const response = await page.goto("/api/automate?count=1");
     expect(response?.status()).toBe(401);
   });

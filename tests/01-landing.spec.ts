@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { skipWithoutBackend } from "./helpers";
 
 test.describe("Landing Page", () => {
   test("should load with correct title and meta", async ({ page }) => {
@@ -21,6 +22,7 @@ test.describe("Landing Page", () => {
   });
 
   test("should show blog grid with posts", async ({ page }) => {
+    skipWithoutBackend();
     await page.goto("/");
     const blogCards = page.locator("a[href*='/blog/']").first();
     await expect(blogCards).toBeVisible();
