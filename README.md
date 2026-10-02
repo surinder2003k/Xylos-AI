@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/screenshots/landing-hero.png" alt="Xylos AI" width="700" />
+  <img src="docs/screenshots/landing-hero.png" alt="Xylos AI" width="700" />
 </p>
 
 <p align="center">
@@ -37,15 +37,15 @@
 
 | Landing Page | Blog Archive |
 |---|---|
-| <img src="public/screenshots/landing-full.png" width="340"/> | <img src="public/screenshots/blog-archive.png" width="340"/> |
+| <img src="docs/screenshots/landing-full.png" width="340"/> | <img src="docs/screenshots/blog-archive.png" width="340"/> |
 
 | Blog Post | Login |
 |---|---|
-| <img src="public/screenshots/blog-post.png" width="340"/> | <img src="public/screenshots/login.png" width="340"/> |
+| <img src="docs/screenshots/blog-post.png" width="340"/> | <img src="docs/screenshots/login.png" width="340"/> |
 
 | About | Privacy |
 |---|---|
-| <img src="public/screenshots/about.png" width="340"/> | <img src="public/screenshots/privacy.png" width="340"/> |
+| <img src="docs/screenshots/about.png" width="340"/> | <img src="docs/screenshots/privacy.png" width="340"/> |
 
 ---
 

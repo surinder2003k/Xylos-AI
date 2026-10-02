@@ -74,3 +74,16 @@ tsc-output.log
 # local one-off content review artifacts
 database/retitle-slop.plan.json
 database/retitle-slop.full.*
+database/*.applied.json
+database/*.drafted-ids.json
+database/actions.json
+
+# README screenshots live in docs/ so they are not shipped to the CDN
+# (everything under public/ is deployed with the app).
+public/screenshots/
+
+# App assets under public/ MUST stay tracked: Vercel builds from the repo, so
+# an ignored asset is simply absent in production. /og-image.png is referenced
+# by the OpenGraph/Twitter metadata on every page and as the blog image
+# fallback — it was silently 404ing in production because of the *.png rule.
+!public/**/*.png

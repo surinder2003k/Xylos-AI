@@ -74,4 +74,32 @@ test.describe("API Endpoints", () => {
     expect(text).toContain("<urlset");
     expect(text).toContain("</urlset>");
   });
+
+  // Regression guard for soft-404s: a streamed shell (a loading.tsx above a
+  // notFound() call) locks the response into HTTP 200, and Google then treats
+  // every dead URL as an indexable duplicate.
+  test("unknown blog slugs should return a real 404", async ({ page }) => {
+    const response = await page.goto("/blog/this-slug-does-not-exist-e2e");
+    expect(response?.status()).toBe(404);
+  });
+
+  test("unknown tool slugs should return a real 404", async ({ page }) => {
+    const response = await page.goto("/tools/no-such-tool-e2e");
+    expect(response?.status()).toBe(404);
+  });
+
+  // The RSS feed lives outside the blog route tree, so /blog/rss.xml is not a
+  // valid post slug and must not be served as one.
+  test("/blog/rss.xml should 404 rather than render as a post", async ({ page }) => {
+    const response = await page.goto("/blog/rss.xml");
+    expect(response?.status()).toBe(404);
+  });
+
+  // Guards the asset rule: public/ files are ignored by a broad *.png rule, so
+  // the OpenGraph image silently disappeared from production builds.
+  test("/og-image.png should be served", async ({ page }) => {
+    const response = await page.request.get("/og-image.png");
+    expect(response.status()).toBe(200);
+    expect(response.headers()["content-type"]).toContain("image/png");
+  });
 });

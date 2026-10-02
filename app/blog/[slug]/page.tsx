@@ -2,6 +2,7 @@ import { SITE_URL } from "@/lib/site-config";
 
 import { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import { notFound, permanentRedirect } from "next/navigation";
 import { createClient } from "@/utils/supabase/server";
 import { createClient as createPublicClient } from "@supabase/supabase-js";
@@ -12,6 +13,75 @@ import remarkGfm from "remark-gfm";
 import { formatIST } from "@/lib/utils/date-format";
 import { ShareButtons } from "@/components/blog/share-buttons";
 import { NewsletterCard } from "@/components/blog/newsletter-card";
+
+type RelatedPost = { slug: string; title: string; published_at: string | null };
+
+/**
+ * Sidebar "Related Logs" block.
+ *
+ * Deliberately a separate async component wrapped in <Suspense> by the page.
+ * The page itself must resolve the post BEFORE any Suspense boundary opens,
+ * because `notFound()` only produces a real HTTP 404 status when it is thrown
+ * while the response can still set its status code — once the shell has been
+ * streamed, Next.js is locked into 200 and the site starts serving soft-404s
+ * (which Google treats as duplicate, indexable junk).
+ */
+async function RelatedLogs({ postId }: { postId: string }) {
+  const publicSupabase = createPublicClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+
+  const { data } = await publicSupabase
+    .from("blogs")
+    .select("slug, title, published_at")
+    .eq("status", "published")
+    .neq("id", postId)
+    .order("published_at", { ascending: false })
+    .limit(3);
+
+  const relatedPosts = (data ?? []) as RelatedPost[];
+  if (relatedPosts.length === 0) return null;
+
+  return (
+    <div className="rounded-xl p-5" style={{ background: 'rgba(26, 29, 35, 0.6)', border: '1px solid rgba(190, 184, 170, 0.15)' }}>
+      <h4 className="text-[10px] font-bold text-white uppercase tracking-[0.2em] mb-4" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
+        Related Logs
+      </h4>
+      <div className="space-y-3">
+        {relatedPosts.map((rp) => (
+          <Link
+            key={rp.slug}
+            href={`/blog/${rp.slug}`}
+            className="block p-3 rounded-lg transition-all hover:bg-[rgba(54,183,176,0.05)] group"
+            style={{ border: '1px solid rgba(190, 184, 170, 0.1)' }}
+          >
+            <span className="text-[9px] text-gray-600 block mb-1" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
+              {formatDate(rp.published_at)}
+            </span>
+            <h5 className="text-[12px] font-bold text-gray-300 group-hover:text-white transition-colors leading-snug" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
+              {rp.title}
+            </h5>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/** Matches the sidebar card's footprint while the related posts stream in. */
+function RelatedLogsFallback() {
+  return (
+    <div className="rounded-xl p-5 animate-pulse" style={{ background: 'rgba(26, 29, 35, 0.6)', border: '1px solid rgba(190, 184, 170, 0.15)' }}>
+      <div className="h-2.5 w-24 rounded bg-white/5" />
+      <div className="mt-4 space-y-3">
+        <div className="h-12 rounded-lg bg-white/[0.03]" />
+        <div className="h-12 rounded-lg bg-white/[0.03]" />
+        <div className="h-12 rounded-lg bg-white/[0.03]" />
+      </div>
+    </div>
+  );
+}
 
 function sanitizeHtml(html: string): string {
   return html
@@ -99,7 +169,7 @@ function estimateReadTime(content: string): string {
   return `${minutes} MIN READ`;
 }
 
-function formatDate(dateStr: string): string {
+function formatDate(dateStr: string | null | undefined): string {
   if (!dateStr) return '';
   const d = new Date(dateStr);
   return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
@@ -139,18 +209,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     return notFound();
   }
 
-  const publicSupabase = createPublicClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
-
-  const { data: relatedPosts } = await publicSupabase
-    .from("blogs")
-    .select("slug, title, published_at, feature_image_url")
-    .eq("status", "published")
-    .neq("id", post.id)
-    .order("published_at", { ascending: false })
-    .limit(3);
+  // NOTE: related posts are fetched inside <RelatedLogs> below, not here.
+  // Awaiting them in the page body delayed the whole response — the LCP
+  // headline waited on a query that only feeds the sidebar.
 
   const headings = extractHeadings(post.content || '');
   const readTime = estimateReadTime(post.content || '');
@@ -393,30 +454,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 )}
 
                 {/* Related Logs */}
-                {relatedPosts && relatedPosts.length > 0 && (
-                  <div className="rounded-xl p-5" style={{ background: 'rgba(26, 29, 35, 0.6)', border: '1px solid rgba(190, 184, 170, 0.15)' }}>
-                    <h4 className="text-[10px] font-bold text-white uppercase tracking-[0.2em] mb-4" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
-                      Related Logs
-                    </h4>
-                    <div className="space-y-3">
-                      {relatedPosts.map((rp, i) => (
-                        <Link
-                          key={i}
-                          href={`/blog/${rp.slug}`}
-                          className="block p-3 rounded-lg transition-all hover:bg-[rgba(54,183,176,0.05)] group"
-                          style={{ border: '1px solid rgba(190, 184, 170, 0.1)' }}
-                        >
-                          <span className="text-[9px] text-gray-600 block mb-1" style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
-                            {formatDate(rp.published_at)}
-                          </span>
-                          <h5 className="text-[12px] font-bold text-gray-300 group-hover:text-white transition-colors leading-snug" style={{ fontFamily: 'var(--font-sora), sans-serif' }}>
-                            {rp.title}
-                          </h5>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                <Suspense fallback={<RelatedLogsFallback />}>
+                  <RelatedLogs postId={post.id} />
+                </Suspense>
               </div>
             </aside>
 
