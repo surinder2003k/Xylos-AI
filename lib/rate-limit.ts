@@ -55,6 +55,7 @@ export function rateLimit(
 export function clientKey(request: Request): string {
   const headers = request.headers;
   const forwarded = headers.get("x-forwarded-for");
+  console.log("[DEBUG clientKey] xff=", JSON.stringify(forwarded), "realip=", JSON.stringify(headers.get("x-real-ip")));
   if (forwarded) {
     const first = forwarded.split(",")[0]?.trim();
     if (first) return first;

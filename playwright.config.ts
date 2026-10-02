@@ -4,7 +4,10 @@ import { defineConfig, devices } from "@playwright/test";
 //   1. Against the deployed site (default) — `npx playwright test`
 //   2. Against a local production build — `PLAYWRIGHT_TARGET_LOCAL=1 npx playwright test`
 //      which builds nothing itself; run `npm run build` first. Used by CI.
-const useLocal = process.env.PLAYWRIGHT_TARGET_LOCAL === "1";
+//
+// The flag is trimmed because on Windows `set FOO=1 && some-command` assigns
+// "1 " with a trailing space, which silently sent "local" runs to production.
+const useLocal = (process.env.PLAYWRIGHT_TARGET_LOCAL ?? "").trim() === "1";
 const baseURL = process.env.PLAYWRIGHT_BASE_URL || (useLocal ? "http://127.0.0.1:3100" : "https://xylosai.vercel.app");
 
 export default defineConfig({

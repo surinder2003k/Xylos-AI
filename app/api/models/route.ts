@@ -16,7 +16,13 @@ export const dynamic = "force-dynamic";
  * getModelCatalog) — otherwise a single client could turn this route into a
  * fan-out against every configured provider.
  */
-const LIMIT_PER_MINUTE = 60;
+/**
+ * Per-client request budget for this route. Lowerable through the environment so
+ * a test can exercise the limiter with a handful of requests instead of blasting
+ * a real server (which would also trip any proxy or edge firewall in front of
+ * it, including Vercel's).
+ */
+const LIMIT_PER_MINUTE = Number(process.env.MODELS_RATE_LIMIT_PER_MINUTE ?? 60);
 
 export async function GET(request: NextRequest) {
   try {

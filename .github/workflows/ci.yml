@@ -47,6 +47,10 @@ jobs:
       - name: Playwright
         env:
           PLAYWRIGHT_TARGET_LOCAL: "1"
+          # Small enough that the rate-limit test needs ~15 requests instead of
+          # 70, which would otherwise look like an attack to any proxy or
+          # firewall in the runner's path.
+          MODELS_RATE_LIMIT_PER_MINUTE: "5"
         run: npx playwright test
 
       - name: Upload report on failure
