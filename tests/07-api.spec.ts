@@ -1,5 +1,10 @@
 import { test, expect } from "@playwright/test";
 
+// Needs a working Supabase backend: the handler writes the subscriber row
+// before it will report success, so with no service-role key it correctly
+// returns 500 and there is nothing to assert here.
+const hasBackend = !!process.env.SUPABASE_SERVICE_ROLE_KEY;
+
 test.describe("API Endpoints", () => {
   test("GET /api/automate should return 401 without auth", async ({ page }) => {
     const response = await page.goto("/api/automate?count=1");
@@ -7,6 +12,7 @@ test.describe("API Endpoints", () => {
   });
 
   test("POST /api/subscribe should accept valid emails", async ({ page }) => {
+    test.skip(!hasBackend, "no SUPABASE_SERVICE_ROLE_KEY configured");
     const response = await page.request.post("/api/subscribe", {
       data: { email: "test-playwright@example.com" },
     });
@@ -82,10 +88,11 @@ test.describe("API Endpoints", () => {
 
     const rejected = codes.filter((c) => c === 429).length;
     const allowed = codes.filter((c) => c === 200).length;
+    const unexpected = codes.filter((c) => c !== 200 && c !== 429);
 
     // The window allows 60/min, so a 70-request burst cannot all be served.
+    expect(unexpected, `unexpected statuses: ${[...new Set(unexpected)].join(", ")}`).toEqual([]);
     expect(allowed).toBeLessThanOrEqual(60);
-    expect(allowed + rejected).toBe(codes.length);
     expect(rejected).toBeGreaterThan(0);
     expect(retryAfter).toBeTruthy();
   });

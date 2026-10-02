@@ -3,12 +3,7 @@
  * Generates high-definition professional imagery using Cloudflare Workers AI.
  */
 
-import { createClient } from "@supabase/supabase-js";
-
-const supabaseAdmin = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+import { getSupabaseAdmin } from "@/lib/supabase/admin";
 
 export async function generateAIImage(prompt: string): Promise<string | null> {
   const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
@@ -43,6 +38,7 @@ export async function generateAIImage(prompt: string): Promise<string | null> {
     const buffer = Buffer.from(await imageBlob.arrayBuffer());
 
     // Upload to Supabase Storage
+    const supabaseAdmin = getSupabaseAdmin();
     const fileName = `generated-${Math.random().toString(36).substring(2)}-${Date.now()}.png`;
     const filePath = `${fileName}`;
 

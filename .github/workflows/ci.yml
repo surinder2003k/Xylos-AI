@@ -13,6 +13,15 @@ concurrency:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    # Supabase's public URL/key are inlined into the client bundle at build time,
+    # so the build cannot prerender pages without them. They are public values
+    # and are safe to stand in for; the tests that need a working backend skip
+    # themselves when no real service-role key is present. Server secrets
+    # (RESEND_API_KEY, SUPABASE_SERVICE_ROLE_KEY, provider API keys) are
+    # deliberately absent, so a build that depends on them fails here.
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: https://placeholder.supabase.co
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: placeholder-anon-key
     steps:
       - uses: actions/checkout@v4
 

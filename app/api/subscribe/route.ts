@@ -1,16 +1,11 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { getSupabaseAdmin } from '@/lib/supabase/admin';
 import { sendEmail } from '@/lib/mail/resend';
 
 // Admin email to notify on new subscriber — configured via env var only.
 // NOTE: Never hardcode personal emails in source; this repo is public.
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
 
-// Server-side Supabase client using service role key
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
 
 export async function POST(request: Request) {
   try {
@@ -21,7 +16,7 @@ export async function POST(request: Request) {
     }
 
     // ── STEP 1: Save subscriber to DB (primary source of truth) ──
-    const { error: dbError } = await supabase
+    const { error: dbError } = await getSupabaseAdmin()
       .from('subscribers')
       .upsert({ email }, { onConflict: 'email', ignoreDuplicates: true });
 
