@@ -1,22 +1,28 @@
 import { MetadataRoute } from 'next'
+import { SITE_URL } from '@/lib/site-config'
 
 export default function robots(): MetadataRoute.Robots {
-  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://xylosai.vercel.app').replace(/\/$/, '')
+  const siteUrl = SITE_URL
+
+  // NOTE: robots entries are prefix matches. '/chat/' does NOT match '/chat',
+  // so private routes are listed WITHOUT trailing slash to cover both the
+  // route itself and everything under it.
+  const privatePaths = [
+    '/api/',
+    '/login',
+    '/dashboard',
+    '/chat',
+    '/settings',
+    '/actions/',
+    '/auth/',
+  ]
 
   return {
     rules: [
       {
         userAgent: '*',
         allow: '/',
-        disallow: [
-          '/api/',
-          '/login',
-          '/dashboard/',
-          '/chat/',
-          '/settings/',
-          '/actions/',
-          '/auth/',
-        ],
+        disallow: privatePaths,
       },
       {
         // The Googlebot/Bingbot group must repeat the private-path disallows.
@@ -26,15 +32,7 @@ export default function robots(): MetadataRoute.Robots {
         // most. The noindex meta on those pages is a safety net, not the plan.
         userAgent: ['Googlebot', 'Bingbot'],
         allow: '/',
-        disallow: [
-          '/api/',
-          '/login',
-          '/dashboard/',
-          '/chat/',
-          '/settings/',
-          '/actions/',
-          '/auth/',
-        ],
+        disallow: privatePaths,
       },
       {
         userAgent: ['AhrefsBot', 'SemrushBot', 'MJ12bot', 'DotBot', 'BLEXBot'],

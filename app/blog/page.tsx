@@ -1,6 +1,7 @@
 import { SITE_URL } from "@/lib/site-config";
 import type { Metadata } from "next";
 import { createClient } from "@/utils/supabase/server";
+import { notFound, permanentRedirect } from "next/navigation";
 import Link from "next/link";
 import { BlogGrid } from "@/components/landing/blog-grid";
 
@@ -15,6 +16,9 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
     ? `AI Blog — Page ${page} | Xylos AI`
     : `AI Blog — Insights on Technology, AI & Innovation | Xylos AI`;
 
+  // Pages beyond the archive are not canonicalised to page 1 (that would look
+  // like soft-404s to Google). The page component itself returns a real 404
+  // for those, and ?page=1 redirects to /blog, so every canonical here 200s.
   return {
     title: pageTitle,
     description: "Explore expert articles on artificial intelligence, technology trends, and digital innovation. Written and curated by the Xylos AI editorial engine.",
@@ -32,6 +36,9 @@ export const revalidate = 600;
 
 export default async function BlogArchivePage(props: { searchParams: Promise<{ [key: string]: string | undefined }> }) {
   const searchParams = await props.searchParams;
+  // ?page=1 is a byte-identical duplicate of /blog: fold it with a 301 so
+  // Google only ever indexes the clean archive URL.
+  if (searchParams.page === "1") permanentRedirect("/blog");
   const page = Math.max(1, parseInt(searchParams.page || "1") || 1);
   const limit = 9;
   const from = (page - 1) * limit;
@@ -49,6 +56,11 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
   const postsFinal = postsData || [];
 
   const totalPages = totalCount ? Math.ceil(totalCount / limit) : 0;
+  // Page numbers past the end of the archive used to render a 200 with the
+  // last page's posts (clamped) — Google reads that as infinite duplicate /
+  // soft-404 URLs (/blog?page=9999). Fail loudly with a real 404 instead, so
+  // only archive pages with unique posts can ever be crawled.
+  if (totalPages > 0 && page > totalPages) notFound();
   const currentPage = Math.min(page, Math.max(1, totalPages));
 
   const hasNext = currentPage < totalPages;

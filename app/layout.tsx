@@ -32,7 +32,7 @@ const GlobalNavbar = dynamic(() => import("@/components/global-navbar").then(m =
 const ScrollToTop = dynamic(() => import("@/components/premium/scroll-to-top").then(m => m.ScrollToTop));
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://xylosai.vercel.app'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Xylos AI (xylosai) — Free AI Chat & Blog | Llama 3, Gemini, Mistral",
     template: "%s | Xylos AI",
@@ -68,9 +68,12 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  alternates: {
-    canonical: SITE_URL,
-  },
+  // NOTE: no global `alternates.canonical` here on purpose.
+  // A homepage canonical in the root layout is inherited by every page that
+  // does not declare its own, so Google saw /blog, /about, /tools/* etc all
+  // claiming "my canonical is the homepage" -> "Duplicate without
+  // user-selected canonical". Each indexable page declares its own
+  // self-referencing canonical instead.
   openGraph: {
     title: "Xylos AI — Free AI Chat & Blog Platform",
     description: "Access 7+ free AI models (Llama 3, Gemini, Mistral) in one premium workspace. Zero cost, professional grade.",

@@ -100,20 +100,15 @@ export async function generateMetadata({ params }: { params: Promise<{ tool: str
     return { title: 'Tool Not Found' };
   }
 
+  // Thin proxy template (same layout for every tool, only copy swapped) with
+  // no real interactive UI behind it: keep it OUT of the index until each
+  // tool gets its own real page. Indexing 9 near-identical stubs is what
+  // triggers "Duplicate without user-selected canonical" in Search Console.
+  // No canonical on a noindex URL on purpose (canonical + noindex conflict).
   return {
     title: `${tool.title} | Xylos AI`,
     description: `${tool.description} - Powered by Xylos AI.`,
-    keywords: tool.keywords,
-    alternates: {
-      canonical: `https://xylosai.vercel.app/tools/${resolvedParams.tool}`,
-    },
-    robots: { index: true, follow: true },
-    openGraph: {
-      title: `${tool.title} | Xylos AI`,
-      description: tool.description,
-      url: `https://xylosai.vercel.app/tools/${resolvedParams.tool}`,
-      type: 'article',
-    }
+    robots: { index: false, follow: true },
   };
 }
 
