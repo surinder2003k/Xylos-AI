@@ -41,18 +41,6 @@ export function HeroCTA() {
           <span className="relative z-10">{isLoggedIn ? "Admin Dashboard" : "Access Interface"}</span>
         </Link>
       </div>
-
-      {/* Mobile Floating Action */}
-      {isLoggedIn && (
-        <Link
-          href="/chat"
-          aria-label="Launch Neural Link"
-          className="md:hidden fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-2xl bg-primary text-[#17181b] flex items-center justify-center shadow-lg"
-          style={{ boxShadow: '0 4px 20px rgba(54,183,176,0.4)' }}
-        >
-          <MessageSquare className="w-6 h-6" />
-        </Link>
-      )}
     </>
   );
 }

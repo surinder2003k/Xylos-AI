@@ -88,7 +88,7 @@ export function ScrollToTop() {
           whileHover={{ scale: 1.06 }}
           whileTap={{ scale: 0.94 }}
           style={{ width: SIZE, height: SIZE }}
-          className="group fixed bottom-28 right-5 z-[100] grid place-items-center rounded-full md:bottom-8 md:right-8"
+          className="group fixed bottom-28 right-5 z-[100] grid place-items-center rounded-full md:bottom-24 md:right-6"
         >
           {/* Blurred disc so the control sits *in* the page rather than on it. */}
           <span

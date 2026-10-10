@@ -10,6 +10,7 @@ import { GlobalEffects } from "@/components/ui/global-effects";
 import { ToastProvider } from "@/components/ui/toast";
 import { OfflineNotice } from "@/components/ui/offline-notice";
 import { PageFade } from "@/components/ui/motion-primitives";
+import { FloatingAIChat } from "@/components/ui/floating-ai-chat";
 
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, SITE_AUTHOR, SITE_EMAIL, absoluteUrl } from "@/lib/site-config";
 
@@ -170,6 +171,18 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Google Tag Manager — the head half of the official snippet.
+            Without this, only the <noscript> iframe exists, so the GTM
+            container never initialises on the client and every tag inside it
+            (AdSense, conversion pixels, etc.) silently never fires — that is
+            the "Tag stopped sending data" warning in the GTM admin panel. */}
+        <Script id="gtm-head" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N3CBBBLM');`}
+        </Script>
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <script
@@ -214,6 +227,7 @@ export default async function RootLayout({
             className="hidden"
           />
         </noscript>
+        <FloatingAIChat />
         <OfflineNotice />
       </body>
     </html>
