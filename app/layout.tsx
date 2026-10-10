@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Sora, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 import { PrimaryColorProvider } from "@/components/primary-color-provider";
@@ -13,19 +13,26 @@ import { PageFade } from "@/components/ui/motion-primitives";
 
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, SITE_AUTHOR, SITE_EMAIL, absoluteUrl } from "@/lib/site-config";
 
-const sora = Sora({
-  subsets: ["latin"],
+// Self-hosted via next/font/local instead of next/font/google.
+// next/font/google fetches fonts.googleapis.com AT BUILD TIME; on Vercel that
+// request intermittently returns an empty/HTML error response and the loader
+// crashes with "TypeError: Cannot read properties of null (reading '1')",
+// failing the whole build. Local woff2 files remove that build-time network
+// dependency entirely — deterministic builds, no Google fetch.
+// Both fonts are variable, so a single file covers the whole weight range.
+const sora = localFont({
+  src: "./fonts/sora-latin.woff2",
   variable: "--font-sora",
-  display: 'swap',
+  display: "swap",
   preload: true,
-  weight: ['400', '700', '800'],
+  weight: "400 800",
 });
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
+const jetbrainsMono = localFont({
+  src: "./fonts/jetbrains-mono-latin.woff2",
   variable: "--font-jetbrains",
-  display: 'swap',
+  display: "swap",
   preload: false,
-  weight: ['400', '500', '600', '700'],
+  weight: "400 700",
 });
 
 const GlobalNavbar = dynamic(() => import("@/components/global-navbar").then(m => m.GlobalNavbar));
