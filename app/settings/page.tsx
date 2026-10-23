@@ -12,19 +12,23 @@ interface ProfileData {
 }
 
 async function getProfile(): Promise<ProfileData | null> {
-  const supabase = createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return null;
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("user_id, full_name")
-    .eq("user_id", user.id)
-    .maybeSingle();
-  return {
-    user_id: user.id,
-    full_name: profile?.full_name || null,
-    email: user.email || null,
-  };
+  try {
+    const supabase = createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return null;
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("user_id, full_name")
+      .eq("user_id", user.id)
+      .maybeSingle();
+    return {
+      user_id: user.id,
+      full_name: profile?.full_name || null,
+      email: user.email || null,
+    };
+  } catch {
+    return null;
+  }
 }
 
 export default async function SettingsPage() {
