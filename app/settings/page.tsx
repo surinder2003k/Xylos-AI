@@ -1,5 +1,7 @@
 "use client";
 
+export const dynamic = "force-dynamic";
+
 import { updateProfileName } from "@/app/actions/settings";
 
 import { useState, useEffect } from "react";
