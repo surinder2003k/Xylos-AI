@@ -31,11 +31,11 @@ export function GlobalNavbar() {
     return () => subscription.unsubscribe();
   }, []);
 
-  // Only exclude true app interfaces — dashboard, chat, login
+  // Only exclude true app interfaces — dashboard, login
+  // Chat is now at /chat (not /dashboard/chat) so keep navbar visible
   if (
     pathname?.startsWith("/dashboard") ||
-    pathname?.startsWith("/login") ||
-    pathname?.startsWith("/chat")
+    pathname?.startsWith("/login")
   ) {
     return null;
   }
