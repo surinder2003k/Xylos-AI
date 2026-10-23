@@ -1,5 +1,6 @@
-import { updateProfileName } from "@/app/actions/settings";
 "use client";
+
+import { updateProfileName } from "@/app/actions/settings";
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
