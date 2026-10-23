@@ -18,7 +18,6 @@ export function Navbar({ user }: NavbarProps) {
   const router = useRouter();
 
   const navLinks = [
-    { href: user ? "/chat" : "/login", label: "Chat" },
     { href: "/blog", label: "Blog" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
