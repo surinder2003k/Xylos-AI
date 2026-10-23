@@ -2,8 +2,7 @@ import { createClient } from "@/utils/supabase/server";
 import dynamic from "next/dynamic";
 
 const ProfileNameForm = dynamic(
-  () => import("@/components/profile-name-form").then((mod) => mod.ProfileNameForm),
-  { ssr: false }
+  () => import("@/components/profile-name-form").then((mod) => mod.ProfileNameForm)
 );
 
 interface ProfileData {
