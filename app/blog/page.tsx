@@ -1,6 +1,6 @@
 import { SITE_URL } from "@/lib/site-config";
 import type { Metadata } from "next";
-import { createClient } from "@/utils/supabase/server";
+import { createClient as createPublicClient } from "@supabase/supabase-js";
 import { notFound, permanentRedirect } from "next/navigation";
 import Link from "next/link";
 import { BlogGrid } from "@/components/landing/blog-grid";
@@ -43,17 +43,39 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
   const limit = 9;
   const from = (page - 1) * limit;
   const to = from + limit - 1;
-  const supabase = await createClient();
+  const publicSupabase = createPublicClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
 
   // Fetch only card fields; article content can be very large and slows the archive.
-  const queryBuilder = supabase
+  // Use public client (anon key) to bypass RLS so ALL published blogs are visible,
+  // not just those owned by the currently logged-in user.
+  const { data: postsData, count: totalCount } = await publicSupabase
     .from("blogs")
-    .select("id, slug, title, excerpt, feature_image_url, category, published_at", { count: "exact" })
+    .select("id, slug, title, excerpt, feature_image_url, category, published_at, author_id", { count: "exact" })
     .eq("status", "published")
-    .order("published_at", { ascending: false });
+    .order("published_at", { ascending: false })
+    .range(from, to);
 
-  const { data: postsData, count: totalCount } = await queryBuilder.range(from, to);
   const postsFinal = postsData || [];
+
+  // Join with profiles so author names display correctly instead of always
+  // falling back to "Xylos AI team".
+  let blogsWithAuthors = postsFinal;
+  if (postsFinal.length > 0) {
+    const authorIds = [...new Set(postsFinal.map((b) => b.author_id).filter(Boolean))];
+    if (authorIds.length > 0) {
+      const { data: profiles } = await publicSupabase
+        .from("profiles")
+        .select("user_id, full_name")
+        .in("user_id", authorIds);
+      blogsWithAuthors = postsFinal.map((blog) => ({
+        ...blog,
+        profiles: profiles?.find((p) => p.user_id === blog.author_id) ?? null,
+      }));
+    }
+  }
 
   const totalPages = totalCount ? Math.ceil(totalCount / limit) : 0;
   // Page numbers past the end of the archive used to render a 200 with the
@@ -99,7 +121,7 @@ export default async function BlogArchivePage(props: { searchParams: Promise<{ [
           <span className="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent" aria-hidden="true" />
         </div>
 
-        <BlogGrid blogs={postsFinal} />
+        <BlogGrid blogs={blogsWithAuthors} />
 
         {totalPages > 1 && (
           <div className="flex justify-center items-center gap-8 pt-12 mt-20" style={{ borderTop: '1px solid rgba(190, 184, 170, 0.2)' }}>

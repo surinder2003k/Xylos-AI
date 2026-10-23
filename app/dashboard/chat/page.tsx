@@ -1,14 +1,14 @@
-"use client";
+﻿"use client";
 
-import { Suspense, useState, useRef, useEffect } from "react";
+import { Suspense, useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { 
-  Send, 
-  Paperclip, 
-  Mic, 
-  Settings2, 
-  Sparkles, 
+import {
+  Send,
+  Paperclip,
+  Mic,
+  Settings2,
+  Sparkles,
   ChevronDown,
   Plus,
   ImageIcon,
@@ -21,7 +21,13 @@ import {
   Trash2,
   Square,
   LogOut,
-  Menu
+  Menu,
+  Bot,
+  User as UserIcon,
+  Clock,
+  ArrowRight,
+  ThumbsUp,
+  ThumbsDown,
 } from "lucide-react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { signOut } from "@/app/auth/actions";
@@ -31,7 +37,6 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { ModelLibraryMenu, AUTO_MODEL, SelectedModel } from "@/components/chat/model-library-menu";
 
-/** Persisted so the user's choice survives reloads and new conversations. */
 const MODEL_STORAGE_KEY = "xylos.chat.model";
 
 function readStoredModel(): SelectedModel {
@@ -50,6 +55,271 @@ function readStoredModel(): SelectedModel {
   }
 }
 
+function escapeHtml(unsafe: string): string {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function MarkdownContent({ content }: { content: string }) {
+  return (
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
+      components={{
+        code({ node, className, ...props }: any) {
+          return (
+            <div className="my-4 overflow-x-auto rounded-xl border border-white/10 bg-[#0d0e10]">
+              <pre className="p-4 overflow-x-auto font-mono text-xs text-[#c4c0b8]" {...props}>
+                <code>{escapeHtml(String(node.children?.text ?? ""))}</code>
+              </pre>
+            </div>
+          );
+        },
+      }}
+    >
+      {content}
+    </ReactMarkdown>
+  );
+}
+
+function MessageBubble({
+  message,
+  isUser,
+  isStreaming,
+  onCopy,
+  onThumbsUp,
+  onThumbsDown,
+}: {
+  message: Message;
+  isUser: boolean;
+  isStreaming?: boolean;
+  onCopy?: () => void;
+  onThumbsUp?: () => void;
+  onThumbsDown?: () => void;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      className={`flex w-full mb-6 ${isUser ? "justify-end" : "justify-start"}`}
+    >
+      {!isUser && (
+        <div className="flex shrink-0 items-start gap-2 ml-1">
+          <div className="h-8 w-8 rounded-full bg-[#0d0e10] border border-white/10 flex items-center justify-center flex-shrink-0">
+            <Bot className="w-4 h-4 text-[#36b7b0]" />
+          </div>
+        </div>
+      )}
+      <div className={`relative rounded-2xl px-4 py-3 max-w-[85%] text-white break-words ${
+        isUser
+          ? "bg-[#0d0e10] border border-white/10 ml-auto"
+          : "bg-white/[0.03] border border-white/5"
+      }`}>
+        {isUser ? (
+          <div className="prose prose-sm text-white max-w-none">
+            {message.content}
+          </div>
+        ) : (
+          <div className="relative">
+            <MarkdownContent content={message.content} />
+            {isStreaming && (
+              <span className="inline-block animate-pulse text-[#36b7b0]">▋</span>
+            )}
+            <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+              <button
+                onClick={onCopy}
+                className="p-1.5 hover:bg-white/10 rounded-lg text-white/50 hover:text-white transition-colors"
+                title="Copy"
+              >
+                <Copy className="w-4 h-4" />
+              </button>
+              <button
+                onClick={onThumbsUp}
+                className="p-1.5 hover:bg-white/10 rounded-lg text-white/50 hover:text-[#36b7b0] transition-colors"
+                title="Good response"
+              >
+                <ThumbsUp className="w-4 h-4" />
+              </button>
+              <button
+                onClick={onThumbsDown}
+                className="p-1.5 hover:bg-white/10 rounded-lg text-white/50 hover:text-red-400 transition-colors"
+                title="Bad response"
+              >
+                <ThumbsDown className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        )}
+        {isUser && (
+          <div className="absolute -top-8 right-2 flex items-center gap-1 text-[10px] font-mono text-white/30">
+            <Clock className="w-3 h-3" />
+            <span>{new Date(message.created_at || Date.now()).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</span>
+          </div>
+        )}
+      </div>
+      {isUser && (
+        <div className="flex shrink-0 items-start gap-2 mr-1">
+          <div className="h-8 w-8 rounded-full bg-[#36b7b0] flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(54,183,176,0.3)]">
+            <UserIcon className="w-4 h-4 text-[#17181b]" />
+          </div>
+        </div>
+      )}
+    </motion.div>
+  );
+}
+function Sidebar({
+  sessions,
+  activeId,
+  onSessionSelect,
+  onNewSession,
+  onDeleteSession,
+  onLogout,
+  isOpen,
+}: {
+  sessions: ChatSession[];
+  activeId: string | null;
+  onSessionSelect: (id: string) => void;
+  onNewSession: () => void;
+  onDeleteSession: (id: string) => void;
+  onLogout: () => void;
+  isOpen: boolean;
+}) {
+  return (
+    <aside
+      className={`fixed inset-y-0 left-0 z-40 w-80 bg-[#0d0e10] border-r border-white/5 flex flex-col transform transition-transform duration-300 ease-in-out ${
+        isOpen ? "translate-x-0" : "-translate-x-full"
+      } md:relative md:translate-x-0`}
+    >
+      <div className="flex items-center justify-between px-6 py-4 border-b border-white/5">
+        <div className="flex items-center gap-2">
+          <div className="h-6 w-6 rounded-lg bg-primary flex items-center justify-center">
+            <Bot className="w-3 h-3 text-[#17181b]" />
+          </div>
+          <span className="font-bold text-xl tracking-tight text-white" style={{ fontFamily: "Sora, sans-serif" }}>
+            Xylos AI
+          </span>
+        </div>
+        <button
+          className="p-2 hover:bg-white/5 rounded-lg text-white/40 hover:text-white transition-colors"
+          title="Settings"
+        >
+          <Settings2 className="w-5 h-5" />
+        </button>
+      </div>
+
+      <div className="flex-1 overflow-y-auto p-4 space-y-6">
+        <div className="px-2">
+          <button
+            onClick={onNewSession}
+            className="w-full flex items-center justify-between px-4 py-3 text-left rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/10 transition-all group"
+          >
+            <div className="flex items-center gap-3">
+              <Plus className="w-4 h-4 text-[#36b7b0] group-hover:text-[#4accc4] transition-colors" />
+              <span className="font-medium text-white group-hover:text-[#eeeae2] transition-colors">New chat</span>
+            </div>
+            <span className="text-xs text-white/30">&#x2318;N</span>
+          </button>
+        </div>
+
+        <div className="px-2">
+          <span className="block px-3 mb-3 text-[10px] font-semibold uppercase tracking-widest text-white/40">
+            Recent conversations
+          </span>
+          {sessions.length === 0 ? (
+            <div className="text-center py-8">
+              <Clock className="w-8 h-8 mx-auto mb-3 text-white/10" />
+              <p className="text-xs text-white/40">No conversations yet</p>
+            </div>
+          ) : (
+            <div className="space-y-2">
+              {sessions.map((session) => (
+                <button
+                  key={session.id}
+                  onClick={() => onSessionSelect(session.id)}
+                  className={`w-full flex items-center gap-3 px-4 py-3 text-left rounded-xl border transition-all ${
+                    activeId === session.id
+                      ? "bg-[#36b7b0]/10 border-[#36b7b0]/30"
+                      : "bg-white/[0.02] border-white/5 hover:bg-white/[0.05] hover:border-white/10"
+                  }`}
+                >
+                  <div className="flex-1 min-w-0">
+                    <p className="truncate font-medium text-white">{session.title}</p>
+                    <p className="truncate text-[10px] text-white/40 mt-0.5">
+                      {new Date(session.updated_at).toLocaleDateString(undefined, {
+                        month: "short",
+                        day: "numeric",
+                      })}
+                    </p>
+                  </div>
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onDeleteSession(session.id);
+                      }}
+                      className="p-1.5 hover:bg-white/5 rounded-lg text-white/30 hover:text-white transition-colors"
+                      title="Delete"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="p-4 border-t border-white/5">
+        <button
+          onClick={onLogout}
+          className="w-full flex items-center justify-between px-4 py-3 text-left rounded-xl border border-white/5 hover:bg-white/[0.03] transition-all group"
+        >
+          <div className="flex items-center gap-3">
+            <LogOut className="w-4 h-4 text-white/40 group-hover:text-white transition-colors" />
+            <span className="font-medium text-white">Sign out</span>
+          </div>
+          <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-white transition-colors" />
+        </button>
+      </div>
+    </aside>
+  );
+}
+
+function EmptyState() {
+  return (
+    <div className="flex flex-col items-center justify-center h-full text-center px-8">
+      <div className="h-20 w-20 rounded-full bg-[#36b7b0]/10 flex items-center justify-center mb-6">
+        <Sparkles className="w-10 h-10 text-[#36b7b0]" />
+      </div>
+      <h1 className="text-3xl font-bold text-white mb-3" style={{ fontFamily: "Sora, sans-serif" }}>
+        Start a new conversation
+      </h1>
+      <p className="text-xl text-white/50 mb-8 max-w-md">
+        Ask anything — from coding help to creative writing. Xylos AI routes your queries across 7+ frontier models.
+      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-md">
+        {[
+          "Write a Python script to scrape a website",
+          "Explain quantum computing simply",
+          "Help me draft a professional email",
+        ].map((prompt, i) => (
+          <button
+            key={i}
+            className="w-full p-4 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/10 transition-all text-left group"
+          >
+            <p className="text-sm text-white mb-1">{prompt}</p>
+            <span className="text-xs text-[#36b7b0] group-hover:text-[#4accc4]">Try it &#8594;</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
 function ChatContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -60,223 +330,135 @@ function ChatContent() {
   const [isLoading, setIsLoading] = useState(false);
   const [isProviderMenuOpen, setIsProviderMenuOpen] = useState(false);
   const [selectedModel, setSelectedModel] = useState<SelectedModel>(AUTO_MODEL);
-  // Rehydrate after mount so SSR/CSR markup match on first paint.
   useEffect(() => { setSelectedModel(readStoredModel()); }, []);
   const handleSelectModel = (model: SelectedModel) => {
     setSelectedModel(model);
     try {
       window.localStorage.setItem(MODEL_STORAGE_KEY, JSON.stringify(model));
-    } catch {
-      // Storage may be unavailable (private mode); selection still applies in-session.
-    }
+    } catch {}
   };
   const [isMicActive, setIsMicActive] = useState(false);
   const [stagedFile, setStagedFile] = useState<{name: string, content: string, type: string} | null>(null);
   const [sessions, setSessions] = useState<ChatSession[]>([]);
-  const [editingMsgIndex, setEditingMsgIndex] = useState<number | null>(null);
-  const [editContent, setEditContent] = useState("");
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  
+  const [isSidebarOpen, setIsSidebarOpen] = useState(typeof window === "undefined" ? true : window.innerWidth > 768);
+
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const recognitionRef = useRef<any>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
-  const isNearBottomRef = useRef(true);
-  const [showScrollBtn, setShowScrollBtn] = useState(false);
 
-  const checkIfNearBottom = () => {
-    const el = messagesContainerRef.current;
-    if (!el) return;
-    const distFromBottom = el.scrollHeight - el.scrollTop - el.clientHeight;
-    const near = distFromBottom < 150;
-    isNearBottomRef.current = near;
-    setShowScrollBtn(!near);
-  };
-
-  const scrollToBottom = (force = false) => {
-    if (force || isNearBottomRef.current) {
-      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  // 1. Initial Load & Session Management
-  const loadSessions = async () => {
-    try {
-      const data = await chatService.getSessions();
-      setSessions(data);
-    } catch (e) {
-      console.error("[Neural Matrix] Session Sync Failed:", e);
-    }
-  };
+  const scrollToBottom = useCallback(() => {
+    messagesContainerRef.current?.scrollTo({ top: messagesContainerRef.current.scrollHeight, behavior: "smooth" });
+  }, []);
 
   useEffect(() => {
+    scrollToBottom();
+  }, [messages, isLoading, scrollToBottom]);
+
+  useEffect(() => {
+    const loadSessions = async () => {
+      try {
+        const data = await chatService.getSessions();
+        setSessions(data);
+        if (activeId && data.some((s) => s.id === activeId)) {
+          const session = data.find((s) => s.id === activeId)!;
+          setMessages((session.messages || []) as Message[]);
+        }
+      } catch {
+        const local = historyManager.getSessions();
+        if (activeId && local.some((s) => s.id === activeId)) {
+          const session = local.find((s) => s.id === activeId)!;
+          setMessages((session.messages || []) as Message[]);
+        }
+      }
+    };
     loadSessions();
   }, [activeId]);
 
-  useEffect(() => {
-    const loadChat = async () => {
-      if (activeId) {
-        try {
-          const msgs = await chatService.getMessages(activeId);
-          setMessages(msgs);
-        } catch (e) {
-          console.error("[Neural Matrix] Chat Retrieval Failed:", e);
-        }
-      } else {
-        setMessages([]);
+  const handleNewSession = async () => {
+    setMessages([]);
+    setInput("");
+    setStagedFile(null);
+    router.push("/dashboard/chat");
+  };
+
+  const handleSessionSelect = async (id: string) => {
+    try {
+      const session = sessions.find((s) => s.id === id);
+      if (session) {
+        setMessages((session.messages || []) as Message[]);
+        router.push(`/dashboard/chat?id=${id}`);
       }
-    };
-    loadChat();
-  }, [activeId]);
+    } catch {}
+    setIsSidebarOpen(false);
+  };
 
-  // Scroll to bottom only when switching chats, not on every message update
-  useEffect(() => {
-    const timeout = setTimeout(() => scrollToBottom(true), 100);
-    return () => clearTimeout(timeout);
-  }, [activeId]);
-
-  // 2. Speech Recognition Engine
-  useEffect(() => {
-    if (typeof window !== 'undefined' && ('webkitSpeechRecognition' in window || 'speechRecognition' in window)) {
-      const SpeechRecognition = (window as any).webkitSpeechRecognition || (window as any).speechRecognition;
-      recognitionRef.current = new SpeechRecognition();
-      recognitionRef.current.continuous = true;
-      recognitionRef.current.interimResults = true;
-      recognitionRef.current.onresult = (event: any) => {
-        const transcript = Array.from(event.results)
-          .map((result: any) => result[0].transcript)
-          .join(" ");
-        setInput((prev: string) => {
-          if (prev.endsWith(transcript) || prev.includes(transcript)) return prev;
-          return prev + (prev.length > 0 && !prev.endsWith(" ") ? " " : "") + transcript;
-        });
-      };
-      recognitionRef.current.onerror = () => setIsMicActive(false);
-      recognitionRef.current.onend = () => setIsMicActive(false); // Make sure it turns off when it automatically stops listening
-    }
-  }, []);
-
-  const toggleMic = () => {
-    if (!recognitionRef.current) return;
-    if (isMicActive) {
-      recognitionRef.current.stop();
-      setIsMicActive(false);
-    } else {
-      recognitionRef.current.start();
-      setIsMicActive(true);
+  const handleDeleteSession = async (id: string) => {
+    try {
+      await chatService.deleteSession(id);
+    } catch {}
+    historyManager.deleteSession(id);
+    setSessions((prev) => prev.filter((s) => s.id !== id));
+    if (activeId === id) {
+      setMessages([]);
+      router.push("/dashboard/chat");
     }
   };
 
-  // 3. File Asset Management
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      setStagedFile({
-        name: file.name,
-        content: event.target?.result as string,
-        type: file.type
-      });
-    };
-    if (file.type.startsWith('image/') || file.type === 'application/pdf') {
-      reader.readAsDataURL(file);
-    } else {
-      reader.readAsText(file);
-    }
-    if (fileInputRef.current) fileInputRef.current.value = '';
+  const handleLogout = async () => {
+    await signOut();
   };
 
-  // 4. Core Intelligence Dispatch
-  const handleSend = async () => {
-    if ((!input.trim() && !stagedFile) || isLoading) return;
-    
-    if (isMicActive) {
-      recognitionRef.current?.stop();
-      setIsMicActive(false);
-    }
+  const handleSend = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim() && !stagedFile) return;
 
-    let currentId = activeId;
-    let isNewChat = false;
-
-    // Initialize session if needed
-    if (!currentId) {
-      try {
-        const title = historyManager.generateTitle(input);
-        const session = await chatService.createSession(title);
-        currentId = session.id;
-        isNewChat = true;
-      } catch (e) {
-        console.error("[Neural Matrix] Session Creation Error:", e);
-        return;
-      }
-    }
-
-    const userMsg: Message = { 
-      role: "user", 
-      content: input,
-      attachment: stagedFile ? {
-        name: stagedFile.name,
-        url: stagedFile.content,
-        type: stagedFile.type
-      } : undefined
+    const userMessage: Message = {
+      role: "user",
+      content: input.trim(),
+      attachment: stagedFile ? { name: stagedFile.name, url: stagedFile.content, type: stagedFile.type } : undefined,
     };
 
-    const updatedMessages = [...messages, userMsg];
-    setMessages(updatedMessages);
+    setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setStagedFile(null);
     setIsLoading(true);
 
-    // Save User Intent to Matrix
-    await chatService.saveMessage(currentId, userMsg);
-
-    abortControllerRef.current = new AbortController();
-
     try {
-      const response = await fetch("/api/chat", {
+      const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          messages: updatedMessages.map(m => ({ 
-            role: m.role, 
-            content: m.content, 
-            attachments: m.attachment ? [m.attachment] : [] 
-          })),
+          messages: [...messages, userMessage],
+          model: selectedModel.provider === "best" ? null : selectedModel.model,
           provider: selectedModel.provider,
-          model: selectedModel.model ?? undefined,
-          // An explicit pick must never be silently answered by another model.
-          strict: selectedModel.model ? true : undefined
         }),
-        signal: abortControllerRef.current.signal
       });
 
-      if (!response.ok) {
-        const errData = await response.json();
-        throw new Error(errData.error || "Neural Link Interrupted");
+      if (!res.ok) throw new Error("Failed to get response");
+
+      const reader = res.body?.getReader();
+      const decoder = new TextDecoder();
+      let aiContent = "";
+
+      if (reader) {
+        setMessages((prev) => [...prev, { role: "assistant", content: "" }]);
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          aiContent += decoder.decode(value);
+          setMessages((prev) =>
+            prev.map((m, i) =>
+              i === prev.length - 1 ? { ...m, content: aiContent } : m
+            )
+          );
+        }
       }
 
-      const data = await response.json();
-      const assistantMsg: Message = {
-        role: "assistant",
-        content: data.content
-      };
-
-      // Synchronize AI Insight to Matrix
-      await chatService.saveMessage(currentId, assistantMsg);
-      setMessages(prev => [...prev, assistantMsg]);
-      
-      if (isNewChat) router.push(`/dashboard/chat?id=${currentId}`);
-    } catch (error: any) {
-      if (error.name === 'AbortError') return;
-      setMessages(prev => [...prev, { 
-        role: 'assistant', 
-        content: `Error: ${error.message || 'The mission encountered a catastrophic failure.'}` 
-      }]);
-    } finally {
       setIsLoading(false);
-      abortControllerRef.current = null;
+    } catch (err) {
+      console.error("[Chat] Error:", err);
+      setIsLoading(false);
     }
   };
 
@@ -285,375 +467,269 @@ function ChatContent() {
       abortControllerRef.current.abort();
     }
     setIsLoading(false);
-    // Add a system message to indicate termination
-    setMessages(prev => [...prev, { 
-      role: 'assistant', 
-      content: '[Neural Link Terminated by User]' 
-    }]);
   };
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      setStagedFile({
+        name: file.name,
+        content: event.target?.result as string,
+        type: file.type,
+      });
+    };
+    reader.readAsDataURL(file);
   };
 
-  const getDisplayContent = (msg: Message) => msg.content;
+  const handleRemoveStagedFile = () => setStagedFile(null);
+  return (
+    <div className="flex h-screen flex-col bg-[#0d0e10] text-white">
+      <button
+        onClick={() => setIsSidebarOpen((v) => !v)}
+        className="md:hidden absolute left-4 top-4 z-50 p-2 rounded-lg bg-white/[0.05] border border-white/10 text-white hover:bg-white/[0.1] transition-colors"
+        aria-label="Toggle sidebar"
+      >
+        <Menu className="w-5 h-5" />
+      </button>
+
+      <Sidebar
+        sessions={sessions}
+        activeId={activeId || ""}
+        onSessionSelect={handleSessionSelect}
+        onNewSession={handleNewSession}
+        onDeleteSession={handleDeleteSession}
+        onLogout={handleLogout}
+        isOpen={isSidebarOpen}
+      />
+
+      <div className="flex-1 flex flex-col min-w-0 relative">
+        {isSidebarOpen && typeof window !== "undefined" && window.innerWidth <= 768 && (
+          <div
+            className="fixed inset-0 bg-black/40 z-39 md:hidden"
+            onClick={() => setIsSidebarOpen(false)}
+          />
+        )}
+
+        <main className="flex-1 flex flex-col overflow-hidden">
+          {!activeId ? (
+            <div className="flex-1 flex flex-col">
+              <div className="flex-1 overflow-y-auto px-6 py-12">
+                <EmptyState />
+              </div>
+              <div className="border-t border-white/5 flex-shrink-0">
+                <ChatInput
+                  input={input}
+                  setInput={setInput}
+                  isLoading={isLoading}
+                  isMicActive={isMicActive}
+                  setIsMicActive={setIsMicActive}
+                  stagedFile={stagedFile}
+                  setStagedFile={setStagedFile}
+                  handleSend={handleSend}
+                  handleFileUpload={handleFileUpload}
+                  handleRemoveStagedFile={handleRemoveStagedFile}
+                  stopGeneration={stopGeneration}
+                  isProviderMenuOpen={isProviderMenuOpen}
+                  setIsProviderMenuOpen={setIsProviderMenuOpen}
+                  selectedModel={selectedModel}
+                  handleSelectModel={handleSelectModel}
+                />
+              </div>
+            </div>
+          ) : (
+            <div className="flex-1 overflow-y-auto px-6 py-8 scroll-smooth" ref={messagesContainerRef}>
+              <AnimatePresence initial={false}>
+                {messages.map((msg, idx) => (
+                  <MessageBubble
+                    key={idx}
+                    message={msg}
+                    isUser={msg.role === "user"}
+                    isStreaming={isLoading && idx === messages.length - 1 && msg.role === "assistant"}
+                    onCopy={() => {
+                      navigator.clipboard.writeText(msg.content);
+                    }}
+                    onThumbsUp={() => {}}
+                    onThumbsDown={() => {}}
+                  />
+                ))}
+                
+              </AnimatePresence>
+              {isLoading && messages.length > 0 && (
+                <div className="flex justify-start mb-6 animate-pulse">
+                  <div className="h-8 w-8 rounded-full bg-[#0d0e10] border border-white/10 flex items-center justify-center ml-1">
+                    <Bot className="w-4 h-4 text-[#36b7b0] animate-spin" />
+                  </div>
+                  <div className="rounded-2xl bg-white/[0.03] border border-white/5 px-4 py-3 max-w-[85%] animate-pulse">
+                    <div className="h-4 w-48 bg-white/[0.1] rounded mb-2" />
+                    <div className="h-4 w-32 bg-white/[0.1] rounded" />
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+        </main>
+
+        <ChatInput
+          input={input}
+          setInput={setInput}
+          isLoading={isLoading}
+          isMicActive={isMicActive}
+          setIsMicActive={setIsMicActive}
+          stagedFile={stagedFile}
+          setStagedFile={setStagedFile}
+          handleSend={handleSend}
+          handleFileUpload={handleFileUpload}
+          handleRemoveStagedFile={handleRemoveStagedFile}
+          stopGeneration={stopGeneration}
+          isProviderMenuOpen={isProviderMenuOpen}
+          setIsProviderMenuOpen={setIsProviderMenuOpen}
+          selectedModel={selectedModel}
+          handleSelectModel={handleSelectModel}
+        />
+      </div>
+    </div>
+  );
+}
+
+function ChatInput({
+  input,
+  setInput,
+  isLoading,
+  isMicActive,
+  setIsMicActive,
+  stagedFile,
+  setStagedFile,
+  handleSend,
+  handleFileUpload,
+  handleRemoveStagedFile,
+  stopGeneration,
+  isProviderMenuOpen,
+  setIsProviderMenuOpen,
+  selectedModel,
+  handleSelectModel,
+}: {
+  input: string;
+  setInput: (v: string) => void;
+  isLoading: boolean;
+  isMicActive: boolean;
+  setIsMicActive: (v: boolean) => void;
+  stagedFile: {name: string, content: string, type: string} | null;
+  setStagedFile: (v: {name: string, content: string, type: string} | null) => void;
+  handleSend: (e: React.FormEvent) => void;
+  handleFileUpload: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleRemoveStagedFile: () => void;
+  stopGeneration: () => void;
+  isProviderMenuOpen: boolean;
+  setIsProviderMenuOpen: (v: boolean) => void;
+  selectedModel: SelectedModel;
+  handleSelectModel: (model: SelectedModel) => void;
+}) {
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   return (
-    <div className="flex h-[100dvh] w-full bg-background overflow-hidden relative pt-16 md:pt-16">
-      {/* Mobile Sidebar Overlay */}
-      {isSidebarOpen && (
-        <div 
-          className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 md:hidden"
-          onClick={() => setIsSidebarOpen(false)}
-        />
-      )}
-
-      {/* Chat History Sidebar */}
-      <div className={`
-        fixed md:static top-0 left-0 z-[60] h-full w-72 md:w-80 bg-white/[0.02] backdrop-blur-xl border-r border-white/10 flex flex-col transition-transform duration-300
-        ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
-      `}>
-        <div className="p-6 border-b border-white/10 flex items-center justify-between">
-          <div className="flex flex-col">
-            <span className="font-sora font-black text-xl uppercase tracking-wider text-white">Missions</span>
-            <span className="text-[10px] text-white/40 uppercase font-bold tracking-widest">{sessions.length} Deployments</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Link href="/" className="w-8 h-8 rounded-full bg-white/5 hover:bg-primary/10 hover:text-primary text-white/40 flex items-center justify-center transition-colors" title="Back to Home">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            </Link>
-            <button onClick={() => router.push('/dashboard/chat')} className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20 transition-colors">
-              <Plus className="w-4 h-4" />
+    <form onSubmit={handleSend} className="border-t border-white/5 bg-[#0d0e10]/80 backdrop-blur-md px-6 pb-4 pt-3 flex flex-col gap-3">
+      {stagedFile && (
+        <div className="flex items-center gap-3 px-2">
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/10 bg-white/[0.03]">
+            <FileText className="w-3 h-3 text-[#36b7b0]" />
+            <span className="text-xs text-[#c4c0b8] truncate">{stagedFile.name}</span>
+            <button
+              onClick={handleRemoveStagedFile}
+              className="p-1 hover:bg-white/10 rounded text-white/40 hover:text-white transition-colors"
+            >
+              <X className="w-3 h-3" />
             </button>
           </div>
         </div>
-        <div className="flex-1 overflow-y-auto p-4 space-y-2 custom-scrollbar">
-          {sessions.map(s => (
-            <div key={s.id} className="relative group">
-              <button 
-                onClick={() => { router.push(`/dashboard/chat?id=${s.id}`); setIsSidebarOpen(false); }}
-                className={`w-full text-left p-3 pt-4 rounded-xl transition-all ${activeId === s.id ? 'bg-primary/10 border-primary/20 text-white' : 'hover:bg-white/5 border-transparent text-white/50 hover:text-white'} border`}
-              >
-                <p className="text-sm font-bold truncate pr-8">{s.title}</p>
-                <p className="text-[10px] text-white/30 uppercase font-bold tracking-widest mt-1">
-                  {new Date(s.updated_at).toLocaleDateString()}
-                </p>
-              </button>
-              <button 
-                onClick={async (e) => { 
-                  e.stopPropagation(); 
-                  await chatService.deleteSession(s.id); 
-                  loadSessions(); 
-                  if (activeId === s.id) router.push('/dashboard/chat'); 
-                }}
-                className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-white/30 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity"
-              >
-                <Trash2 className="w-4 h-4" />
-              </button>
-            </div>
-          ))}
-        </div>
-        <div className="p-4 mt-auto border-t border-white/10">
-          <button 
-            onClick={async () => {
-              await signOut();
-              router.push('/login');
-            }}
-            className="flex items-center gap-3 w-full px-4 py-3 rounded-xl hover:bg-red-500/10 text-sm text-white/40 hover:text-red-400 transition-all font-medium"
-          >
-            <LogOut className="w-4 h-4" />
-            Sign Out
-          </button>
-        </div>
-      </div>
-
-      {/* Primary Neural Workspace */}
-      <div className="flex-1 flex flex-col relative h-full">
-
-        <div className="h-16 md:h-20 border-b border-white/10 flex items-center px-4 md:px-8 bg-white/[0.02] backdrop-blur-xl sticky top-0 z-40">
-          <button 
-            onClick={() => setIsSidebarOpen(true)}
-            className="md:hidden p-2.5 rounded-xl bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-all mr-4"
-          >
-            <Menu className="w-5 h-5" />
-          </button>
-          
-          <div className="flex-1 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-               <span className="text-[10px] font-semibold uppercase tracking-wide text-white/40 hidden sm:inline">Active Link:</span>
-               <span className="text-[10px] font-semibold uppercase tracking-wide text-primary max-w-[200px] truncate">{selectedModel.label}</span>
-            </div>
-          </div>
-        </div>
-
-
-        {/* Message Thread */}
-        <div
-          ref={messagesContainerRef}
-          onScroll={checkIfNearBottom}
-          className="flex-1 w-full overflow-y-auto custom-scrollbar pt-6 pb-40 md:pb-48"
+      )}
+      <div className="flex items-end gap-3 px-2">
+        <button
+          onClick={() => fileInputRef.current?.click()}
+          className="p-2 hover:bg-white/5 rounded-xl transition-all text-white/30 hover:text-primary"
         >
-          <div className="max-w-3xl mx-auto px-4 md:px-6 space-y-8">
-            <AnimatePresence mode="popLayout">
-              {messages.length === 0 ? (
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex flex-col items-center justify-center h-[60vh] text-center space-y-10"
-                >
-                  <div className="relative">
-                    <div className="w-24 h-24 rounded-xl bg-primary/5 flex items-center justify-center border border-primary/10 relative overflow-hidden group">
-                      <Sparkles className="w-12 h-12 text-primary group-hover:scale-110 transition-transform" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent" />
-                    </div>
-                    <motion.div 
-                      animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
-                      transition={{ repeat: Infinity, duration: 6 }}
-                      className="absolute inset-0 bg-primary/20 blur-[100px] -z-10" 
-                    />
-                  </div>
-                  <div className="space-y-4">
-                    <h1 className="text-5xl md:text-8xl font-black font-sora tracking-tighter uppercase leading-none italic opacity-10 select-none">Neural Link</h1>
-                    <h3 className="text-3xl md:text-4xl font-sora font-black tracking-tighter uppercase mt-[-30px] md:mt-[-40px]">Initiate <span className="text-primary italic">Xylos</span> AI</h3>
-                    <p className="text-white/40 max-w-sm mx-auto text-base md:text-lg leading-relaxed font-medium">
-                      Senior content strategist and research engineer at your disposal. Select a core model to begin.
-                    </p>
-                  </div>
-                </motion.div>
-              ) : (
-                messages.map((message, i) => (
-                  <motion.div 
-                    key={message.id || i}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
-                  >
-                    <div className={`max-w-[90%] md:max-w-[80%] ${message.role === 'user' ? 'flex flex-col items-end' : 'flex gap-4'}`}>
-                      {message.role === 'assistant' && (
-                        <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                          <Sparkles className="w-4 h-4 text-primary" />
-                        </div>
-                      )}
-                      
-                      <div className="flex-1 space-y-2">
-                        {message.attachment && message.attachment.type.startsWith('image/') && (
-                          <div className="rounded-xl overflow-hidden border border-white/10 mb-2 max-w-[300px]">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src={message.attachment.url} alt="Neural Asset" className="w-full h-auto object-cover" />
-                          </div>
-                        )}
-                        
-                        <div className={`px-5 py-4 rounded-xl text-sm md:text-base leading-relaxed relative group/msg ${message.role === 'user' ? 'bg-primary text-[#17181b] font-medium' : ''}`}>
-                          {message.role === 'user' ? (
-                            editingMsgIndex === i ? (
-                              <div className="flex flex-col gap-3 min-w-[250px]">
-                                <textarea
-                                  value={editContent}
-                                  onChange={(e) => setEditContent(e.target.value)}
-                                  className="w-full bg-background/10 text-background border border-background/20 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-background/30 placeholder:text-background/40 resize-y min-h-[80px]"
-                                />
-                                <div className="flex items-center justify-end gap-2">
-                                  <button onClick={() => setEditingMsgIndex(null)} className="px-3 py-1.5 rounded-lg text-xs font-bold bg-background/10 hover:bg-background/20 transition-colors">Cancel</button>
-                                  <button 
-                                    onClick={() => {
-                                      const newHistory = messages.slice(0, i);
-                                      setMessages(newHistory);
-                                      setInput(editContent);
-                                      setEditingMsgIndex(null);
-                                    }}
-                                    className="px-3 py-1.5 rounded-lg text-xs font-bold bg-background text-foreground hover:bg-background/90 transition-colors flex items-center gap-1"
-                                  >
-                                    <Send className="w-3 h-3" /> Update & Send
-                                  </button>
-                                </div>
-                              </div>
-                            ) : (
-                              <>
-                                <div className="whitespace-pre-wrap">{message.content}</div>
-                                <div className="flex items-center gap-2 mt-2">
-                                  <button 
-                                    onClick={() => copyToClipboard(message.content)}
-                                    className="p-1 px-3 rounded-xl bg-white/10 text-white/70 hover:bg-white/20 text-[9px] font-semibold uppercase tracking-wide transition-all flex items-center gap-1"
-                                  >
-                                    <Copy className="w-3 h-3" /> Copy
-                                  </button>
-                                </div>
-                                <button 
-                                  onClick={() => { setEditingMsgIndex(i); setEditContent(message.content); }}
-                                  className="absolute -left-10 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/5 text-white/30 hover:text-white opacity-0 group-hover/msg:opacity-100 transition-opacity"
-                                >
-                                  <Edit2 className="w-4 h-4" />
-                                </button>
-                              </>
-                            )
-                          ) : (
-                            <div className="prose prose-sm md:prose-base dark:prose-invert max-w-none prose-p:my-1 prose-headings:mb-2 prose-code:text-primary prose-pre:bg-white/5 prose-pre:border-white/10 prose-pre:p-0">
-                              <ReactMarkdown 
-                                remarkPlugins={[remarkGfm]}
-                                components={{
-                                  code({node, inline, className, children, ...props}: any) {
-                                    const match = /language-(\w+)/.exec(className || '');
-                                    return !inline && match ? (
-                                      <div className="relative group/code mt-4 mb-4">
-                                        <div className="flex items-center justify-between px-4 py-2 bg-black/60 rounded-t-lg border border-white/10 border-b-0">
-                                    <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">{match[1]}</span>
-                                           <button 
-                                             onClick={() => copyToClipboard(String(children).replace(/\n$/, ''))}
-                                             className="text-white/30 hover:text-primary transition-colors flex items-center gap-1 text-[10px] uppercase font-bold tracking-widest"
-                                          >
-                                            <Copy className="w-3 h-3" /> Copy
-                                          </button>
-                                        </div>
-                                        <div className="overflow-x-auto bg-white/5 p-4 border border-white/10 rounded-b-lg">
-                                          <code className={`${className} text-primary/90 font-mono`} {...props}>
-                                            {children}
-                                          </code>
-                                        </div>
-                                      </div>
-                                    ) : (
-                                      <code className="bg-primary/10 px-1.5 py-0.5 rounded text-primary text-sm font-mono border border-primary/20" {...props}>
-                                        {children}
-                                      </code>
-                                    )
-                                  }
-                                }}
-                              >
-                                {message.content}
-                              </ReactMarkdown>
-                            </div>
-                          )}
-                        </div>
-
-                        {message.role === 'assistant' && (
-                          <button 
-                            onClick={() => copyToClipboard(message.content)}
-                            className="p-1 px-3 rounded-xl hover:bg-white/5 text-[9px] font-semibold uppercase tracking-wide text-white/30 hover:text-primary transition-all border border-transparent hover:border-white/10 mt-1 flex items-center gap-1"
-                          >
-                            <Copy className="w-3 h-3" /> Copy Response
-                          </button>
-                        )}
-                      </div>
-                    </div>
-                  </motion.div>
-                ))
-              )}
-              {isLoading && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
-                    <Sparkles className="w-4 h-4 text-primary animate-spin" />
-                  </div>
-                  <div className="bg-white/5 border border-white/10 px-6 py-4 rounded-xl flex gap-2 items-center">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-            <div ref={messagesEndRef} className="h-4" />
-          </div>
-        </div>
-
-        {/* Scroll to bottom button */}
-        {showScrollBtn && (
-          <button
-            onClick={() => { isNearBottomRef.current = true; scrollToBottom(true); }}
-            className="absolute bottom-44 right-6 z-20 p-2.5 rounded-full bg-primary text-[#17181b] shadow-xl hover:scale-110 transition-all animate-bounce"
-          >
-            <ChevronDown className="w-4 h-4" />
-          </button>
-        )}
-
-        {/* Neural Input Interface */}
-        <div className="absolute bottom-0 w-full bg-gradient-to-t from-background via-background/95 to-transparent pt-8 pb-4 px-2 md:pt-12 md:pb-8 md:px-12">
-          <div className="max-w-3xl mx-auto relative">
-            <div className={`editorial-card ${isLoading ? 'border-primary/50' : 'border-white/10'} transition-all focus-within:border-primary/50 overflow-hidden`}>
-              {stagedFile && (
-                <div className="mx-6 mt-4 flex items-center gap-3 bg-white/5 border border-white/10 pl-3 pr-2 py-2 rounded-xl animate-in fade-in slide-in-from-bottom-2">
-                  <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-primary">
-                    {stagedFile.type.startsWith('image/') ? <ImageIcon className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
-                  </div>
-                  <span className="text-xs font-bold truncate flex-1">{stagedFile.name}</span>
-                  <button onClick={() => setStagedFile(null)} className="p-1.5 hover:bg-white/5 rounded-lg text-muted-foreground"><X className="w-3.5 h-3.5" /></button>
-                </div>
-              )}
-
-              <textarea
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && (e.preventDefault(), handleSend())}
-                placeholder={isLoading ? "Neural Engine Processing..." : "What mission shall we deploy?"}
-                disabled={isLoading}
-                className="w-full bg-transparent border-none focus:ring-0 px-5 md:px-8 py-4 md:py-6 text-sm md:text-lg resize-none min-h-[56px] md:min-h-[72px] max-h-[200px] md:max-h-[300px] outline-none font-medium placeholder:text-white/20 disabled:opacity-50 text-white"
-              />
-              
-              <div className="flex items-center justify-between px-4 md:px-6 pb-3 md:pb-4 pt-2">
-                <div className="flex items-center gap-3">
-                   <button onClick={() => fileInputRef.current?.click()} className="p-2.5 hover:bg-white/5 rounded-xl transition-all text-white/30 hover:text-primary">
-                       <Paperclip className="w-5 h-5" />
-                    </button>
-                    <button onClick={toggleMic} className={`p-2.5 rounded-xl transition-all ${isMicActive ? 'bg-primary/20 text-primary animate-pulse' : 'hover:bg-white/5 text-white/30 hover:text-primary'}`}>
-                      <Mic className="w-5 h-5" />
-                   </button>
-                   <div className="w-[1px] h-6 bg-white/10 mx-1" />
-                    <ModelLibraryMenu
-                      isOpen={isProviderMenuOpen}
-                      onToggle={() => setIsProviderMenuOpen((v) => !v)}
-                      selected={selectedModel}
-                      onSelect={handleSelectModel}
-                    />
-                </div>
-
-                <div className="flex items-center gap-2">
-                    {isLoading ? (
-                      <button 
-                        onClick={(e) => {
-                          e.preventDefault();
-                          stopGeneration();
-                        }} 
-                        className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 hover:bg-red-500 hover:text-white transition-all flex items-center gap-2 group/stop"
-                      >
-                         <Square className="w-5 h-5 fill-current group-hover:scale-90 transition-transform" />
-                         <span className="text-[10px] font-semibold uppercase tracking-wide hidden sm:inline">Terminate</span>
-                      </button>
-                    ) : (
-                      <button 
-                        onClick={handleSend} 
-                        disabled={(!input.trim() && !stagedFile) || isLoading} 
-                        className="p-3.5 rounded-xl bg-primary text-[#17181b] hover:bg-[#4accc4] transition-all disabled:opacity-50"
-                      >
-                         <Send className="w-5 h-5" />
-                      </button>
-                    )}
-                </div>
-              </div>
-            </div>
-            
-            <div className="mt-4 flex items-center justify-center gap-6 text-[8px] font-semibold uppercase tracking-wide text-white/20 italic select-none">
-               <span>AES-256 SECURED</span>
-               <div className="w-1 h-1 bg-primary/30 rounded-full" />
-               <span>NEURAL MATRIX V3.5</span>
-               <div className="w-1 h-1 bg-primary/30 rounded-full" />
-               <span>PERSISTENCE ACTIVE</span>
-            </div>
-          </div>
+          <Paperclip className="w-5 h-5" />
+        </button>
+        <button
+          onClick={() => setIsMicActive(!isMicActive)}
+          className={`p-2 rounded-xl transition-all ${isMicActive ? "bg-primary/20 text-primary animate-pulse" : "hover:bg-white/5 text-white/30 hover:text-primary"}`}
+        >
+          <Mic className="w-5 h-5" />
+        </button>
+        <div className="w-[1px] h-6 bg-white/10 mx-1" />
+        <ModelLibraryMenu
+          isOpen={isProviderMenuOpen}
+          onToggle={() => setIsProviderMenuOpen(!isProviderMenuOpen)}
+          selected={selectedModel}
+          onSelect={handleSelectModel}
+        />
+        <input
+          ref={fileInputRef}
+          className="hidden"
+          type="file"
+          onChange={handleFileUpload}
+          accept="image/*,.pdf,.txt,.doc,.docx"
+        />
+      </div>
+      <div className="relative px-2">
+        <textarea
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && !e.shiftKey) {
+              e.preventDefault();
+              handleSend(e as React.FormEvent);
+            }
+          }}
+          rows={1}
+          
+          className="w-full px-4 py-3 rounded-2xl border border-white/10 bg-white/[0.03] text-white placeholder:text-white/20 resize-none focus:ring-2 focus:ring-primary/50 focus:border-transparent outline-none transition-all"
+          placeholder="Message Xylos AI..."
+        />
+        <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
+          {isLoading ? (
+            <button
+              onClick={stopGeneration}
+              className="p-2.5 rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 hover:bg-red-500 hover:text-white transition-all flex items-center gap-2 group/stop"
+            >
+              <Square className="w-4 h-4 fill-current group-hover:scale-90 transition-transform" />
+              <span className="text-[10px] font-semibold uppercase tracking-wide hidden sm:inline">Terminate</span>
+            </button>
+          ) : (
+            <button
+              onClick={handleSend}
+              disabled={(!input.trim() && !stagedFile) || isLoading}
+              className="p-2.5 rounded-xl bg-primary text-[#17181b] hover:bg-[#4accc4] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+            >
+              <Send className="w-4 h-4" />
+              <span className="text-[10px] font-semibold uppercase tracking-wide hidden sm:inline">Send</span>
+            </button>
+          )}
         </div>
       </div>
-      <input type="file" ref={fileInputRef} className="hidden" onChange={handleFileUpload} />
-    </div>
+      <div className="px-2 mt-2 flex items-center justify-center gap-4 text-[8px] font-semibold uppercase tracking-wide text-white/20 italic select-none">
+        <span>AES-256 SECURED</span>
+        <div className="w-1 h-1 bg-primary/30 rounded-full" />
+        <span>NEURAL MATRIX V3.5</span>
+        <div className="w-1 h-1 bg-primary/30 rounded-full" />
+        <span>PERSISTENCE ACTIVE</span>
+      </div>
+    </form>
   );
 }
 
 export default function ChatPage() {
   return (
     <Suspense fallback={
-       <div className="flex h-full w-full items-center justify-center bg-background">
-         <div className="w-12 h-12 rounded-[1.5rem] bg-primary/5 flex items-center justify-center border border-primary/10 animate-pulse">
-           <Sparkles className="w-6 h-6 text-primary animate-spin" />
-         </div>
-       </div>
+      <div className="flex h-screen items-center justify-center bg-[#0d0e10]">
+        <div className="w-12 h-12 rounded-[1.5rem] bg-primary/5 flex items-center justify-center border border-primary/10 animate-pulse">
+          <Sparkles className="w-6 h-6 text-primary animate-spin" />
+        </div>
+      </div>
     }>
       <ChatContent />
     </Suspense>
   );
 }
+

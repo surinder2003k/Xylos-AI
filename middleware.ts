@@ -19,6 +19,12 @@ export async function middleware(request: NextRequest) {
       url.pathname = `/blog/${target}`
       return NextResponse.redirect(url, 301)
     }
+    // Unknown blog slugs that don't exist in the database — redirect to the
+    // blog archive instead of serving a 404, preserving link equity and user
+    // experience while cleaning up Search Console coverage errors.
+    if (legacy && !legacy.includes('.')) {
+      return NextResponse.redirect(new URL('/blog', request.nextUrl), 301)
+    }
   }
 
   return await updateSession(request)

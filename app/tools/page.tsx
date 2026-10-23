@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from 'next/link';
+import { ExternalLink } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: "Free AI Tools — PDF Analyzer, Code Assistant & Chat | Xylos AI",
@@ -36,9 +37,9 @@ export default function ToolsPage() {
                 <p className="text-white/70">
                   Drag and drop files to share them instantly via a shareable link.
                 </p>
-                <Link href="/tools/dropzone-share" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80">
+                <Link href="/tools/dropzone-share" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80">
                   Open Tool
-                  <ArrowRight className="w-4 h-4" />
+                  <ExternalLink className="w-4 h-4" />
                 </Link>
               </div>
 
@@ -48,9 +49,9 @@ export default function ToolsPage() {
                 <p className="text-white/70">
                   Extract text, colors, and metadata from images.
                 </p>
-                <Link href="/tools/pic-extractor" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80">
+                <Link href="/tools/pic-extractor" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80">
                   Open Tool
-                  <ArrowRight className="w-4 h-4" />
+                  <ExternalLink className="w-4 h-4" />
                 </Link>
               </div>
 
@@ -69,15 +70,6 @@ export default function ToolsPage() {
 }
 
 // Import icons locally to avoid circular dependency issues
-function ArrowRight(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <line x1="5" y1="12" x2="19" y2="12"></line>
-      <polyline points="12 5 19 12 12 19"></polyline>
-    </svg>
-  );
-}
-
 function ArrowLeft(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
