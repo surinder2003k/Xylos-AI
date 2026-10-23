@@ -43,6 +43,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [userEmail, setUserEmail] = useState("");
+  const [userFullName, setUserFullName] = useState("");
   const [userRole, setUserRole] = useState("user");
   const [mounted, setMounted] = useState(false);
   const [authChecked, setAuthChecked] = useState(false);
@@ -82,7 +83,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           
           const { data: profile, error: profileError } = await supabase
             .from("profiles")
-            .select("role")
+            .select("role, full_name")
             .eq("user_id", user.id)
             .maybeSingle();
           
@@ -91,6 +92,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               setIsAdmin(true);
               setUserRole(profile.role);
             }
+            setUserFullName(profile.full_name || "");
           } else if (!profileError && !profile) {
             // Profile is missing! Let's create it on the fly to prevent downstream RLS or FK errors.
             console.log("[Editorial Sync] Profile missing, creating on the fly for:", user.id);
@@ -302,7 +304,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                   >
                     <div className="p-3">
                       <div className="px-3 py-3 mb-2 bg-white/5 rounded-xl border border-white/10">
-                        <p className="text-xs font-bold text-white truncate">{userEmail || "Editorial Lead"}</p>
+                        <p className="text-xs font-bold text-white truncate">{userFullName || userEmail || "Editorial Lead"}</p>
                         <p className="text-[10px] font-semibold text-primary uppercase tracking-[0.15em] mt-1 flex items-center gap-1">
                           <Sparkles className="w-2.5 h-2.5" />
                           {userRole}

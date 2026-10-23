@@ -108,6 +108,25 @@ export async function touchLastSeen() {
   }
 }
 
+export async function updateProfileName(fullName: string) {
+  try {
+    const supabase = await createAuthClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) throw new Error("Unauthorized");
+
+    const { error } = await supabase
+      .from("profiles")
+      .update({ full_name: fullName })
+      .eq("user_id", user.id);
+
+    if (error) throw error;
+    return { success: true };
+  } catch (err: unknown) {
+    const errorMsg = err instanceof Error ? err.message : "Profile name update failed";
+    return { success: false, error: errorMsg };
+  }
+}
+
 export async function updateProfileRole(userId: string, role: string) {
   try {
     await requireAdmin();

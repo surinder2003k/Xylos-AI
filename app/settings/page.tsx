@@ -1,6 +1,7 @@
+import { updateProfileName } from "@/app/actions/settings";
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   ShieldCheck, 
@@ -11,7 +12,9 @@ import {
   Lock, 
   Save,
   CheckCircle2,
-  AlertCircle
+  AlertCircle,
+  User,
+  Mail,
 } from "lucide-react";
 
 const providers = [
@@ -23,6 +26,48 @@ const providers = [
   { id: "huggingface", name: "Hugging Face", icon: ShieldCheck, placeholder: "hf_..." },
   { id: "cloudflare", name: "Cloudflare", icon: Globe, placeholder: "Account ID | Token" },
 ];
+
+/* Profile section state */
+const [profileName, setProfileName] = useState("");
+const [userEmail, setUserEmail] = useState("");
+const [isUpdatingName, setIsUpdatingName] = useState(false);
+const [nameStatus, setNameStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+useEffect(() => {
+  async function loadProfile() {
+    const supabase = (await import("@/utils/supabase/client")).createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      setUserEmail(user.email || "");
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("full_name")
+        .eq("user_id", user.id)
+        .maybeSingle();
+      setProfileName(profile?.full_name || "");
+    }
+  }
+  loadProfile();
+}, []);
+
+const handleUpdateName = async () => {
+  if (!profileName.trim()) return;
+  setIsUpdatingName(true);
+  setNameStatus("idle");
+  try {
+    const res = await updateProfileName(profileName.trim());
+    if (res.success) {
+      setNameStatus("success");
+    } else {
+      setNameStatus("error");
+    }
+  } catch {
+    setNameStatus("error");
+  } finally {
+    setIsUpdatingName(false);
+    setTimeout(() => setNameStatus("idle"), 3000);
+  }
+};
 
 export default function SettingsPage() {
   const [keys, setKeys] = useState<Record<string, string>>({});
@@ -50,6 +95,56 @@ export default function SettingsPage() {
 
   return (
     <div className="max-w-4xl mx-auto space-y-10">
+      {/* Profile Section */}
+      <section className="p-6 rounded-xl editorial-card border border-white/10">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div>
+            <h2 className="text-2xl font-bold text-white mb-1" style={{ fontFamily: 'Sora, sans-serif' }}>Profile<span className="text-primary">.</span></h2>
+            <p className="text-sm" style={{ color: '#8d8b85' }}>{userEmail}</p>
+          </div>
+          <div className="flex flex-col md:flex-row gap-4 w-full md:w-auto">
+            <input
+              type="text"
+              placeholder="Display name"
+              value={profileName}
+              onChange={(e) => setProfileName(e.target.value)}
+              className="w-full md:w-72 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-primary/50 outline-none transition-all placeholder:text-white/20 text-white"
+            />
+            <button
+              onClick={handleUpdateName}
+              disabled={isUpdatingName}
+              className="px-6 py-3 rounded-xl font-semibold bg-primary text-[#17181b] hover:bg-[#4accc4] transition-all disabled:opacity-50"
+            >
+              {isUpdatingName ? "Updating..." : "Save Name"}
+            </button>
+          </div>
+        </div>
+        <AnimatePresence>
+          {nameStatus === 'success' && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="mt-4 p-3 rounded-lg bg-green-500/10 border border-green-500/30 text-green-300 text-sm flex items-center gap-2"
+            >
+              <CheckCircle2 className="w-4 h-4" />
+              <span>Display name updated successfully</span>
+            </motion.div>
+          )}
+          {nameStatus === 'error' && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="mt-4 p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-300 text-sm flex items-center gap-2"
+            >
+              <AlertCircle className="w-4 h-4" />
+              <span>Failed to update display name. Please try again.</span>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </section>
+
       <header className="space-y-2">
         <h1 className="text-4xl font-bold tracking-[-0.02em] text-white" style={{ fontFamily: 'Sora, sans-serif' }}>Settings<span className="text-primary">.</span></h1>
         <p className="text-sm mt-1" style={{ color: '#8d8b85' }}>Global API integrations</p>
