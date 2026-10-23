@@ -90,7 +90,7 @@ export function BlogGrid({ blogs }: { blogs: Blog[] }) {
                             <User className="h-4 w-4 text-[#36b7b0]" aria-hidden="true" />
                           </div>
                           <span className="truncate text-xs font-medium text-[#c4c0b8]">
-                            By {blog.profiles?.full_name || "Xylos AI team"}
+                            By Xylos AI team
                           </span>
                         </div>
                         <span className="ml-3 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-[#36b7b0]/20 bg-[#36b7b0]/[0.08] text-[#36b7b0] transition duration-300 group-hover:rotate-6 group-hover:border-[#36b7b0]/50 group-hover:bg-[#36b7b0]/[0.14]">
